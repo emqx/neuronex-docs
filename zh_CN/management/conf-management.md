@@ -5,16 +5,17 @@ NeuronEX 支持通过`命令行`、`环境变量`、`配置文件`的方式，�
 
 ## 命令行
 
-### `run` 命令
-
-`run  `  命令用于在控制台上运行 NeuronEX。该命令将 NeuronEX 作为一个进程启动，并在终端中显示其输出。
-
+NeuronEX 的命令行位于 `/bin/neuronex`，它提供了以下的常用选项：
 ```shell
 -c, --config 配置文件路径（默认为 "etc/neuronex.yaml"）
 -e, --disable_auth 选择是否启用身份验证（默认为 true）
 -h, --help 运行帮助
 -m, --manage 管理 eKuiper 和 Neuron 的生命周期（默认为 true）
 ```
+
+### `run` 命令
+
+`run`  命令用于在控制台上运行 NeuronEX。该命令将 NeuronEX 作为一个进程启动，并在终端中显示其输出。
 
 例如：
 ```sh
@@ -26,13 +27,6 @@ NeuronEX 支持通过`命令行`、`环境变量`、`配置文件`的方式，�
 ### `start` 命令
 
 `start ` 命令用于在守护进程模式下启动 NeuronEX，该命令将 NeuronEX 作为守护进程启动并在后台运行。
-
-```sh
--c, --config字符串配置文件路径（默认为 "etc/neuronex.yaml"）
--e, --disable_auth 选择是否启用身份验证
--h, --help 运行帮助
--m, --manage 管理 eKuiper 和 Neuron 的生命周期（默认为 true）
-```
 
 例如
 
@@ -124,9 +118,9 @@ NeuronEX 提供 YAML 格式文件，用于配置与 NeuronEX 相关的个性化�
 
 ### official
 
-`offcial` 部分定义生态license 官网服务器信息。
+`offcial` 部分定义生态 license 官网服务器信息。
 
-- `url`：生态license  官网服务器地址。
+- `url`：生态 license 官网服务器地址。
 
  默认配置如下
 

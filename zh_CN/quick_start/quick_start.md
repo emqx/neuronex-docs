@@ -1,6 +1,6 @@
 # 快速开始
 
-本章节将指导用户从下载安装开始，以 Modbus TCP 驱动协议为例，快速开始使用 NeuronEX 采集模拟设备数据，并将数据直接上传到 MQTT Broker，以及数据流处理功能的简单使用。
+本教程从下载安装开始，以 Modbus TCP 驱动协议为例，快速开始使用 NeuronEX 采集模拟设备数据，并将数据直接上传到 EMQX MQTT 公有云服务，以及数据流处理功能的简单使用。
 
 ![start](./_assets/start.png)
 
@@ -47,7 +47,7 @@ Windows 中尽量关闭防火墙，否则可能会导致 NeuronEX 连接不上�
 
 ### 创建南向设备节点
 
-南向设备节点用于 NeuronEX 与设备建立连接，以及设备数据采集点位的创建及配置。在本例中使用NeuronEX的Modbus TCP插件，获取Modbus模拟器中的数据。
+南向设备节点用于 NeuronEX 与设备建立连接，以及设备数据采集点位的创建及配置。在本例中使用NeuronEX 的 Modbus TCP插件，获取 Modbus 模拟器中的数据。
 
 在 `数据采集` 菜单中选择 `南向设备` 进入南向设备管理界面，单击 `添加设备` 新增设备，如下图所示。
 
@@ -185,7 +185,7 @@ NeuronEX 提供了数据流处理功能，可以对数据点进行数据抽取�
 
 ### 数据流北向应用节点
 
-在**数据采集** ->  **北向应用**页面，NeuronEX默认已经配置一个DataProcessing的北向应用，用户只需通过该应用订阅**南向驱动**的**数据组**即可，然后NeuronEX采集到的数据点就会发送到数据流处理模块的neuronStream 数据流中。
+在**数据采集** ->  **北向应用**页面，NeuronEX默认已经配置一个 DataProcessing 的北向应用，用户只需通过该应用订阅**南向驱动**的**数据组**即可，然后NeuronEX采集到的数据点就会发送到数据流处理模块的 `neuronStream` 数据流中。
 
 
 ### 新建规则
@@ -199,11 +199,11 @@ NeuronEX 提供了数据流处理功能，可以对数据点进行数据抽取�
 ![stream-sink](./_assets/stream-sink.png)
 
 - Sink：下拉框选择 **mqtt**；
-- MQTT 服务器地址：正确填写 MQTT IP地址和端口号；
+- MQTT 服务器地址：正确填写 MQTT 服务器地址和端口号；
 - MQTT 主题：数据上报主题，示例使用默认主题；
 
 ## 查看流处理结果
 
-示例中数据流节点订阅的 node_name 为 modbus-tcp，group_name 为 group-1，即，订阅主题为 modbus-tcp/group-1。
+示例中数据流节点订阅的 node_name 为 `modbus-tcp`，group_name 为 `group-1`，即，订阅主题为 `modbus-tcp/group-1`。
 
 ![mqtt-result](./_assets/mqtt-result.png)

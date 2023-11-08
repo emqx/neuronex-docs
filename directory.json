@@ -525,7 +525,7 @@
           },
           {
             "title": "API文档",
-            "path": "api/neuronex-swagger"
+            "path": "https://docs.emqx.com/en/neuronex/latest/api/api-docs.html"
           }
         ]
       },
@@ -1028,10 +1028,6 @@
             "path": "management/password"
           }
         ]
-      },
-      {
-        "title": "HTTP API",
-        "path": "http-api/http-api"
       },
       {
         "title": "发版历史",

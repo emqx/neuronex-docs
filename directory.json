@@ -1,0 +1,1041 @@
+{
+  "cn": [
+    {
+      "title": "产品概览",
+      "path": "./",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "架构",
+          "path": "intro/architecture"
+        },
+        {
+          "title": "数采插件列表",
+          "path": "intro/plugin-list"
+        },
+        {
+          "title": "许可证政策",
+          "path": "intro/license-policy"
+        }
+      ]
+    },
+    {
+      "title": "快速入门",
+      "path": "quick_start/quick_start"
+    },
+    {
+      "title": "安装",
+      "path": "install/introduction",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "使用 .tar.gz 包安装",
+          "path": "install/linux"
+        },
+        {
+          "title": "通过 Docker 部署",
+          "path": "install/docker"
+        },
+        {
+          "title": "申请和安装许可证",
+          "path": "install/license_setting"
+        }
+      ]
+    },
+    {
+      "title": "数据采集",
+      "path": "config/introduction",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "创建南向驱动",
+          "path": "config/south-devices/south-devices",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "Modbus RTU",
+              "path": "config/south-devices/modbus-rtu/modbus-rtu",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "连接 DTU",
+                  "path": "config/south-devices/modbus-rtu/dtu-connection"
+                },
+                {
+                  "title": "连接 Modbus Slave 模拟器",
+                  "path": "config/south-devices/modbus-rtu/modbus-slave"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "config/south-devices/modbus-rtu/faq"
+                }
+              ]
+            },
+            {
+              "title": "Modbus TCP",
+              "path": "config/south-devices/modbus-tcp/modbus-tcp",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "连接 PeakHMI Slave 模拟器",
+                  "path": "config/south-devices/modbus-tcp/peakhmi"
+                },
+                {
+                  "title": "连接 Modbus Slave 模拟器",
+                  "path": "config/south-devices/modbus-tcp/modbus-slave"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "config/south-devices/modbus-tcp/faq"
+                }
+              ]
+            },
+            {
+              "title": "OPC UA",
+              "path": "config/south-devices/opc-ua/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "连接策略",
+                  "path": "config/south-devices/opc-ua/policy"
+                },
+                {
+                  "title": "配置 UaExpert",
+                  "path": "config/south-devices/opc-ua/uaexpert"
+                },
+                {
+                  "title": "连接 Siemens S7-1200",
+                  "path": "config/south-devices/opc-ua/s71200"
+                },
+                {
+                  "title": "连接 KEPServerEX",
+                  "path": "config/south-devices/opc-ua/kepserverex"
+                },
+                {
+                  "title": "连接 Industrial Gateway OPC Server",
+                  "path": "config/south-devices/opc-ua/igs"
+                },
+                {
+                  "title": "连接 Ignition",
+                  "path": "config/south-devices/opc-ua/ignition"
+                },
+                {
+                  "title": "连接 Prosys Simulation Server",
+                  "path": "config/south-devices/opc-ua/prosys"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "config/south-devices/opc-ua/faq"
+                }
+              ]
+            },
+            {
+              "title": "EtherNet/IP(CIP)",
+              "path": "config/south-devices/ethernet-ip/ethernet-ip",
+              "collapsed": true
+            },
+            {
+              "title": "Mitsubishi 3E",
+              "path": "config/south-devices/mitsubishi-3e/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "连接 FX5U",
+                  "path": "config/south-devices/mitsubishi-3e/fx5u"
+                },
+                {
+                  "title": "连接 Q03UDE",
+                  "path": "config/south-devices/mitsubishi-3e/q03ude"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "config/south-devices/mitsubishi-3e/faq"
+                }
+              ]
+            },
+            {
+              "title": "Mitsubishi 1E",
+              "path": "config/south-devices/mitsubishi-1e/mitsubishi-1e",
+              "collapsed": true
+            },
+            {
+              "title": "Siemens S7 ISO TCP",
+              "path": "config/south-devices/siemens-s7/s7",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Siemens S7-1200/1500 设置",
+                  "path": "config/south-devices/siemens-s7/siemens-s7-1200-1500"
+                },
+                {
+                  "title": "连接 S7-1200 PLC",
+                  "path": "config/south-devices/siemens-s7/s71200"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "config/south-devices/siemens-s7/faq"
+                }
+              ]
+            },
+            {
+              "title": "Siemens S5 FetchWrite",
+              "path": "config/south-devices/siemens-fetchwrite/fetchwrite",
+              "collapsed": true
+            },
+            {
+              "title": "Omron FINS TCP",
+              "path": "config/south-devices/omron-fins/omron-fins",
+              "collapsed": true
+            },
+            {
+              "title": "Beckhoff ADS",
+              "path": "config/south-devices/ads/ads",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "使用 Beckhoff ADS 协议采集 PLC 数据",
+                  "path": "config/south-devices/ads/plc-ads"
+                }
+              ]
+            },
+            {
+              "title": "IEC60870-5-104",
+              "path": "config/south-devices/iec-104/iec-104",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "连接 IEC60870-5-104 Server",
+                  "path": "config/south-devices/iec-104/simulator"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "config/south-devices/iec-104/faq"
+                }
+              ]
+            },
+            {
+              "title": "IEC61850",
+              "path": "config/south-devices/iec61850/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "连接 LibIEC61850 服务器",
+                  "path": "config/south-devices/iec61850/libiec61850"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "config/south-devices/iec61850/faq"
+                }
+              ]
+            },
+            {
+              "title": "DL/T645-2007",
+              "path": "config/south-devices/dlt645-2007/dlt645-2007",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "连接正泰单相导轨表",
+                  "path": "config/south-devices/dlt645-2007/connect"
+                }
+              ]
+            },
+            {
+              "title": "BACnet/IP",
+              "path": "config/south-devices/bacnet-ip/bacnet-ip",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "连接 Yabe 示例",
+                  "path": "config/south-devices/bacnet-ip/yabe"
+                }
+              ]
+            },
+            {
+              "title": "KNXnet/IP",
+              "path": "config/south-devices/knxnet-ip/knxnet-ip"
+            },
+            {
+              "title": "Fanuc Focas Ethernet",
+              "path": "config/south-devices/fanuc-focas/fanuc-focas"
+            },
+            {
+              "title": "HJ212-2017",
+              "path": "config/south-devices/hj212-2017/hj212-2017"
+            },
+            {
+              "title": "NON A11",
+              "path": "config/south-devices/nona11/nona11"
+            },
+            {
+              "title": "ABB COMLI",
+              "path": "config/south-devices/comli/comli"
+            }
+          ]
+        },
+        {
+          "title": "连接南向设备",
+          "path": "config/groups-tags/groups-tags",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "导入/导出点位配置",
+              "path": "config/import-export"
+            },
+            {
+              "title": "基于模板配置",
+              "path": "config/templates/templates"
+            }
+          ]
+        },
+        {
+          "title": "创建北向应用",
+          "path": "config/north-apps/north-apps",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "MQTT 插件",
+              "path": "config/north-apps/mqtt/mqtt"
+            },
+            {
+              "title": "eKuiper 插件",
+              "path": "config/north-apps/ekuiper/ekuiper"
+            },
+            {
+              "title": "Sparkplug B 插件",
+              "path": "config/north-apps/sparkplugb/sparkplugb",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "连接 Ignition",
+                  "path": "config/north-apps/sparkplugb/ignition"
+                },
+                {
+                  "title": "连接 Cogent",
+                  "path": "config/north-apps/sparkplugb/cogent"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "config/north-apps/sparkplugb/faq"
+                }
+              ]
+            },
+            {
+              "title": "WebSocket 客户端",
+              "path": "config/north-apps/websocket"
+            }
+          ]
+        },
+        {
+          "title": "订阅南向数据",
+          "path": "config/subscription"
+        },
+        {
+          "title": "管理插件模块",
+          "path": "config/ecp_edge_plugin"
+        },
+        {
+          "title": "数据监控",
+          "path": "monitor/introduction"
+        }
+      ]
+    },
+    {
+      "title": "数据流处理",
+      "path": "streaming-processing/overview",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "数据源",
+          "path": "streaming-processing/source",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "数据流",
+              "path": "streaming-processing/stream"
+            },
+            {
+              "title": "数据表",
+              "path": "streaming-processing/tables",
+              "children": [
+                {
+                  "title": "扫描表",
+                  "path": "streaming-processing/scan"
+                },
+                {
+                  "title": "查询表",
+                  "path": "streaming-processing/lookup"
+                }
+              ]
+            },
+            {
+              "title": "文件",
+              "path": "streaming-processing/file"
+            },
+            {
+              "title": "内存",
+              "path": "streaming-processing/memory"
+            },
+            {
+              "title": "HTTP Pull",
+              "path": "streaming-processing/http_pull"
+            },
+            {
+              "title": "HTTP Push",
+              "path": "streaming-processing/http_push"
+            },
+            {
+              "title": "MQTT",
+              "path": "streaming-processing/mqtt"
+            },
+            {
+              "title": "Neuron",
+              "path": "streaming-processing/neuron"
+            },
+            {
+              "title": "Redis",
+              "path": "streaming-processing/redis"
+            }
+          ]
+        },
+        {
+          "title": "规则管理",
+          "path": "streaming-processing/rules"
+        },
+        {
+          "title": "规则管道",
+          "path": "streaming-processing/rule_pipeline"
+        },
+        {
+          "title": "数据汇（Sink）",
+          "path": "streaming-processing/sink/sink",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "数据模版",
+              "path": "streaming-processing/sink/data_template"
+            },
+            {
+              "title": "内置插件",
+              "children": [
+                {
+                  "title": "MQTT Sink",
+                  "path": "streaming-processing/sink/mqtt"
+                },
+                {
+                  "title": "Neuron Sink",
+                  "path": "streaming-processing/sink/neuron"
+                },
+                {
+                  "title": "EdgeX Sink",
+                  "path": "streaming-processing/sink/edgex"
+                },
+                {
+                  "title": "REST Sink",
+                  "path": "streaming-processing/sink/rest"
+                },
+                {
+                  "title": "Redis Sink",
+                  "path": "streaming-processing/sink/redis"
+                },
+                {
+                  "title": "文件 Sink",
+                  "path": "streaming-processing/sink/file"
+                },
+                {
+                  "title": "内存 Sink",
+                  "path": "streaming-processing/sink/memory"
+                },
+                {
+                  "title": "Log Sink",
+                  "path": "streaming-processing/sink/log"
+                },
+                {
+                  "title": "Nop Sink",
+                  "path": "streaming-processing/sink/nop"
+                }
+              ]
+            },
+            {
+              "title": "预定义插件",
+              "children": [
+                {
+                  "title": "SQL Sink",
+                  "path": "streaming-processing/sink/sql"
+                },
+                {
+                  "title": "InfluxDB Sink",
+                  "path": "streaming-processing/sink/influx"
+                },
+                {
+                  "title": "InfluxDBV2 Sink",
+                  "path": "streaming-processing/sink/influx2"
+                },
+                {
+                  "title": "TDengine Sink",
+                  "path": "streaming-processing/sink/tdengine"
+                },
+                {
+                  "title": "Image Sink",
+                  "path": "streaming-processing/sink/image"
+                },
+                {
+                  "title": "ZeroMQ Sink",
+                  "path": "streaming-processing/sink/zmq"
+                },
+                {
+                  "title": "Kafka Sink",
+                  "path": "streaming-processing/sink/kafka"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "扩展",
+          "path": "streaming-processing/extension",
+          "children":[
+            {
+              "title": "外部服务",
+              "path": "streaming-processing/external_func"
+            }
+          ]
+        },
+        {
+          "title": "配置管理",
+          "path": "streaming-processing/config"
+        }
+      ]
+      },
+      {
+        "title": "HTTP API",
+        "path": "api/api",
+        "collapsed": true,
+        "children": [
+          {
+            "title": "JWT身份验证",
+            "path": "api/jwt"
+          },
+          {
+            "title": "数据采集功能数据类型描述",
+            "path": "api/data-type"
+          },
+          {
+            "title": "数据采集功能错误代码描述",
+            "path": "api/error-code"
+          },
+          {
+            "title": "API文档",
+            "path": "api/neuronex-swagger"
+          }
+        ]
+      },
+      {
+        "title": "运维指南",
+        "path": "management/introduction",
+        "collapsed": true,
+        "children": [
+          {
+            "title": "数据统计",
+            "path": "management/data-statistics"
+          },
+          {
+            "title": "配置管理",
+            "path": "management/conf-management"
+          },
+          {
+            "title": "日志管理",
+            "path": "management/logs"
+          },
+          {
+            "title": "修改密码",
+            "path": "management/password"
+          }
+        ]
+      },
+      {
+        "title": "发版历史",
+        "path": "release_history/release_history"
+      }
+    ],
+    "en": [
+    {
+      "title": "产品概览",
+      "path": "./",
+      "children": []
+    },
+    {
+      "title": "插件",
+      "path": "intro/plugin-list"
+    },
+    {
+      "title": "数据采集配置",
+      "path": "config/introduction",
+      "children": [
+        {
+          "title": "创建南向驱动",
+          "path": "config/south-devices/south-devices",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "File",
+              "path": "config/south-devices/file/file"
+            },
+            {
+              "title": "Modbus RTU",
+              "path": "config/south-devices/modbus-rtu/modbus-rtu",
+              "children": [
+                {
+                  "title": "连接 DTU",
+                  "path": "config/south-devices/modbus-rtu/dtu-connection"
+                },
+                {
+                  "title": "连接 Modbus Slave 模拟器",
+                  "path": "config/south-devices/modbus-rtu/modbus-slave"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "config/south-devices/modbus-rtu/faq"
+                }
+              ]
+            },
+            {
+              "title": "Modbus TCP",
+              "path": "config/south-devices/modbus-tcp/modbus-tcp",
+              "children": [
+                {
+                  "title": "连接 PeakHMI Slave 模拟器",
+                  "path": "config/south-devices/modbus-tcp/peakhmi"
+                },
+                {
+                  "title": "连接 Modbus Slave 模拟器",
+                  "path": "config/south-devices/modbus-tcp/modbus-slave"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "config/south-devices/modbus-tcp/faq"
+                }
+              ]
+            },
+            {
+              "title": "OPC UA",
+              "path": "config/south-devices/opc-ua/overview",
+              "children": [
+                {
+                  "title": "连接策略",
+                  "path": "config/south-devices/opc-ua/policy"
+                },
+                {
+                  "title": "UaExpert 使用方法",
+                  "path": "config/south-devices/opc-ua/uaexpert"
+                },
+                {
+                  "title": "连接 Siemens S7-1200",
+                  "path": "config/south-devices/opc-ua/s71200"
+                },
+                {
+                  "title": "连接 KEPServerEX",
+                  "path": "config/south-devices/opc-ua/kepserverex"
+                },
+                {
+                  "title": "连接 Industrial Gateway OPC Server",
+                  "path": "config/south-devices/opc-ua/igs"
+                },
+                {
+                  "title": "连接 Ignition",
+                  "path": "config/south-devices/opc-ua/ignition"
+                },
+                {
+                  "title": "连接 Prosys Simulation Server",
+                  "path": "config/south-devices/opc-ua/prosys"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "config/south-devices/opc-ua/faq"
+                }
+              ]
+            },
+            {
+              "title": "EtherNet/IP(CIP)",
+              "path": "config/south-devices/ethernet-ip/ethernet-ip"
+            },
+            {
+              "title": "Mitsubishi 3E",
+              "path": "config/south-devices/mitsubishi-3e/overview",
+              "children": [
+                {
+                  "title": "连接 FX5U",
+                  "path": "config/south-devices/mitsubishi-3e/fx5u"
+                },
+                {
+                  "title": "连接 Q03UDE",
+                  "path": "config/south-devices/mitsubishi-3e/q03ude"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "config/south-devices/mitsubishi-3e/faq"
+                }
+              ]
+            },
+            {
+              "title": "Mitsubishi 1E",
+              "path": "config/south-devices/mitsubishi-1e/mitsubishi-1e"
+            },
+            {
+              "title": "Siemens S7 ISO TCP",
+              "path": "config/south-devices/siemens-s7/s7",
+              "children": [
+                {
+                  "title": "Siemens S7-1200/1500 设置",
+                  "path": "config/south-devices/siemens-s7/siemens-s7-1200-1500"
+                },
+                {
+                  "title": "连接 S7-1200 PLC",
+                  "path": "config/south-devices/siemens-s7/s71200"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "config/south-devices/siemens-s7/faq"
+                }
+              ]
+            },
+            {
+              "title": "Siemens S5 FetchWrite",
+              "path": "config/south-devices/siemens-fetchwrite/fetchwrite"
+            },
+            {
+              "title": "Omron FINS TCP",
+              "path": "config/south-devices/omron-fins/omron-fins"
+            },
+            {
+              "title": "Beckhoff ADS",
+              "path": "config/south-devices/ads/ads",
+              "children": [
+                {
+                  "title": "使用 Beckhoff ADS 协议采集 PLC 数据",
+                  "path": "config/south-devices/ads/plc-ads"
+                }
+              ]
+            },
+            {
+              "title": "IEC60870-5-104",
+              "path": "config/south-devices/iec-104/iec-104",
+              "children": [
+                {
+                  "title": "连接 IEC60870-5-104 Server",
+                  "path": "config/south-devices/iec-104/simulator"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "config/south-devices/iec-104/faq"
+                }
+              ]
+            },
+            {
+              "title": "IEC61850",
+              "path": "config/south-devices/iec61850/overview",
+              "children": [
+                {
+                  "title": "连接 LibIEC61850 服务器",
+                  "path": "config/south-devices/iec61850/libiec61850"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "config/south-devices/iec61850/faq"
+                }
+              ]
+            },
+            {
+              "title": "DL/T645-2007",
+              "path": "config/south-devices/dlt645-2007/dlt645-2007",
+              "children": [
+                {
+                  "title": "连接正泰单相导轨表",
+                  "path": "config/south-devices/dlt645-2007/connect"
+                }
+              ]
+            },
+            {
+              "title": "BACnet/IP",
+              "path": "config/south-devices/bacnet-ip/bacnet-ip",
+              "children": [
+                {
+                  "title": "连接 Yabe 示例",
+                  "path": "config/south-devices/bacnet-ip/yabe"
+                }
+              ]
+            },
+            {
+              "title": "KNXnet/IP",
+              "path": "config/south-devices/knxnet-ip/knxnet-ip"
+            },
+            {
+              "title": "Fanuc Focas Ethernet",
+              "path": "config/south-devices/fanuc-focas/fanuc-focas"
+            },
+            {
+              "title": "HJ212-2017",
+              "path": "config/south-devices/hj212-2017/hj212-2017"
+            },
+            {
+              "title": "NON A11",
+              "path": "config/south-devices/nona11/nona11"
+            },
+            {
+              "title": "ABB COMLI",
+              "path": "config/south-devices/comli/comli"
+            }
+          ]
+        },
+        {
+          "title": "连接南向设备",
+          "path": "config/groups-tags/groups-tags",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "导入/导出点位配置",
+              "path": "config/import-export"
+            }
+          ]
+        },
+        {
+          "title": "创建北向应用",
+          "path": "config/north-apps/north-apps",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "MQTT 插件",
+              "path": "config/north-apps/mqtt/mqtt"
+            },
+            {
+              "title": "eKuiper 插件",
+              "path": "config/north-apps/ekuiper/ekuiper"
+            },
+            {
+              "title": "Sparkplug B 插件",
+              "path": "config/north-apps/sparkplugb/sparkplugb",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "连接 Ignition",
+                  "path": "config/north-apps/sparkplugb/ignition"
+                },
+                {
+                  "title": "连接 Cogent",
+                  "path": "config/north-apps/sparkplugb/cogent"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "config/north-apps/sparkplugb/faq"
+                }
+              ]
+            },
+            {
+              "title": "WebSocket 客户端",
+              "path": "config/north-apps/websocket"
+            },
+            {
+              "title": "数据统计与监控",
+              "path": "config/north-apps/monitor"
+            }
+          ]
+        },
+        {
+          "title": "订阅南向数据",
+          "path": "config/subscription"
+        }
+      ]
+    },
+    {
+      "title": "数据监控",
+      "path": "monitor/introduction"
+    },
+    {
+      "title": "数据流处理",
+      "path": "streaming-processing/overview",
+      "children": [
+        {
+          "title": "数据源",
+          "path": "streaming-processing/source",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "数据流",
+              "path": "streaming-processing/stream"
+            },
+            {
+              "title": "数据表",
+              "path": "streaming-processing/tables",
+              "children": [
+                {
+                  "title": "扫描表",
+                  "path": "streaming-processing/scan"
+                },
+                {
+                  "title": "查询表",
+                  "path": "streaming-processing/lookup"
+                }
+              ]
+            },
+            {
+              "title": "文件",
+              "path": "streaming-processing/file"
+            },
+            {
+              "title": "内存",
+              "path": "streaming-processing/memory"
+            },
+            {
+              "title": "HTTP Pull",
+              "path": "streaming-processing/http_pull"
+            },
+            {
+              "title": "HTTP Push",
+              "path": "streaming-processing/http_push"
+            },
+            {
+              "title": "MQTT",
+              "path": "streaming-processing/mqtt"
+            },
+            {
+              "title": "Neuron",
+              "path": "streaming-processing/neuron"
+            },
+            {
+              "title": "Redis",
+              "path": "streaming-processing/redis"
+            }
+          ]
+        },
+        {
+          "title": "规则管理",
+          "path": "streaming-processing/rules"
+        },
+        {
+          "title": "规则管道",
+          "path": "streaming-processing/rule_pipeline"
+        },
+        {
+          "title": "数据汇（Sink）",
+          "path": "streaming-processing/sink/sink",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "数据模版",
+              "path": "streaming-processing/sink/data_template"
+            },
+            {
+              "title": "内置插件",
+              "children": [
+                {
+                  "title": "MQTT Sink",
+                  "path": "streaming-processing/sink/mqtt"
+                },
+                {
+                  "title": "Neuron Sink",
+                  "path": "streaming-processing/sink/neuron"
+                },
+                {
+                  "title": "EdgeX Sink",
+                  "path": "streaming-processing/sink/edgex"
+                },
+                {
+                  "title": "REST Sink",
+                  "path": "streaming-processing/sink/rest"
+                },
+                {
+                  "title": "Redis Sink",
+                  "path": "streaming-processing/sink/redis"
+                },
+                {
+                  "title": "文件 Sink",
+                  "path": "streaming-processing/sink/file"
+                },
+                {
+                  "title": "内存 Sink",
+                  "path": "streaming-processing/sink/memory"
+                },
+                {
+                  "title": "Log Sink",
+                  "path": "streaming-processing/sink/log"
+                },
+                {
+                  "title": "Nop Sink",
+                  "path": "streaming-processing/sink/nop"
+                }
+              ]
+            },
+            {
+              "title": "预定义插件",
+              "children": [
+                {
+                  "title": "SQL Sink",
+                  "path": "streaming-processing/sink/sql"
+                },
+                {
+                  "title": "InfluxDB Sink",
+                  "path": "streaming-processing/sink/influx"
+                },
+                {
+                  "title": "InfluxDBV2 Sink",
+                  "path": "streaming-processing/sink/influx2"
+                },
+                {
+                  "title": "TDengine Sink",
+                  "path": "streaming-processing/sink/tdengine"
+                },
+                {
+                  "title": "Image Sink",
+                  "path": "streaming-processing/sink/image"
+                },
+                {
+                  "title": "ZeroMQ Sink",
+                  "path": "streaming-processing/sink/zmq"
+                },
+                {
+                  "title": "Kafka Sink",
+                  "path": "streaming-processing/sink/kafka"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "扩展",
+          "path": "streaming-processing/extension",
+          "children":[
+            {
+              "title": "外部服务",
+              "path": "streaming-processing/external_func"
+            }
+          ]
+        },
+        {
+          "title": "配置管理",
+          "path": "streaming-processing/config"
+        }
+      ]
+      },
+      {
+        "title": "运维指南",
+        "path": "management/introduction",
+        "children": [
+          {
+            "title": "日志",
+            "path": "management/logs"
+          },
+          {
+            "title": "修改密码",
+            "path": "management/password"
+          }
+        ]
+      },
+      {
+        "title": "HTTP API",
+        "path": "http-api/http-api"
+      },
+      {
+        "title": "发版历史",
+        "path": "release_history/release_history"
+      }
+    ]
+  }

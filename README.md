@@ -1,1 +1,1 @@
-# neuronex-docs
+# NeuronEX Product Description

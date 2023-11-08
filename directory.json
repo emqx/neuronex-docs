@@ -1031,7 +1031,7 @@
       },
       {
         "title": "HTTP API",
-        "path": "http-api/http-api"
+        "path": "api/api"
       },
       {
         "title": "发版历史",

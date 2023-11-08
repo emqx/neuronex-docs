@@ -1,6 +1,6 @@
 # 快速开始
 
-本章节将指导用户从下载安装开始，以 Modbus TCP 驱动协议为例，快速开始使用 NeuronEX 采集模拟设备数据，并将数据直接上传到 MQTT Broker，以及数据流处理功能的简单使用。
+本教程从下载安装开始，以 Modbus TCP 驱动协议为例，快速开始使用 NeuronEX 采集模拟设备数据，并将数据直接上传到 EMQX MQTT 公有云服务，以及数据流处理功能的简单使用。
 
 ![start](./_assets/start.png)
 

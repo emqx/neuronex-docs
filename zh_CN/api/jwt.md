@@ -9,7 +9,7 @@ Authorization: Bearer
 							XXXXXXXXXXXXXXX
 ```
 
-如果**Token**正确，NeuronEX 将响应结果； 否则，它将返回`401`代码。
+如果 **Token** 正确，NeuronEX 将响应结果； 否则，它将返回`401`代码。
 
 ## 什么是 JWT？
 

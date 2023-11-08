@@ -2,18 +2,18 @@
 
 ## 获取镜像
 
-NeuronEX docker 镜像请从 [docker hub](https://hub.docker.com/r/emqx/neuronex/tags) 网站下载。
+NeuronEX Docker 镜像请从 [docker hub](https://hub.docker.com/r/emqx/neuronex/tags) 网站下载。
 
 ```bash
 ## pull NeuronEX
-$ docker pull emqx/neuronex:3.0.0
+$ docker pull emqx/neuronex:latest
 ```
 
 ## 启动
 
 ```bash
 ## run NeuronEX
-$ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.0.0
+$ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:latest
 ```
 
 * tcp 8085：端口映射，用于访问 web 和 http api 端口。

@@ -1,12 +1,9 @@
-# 安装NeuronEX
+# 安装 NeuronEX
 
 NeuronEX 在基于 Linux 的操作系统上支持 64位 ARM 和 64位 X86 架构，并提供以下安装包格式：
-
-tar 软件包方式，适用于所有 Linux 操作系统；
-
-Debian 软件包（.deb）格式，用于基于 Debian、Ubuntu Linux 的操作系统；（即将支持）
-
-Radhat 包管理器（.rpm）格式，适用于基于 Red Hat、CentOS Linux 的操作系统。（即将支持）
+- tar 软件包方式，适用于所有 Linux 操作系统
+- Debian 软件包（.deb）格式，用于基于 Debian、Ubuntu Linux 的操作系统（即将支持）
+- Redhat 包管理器（.rpm）格式，适用于基于 RedHat、CentOS Linux 的操作系统（即将支持）
 
 ## 下载安装包
 
@@ -15,7 +12,9 @@ NeuronEX 软件包可从 [NeuronEX 官网](https://www.emqx.com/zh/apply-license
 ## NeuronEX 支持的操作系统
 
 NeuronEX 支持以下操作系统：
-CentOS 8.0 及以上版本，Ubuntu 20.04 及以上版本，其他基于 Linux 内核的操作系统。
+- CentOS 8.0 及以上版本，Ubuntu 20.04 及以上版本，其他基于 Linux 内核的操作系统
+- 如果是 Windows 操作系统，建议使用 WSL 安装好相关的 Linux 系统，然后通过 Docker 的方式进行安装
+
 
 ## 硬件要求
 
@@ -25,10 +24,10 @@ NeuronEX 支持运行在 X86，ARM 等硬件架构的设备上以及支持容器
 
 | 点位数                | 建议最小内存 | 硬件架构                             | 备注                              |
 | --------------------- | ------------ | ------------------------------------ | --------------------------------- |
-| 100 tags              | 128M memory  | 64-bit ARM 和 64-bit x86 架构         | Raspberry Pi 3                    |
-| 1,000 tags            | 256M memory  | 64-bit ARM 和 64-bit x86 架构         | Raspberry Pi 4                    |
-| 10,000 tags           | 512M memory  | 64-bit ARM 和 64-bit x86 架构         | Industrial PC 等                  |
-| More than 10,000 tags | 1G memory    | 64-bit x86 架构                       | Powerful Industrial PC, Server 等 |
+| 100 tags              | 128M   | 64-bit ARM 和 64-bit x86 架构         | Raspberry Pi 3                    |
+| 1,000 tags            | 256M   | 64-bit ARM 和 64-bit x86 架构         | Raspberry Pi 4                    |
+| 10,000 tags           | 512M   | 64-bit ARM 和 64-bit x86 架构         | Industrial PC 等                  |
+| 超过 10,000 tags | 1G     | 64-bit x86 架构                       | Powerful Industrial PC, Server 等 |
 
 :::tip
 NeuronEX 没有点位数量上限。取决于分配的 CPU 和内存资源。以下提供一些 NeuronEX 的性能测试结果供用户参考，这些测试数据仍然不是上限。更强大的服务器支持配置更多的数据点位。

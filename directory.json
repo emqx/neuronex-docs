@@ -1030,10 +1030,6 @@
         ]
       },
       {
-        "title": "HTTP API",
-        "path": "api/api"
-      },
-      {
         "title": "发版历史",
         "path": "release_history/release_history"
       }

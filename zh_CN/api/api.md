@@ -12,5 +12,5 @@ NeuronEX 服务启动后，您可以访问 http://localhost:8085/api-docs/index.
 
 [数据采集功能错误代码描述：](./error-code.md) API包括全面的错误代码描述，提供有关遇到的错误的性质和原因的信息。这有助于有效的故障排除和问题解决。
 
-[API文档：](./neuronex-swagger.json)包括系统，数据采集及数据统计功能的相关API。
+[API文档：](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html)包括系统，数据采集及数据统计功能的相关API。
 

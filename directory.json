@@ -11,8 +11,7 @@
         },
         {
           "title": "数采插件列表",
-          "path": "introduction/plugin-list/plugin-list",
-          "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/introduction/plugin-list/plugin-list.md"
+          "path": "introduction/plugin-list/plugin-list"
         },
         {
           "title": "许可证政策",
@@ -428,20 +427,17 @@
           "children": [
             {
               "title": "基于模板配置",
-              "path": "configuration/templates/templates",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/templates/templates.md"
+              "path": "configuration/templates/templates"
             },
             {
               "title": "批量点位配置",
-              "path": "configuration/import-export/import-export",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/import-export/import-export.md"
+              "path": "configuration/import-export/import-export"
             }
           ]
         },
         {
           "title": "创建北向应用",
           "path": "configuration/north-apps/north-apps",
-          "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/north-apps.md",
           "collapsed": true,
           "children": [
             {
@@ -512,11 +508,6 @@
               "title": "WebSocket 客户端",
               "path": "configuration/north-apps/websocket/websocket",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/websocket/websocket.md"
-            },
-            {
-              "title": "Monitor",
-              "path": "configuration/north-apps/monitor/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/monitor/overview.md"
             }
           ]
         },
@@ -749,31 +740,6 @@
         ]
       },
       {
-        "title": "开发指南",
-        "path": "dev-guide/dev-guide",
-        "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/dev-guide/dev-guide.md",
-        "collapsed": true, 
-        "children": [
-          {
-            "title": "SDK 教程",
-            "path": "dev-guide/sdk-tutorial/sdk-tutorial",
-            "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/dev-guide/sdk-tutorial/sdk-tutorial.md",
-            "children": [
-              {
-                "title": "Modbus 插件开发示例",
-                "path": "dev-guide/sdk-tutorial/sdk-example/modbus-example",
-                "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/dev-guide/sdk-tutorial/sdk-example/modbus-example.md"
-              },
-              {
-                "title": "MQTT 应用开发示例",
-                "path": "dev-guide/sdk-tutorial/sdk-example/mqtt-example",
-                "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/dev-guide/sdk-tutorial/sdk-example/mqtt-example.md"
-              }
-            ]
-          }
-        ]
-      },
-      {
         "title": "发版历史",
         "path": "release_history/release_history"
       }
@@ -785,8 +751,7 @@
       "children": [
         {
           "title": "数采插件列表",
-          "path": "introduction/plugin-list/plugin-list",
-          "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/introduction/plugin-list/plugin-list.md"
+          "path": "introduction/plugin-list/plugin-list"
         },
         {
           "title": "许可证政策",
@@ -1480,31 +1445,6 @@
           {
             "title": "修改密码",
             "path": "admin/password"
-          }
-        ]
-      },
-      {
-        "title": "Development Guide",
-        "path": "dev-guide/dev-guide",
-        "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/dev-guide/dev-guide.md",
-        "collapsed": true, 
-        "children": [
-          {
-            "title": "SDK Tutorial",
-            "path": "dev-guide/sdk-tutorial/sdk-tutorial",
-            "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/dev-guide/sdk-tutorial/sdk-tutorial.md",
-            "children": [
-              {
-                "title": "Modbus Plugin Example",
-                "path": "dev-guide/sdk-tutorial/sdk-example/modbus-example",
-                "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/dev-guide/sdk-tutorial/sdk-example/modbus-example.md"
-              },
-              {
-                "title": "MQTT Application Example",
-                "path": "dev-guide/sdk-tutorial/sdk-example/mqtt-example",
-                "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/dev-guide/sdk-tutorial/sdk-example/mqtt-example.md"
-              }
-            ]
           }
         ]
       },

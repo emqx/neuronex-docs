@@ -751,8 +751,7 @@
       "children": [
         {
           "title": "数采插件列表",
-          "path": "introduction/plugin-list/plugin-list",
-          "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/introduction/plugin-list/plugin-list.md"
+          "path": "introduction/plugin-list/plugin-list"
         },
         {
           "title": "许可证政策",

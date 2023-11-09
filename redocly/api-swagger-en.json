@@ -19,6 +19,9 @@
       "name": "server"
     },
     {
+      "name": "log"
+    },
+    {
       "name": "license"
     },
     {
@@ -629,8 +632,7 @@
               }
             }
           }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-119719070-run"
+        }
       },
       "post": {
         "summary": "Update NeuronEX Log Remote Forwarding Configuration",
@@ -680,8 +682,7 @@
               }
             }
           }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-119719071-run"
+        }
       }
     },
     "/api/template": {
@@ -805,6 +806,66 @@
           }
         },
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-119719073-run"
+      }
+    },
+    "/api/log": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "log"
+        ],
+        "summary": "Get NeuronEX log level configuration",
+        "operationId": "LoglevelGetting",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoglevelRsqData"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "log"
+        ],
+        "summary": "Set NeuronEX log level configuration",
+        "operationId": "LoglevelSetting",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoglevelSettingReqData"
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "@ErrorInfo(10001,\"unknown error\")\n@ErrorInfo(10003,\"Read failed\")\n@ErrorInfo(10041,\"invalid json\")\n@ErrorInfo(10043,\"no match field\")\n@ErrorInfo(10045,\"read form file failed\")",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatusError"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/neuron/login": {
@@ -12226,6 +12287,32 @@
         ],
         "x-apifox-ignore-properties": [],
         "x-apifox-folder": "Schemas"
+      },
+      "LoglevelRsqData": {
+        "type": "object",
+        "required": [
+          "level"
+        ],
+        "properties": {
+          "level": {
+            "description": "log level ,could be debug、info、notice、warn、error、fatal",
+            "type": "string",
+            "x-go-name": "LoglevelStr"
+          }
+        }
+      },
+      "LoglevelSettingReqData": {
+        "type": "object",
+        "required": [
+          "level"
+        ],
+        "properties": {
+          "level": {
+            "description": "log level ,could be debug、info、notice、warn、error、fatal",
+            "type": "string",
+            "x-go-name": "LoglevelStr"
+          }
+        }
       },
       "QuerySystemInfoResp": {
         "type": "object",

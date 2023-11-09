@@ -1439,6 +1439,10 @@
         "path": "admin/introduction",
         "children": [
           {
+            "title": "Configuration Management",
+            "path": "admin/conf-management"
+          },
+          {
             "title": "Log Management",
             "path": "admin/log-management"
           },

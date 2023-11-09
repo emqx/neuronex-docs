@@ -77,7 +77,7 @@ The command to view the data mining engine log is
 ## SYSLOG upload
 
 NeuronEX supports sending logs to the designated log receiving server through the SYSLOG protocol, and the configuration location is the log upload section.
-This configuration is persisted and takes precedence over the [configuration file](./conf-management.md#log) syslogForward section.
+This configuration is persisted and takes precedence over the [configuration file](./conf-management.md) syslogForward section.
 
 ![image](./assets/log_manage_en.jpg)
 

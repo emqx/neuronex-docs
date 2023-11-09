@@ -79,7 +79,7 @@ NeuronEX 日志查看命令为
 ## SYSLOG 日志上传
 
 NeuronEX 支持通过 SYSLOG 协议发送日志到指定日志接收服务器，配置位置为日志上传部分。
-此配置会持久化并且优先级高于[配置文件](./conf-management.md#log) syslogForward 部分。
+此配置会持久化并且优先级高于[配置文件](./conf-management.md) syslogForward 部分。
 
 ![如图所示](./assets/log_manage_zh.jpg)
 

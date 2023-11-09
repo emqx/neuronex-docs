@@ -1708,7 +1708,7 @@
         "x-apifox-folder": "Neuron/configuration",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "Please refer to [Plugin Setting](./plugin-setting.md) for the configuration parameters of each plugin.",
+        "description": "Please refer to [Plugin Setting](https://docs.emqx.com/zh/neuronex/latest/api/plugin-setting.html) for the configuration parameters of each plugin.",
         "tags": [
           "configuration"
         ],
@@ -8371,7 +8371,7 @@
         "x-apifox-folder": "Ekuiper/configs",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "By dynamically reloading [configuration](../../configuration/global_configurations.md), parameters such as debug and timezone can be updated for running eKuiper without restarting the application.\nCurrent supported dynamic reloadable parameters:\n\n- `debug`\n- `consoleLog`\n- `fileLog`\n- `timezone`",
+        "description": "By dynamically reloading configuration, parameters such as debug and timezone can be updated for running eKuiper without restarting the application.\nCurrent supported dynamic reloadable parameters:\n\n- `debug`\n- `consoleLog`\n- `fileLog`\n- `timezone`",
         "tags": [
           "configs"
         ],
@@ -9053,7 +9053,7 @@
         "x-apifox-folder": "Ekuiper/plugins",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "The API accepts a JSON content to create a new plugin.The plugin is identified by the name. The name must be unique.\n\n### Parameters\n\n1. name: a unique name of the plugin. The name must be the same as the camel case version of the plugin with lowercase first letter. For example, if the exported plugin name is `Random`, then the name of this plugin is `random`.\n2. file: the url of the plugin files. The url can be `http` or `https` scheme or `file` scheme to refer to a local file path of the eKuiper server. It must be a zip file with: a compiled so file and the yaml file(only required for sources). If the plugin depends on some external dependencies, a bash script named install.sh can be provided to do the dependency installation. The name of the files must match the name of the plugin. Please check [Extension](../../extension/overview.md) for the naming rule.\n\n### Plugin File Format\n\n`Note`: For `portables` type, please refer to this [format](../../extension/portable/overview.md#package).\n\nA sample zip file for a source named random.zip\n\n1. Random@v1.0.0.so\n2. random.yaml\n3. install.sh\n4. Various dependency files/folders of install.sh\n   - mysdk.zip\n   - myconfig.conf\n5. etc directory: the runtime configuration files or dependency files. After installation, this directory will be\n   renamed to the plugin name under <span v-pre>{{eKuiperPath}}/etc/{{pluginType}}</span> directory.\n\nNotice that, the install.sh will be run that the system may already had the lib or package. Make sure to check the path before. Below is an example install.sh to install a sample sdk lib.\n\n\n```shell #!/bin/sh\ndir=/usr/local/mysdk\ncur=$(dirname \"$0\")\necho \"Base path $cur\"\nif [ -d \"$dir\" ]; then\n    echo \"SDK path $dir exists.\"\nelse\n    echo \"Creating SDK path $dir\"\n    mkdir -p $dir\n    echo \"Created SDK path $dir\"\nfi\n\napt install --no-upgrade unzip\nif [ -d \"$dir/lib\" ]; then\n    echo \"SDK lib path $dir/lib exists.\"\nelse\n    echo \"Unzip SDK lib to path $dir\"\n    unzip $cur/mysdk.zip -d $dir\n    echo \"Unzipped SDK lib to path $dir\"\nfi\n\nif [ -f \"/etc/ld.so.conf.d/myconfig.conf\" ]; then\n    echo \"/etc/ld.so.conf.d/myconfig.conf exists\"\nelse\n    echo \"Copy conf file\"\n    cp $cur/myconfig.conf /etc/ld.so.conf.d/\n    echo \"Copied conf file\"\nfi\nldconfig\necho \"Done\"\n```\n",
+        "description": "The API accepts a JSON content to create a new plugin.The plugin is identified by the name. The name must be unique.\n\n### Parameters\n\n1. name: a unique name of the plugin. The name must be the same as the camel case version of the plugin with lowercase first letter. For example, if the exported plugin name is `Random`, then the name of this plugin is `random`.\n2. file: the url of the plugin files. The url can be `http` or `https` scheme or `file` scheme to refer to a local file path of the eKuiper server. It must be a zip file with: a compiled so file and the yaml file(only required for sources). If the plugin depends on some external dependencies, a bash script named install.sh can be provided to do the dependency installation. The name of the files must match the name of the plugin.\n\nA sample zip file for a source named random.zip\n\n1. Random@v1.0.0.so\n2. random.yaml\n3. install.sh\n4. Various dependency files/folders of install.sh\n   - mysdk.zip\n   - myconfig.conf\n5. etc directory: the runtime configuration files or dependency files. After installation, this directory will be\n   renamed to the plugin name under <span v-pre>{{eKuiperPath}}/etc/{{pluginType}}</span> directory.\n\nNotice that, the install.sh will be run that the system may already had the lib or package. Make sure to check the path before. Below is an example install.sh to install a sample sdk lib.\n\n\n```shell #!/bin/sh\ndir=/usr/local/mysdk\ncur=$(dirname \"$0\")\necho \"Base path $cur\"\nif [ -d \"$dir\" ]; then\n    echo \"SDK path $dir exists.\"\nelse\n    echo \"Creating SDK path $dir\"\n    mkdir -p $dir\n    echo \"Created SDK path $dir\"\nfi\n\napt install --no-upgrade unzip\nif [ -d \"$dir/lib\" ]; then\n    echo \"SDK lib path $dir/lib exists.\"\nelse\n    echo \"Unzip SDK lib to path $dir\"\n    unzip $cur/mysdk.zip -d $dir\n    echo \"Unzipped SDK lib to path $dir\"\nfi\n\nif [ -f \"/etc/ld.so.conf.d/myconfig.conf\" ]; then\n    echo \"/etc/ld.so.conf.d/myconfig.conf exists\"\nelse\n    echo \"Copy conf file\"\n    cp $cur/myconfig.conf /etc/ld.so.conf.d/\n    echo \"Copied conf file\"\nfi\nldconfig\necho \"Done\"\n```\n",
         "tags": [
           "plugins"
         ],
@@ -10472,7 +10472,7 @@
         "x-apifox-folder": "Ekuiper/schemas",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "The API accepts a JSON content and create a schema. Each schema type has a standalone endpoint. Currently, only one schema type `protobuf` is supported. Schema is identified by its name, so the name must be unique for each type.\n\nParameters\n1. name：the unique name of the schema.\n2. schema content, use `file` or `content` parameter to specify. After schema created, the schema content will be written into file `data/schemas/$shcema_type/$schema_name`.\n   - file: the url of the schema file. The url can be `http` or `https` scheme or `file` scheme to refer to a local file path of the eKuiper server. The schema file must be the file type of the corresponding schema type. For example, protobuf schema file's extension name must be .proto.\n   - content: the text content of the schema.\n3. soFile：The so file of the static plugin. Detail about the plugin creation, please check [customize format](../../guide/serialization/serialization.md#format-extension).",
+        "description": "The API accepts a JSON content and create a schema. Each schema type has a standalone endpoint. Currently, only one schema type `protobuf` is supported. Schema is identified by its name, so the name must be unique for each type.\n\nParameters\n1. name：the unique name of the schema.\n2. schema content, use `file` or `content` parameter to specify. After schema created, the schema content will be written into file `data/schemas/$shcema_type/$schema_name`.\n   - file: the url of the schema file. The url can be `http` or `https` scheme or `file` scheme to refer to a local file path of the eKuiper server. The schema file must be the file type of the corresponding schema type. For example, protobuf schema file's extension name must be .proto.\n   - content: the text content of the schema.\n3. soFile：The so file of the static plugin. Detail about the plugin creation, please check customize format.",
         "tags": [
           "schemas"
         ],
@@ -11082,7 +11082,7 @@
         "x-apifox-folder": "Ekuiper/streams",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "The API is used for creating a stream. For more detailed information of stream definition, please refer to [streams](../../sqls/streams.md).\nThis API can run any stream sql statements, not only stream creation.",
+        "description": "The API is used for creating a stream.\nThis API can run any stream sql statements, not only stream creation.",
         "tags": [
           "streams"
         ],
@@ -11627,7 +11627,7 @@
         "x-apifox-folder": "Ekuiper/tables",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "The API is used for creating a table. For more detailed information of table definition, please refer to [tables](../../sqls/tables.md).\nThis API can run any table sql statements, not only table creation.",
+        "description": "The API is used for creating a table.\nThis API can run any table sql statements, not only table creation.",
         "tags": [
           "tables"
         ],

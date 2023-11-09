@@ -21,8 +21,8 @@ NeuronEX 提供通过南向驱动向设备下发指令控制的能力。通过�
 
 向设备发送命令有三种方式：
 - 用户可以在[仪表板监控屏幕](#监控仪表盘数据写入)上发出命令。
-- 通过 [RESTful APIs](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html#tag/rw) 传递命令。
-- 通过NeuronEX 的[MQTT 数据下行通道](../configuration/north-apps/mqtt/api.md)。任何外部系统，如基于云的平台，都可以将指令数据发布到特定MQTT主题，NeuronEX 接收到指令数据并发送到设备。
+- 通过 [RESTful APIs](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html#tag/rw) 传递命令。
+- 通过NeuronEX 的MQTT 数据下行通道。任何外部系统，如基于云的平台，都可以将指令数据发布到特定MQTT主题，NeuronEX 接收到指令数据并发送到设备。
 
 ### 监控仪表盘数据写入
 

@@ -105,7 +105,7 @@ jobs:
         yarn global add redoc-cli
         LANGS=(zh en)
         for lang in "${LANGS[@]}"; do
-          redoc-cli bundle redocly/api-swagger-${lang}.json -t redoc/template.hbs \
+          redoc-cli bundle redoc/api-swagger-${lang}.json -t redoc/template.hbs \
             --output docs/.vitepress/dist/${lang}/${VERSION}/api/api-docs.html \
             --options.theme.colors.primary.main=#00b173 \
             --options.theme.typography.headings.fontFamily='Roboto, sans-serif' \

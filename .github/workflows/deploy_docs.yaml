@@ -46,6 +46,11 @@ jobs:
         python-version: '3.8'
         architecture: 'x64'
 
+    - name: install python dependencies
+      run: |
+        cd docs-files
+        pip3 install requests
+
     - name: set env
       run: |
          BRANCH=$(echo ${{ github.ref }} | sed -r  "s ^refs/heads/|^refs/tags/(.*) \1 g")

@@ -588,6 +588,10 @@
           "path": "streaming-processing/rules"
         },
         {
+          "title": "规则管道",
+          "path": "streaming-processing/rule_pipeline"
+        },
+        {
           "title": "数据汇（Sink）",
           "path": "streaming-processing/sink/sink",
           "collapsed": true,
@@ -674,7 +678,13 @@
         },
         {
           "title": "扩展",
-          "path": "streaming-processing/extension"
+          "path": "streaming-processing/extension",
+          "children":[
+            {
+              "title": "外部服务",
+              "path": "streaming-processing/external_func"
+            }
+          ]
         },
         {
           "title": "配置管理",

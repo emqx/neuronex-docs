@@ -68,10 +68,10 @@ jobs:
         cd docs-files
         python3 .github/scripts/sync_neuron.py $(pwd)
 
-    - name: remove unused files
-      run: |
-        cd docs-files
-        python3 .github/scripts/remove_unused.py $(pwd)
+    # - name: remove unused files
+    #   run: |
+    #     cd docs-files
+    #     python3 .github/scripts/remove_unused.py $(pwd)
 
     - name: move files
       run: |

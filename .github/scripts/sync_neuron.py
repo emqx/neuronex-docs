@@ -36,24 +36,26 @@ def get_files(language, dir_config):
                 exit(1)
 
             md_content = response.text
-            image_list = re.findall('(.*?)!\[(.*?)\]\((.*?)\)', md_content)
+            markdown_image_list = re.findall('(.*?)!\[(.*?)\]\((.*?)\)', md_content)
+            html_image_list = re.findall('(.*?)<img src="(.*?)"(.*?)>', md_content)
 
-            for image in image_list:
-                if image[0].startswith('<!--'):
+            image_list = [i[2] for i in markdown_image_list if not i[0].startswith('<!--')]
+            image_list.extend([i[1] for i in html_image_list if not i[0].startswith('<!--')])
+
+            for image_src in image_list:
+                if image_src.startswith(('http://', 'https://', '<')):
                     continue
-                if image[2].startswith(('http://', 'https://', '<')):
-                    continue
-                image_path = os.path.join(md_dir, image[2])
+
+                image_path = os.path.join(md_dir, image_src)
                 image_path = os.path.abspath(image_path)
                 image_dir = os.path.dirname(image_path)
-                image_url = f'{"/".join(i["url"].split("/")[:-1])}/{image[2]}'
+                image_url = f'{"/".join(i["url"].split("/")[:-1])}/{image_src}'
                 image_url = image_url.replace('/./', '/')
 
                 if not os.path.exists(image_dir):
                     os.makedirs(image_dir)
 
                 if not os.path.exists(image_path):
-                    image_url = f'{"/".join(i["url"].split("/")[:-1])}/{image[2]}'
                     response = requests.get(image_url)
                     if response.status_code == 200:
                         with open(image_path, 'wb') as f:

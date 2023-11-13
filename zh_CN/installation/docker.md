@@ -25,3 +25,27 @@ $ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuron
 * --log-opt：可选参数，限制 docker 标准输出(stdout)的大小（例如，--log-opt max-size=100m）。
 
 更多启动参数请参考 [配置管理](../admin/conf-management.md)。
+
+## Docker 容器 Python 运行环境
+
+NeuronEX提供两种类型的 Docker 安装包：
+- **neuronex:3.x.x**
+
+neuronex:3.x.x类型的安装包，不集成 Python 运行环境,安装包体积更小，如果您不使用 Python 相关的算法插件，请使用这类镜像。
+
+```bash
+#run NeuronEX by neuronex:3.x.x
+docker pull emqx/neuronex:3.0.1
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.0.1
+```
+
+- **neuronex:3.x.x-python**
+
+neuronex:3.x.x-python类型的安装包，集成了 Python 运行环境，如果您有 Python 算法的使用需求，请用这类镜像。
+
+```bash
+#run NeuronEX by neuronex:3.x.x-python
+docker pull emqx/neuronex:3.0.1-python
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.0.1-python
+```
+

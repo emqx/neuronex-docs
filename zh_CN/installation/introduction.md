@@ -13,8 +13,13 @@ NeuronEX 软件包可从 [NeuronEX 官网](https://www.emqx.com/zh/apply-license
 
 NeuronEX 支持以下操作系统：
 - CentOS 8.0 及以上版本，Ubuntu 20.04 及以上版本，其他基于 Linux 内核的操作系统
-- 如果是 Windows 操作系统，建议使用 WSL 安装好相关的 Linux 系统，然后通过 Docker 的方式进行安装
 
+:::tip 提示
+如果是 Windows 操作系统，支持以下几种安装方式:
+- 使用 Virtual Box安装相应的 Linux 系统
+- 使用 WSL 安装相应的 Linux 系统
+- 使用 Docker Desktop，以 Docker 的方式安装和运行 NeuronEX
+:::
 
 ## 硬件要求
 
@@ -75,7 +80,8 @@ CPU Usage                        : 90%<br>
 
 | 下载文件              | 架构   |
 | --------------------- | ------ |
-| neuronex-x.y.z       | Docker |
+| emqx/neuronex:x.y.z       | Docker |
+| emqx/neuronex:x.y.z-python       | Docker |
 
 ## 版本号说明
 

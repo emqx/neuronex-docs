@@ -2,12 +2,13 @@
 
 NeuronEX 在基于 Linux 的操作系统上支持 64位 ARM 和 64位 X86 架构，并提供以下安装包格式：
 - tar 软件包方式，适用于所有 Linux 操作系统
-- Debian 软件包（.deb）格式，用于基于 Debian、Ubuntu Linux 的操作系统（即将支持）
-- Redhat 包管理器（.rpm）格式，适用于基于 RedHat、CentOS Linux 的操作系统（即将支持）
+- zip 软件包方式，适用于所有 Linux 操作系统
+<!-- - Debian 软件包（.deb）格式，用于基于 Debian、Ubuntu Linux 的操作系统（即将支持）
+- Redhat 包管理器（.rpm）格式，适用于基于 RedHat、CentOS Linux 的操作系统（即将支持） -->
 
 ## 下载安装包
 
-NeuronEX 软件包可从 [NeuronEX 官网](https://www.emqx.com/zh/apply-licenses/neuronex)下载。
+NeuronEX 软件包可从 [官网](https://www.emqx.com/zh/try?product=neuronex) 下载。
 
 ## NeuronEX 支持的操作系统
 
@@ -23,7 +24,7 @@ NeuronEX 支持以下操作系统：
 
 ## 硬件要求
 
-NeuronEX 支持运行在 X86，ARM 等硬件架构的设备上以及支持容器化的部署，如 Kubernetes、KubeEdge 等，可以部署在工业现场各类**工控机**、**网关设备**及**服务器**等硬件。在有限硬件资源的设备上也能达到**100 毫秒**的高频数据采集，以及极低的采集延迟，在硬件资源充足的服务器上，NeuronEX 也能充分利用多核 CPU，能够同时对几十万的点位进行高频率的数据采集以及点位写入控制。
+NeuronEX 支持运行在 X86，ARM 等硬件架构的设备上以及支持容器化的部署，如 Kubernetes、KubeEdge 等，可以部署在工业现场各类**工控机**、**网关设备**及**服务器**等硬件。在硬件资源有限的设备上也能达到**100 毫秒**的高频数据采集，以及极低的采集延迟。在硬件资源充足的服务器上，NeuronEX 也能充分利用多核 CPU，能够同时对几十万的点位进行高频率的数据采集以及点位写入控制。
 
 下表列出了 NeuronEX 在不同点位数量下的完成数采功能最低硬件要求（对采集的数据进行数据处理与计算，会额外消耗系统资源）。
 

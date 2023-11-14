@@ -4,15 +4,15 @@
 
 Download the installation package according to different versions and architectures, E.g:
 
-<!-- ```bash
-$ wget https://www.emqx.com/en/downloads/neuron/2.4.0/neuronex-2.4.0-linux-amd64.tar.gz
-``` -->
+```bash
+$ wget https://www.emqx.com/zh/downloads/neuronex/3.0.1/neuronex-3.0.1-linux-amd64.tar.gz
+```
 
 ## Install
 
 ```bash
-$ tar -zxvf neuronex-3.0.0-linux-amd64.tar.gz
-$ cd neuronex-3.0.0-linux-amd64
+$ tar -zxvf neuronex-3.0.1-linux-amd64.tar.gz
+$ cd neuronex-3.0.1-linux-amd64
 ```
 
 ::: tip 
@@ -27,3 +27,4 @@ The following command can be executed to start NeuronEX:
 $ ./bin/neuronex run
 ```
 
+For more startup parameters, please refer to the [Configuration Management](../admin/conf-management.md).

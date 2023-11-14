@@ -1,22 +1,21 @@
-# 许可证政策
+# License Policy
 
-NeuronEX 提供了 30 个点（30 个数据标签）的免费额度。您可在不安装 EMQ 许可证的情况下，运行这些商业模块。超出免费额度，则必须安装有效的试用版或官方 EMQ 许可证。
+NeuronEX offers 30 tags (30 data tags) for free. You can run these commercial modules without installing an EMQ license. Beyond the free quota, you must install a valid trial or official EMQ license.
 
-:::tip 注意
+:::tip Note
 
-Fanuc Focas Ethernet 和 Mitsubishi CNC 插件不在 30 点永久免费的范围内。如希望体验，可直接 [联系我们](https://www.emqx.com/zh/contact?product=neuron)。
+The Fanuc Focas Ethernet and Mitsubishi CNC plug-ins are not included in the 30 free permanent tags. If you wish to experience this, you can [contact us](https://www.emqx.com/zh/contact?product=neuron) directly.
 
 :::
 
-## 申请许可证
+## Apply for a license
 
-试用的 EMQ 许可证可从[ EMQ 官方网站](https://www.emqx.com/zh/apply-licenses/neuronex)上下载 。所有可用的插件模块以及数据流处理功能都可以在 1000 个数据标签的限制下试用 15 天。 如果试用 EMQ 许可证过期，您可以通过我们的官网重新申请试用 EMQ 许可证。 但是，一个邮箱最多只能申请两次试用许可证。
+Trial EMQ licenses can be downloaded from the [official EMQ website](https://www.emqx.com/zh/apply-licenses/neuronex). All available plug-in modules and data stream processing functions are available for a 15-day trial period with a limit of 1000 data tags. If the trial EMQ license expires, you can reapply for a trial EMQ license through our website. However, a mailbox can only apply for two trial licenses at most.
 
 :::tip
-官网申请试用许可证时，必须使用硬件标识进行设备的绑定。您可直接[联系我们](https://www.emqx.com/zh/contact?product=neuron)申请不需要硬件标识绑定设备的许可证，或申请正式许可证。
+When you apply for a trial license on our website, you must use the hardware identification to bind the device. You can directly [contact us](https://www.emqx.com/zh/contact?product=neuron) to apply for a license without hardware identification for device binding, or apply for a full license.
 :::
 
-## 管理许可证
+## Manage License
 
-申请许可证后，您可在登录 NeuronEX 后，点击 管理 -> 许可证 上传许可证，或管理许可证文件。
-
+After applying for a license, you can click Manage -> License to upload the license or manage the license file after logging in NeuronEX.

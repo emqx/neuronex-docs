@@ -44,7 +44,7 @@ payload
 * 签发者（iss）：根据需求自己定义，但要确保与生成的公钥文件名称一致。例如，iss 为 neuron，则需要生成 neuron.pem 的公钥文件。
 * 签发时间（iat）：签发时间
 * 过期时间（exp）：签发过期时间
-* 受众（aud）：neuron，不能修改
+* 受众（aud）：NeuronEX，不能修改
 
 ## 生成公私钥
 

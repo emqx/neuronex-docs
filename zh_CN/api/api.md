@@ -1,6 +1,6 @@
 # HTTP API
 
-NeuronEX 提供了管理监控 REST API，这些 API 遵循 OpenAPI (Swagger) 3.0 规范。
+NeuronEX 提供了管理监控 REST API，这些 API 遵循 OpenAPI (Swagger) 3.1 规范。
 
 NeuronEX 服务启动后，您可以访问 http://localhost:8085/api-docs/index.html 来查看 API 的文档。还可以直接在 Swagger UI 上尝试执行一些 API。
 

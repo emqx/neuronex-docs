@@ -692,7 +692,7 @@
         }
       ]
       },
-      {
+    {
         "title": "HTTP API",
         "path": "api/api",
         "collapsed": true,
@@ -715,7 +715,7 @@
           }
         ]
       },
-      {
+    {
         "title": "运维指南",
         "path": "admin/introduction",
         "url": "",
@@ -744,17 +744,22 @@
         "path": "release_history/release_history"
       }
     ],
-    "en": [
+  "en": [
     {
-      "title": "产品概览",
+      "title": "Product Overview",
       "path": "./",
+      "collapsed": true,
       "children": [
         {
-          "title": "数采插件列表",
+          "title": "Architecture",
+          "path": "introduction/architecture"
+        },
+        {
+          "title": "List of Data Collection Plugins",
           "path": "introduction/plugin-list/plugin-list"
         },
         {
-          "title": "许可证政策",
+          "title": "Licensing Policy",
           "path": "introduction/license/license-policy"
         }
       ]
@@ -769,7 +774,7 @@
       "collapsed": true,
       "children": [
         {
-          "title": "使用 .tar.gz 包安装",
+          "title": "Installation with .tar.gz Package",
           "path": "installation/tar.gz"
         },
         {
@@ -777,13 +782,13 @@
           "path": "installation/docker"
         },
         {
-          "title": "申请和安装许可证",
+          "title": "Application and Installation License",
           "path": "installation/license_setting"
         }
       ]
     },
     {
-      "title": "数据采集",
+      "title": "Data Collection",
       "path": "configuration/introduction",
       "collapsed": true,
       "children": [
@@ -1156,17 +1161,17 @@
           ]
         },
         {
-          "title": "连接南向设备",
+          "title": "Connecting Southbound Equipment",
           "path": "configuration/groups-tags/groups-tags",
           "collapsed": true,
           "children": [
             {
-              "title": "基于模板配置",
+              "title": "Template-based Configuration",
               "path": "configuration/templates/templates",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/templates/templates.md"
             },
             {
-              "title": "批量点位配置",
+              "title": "Batch Tag Configuration",
               "path": "configuration/import-export/import-export",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/import-export/import-export.md"
             }
@@ -1255,25 +1260,26 @@
           ]
         },
         {
-          "title": "订阅南向数据",
+          "title": "Subscribe to Southbound Data",
           "path": "configuration/subscription"
         },
         {
-          "title": "管理插件模块",
+          "title": "Managing Plug-in Modules",
           "path": "configuration/ecp_edge_plugin"
         },
         {
-          "title": "数据监控",
+          "title": "Data Monitoring",
           "path": "admin/monitoring"
         }
       ]
     },
     {
-      "title": "数据流处理",
+      "title": "Data Stream Processing",
       "path": "streaming-processing/overview",
+      "collapsed": true,
       "children": [
         {
-          "title": "数据源",
+          "title": "Data Sources",
           "path": "streaming-processing/source",
           "collapsed": true,
           "children": [
@@ -1326,24 +1332,24 @@
           ]
         },
         {
-          "title": "规则管理",
+          "title": "Rule Management",
           "path": "streaming-processing/rules"
         },
         {
-          "title": "规则管道",
+          "title": "Rules Pipeline",
           "path": "streaming-processing/rule_pipeline"
         },
         {
-          "title": "数据汇（Sink）",
+          "title": "Sink",
           "path": "streaming-processing/sink/sink",
           "collapsed": true,
           "children": [
             {
-              "title": "数据模版",
+              "title": "Data Templates",
               "path": "streaming-processing/sink/data_template"
             },
             {
-              "title": "内置插件",
+              "title": "Built-in Plugins",
               "children": [
                 {
                   "title": "MQTT Sink",
@@ -1366,11 +1372,11 @@
                   "path": "streaming-processing/sink/redis"
                 },
                 {
-                  "title": "文件 Sink",
+                  "title": "File Sink",
                   "path": "streaming-processing/sink/file"
                 },
                 {
-                  "title": "内存 Sink",
+                  "title": "Memory Sink",
                   "path": "streaming-processing/sink/memory"
                 },
                 {
@@ -1384,7 +1390,7 @@
               ]
             },
             {
-              "title": "预定义插件",
+              "title": "Predefined Plugins",
               "children": [
                 {
                   "title": "SQL Sink",
@@ -1419,24 +1425,48 @@
           ]
         },
         {
-          "title": "扩展",
+          "title": "Extensions",
           "path": "streaming-processing/extension",
           "children":[
             {
-              "title": "外部服务",
+              "title": "External Services",
               "path": "streaming-processing/external_func"
             }
           ]
         },
         {
-          "title": "配置管理",
+          "title": "Configuration Management",
           "path": "streaming-processing/config"
         }
       ]
       },
-      {
+    {
+      "title": "HTTP API",
+      "path": "api/api",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "JWT Authentication",
+          "path": "api/jwt"
+        },
+        {
+          "title": "Description of data types for data collection functions",
+          "path": "api/data-type"
+        },
+        {
+          "title": "Description of the data collection function error code",
+          "path": "api/error-code"
+        },
+        {
+          "title": "API Documentation",
+          "path": "https://docs.emqx.com/en/neuronex/latest/api/api-docs.html"
+        }
+      ]
+    },
+    {
         "title": "Operations Guide",
         "path": "admin/introduction",
+        "collapsed": true,
         "children": [
           {
             "title": "Configuration Management",
@@ -1447,14 +1477,14 @@
             "path": "admin/log-management"
           },
           {
-            "title": "修改密码",
+            "title": "Change Password",
             "path": "admin/password"
           }
         ]
-      },
-      {
-        "title": "发版历史",
+    },
+    {
+        "title": "Publishing History",
         "path": "release_history/release_history"
-      }
+    }
     ]
   }

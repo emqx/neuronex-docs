@@ -1,19 +1,19 @@
-# 通过 Docker 部署
+# Running with Docker
 
-## 获取镜像
+## Get the image
 
-ECP Edge docker 镜像请从 [docker hub](https://hub.docker.com/r/emqx/neuronex/tags) 网站下载。
+The NeuronEX docker image can be downloaded from the docker hub website.[docker hub](https://hub.docker.com/r/emqx/neuronex/tags)
 
 ```bash
 ## pull NeuronEX
-$ docker pull emqx/neuronex:3.0.0
+$ docker pull emqx/neuronex:latest
 ```
 
-## 启动
+## Start
 
 ```bash
 ## run NeuronEX
-$ docker run -d --name neuronex -p 8085:8085  emqx/neuronex:3.0.0
+$ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:latest
 ```
 
 * tcp 8085: Port mapping for accessing web and HTTP API ports.
@@ -22,4 +22,30 @@ $ docker run -d --name neuronex -p 8085:8085  emqx/neuronex:3.0.0
 * --privileged=true: Optional parameter for troubleshooting purposes.
 * -v /host/path:/container/path: Optional parameter for mounting the directory /host/path on the host to the directory /container/path within the container. For example, /host/dir:/opt/neuronex/data would mount the local directory /host/dir to /opt/neuronex/data inside the container.
 * --device /dev/ttyUSB0:/dev/ttyS0: Optional parameter for mapping a serial port to Docker. /dev/ttyUSB0 is the serial device under Linux, and /dev/ttyS0 is the serial device within Docker.
-* --log-opt: Optional parameter to limit the size of Docker's standard output (stdout), for example, --log-opt max-size=10m.
+* --log-opt: Optional parameter to limit the size of Docker's standard output (stdout), for example, --log-opt max-size=100m.
+
+For more startup parameters, please refer to the [Configuration Management](../admin/conf-management.md).
+
+## Docker Container Python Runtime Environment
+
+NeuronEX provides two types of Docker installation packages:
+
+- **neuronex:3.x.x**
+
+The installation package of type neuronex:3.x.x does not integrate a Python runtime environment. It has a smaller package size. If you do not use Python-related algorithm plugins, please use this type of image.
+
+```bash
+#run NeuronEX by neuronex:3.x.x
+docker pull emqx/neuronex:3.0.1
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.0.1
+```
+
+- **neuronex:3.x.x-python**
+
+The installation package of type neuronex:3.x.x-python integrates the Python runtime environment. If you have Python algorithm usage requirements, please use this type of image.
+
+```bash
+#run NeuronEX by neuronex:3.x.x-python
+docker pull emqx/neuronex:3.0.1-python
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.0.1-python
+```

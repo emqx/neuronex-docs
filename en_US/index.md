@@ -1,29 +1,39 @@
-# 产品概览
+# Product Overview
 
-作为一款完整的边缘服务器，ECP Edge 可以同时进行数据采集和数据流处理，实现一个完整的边缘计算闭环。
+NeuronEX is software designed for the industrial sector, specializing in equipment data acquisition and edge intelligent analysis. It is primarily deployed in industrial settings, facilitating industrial protocol data collection, industrial system data integration, edge data filtering and analysis, AI algorithm integration, and integration with  IIoT platforms. It provides low-latency data access management and intelligent analytical services for industrial scenarios. It helps users quickly understand business trends, improve operational efficiency, and achieve sustainability.
 
-首先在边缘侧，作为一款轻量级的工业软件，ECP Edge 能够运行在各种有限资源的物联网边缘硬件设备上，并支持连接多种使用标准协议或者设备专有协议的工业设备，从而能实现各个工业物联网平台与各种设备的互联互通。因此，ECP Edge 可以有效帮助解决以数据为中心的自动化设备数据难以统一访问的问题，为智能制造提供基础支撑。
+## Product Advantages
 
-此外，ECP Edge 还提供了物联网边缘分析、流式处理功能，同样可以运行在各类资源受限的边缘设备上，内置的规则引擎允许用户提供基于 SQL 或基于可视化界面创建规则，在几分钟内创建物联网边缘分析应用。
+- Rich Protocol Integration
 
-## 产品优势
+    Diverse industrial protocols cater to various industrial scenarios, enabling real-time data collection and unified access for equipment data such as PLCs, CNC machines, robots, Scada systems, and smart sensors.
 
-- 边缘原生：边缘侧数据采集和流处理的一站式管理平台，同时提供图形化操作界面，方便用户快速上手。
+- Low-Latency Data Processing
 
-- 多设备连接：内置多种插件模块，例如 Modbus，OPC UA，Ethernet/IP，IEC104，BACnet，Siemens，Mitsubishi 等。这些插件某块被广泛应用于楼宇自动化、数控机床、机器人、电力以及各种 PLC 通信中。
-
-- 完整的数据分析能力：内置数据抽取、转换、过滤、排序、分组、聚合、连接等功能，内置 60+ 各类函数，覆盖数学运算、字符串处理、聚合运算和哈希运算等
-
-- 高扩展性：支持自行扩展协议转换，数据源接入、计算结果存储系统等功能。
+    Designed specifically for industrial fields, NeuronEX offers low-latency data access and processing, facilitating rapid data transmission between multiple systems for real-time monitoring and decision-making.
 
 
-## 功能一览
+- Lightweight and Flexible Deployment
+    
+    NeuronEX is lightweight, low-memory, and supports multiple CPU architectures. It can be deployed in Docker or Kubernetes containers.
 
-| <div style="width:40pt">功能</div> | 描述                                                         | <div style="width:80pt">功能清单</div>                       |
+- Stream Processing and Analysis
+
+    With robust stream processing and analytical capabilities, NeuronEX enables functions like data filtering, cleaning, standardization, analytical inspections, and real-time alerts.
+
+- AI/ML Analysis
+    
+    NeuronEX supports user-defined function extensions and AI algorithm integration, providing intelligent data analysis capabilities.
+
+- Platform Integration
+        
+    NeuronEX integrates with MQTT, SparkplugB, HTTP, and other protocols to integrate data into local data centers, IIoT platforms, or cloud services.
+
+## Function List
+
+| <div style="width:40pt">Function</div> | Description    | <div style="width:140pt">Function list</div>                       |
 | ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 数据采集                           | ECP Edge 内置轻量级工业协议网关软件，支持数十种工业协议的一站式设备连接、数据接入、MQTT 协议转换，为工业设备赋予工业 4.0 时代关键的物联网连接能力。其中，数据采集是指通过安装南向驱动，并建立其与 ECP Edge 的通信，从而收集边缘端的数据 | [创建南向驱动](./configuration/south-devices/south-devices.md)<br><br>[连接南向设备](./configuration/groups-tags/groups-tags.md) |
-| 数据传递                           | 完成边缘侧数据的采集后，ECP Edge 支持用户通过北向应用将数据转发到云平台或外部处理引擎 | [创建北向应用](./configuration/north-apps/north-apps.md)<br><br>[订阅南向数据](./configuration/subscription.md) |
-| 数据监控                           | ECP Edge 支持基于 Prometheus 的数据模型的南北向节点数据统计功能，用于监测节点运行状态。Prometheus 的基本原理是通过 HTTP 协议周期性抓取被监控组件的状态，任意组件只要提供对应的 HTTP 接口就可以接入监控，ECP Edge 提供对应的接口，可以顺利接入 Prometheus 进行监控。 | [数据监控](./admin/monitoring.md)                        |
-| 数据流处理                         | ECP Edge 集成了边缘数据流处理引擎，可以帮助有效降低通信成本，减少云端数据负载。ECP 的边缘数据处理能力可以有效提升数据处理的实时性，实现本地快速响应，甚至在网络中断时也能进行即时本地数据处理。 | [数据源](./streaming-processing/source.md)<br/><br/>[规则](./streaming-processing/rules.md)<br/><br/>[Sink 连接](./streaming-processing/sink/sink.md)<br/><br/>[自定义源与 Sink](./streaming-processing/extension.md) |
-| 系统管理                           | ECP 提供了一站式的运维与管理平台，您可通过 Web 页面查看版本信息、以及进行日志下载或密码修改登操作。 | [日志下载](./admin/log-management.md)<br/><br/>[密码重置](./admin/password.md) |
-
+| Data Collection                           | NeuronEX supports one-stop device connection, data collection, device reverse control, MQTT protocol conversion, and southbound data acquisition monitoring for dozens of industrial protocols, giving industrial equipment critical interconnection capabilities in the Industry 4.0 era.| [Create southbound driver](./configuration/south-devices/south-devices.md)<br /><br />[Connect southbound device](./configuration/groups-tags/groups-tags.md) <br /><br />[Data monitoring](./admin/monitoring.md)|
+| Data forwarding                           | After completing the collection of device data, NeuronEX supports users to forward the data to the cloud platform or external processing engine through northbound applications. | [create northbound application](./configuration/north-apps/north-apps.md)<br /><br />[subscribe southbound data](./configuration/subscription.md) |
+| Data Processing                         | NeuronEX integrates a stream processing engine to provide low-latency data processing and analysis, and can transfer data between multiple systems more quickly. Combined with AI/ML algorithms, it can achieve intelligent decision-making and control. In addition, edge-end analysis can also perform data preprocessing and edge computing to reduce cloud-edge communication load and back-end storage pressure. | [data source](./streaming-processing/source.md)<br /><br />[rule](./streaming-processing/rules.md)<br /><br />[Sink](./streaming-processing/sink/sink.md)<br /><br />[function extension](./streaming-processing/extension.md) |
+| System Management                           | NeuronEX provides a one-stop operation, maintenance and management platform. You can perform system configuration management, log download, view system information and other operations through the web page. | [日志管理](./admin/log-management.md)<br /><br />[密码重置](./admin/password.md) |

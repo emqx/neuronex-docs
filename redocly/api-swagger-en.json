@@ -28,7 +28,7 @@
       "name": "Data Collection"
     },
     {
-      "name": "metrics"
+      "name": "data collection metrics"
     },
     {
       "name": "rw"
@@ -74,6 +74,9 @@
     },
     {
       "name": "uploads"
+    },
+    {
+      "name": "data processing metrics"
     }
   ],
   "paths": {
@@ -7697,7 +7700,7 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "metrics"
+          "data collection metrics"
         ],
         "parameters": [
           {
@@ -12126,6 +12129,41 @@
           }
         },
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-121119036-run"
+      }
+    },
+    "/api/ekuiper/metrics": {
+      "get": {
+        "summary": "Get Metrics information of the data stream processing",
+        "x-apifox-folder": "Ekuiper/metrics",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "Query the raw metrics information of the data stream processing, after the normal operation of the rules, you can see the metrics information in the api similar to kuiper_sink_records_in_total .",
+        "tags": [
+          "data processing metrics"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "success",
+                    "value":"# HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.\n# TYPE go_gc_duration_seconds summary\ngo_gc_duration_seconds{quantile=\"0\"} 0.000185937\ngo_gc_duration_seconds{quantile=\"0.25\"} 0.000342795\ngo_gc_duration_seconds{quantile=\"0.5\"} 0.000369361\ngo_gc_duration_seconds{quantile=\"0.75\"} 0.000391542\ngo_gc_duration_seconds{quantile=\"1\"} 0.000391542\ngo_gc_duration_seconds_sum 0.001289635\ngo_gc_duration_seconds_count 4\n# HELP go_goroutines Number of goroutines that currently exist.\n# TYPE go_goroutines gauge\ngo_goroutines 15\n# HELP go_info Information about the Go environment.\n# TYPE go_info gauge\ngo_info{version=\"go1.20.2\"} 1\n# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.\n# TYPE go_memstats_alloc_bytes gauge\ngo_memstats_alloc_bytes 6.983208e+06\n# HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.\n# TYPE go_memstats_alloc_bytes_total counter\ngo_memstats_alloc_bytes_total 1.1783664e+07\n# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.\n# TYPE go_memstats_buck_hash_sys_bytes gauge\ngo_memstats_buck_hash_sys_bytes 1.451727e+06\n# HELP go_memstats_frees_total Total number of frees.\n# TYPE go_memstats_frees_total counter\ngo_memstats_frees_total 62815\n# HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.\n# TYPE go_memstats_gc_sys_bytes gauge\ngo_memstats_gc_sys_bytes 8.595544e+06\n# HELP go_memstats_heap_alloc_bytes Number of heap bytes allocated and still in use.\n# TYPE go_memstats_heap_alloc_bytes gauge\ngo_memstats_heap_alloc_bytes 6.983208e+06\n# HELP go_memstats_heap_idle_bytes Number of heap bytes waiting to be used.\n# TYPE go_memstats_heap_idle_bytes gauge\ngo_memstats_heap_idle_bytes 6.209536e+06\n# HELP go_memstats_heap_inuse_bytes Number of heap bytes that are in use.\n# TYPE go_memstats_heap_inuse_bytes gauge\ngo_memstats_heap_inuse_bytes 9.91232e+06\n# HELP go_memstats_heap_objects Number of allocated objects.\n# TYPE go_memstats_heap_objects gauge\ngo_memstats_heap_objects 38478\n# HELP go_memstats_heap_released_bytes Number of heap bytes released to OS.\n# TYPE go_memstats_heap_released_bytes gauge\ngo_memstats_heap_released_bytes 4.58752e+06\n# HELP go_memstats_heap_sys_bytes Number of heap bytes obtained from system.\n# TYPE go_memstats_heap_sys_bytes gauge\ngo_memstats_heap_sys_bytes 1.6121856e+07\n# HELP go_memstats_last_gc_time_seconds Number of seconds since 1970 of last garbage collection.\n# TYPE go_memstats_last_gc_time_seconds gauge\ngo_memstats_last_gc_time_seconds 1.7001045398775318e+09\n# HELP go_memstats_lookups_total Total number of pointer lookups.\n# TYPE go_memstats_lookups_total counter\ngo_memstats_lookups_total 0\n# HELP go_memstats_mallocs_total Total number of mallocs.\n# TYPE go_memstats_mallocs_total counter\ngo_memstats_mallocs_total 101293\n# HELP go_memstats_mcache_inuse_bytes Number of bytes in use by mcache structures.\n# TYPE go_memstats_mcache_inuse_bytes gauge\ngo_memstats_mcache_inuse_bytes 4800\n# HELP go_memstats_mcache_sys_bytes Number of bytes used for mcache structures obtained from system.\n# TYPE go_memstats_mcache_sys_bytes gauge\ngo_memstats_mcache_sys_bytes 15600\n# HELP go_memstats_mspan_inuse_bytes Number of bytes in use by mspan structures.\n# TYPE go_memstats_mspan_inuse_bytes gauge\ngo_memstats_mspan_inuse_bytes 177280\n# HELP go_memstats_mspan_sys_bytes Number of bytes used for mspan structures obtained from system.\n# TYPE go_memstats_mspan_sys_bytes gauge\ngo_memstats_mspan_sys_bytes 179520\n# HELP go_memstats_next_gc_bytes Number of heap bytes when next garbage collection will take place.\n# TYPE go_memstats_next_gc_bytes gauge\ngo_memstats_next_gc_bytes 1.4275312e+07\n# HELP go_memstats_other_sys_bytes Number of bytes used for other system allocations.\n# TYPE go_memstats_other_sys_bytes gauge\ngo_memstats_other_sys_bytes 895921\n# HELP go_memstats_stack_inuse_bytes Number of bytes in use by the stack allocator.\n# TYPE go_memstats_stack_inuse_bytes gauge\ngo_memstats_stack_inuse_bytes 655360\n# HELP go_memstats_stack_sys_bytes Number of bytes obtained from system for stack allocator.\n# TYPE go_memstats_stack_sys_bytes gauge\ngo_memstats_stack_sys_bytes 655360\n# HELP go_memstats_sys_bytes Number of bytes obtained from system.\n# TYPE go_memstats_sys_bytes gauge\ngo_memstats_sys_bytes 2.7915528e+07\n# HELP go_threads Number of OS threads created.\n# TYPE go_threads gauge\ngo_threads 9\n# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.\n# TYPE process_cpu_seconds_total counter\nprocess_cpu_seconds_total 0.38\n# HELP process_max_fds Maximum number of open file descriptors.\n# TYPE process_max_fds gauge\nprocess_max_fds 1.048576e+06\n# HELP process_open_fds Number of open file descriptors.\n# TYPE process_open_fds gauge\nprocess_open_fds 14\n# HELP process_resident_memory_bytes Resident memory size in bytes.\n# TYPE process_resident_memory_bytes gauge\nprocess_resident_memory_bytes 7.012352e+07\n# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.\n# TYPE process_start_time_seconds gauge\nprocess_start_time_seconds 1.7001045391e+09\n# HELP process_virtual_memory_bytes Virtual memory size in bytes.\n# TYPE process_virtual_memory_bytes gauge\nprocess_virtual_memory_bytes 1.327280128e+09\n# HELP process_virtual_memory_max_bytes Maximum amount of virtual memory available in bytes.\n# TYPE process_virtual_memory_max_bytes gauge\nprocess_virtual_memory_max_bytes 1.8446744073709552e+19\n# HELP promhttp_metric_handler_requests_in_flight Current number of scrapes being served.\n# TYPE promhttp_metric_handler_requests_in_flight gauge\npromhttp_metric_handler_requests_in_flight 1\n# HELP promhttp_metric_handler_requests_total Total number of scrapes by HTTP status code.\n# TYPE promhttp_metric_handler_requests_total counter\npromhttp_metric_handler_requests_total{code=\"200\"} 0\npromhttp_metric_handler_requests_total{code=\"500\"} 0\npromhttp_metric_handler_requests_total{code=\"503\"} 0"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120511756-run"
       }
     }
   },

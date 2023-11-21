@@ -1,44 +1,37 @@
-# 使用 rpm 包安装
+# Using rpm packages
+## Download
 
-## 下载
-
-根据不同版本及架构下载安装包，例如：
-
-```bash
-$ wget https://www.emqx.com/en/downloads/neuron/2.4.0/neuronex-2.4.0-linux-amd64.rpm
-```
-
-## 安装
-
-根据不同版本及架构安装，例如：
+Download the installation package according to different versions and architectures, E.g:
 
 ```bash
-$ sudo rpm -ivh neuronex-2.4.0-linux-amd64.rpm
+$ wget https://www.emqx.com/en/downloads/neuronex/3.0.1/neuronex-3.0.1-linux-amd64.rpm
 ```
 
-::: tip
-成功安装 rpm 包后，自启动 ECP Edge。
-:::
-
-## 状态
+## Install
 
 ```bash
-$ sudo systemctl status neuron
+$ sudo rpm -ivh neuronex-3.0.1-linux-amd64.rpm
 ```
 
-## 停止
+## Start
 
 ```bash
-$ sudo systemctl stop neuron
+$ sudo systemctl start neuronex
 ```
 
-## 重启
+## Status
 
 ```bash
-$ sudo systemctl restart neuron
+$ sudo systemctl status neuronex
 ```
 
-## 卸载
+## Stop
+
+```bash
+$ sudo systemctl stop neuronex
+```
+
+## Uninstall
 
 ```bash
 $ sudo rpm -e neuron

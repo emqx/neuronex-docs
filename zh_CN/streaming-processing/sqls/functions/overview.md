@@ -1,0 +1,20 @@
+# 函数
+
+数据流处理功能具有许多内置函数，可以对数据执行计算。
+
+- [聚合函数](./aggregate_functions.md)
+- [数学函数](./mathematical_functions.md)
+- [字符串函数](./string_functions.md)
+- [数组函数](./array_functions.md)
+- [对象函数](./object_functions.md)
+- [哈希函数](./hashing_functions.md)
+- [转换函数](./transform_functions.md)
+- [JSON 函数](./json_functions.md)
+- [时间日期函数](./datetime_functions.md)
+- [其他函数](./other_functions.md)
+
+- [分析函数](./analytic_functions.md)
+- [多行函数](./multi_row_functions.md)
+- [多列函数](./multi_column_functions.md)
+- [窗口函数](./window_funcs.md)
+

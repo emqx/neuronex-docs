@@ -531,12 +531,12 @@
       "collapsed": true,
       "children": [
         {
-          "title": "数据源",
+          "title": "数据源 (Source)",
           "path": "streaming-processing/source",
           "collapsed": true,
           "children": [
             {
-              "title": "数据流",
+              "title": "流管理",
               "path": "streaming-processing/stream"
             },
             {
@@ -544,22 +544,18 @@
               "path": "streaming-processing/tables",
               "children": [
                 {
-                  "title": "扫描表",
+                  "title": "扫描表使用场景",
                   "path": "streaming-processing/scan"
                 },
                 {
-                  "title": "查询表",
+                  "title": "查询表使用场景",
                   "path": "streaming-processing/lookup"
                 }
               ]
             },
             {
-              "title": "文件",
-              "path": "streaming-processing/file"
-            },
-            {
-              "title": "内存",
-              "path": "streaming-processing/memory"
+              "title": "MQTT",
+              "path": "streaming-processing/mqtt"
             },
             {
               "title": "HTTP Pull",
@@ -570,12 +566,24 @@
               "path": "streaming-processing/http_push"
             },
             {
-              "title": "MQTT",
-              "path": "streaming-processing/mqtt"
+              "title": "内存",
+              "path": "streaming-processing/memory"
             },
             {
               "title": "Neuron",
               "path": "streaming-processing/neuron"
+            },
+            {
+              "title": "文件",
+              "path": "streaming-processing/file"
+            },
+            {
+              "title": "SQL",
+              "path": "streaming-processing/sql"
+            },
+            {
+              "title": "Video",
+              "path": "streaming-processing/video"
             },
             {
               "title": "Redis",
@@ -592,7 +600,7 @@
           "path": "streaming-processing/rule_pipeline"
         },
         {
-          "title": "数据汇（Sink）",
+          "title": "动作（Sink）",
           "path": "streaming-processing/sink/sink",
           "collapsed": true,
           "children": [
@@ -601,7 +609,7 @@
               "path": "streaming-processing/sink/data_template"
             },
             {
-              "title": "内置插件",
+              "title": "动作（Sink）类型",
               "children": [
                 {
                   "title": "MQTT Sink",
@@ -610,10 +618,6 @@
                 {
                   "title": "Neuron Sink",
                   "path": "streaming-processing/sink/neuron"
-                },
-                {
-                  "title": "EdgeX Sink",
-                  "path": "streaming-processing/sink/edgex"
                 },
                 {
                   "title": "REST Sink",
@@ -638,12 +642,7 @@
                 {
                   "title": "Nop Sink",
                   "path": "streaming-processing/sink/nop"
-                }
-              ]
-            },
-            {
-              "title": "预定义插件",
-              "children": [
+                },
                 {
                   "title": "SQL Sink",
                   "path": "streaming-processing/sink/sql"
@@ -653,20 +652,8 @@
                   "path": "streaming-processing/sink/influx"
                 },
                 {
-                  "title": "InfluxDBV2 Sink",
+                  "title": "InfluxDB V2 Sink",
                   "path": "streaming-processing/sink/influx2"
-                },
-                {
-                  "title": "TDengine Sink",
-                  "path": "streaming-processing/sink/tdengine"
-                },
-                {
-                  "title": "Image Sink",
-                  "path": "streaming-processing/sink/image"
-                },
-                {
-                  "title": "ZeroMQ Sink",
-                  "path": "streaming-processing/sink/zmq"
                 },
                 {
                   "title": "Kafka Sink",
@@ -681,6 +668,10 @@
           "path": "streaming-processing/extension",
           "children":[
             {
+              "title": "Python 便携插件扩展示例",
+              "path": "streaming-processing/portable_python"
+            },
+            {
               "title": "外部服务",
               "path": "streaming-processing/external_func"
             }
@@ -689,6 +680,108 @@
         {
           "title": "配置管理",
           "path": "streaming-processing/config"
+        },
+        {
+          "title": "SQL 参考",
+          "path": "streaming-processing/sqls/overview",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "语句",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "查询语句",
+                  "path": "streaming-processing/sqls/query_language_elements"
+                }
+              ]
+            },
+            {
+              "title": "语法",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "词汇元素",
+                  "path": "streaming-processing/sqls/lexical_elements"
+                },
+                {
+                  "title": "数据类型",
+                  "path": "streaming-processing/sqls/data_types"
+                },
+                {
+                  "title": "JSON 表达式",
+                  "path": "streaming-processing/sqls/json_expr"
+                }
+              ]
+            },
+            {
+              "title": "函数",
+              "path": "streaming-processing/sqls/functions/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "聚合函数",
+                  "path": "streaming-processing/sqls/functions/aggregate_functions"
+                },
+                {
+                  "title": "数学函数",
+                  "path": "streaming-processing/sqls/functions/mathematical_functions"
+                },
+                {
+                  "title": "字符串函数",
+                  "path": "streaming-processing/sqls/functions/string_functions"
+                },
+                {
+                  "title": "数组函数",
+                  "path": "streaming-processing/sqls/functions/array_functions"
+                },
+                {
+                  "title": "对象函数",
+                  "path": "streaming-processing/sqls/functions/object_functions"
+                },
+                {
+                  "title": "哈希函数",
+                  "path": "streaming-processing/sqls/functions/hashing_functions"
+                },
+                {
+                  "title": "转换函数",
+                  "path": "streaming-processing/sqls/functions/transform_functions"
+                },
+                {
+                  "title": "JSON 函数",
+                  "path": "streaming-processing/sqls/functions/json_functions"
+                },
+                {
+                  "title": "时间日期函数",
+                  "path": "streaming-processing/sqls/functions/datetime_functions"
+                },
+                {
+                  "title": "其他函数",
+                  "path": "streaming-processing/sqls/functions/other_functions"
+                },
+                {
+                  "title": "分析函数",
+                  "path": "streaming-processing/sqls/functions/analytic_functions"
+                },
+                {
+                  "title": "多行函数",
+                  "path": "streaming-processing/sqls/functions/multi_row_functions"
+                },
+                {
+                  "title": "多列函数",
+                  "path": "streaming-processing/sqls/functions/multi_column_functions"
+                },
+                {
+                  "title": "窗口函数",
+                  "path": "streaming-processing/sqls/functions/window_funcs"
+                }
+              ]
+            },
+            {
+              "title": "窗口",
+              "path": "streaming-processing/sqls/windows"
+            }
+          ]
         }
       ]
       },

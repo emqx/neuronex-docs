@@ -600,7 +600,7 @@
           "path": "streaming-processing/rule_pipeline"
         },
         {
-          "title": "动作（Sink）",
+          "title": "动作(Sink)",
           "path": "streaming-processing/sink/sink",
           "collapsed": true,
           "children": [
@@ -609,54 +609,54 @@
               "path": "streaming-processing/sink/data_template"
             },
             {
-              "title": "动作（Sink）类型",
+              "title": "动作(Sink)类型",
               "children": [
                 {
-                  "title": "MQTT Sink",
+                  "title": "MQTT",
                   "path": "streaming-processing/sink/mqtt"
                 },
                 {
-                  "title": "Neuron Sink",
+                  "title": "Neuron",
                   "path": "streaming-processing/sink/neuron"
                 },
                 {
-                  "title": "REST Sink",
+                  "title": "REST",
                   "path": "streaming-processing/sink/rest"
                 },
                 {
-                  "title": "Redis Sink",
+                  "title": "Redis",
                   "path": "streaming-processing/sink/redis"
                 },
                 {
-                  "title": "文件 Sink",
+                  "title": "文件",
                   "path": "streaming-processing/sink/file"
                 },
                 {
-                  "title": "内存 Sink",
+                  "title": "内存",
                   "path": "streaming-processing/sink/memory"
                 },
                 {
-                  "title": "Log Sink",
+                  "title": "Log",
                   "path": "streaming-processing/sink/log"
                 },
                 {
-                  "title": "Nop Sink",
+                  "title": "Nop",
                   "path": "streaming-processing/sink/nop"
                 },
                 {
-                  "title": "SQL Sink",
+                  "title": "SQL",
                   "path": "streaming-processing/sink/sql"
                 },
                 {
-                  "title": "InfluxDB Sink",
+                  "title": "InfluxDB",
                   "path": "streaming-processing/sink/influx"
                 },
                 {
-                  "title": "InfluxDB V2 Sink",
+                  "title": "InfluxDB V2",
                   "path": "streaming-processing/sink/influx2"
                 },
                 {
-                  "title": "Kafka Sink",
+                  "title": "Kafka",
                   "path": "streaming-processing/sink/kafka"
                 }
               ]
@@ -1441,39 +1441,39 @@
               "title": "Built-in Plugins",
               "children": [
                 {
-                  "title": "MQTT Sink",
+                  "title": "MQTT",
                   "path": "streaming-processing/sink/mqtt"
                 },
                 {
-                  "title": "Neuron Sink",
+                  "title": "Neuron",
                   "path": "streaming-processing/sink/neuron"
                 },
                 {
-                  "title": "EdgeX Sink",
+                  "title": "EdgeX",
                   "path": "streaming-processing/sink/edgex"
                 },
                 {
-                  "title": "REST Sink",
+                  "title": "REST",
                   "path": "streaming-processing/sink/rest"
                 },
                 {
-                  "title": "Redis Sink",
+                  "title": "Redis",
                   "path": "streaming-processing/sink/redis"
                 },
                 {
-                  "title": "File Sink",
+                  "title": "File",
                   "path": "streaming-processing/sink/file"
                 },
                 {
-                  "title": "Memory Sink",
+                  "title": "Memory",
                   "path": "streaming-processing/sink/memory"
                 },
                 {
-                  "title": "Log Sink",
+                  "title": "Log",
                   "path": "streaming-processing/sink/log"
                 },
                 {
-                  "title": "Nop Sink",
+                  "title": "Nop",
                   "path": "streaming-processing/sink/nop"
                 }
               ]
@@ -1482,31 +1482,31 @@
               "title": "Predefined Plugins",
               "children": [
                 {
-                  "title": "SQL Sink",
+                  "title": "SQL",
                   "path": "streaming-processing/sink/sql"
                 },
                 {
-                  "title": "InfluxDB Sink",
+                  "title": "InfluxDB",
                   "path": "streaming-processing/sink/influx"
                 },
                 {
-                  "title": "InfluxDBV2 Sink",
+                  "title": "InfluxDBV2",
                   "path": "streaming-processing/sink/influx2"
                 },
                 {
-                  "title": "TDengine Sink",
+                  "title": "TDengine",
                   "path": "streaming-processing/sink/tdengine"
                 },
                 {
-                  "title": "Image Sink",
+                  "title": "Image",
                   "path": "streaming-processing/sink/image"
                 },
                 {
-                  "title": "ZeroMQ Sink",
+                  "title": "ZeroMQ",
                   "path": "streaming-processing/sink/zmq"
                 },
                 {
-                  "title": "Kafka Sink",
+                  "title": "Kafka",
                   "path": "streaming-processing/sink/kafka"
                 }
               ]

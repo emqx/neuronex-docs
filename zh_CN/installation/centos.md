@@ -5,7 +5,7 @@
 根据不同版本及架构下载安装包，例如：
 
 ```bash
-$ wget https://www.emqx.com/en/downloads/neuron/2.4.0/neuronex-2.4.0-linux-amd64.rpm
+$ wget https://www.emqx.com/zh/downloads/neuronex/3.0.1/neuronex-3.0.1-linux-amd64.rpm
 ```
 
 ## 安装
@@ -13,29 +13,25 @@ $ wget https://www.emqx.com/en/downloads/neuron/2.4.0/neuronex-2.4.0-linux-amd64
 根据不同版本及架构安装，例如：
 
 ```bash
-$ sudo rpm -ivh neuronex-2.4.0-linux-amd64.rpm
+$ sudo rpm -ivh neuronex-3.0.1-linux-amd64.rpm
 ```
 
-::: tip
-成功安装 rpm 包后，自启动 NeuronEX。
-:::
+## 运行
+
+```bash
+$ sudo systemctl start neuronex
+```
 
 ## 状态
 
 ```bash
-$ sudo systemctl status neuron
+$ sudo systemctl status neuronex
 ```
 
 ## 停止
 
 ```bash
-$ sudo systemctl stop neuron
-```
-
-## 重启
-
-```bash
-$ sudo systemctl restart neuron
+$ sudo systemctl stop neuronex
 ```
 
 ## 卸载

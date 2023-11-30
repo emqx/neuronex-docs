@@ -5,7 +5,7 @@
 根据不同版本及架构下载安装包，例如：
 
 ```bash
-$ wget https://www.emqx.com/en/downloads/neuron/2.4.0/neuronex-2.4.0-linux-amd64.deb
+$ wget https://www.emqx.com/zh/downloads/neuronex/3.0.1/neuronex-3.0.1-linux-amd64.deb
 ```
 
 ## 安装
@@ -13,39 +13,34 @@ $ wget https://www.emqx.com/en/downloads/neuron/2.4.0/neuronex-2.4.0-linux-amd64
 根据不同版本及架构安装，例如：
 
 ```bash
-$ sudo dpkg -i neuronex-2.4.0-linux-amd64.deb
+$ sudo dpkg -i neuronex-3.0.1-linux-amd64.deb
 ```
 
-为避免 ubuntu 系统自动更新时替换 NeuronEX 包，还需要执行以下命令使 NeuronEX 软件包在 apt 升级中保留。
+## 运行
 
 ```bash
-$ sudo apt-mark hold neuron
+$ sudo systemctl start neuronex
 ```
-
-::: tip
-成功安装 deb 包后，自启动 NeuronEX。
-:::
 
 ## 状态
 
 ```bash
-$ sudo systemctl status neuron
+$ sudo systemctl status neuronex
 ```
 
 ## 停止
 
 ```bash
-$ sudo systemctl stop neuron
-```
-
-## 重启
-
-```bash
-$ sudo systemctl restart neuron
+$ sudo systemctl stop neuronex
 ```
 
 ## 卸载
 
+* 卸载但保留配置文件、日志文件和数据文件
 ```bash
-$ sudo dpkg -r neuron
+$ sudo dpkg -r neuronex
+```
+* 卸载并清除所有文件
+```bash
+$ sudo dpkg -P neuronex
 ```

@@ -584,20 +584,19 @@
             {
               "title": "Video",
               "path": "streaming-processing/video"
-            },
-            {
-              "title": "Redis",
-              "path": "streaming-processing/redis"
             }
           ]
         },
         {
           "title": "规则管理",
-          "path": "streaming-processing/rules"
-        },
-        {
-          "title": "规则管道",
-          "path": "streaming-processing/rule_pipeline"
+          "path": "streaming-processing/rules",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "规则管道",
+              "path": "streaming-processing/rule_pipeline"
+            }
+          ]
         },
         {
           "title": "动作（Sink）",

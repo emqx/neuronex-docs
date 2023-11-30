@@ -670,10 +670,6 @@
             {
               "title": "Python 便携插件扩展示例",
               "path": "streaming-processing/portable_python"
-            },
-            {
-              "title": "外部服务",
-              "path": "streaming-processing/external_func"
             }
           ]
         },

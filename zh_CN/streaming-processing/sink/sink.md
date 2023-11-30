@@ -6,18 +6,18 @@
 
 用户可以直接使用 NeuronEX 的内置动作。动作类型的列表如下：
 
-- [MQTT sink](./mqtt.md)：输出到外部 MQTT 服务。
-- [Neuron sink](./neuron.md)：输出到NeuronEX的数采引擎模块。
-- [REST sink](./rest.md)：输出到外部 HTTP 服务器。
-- [Redis sink](./redis.md): 写入 Redis。
-- [文件 sink](./file.md)： 写入文件。
-- [内存 sink](./memory.md)：输出到内存主题以形成规则管道。
-- [Log sink](./log.md)：写入日志，通常只用于调试。
-- [Nop sink](./nop.md)：不输出，用于性能测试。
-- [SQL sink](./sql.md)：写入 SQL 数据库。
-- [InfluxDB sink](./influx.md)： 写入 InfluxDB `v1.x`。
-- [InfluxDB V2 sink](./influx2.md)： 写入 InfluxDB `v2.x`。
-- [Kafka sink](./kafka.md)：输出到 Kafka 。
+- [MQTT](./mqtt.md)：输出到外部 MQTT 服务。
+- [Neuron](./neuron.md)：输出到NeuronEX的数采引擎模块。
+- [REST](./rest.md)：输出到外部 HTTP 服务器。
+- [Redis](./redis.md): 写入 Redis。
+- [文件](./file.md)： 写入文件。
+- [内存](./memory.md)：输出到内存主题以形成规则管道。
+- [Log](./log.md)：写入日志，通常只用于调试。
+- [Nop](./nop.md)：不输出，用于性能测试。
+- [SQL](./sql.md)：写入 SQL 数据库。
+- [InfluxDB](./influx.md)： 写入 InfluxDB `v1.x`。
+- [InfluxDB V2](./influx2.md)： 写入 InfluxDB `v2.x`。
+- [Kafka](./kafka.md)：输出到 Kafka 。
 <!-- - [Image sink](./image.md)： 写入一个图像文件。仅用于处理二进制结果。 -->
 <!-- - [ZeroMQ sink](./zmq.md)：输出到 Zero MQ 。 -->
 
@@ -181,9 +181,9 @@ NeuronEX 中的动作提供了缓存功能，用于在发送错误的情况下�
 
 默认情况下，Sink 将数据附加到外部系统中。一些系统，如内存，支持更新或删除数据。与查找源类似，只有少数 Sink 是`updateble`的。`updateble` Sink 必须支持插入、更新和删除。NeuronEX 内置的`updateble`类型的 Sink 包括: 
 
-- [内存 Sink](./memory.md)
-- [Redis Sink](./redis.md)
-- [SQL Sink](./sql.md)
+- [内存](./memory.md)
+- [Redis](./redis.md)
+- [SQL](./sql.md)
 
 为了激活更新功能，Sink 必须设置 `rowkindField` 属性，以指定数据中的哪个字段代表要采取的动作。在下面的例子中，`rowkindField` 被设置为 `action`。
 

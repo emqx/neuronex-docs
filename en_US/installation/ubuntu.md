@@ -1,51 +1,44 @@
-# 使用 deb 包安装
+# Using deb packages
 
-## 下载
+## Download
 
-根据不同版本及架构下载安装包，例如：
+Download the installation package according to different versions and architectures, E.g:
 
 ```bash
-$ wget https://www.emqx.com/en/downloads/neuron/2.4.0/neuronex-2.4.0-linux-amd64.deb
+$ wget https://www.emqx.com/en/downloads/neuronex/3.0.1/neuronex-3.0.1-linux-amd64.deb
 ```
 
-## 安装
-
-根据不同版本及架构安装，例如：
+## Install
 
 ```bash
-$ sudo dpkg -i neuronex-2.4.0-linux-amd64.deb
+$ sudo dpkg -i neuronex-3.0.1-linux-amd64.deb
 ```
 
-为避免 ubuntu 系统自动更新时替换 ECP Edge 包，还需要执行以下命令使 ECP Edge 软件包在 apt 升级中保留。
+## Start
 
 ```bash
-$ sudo apt-mark hold neuron
+$ sudo systemctl start neuronex
 ```
 
-::: tip
-成功安装 deb 包后，自启动 ECP Edge。
-:::
-
-## 状态
+## Status
 
 ```bash
-$ sudo systemctl status neuron
+$ sudo systemctl status neuronex
 ```
 
-## 停止
+## Stop
 
 ```bash
-$ sudo systemctl stop neuron
+$ sudo systemctl stop neuronex
 ```
 
-## 重启
+## Uninstall
 
+* Uninstall but retain configuration files, log files, and data files.
 ```bash
-$ sudo systemctl restart neuron
+$ sudo dpkg -r neuronex
 ```
-
-## 卸载
-
+* Uninstall and remove all files.
 ```bash
-$ sudo dpkg -r neuron
+$ sudo dpkg -P neuronex
 ```

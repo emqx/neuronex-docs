@@ -6,15 +6,15 @@
 
 用户可以直接使用标准 eKuiper 实例中的内置动作。内建动作的列表如下：
 
-- [MQTT sink](./mqtt.md)：输出到外部 mqtt 服务。
-- [Neuron sink](./neuron.md)：输出到本地的 Neuron 实例。
-- [EdgeX sink](./edgex.md)：输出到 EdgeX Foundry。此动作仅在启用 edgex 编译标签时存在。
-- [Rest sink](./rest.md)：输出到外部 http 服务器。
-- [Redis sink](./redis.md): 写入 Redis 。
-- [File sink](./file.md)： 写入文件。
-- [Memory sink](./memory.md)：输出到 eKuiper 内存主题以形成规则管道。
-- [Log sink](./log.md)：写入日志，通常只用于调试。
-- [Nop sink](./nop.md)：不输出，用于性能测试。
+- [MQTT](./mqtt.md)：输出到外部 mqtt 服务。
+- [Neuron](./neuron.md)：输出到本地的 Neuron 实例。
+- [EdgeX](./edgex.md)：输出到 EdgeX Foundry。此动作仅在启用 edgex 编译标签时存在。
+- [Rest](./rest.md)：输出到外部 http 服务器。
+- [Redis](./redis.md): 写入 Redis 。
+- [File](./file.md)： 写入文件。
+- [Memory](./memory.md)：输出到 eKuiper 内存主题以形成规则管道。
+- [Log](./log.md)：写入日志，通常只用于调试。
+- [Nop](./nop.md)：不输出，用于性能测试。
 
 ## 预定义插件（【attention】需要确认）
 
@@ -24,21 +24,21 @@
 
 预定义的动作插件列表：
 
-- [SQL sink](./sql.md)：写入 SQL 数据库。
-- [InfluxDB sink](./influx.md)： 写入 Influx DB `v1.x`。
-- [InfluxDBV2 sink](./influx2.md)： 写入 Influx DB `v2.x`。
-- [Tdengine sink](./tdengine.md)： 写入 Tdengine 。
-- [Image sink](./image.md)： 写入一个图像文件。仅用于处理二进制结果。
-- [ZeroMQ sink](./zmq.md)：输出到 Zero MQ 。
-- [Kafka sink](./kafka.md)：输出到 Kafka 。
+- [SQL](./sql.md)：写入 SQL 数据库。
+- [InfluxDB](./influx.md)： 写入 Influx DB `v1.x`。
+- [InfluxDBV2](./influx2.md)： 写入 Influx DB `v2.x`。
+- [Tdengine](./tdengine.md)： 写入 Tdengine 。
+- [Image](./image.md)： 写入一个图像文件。仅用于处理二进制结果。
+- [ZeroMQ](./zmq.md)：输出到 Zero MQ 。
+- [Kafka](./kafka.md)：输出到 Kafka 。
 
 ## 更新 Sink
 
 默认情况下，Sink 将数据附加到外部系统中。一些系统，如内存，支持更新或删除数据。与查找源类似，只有少数 Sink 是天然 "可更新 "的。可更新的 Sink 必须支持插入、更新和删除。产品自带的 Sink 中，可更新的包括: 
 
-- [内存 Sink](./memory.md)
-- [Redis Sink](./redis.md)
-- [SQL Sink](./sql.md)
+- [内存](./memory.md)
+- [Redis](./redis.md)
+- [SQL](./sql.md)
 
 为了激活更新功能，Sink 必须设置 `rowkindField` 属性，以指定数据中的哪个字段代表要采取的动作。在下面的例子中，`rowkindField` 被设置为 `action`。
 

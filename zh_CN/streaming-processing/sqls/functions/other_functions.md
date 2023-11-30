@@ -126,9 +126,7 @@ window_end()
 get_keyed_state(key, state_name)
 ```
 
-返回键在数据库中对应的值。第一个参数为 键 表达式，第二个参数为值类型，支持 bigint, float, string, boolean and datetime
-格式，第三个参数为默认值。默认数据库是sqlite，用户可以通过这个[配置](../../configuration/global_configurations.md#外部状态)
-更改数据库。
+返回键在数据库中对应的值。第一个参数为 键 表达式，第二个参数为值类型，支持 bigint, float, string, boolean and datetime格式，第三个参数为默认值。默认数据库是sqlite。
 
 ## DELAY
 

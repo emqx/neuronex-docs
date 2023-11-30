@@ -58,7 +58,6 @@ NeuronEX 支持通过批量导入规则，或通过 Web 界面创建规则。
    目前 NeuronEX 内置的 Sink 列表：
    - [MQTT sink](./sink/mqtt.md)：输出到外部 MQTT 服务。
    - [Neuron sink](./sink/neuron.md)：输出到本地的 Neuron 实例。
-   - [EdgeX sink](./sink/edgex.md)：输出到 EdgeX Foundry。此动作仅在启用 edgex 编译标签时存在。
    - [Rest sink](./sink/rest.md)：输出到外部 HTTP 服务器。
    - [Redis sink](./sink/redis.md): 写入 Redis。
    - [文件 sink](./sink/file.md)： 写入文件。

@@ -50,7 +50,7 @@
 
   - protobuf
   
-    Protobuf 是一种序列化结构数据的方式，当流格式设置为 `protobuf` 时，还应配置解码时使用的模式。模式可在 **数据流处理** -> **配置** -> **模式**中定义。有关模式的详细介绍，请查阅 [模式](./config.md#模式) 章节。
+    Protobuf 是一种序列化结构数据的方式，当流格式设置为 `protobuf` 时，还应配置解码时使用的模式。模式可在 **数据流处理** -> **配置** -> **模式**中定义。有关模式的详细介绍，请查阅 [模式](../config.md#模式) 章节。
 
   - Binary
   
@@ -181,13 +181,13 @@ NeuronEX 中的动作提供了缓存功能，用于在发送错误的情况下�
 默认情况下，Sink 将数据附加到外部系统中。一些系统，如内存，支持更新或删除数据。与查找源类似，只有少数 Sink 是`updateble`的。`updateble` Sink 必须支持插入、更新和删除。NeuronEX 内置的`updateble`类型的 Sink 包括: 
 
 - [内存](./memory.md)
-- [Redis](./redis.md)
 - [SQL](./sql.md)
+<!-- - [Redis](./redis.md) -->
 
 为了激活更新功能，Sink 必须设置 `rowkindField` 属性，以指定数据中的哪个字段代表要采取的动作。在下面的例子中，`rowkindField` 被设置为 `action`。
 
 ```json
-{"redis": {
+{"sql": {
   "addr": "127.0.0.1:6379",
   "dataType": "string",
   "field": "id",

@@ -13,7 +13,7 @@
 | [HTTP pull](./http_pull.md) | 从 HTTP 服务器中拉取数据                   |
 | [HTTP push](./http_push.md) | 通过 HTTP 推送数据到 NeuronEX              |
 | [内存](./memory.md)         | 从 NeuronEX 内存主题读取数据以形成规则流水线 |
-| [SQL](./redis.md)         | 从数据库中查询数据                        |
+| [SQL](./sql.md)         | 从数据库中查询数据                        |
 | [文件](./file.md)           | 从文件中读取数据                           |
 | [Video](./video.md)         | 从视频流中查询数据                        |
 

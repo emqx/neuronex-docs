@@ -10,7 +10,6 @@
 - [Neuron](./neuron.md)：输出到本地的 Neuron 实例。
 - [EdgeX](./edgex.md)：输出到 EdgeX Foundry。此动作仅在启用 edgex 编译标签时存在。
 - [Rest](./rest.md)：输出到外部 http 服务器。
-- [Redis](./redis.md): 写入 Redis 。
 - [File](./file.md)： 写入文件。
 - [Memory](./memory.md)：输出到 eKuiper 内存主题以形成规则管道。
 - [Log](./log.md)：写入日志，通常只用于调试。

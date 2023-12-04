@@ -76,7 +76,7 @@ NeuronEX 支持开启/关闭某个驱动节点的 debug 日志，方便用户调
  tail -f tail -f modbus-plus-tcp.log
 ```
 
-数据处理引擎日志查看命令为
+数据处理模块日志查看命令为
 
 ```shell
   tail -f /opt/neuronex/software/ekuiper/log/stream.log

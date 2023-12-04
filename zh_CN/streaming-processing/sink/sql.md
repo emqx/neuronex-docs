@@ -1,5 +1,7 @@
 # SQL 目标（Sink）
 
+<span style="background:green;color:white">updatable</span>
+
 此插件将结果写入 SQL 数据库。
 
 ## 编译部署插件

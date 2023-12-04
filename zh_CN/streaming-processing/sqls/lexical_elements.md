@@ -34,7 +34,7 @@ SELECT `a-b`, `hello world`, `中文Chinese` from demo
 SELECT, FROM, JOIN, LEFT, INNER, ON, WHERE, GROUP, ORDER, HAVING, BY, ASC, DESC, AND, OR, CASE, WHEN, THEN, ELSE, END, IN, NOT, BETWEEN, LIKE, OVER, PARTITION
 ```
 
-以下是使用名为 `from` 的流的示例，`from` 是数据处理引擎中的保留关键字。
+以下是使用名为 `from` 的流的示例，`from` 是数据处理模块中的保留关键字。
 
 ```sql
 SELECT * FROM demo1 where `from`="device1"

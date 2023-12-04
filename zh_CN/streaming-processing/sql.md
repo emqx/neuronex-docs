@@ -4,133 +4,93 @@
 <span style="background:green;color:white;padding:1px;margin:2px">扫描表</span>
 <span style="background:green;color:white;padding:1px;margin:2px">查询表</span>
 
-源将定期查询数据库以获取数据流。
+NeuronEX 数据处理模块通过 `SQL` 类型的数据源，支持对接`sqlserver`、`postgres`、`mysql`、`sqlite3`和`oracle`等数据库，可以定期查询数据库以获取数据流。
 
-## 编译和部署插件
+## 创建流
 
-此插件必须与至少一个数据库驱动程序一起使用。我们使用构建标签来确定将包含哪个驱动程序。[此处](https://github.com/lf-edge/ekuiper/tree/master/extensions/sqldatabase/driver)列出了所有支持的驱动程序。
+登录 NeuronEX，点击**数据流处理** -> **源管理**。在**流管理**页签，点击**创建流**。
 
-该插件默认支持 `sqlserver\postgres\mysql\sqlite3\oracle` 驱动。用户可以自己编译只支持一个驱动的插件，例如如果他只想要sqlserver，那么他可以用 build tag sqlserver 构建。
+在弹出的**源管理** / **创建**页面，进入如下配置：
 
-### 默认构建命令
+- **流名称**：输入流名称
+- **是否为带结构的流**：勾选确认是否为带结构的流，如为带结构的流，则需进一步添加流字段。可默认不勾选。
+- **流类型**：选择 SQL
+- **配置组**：可编辑使用默认配置组，或点击添加配置组，在弹出的对话框中进行如下设置，设置完成后，可点击**测试连接**进行测试：
 
-```shell
-# cd $eKuiper_src
-# go build -trimpath --buildmode=plugin -o plugins/sources/Sql.so extensions/sources/sql/*.go
-# cp plugins/sources/Sql.so $eKuiper_install/plugins/sources
-```
+  - **名称**：输入配置组名称。
+  - **数据库地址**：数据库的连接地址，各类数据库的详细配置请参考 [数据库连接地址](#数据库连接地址) 。
+  - **间隔时间**：发出查询的时间间隔（毫秒）。
+  - **TemplateSql**：SQL 语句模板，详见[SQL 语句模板示例](#sql-语句模板示例)。
+  - **indexField**：可选参数，表的哪一列作为索引来记录偏移量。
+  - **indexValue**：可选参数，初始索引值，如果用户指定该字段，查询将使用这个初始值作为查询条件，当获得更大的值时将更新下一个查询,需要为数字类型的值。 
+  - **indexFieldType**：可选参数，索引字段的列类型,如果是 dateTime 类型，必须将该字段设置为 DATETIME。
+  - **dateTimeFormat**：可选参数，索引字段的时间格式。
+- **流格式**：默认 json 格式。
+- **共享**：勾选确认是否共享源。
 
-### Sqlserver 构建命令
+### 数据库连接地址
 
-```shell
-# cd $eKuiper_src
-# go build -trimpath --buildmode=plugin -tags sqlserver -o plugins/sources/Sql.so extensions/sources/sql/*.go
-# cp plugins/sources/Sql.so $eKuiper_install/plugins/sources
-```
-
-重启 eKuiper 服务器以激活插件
-
-## 配置
-
-这个数据流的配置文件位于 `$ekuiper/etc/sources/sql.yaml`. 格式如下:
-
-```yaml
-default:
-  interval: 10000
-  url: mysql://user:test@140.210.204.147/user?parseTime=true
-  internalSqlQueryCfg:
-    table: test
-    limit: 1
-    indexField: registerTime
-    indexValue: "2022-04-21 10:23:55"
-    indexFieldType: "DATETIME"
-    dateTimeFormat: "YYYY-MM-dd HH:mm:ss"
-
-sqlserver_config:
-  url: sqlserver://username:password@140.210.204.147/testdb
-  internalSqlQueryCfg:
-    table: Student
-    limit: 10
-    indexField: id
-    indexValue: 1000
-
-template_config:
-  templateSqlQueryCfg:
-    TemplateSql: "select * from table where entry_data > {{.entry_data}}"
-    indexField: entry_data
-    indexValue: "2022-04-13 06:22:32.233"
-    indexFieldType: "DATETIME"
-    dateTimeFormat: "YYYY-MM-dd HH:mm:ssSSS"
-```
-
-### 全局配置
-
-用户可以在此处指定全局 sql 源设置。`default` 部分中指定的配置项将在运行此源时作为源的默认设置。
-
-### interval
-
-发出查询的时间间隔（毫秒）
-
-### url
-
-目标数据库地址
+数据库连接地址参考：
 
 | database   | url sample                                            |
 | ---------- | ----------------------------------------------------- |
-| mysql      | mysql://user:test@140.210.204.147/user?parseTime=true |
-| sql server | sqlserver://username:password@140.210.204.147/testdb  |
-| postgres   | postgres://user:pass@localhost/dbname                 |
-| postgres   | postgres://user:pass@localhost/dbname                 |
-| sqlite     | sqlite:/path/to/file.db                               |
+| mysql      | mysql://username:password@127.0.0.1:3306/testdb?parseTime=true |
+| sql server | sqlserver://username:password@127.0.0.1:1433/testdb  |
+| postgres   | postgres://username:password@127.0.0.1:5432/testdb             |
+| oracle     | oracle://username:password@127.0.0.1:1521/testdb               |
+| sqlite     | sqlite:/tmp/test.db                             |
 
-### internalSqlQueryCfg
+### SQL 语句模板示例
 
-* `table`: 要查询的表名
-* `limit`: 需要从结果中获取多少条目
-* `indexField`: 表的哪一列作为索引来记录偏移量
-* `indexValue`: 初始索引值，如果用户指定该字段，查询将使用这个初始值作为查询条件，当获得更大的值时将更新下一个查询
-* `indexFieldType`: 索引字段的列类型，如果是 dateTime 类型，必须将该字段设置为 `DATETIME`
-* `dateTimeFormat`: 索引字段的时间格式
+- 通过单独使用`TemplateSql`配置项，获取数据库数据。
+  
+  TemplateSql输入：
+  ```sql
+  select top 10 * from Student where id > 1010 order by id ASC
+  ```
+  向数据库执行的输出：
+  ```sql
+  select top 10 * from Student where id > 1010 order by id ASC
+  ```
 
-| table   | limit | indexField   | indexValue            | indexFieldType | dateTimeFormat        | sql query statement                                                                                 |
-| ------- | ----- | ------------ | --------------------- | -------------- | --------------------- | --------------------------------------------------------------------------------------------------- |
-| Student | 10    |              |                       |                |                       | select * from Student limit 10                                                                      |
-| Student | 10    | stun         | 100                   |                |                       | select * from Student where stun > 100 limit 10                                                     |
-| Student | 10    | registerTime | "2022-04-21 10:23:55" | "DATETIME"     | "YYYY-MM-dd HH:mm:ss" | select * from Student where registerTime > '2022-04-21 10:23:55' order by registerTime ASC limit 10 |
+- 通过`TemplateSql`配置项和`indexField`、`indexValue`组合使用，获取数据库数据。
 
-### templateSqlQueryCfg
+  indexField输入：`stun`
+  
+  indexValue输入：`100`
 
-* `TemplateSql`: sql语句模板
-* `indexField`: 表的哪一列作为索引来记录偏移量
-* `indexValue`: 同上
-* `indexFieldType`: 同上
-* `dateTimeFormat`: 同上
+  TemplateSql输入：
+  ```sql
+  select * from Student where stun > {{.stun}} limit 10
+  ```
+  向数据库执行的输出：
+  ```sql
+  select * from Student where stun > 100 limit 10
+  ```
+- 通过`TemplateSql`配置项和`indexField`、`indexValue`、`indexFieldType`、`dateTimeFormat`组合使用，获取数据库数据。
 
-::: v-pre
-| TemplateSql                                                                                       | indexField   | indexValue            | indexFieldType | dateTimeFormat        | sql query statement                                                                                 |
-| ------------------------------------------------------------------------------------------------- | ------------ | --------------------- | -------------- | --------------------- | --------------------------------------------------------------------------------------------------- |
-| select * from Student limit 10                                                                    |              |                       |                |                       | select * from Student limit 10                                                                      |
-| select * from Student where stun > {{.stun}} limit 10                                             | stun         | 100                   |                |                       | select * from Student where stun > 100 limit 10                                                     |
-| select * from Student where registerTime > '{{.registerTime}}' order by registerTime ASC limit 10 | registerTime | "2022-04-21 10:23:55" | "DATETIME"     | "YYYY-MM-dd HH:mm:ss" | select * from Student where registerTime > '2022-04-21 10:23:55' order by registerTime ASC limit 10 |
-:::
+  indexField输入：`registerTime`
+  
+  indexValue输入：`2022-04-21 10:23:55`
 
-### *注意*: 用户只需要设置 internalSqlQueryCfg 或 templateSqlQueryCfg，如果两者都设置，将使用 templateSqlQueryCfg
+  indexFieldType：`DATETIME`
 
-## 覆盖默认配置
+  dateTimeFormat：`YYYY-MM-dd HH:mm:ss`
 
-如果您有需要覆盖默认设置的特定连接，您可以创建自定义部分。在前面的示例中，我们创建了一个名为 `template_config` 的特定设置。然后，您可以在创建流定义时使用选项 `配置组` 指定配置。
+  TemplateSql输入：
+  ```sql
+  select * from Student where registerTime > '{{.registerTime}}' order by registerTime ASC limit 10
+  ```
+  向数据库执行的输出：
+  ```sql
+  select * from Student where registerTime > '2022-04-21 10:23:55' order by registerTime ASC limit 10
+  ```
 
-## 使用样例
+## 创建扫描表
 
-```text
-demo (
-  ...
- ) WITH (DATASOURCE="demo", FORMAT="JSON", CONF_KEY="template_config", TYPE="sql");
-```
+请参考[创建流](#创建流)部分。
 
-将使用配置键 `template_config`
-
-## 查询表
+## 创建查询表
 
 SQL 源支持成为一个查询表。我们可以使用创建表语句来创建一个 SQL 查询表。它将与实体关系数据库绑定并按需查询。
 

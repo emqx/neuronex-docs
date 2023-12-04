@@ -7,9 +7,9 @@
 - 如果您通过安装包的方式安装 NeuronEX ，则需要
   
   1. 手动安装 python 3.x 环境。
-  2. 通过 pip 安装`ekuiper`和`nng`库
+  2. 通过 pip 安装`ekuiper`和`pynng`库
   ```shell
-  pip install ekuiper nng
+  pip install ekuiper pynng
   ```
 
 - 如果您通过 docker 的方式安装 NeuronEX ，请使用[neuronex:3.x.x-python](../installation/docker.md#docker-容器-python-运行环境)类型的 NeuronEX 镜像，该镜像已经包含了 Python3 环境，以及一些相关的函数库。

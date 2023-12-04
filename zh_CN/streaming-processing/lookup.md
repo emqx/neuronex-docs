@@ -99,11 +99,8 @@
 
 流数据变化频繁，数据量大，通常只包含需要经常变化的数据；而不变或者变化较少的数据通常存储于数据库等外部存储中。在应用处理时，通常需要将流数据中缺少的静态数据补全。例如，流数据中包含了设备的 ID，但设备的具体名称，型号的描述数据存储于数据库中。本场景中，我们将介绍如何将流数据与批数据结合，进行自动数据补全。
 
-### SQL 插件安装和配置
+### SQL 插件配置
 
-本场景将使用 MySQL 作为外部表数据存储位置。NeuronEX 提供了预编译的 SQL source 插件，可访问 MySQL 数据并将其作为查询表。因此，在开始教程之前，我们需要先安装 SQL source 插件。在 NeuronEX Web 界面，可直接在插件管理中，点击创建插件，如下图选择 SQL source 插件进行安装。
-
-<img src="./_assets/install_sql_source.png" alt="Install SQL source" style="zoom:50%;" />
 
 本场景将以 MySQL 为例，介绍如何与关系数据库进行连接。用户需要启动 MySQL 实例。在 MySQL 中创建表 `devices`, 其中包含 `id`, `name`, `deviceKind` 等字段并提前写入内容。
 

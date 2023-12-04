@@ -554,6 +554,10 @@
               ]
             },
             {
+              "title": "Neuron",
+              "path": "streaming-processing/neuron"
+            },
+            {
               "title": "MQTT",
               "path": "streaming-processing/mqtt"
             },
@@ -570,16 +574,12 @@
               "path": "streaming-processing/memory"
             },
             {
-              "title": "Neuron",
-              "path": "streaming-processing/neuron"
+              "title": "SQL",
+              "path": "streaming-processing/sql"
             },
             {
               "title": "文件",
               "path": "streaming-processing/file"
-            },
-            {
-              "title": "SQL",
-              "path": "streaming-processing/sql"
             },
             {
               "title": "Video",
@@ -588,12 +588,16 @@
           ]
         },
         {
-          "title": "规则管理",
+          "title": "规则",
           "path": "streaming-processing/rules",
           "collapsed": true,
           "children": [
             {
-              "title": "规则管道",
+              "title": "规则管理",
+              "path": "streaming-processing/rule_status"
+            },
+            {
+              "title": "规则流水线",
               "path": "streaming-processing/rule_pipeline"
             }
           ]
@@ -623,14 +627,6 @@
                   "path": "streaming-processing/sink/rest"
                 },
                 {
-                  "title": "Redis",
-                  "path": "streaming-processing/sink/redis"
-                },
-                {
-                  "title": "文件",
-                  "path": "streaming-processing/sink/file"
-                },
-                {
                   "title": "内存",
                   "path": "streaming-processing/sink/memory"
                 },
@@ -639,15 +635,11 @@
                   "path": "streaming-processing/sink/log"
                 },
                 {
-                  "title": "Nop",
-                  "path": "streaming-processing/sink/nop"
-                },
-                {
                   "title": "SQL",
                   "path": "streaming-processing/sink/sql"
                 },
                 {
-                  "title": "InfluxDB",
+                  "title": "InfluxDB V1",
                   "path": "streaming-processing/sink/influx"
                 },
                 {
@@ -655,8 +647,12 @@
                   "path": "streaming-processing/sink/influx2"
                 },
                 {
-                  "title": "Kafka",
-                  "path": "streaming-processing/sink/kafka"
+                  "title": "文件",
+                  "path": "streaming-processing/sink/file"
+                },
+                {
+                  "title": "Nop",
+                  "path": "streaming-processing/sink/nop"
                 }
               ]
             }

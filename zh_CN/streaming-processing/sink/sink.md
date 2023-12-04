@@ -7,17 +7,17 @@
 用户可以直接使用 NeuronEX 的内置动作。动作类型的列表如下：
 
 - [MQTT](./mqtt.md)：输出到外部 MQTT 服务。
-- [Neuron](./neuron.md)：输出到NeuronEX的数采引擎模块。
+- [Neuron](./neuron.md)：输出到NeuronEX的数采模块。
 - [REST](./rest.md)：输出到外部 HTTP 服务器。
-- [Redis](./redis.md): 写入 Redis。
-- [文件](./file.md)： 写入文件。
-- [内存](./memory.md)：输出到内存主题以形成规则管道。
+- [内存](./memory.md)：输出到内存主题以形成规则流水线。
 - [Log](./log.md)：写入日志，通常只用于调试。
-- [Nop](./nop.md)：不输出，用于性能测试。
 - [SQL](./sql.md)：写入 SQL 数据库。
 - [InfluxDB](./influx.md)： 写入 InfluxDB `v1.x`。
 - [InfluxDB V2](./influx2.md)： 写入 InfluxDB `v2.x`。
-- [Kafka](./kafka.md)：输出到 Kafka 。
+- [文件](./file.md)： 写入文件。
+- [Nop](./nop.md)：不输出，用于性能测试。
+<!-- - [Redis](./redis.md): 写入 Redis。 -->
+<!-- - [Kafka](./kafka.md)：输出到 Kafka 。 -->
 <!-- - [Image sink](./image.md)： 写入一个图像文件。仅用于处理二进制结果。 -->
 <!-- - [ZeroMQ sink](./zmq.md)：输出到 Zero MQ 。 -->
 
@@ -132,7 +132,6 @@
 - **最大磁盘缓存**：缓存在磁盘中的最大消息数。
 - **缓冲区页面大小**：缓冲区页的消息数，单位为批量读/写磁盘，防止频繁 IO。
 - **重发间隔**：重新发送缓存消息的时间间隔（毫秒）。
-- **是否异步运行**：设置是否异步运行输出操作以提升性能。请注意，异步运行时，将无法保证输出结果的顺序。
 
 
 ## 数据缓存

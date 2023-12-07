@@ -1,82 +1,78 @@
-# Neuron 源
+# Neuron 
 
-<span style="background:green;color:white;">流</span>        <span style="background:green;color:white">扫描表</span>
+<span style="background:green;color:white;">Stream</span>        <span style="background:green;color:white">Scan table</span>
 
-::: danger
+The NeuronEX data processing module can receive data from the NeuronEX data collection module through `Neuron` type data sources and process and analyze them through rules.
 
-【attention】这一段需要看下
 
-:::
+In NeuronEX **Data Processing** -> **Sources**, under the **Stream** tab, NeuronEX has configured the `Neuron` type data source neuronStream by default.
 
-ECP Edge 为 Neuron 源流提供了内置支持，流可以订阅来自本地 Neuron 的消息并输入 ECP Edge  处理。
+<img src="./_assets/source_neuronStream.png" alt="neuronstream" style="zoom:100%;" />
 
-:::tip
 
-该源仅可用于本地的 neuron，因为与 neuron 的通信基于 nanomsg ipc 协议，无法通过网络进行。在 ECP Edge 端，所有 neuron 源和动作共享同一个 neuron 连接。
 
-由于拨号到 Neuron 是异步的，因此即使 Neuron 停机，Neuron sink 的规则也不会看到报错。用户可通过消息流入数量判断连接是否正常。
+To send data from the NeuronEX data collection module to neuronStream, you need to add and subscribe the driver data to the `DataProcessing` node under the NeuronEX **Data collection** -> **North Apps** tab, as shown in the following figure:
 
-:::
+<img src="./_assets/neuron_dataprocessing.png" alt="dataprocessing" style="zoom:100%;" />
 
-## 消息格式
 
-Neuron 发过来的消息为固定的 json 格式，如下所示： 
+Then, users can directly select `neuronStream` as the data source in **Data Processing** -> **Rules** -> **Create Rule** to create rules.
+```sql
+
+SELECT * FROM neuronStream
+```
+
+## Message format
+
+The message sent by Neuron is in a fixed json format, as shown below:
 
 ```json
 {
-  "timestamp": 1646125996000,
-  "node_name": "node1", 
-  "group_name": "group1",
-  "values": {
-    "tag_name1": 11.22,
-    "tag_name2": "string"
-  },
-  "errors": {
-    "tag_name3": 122
-  }
+   "timestamp": 1646125996000,
+   "node_name": "node1",
+   "group_name": "group1",
+   "values": {
+     "tag_name1": 11.22,
+     "tag_name2": "string"
+   },
+   "errors": {},
+   "metas":{}
 }
 ```
 
 
 
-## 创建流
+## Create stream
 
-登录 ECP Edge，点击**数据流处理** -> **源管理**。在**流管理**页签，点击**创建流**。
+Create a stream of type `Neuron`. Log in to NeuronEX and click **Data Processing** -> **Sources**. On the **Stream** tab, click **Create Stream**.
 
-在弹出的**源管理** / **创建**页面，进入如下配置：
+In the pop-up **Sources**/**Create** page, enter the following configuration:
 
-- **流名称**：输入流名称
-- **是否为带结构的流**：勾选确认是否为带结构的流，如为带结构的流，则需进一步添加流字段
+- **Stream Name**: Enter the stream name
+- **Whether the schema stream**: It can be unchecked by default.
+- **Stream Type**: Select neuron.
+- **Configuration key**: You can use the default configuration key. If you want to customize the configuration key, you can click the Add Configuration key button and make the following settings in the pop-up dialog box. 
 
-  - **名称**：字段名称
-  - **类型**：支持 bigint、float、string、datetime、boolean、array、struct、bytea
-- **流类型**：选择 neuron。
-- **数据源**（MQTT 主题）：将要订阅的 MQTT 主题， 例如 topic1。
-- **配置组**：可使用默认配置组，如希望自定义配置组，可点击添加配置组按钮，在弹出的对话框中进行如下设置，设置完成后，可点击**测试连接**进行测试：
+   - **Name**: Enter the configuration key name.
+   - **Path**: The URL connecting to the NeuronEX data mining module service. The default is tcp://127.0.0.1:7081, which needs to match the URL of the NeuronEX data mining module.
+- **Stream format**: Select `json` format.
+- **Shared**: Check whether to share the source, you can check it or not.
 
-  - **名称**：输入配置组名称。
-  - **路径**：连接 Neuron 的 nng url
-- **流格式**：支持 json、binary、protobuf、delimited、custom。
-  - 如选择 protobuf 或 custom，还应配置对应的[模式和模式消息](./config.md#模式)
-  - 如选择 delimited，还应配置分隔符，如 ","
+:::tip Tips
+A `Neuron` type data source named neuronStream has been configured by default and can be used directly by users. After neuronStream is deleted, it can be created through the above steps.
+:::
 
-- **时间戳字段**：指定代表时间的字段。
-- **时间戳格式**：指定时间戳格式。
-- **共享**：勾选确认是否共享源。
+## Create scan table
 
-## 创建扫描表
+Create a scan table of type `Neuron`. Log in to NeuronEX and click **Data Processing** -> **Sources**. On the **Scan Table** tab, click **Create Scan Table**.
 
-MQTT 源支持查询表。登录 ECP Edge，点击**数据流处理** -> **源管理**。在**扫描表**页签，点击**创建扫描表**。
+- **Table Name**: Enter the table name
+- **Whether the schema stream**: It can be unchecked by default.
+- **Table Type**: Select neuron.
+- **Configuration key**: You can use the default configuration key. If you want to customize the configuration key, you can click the Add Configuration key button and make the following settings in the pop-up dialog box. 
 
-- **表名称**：输入表名称
-- **是否为带结构的表**：勾选确认是否为带结构的表，如为带结构的表，则需进一步添加表字段
-  - **名称**：字段名称
-  - **类型**：支持 bigint、float、string、datetime、boolean、array、struct、bytea
-- **表类型**：选择 neuron。
-- **配置组**：可使用默认配置组，如希望自定义配置组，可参考[创建流](#创建流)部分
-- **表格式**：支持 json、binary、delimited、custom。
-  - 如选择 custom，还应配置对应的[模式和模式消息](./config.md#模式)
-  - 如选择 delimited，还应配置分隔符，如 ","
-
-- **保留大小**：指定保留大小。
+   - **Name**: Enter the configuration key name.
+   - **Path**: The URL connecting to the NeuronEX data mining module service. The default is tcp://127.0.0.1:7081, which needs to match the URL of the NeuronEX data mining module.
+- **Table Format**: Select `json` format.
+- **Retain Size**: Specify the Retain size, default is 1.
 

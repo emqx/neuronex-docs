@@ -1,67 +1,66 @@
-# NeuronEX 架构
+# NeuronEX Architecture
 
-NeuronEX 是一款面向工业领域的设备数据采集和边缘智能分析的软件，主要部署在工业现场，实现工业设备通信及工业总线协议采集、工业系统数据集成、边端数据过滤分析和AI算法集成，以及工业互联网平台对接集成等功能，为工业场景提供低延迟的数据接入管理及智能分析服务。
+NeuronEX is a software designed for device data collection and edge intelligent analysis in the industrial sector. It is primarily deployed in industrial settings to achieve industrial equipment communication, industrial bus protocol collection, integration of industrial system data, edge data filtering analysis, and AI algorithm integration. Additionally, it facilitates integration with industrial IoT platforms. NeuronEX delivers low-latency data access management and intelligent analytical services tailored for industrial scenarios.
 
 <img src="./_assets/architect.png" alt="架构" style="zoom:100%;" />
 
-如上图所示，NeuronEX 主要分为`数据采集接入`、`数据处理分析`、`数据转发存储`以及`系统管理`等模块。
+As shown in the diagram, NeuronEX is primarily divided into modules such as Data Collection, Data Processing and Analysis, Data Forwarding and Storage, and System Management.
 
-## 数据采集接入模块
+## Data Collection Module
 
-在数据采集接入方面，NeuronEX 不仅支持**工业设备数据采集**，还支持工业现场**多源数据接入集成**。
+In the realm of data collection, NeuronEX not only supports industrial equipment data collection but also facilitates the integration of multi-source data from the industrial site.
 
-### 工业设备数据采集
+### Industrial Equipment Data Collection
 
-NeuronEX 通过插件的方式实现对各种工业协议的支持，包括 Modbus、OPC UA、EtherNet/IP、IEC104、BACnet、Siemens PLC、Mitsubishi PLC等。满足智能制造、石油石化、钢铁冶金、能源电力以及楼宇自动化等各个行业的数据采集接入需求。
+NeuronEX supports various industrial protocols through plugins, including Modbus, OPC UA, EtherNet/IP, IEC104, BACnet, Siemens PLC, and Mitsubishi PLC. This meets the data collection needs of diverse industries such as smart manufacturing, oil and gas, steel and metallurgy, energy, and building automation.
 
-### 多源数据接入集成
-NeuronEX 还具备各类数据灵活获取的能力，在工业场景下，可以支持：
+### Integration of Multi-Source Data
+NeuronEX also possesses the capability to flexibly acquire various types of data. In industrial settings, it can support:
 
-- MES、WMS、ERP系统对接
+- **Integration with MES, WMS, and ERP Systems**
   
-  [HTTP Pull](../streaming-processing/http_pull.md)及[HTTP Push](../streaming-processing/http_push.md)的方式与MES、WMS、ERP系统对接，进行数据的双向收发
+  Integration with MES, WMS, and ERP systems is achieved through [HTTP Pull](../streaming-processing/http_pull.md) and [HTTP Push](../streaming-processing/http_push.md), facilitating bidirectional data exchange.
 
-- 数据库对接
+- **Database Integration**
   
-  SQLite、MySQL、SQLserver等数据库数据获取
+  NeuronEX supports data retrieval from databases like SQLite, MySQL, SQL Server, and others.
 
-- 企业服务总线（ESB）对接
+- **Enterprise Service Bus (ESB) Integration**
   
-  [HTTP Pull](../streaming-processing/http_pull.md)及[HTTP Push](../streaming-processing/http_push.md)的方式双向对接企业服务总线，向企业服务总线推送数据以及接收数据
+  Bidirectional integration with the Enterprise Service Bus (ESB) is achieved [HTTP Pull](../streaming-processing/http_pull.md) and [HTTP Push](../streaming-processing/http_push.md), enabling data push and pull operations with the ESB.
     
-- [文件](../streaming-processing/file.md)数据采集
-
-- 视频流接入分析
-
-## 数据处理分析模块
-
-NeuronEX 提供低延迟的数据处理分析，能够更快速地将数据在多系统间传递，结合 AI/ML 算法，可以实现智能决策与控制。此外，边缘端分析还可以对数据做预处理和边缘计算，减少云边通讯负载及后端存储压力。
-
-NeuronEX 的数据处理分析模块可提供以下能力：
-
-- 数据标准化
+- **[File](../streaming-processing/file.md) Data Collection**
   
-  NeuronEX支持对工业场景各类型设备的数据进行标准化，包括数据类型转换、数据单位转换、数据格式转换等，满足工业场景下数据标准化的需求。
+  NeuronEX supports data collection from files in CSV, JSON, and other formats.
 
-- 数据过滤清洗
+- **Video Stream Access and Analysis**
 
-  NeuronEX 内置数据抽取、转换、过滤、排序、分组、聚合、连接等功能，内置 160+ 各类函数，覆盖数学运算、字符串处理、聚合运算和哈希运算等，可满足各种数据过滤清洗的需求。
+## Data Processing and Analysis Module
 
-- 实时数据流处理
-  
-  NeuronEX 提供了对数据流实时低延迟处理的能力，支持工业场景下多系统之间的数据实时交互、协同处理，实现全域的互联互通及智能决策。
+NeuronEX provides low-latency data processing and analysis, facilitating rapid data transfer across multiple systems. Leveraging AI/ML algorithms enables intelligent decision-making and control. Edge-side analysis involves preprocessing and edge computing, reducing the load on cloud-edge communication and backend storage pressure.
 
-- AI/ML 算法集成
-    
-  NeuronEX 支持用户自定义函数扩展和 AI 算法集成，提供智能数据分析能力。
+Capabilities of NeuronEX's Data Processing and Analysis Module include:
 
+- Data Standardization
 
-## 数据转发存储模块
+  NeuronEX supports standardization of data from various types of industrial devices, including data type conversion, unit conversion, and format conversion, meeting the standardization needs in industrial scenarios.
 
-NeuronEX 支持将数据转发到云平台或外部系统，实现数据的传递，支持MQTT、SparkplugB、HTTP、Websocket等数据传递方式，也支持将数据存储到数据库中。
+- Data Filtering and Cleaning
 
+  NeuronEX has built-in functions for data extraction, transformation, filtering, sorting, grouping, aggregation, and connection. With over 160 built-in functions, it covers mathematical operations, string processing, aggregation, and hash operations, meeting diverse data filtering and cleaning requirements.
 
-## 系统管理模块
+- Real-time Data Stream Processing
 
-NeuronEX 系统管理模块包含系统配置、认证、日志、监控告警等功能。
-如何使用NeuronEX 系统管理模块，请参考 [运维指南](../admin/introduction.md)。
+  NeuronEX offers the capability for real-time, low-latency processing of data streams. It supports real-time interaction and collaborative processing of data across multiple systems in industrial scenarios, achieving seamless interconnectivity and intelligent decision-making.
+
+- AI/ML Algorithm Integration
+
+  NeuronEX supports user-defined function extensions and AI algorithm integration, providing intelligent data analysis capabilities.
+
+## Data Forwarding and Storage Module
+
+NeuronEX supports data forwarding to cloud platforms or external systems, enabling data transmission through MQTT, SparkplugB, HTTP, Websocket, and supports data storage in databases.
+
+## System Management Module
+
+NeuronEX's System Management Module includes functionalities such as system configuration, authentication, logs, monitoring, and alerts. For guidance on using NeuronEX's System Management Module, refer to the [Operations Guide](../admin/introduction.md).

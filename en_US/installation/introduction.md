@@ -27,7 +27,7 @@ For Windows operating systems, the following installation methods are supported:
 
 ## Hardware Requirements
 
-NeuronEX supports running on x86, ARM and other hardware architectures as well as container deployment, such as Kubernetes, KubeEdge, etc. It can be deployed on various hardware in industrial settings, including **industrial control machines**, **gateway devices**, and **servers**. On devices with limited hardware resources, it can also achieve data acquisition of 100 ms. On servers with sufficient hardware resources,  NeuronEX can fully utilize multi-core CPUs to simultaneously perform high-frequency data acquisition and control tag writing for tens of thousands of data tags.
+NeuronEX supports running on x86, ARM and other hardware architectures as well as container deployment, such as Kubernetes, KubeEdge, etc. It can be deployed on various hardware in industrial settings, including **industrial control machines**, **gateway devices**, and **servers**. On devices with limited hardware resources, it can also achieve data collection of 100 ms. On servers with sufficient hardware resources,  NeuronEX can fully utilize multi-core CPUs to simultaneously perform high-frequency data collection and control tag writing for tens of thousands of data tags.
 
 The following table lists the hardware conditions required for the minimum demand of NeuronEX at different number of tags.
 

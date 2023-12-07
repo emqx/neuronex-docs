@@ -16,7 +16,7 @@ NeuronEX 数据处理模块通过 `HTTP Push` 类型的数据源，可以在内�
 $ docker run -d --name neuronex -p 8085:8085 -p 10081:10081 --log-opt max-size=100m emqx/neuronex:latest
 ```
 
-## 创建流（源配置）
+## 创建流
 
 登录 NeuronEX，点击**数据流处理** -> **源管理**。在**流管理**页签，点击**创建流**。
 
@@ -37,7 +37,7 @@ $ docker run -d --name neuronex -p 8085:8085 -p 10081:10081 --log-opt max-size=1
 
 
 
-## 创建扫描表（源配置）
+## 创建扫描表
 
 HTTP Push 源支持查询表。登录 NeuronEX，点击**数据流处理** -> **源管理**。在**扫描表**页签，点击**创建扫描表**。
 

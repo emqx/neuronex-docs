@@ -16,7 +16,7 @@ $ cd neuronex-3.0.1-linux-amd64
 ```
 
 ::: tip 
-GLIC 需要 2.31 以上版本。
+GLIBC 需要 2.31 以上版本。
 :::
 
 ## 启动

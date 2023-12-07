@@ -1,48 +1,45 @@
-# InfluxDB 目标（Sink）
+# InfluxDB Sink
 
-该插件将分析结果发送到 InfluxDB 中。
-## 编译部署插件
+The sink will publish the result into InfluxDB `V1`.
 
-在编译之前，请对源代码做如下更改：
+## Properties
 
-- 在 `go.mod` 文件中增加对 InfluxDB 库文件的引用
--  把文件 `plugins/sinks/influxdb.go` 中的第一行 `// +build plugins` 删除
+Connection properties:
 
-```shell
-# cd $eKuiper_src
-# go build -trimpath --buildmode=plugin -o plugins/sinks/InfluxDB.so extensions/sinks/influxdb/influxdb.go
-# zip influx.zip plugins/sinks/InfluxDB.so
-# cp influx.zip /root/tomcat_path/webapps/ROOT/
-# bin/kuiper create plugin sink influx -f /tmp/influxPlugin.txt
-# bin/kuiper create rule influx -f /tmp/influxRule.txt
-```
+| Property name        | Optional | Description                                                                                                                                                                                                                                                                                                                                                |
+|----------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| addr                 | true     | The addr of the InfluxDB                                                                                                                                                                                                                                                                                                                                   |
+| username             | false    | The InfluxDB login username                                                                                                                                                                                                                                                                                                                                |
+| password             | false    | The InfluxDB login password                                                                                                                                                                                                                                                                                                                                |
+| database             | true     | The database of the InfluxDB                                                                                                                                                                                                                                                                                                                               |
+| certificationPath    | true     | The certification path. It can be an absolute path, or a relative path. If it is an relative path, then the base path is where you executing the `kuiperd` command. For example, if you run `bin/kuiperd` from `/var/kuiper`, then the base path is `/var/kuiper`; If you run `./kuiperd` from `/var/kuiper/bin`, then the base path is `/var/kuiper/bin`. |
+| privateKeyPath       | true     | The private key path. It can be either absolute path, or relative path, which is similar to use of certificationPath.                                                                                                                                                                                                                                      |
+| rootCaPath           | true     | The location of root ca path. It can be an absolute path, or a relative path, which is similar to use of certificationPath.                                                                                                                                                                                                                                |
+| tlsMinVersion        | true     | Specifies the minimum version of the TLS protocol that will be negotiated with the client. Accept values are `tls1.0`, `tls1.1`, `tls1.2` and `tls1.3`. Default: `tls1.2`.                                                                                                                                                                                 |
+| renegotiationSupport | true     | Determines how and when the client handles server-initiated renegotiation requests. Support `never`, `once` or `freely` options. Default: `never`.                                                                                                                                                                                                         |
+| insecureSkipVerify   | true     | If InsecureSkipVerify is `true`, TLS accepts any certificate presented by the server and any host name in that certificate.  In this mode, TLS is susceptible to man-in-the-middle attacks. The default value is `false`. The configuration item can only be used with TLS connections.                                                                    |
 
-重新启动 ECP Edge 以激活插件。
+Write options:
 
-## 属性
+| Property name | Optional | Description                                                                                                                                                                                                                                                                                                                                                     |
+|---------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| measurement   | false    | The measurement of the InfluxDb (like table name)                                                                                                                                                                                                                                                                                                               |
+| tags          | true     | The tags to write, the format is like {"tag1":"value1"}. The value can be dataTemplate format, like <span v-pre>{"tag1":"{{.temperature}}"}</span>                                                                                                                                                                                                              |
+| fields        | true     | The fields to write, the format is like ["field1", "field2"]. If fields is not set, all fields selected in the SQL will all written to InfluxDB.                                                                                                                                                                                                                |
+| precision     | true     | The precision of the timestamp. Support `ns`, `us`, `ms`, `s`. Default: `ms`.                                                                                                                                                                                                                                                                                   |
+| tsFieldName   | true     | The field name of the timestamp. If set, the written timestamp will use the value of the field. For example, if the data has {"ts": 1888888888} and the tsFieldName is set to ts, then the value 1888888888 will be used when written to InfluxDB. Make sure the value is formatted according to the precision. If not set, the current timestamp will be used. |
 
-| 属性名称     | 是否可选 | 说明                      |
-| ------------ | -------- | ------------------------- |
-| addr         | 是       | InfluxDB 的地址           |
-| measurement  | 是       | InfluxDB 的测量（如表名） |
-| username     | 否       | InfluxDB 登陆用户名       |
-| password     | 否       | InfluxDB 登陆密码         |
-| databasename | 是       | InfluxDB 数据库名称       |
-| tagkey       | 是       | InfluxDB 的标签键         |
-| tagvalue     | 是       | InfluxDB 的标签值         |
+Other common sink properties including batch settings are supported. Please refer to
+the [sink common properties](../overview.md#common-properties) for more information.
 
-其他通用的 sink 属性也支持，请参阅[公共属性](./sink.md#公共属性)。
+## Sample usage
 
-## 示例
-
-下面是选择温度大于50度的样本规则，和一些配置文件仅供参考。
-
-### /tmp/influxRule.txt
+Below is a sample for selecting temperature greater than 50 degree and write into influxDB.
 
 ```json
 {
   "id": "influx",
-  "sql": "SELECT * from  demo_stream where temperature > 50",
+  "sql": "SELECT * from demo_stream where temperature > 50",
   "actions": [
     {
       "log": {},
@@ -51,33 +48,11 @@
        "username": "",
        "password": "",
        "measurement": "test",
-       "databasename": "databasename",
-       "tagkey": "tagkey",
-       "tagvalue": "tagvalue",
+        "database": "databasename",
+        "tags": "{\"tag1\":\"value1\"}",
        "fields": ["humidity", "temperature", "pressure"]
       }
     }
   ]
 }
-```
-### /tmp/influxPlugin.txt
-```json
-{
-  "file":"http://localhost:8080/influx.zip"
-}
-```
-### plugins/go.mod
-```
-module plugins
-
-go 1.14
-
-require (
-        github.com/lf-edge/ekuiper v0.0.0-20200323140757-60d00241372b
-        github.com/influxdata/influxdb-client-go v1.2.0
-        github.com/influxdata/influxdb1-client v0.0.0-20200515024757-02f0bf5dbca3 // indirect
-)
-
-replace github.com/lf-edge/ekuiper => /root/goProject/ekuiper
-
 ```

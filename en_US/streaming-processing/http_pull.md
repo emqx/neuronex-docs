@@ -1,109 +1,122 @@
-# HTTP Pull 源
+# HTTP Pull
 
-<span style="background:green;color:white;">流</span>        <span style="background:green;color:white">扫描表</span>
+<span style="background:green;color:white;">Stream</span>        <span style="background:green;color:white">Scan table</span>
 
-ECP Edge 默认支持 HTTP Pull 源，该支持可从 HTTP 服务器代理提取消息并输入 ECP Edge，该类型可以作为流、扫描表的数据源。
+The NeuronEX data processing module can obtain data from the HTTP server through the `HTTP Pull` type of data source, which can be used as a data source for streams and scan tables.
 
-## 创建流
+## Create stream
 
-登录 ECP Edge，点击**数据流处理** -> **源管理**。在**流管理**页签，点击**创建流**。
+Log in to NeuronEX and click **Data Processing** -> **Source**. On the **Stream** tab, click **Create Stream**.
 
-在弹出的**源管理** / **创建**页面，进入如下配置：
+In the pop-up **Source**/**Create** page, enter the following configuration:
 
-- **流名称**：输入流名称
-- **是否为带结构的流**：勾选确认是否为带结构的流，如为带结构的流，则需进一步添加流字段
+- **Stream Name**: Enter the stream name
+- **Whether the schema stream**: Check to confirm whether it is a structured stream. If it is a structured stream, you need to add further stream fields. It can be unchecked by default.
+- **Stream Type**: Select httppull.
+- **Data source (URL Endpoint)**: The path part of the specified URL is concatenated with the `path` attribute in the configuration key to form the final URL. For example, the `path` attribute in the configuration key is filled in as `http://127.0.0.1:7000`, and the **data source (URL splicing path)** is filled in as `/api/data`, then the complete HTTP request address is :`http://127.0.0.1:7000/api/data`.
+- **Configuration key**: You can use the default configuration key. If you want to customize the configuration key, you can click the Add Configuration key button and make the following settings in the pop-up dialog box.
 
-  - **名称**：字段名称
-  - **类型**：支持 bigint、float、string、datetime、boolean、array、struct、bytea
-- **流类型**：选择 httppull。
-- **数据源**：指定 URL 的路径部分，与 URL 属性拼接成最终 URL， 例如 /api/data。
-- **配置组**：可使用默认配置组，如希望自定义配置组，可点击添加配置组按钮，在弹出的对话框中进行如下设置，设置完成后，可点击**测试连接**进行测试：
+   - **Name**: Enter the configuration key name.
 
-  - **名称**：输入配置组名称。
+   - **Path**: Specify the address of the requested server.
 
-  - **路径**： 指定请求服务器的地址。
+   - **HTTP method**: HTTP request method, which can be post, get, put or delete.
 
-  - **HTTP 方法**：HTTP 请求方法，可以是 post、get、put 或 delete。
+   - **Interval**: The time interval between two requests, in milliseconds.
 
-  - **间隔时间**： 两次请求之间的时间间隔，单位为毫秒。
+   - **Timeout**: HTTP request timeout, in milliseconds.
 
-  - **超时时间**： HTTP 请求的超时时间，单位为毫秒。
+   - **Increment**: If set to True, the result will be compared with the last time; if the response of two consecutive requests is the same, the new result will not be sent. The default value is False.
 
-  - **递增**： 如果设置为 True，将会与上一次的结果进行比较；如果连续两次请求的响应相同，则不会发送新的结果。可选值：True/False。
+   - **Text**: The body of the request, for example `{"data": "data", "method": 1}`.
 
-  - **正文**：请求的正文，例如 `{"data": "data", "method": 1}`。
+   - **Text type**: Text type, which can be none, text, json, html, xml, javascript or form.
 
-  - **正文类型**： 正文类型，可以是 none、text、json、html、xml、javascript 或 form。
+   - **Certificate Type**: Optional parameter, fill in the certificate path, which can be an absolute path or a relative path. If a relative path is specified, the parent directory is the path where the neuronex command is executed. Example value: `/var/xyz-certificate.pem`
 
-  - **证书类型**：证书路径。可以为绝对路径，也可以为相对路径。如果指定的是相对路径，那么父目录为执行 server 命令的路径。
+   - **Private key path**: Optional parameter, which can be an absolute path or a relative path. Example value: `/var/xyz-private.pem.key`
 
-  - **私钥路径**：私钥路径。可以为绝对路径，也可以为相对路径。
+   - **Root Certificate Path**: Optional parameter to verify the server certificate. It can be an absolute path or a relative path. Example value: `/var/xyz-rootca.pem`
 
-  - **根证书路径**：根证书路径，用以验证服务器证书。可以为绝对路径，也可以为相对路径。
+   - **Skip certificate verification**: Control whether to skip certificate verification. If set to True, certificate verification will be skipped; otherwise, certificate verification will be performed.
 
-  - **跳过证书验证**：控制是否跳过证书认证。如设置为 True，将跳过证书认证；否则进行证书验证。
+   - **HTTP Headers**: HTTP request headers that need to be sent with the HTTP request.
 
-  - **HTTP 标头**： 需要与 HTTP 请求一起发送的 HTTP 请求标头。
+   - **Response type**: Response type, which can be `code` or `body`. If it is `code`, NeuronEX will check the HTTP response code to determine the response status. If `body` is used, NeuronEX checks the HTTP response body, requires it to be in JSON format, and checks the value of the code field. Defaults to `code`.
 
-  - **响应类型**： 响应类型,可以是 `code` 或者 `body`，如果是 `code`，那么 ECP Edge 会检查 HTTP 响应码来判断响应状态。如果是 `body`，那么 ECP Edge 会检查 HTTP 响应正文，要求其为 JSON 格式，并且检查 code 字段的值。
+   - **oAuth**: Configure the OAuth verification process. 
 
-  - **oAuth**： 配置 OAuth 验证流程，关于 OAuth 的详细介绍，见 [OAuth](#OAuth)
+     - access
+       - url: The URL to obtain the access code, always use the POST method to access.
+       - body: The request body to obtain the access token. Typically, the authorization code is provided here.
+       - expire: The expiration time of the token, the time unit is seconds, templates are allowed, so it must be a string.
 
-    - access
-      - url：获取访问码的网址，总是使用 POST 方法访问。
-      - body：获取访问令牌的请求主体。通常情况下，可在这里提供授权码。
-      - expire：令牌的过期时间，时间单位是秒，允许使用模板，所以必须是一个字符串。
+     - refresh
+       - url: URL of the refresh token, always requested using POST method.
+       - headers: Request headers used for refresh tokens. The token is usually placed here for authorization.
+       - body: The request body of the refresh token. When using a header file to pass refresh tokens, you may not need to configure this option.
+- **Streaming Format**: Select the default json format.
+- **Shared**: Check to confirm whether to share the source.
 
-    - refresh
-      - url：刷新令牌的网址，总是使用 POST 方式请求。
-      - headers：用于刷新令牌的请求头。通常把令牌放在这里，用于授权。
-      - body：刷新令牌的请求主体。当使用头文件来传递刷新令牌时，可能不需要配置此选项。
-- **流格式**：支持 json、binary、protobuf、delimited、custom。
-  - 如选择 protobuf 或 custom，还应配置对应的[模式和模式消息](./config.md#模式)
-  - 如选择 delimited，还应配置分隔符，如 ","
+An example configuration is as follows:
+```yaml
 
-- **时间戳字段**：指定代表时间的字段。
-- **时间戳格式**：指定时间戳格式。
-- **共享**：勾选确认是否共享源。
-
-## 创建扫描表
-
-HTTP Pull 源支持查询表。登录 ECP Edge，点击**数据流处理** -> **源管理**。在**扫描表**页签，点击**创建扫描表**。
-
-- **表名称**：输入表名称
-- **是否为带结构的表**：勾选确认是否为带结构的表，如为带结构的表，则需进一步添加表字段
-  - **名称**：字段名称
-  - **类型**：支持 bigint、float、string、datetime、boolean、array、struct、bytea
-- **表类型**：选择 httppull
-- **数据源**：指定 URL 的路径部分，与 URL 属性拼接成最终 URL， 例如 /api/data。
-- **配置组**：可使用默认配置组，如希望自定义配置组，可参考[创建流](#创建流)部分
-- **表格式**：支持 json、binary、delimited、custom。
-  - 如选择 custom，还应配置对应的[模式和模式消息](./config.md#模式)
-  - 如选择 delimited，还应配置分隔符，如 ","
-
-- **保留大小**：指定保留大小。
-
-## OAuth
-
-定义类 OAuth 的认证流程。其他的认证方式如 apikey 可以直接在 headers 设置密钥，不需要使用这个配置。
-
-OAuth 2.0 是一个授权协议，让 API 客户端有限度地访问网络服务器上的用户数据。oAuth 最常见的流程是授权代码，大多用于服务器端和移动网络应用。在这个流程中，用户使用他们的账户登录到网络应用中，认证码会返回给应用。之后，应用程序可以使用认证码来请求访问令牌，并可能在到期后通过刷新令牌来刷新令牌。
-
-在这个配置中，我们假设认证码已经获取了，用户只需指定令牌申请的过程，该过程可能需要该认证码或只是密码（OAuth 的变体）。
-
-需要配置两个部分：用于获取访问代码的 access 配置和用于令牌刷新的 refresh 配置。其中，refresh 配置是可选的，只有存在单独的刷新流程时才需要配置。
-
-### access
-
-- url：获取访问码的网址，总是使用 POST 方法访问。
-- body：获取访问令牌的请求主体。通常情况下，可在这里提供授权码。
-- expire：令牌的过期时间，时间单位是秒，允许使用模板，所以必须是一个字符串。
-
-### refresh
-
-- url：刷新令牌的网址，总是使用 POST 方式请求。
-- headers：用于刷新令牌的请求头。通常把令牌放在这里，用于授权。
-- body：刷新令牌的请求主体。当使用头文件来传递刷新令牌时，可能不需要配置此选项。
+default:
+   #Request the URL of the server address
+   url: http://localhost:7000
+   # post, get, put, delete
+   method: post
+   # Interval between requests, time unit is ms
+   interval: 10000
+   # http request timeout, time unit is ms
+   timeout: 5000
+   # If it is set to true, it will be compared with the last result; if the responses of both requests are the same, sending the result will be skipped.
+   # Possible settings may be: true/false
+   incremental: false
+   # Request body, for example '{"data": "data", "method": 1}'
+   body: '{}'
+   # Text type, none, text, json, html, xml, javascript, form
+   bodyType: json
+   # Request the required HTTP headers
+   headers:
+     Accept: application/json
+   # How to check the response status, support through status code or body
+   responseType: code
+   # Get token
+#oAuth:
+# # Set how to obtain the access code
+# access:
+# # Get the URL of the access code, always use the POST method to send the request
+# url: https://127.0.0.1/api/token
+# # Request text
+# body: '{"username": "admin","password": "123456"}'
+# # The expiration time of the token, expressed as a string, the time unit is seconds, templates are allowed
+# expire: '3600'
+# # How to refresh token
+#refresh:
+# # Refresh token URL, always use POST method to send request
+# url: https://127.0.0.1/api/refresh
+# # HTTP request header, allowing the use of templates
+# headers:
+# identityId: '{{.data.identityId}}'
+# token: '{{.data.token}}'
+# # Request text
+# body: ''
 
 
+```
 
+## Create scan table
+
+HTTP pull sources support lookup tables. Log in to NeuronEX and click **Data Processing** -> **Source**. On the **Scan Table** tab, click **Create Scan Table**.
+
+- **Table Name**: Enter the table name
+- **Whether the schema stream**: Check to confirm whether it is a structured table. If it is a structured table, you need to add further table fields.
+   - **name**: field name
+   - **Type**: supports bigint, float, string, datetime, boolean, array, struct, bytea
+- **Table Type**: Select httppull
+- **Data source (URL Endpoint)**: The path part of the specified URL is concatenated with the `path` attribute in the configuration key to form the final URL. For example, the `path` attribute in the configuration key is filled in as `http://127.0.0.1:7000`, and **data source (URL Endpoint)** is filled in as `/api/data`, then the complete HTTP request address is :`http://127.0.0.1:7000/api/data`.
+- **Configuration key**: You can use the default configuration key. If you want to customize the configuration key, please refer to the [Create Stream](#Create Stream) section
+- **Table format**: supports json, binary, delimited, custom.
+
+- **Retain Size**: Specify the Retain size.

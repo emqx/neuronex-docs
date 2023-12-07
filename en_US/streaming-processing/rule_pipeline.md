@@ -1,57 +1,55 @@
-# 规则管道
+# Rule pipeline
 
-我们可以通过将先前规则的结果导入后续规则来形成规则管道。 这可以通过使用中间存储或 MQ（例如 mqtt 消息服务器）来实现。 通过同时使用内存作为 [源](./memory.md) 和 [Sink 目标](./sink/memory.md)，我们可以创建没有外部依赖的规则管道。
+We can form a rule pipeline by importing the results of previous rules into subsequent rules. By using [memory](./memory.md) as **data source** and **action (Sink)**, we can create a rule pipeline.
 
-## 使用示例
+## Usage example
 
-规则管道将是隐式的。 每个规则都可以使用一个内存目标/源。 这意味着每个步骤将使用现有的 api 单独创建（示例如下所示）。
+The rules pipeline will be implicit. Each rule can use a memory target/source. This means each step will be created individually using the existing api (example shown below).
 
 ```shell
-#1 创建源流
+#1 Create a source stream
 {"sql" : "create stream demo () WITH (DATASOURCE=\"demo\", FORMAT=\"JSON\")"}
 
-#2 创建规则和内存目标
+#2 Create rules and memory targets
 {
-  "id": "rule1",
-  "sql": "SELECT * FROM demo WHERE isNull(temperature)=false",
-  "actions": [{
-    "log": {
-    },
-    "memory": {
-      "topic": "home/ch1/sensor1"
-    }
-  }]
+   "id": "rule1",
+   "sql": "SELECT * FROM demo WHERE isNull(temperature)=false",
+   "actions": [{
+     "log": {
+     },
+     "memory": {
+       "topic": "home/ch1/sensor1"
+     }
+   }]
 }
 
-#3 从内存主题创建一个流
+#3 Create a stream from the memory topic
 {"sql" : "create stream sensor1 () WITH (DATASOURCE=\"home/+/sensor1\", FORMAT=\"JSON\", TYPE=\"memory\")"}
 
-#4 从内存主题创建另一个要使用的规则
+#4 Create another rule to use from the memory topic
 {
-  "id": "rule2-1",
-  "sql": "SELECT avg(temperature) FROM sensor1 GROUP BY CountWindow(10)",
-  "actions": [{
-    "log": {
-    },
-    "memory": {
-      "topic": "analytic/sensors"
-    }
-  }]
+   "id": "rule2-1",
+   "sql": "SELECT avg(temperature) FROM sensor1 GROUP BY CountWindow(10)",
+   "actions": [{
+     "log": {
+     },
+     "memory": {
+       "topic": "analytic/sensors"
+     }
+   }]
 }
 
 {
-  "id": "rule2-2",
-  "sql": "SELECT temperature + 273.15 as k FROM sensor1",
-  "actions": [{
-    "log": {
-    }
-  }]
+   "id": "rule2-2",
+   "sql": "SELECT temperature + 273.15 as k FROM sensor1",
+   "actions": [{
+     "log": {
+     }
+   }]
 }
 
 ```
 
-通过使用内存主题作为桥梁，我们现在创建一个规则管道：`rule1->{rule2-1, rule2-2}`。 管道可以是多对多的，而且非常灵活。 
+By using the memory topic as a bridge, we now create a rule pipeline: `rule1->{rule2-1, rule2-2}`. Pipelines can be many-to-many and are very flexible.
 
-请注意，内存目标可以与其他目标一起使用，为一个规则创建多个规则动作。 并且内存源主题可以使用通配符订阅过滤后的主题列表。
-
-​     
+Note that memory targets can be used with other targets to create multiple rule actions for a rule. And memory source topics can use wildcards to subscribe to a filtered list of topics.

@@ -1,76 +1,51 @@
-# HTTP Push 源
+# HTTP Push
 
-<span style="background:green;color:white;">流</span>        <span style="background:green;color:white">扫描表</span>
+<span style="background:green;color:white;">Stream</span>        <span style="background:green;color:white">Scan table</span>
 
-::: danger
-【attention】这里的路径需要明确
+
+The NeuronEX data processing module can start an HTTP server internally through the `HTTP Push` type of data source. The default address is `http://0.0.0.0:10081` to receive messages from HTTP clients. This is available in all rules. Share this `HTTP Push` data source. This type can be used as a data source for streams and scan tables.
+
+:::tip Tips
+When any rule using the `HTTP Push` source is started, the HTTP server will start running and port 10081 will be opened. When all rules using the httppush source are closed, the HTTP server will shut down and port 10081 will be closed.
 :::
 
-ECP Edge 默认支持 HTTP Push 源，它作为一个 HTTP 服务器，可以接收来自 HTTP 客户端的消息。所有的 HTTP 推送源共用单一的全局 HTTP 数据服务器。每个源可以有自己的 URL，这样就可以支持多个端点。该类型可以作为流、扫描表的数据源。
+If you use Docker to deploy NeuronEX, you need to add the `-p 10081:10081` parameter to the `docker run` command to map the 10081 port in the container to the 10081 port of the host before you can use the `HTTP Push` source normally.
 
-配置分成两个部分：全局服务器配置和源配置。
-
-## 服务器配置
-
-服务器配置在 `etc/kuiper.yaml` 中的 `source` 部分。
-
-```yaml
-source:
-  ## Configurations for the global http data server for httppush source
-  # HTTP data service ip
-  httpServerIp: 0.0.0.0
-  # HTTP data service port
-  httpServerPort: 10081
-  # httpServerTls:
-  #    certfile: /var/https-server.crt
-  #    keyfile: /var/https-server.key
+```bash
+## run NeuronEX
+$ docker run -d --name neuronex -p 8085:8085 -p 10081:10081 --log-opt max-size=100m emqx/neuronex:latest
 ```
 
-用户可以指定以下属性：
+## Create stream
 
-- httpServerIp：用于绑定 http 数据服务器的IP。
-- httpServerPort：用于绑定 http 数据服务器的端口。
-- httpServerTls: http 服务器 TLS 的配置。
+Log in to NeuronEX and click **Data Processing** -> **Source**. On the **Stream** tab, click **Create Stream**.
 
-一旦有任何需要 httppush 源的规则启动，全局服务器就会启动。一旦所有引用的规则都关闭，它就会关闭。
+In the pop-up **Source**/**Create** page, enter the following configuration:
 
-## 创建流（源配置）
+- **Stream Name**: Enter the stream name
+- **Whether the schema stream**: Check to confirm whether it is a structured stream. If it is a structured stream, you need to add further stream fields. It can be unchecked by default.
+- **Stream Type**: Select httppush
+- **Data Source**: Specify the path portion of the URL, for example /api/data.
+   :::tip Tips
+   The HTTP server address started by the httppush type data source is `http://0.0.0.0:10081`, **data source (URL Endpoint)** is filled in as `/api/data`, then the complete HTTP request address is: `http://0.0.0.0:10081/api/data` .
+   :::
+- **Configuration key**: You can use the default configuration key. If you want to customize the configuration key, click to add a configuration key:
+   - **Name**: Enter the configuration key name.
+   - **Request method**: HTTP request method, which can be POST or PUT.
+- **Stream format**: supports json, binary, protobuf, delimited, custom. Default json format.
+- **Shared**: Check to confirm whether to share the source.
 
-登录 ECP Edge，点击**数据流处理** -> **源管理**。在**流管理**页签，点击**创建流**。
 
-在弹出的**源管理** / **创建**页面，进入如下配置：
 
-- **流名称**：输入流名称
-- **是否为带结构的流**：勾选确认是否为带结构的流，如为带结构的流，则需进一步添加流字段
-  - **名称**：字段名称
-  - **类型**：支持 bigint、float、string、datetime、boolean、array、struct、bytea
-- **流类型**：选择 httppush
-- **数据源**：指定URL 的路径部分，与 URL 属性拼接成最终 URL， 例如 /api/data。
-- **配置组**：可使用默认配置组，如希望自定义配置组，可点击添加配置组按钮，在弹出的对话框中进行如下设置，设置完成后，可点击**测试连接**进行测试：
-  - **名称**：输入配置组名称。
-  - **请求方法**：HTTP 请求方法，可以是 POST 或 PUT。
-- **流格式**：支持 json、binary、protobuf、delimited、custom。
-  - 如选择 protobuf 或 custom，还应配置对应的[模式和模式消息](./config.md#模式)
-  - 如选择 delimited，还应配置分隔符，如 ","
+## Create scan table
 
-- **时间戳字段**：指定代表时间的字段。
-- **时间戳格式**：指定时间戳格式。
-- **共享**：勾选确认是否共享源。
+HTTP Push sources support lookup tables. Log in to NeuronEX and click **Data Processing** -> **Source**. On the **Scan Table** tab, click **Create Scan Table**.
 
-## 创建扫描表（源配置）
-
-HTTP Push 源支持查询表。登录 ECP Edge，点击**数据流处理** -> **源管理**。在**扫描表**页签，点击**创建扫描表**。
-
-- **表名称**：输入表名称
-- **是否为带结构的表**：勾选确认是否为带结构的表，如为带结构的表，则需进一步添加表字段
-  - **名称**：字段名称
-  - **类型**：支持 bigint、float、string、datetime、boolean、array、struct、bytea
-- **表类型**：选择 httppush。
-- **数据源**：指定 URL 的路径部分，与 URL 属性拼接成最终 URL， 例如 /api/data。
-- **配置组**：可使用默认配置组，如希望自定义配置组，可参考[创建流](#创建流)部分
-- **表格式**：支持 json、binary、delimited、custom。
-  - 如选择 custom，还应配置对应的[模式和模式消息](./config.md#模式)
-  - 如选择 delimited，还应配置分隔符，如 ","
-
-- **保留大小**：指定保留大小。
+- **Table Name**: Enter the table name
+- **Whether the schema stream**: Check to confirm whether it is a structured table. If it is a structured table, you need to add further table fields. It can be unchecked by default.
+- **Table Type**: Select httppush.
+- **Data source**: Specify the path part of the URL and concatenate it with the URL attributes to form the final URL, such as /api/data.
+- **Configuration key**: You can use the default configuration key. If you want to customize the configuration key, please refer to the [Create Stream](#create-stream) section.
+- **Table format**: supports json, binary, protobuf, delimited, custom. Default json format.
+- **Retain Size**: Specify the Retain size.
 

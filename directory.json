@@ -661,6 +661,7 @@
         {
           "title": "扩展",
           "path": "streaming-processing/extension",
+          "collapsed": true,
           "children":[
             {
               "title": "Python 便携插件扩展示例",
@@ -1103,7 +1104,7 @@
               "collapsed": true,
               "children": [
                 {
-                  "title": "Data Acquisition (Beckhoff ADS Protocol)",
+                  "title": "Data collection (Beckhoff ADS Protocol)",
                   "path": "configuration/south-devices/ads/plc-ads/ads",
                   "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/ads/plc-ads/ads.md"
                 }
@@ -1358,40 +1359,40 @@
       ]
     },
     {
-      "title": "Data Stream Processing",
+      "title": "Data Processing",
       "path": "streaming-processing/overview",
       "collapsed": true,
       "children": [
         {
-          "title": "Data Sources",
+          "title": "Source Connectors",
           "path": "streaming-processing/source",
           "collapsed": true,
           "children": [
             {
-              "title": "数据流",
+              "title": "Stream",
               "path": "streaming-processing/stream"
             },
             {
-              "title": "数据表",
+              "title": "Table",
               "path": "streaming-processing/tables",
               "children": [
                 {
-                  "title": "扫描表",
+                  "title": "Scan table",
                   "path": "streaming-processing/scan"
                 },
                 {
-                  "title": "查询表",
+                  "title": "Lookup table",
                   "path": "streaming-processing/lookup"
                 }
               ]
             },
             {
-              "title": "文件",
-              "path": "streaming-processing/file"
+              "title": "Neuron",
+              "path": "streaming-processing/neuron"
             },
             {
-              "title": "内存",
-              "path": "streaming-processing/memory"
+              "title": "MQTT",
+              "path": "streaming-processing/mqtt"
             },
             {
               "title": "HTTP Pull",
@@ -1402,26 +1403,37 @@
               "path": "streaming-processing/http_push"
             },
             {
-              "title": "MQTT",
-              "path": "streaming-processing/mqtt"
+              "title": "Memory",
+              "path": "streaming-processing/memory"
             },
             {
-              "title": "Neuron",
-              "path": "streaming-processing/neuron"
+              "title": "SQL",
+              "path": "streaming-processing/sql"
             },
             {
-              "title": "Redis",
-              "path": "streaming-processing/redis"
+              "title": "File",
+              "path": "streaming-processing/file"
+            },
+            {
+              "title": "Video",
+              "path": "streaming-processing/video"
             }
           ]
         },
         {
-          "title": "Rule Management",
-          "path": "streaming-processing/rules"
-        },
-        {
-          "title": "Rules Pipeline",
-          "path": "streaming-processing/rule_pipeline"
+          "title": "Rules",
+          "path": "streaming-processing/rules",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "Rules Management",
+              "path": "streaming-processing/rule_status"
+            },
+            {
+              "title": "Rules Pipeline",
+              "path": "streaming-processing/rule_pipeline"
+            }
+          ]
         },
         {
           "title": "Sink",
@@ -1429,11 +1441,11 @@
           "collapsed": true,
           "children": [
             {
-              "title": "Data Templates",
+              "title": "Data Template",
               "path": "streaming-processing/sink/data_template"
             },
             {
-              "title": "Built-in Plugins",
+              "title": "Sink Type",
               "children": [
                 {
                   "title": "MQTT",
@@ -1444,20 +1456,8 @@
                   "path": "streaming-processing/sink/neuron"
                 },
                 {
-                  "title": "EdgeX",
-                  "path": "streaming-processing/sink/edgex"
-                },
-                {
                   "title": "REST",
                   "path": "streaming-processing/sink/rest"
-                },
-                {
-                  "title": "Redis",
-                  "path": "streaming-processing/sink/redis"
-                },
-                {
-                  "title": "File",
-                  "path": "streaming-processing/sink/file"
                 },
                 {
                   "title": "Memory",
@@ -1468,41 +1468,24 @@
                   "path": "streaming-processing/sink/log"
                 },
                 {
-                  "title": "Nop",
-                  "path": "streaming-processing/sink/nop"
-                }
-              ]
-            },
-            {
-              "title": "Predefined Plugins",
-              "children": [
-                {
                   "title": "SQL",
                   "path": "streaming-processing/sink/sql"
                 },
                 {
-                  "title": "InfluxDB",
+                  "title": "InfluxDB V1",
                   "path": "streaming-processing/sink/influx"
                 },
                 {
-                  "title": "InfluxDBV2",
+                  "title": "InfluxDB V2",
                   "path": "streaming-processing/sink/influx2"
                 },
                 {
-                  "title": "TDengine",
-                  "path": "streaming-processing/sink/tdengine"
+                  "title": "File",
+                  "path": "streaming-processing/sink/file"
                 },
                 {
-                  "title": "Image",
-                  "path": "streaming-processing/sink/image"
-                },
-                {
-                  "title": "ZeroMQ",
-                  "path": "streaming-processing/sink/zmq"
-                },
-                {
-                  "title": "Kafka",
-                  "path": "streaming-processing/sink/kafka"
+                  "title": "Nop",
+                  "path": "streaming-processing/sink/nop"
                 }
               ]
             }
@@ -1513,14 +1496,116 @@
           "path": "streaming-processing/extension",
           "children":[
             {
-              "title": "External Services",
-              "path": "streaming-processing/external_func"
+              "title": "Python portable plugin example",
+              "path": "streaming-processing/portable_python"
             }
           ]
         },
         {
           "title": "Configuration Management",
           "path": "streaming-processing/config"
+        },
+        {
+          "title": "SQL Reference",
+          "path": "streaming-processing/sqls/overview",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "Statements",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "query",
+                  "path": "streaming-processing/sqls/query_language_elements"
+                }
+              ]
+            },
+            {
+              "title": "Syntax",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "lexical elements",
+                  "path": "streaming-processing/sqls/lexical_elements"
+                },
+                {
+                  "title": "Data type",
+                  "path": "streaming-processing/sqls/data_types"
+                },
+                {
+                  "title": "JSON Expressions",
+                  "path": "streaming-processing/sqls/json_expr"
+                }
+              ]
+            },
+            {
+              "title": "Functions",
+              "path": "streaming-processing/sqls/functions/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Aggregate Functions",
+                  "path": "streaming-processing/sqls/functions/aggregate_functions"
+                },
+                {
+                  "title": "Mathematical Functions",
+                  "path": "streaming-processing/sqls/functions/mathematical_functions"
+                },
+                {
+                  "title": "String Functions",
+                  "path": "streaming-processing/sqls/functions/string_functions"
+                },
+                {
+                  "title": "Array Functions",
+                  "path": "streaming-processing/sqls/functions/array_functions"
+                },
+                {
+                  "title": "Object Functions",
+                  "path": "streaming-processing/sqls/functions/object_functions"
+                },
+                {
+                  "title": "Hashing Functions",
+                  "path": "streaming-processing/sqls/functions/hashing_functions"
+                },
+                {
+                  "title": "Transform Functions",
+                  "path": "streaming-processing/sqls/functions/transform_functions"
+                },
+                {
+                  "title": "JSON Functions",
+                  "path": "streaming-processing/sqls/functions/json_functions"
+                },
+                {
+                  "title": "Data and Time Functions",
+                  "path": "streaming-processing/sqls/functions/datetime_functions"
+                },
+                {
+                  "title": "Other Functions",
+                  "path": "streaming-processing/sqls/functions/other_functions"
+                },
+                {
+                  "title": "Analytic Functions",
+                  "path": "streaming-processing/sqls/functions/analytic_functions"
+                },
+                {
+                  "title": "Multi-Row Functions",
+                  "path": "streaming-processing/sqls/functions/multi_row_functions"
+                },
+                {
+                  "title": "Multi-Column Functions",
+                  "path": "streaming-processing/sqls/functions/multi_column_functions"
+                },
+                {
+                  "title": "Window Functions",
+                  "path": "streaming-processing/sqls/functions/window_funcs"
+                }
+              ]
+            },
+            {
+              "title": "Windowing",
+              "path": "streaming-processing/sqls/windows"
+            }
+          ]
         }
       ]
       },
@@ -1552,6 +1637,10 @@
         "path": "admin/introduction",
         "collapsed": true,
         "children": [
+          {
+            "title": "Data statistics",
+            "path": "admin/data-statistics"
+          },
           {
             "title": "Configuration Management",
             "path": "admin/conf-management"

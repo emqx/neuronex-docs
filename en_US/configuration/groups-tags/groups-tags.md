@@ -1,54 +1,47 @@
-# 建立设备通信
+# Establish device communication
 
-点位是分配给一条信息的非分层唯一关键字，其中定义了设备中的数据存储位置和数据操作属性，还包含有关数据的一些元数据信息，如缩放、精确度和读/写属性等。点位将被分配到组中。每个组都有独立的轮询频率以从设备中读取数据。要建立设备与 ECP Edge 之间的通信，首先为南向驱动程序添加组和点位。创建好组和点位，即可从数据监控中获取点位的实时值。
+ Points will be assigned to groups. Each group has an independent polling frequency to read data from the device. To establish communication between the device and NeuronEX, first add the group and point for the southbound driver. Once the group and point are created, the real-time value of the point can be obtained from data monitoring.
 
-## 在设备卡片中创建组
+## Create a group in the device card
 
-创建点位组，同一个组的数据以相同的频率进行采集以及上报。
+Create collection groups, and data in the same group will be collected and reported at the same frequency.
 
-点击新增的设备节点，进入组列表管理界面，点击 `创建` 来创建组。
+Click the newly added device node to enter the group list management interface, and click `Create` to create the group.
 
-* 名称: 填入组的名称，比如 group-1。
-* 时间间隔：这组点位的采集和上报频率，以毫秒为单位，100 表示每 100ms 采集一次，整组点位的值上报一次。
+* Name: Fill in the name of the group, such as group-1.
+* Interval: The collection and reporting frequency of this group of points, in milliseconds, 100 means collecting once every 100ms, and the value of the entire group of points is reported once.
 
 
-## 在组中添加采集数据点
+## Add collection data points to the group
 
-添加需要采集的设备点位，包括点位地址，点位属性，数据类型等。
+Add the data points that need to be collected, including point addresses, point attributes, data types, etc.
 
-点击组中的 `Tag 列表` 图标，进入 Tag 列表管理界面。
+Click the `Tag List` icon in the group to enter the Tag List management interface.
 
-点击 `创建` 按键，进入添加标签页面，如下图所示。
+Click the `Create` button to enter the add tag page, as shown in the figure below.
 
 ![tags-add](./assets/tags-add.png)
 
-* 名称：填写 Tag 名称，例如，tag1；
-* 属性：下拉选择 Tag 属性，例如，read，write，subscribe，static，支持配置多个点位类型。关于不同类型点位的介绍，见[点位属性](#点位属性)；
-* 类型：下拉选择数据类型，例如，int16，uint16，int32，uint32，float，bit；
-* 地址：填写驱动地址，例如，1!40001。1 代表 Modbus 模拟器中设置的点位站点号，40001 代表点位寄存器地址，详细的驱动地址使用说明请参阅 [Modbus 介绍与使用](../south-devices/modbus-tcp/modbus-tcp.md)；
-* 乘系数：默认不填；当点位属性为 write 时，支持设置乘系数，此时 `设备值 * 乘系数 = 显示值`，如点位乘系数值为 0.1，在页面写入显示值，例如 23.4，则页面显示值为 23.4，写入到设备中的值则为 234。
-* 精度：点位类型选择 `float` 或 `double` 时配置精度，精度范围为 0 ～17
-* 描述：默认不填。
+* Name: fill in the Tag name, for example, tag1;
+* Attribute: Pull down to select Tag attributes, such as read, write, subscribe, static, and support the configuration of multiple point types. For an introduction to different types of points, see [Point Attributes](#point-attributes);
+* Type: drop-down to select data type, for example, int16, uint16, int32, uint32, float, bit;
+* Address: Fill in the tag address. Different driver protocols have different address definition specifications. For details, please refer to [Create Southbound Driver](../south-devices/south-devices.md). Taking the Modbus protocol as an example, 1!40001. `1` represents the point site number set in the Modbus simulator, and `40001` represents the point register address.
+* Decimal: not filled in by default; when the point attribute is read, it supports setting the Decimal. At this time, `device value` * Decimal = `display value`.
+* Precision: Configure the precision when the point type is `float` or `double`, the accuracy range is 0 ~ 17
+* Description: Leave blank by default.
 
-### 点位属性
+### Point attributes
 
-点位共包括读（read），写（write），订阅（subscribe）和静态（static）点位四种类型。
+There are three types of points: read, write and subscribe.
 
-- 读（read）和写（write）类型点位分别用于读取数据和写入数据。
+- Read (read) and write (write) type points are used to read data and write data respectively.
 
-- 静态（static）点位需要在配置时赋值，配置完成后在监控页面中也可以看到对应的赋值，如下图所示![monitor_static](./assets/monitor_static.png)
+- Subscribing to a point will only send messages when the data changes, and will not send messages when there are no changes. For example, the default data is 0, when the data is changed to 2, a message will be sent. 
 
-- 订阅（subscribe）点位则仅会在数据变化时发送消息，无变化时不发送消息。例如，默认数据为 0，当该数据改为 2 时，则将发送一条消息。如在 MQTTX 中订阅主题并查看，则将如下图所示。
-
-  ![mqttx_subscribe](./assets/mqttx_subscribe.png)
-
-
-
-
-点位创建完成后，设备卡片的工作状态处于 **运行中**，连接状态应处于 **已连接**。若此时连接状态仍然处于 **未连接** 的状态，请先在 ECP Edge 运行环境终端执行以下指令，以确认 ECP Edge 运行环境能否访问到到对应的 IP 及端口：
+After the point creation is completed, the working status of the device card is **Running**, and the connection status should be **Connected**. If the connection status is still **Not Connected** at this time, please first execute the following command on the ECP Edge running environment terminal to confirm whether the ECP Edge running environment can access the corresponding IP and port:
 
 ```bash
-$ telnet <运行 Modbus 模拟器 PC 端的 IP> 502
+$ telnet <IP of the PC running the Modbus simulator> 502
 ```
 
-请您确认在设备配置时 IP 与 Port 正确设置，防火墙关闭。
+Please confirm that the IP and Port are set correctly during device configuration and the firewall is turned off.

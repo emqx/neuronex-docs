@@ -12,7 +12,7 @@ Based on the user scenario, here are examples of how to obtain logs.
 NeuronEX supports the function of one-click download of all log files on the web page. After logging in to NeuronEX, click **Administration** -> **Log** on the left side of the page to enter the log management interface.
 ![image](./assets/log_manage_en.jpg)
 
-In the log download section, click the **Download Data Collection Engine Log** button to download the log of the data acquisition engine module.
+In the log download section, click the **Download Data Collection Engine Log** button to download the log of the data collection module.
 If the existing log information cannot meet the needs, in the log configuration section, you can dynamically set the log level. The Debug level will print a large amount of debugging information, which is helpful for engineers to debug and analyze program failures. As the log level increases, the information printed by the log will The less.
 Note that this log level setting will not be persistent and will be restored to the default log level after NeuronEX is restarted. Printing too many logs will have a certain impact on performance, so it needs to be adjusted to a higher level in time.
 

@@ -1,66 +1,51 @@
-# MQTT 源
+# MQTT 
 
-<span style="background:green;color:white;">流</span>        <span style="background:green;color:white">扫描表</span>
+<span style="background:green;color:white;">Stream</span>        <span style="background:green;color:white">Scan table</span>
 
-::: danger
 
-KubeEdge 模型文件
+NeuronEX data processing module can receive data from MQTT Broker through `MQTT` type data source and process and analyze it through rules.
 
-:::
+## Create stream
 
-ECP Edge 为 MQTT 源流提供了内置支持，流可以订阅来自 MQTT 代理的消息并输入 ECP Edge  处理。
+Log in to NeuronEX and click **Data Processing** -> **Sources**. On the **Stream** tab, click **Create Stream**.
 
-## 创建流
+In the pop-up **Sources**/**Create** page, enter the following configuration:
 
-登录 ECP Edge，点击**数据流处理** -> **源管理**。在**流管理**页签，点击**创建流**。
+- **Stream Name**: Enter the stream name
+- **Whether the schema stream**: Check to confirm whether it is a structured stream. If it is a structured stream, you need to add further stream fields. It can be unchecked by default.
+- **Stream type**: select mqtt
+- **Data source** (MQTT topic): The MQTT topic to be subscribed to, for example topic1.
+- **Configuration key**: You can edit and use the default configuration key, or click to add a configuration key and make the following settings in the pop-up dialog box. After the settings are completed, you can click **Test Connection** to test:
 
-在弹出的**源管理** / **创建**页面，进入如下配置：
+   - **Name**: Enter the configuration key name.
+   - **Server address**: The server of the MQTT message broker, such as `tcp://127.0.0.1:1883`.
+   - **Username**: Optional parameter, MQTT connection username.
+   - **Password**: Optional parameter, MQTT connection password.
+   - **MQTT protocol version**: MQTT protocol version, supports 3.1 or 3.1.1, the default is 3.1.1.
+   - **Client ID**: Client ID of the MQTT connection. If not specified, a uuid will be used.
+   - **QoS Level**: The default QoS level is 0, optional values: 0, 1, 2.
+   - **Certificate Type**: Optional parameter, fill in the certificate path, which can be an absolute path or a relative path. If a relative path is specified, the parent directory is the path where the neuronex command is executed. Example value: `/var/xyz-certificate.pem`
+   - **Private key path**: Optional parameter, which can be an absolute path or a relative path. Example value: `/var/xyz-private.pem.key`
+   - **Root Certificate Path**: Optional parameter to verify the server certificate. It can be an absolute path or a relative path. Example value: `/var/xyz-rootca.pem`
+   - **Skip certificate verification**: Defaults to False. If set to True, certificate verification will be skipped, otherwise certificate verification will be performed.
+   - **Decompression**: Leave blank by default to not decompress. Decompress MQTT Payload using the specified compression method, optional values: zlib, gzip, flate.
+- **Stream format**: supports json, binary, protobuf, delimited, custom. Default json format.
+   - If you select protobuf or custom, you should also configure the corresponding [mode](./config.md#mode)
+   - If you select delimited, you should also configure the delimiter, such as "`,`"
 
-- **流名称**：输入流名称
-- **是否为带结构的流**：勾选确认是否为带结构的流，如为带结构的流，则需进一步添加流字段
+- **Shared**: Check to confirm whether to share the source.
 
-  - **名称**：字段名称
-  - **类型**：支持 bigint、float、string、datetime、boolean、array、struct、bytea
-- **流类型**：选择 mqtt
-- **数据源**（MQTT 主题）：将要订阅的 MQTT 主题， 例如 topic1。
-- **配置组**：可使用默认配置组，如希望自定义配置组，可点击添加配置组按钮，在弹出的对话框中进行如下设置，设置完成后，可点击**测试连接**进行测试：
+## Create scan table
 
-  - **名称**：输入配置组名称。
-  - **服务器地址**：MQTT 消息代理的服务器。
-  - **用户名**：MQTT 连接用户名。
-  - **密码**：MQTT 连接密码。
-  - **MQTT 协议版本**：MQTT 协议版本，支持 3.1 或者 3.1.1 ，默认为 3.1。 
+MQTT sources support lookup table. Log in to NeuronEX and click **Data Processing** -> **Source**. On the **Scan Table** tab, click **Create Scan Table**.
 
-  - **客户端 ID**：MQTT 连接的客户端 ID。 如果未指定，将使用一个 uuid。
-  - **QoS 级别**：默认订阅 QoS 级别，可选值：0、1、2
-  - **证书类型**：证书路径。可以为绝对路径，也可以为相对路径。如果指定的是相对路径，那么父目录为执行 server 命令的路径。
-  - **私钥路径**：私钥路径。可以为绝对路径，也可以为相对路径。
-  - **根证书路径**：根证书路径，用以验证服务器证书。可以为绝对路径，也可以为相对路径。
-  - **跳过证书验证**：控制是否跳过证书认证。如设置为 True，将跳过证书认证；否则进行证书验证。
-  - **Kubeedge 版本号**：Kubeedge 版本号，不同的版本号对应的文件内容不同。
-  - **KubeEdge 模版文件**：KubeEdge 模版文件名，文件指定放在 `etc/sources` 文件夹中。
-  - **解压缩**：使用指定的压缩方法解压缩 MQTT Payload，可选值：zlib、gzip、flate。
-- **流格式**：支持 json、binary、protobuf、delimited、custom。
-  - 如选择 protobuf 或 custom，还应配置对应的[模式和模式消息](./config.md#模式)
-  - 如选择 delimited，还应配置分隔符，如 ","
+- **Table Name**: Enter the table name
+- **Whether the schema stream**: Check to confirm whether it is a structured stream. If it is a structured stream, you need to add further stream fields. It can be unchecked by default.
+- **Table Type**: Select mqtt.
+- **Data source** (MQTT topic): The MQTT topic to be subscribed to, for example topic1
+- **Configuration key**: You can use the default configuration key. If you want to customize the configuration key, please refer to the [Create Stream](#Create Stream) section
+- **Table format**: supports json, binary, delimited, custom.
+   - If you select custom, you should also configure the corresponding [mode](./config.md#mode)
+   - If you select delimited, you should also configure the delimiter, such as ","
 
-- **时间戳字段**：指定代表时间的字段。
-- **时间戳格式**：指定时间戳格式。
-- **共享**：勾选确认是否共享源。
-
-## 创建扫描表
-
-MQTT 源支持查询表。登录 ECP Edge，点击**数据流处理** -> **源管理**。在**扫描表**页签，点击**创建扫描表**。
-
-- **表名称**：输入表名称
-- **是否为带结构的表**：勾选确认是否为带结构的表，如为带结构的表，则需进一步添加表字段
-  - **名称**：字段名称
-  - **类型**：支持 bigint、float、string、datetime、boolean、array、struct、bytea
-- **表类型**：选择 mqtt。
-- **数据源**（MQTT 主题）：将要订阅的 MQTT 主题， 例如 topic1
-- **配置组**：可使用默认配置组，如希望自定义配置组，可参考[创建流](#创建流)部分
-- **表格式**：支持 json、binary、delimited、custom。
-  - 如选择 custom，还应配置对应的[模式和模式消息](./config.md#模式)
-  - 如选择 delimited，还应配置分隔符，如 ","
-
-- **保留大小**：指定保留大小。
+- **Retain Size**: Specify the Retain size.

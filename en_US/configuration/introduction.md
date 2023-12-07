@@ -1,56 +1,67 @@
-# Data Acquisition and Forwarding Process
+# data collection
 
-Neuron is an advanced industrial protocol gateway software designed to operate on various IoT edge gateway hardware. Its primary objective is to address the challenge of unifying device data access in the context of Industry 4.0. By efficiently converting diverse industrial device data with different protocols into standardized IoT MQTT messages, Neuron enables seamless interconnectivity between devices and industrial IoT systems. This, in turn, facilitates remote control and information retrieval for intelligent manufacturing and data-driven decision-making.
+This section mainly introduces how to add southbound devices in NeuronEX, bidirectional communication with the devices, and connect them to external applications such as cloud platforms or data processing module.
 
-Neuron offers extensive support for a wide range of communication protocols and industrial standards, making it a one-stop solution for data acquisition and MQTT protocol conversion. Its resource-efficient design allows easy deployment on various architectures, including X86 and ARM. The platform's user-friendly web-based management console empowers users with convenient gateway configuration management. With remarkable performance capabilities, Neuron can effortlessly connect to hundreds of industrial devices and efficiently handle over 10,000 data points.
+## Capabilities of data collection
 
-## Data Acquisition
+### Multi-device connection
+NeuronEX provides a variety of plug-in modules, such as Modbus, OPC UA, EtherNet/IP, IEC104, BACnet, Siemens, Mitsubishi, etc. Some of these plug-ins are widely used in discrete manufacturing, building automation, CNC machine tools, robots, electricity, and various PLC communications.
 
-1. [View Available Plugins](../introduction/plugin-list/plugin-list.md): Neuron's southbound plugins are communication drivers that enable specific protocols for accessing external devices. After installing and activating the corresponding plugin licenses (refer to the [license policy](../introduction/license/license-policy.md)), users can effectively utilize these driver plugins. Neuron's loosely coupled architecture ensures that each plugin operates independently as a separate thread, avoiding interference and enabling users to choose the plugins that best suit their business requirements.
-   
-   The comprehensive list of supported plugins for various southbound devices, along with their specific configuration parameters, can be quickly accessed via the provided table links.
+### Low latency collection and control
+NeuronEX is a real-time asynchronous processing server that makes full use of low-latency network methods at the edge to achieve 100 millisecond high-speed collection and data distribution.
 
-   | Application Area       | Plugin                                                     | Application Area     | Plugin                                                     |
-   | -------------- | ------------------------------------------------------------ | ------------ | ------------------------------------------------------------ |
-   | **Global Standard**   | [Modbus TCP <br />Modbus TCP QH](./south-devices/modbus-tcp/modbus-tcp.md) | **PLC Driver** | [Siemens S7 ISO TCP](./south-devices/siemens-s7/s7.md)       |
-   |                | [Modbus RTU](./south-devices/modbus-rtu/modbus-rtu.md)       |              | [Siemens S5 FetchWrite](./south-devices/siemens-fetchwrite/fetchwrite.md) |
-   |                | [OPC UA](./south-devices/opc-ua/overview.md)                 |              | [Mitsubishi 3E](./south-devices/mitsubishi-3e/overview.md)   |
-   |                | [OPC DA](./south-devices/opc-da/overview.md)                 |              | [Mitsubishi 1E](./south-devices/mitsubishi-1e/mitsubishi-1e.md) |
-   |                | [EtherNet/IP(CIP)](./south-devices/ethernet-ip/ethernet-ip.md) |              | [Mitsubishi FX](./south-devices/mitsubishi-fx/overview.md)   |
-   | **Electricity**       | [IEC60870-5-104](./south-devices/iec-104/iec-104.md)         |              | [Omron FINS TCP](./south-devices/omron-fins/omron-fins.md)   |
-   |                | [IEC61850](./south-devices/iec61850/overview.md)             |              | [Omron FINS UDP](./south-devices/omron-fins/omron-fins-udp.md) |
-   |                | [DL/T645-2007](./south-devices/dlt645-2007/dlt645-2007.md)   |              | [Beckhoff ADS](./south-devices/ads/ads.md)                   |
-   |                | [DL/T645-1997](./south-devices/dlt645-1997/dlt645-1997.md)   |              | [Panasonic Mewtocol](./south-devices/panasonic-mewtocol/overview.md) |
-   | **Building Automation** | [BACnet/IP](./south-devices/bacnet-ip/bacnet-ip.md)          |              | [Profinet IO](./south-devices/profinet/profinet.md)          |
-   |                | [KNXnet/IP](./south-devices/knxnet-ip/knxnet-ip.md)          |              | <!--Allen-Bradley DF1 with doc to be added-->                |
-   | **Environmental Monitoring**   | [HJ212-2017](./south-devices/hj212-2017/hj212-2017.md)       | **Petroleum Industry** | [NON A11](./south-devices/nona11/nona11.md)                  |
+### Large-scale concurrency
+NeuronEX can connect to different industrial devices simultaneously. Thanks to the decoupled modular architecture design, each connection can be run independently. The number of concurrent connections depends on hardware resources.
 
-2. [Create Southbound Drivers](./south-devices/south-devices.md): Choose required southbound plugins for device communication based on industrial protocols. Each plugin can connect to a single device or multiple devices associated with a message bus, adhering to protocol standards. Users can create southbound drivers with plugins or [templates](./templates/templates.md) as per their preferences.
+### Portable deployment
+The NeuronEX data collection function has a very low memory footprint, less than 10M of memory at startup, and is suitable for running on low-configuration architecture devices, such as X86, ARM and RISC-V. NeuronEX also supports Docker containerized deployment, as well as running in a Kubernetes environment.
 
-3. [Connect to Southbound Devices](./south-devices/south-devices.md#configure-data-groups-and-tags): Connect southbound devices by creating groups and points. Once groups and points are set up, users can monitor the real-time values of the data points through data monitoring. For easy configuration, Neuron supports [offline Excel file batch imports](./import-export/import-export.md) of relevant configuration information.
+### Better integration
+NeuronEX supports seamless integration with industrial Internet platforms, public cloud platforms, and third-party applications. NeuronEX can connect to private cloud, EMQX Cloud, AWS, Microsoft Azure or local servers through various methods such as MQTT, SparkPlugB, API, etc., and seamlessly flow real-time industrial data directly to industrial applications, such as MES, ERP, big data, analysis software, to realize various complex data processing and storage scenarios.
 
-::: tip
-
-Repeat steps 2 and 3 until all necessary drivers, groups, and points are created.
-:::
-
-## Data Forwarding
-
-1. [Create Northbound Applications](./north-apps/north-apps.md): Choose the relevant northbound plugins to enable seamless data forwarding. Each northbound plugin can connect to a single destination, such as a proxy or application. Currently, Neuron supports the following northbound applications:
-   - [MQTT](./north-apps/mqtt/overview.md)
-   - [eKuiper](./north-apps/ekuiper/overview.md)
-   - [SparkPlugB](./north-apps/sparkplugb/overview.md)
-   - [WebSocket](./north-apps/websocket/websocket.md)
-   - [Monitor](./north-apps/monitor/overview.md)
-   
-2. [Subscribe to Southbound Devices](./north-apps/north-apps.md#subscribe-to-southbound-data): After creating northbound devices, subscribe to groups from southbound nodes. No further group or point setup is needed. Subscribed northbound nodes will receive continuous data updates from the corresponding groups at the specified frequency.
-
-The diagram below provides a visual representation of the entire process.
-
-![Configuration Steps](./_assets/config.png)
+### Unified data operations
+NeuronEX helps traditional industrial devices deliver data messages asynchronously as edge nodes specified in the SparkplugB standard. SparkPlugB is an open, unified, interoperable industrial data exchange standard for data exchange between industrial information systems such as ERP, MES, SCADA and history via the MQTT broker.
 
 
-## Configuration APIs
+## Key concepts
 
-Alternatively, a set of configuration APIs is provided for integrating with industrial IoT platforms, MES, or other controlling systems.
+### [Plugin](../introduction/plugin-list/plugin-list.md)
 
+Plugins can be divided into northbound applications and southbound drivers. Northbound plugins are typically used to connect to cloud platforms. Southbound plug-ins are communication drivers that implement specific protocols to access external devices. In order to implement protocol format conversion, at least one northbound plugin and one southbound plugin are required for data transmission and data collection respectively.
+
+All plug-in modules are written based on C language, and SDK files are provided for users who want secondary development. For specific plugin development tutorials, please refer to [SKD Tutorial](https://neugates.io/docs/zh/latest/dev-guide/sdk-tutorial/sdk-tutorial.html).
+
+### [Node](./groups-tags/groups-tags.md)
+
+In NeuronEX, nodes are instantiations of plugins. In a single NeuronEX running instance, multiple nodes containing various plugins can be created for mutual communication. NeuronEX's core framework is responsible for managing message routing between these nodes. NeuronEX has powerful performance and supports the simultaneous operation of hundreds of nodes.
+
+### [Data point (Tag)](./groups-tags/groups-tags.md)
+
+Data points are descriptors that describe the storage location, operational attributes, and metadata of data within a device, helping users access and manipulate data. 
+
+The data point defines the data storage location and data operation properties in the device. It also contains some metadata information about the data, such as scaling, accuracy, and read/write properties. Point information helps describe an item and allows it to be found in a device or processed for automatic reading/writing. The user will identify those points of interest in the device to read data from or write data to the device.
+
+### [Group](./groups-tags/groups-tags.md)
+
+Data Points will be assigned to groups. Each group has an independent polling frequency to read data from the device. The collection of points in the device that the user is interested in is divided into several groups for better management. The routing mechanism is based on these groups being exchanged between nodes as units of information. A northbound node can subscribe to any group in any southbound node. These subscriptions will be used to route data messages between nodes. Additionally, there is a Group Polling Frequency that controls the time interval at which devices are polled.
+
+## Configuration process
+
+The following is the workflow of how to set up NeuronEX to convert various industrial protocols and then complete data transmission and collection.
+
+1. [View all available plugins](../introduction/plugin-list/plugin-list.md): The data collection and transmission functions of NeuronEX can be realized using various protocol plug-ins.
+
+2. [Create southbound driver](./south-devices/south-devices.md): According to the protocol type of the device, select the southbound plug-in driver on NeuronEX and create a node. Configure the parameters of the driver to establish a communication connection between NeuronEX and the device.
+
+3. [Establish communication between device and NeuronEX](./groups-tags/groups-tags.md): First add groups and points for the southbound driver. Once the group and point are created, the real-time value of the point can be obtained from data monitoring. To facilitate user operations, NeuronEX supports related configuration information through offline Excel files [batch import] (./import-export/import-export.md).
+
+    :::tip
+
+    Repeat steps 2 and 3 until all necessary drives, groups, and points have been created.
+    :::
+
+4. [Create a northbound application and subscribe to a southbound device](./north-apps/north-apps.md): Select the required northbound plug-in to realize data transmission. Each northbound plug-in can only connect to one destination, such as stream processing module, EMQX message middleware, industrial Internet platform, etc. After creating the northbound device, you need to subscribe to the group. In this step, there is no need to set up groups and points. Northbound nodes can subscribe to any group created in southbound nodes. After the subscription is established, the data of the corresponding group will be continuously published to the northbound node according to the frequency of the group.
+
+The overall process is shown in the figure below:
+
+<img src="./_assets/config.png" alt="Configuration steps" style="zoom:40%;" />

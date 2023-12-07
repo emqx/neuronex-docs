@@ -24,7 +24,7 @@ SELECT * FROM neuronStream
 
 ## 消息格式
 
-Neuron 发过来的消息为固定的 json 格式，如下所示： 
+数采模块发过来的消息为固定的 json 格式，如下所示： 
 
 ```json
 {

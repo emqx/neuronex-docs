@@ -460,21 +460,7 @@
             },
             {
               "title": "eKuiper 插件",
-              "path": "configuration/north-apps/ekuiper/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/ekuiper/overview.md",
-              "collapsed": true,
-              "children": [
-                {
-                  "title": "Neuron 与 eKuiper 集成最佳实践",
-                  "path": "configuration/north-apps/ekuiper/ekuiper",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/ekuiper/ekuiper.md"
-                },
-                {
-                  "title": "常见问题",
-                  "path": "configuration/north-apps/ekuiper/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/ekuiper/faq.md"
-                }
-              ]
+              "path": "configuration/north-apps/ekuiper/overview"
             },
             {
               "title": "Sparkplug B 插件",
@@ -1288,21 +1274,7 @@
             },
             {
               "title": "eKuiper",
-              "path": "configuration/north-apps/ekuiper/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/ekuiper/overview.md",
-              "collapsed": true,
-              "children": [
-                {
-                  "title": "Neuron and eKuiper Integration Best Practices",
-                  "path": "configuration/north-apps/ekuiper/ekuiper",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/ekuiper/ekuiper.md"
-                },
-                {
-                  "title": "FAQ",
-                  "path": "configuration/north-apps/ekuiper/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/ekuiper/faq.md"
-                }
-              ]
+              "path": "configuration/north-apps/ekuiper/overview"
             },
             {
               "title": "SparkplugB",

@@ -1,68 +1,83 @@
-# 文件 Sink
+# File Sink
 
-文件 Sink 将分析结果保存到指定文件中。指定的文件已存在，结果将会覆盖写入。[数据源 - 文件](../file.md)是反向的连接器，可以读取文件 sink 的输出。
+File Sink saves the analysis results to the specified file. The specified file already exists, and the result will be overwritten. [Data Source - File](../file.md) is a reverse connector that can read the output of the file sink.
 
-## 文件类型
+## file type
 
-文件 Sink 可以将数据写入不同类型的文件，例如：
+File sinks can write data to different types of files, such as:
 
-- lines：这是默认类型。它写入由流定义中的格式参数解码的行分隔文件。例如，要写入行分隔的 JSON 字符串，请将文件类型设置为 lines，格式设置为 json。
-- json：此类型写入标准 JSON 数组格式文件。有关示例，请参见[此处](https://github.com/lf-edge/ekuiper/tree/master/internal/topo/source/test/test.json)。要使用此文件类型，请将格式设置为 json。
-- csv：此类型写入逗号分隔的 csv 文件。您也可以使用自定义分隔符。要使用此文件类型，请将格式设置为 delimited。
+- lines: This is the default type. It writes a line-delimited file decoded by the format parameter in the stream definition. For example, to write a line-delimited JSON string, set the file type to lines and the format to json.
+- json: This type writes to the standard JSON array format file.
+- csv: This type writes comma-delimited csv files. You can also use custom separators. To use this file type, set format to delimited.
 
-如希望使用 File Sink 连接器，点击 **数据流处理** -> **规则** -> **新建规则**，在 **动作** 区域，点击**添加**，**Sink** 选择 **file**。
+If you want to use the File Sink connector, click **Data Processing** -> **Rules** -> **Create Rule**, in the **Action** area, click **Add**, **Sink** Select **file**.
 
-## 传输与存储配置
+## Sink configuration
 
-在弹出的页面，进行如下设置：
+On the page that pops up, make the following settings:
 
 ::: tip
-如希望将传输与存储设置保存为模版，也可点击 **添加传输与存储模版** 在弹出的窗口中进行设置。新添加的模版将自动添加到**传输与存储模版**列表，您可点击 **数据流处理** -> **配置** -> **资源** 的 **传输与存储模版** 查看或编辑已有的传输与存储模版。
+If you want to save the settings as a template, you can also click **Add Sink Template** to make settings in the pop-up window. The newly added template will be automatically added to the **Sink Templates** list. You can click **Data Processing** -> **Configuration** -> **Sink Templates** of **Resources** View or edit existing Sink templates.
 :::
 
-- **名称**：输入名称
+## Properties
 
-- **Resource ID**：选择已有的传输与存储模版，或自行配置。
-- **文件路径**：保存结果的文件路径
-- **间隔时间**：写入分析结果的时间间隔（毫秒）。
-- **是否忽略输出**：可选值 True、False，默认为 False，则忽略输出。
-- **将结果数据按条发送**：
-  - 默认为 false，输出格式为 `{"result":"${the string of received message}"}`， 例如，`{"result":"[{"count":30},""count":20}]"}`
-  - 如设为 true，结果消息将与实际字段名称一一对应发送。 对于上述示例，它将先发送 `{"count":30}`，再发送 `{"count":20}`
-- **流格式**：支持 json、binary、protobuf、delimited、custom。
-  - 如选择 protobuf 或 custom，还应配置对应的[模式和模式消息](../config.md)
-  - 如选择 delimited，还应配置分隔符，如 ","
-- **数据模版**：Golang 模板，用于指定输出数据格式。如不指定数据模板，则将数据作为原始输入。关于数据模版的详细介绍，见 [数据模版](./data_template.md)。注意：如使用 **Key 字段**配置 Redis 的键值（key），则无需配置数据模版。
+| Property name         | Optional | Description                                                                                                                                                                                                                                                        |
+|-----------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| path                  | false    | The file path for saving the result, such as `/tmp/result.txt`. Support to use template for dynamic file name, please check [dynamic properties](../overview.md#dynamic-properties) for detail.                                                                    |
+| fileType              | true     | The type of the file, could be json, csv or lines. Default value is lines. Please check [file types](#file-types) for detail.                                                                                                                                      |
+| hasHeader             | true     | Whether to produce the header line. Currently, it is only effective for csv file type. Deduce the header from the first data and sort the keys alphabetically.                                                                                                     |
+| rollingInterval       | true     | One of the property to set the [rolling strategy](#rolling-strategy). The minimum time interval in millisecond to roll to a new file. The frequency at which this is checked is controlled by the checkInterval.                                                   |
+| checkInterval         | true     | One of the property to set the [rolling strategy](#rolling-strategy). The interval in millisecond for checking time based rolling policies. This controls the frequency to check whether a part file should rollover.                                              |
+| rollingCount          | true     | One of the property to set the [rolling strategy](#rolling-strategy). The maximum message counts in a file before rollover.                                                                                                                                        |
+| rollingNamePattern    | true     | One of the property to set the [rolling strategy](#rolling-strategy). Define how to named the rolling files by specifying where to put the timestamp during file creation. The value could be "prefix", "suffix" or "none".                                        |
+| compression           | true     | Compress the payload with the specified compression method. Support  `gzip`, `zstd` method now.                                                                                                                                                                    |
 
-## 通用配置
+Other common sink properties are supported. Please refer to
+the [sink common properties](../overview.md#common-properties) for more information.
+Among them, the `format` property is used to define the format of the data in the file. Some file types can only work
+with specific format. Please check [file types](#file-types) for detail.
 
-您可点击展开**高级**部分实现更加定制化的设置。
+### File Types
 
-- **线程数**：设置运行的线程数。该参数值大于 1 时，消息发出的顺序可能无法保证。
-- **缓存大小**：设置可缓存消息数目。若缓存消息数超过此限制，sink 将阻塞消息接收，直到缓存消息数目小于限制为止。
-- **是否启用缓存**：设置是否启用缓存，可选值 True、False
-- **停止时是否清理缓存**：设置停止时是否清理缓存，可选值 True、False
-- **内存缓存阈值**：内存中缓存的最大消息数。
-- **最大磁盘缓存**：缓存在磁盘中的最大消息数。
-- **缓冲区页面大小**：缓冲区页的消息数，单位为批量读/写磁盘，防止频繁 IO。
-- **重发间隔**：重新发送缓存消息的时间间隔（毫秒）。
-- **是否异步运行**：设置是否异步运行输出操作以提升性能。请注意，异步运行时，将无法保证输出结果的顺序。
+The file sink can write data into different file types, such as:
 
-完成设置后，可点击**测试连接**确认连接情况。最后点击**提交**，完成设置。
+- lines: This is the default type. It writes line-separated files that can be decoded by the format parameter in the
+  stream definition. For example, to write line-separated JSON strings, set the file type to lines and the format to
+  json.
+- json: This type writes standard JSON array format files. For an example,
+  see [here](https://github.com/lf-edge/ekuiper/tree/master/internal/topo/source/test/test.json). To use this file type,
+  set the format to json.
+- csv: This type writes comma-separated csv files. You can also use custom separators. To use this file type, set the
+  format to delimited.
 
-## Rolling 策略
+### Rolling Strategy
 
-文件 Sink 支持配置滚动（Rolling）策略，以控制文件的大小和文件的数量。滚动策略由以下属性控制：rollingInterval、checkInterval、rollingCount 和 rollingNamePattern。
+The file sink supports rolling strategy to control the file size and the number of files. The rolling strategy is
+controlled by the following properties: rollingInterval, checkInterval, rollingCount and rollingNamePattern.
 
-文件滚动可以基于时间或基于消息数或两者。
+The file rolling could be based on time or based on message count or both.
 
-1. 基于时间的滚动： rollingInterval 和 checkInterval 属性用来控制基于时间的滚动。rollingInterval 是滚动到一个新文件的最小时间间隔。checkInterval 是检查基于时间的滚动策略的时间间隔。这控制了检查一个文件是否应该滚动的频率。例如，如果checkInterval 是1小时，rollingInterval是1天，那么文件 Sink 将在每小时检查每个打开的文件，如果文件打开超过1小时，文件将被滚动。所以实际的滚动间隔可能比rollingInterval 属性大。要使用基于时间的滚动，请将 rollingInterval 属性设置为正值，并将rollingCount设置为 0。组合示例：rollingInterval=1天，checkInterval=1小时，rollingCount=0。
-2. 基于消息计数的滚动： rollingCount 属性用于控制基于消息数的滚动。文件 sink 将检查每个打开的文件的消息数，如果消息数大于 rollingCount，文件将滚动。要使用基于消息数的滚动，请将 rollingCount 属性设置为正值，并将 rollingInterval 设置为0。 示例组合：rollingInterval=0, rollingCount=1000。
-3. 同时基于时间和消息数的滚动： 文件 sink 将同时检查每个打开的文件的时间和消息数，如果其中一个被满足，文件将被滚存。要同时使用基于时间和消息数的滚动，请将 rollingInterval 和 rollingCount 属性设置为正值。组合示例：rollingInterval=1天，checkInterval=1小时，rollingCount=1000。
+1. Time based rolling: The rollingInterval and checkInterval properties are used to control the time based rolling. The
+   rollingInterval is the minimum time interval to roll to a new file. The checkInterval is the interval for checking
+   time based rolling policies. This controls the frequency to check whether a part file should rollover. For example,
+   if checkInterval is 1 hour and rollingInterval is 1 day, then the file sink will check each open file for each hour,
+   if the file has opened more than 1 hour, the file will be rolled over. So the actual rolling interval could be bigger
+   than rollingInterval property. To use time based rolling, set the rollingInterval property to a positive value and
+   set rollingCount to 0. Example combination: rollingInterval=1 day, checkInterval=1 hour, rollingCount=0.
+2. Message count based rolling: The rollingCount property is used to control the message count based rolling. The file
+   sink will check the message count for each open file, if the message count is greater than rollingCount, the file
+   will be rolled over. To use message count based rolling, set the rollingCount property to a positive value and set
+   rollingInterval to 0. Example combination: rollingInterval=0, rollingCount=1000.
+3. Both time and message count based rolling: The file sink will check both time and message count for each open file,
+   if either one is satisfied, the file will be rolled over. To use both time and message count based rolling, set the
+   rollingInterval and rollingCount properties to positive values. Example combination: rollingInterval=1 day,
+   checkInterval=1 hour, rollingCount=1000.
 
-## 使用示例
+## Sample usage
 
-下面是一个选择温度大于50度的示例，每5秒将结果保存到文件 `/tmp/result.txt`  中。
+Below is a sample for selecting temperature greater than 50 degree, and save the result into file `/tmp/result.txt` with
+every 5 seconds.
 
 ```json
 {
@@ -71,7 +86,7 @@
     {
       "file": {
         "path": "/tmp/result.txt",
-        "interval": 5000,
+        "checkInterval": 5000,
         "fileType": "lines",
         "format": "json"
       }
@@ -80,7 +95,9 @@
 }
 ```
 
-下面是另一个例子，根据 paylaod 中的 `device` 字段，将结果写入多个文件。每个文件将每1小时或有超过10000条信息时滚动一次。滚动文件名将有一个创建时间戳的前缀，如`16998888_deviceName.csv`。
+Below is another example to write the result into multiple files based on the `device` field in the payload. Each file
+will roll over every 1 hour or have more than 10000 messages. The rolling file name will have a prefix of the creation
+timestamp like `1699888888_deviceName.csv`.
 
 ```json
 {

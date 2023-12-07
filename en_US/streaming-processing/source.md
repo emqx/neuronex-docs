@@ -1,35 +1,47 @@
-# 数据源
+# Source
 
-源（source）用于从外部系统中读取数据。数据源既可以是无界的流式数据，即流；也可以是有界的批量数据，即表。在规则中使用时，至少有一个源必须为流。
+Source is used to read data from external systems. NeuronEX supports loading data sources into three modes: `Stream`, `Scan Table`, and `Lookup Table`.
 
-源定义了如何连接到外部资源，然后采用流式方式获取数据。获取数据后，通常源还会根据定义的数据模型进行数据解码和转换。
+General data sources can be loaded as `Stream`. Tables (including `Scan table` and `Lookup table`) are methods of retaining a large amount of data status, and are generally used in combination with `Stream` , to cope with complex processing scenarios.
 
-## 内置数据源
+:::tip Tips
+When using `Rule`, at least one source must be a `Stream`.
+:::
 
-目前 ECP Edge 内置以下数据源：
 
-| 名称                        | 描述                                       | 流   | 扫描表 | 查询表 |
-| --------------------------- | ------------------------------------------ | ---- | ------ | ------ |
-| [File](./file.md)           | 从文件中读取数据                           | ✅    | ✅      | ❌      |
-| [HTTP pull](./http_pull.md) | 从 HTTP 服务器中拉取数据                   | ✅    | ✅      | ❌      |
-| [HTTP push](./http_push.md) | 通过 HTTP 推送数据到 ECP Edge              | ✅    | ✅      | ❌      |
-| [Memory](./memory.md)       | 从 ECP Edge 内存主题读取数据以形成规则管道 | ✅    | ✅      | ✅      |
-| [MQTT](./mqtt.md)           | 从 MQTT 主题读取数据                       | ✅    | ✅      | ❌      |
-| [Neuron](./neuron.md)       | 从本地 Neuron 实例读取数据                 | ✅    | ✅      | ❌      |
-| [Redis](./redis.md)         | 从 Redis 中查询数据                        | ❌    | ❌      | ✅      |
+## Data source type
 
-## 定义和运行
+Currently NeuronEX has the following built-in data source types and the loading modes they support:
 
-在 ECP Edge 中，定义数据源的流或者表之后，系统实际上只是创建了一个数据源的逻辑定义而非真正物理运行的数据输入。此逻辑定义可在多个规则的 SQL 的 `from` 子句中使用。只有当使用了该定义的规则启动之后，数据流才会真正运行。
+| source type               | Description                        | Stream   | Scan Table | Lookup Table |
+| --------------------------- | ---------------------------------- | ---- | ------ | ------ |
+| [Neuron](./neuron.md)       | Read data from NeuronEX's data collection module           | ✅    | ✅      |❌ |
+| [MQTT](./mqtt.md)           | Read data from MQTT topic                       | ✅    | ✅    | ❌    |
+| [HTTP pull](./http_pull.md) | Pull data from HTTP server                   | ✅    | ✅    | ❌    |
+| [HTTP push](./http_push.md) | Push data to NeuronEX via HTTP             | ✅    | ✅   | ❌     |
+| [Memory](./memory.md)         | Read data from the NeuronEX memory to form a rule pipeline | ✅    | ✅      | ✅     |
+| [SQL](./sql.md)         | Query data from the database                        | ✅    | ✅      | ✅|
+| [File](./file.md)           | Read data from a file                           | ✅    | ✅    | ❌    |
+| [Video](./video.md)         | Query data from video stream                        | ✅    | ✅   | ❌    |
 
-默认情况下，多个规则使用同一个源的情况下，每个规则会启动一个独立的源的运行时，与其他规则中的同名源完全隔离。若多个规则需要使用完全相同的输入数据或者提高性能，源可定义为共享源，从而在多个规则中共享同一个实例。
+## Define and run
 
-## 解码
+In NeuronEX, after creating a stream or table on the **Sources** page, it actually only creates a logical definition of a data source rather than a real data input for physical operation. The data flow will not actually run until a rule using that data source is started.
 
-用户可以在创建源时通过指定流格式属性来定义解码方式。当前支持 `json`、 `binary`、`protobuf`、`delimited`，如希望使用自定义格式，也可以选择 `custom`。
+:::tip Tips
+Streams or tables created on the **Sources** page can be used in the `from` clause of SQL in multiple rules.
+:::
 
-## 数据结构
+Users can define whether to share the data source by specifying the SHARED field when creating a **Sources**.
 
-用户可以像定义关系数据库表结构一样定义数据源的结构。部分数据格式本身带有数据结构，例如 `protobuf` 格式。用户在创建源时可以定义 **模式名称** 来指向模式注册表 ( Schema Registry ) 中的数据结构定义。
 
-其中，模式注册表中的定义为物理数据结构，而数据源定义语句中的数据结构为逻辑数据结构。若两者都有定义，则物理数据结构将覆盖逻辑数据结构。此时，数据结构的验证和格式化将有定义的格式负责，例如 `protobuf`。若只定义了逻辑结构而且设定了 `strictValidation`，ECP Edge 在运行时，会根据定义的结构进行数据验证和类型转换。若未设置验证，则逻辑数据结构主要用于编译和加载时的 SQL 语句验证。若输入数据为预处理过的干净数据或者数据结构未知或不固定，用户可不定义数据结构，从而也可以避免数据转换的开销。
+## Data source decoding
+
+Users can define the decoding method by specifying the `stream format` field when creating a **data source (Source)**. Currently supports `json`, `binary`, `protobuf`, `delimited`. If you want to use a custom format, you can also choose `custom`.
+:::tip Tips
+Before the data source enters rule processing, it will be decoded first, and the decoded data will be used as the input of the rule.
+:::
+
+## data structure
+
+NeuronEX supports structured/unstructured streams, with the default being unstructured. That is, when **Sources** -> **Create Stream**, the `Whether it is a stream with structure` option is not checked. For details, see [Stream Parameter Configuration](./stream.md#Stream Parameter Configuration).

@@ -1,209 +1,212 @@
-# 快速开始
+# Quick Start
 
-本教程从下载安装开始，以 Modbus TCP 驱动协议为例，快速开始使用 NeuronEX 采集模拟设备数据，并将数据直接上传到 EMQX MQTT 公有云服务，以及数据流处理功能的简单使用。
+This tutorial starts with the download and installation, taking the Modbus TCP driver protocol as an example, and quickly starts using NeuronEX to collect analog device data, directly uploading the data to the EMQX MQTT public cloud service, and simply using the data stream processing function.
 
 ![start](./_assets/start.png)
 
-## 安装 NeuronEX
+## NeuronEX Installation
 
-NeuronEX 提供多种安装方式，用户可在 [安装](../installation/introduction.md) 中查看详细的安装方式。本实例采用容器化部署的方式，以便于最快开始体验 NeuronEX。
+NeuronEX provides a variety of installation methods. Users can view detailed installation methods in [Installation](../installation/introduction.md). This example uses docker to start experiencing NeuronEX as quickly as possible.
 
-获取 Docker 镜像
+- Get Docker image
 
 ```
 $ docker pull emqx/neuronex:latest
 ```
 
-启动 Docker 容器
+- Start Docker container
 
 ```
-$ docker run -d --name neuronex -p 8085:8085  emqx/neuronex:latest
+$ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:latest
 ```
 
-## 安装 Modbus 模拟器
+## Install Modbus simulator
 
-安装 PeakHMI Slave Simulators 软件，安装包可在 [PeakHMI 官网](https://hmisys.com) 中下载。
+Install the PeakHMI Slave Simulators software. The installation package can be downloaded from [PeakHMI official website](https://hmisys.com).
 
-安装后，运行 Modbus TCP slave EX。设置模拟器点位数值及站点号，如下图所示。
+After installation, run Modbus TCP slave EX. Set the simulator point value and site number, as shown in the figure below.
 
 ![modbus-simulator](./_assets/modbus-simulator.png)
 
-:::tip 
-须保证 NeuronEX 与模拟器运行在同一局域网内。
+:::tip
+It is necessary to ensure that NeuronEX and the simulator are running in the same local area network.
 
-Windows 中尽量关闭防火墙，否则可能会导致 NeuronEX 连接不上模拟器。 
+Try to turn off the firewall in Windows, otherwise NeuronEX may not be able to connect to the emulator.
 
 :::
 
-## 登录 NeuronEX
+## Login to NeuronEX
 
-打开 Web 浏览器，输入运行 NeuronEX 的网关地址和端口号，即可进入到登录界面，默认端口号为 8085。例如，http://127.0.0.1:8085
+Open a web browser and enter the gateway address and port number running NeuronEX to enter the login interface. The default port number is 8085. For example, http://127.0.0.1:8085
 
-使用初始用户名与密码登录进入管理控制台页面（初始用户名：admin，初始密码：0000），登录界面如下图所示。
+Use the initial username and password to log in to the management console page (initial username: `admin`, initial password: `0000`). The login interface is as shown in the figure below.
 
 ![login](./_assets/login.png)
 
-## 南向设备配置
+## Southbound device configuration
 
-### 创建南向设备节点
+### Create southbound device node
 
-南向设备节点用于 NeuronEX 与设备建立连接，以及设备数据采集点位的创建及配置。在本例中使用NeuronEX 的 Modbus TCP插件，获取 Modbus 模拟器中的数据。
+The southbound device node is used to establish a connection between NeuronEX and the device, and to create and configure device data collection points. In this example, NeuronEX's Modbus TCP plug-in is used to obtain data in the Modbus simulator.
 
-在 `数据采集` 菜单中选择 `南向设备` 进入南向设备管理界面，单击 `添加设备` 新增设备，如下图所示。
+Select `South Device` in the `Data Collection` menu to enter the southbound device management interface, click `Add Device` to add a new device, as shown in the figure below.
 
 ![south-add](./_assets/south-add.png)
 
-- 名称：填写设备名称，例如 modbus-tcp；
-- 方式：默认选择插件；
-- 插件：下拉框选择 Modbus TCP 的插件；
-- 单击 `创建` 新增设备。
+- Name: fill in the device name, such as Modbus TCP;
+- Mode: Plugin is selected by default;
+- Plugin: Select the Modbus TCP plug-in from the drop-down box;
+- Click `Create` to add a new device.
 
-### 配置南向设备节点
+### Configure southbound device node
 
-配置 NeuronEX 与设备建立连接所需的参数。
+Configure the parameters NeuronEX needs to establish a connection with the device.
 
-南向节点创建成功后自动跳转到 `设备配置` 界面，如下图所示。
+After the southbound node is successfully created, it will automatically jump to the `Device Configuration` page, as shown in the figure below.
 
 ![south-setting](./_assets/south-setting.png)
 
-- IP地址：填写访问设备的 IP 地址。示例填写安装 Modbus 模拟器 PC 端的 IP 地址；
-- 端口：默认端口 502；
-- 单击 `提交`，完成设备配置，设备卡片自动进入 **运行中** 的工作状态；
+- IP address: Fill in the IP address of the access device. Example: fill in the IP address of the PC side of the Modbus simulator installed;
+- Port: default port 502;
+- Click `Submit` to complete the device configuration, and the device card automatically enters the **Running** working state;
 
-:::tip 
-每个设备所需的配置参数有所不同，详细南向设备参数说明可参考 [创建南向驱动](../configuration/south-devices/south-devices.md)。 
+:::tip
+The configuration parameters required for each device are different. For detailed southbound device parameter description, please refer to [Create Southbound Driver](../configuration/south-devices/south-devices.md).
 :::
 
-### 创建采集点位
+### Create data point
 
-创建组用于设备点位的分类及统一管理。单击刚创建的 **modbus-tcp** 南向设备节点任意空白处进入组列表管理界面。
+Create groups for classification and unified management of device points. Click any blank space of the newly created **modbus-tcp** southbound device node to enter the group list management interface.
 
-单击 `创建` ，在 `创建组` 的弹框中填写相关参数，如下图所示。
+Click `Create` and fill in the relevant parameters in the `Create Group` pop-up box, as shown in the figure below.
 
 ![group-add](./_assets/group-add.png)
 
-- 组名称：填写组名称，例如 group-1；
-- 点击 `创建`，完成组创建。
+- Group name: fill in the group name, such as group-1;
+- Interval: fill in the collection interval;
+- Click `Create` to complete the group creation.
 
-手动为组创建点位，单击刚创建的 **group-1** 组列表任意空白处进入点位列表界面。
+Manually create points for the group, click any blank space in the newly created **group-1** group list to enter the point list interface.
 
-单击 `创建`，在 `添加点位` 页面新建需要采集的设备点位，配置点位属性、类型、地址等，如下图所示。
+Click `Create`, create a new device point to be collected on the `Add Tags` page, and configure the data point attributes, type, address, etc., as shown in the figure below.
 
 ![tags-add](./_assets/tags-add.png)
 
-- 名称：填写设备点位名称，例如，pressure；
-- 属性：下拉选择点位属性，例如，Read；
-- 类型：下拉选择数据类型，例如，int16；
-- 地址：填写驱动点位地址，例如，1!40001；
-- 点击`创建`按键，完成 Tag 的创建；
+- Name: fill in the name of the equipment point, for example, pressure;
+- Attributes: drop down to select point attributes, for example, Read;
+- Type: drop down to select the data type, for example, int16;
+- Address: fill in the driving point address, for example, 1!40001;
+- Click the `Create` button to complete the creation of Tag;
 
 :::tip
-点位地址解析：1 表示 Modbus 模拟器中设置的点位站点号，40001 表示点位的寄存器地址。
+Point address resolution: 1 represents the point site number set in the Modbus simulator, 40001 represents the register address of the point.
 
-详细的驱动地址使用说明请参阅 [创建南向驱动](../configuration/south-devices/south-devices.md)。 
+For detailed instructions on how to use the driver address, please refer to [Creating a southbound driver](../configuration/south-devices/south-devices.md).
 :::
 
-创建采集的设备点位后，NeuronEX 自动与设备建立通信。南向设备节点进入 **运行中** 的工作状态，**已连接** 的连接状态。
+After creating the collected equipment points, NeuronEX automatically establishes communication with the equipment. The southbound device node enters the **Running** working state and the **Connected** connection state.
 
-如果等待几秒后，连接状态仍然处于 **断开连接**，请进行以下操作查找原因：
+If after waiting for a few seconds, the connection status is still **Disconnected**, please do the following to find out the reason:
 
-- 请确认在设备配置时 IP 地址 和端口号设置正确，并且防火墙处于关闭状态。
-- 在 NeuronEX 运行环境终端执行以下指令，以确认 NeuronEX 运行环境能否访问到到对应的 IP 及端口：
+- Please confirm that the IP address and port number are set correctly during device configuration, and the firewall is turned off.
+- Execute the following command in the NeuronEX operating environment terminal to confirm whether the NeuronEX operating environment can access the corresponding IP and port:
 
 ```
-$ telnet <运行 Modbus 模拟器 PC 端的 IP> 502
+$ telnet <IP of the PC running the Modbus simulator> 502
 ```
 
-## 查看采集数据
+## View collected data
 
-在 `数据采集` 菜单下选择`数据监控`，进入数据监控界面，查看已创建点位读取到的数值，如下图所示。
+Select `Data Monitoring` under the `Data Collection` menu to enter the data monitoring page and view the values read from the created points, as shown in the figure below.
 
 ![data-monitoring](./_assets/data-monitoring.png)
 
-数据监控以组为单位显示数值：
+Data monitoring displays values in groups:
 
-- 南向设备：下拉框选择想要查看的南向设备，例如，选择上面步骤已创建好的 modbus-tcp;
-- 组名称：下拉框选择想要查看所选南向设备下的组，例如，选择上面步骤已经创建好的 group-1；
-- 选择完成，页面将会展示组下每一个点位的值；
+- Southbound device: drop-down box to select the southbound device you want to view, for example, select modbus-tcp created in the above step;
+- Group name: Use the drop-down box to select the group you want to view under the selected southbound device. For example, select group-1 that has been created in the above step;
+- Once the selection is completed, the page will display the value of each point under the group;
 
-## 北向应用配置
+## Northbound application configuration
 
-### 创建北向应用节点
+### Create northbound application node
 
-北向应用节点用于 NeuronEX 与多种北向应用进行数据交互，以 MQTT 插件为例，新增一个 MQTT 节点。
+Northbound application nodes are used for data interaction between NeuronEX and various northbound applications. Taking the MQTT plug-in as an example, a new MQTT node is added.
 
-在 `数据采集` 菜单中选择 `北向应用`，单击 `添加应用` 新增应用，如下图所示。
+Select `North Apps` in the `Data Collection` menu and click `Add Application` to add a new application, as shown in the figure below.
 
 ![north-add](./_assets/north-add.png)
 
-- 名称：填写应用名称，例如，mqtt；
-- 插件：下拉框选择 MQTT 插件；
-- 单击 `创建` 新增应用。
+- Name: fill in the application name, for example, mqtt;
+- Plug-in: Select the MQTT plug-in from the drop-down box;
+- Click `Create` to add a new application.
 
-### 配置北向应用节点
+### Configure northbound application nodes
 
-配置 NeuronEX 与北向应用建立连接所需的参数。
+Configure the parameters required for NeuronEX to establish a connection with the northbound application.
 
-北向节点创建成功后自动跳转到 `应用配置` 界面，如下图所示。
+After the northbound node is successfully created, it will automatically jump to the `Application Configuration` page, as shown in the figure below.
 
 ![north-setting](./_assets/north-setting.png)
 
-- 服务器地址：填写应用的服务器地址，默认使用公共的 EMQX Broker（broker.emqx.io）；
-- 服务器端口：填写服务器端口，默认使用 1883；
-- 单击 `提交`，完成北向应用配置，应用卡片自动进入 **运行中** 的工作状态。
+- Server address: Fill in the server address of the application. By default, the public EMQX Broker (broker.emqx.io) is used;
+- Server port: fill in the server port, the default is 1883;
+- Click `Submit` to complete the northbound application configuration, and the application card automatically enters the **Running** working state.
+​
 
-### 订阅南向组
+### Subscribe to southbound group
 
-采集到的数据都是以组为单位上传云端的，用户需要选择上传哪些组的数据。
+The collected data send to the North Apps in groups, and users need to choose which groups of data to send.
 
-点击刚创建的 **mqtt** 北向应用节点任意空白处，进入组列表界面。
-
-单击 `添加订阅` 新增订阅，如下图所示。
+Click `Add Subscription` button to add a new subscription, as shown in the figure below.
 
 ![subscription](./_assets/subscription.png)
 
-- 主题：可自定义主题，示例使用默认主题；
-- 订阅南向驱动数据：自主选择需要订阅的数据组；
-- 点击`提交`，完成订阅。
+- Topic: The topic can be customized, and the example uses the default topic;
+- Subscription south driver data: independently select the data group to be subscribed;
+- Click `Submit` to complete the subscription.
 
-## 在 MQTT 客户端查看数据
+## View data on MQTT client
 
-使用 MQTT 客户端查看上传的数据，示例使用 MQTT 客户端工具 [MQTTX](https://www.emqx.com/zh/products/mqttx) 连接公共的 EMQX 代理查看 NeuronEX 上传到 MQTT Broker 的数据，如下图所示。
+Use the MQTT client to view the uploaded data. For example, use the MQTT client tool [MQTTX](https://www.emqx.com/zh/products/mqttx) to connect to the public EMQX broker to view the data uploaded by NeuronEX to the MQTT Broker, as follows As shown in the figure.
 
 ![mqttx](./_assets/mqttx.png)
 
-订阅成功之后可以看到 MQTTX 可以一直接收到 NeuronEX 采集并上报过来的数据。
+After the subscription is successful, you can see that MQTTX can always receive the data collected and reported by NeuronEX.
 
-- 打开 MQTTX 添加新的连接，正确填写名称、Host（broker.emqx.io） 和 Port（默认 1883）完成连接;
-- 添加新的订阅，Topic 要与 NeuronEX 端北向应用的订阅主题保持一致。
+- Open MQTTX to add a new connection, correctly fill in the name, Host (broker.emqx.io) and Port (default 1883) to complete the connection;
+- Add a new subscription, and the Topic must be consistent with the subscription topic of the NeuronEX northbound application.
 
-## 数据流处理
+## Data processing
 
-NeuronEX 提供了数据流处理功能，可以对数据点进行数据抽取、转换、过滤、排序、分组、聚合、连接等功能，通过强大的流式计算分析能力，实现数据过滤清洗、数据标准化、分析监测及实时报警。
+NeuronEX provides data processing functions, which can perform data extraction, transformation, filtering, sorting, grouping, aggregation, connection and other functions on data points. Through powerful streaming computing and analysis capabilities, it can realize data filtering and cleaning, data standardization, analysis and monitoring, and Real-time alarm.
 
-本示例将介绍如何将 NeuronEX 采集到的数值进行 +1 操作后将结果发送到云端 MQTT 的动态主题中。
+This example will introduce how to +1 the value collected by NeuronEX and then send the result to the dynamic topic of MQTT in the cloud.
 
-### 数据流北向应用节点
+### Data flow northbound application node
 
-在**数据采集** ->  **北向应用**页面，NeuronEX默认已经配置一个 DataProcessing 的北向应用，用户只需通过该应用订阅**南向驱动**的**数据组**即可，然后NeuronEX采集到的数据点就会发送到数据流处理模块的 `neuronStream` 数据流中。
+On the **Data Collection** -> **Northbound Application** page, NeuronEX has been configured with a DataProcessing northbound application by default. Users only need to subscribe to the **data group** of **Southbound Driver** through this application. , and then the data points collected by Southbound driver will be sent to the `neuronStream` stream on the **Data Processing** -> **Sources** page.
 
+Click `Add Subscription` button to add a new subscription on **DataProcessing** App, as shown in the figure below.
+![ekuiper_sub1](./_assets/ekuiper_sub1.png)
+![ekuiper_sub2](./_assets/ekuiper_sub2.png)
 
-### 新建规则
+### Create new rule
 
-在 `数据流处理` 菜单中选择 `规则`，单击 `新建规则`，如下图所示。
+On the **Data Processing** -> **Rules** page, click `Create Rule`, as shown in the figure below.
 
 ![stream-rule](./_assets/stream-rule.png)
 
-在`动作`模块中单击`添加`，如下图所示。
+Click `Add Action`, as shown in the figure below.
 
 ![stream-sink](./_assets/stream-sink.png)
 
-- Sink：下拉框选择 **mqtt**；
-- MQTT 服务器地址：正确填写 MQTT 服务器地址和端口号；
-- MQTT 主题：数据上报主题，示例使用默认主题；
+- Sink: Select **mqtt** from the drop-down box;
+- MQTT server address: Correctly fill in the MQTT server address and port number;
+- MQTT topic: data reporting topic, the example uses the default topic;
 
-## 查看流处理结果
+## View stream processing results
 
-示例中数据流节点订阅的 node_name 为 `modbus-tcp`，group_name 为 `group-1`，即，订阅主题为 `modbus-tcp/group-1`。
+In the example, the node_name subscribed by the data flow node is `modbus-tcp`, and the group_name is `group-1`, that is, the subscription topic is `modbus-tcp/group-1`.
 
 ![mqtt-result](./_assets/mqtt-result.png)

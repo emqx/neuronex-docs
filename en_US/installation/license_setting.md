@@ -8,7 +8,7 @@ Licenses can be installed multiple times. When you reinstall a license, the old 
 
 - **Apply for a license on the website**
 
-  You can directly [contact us](https://www.emqx.com/zh/contact?product=neuron) to apply for a license that does not require hardware binding. After applying for a license, you can enter NeuronEX, click **Administration** > **License**, click **Re-upload**, and then you can see the detailed information of the license on this page after the upload is successful.
+  You can directly [contact us](https://www.emqx.com/en/contact?product=neuronex) to apply for a license that does not require hardware binding. After applying for a license, you can enter NeuronEX, click **Administration** > **License**, click **Re-upload**, and then you can see the detailed information of the license on this page after the upload is successful.
 
   ![upload-license](_assets/upload-license.png)
 

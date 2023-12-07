@@ -1,18 +1,5 @@
-# 修改密码
+# change Password
 
-::: danger
-
-【attention】这个页面要等环境截图
-
-:::
-
-进入**管理->修改密码**页面，可修改登录密码，如下图所示。
+Enter the **Change Password** page to change the login password, as shown in the figure below.
 
 ![change_password](./assets/change_password.png)
-
-若用户忘记密码，可通过执行指令重置密码(默认0000)。
-
-```shell
-./neuron --reset-password
-```
-

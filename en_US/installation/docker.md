@@ -2,7 +2,7 @@
 
 ## Get the image
 
-The NeuronEX docker image can be downloaded from the docker hub website.[docker hub](https://hub.docker.com/r/emqx/neuronex/tags)
+The NeuronEX docker image can be downloaded from the [docker hub](https://hub.docker.com/r/emqx/neuronex/tags) website.
 
 ```bash
 ## pull NeuronEX

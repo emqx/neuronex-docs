@@ -44,7 +44,7 @@ NeuronEX 数据处理模块通过 `HTTP Pull` 类型的数据源，可以从 HTT
 
   - **响应类型**： 响应类型,可以是 `code` 或者 `body`，如果是 `code`，那么 NeuronEX 会检查 HTTP 响应码来判断响应状态。如果是 `body`，那么 NeuronEX 会检查 HTTP 响应正文，要求其为 JSON 格式，并且检查 code 字段的值。默认为 `code`。
 
-  - **oAuth**： 配置 OAuth 验证流程，关于 OAuth 的详细介绍，见 [OAuth](#oauth)
+  - **oAuth**： 配置 OAuth 验证流程。
 
     - access
       - url：获取访问码的网址，总是使用 POST 方法访问。

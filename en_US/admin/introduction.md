@@ -1,27 +1,29 @@
-# 系统管理
+# Operation and Maintenance Guide
 
-## 登录
+This chapter is designed to help administrators and operation and maintenance personnel effectively manage and maintain NeuronEX. In this chapter, we'll explore various management tasks and provide comprehensive guidance and best practices to ensure your NeuronEX runs smoothly and efficiently.
 
-打开 Web 浏览器，输入运行 ECP Edge 的网关地址和端口号，即可进入到管理控制台页面，默认端口号为 7000。
+## Log in
 
-访问格式，http://x.x.x.x:7000 其中，x.x.x.x 代表安装 ECP Edge 的网关地址。
+Open a web browser and enter the gateway address and port number running NeuronEX to enter the management console page. The default port number is 8085.
 
-页面打开后，进入登录界面，用户可使用初始用户名与密码登录（初始用户名：admin，初始密码：0000）。
+Access address, http://x.x.x.x:8085 where x.x.x.x represents the gateway address where NeuronEX is installed.
 
-:::tip
-如果页面无法打开，请在终端执行以下指令进行检测：
+After the page opens, the login interface is entered. The user can log in using the initial username and password (initial username: admin, initial password: 0000).
 
-* 使用 ping 命令测试网络是否能通。
-* 使用 telnet 命令测试端口 7000 能否访问。
-* 执行如下指令查看 ECP Edge 的进程状态。
+If the page cannot be opened, please execute the following command in the terminal to detect:
+
+* Use the `ping` command to test whether the network is accessible.
+* Use the `telnet` command to test whether port 8085 is accessible.
+* Execute the following command to view the process status of NeuronEX.
 
 ```
 $ systemctl status neuron
 ```
 
-:::
+## manage
 
-## 管理
+Please see the following pages for specific management functions:
 
-* [管理日志](./log-management.md)
-* [修改密码](./password.md)
+* [Configuration Management](./conf-management.md)
+* [Log Management](./log-management.md)
+* [Change password](./password.md)

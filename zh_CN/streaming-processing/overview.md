@@ -100,10 +100,6 @@ NeuronEX 数据流处理模块的架构如下：
   - [InfluxDB V2 sink](./sink/influx2.md)： 写入 Influx DB `v2.x`。
   - [File sink](./sink/file.md)： 写入文件。
   - [Nop sink](./sink/nop.md)：不输出，用于性能测试。
-  <!-- - [Redis sink](./sink/redis.md): 写入 Redis 。 -->
-  <!-- - [Tdengine sink](./sink/tdengine.md)： 写入 Tdengine 。 -->
-  <!-- - [Image sink](./sink/image.md)： 写入一个图像文件。仅用于处理二进制结果。 -->
-  <!-- - [Kafka sink](./sink/kafka.md)：输出到 Kafka 。 -->
 
 
 ### 流式处理

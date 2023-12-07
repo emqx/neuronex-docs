@@ -1,30 +1,30 @@
-# 管理插件模块
+# Manage plug-in modules
 
-插件可以分为北向应用和南向驱动程序。北向插件通常用于连接到云平台或像处理引擎这样的外部应用程序。南向插件是实现特定协议以访问外部设备的通信驱动程序。为了实现协议格式转换，至少需要一个北向插件和一个南向插件分别用于数据传递和数据采集。
+Plug-ins can be divided into northbound applications and southbound drivers. Northbound plug-ins are typically used to connect to cloud platforms or external applications like processing engines. Southbound plugins are communication drivers that implement specific protocols to access external devices. In order to implement protocol format conversion, at least one northbound plugin and one southbound plug-in are required for data transmission and data collection respectively.
 
-登录 ECP Edge 后，您可点击**配置** -> **插件**查看系统的插件列表。您也可点击左上角的**添加插件**按钮安装自定义插件。
+After logging in to NeuronEX, you can click **Data Collection** -> **Plugin** to view the system's plugin list. You can also click the **Add Plugin** button in the upper left corner to install a custom plugin.
 
-您可访问[插件列表页](../introduction/plugin-list/plugin-list.md)获取 ECP Edge 完整支持的插件列表。
+You can visit the [plugin list page](../introduction/plugin-list/plugin-list.md) to get the complete list of plug-ins supported by NeuronEX.
 
-## 查看可用插件模块
+## View available plugin modules
 
-插件管理页面显示所有可用的可插拔模块和详细信息，包括插件名称、关联节点类型、和描述信息，如下图所示，您可从下拉框中选择北向应用或南向设备的插件。
+The plugin management page displays all available pluggable modules and detailed information, including plug-in name, associated node type, and description information, as shown in the figure below. You can select plugins for northbound applications or southbound devices from the drop-down box.
 
 ![plugin-options](./_assets/plugin-options.png)
 
-插件类型包括以下三种模式：
+Plugin types include the following three modes:
 
-* Static：不可删除
-* System：不可删除，软件自带
-* Custom：可删除，用户自己开发或者是定制开发的
+* System: cannot be deleted, comes with the software
+* Custom: can be deleted, developed by the user or customized
 
-## 添加新的可插拔模块
+## Add new pluggable module
 
-在插件页面，点击左上角的**添加插件**按钮，在弹出的对话框中进行如下配置：
+On the plugin page, click the **Add plugin** button in the upper left corner to upload the local plugin .so file.
 
-填写需要添加的 .so 文件的路径和文件名。
+For specific plug-in development tutorials, please refer to [SKD Tutorial](https://neugates.io/docs/zh/latest/dev-guide/sdk-tutorial/sdk-tutorial.html).
 
-单击**创建**按钮将 .so 文件添加到构建目录。
+## Replace existing plug-in modules
 
+On the plugin page, click the **Replace** button on each plugin card to upload the local plugin .so file.
 
-请确保已将自己编写的 .so 插件文件放置在 ecpedge/build/plugins 目录下，再进行添加。具体的插件开发教程请参考 [SKD 教程](https://neugates.io/docs/zh/latest/dev-guide/sdk-tutorial/sdk-tutorial.html)。
+For specific plugin replacement and updates, please contact the EMQ business team.

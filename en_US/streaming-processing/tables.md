@@ -1,60 +1,49 @@
-# 表
+# Table
 
-如采用流数据源，任何新数据都会附加到当前流中进行处理。表 （**Table**） 用于表示流的当前状态。它可以被认为是流的快照。用户可以使用表来保留一批数据进行处理。
+Tables are a method of retaining a relatively large amount of state. NeuronEX currently supports two types of tables: `Scan Table` and `Lookup Table`. Both types of tables are suitable for streaming batch synthesis calculations.
 
-ECP Edge 目前支持两种类型的表。
+- Scan Table
 
-- 扫描表（Scan Table）：在内存中积累数据。它适用于较小的数据集，表的内容不需要在规则之间共享。
-- 查询表（Lookup Table）：绑定外部表并按需查询。它适用于更大的数据集，并且在规则之间共享表的内容。
+     The `Scan table` holds state data in memory. It works well for smaller data sets where the contents of the table do not need to be shared between rules. `Scan table` acts like an event-driven stream, loading data events one by one. Most data sources can be configured as either a stream or a scan table.
+- Lookup Table
 
-## 表数据源
+     A `Lookup table` binds external data (such as data in a SQL database) and queries references to the external data when needed. It works with larger data sets and shares the contents of the table between rules.
 
-| 名称                        | 描述                                       | 扫描表 | 查询表 |
-| --------------------------- | ------------------------------------------ | ------ | ------ |
-| [File](./file.md)           | 从文件中读取数据                           | ✅      | ❌      |
-| [HTTP pull](./http_pull.md) | 从 HTTP 服务器中拉取数据                   | ✅      | ❌      |
-| [HTTP push](./http_push.md) | 通过 HTTP 推送数据到 ECP Edge              | ✅      | ❌      |
-| [Memory](./memory.md)       | 从 ECP Edge 内存主题读取数据以形成规则管道 | ✅      | ✅      |
-| [MQTT](./mqtt.md)           | 从 MQTT 主题读取数据                       | ✅      | ❌      |
-| [Neuron](./neuron.md)       | 从本地 Neuron 实例读取数据                 | ✅      | ❌      |
-| [Redis](./redis.md)         | 从 Redis 中查询数据                        | ❌      | ✅      |
+:::tip Tips
+With a streaming data source, any new data is appended to the current stream for processing. **Table** is used to represent the current state of the stream. It can be thought of as a snapshot of the stream. Users can use tables to retain a batch of data for processing.
+:::
 
-## 语法定义
+## Table data source
 
-表的语法与流几乎相同：
+| Table type                        | Description                                    | Scan Table | Lookup Table |
+| --------------------------- | ----------------------------------  | ------ | ------ |
+| [Neuron](./neuron.md)       | Read data from NeuronEX's data collection module           | ✅      |❌    |
+| [MQTT](./mqtt.md)           | Read data from MQTT topic                         | ✅    | ❌    |
+| [HTTP pull](./http_pull.md) | Pull data from HTTP server                       | ✅    | ❌    |
+| [HTTP push](./http_push.md) | Push data to NeuronEX via HTTP        | ✅   | ❌     |
+| [Memory](./memory.md)         | Read data from the NeuronEX memory to form a rule pipeline   | ✅      | ✅     |
+| [SQL](./sql.md)         | Query data from the database                            | ✅      | ✅|
+| [File](./file.md)           | Read data from a file                            | ✅    | ❌    |
+| [Video](./video.md)         | Query data from video stream                      | ✅   | ❌    |
 
-```sql
-CREATE TABLE   
-    table_name   
-    ( column_name <data_type> [ ,...n ] )
-    WITH ( property_name = expression [, ...] );
-```
+## Create table
 
-## 创建表
+On the NeuronEX page, click **Data Processing** -> **Sources**, on the **Scan Table**/**Lookup Table** tab, click **Create Scan Table/Create Lookup Table** button to create the table.
 
-在 ECP Edge 页面，点击**数据流处理** -> **源管理**，在**扫描表**/**查询表**页签，点击**创建扫描表/创建查询表**按钮即可进行表的创建。
+The data type and attributes of the table are consistent with the stream. For details, please refer to the [Stream Management](./stream.md) page.
 
-<img src="./_assets/tables.png" alt="tables" style="zoom:40%;" />
+Therefore, tables also support all source types. Many sources are not batched, they have one event at any given point in time, meaning the table will always have only one event.
 
-表的数据类型与属性与流一直，具体看可参考[数据流](./stream.md)页面。
+When creating a `scan table`, you can specify the size of the table snapshot through `RETAIN_SIZE`, which is used to store historical data.
 
-因此，表也支持所有源类型。许多源不是批处理的，它们在任何给定时间点都有一个事件，这意味着表将始终只有一个事件。在创建查询表时，可通过**保留大小**（`RETAIN_SIZE`） 来指定表快照的大小，用于存储历史数据。
+When creating a `lookup table`, you can set the `key` of the table. For example, for a SQL source, specifies the key in the SQL table.
 
-此外，在创建查询表时，可以设置表的**主键**。例如，对于 SQL 源，用于指定 SQL 表中的主键。
 
-## 查询表的语法
+## Application scenarios
 
-语法与创建普通扫描表相同，只需指定 `KIND` 的属性为 `lookup`。下面是一个创建查询表的例子，它会与 redis 的数据库 0 绑定。
+Tables are a way to retain relatively large amounts of state. Scan tables keep states in memory, while lookup tables keep them externally, possibly persistently. Scan tables are easier to set up, while lookup tables can be easily connected to existing persistent state. Both types are suitable for streaming batch synthesis calculations.
 
-```sql
-CREATE TABLE alertTable() WITH (DATASOURCE="0", TYPE="redis", KIND="lookup")
-```
+Check out the links below for some typical scenarios.
 
-## 应用场景
-
-表是保留较为大量的状态的方法。扫描表将状态保存在内存中，而查找表将它们保存在外部，并可能是持久化的。扫描表更容易设置，而查找表可以很容易地连接到存在的持久化的状态。这两种类型都适用于流式批量综合计算。
-
-请查看以下链接，了解一些典型场景。
-
-- [扫描表使用场景](scan.md)
-- [查找表使用场景](lookup.md)
+- [Scan table usage scenario](scan.md)
+- [Lookup table usage scenario](lookup.md)

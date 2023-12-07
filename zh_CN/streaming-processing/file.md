@@ -2,9 +2,6 @@
 
 <span style="background:green;color:white;">流</span>        <span style="background:green;color:white">扫描表</span>
 
-<!--【attention】示例部分看下是不是需要这些原理解释-->
-
-<!--创建表部分需要一个sql示例。-->
 
 
 NeuronEX 数据处理模块通过 `File` 类型的数据源，可以接收来自文件的数据。File 类型可以作为流、扫描表的数据源，支持监控文件或文件夹。当监控对象为文件夹时，NeuronEX 会按照文件名的字母顺序来读取文件。

@@ -1,46 +1,46 @@
-# 数据监控
+# Data monitoring
 
-## 南向驱动采集监控仪表盘
+## Data monitoring dashboard
 
-点击左侧的`数据监控`，选择南向设备和组名称，查看点位数值。
+Click `Data Monitoring` on the left, select the southbound device and group name, and view the point values.
 
 ![data-monitoring](./_assets/data-monitoring.png)
 
-* 南向设备：选择想要查看的南向设备，例如，选择已创建的设备 modbus-tcp-1;
-* 组名称：选择想要查看的南向设备下的组，例如，选择已创建的组 group-1；
-* 数据监控以组为单位显示数值，页面将会展示读取到的组内每个标签的值。
+* Southbound device: Select the southbound device you want to view, for example, select the created device modbus-tcp-1;
+* Group name: Select the group under the southbound device you want to view, for example, select the created group group-1;
+* Data monitoring displays values in groups, and the page will display the read value of each tag in the group.
 
-## 反控设备
+## Control device
 
-NeuronEX 提供通过南向驱动向设备下发指令控制的能力。通过以下各种途径可以向设备发出指令:
+NeuronEX provides the ability to control device through southbound drivers. Instructions can be issued to the device through the following various channels:
 
-- NeuronEX 的数据流处理模块
-- 其他第三方应用程序
-- 工业互联网平台
-- 云平台应用
+- Data stream processing module for NeuronEX
+- Other third-party applications
+- IIoT platform
+- Cloud platform applications
 
-向设备发送命令有三种方式：
-- 用户可以在[仪表板监控屏幕](#监控仪表盘数据写入)上发出命令。
-- 通过 [RESTful APIs](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html#tag/rw) 传递命令。
-- 通过NeuronEX 的MQTT 数据下行通道。任何外部系统，如基于云的平台，都可以将指令数据发布到特定MQTT主题，NeuronEX 接收到指令数据并发送到设备。
+There are three ways to send commands to the device:
+- Users can write data to device on [Dashboard Monitoring Screen](#data-monitoring-dashboard).
+- Users can write data to device via [RESTful APIs](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html#tag/rw).
+- [MQTT data downstream channel](../configuration/north-apps/mqtt/api.md) . Any external system, such as a cloud-based platform, can publish command data to a specific MQTT topic, and NeuronEX receives the command data and sends it to the device.
 
-### 监控仪表盘数据写入
+### Monitoring dashboard data writing
 
-当点位为写属性时，数据监控界面的 Tag 会有一个写操作，点击 `Write` 可以实现反控设备，例如，修改具有写属性的 1!40001 点位地址的值，如下图所示。
+When the point has a write attribute, the Tag on the data monitoring interface will have a write operation. Click `Write` to realize reverse control of the device. For example, modify the value of the 1!40001 point address with write attribute, as shown in the figure below.
 
 ![write](./_assets/write.png)
 
-* 单击要改值的标签末尾的 `Write` 按键；
-* 选择是否以十六进制方式输入，不选择；
-* 输入标签新值，例如，123；
-* 单击`提交`按键提交新的值。
+* Click the `Write` button at the end of the tag whose value you want to change;
+* Select whether to input in hexadecimal mode, or not;
+* Enter the new value of the label, for example, 123;
+* Click the `Submit` button to submit the new value.
 
 ::: tip
-设备中该点位也必须具有可写属性，否则无法写成功。
+This point in the device must also have a writable attribute, otherwise the writing cannot be successful.
 :::
 
-### 查看设备点位值是否修改成功
+### Check whether the device point value is modified successfully
 
-打开 Modbus 模拟器，查看点位值是否变化，如下图所示。
+Open the Modbus simulator and check whether the point value changes, as shown in the figure below.
 
 ![Monitor](./_assets/monitor.png)

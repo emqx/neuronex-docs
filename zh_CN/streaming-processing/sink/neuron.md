@@ -14,9 +14,10 @@
 
 - **名称**：输入名称
 - **路径**：连接 NeuronEX 实例的数采模块的 URL，默认为 `tcp://127.0.0.1:7081`
-- **节点名称**：发送到 neuron 的节点名，值可以为动态参数模板。使用非 raw 模式时必须配置此选项。
-- **分组名称**：发送到 neuron 的组名，值可以为动态参数模板。使用非 raw 模式时必须配置此选项。
-
+- **节点名称**：发送到数采模块南向驱动的节点名称，值可以为动态参数模板。`原始字符串`配置项为`False`时,必须配置此选项。
+- **分组名称**：发送到数采模块南向驱动的组名，值可以为动态参数模板。`原始字符串`配置项为`False`时,必须配置此选项。
+- **标签字段**：发送到数采模块南向驱动的具体标签名称。标签应为规则处理后的字段名。
+- **原始字符串**：该配置项为`False`时,通过`节点名称`、`分组名称`和`标签字段`进行数据写入。该配置项为`True`时,通过`数据模版`进行数据写入。
 - **是否忽略输出**：默认为 False。
 - **将结果数据按条发送**：默认为 True。
 - **流格式**：默认为 `json`。
@@ -30,69 +31,52 @@
 
 ```json
 {
-  "temperature": 25.2,
-  "humidity": 72,
-  "status": "green",
-  "node": "myNode"
+  "tag1": 25.2,
+  "tag2": 72,
+  "group": "group5",
+  "node": "node5"
 }
 ```
 
 ### 发送选定的标签
 
-以下的示例 neuron 配置中，`raw` 参数为空，因此该动作将根据用户配置的其他参数将结果转换为 neuron 的默认格式。`tags` 参数指定了需要发送的标签的名字。
+发送两个标签 tag1 和 tag2 到 node1 节点 group1 组。
 
-```json
+<img src="../_assets/sink_neuron.png" alt="sink_neuron" style="zoom:100%;" />
+
+:::tip 注意
+在 NeuronEX 数采模块必须存在 node1 节点 group1 组，以及命名为 tag1 和 tag2 的两个数据标签，才会下发成功。
+::: 
+
+### 使用动态模板发送到动态的节点
+
+使用动态模板发送两个标签 tag1 和 tag2 到 node5 节点 group5 组。
+
+<img src="../_assets/sink_neuron2.png" alt="sink_neuron2" style="zoom:100%;" />
+
+:::tip 注意
+在 NeuronEX 数采模块必须存在 node5 节点 group5 组，以及命名为 tag1 和 tag2 的两个数据标签，才会下发成功。
+::: 
+
+
+
+### 使用原始字符串发送标签数据
+
+使用原始字符串，发送一个标签 tag1 到 node5 节点 group5 组。
+
+<img src="../_assets/sink_neuron3.png" alt="sink_neuron3" style="zoom:100%;" />
+
+数据模板内容如下：
+  
+  ```json
 {
-  "neuron": {
-    "groupName": "group1",
-    "nodeName": "node1",
-    "tags": ["temperature","humidity"]
-  }
+  "node_name": {{.node}},
+  "group_name": {{.group}},
+  "tag_name": "tag1",
+  "value": {{.tag1}}
 }
-```
+  ```
 
-这个配置将发送两个标签 temperature 和 humidity 到 group1 组 node1 节点。
-
-### 发送所有列
-
-以下的配置中没有指定 `tags` 参数，因此所有结果中的列将作为标签发送。
-
-```json
-{
-  "neuron": {
-    "groupName": "group1",
-    "nodeName": "node1"
-  }
-}
-```
-
-这个配置将发送四个标签 temperature， humidity， status 和 node 到 group1 组 node1 节点。
-
-### 发送到动态的节点
-
-在此配置中，`nodeName` 设置为一个数据模板，从结果里提取 `node` 列的值作为发送的节点名。
-
-```json
-{
-  "neuron": {
-    "groupName": "group1",
-    "nodeName": "{{.node}}",
-    "tags": ["temperature","humidity"]
-  }
-}
-```
-
-这个配置将发送两个标签 temperature 和 humidity 到 group1 组 myNode 节点。
-
-### 发送原始字符串数据
-
-以下配置中，数据模板转换后的字符串数据将直接发送到 neuron 中。
-
-```json
-{
-  "neuron": {
-    "raw": true,
-    "dataTemplate": "your template here"
-  }
-}
-```
+:::tip 注意
+使用原始字符串发送标签数据，目前仅支持写入单个点位标签。  
+::: 

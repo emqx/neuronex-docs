@@ -1,196 +1,115 @@
-# 规则
+# rule
 
-::: danger
-【attention】数据模版引用到 ekuiper？
-SQL 部分是搬过来还是链接到 ekuiper？
-:::
+All calculation logic is handled through **Rules** in NeuronEX. The rules take the data source as input, define the calculation logic through **SQL**, and output the results to **Action (Sink)**. Once a rule definition is submitted, it will continue to run. It will continuously obtain data from the source, perform calculations based on SQL logic, and trigger **Action (Sink)** in real time based on the results.
 
-在 ECP Edge，计算工作以规则的形式呈现。规则以流的数据源为输入，通过 SQL 定义计算逻辑，将结果输出到动作/sink 中。规则定义提交后，它将持续运行。它将不断从源获取数据，根据 SQL 逻辑进行计算，并根据结果触发行动。
+NeuronEX supports running multiple rules simultaneously. These rules run in the same memory space and share the same hardware resources. Multiple parallel rules are separated at run time, and an error in one rule will not affect other rules.
 
 ::: tip
 
-目前，ECP Edge 只支持流处理规则，因此至少有一个规则源应该是连续流。关于如何创建流，可参考[数据流 - Stream](./stream.md)。
+NeuronEX rules that at least one data source in SQL should be of type `Stream`. For information on how to create a stream, please refer to [Stream](./stream.md).
 
 :::
 
-此外，ECP Edge 支持同时运行多个规则。这些规则在同一个内存空间中运行，共享相同的硬件资源。多条并行规则在运行时上是分开的，某条规则的错误不会影响其他规则。
 
-## [规则管道](./rule_pipeline.md)
+## Create rules
 
-多个规则可以通过指定 sink /源的联合点形成一个处理管道。例如，第一条规则在内存 sink 中产生结果，其他规则在其内存源中订阅该主题。
+In the NeuronEX web interface, click **Data Processing** -> **Rules**. Click the **Create Rule** button:
 
-ECP Edge 支持通过批量导入规则，或通过 Web 界面创建规则。
+- Rule ID: Enter the rule ID, which must be unique within the same NeuronEX instance.
 
-## 可视化创建规则
+- Name: Enter the rule name
 
-在 ECP Edge Web 端界面，点击**数据流处理** -> **规则**。点击**创建规则**按钮，即可通过图形化的方式创建规则：
+- Enter rule SQL,for example:
 
-- 规则 ID：输入规则 ID，规则 id 在同一 ECP Edge 实例中必须唯一。
+   ```sql
+   SELECT demo.temperature, demo1.temp
+   FROM demo
+   LEFT JOIN demo1 ON demo.timestamp = demo1.timestamp
+   WHERE demo.temperature > demo1.temp
+   GROUP BY demo.temperature, HOPPINGWINDOW(ss, 20, 10)
+   ```
 
-- 名称：输入规则名称
+## Rules SQL
 
-- 输入规则 SQL，例如
+Rules `sql` define the streams or tables to be processed and how to process them. The rule SQL is and sends the processing results to one or more actions (Sink). You can use built-in functions and operators in rules `sql`, or you can use custom functions and algorithms.
 
-  ```sql
-  SELECT demo.temperature, demo1.temp
-  FROM demo
-  LEFT JOIN demo1 ON demo.timestamp = demo1.timestamp
-  WHERE demo.temperature > demo1.temp
-  GROUP BY demo.temperature, HOPPINGWINDOW(ss, 20, 10)
-  ```
+The simplest rule SQL is `SELECT * FROM neuronStream`. This rule will get all the data from the `neuronStream` data stream. NeuronEX provides a wealth of operators and functions. For more usage, please see the [SQL](./sqls/overview.md) chapter.
 
-## 添加 Sink
+## Add action (Sink)
 
-动作部分定义了一个规则的输出行为。每个规则可以有多个动作。一个动作是一个 sink 连接器的实例。当定义动作时，键是 sink 连接器的类型名称，而值是其属性。
+The action (Sink) part defines the output behavior of a rule. Each rule can have multiple actions.
 
-在**动作**区域，点击**添加**按钮。
+In the **Actions** area, click the **Add** button.
 
-1. 选择 Sink。Sink 用来向外部系统写入数据，分为内置动作和扩展动作两类。您可前往 [Sink](./sink/sink.md) 页面获取 ECP Edge 支持的 Sink 列表。
-   目前 ECP Edge 内置的 Sink 列表：
-   - [Mqtt sink](./sink/mqtt.md)：输出到外部 mqtt 服务。
-   - [Neuron sink](./sink/neuron.md)：输出到本地的 Neuron 实例。
-   - [EdgeX sink](./sink/edgex.md)：输出到 EdgeX Foundry。此动作仅在启用 edgex 编译标签时存在。
-   - [Rest sink](./sink/rest.md)：输出到外部 http 服务器。
-   - [Redis sink](./sink/redis.md): 写入 Redis 。
-   - [File sink](./sink/file.md)： 写入文件。
-   - [Memory sink](./sink/memory.md)：输出到 eKuiper 内存主题以形成规则管道。
-   - [Log sink](./sink/log.md)：写入日志，通常只用于调试。
-   - [Nop sink](./sink/nop.md)：不输出，用于性能测试。
-2. Resource ID：选择资源 ID 以实现配置的复用。
-3. 是否忽略输出：可选值 True、False，默认为 False，则忽略输出。
-4. 将结果数据按条发送：
-   - 默认为 false，输出格式为 `{"result":"${the string of received message}"}`， 例如，`{"result":"[{"count":30},""count":20}]"}`
-   - 如设为 true，结果消息将与实际字段名称一一对应发送。 对于上述示例，它将先发送 `{"count":30}`，再发送 `{"count":20}`
-5. 流格式：支持 json、binary、protobuf、delimited、custom。
-   - 如选择 protobuf 或 custom，还应配置对应的[模式和模式消息](./config.md#模式)
-   - 如选择 delimited，还应配置分隔符，如 ","
-6. 数据模版：Golang 模板，用于指定输出数据格式。如不指定数据模板，则将数据作为原始输入。关于数据模版的详细介绍，见 [eKuiper - 数据模版](https://ekuiper.org/docs/zh/latest/guide/sinks/data_template.html)
-7. 此外，您可点击展开**高级**部分实现更加定制化的设置。
-   - 线程数：设置运行的线程数。该参数值大于 1 时，消息发出的顺序可能无法保证。
-   - 缓存大小：设置可缓存消息数目。若缓存消息数超过此限制，sink 将阻塞消息接收，直到缓存消息数目小于限制为止。
-   - 是否启用缓存：设置是否启用缓存，可选值 True、False
-   - 停止时是否清理缓存：设置停止时是否清理缓存，可选值 True、False
-   - 内存缓存阈值：内存中缓存的最大消息数。
-   - 最大磁盘缓存：缓存在磁盘中的最大消息数。
-   - 缓冲区页面大小：缓冲区页的消息数，单位为批量读/写磁盘，防止频繁 IO。
-   - 重发间隔：重新发送缓存消息的时间间隔（毫秒）。
-   - 是否异步运行：设置是否异步运行输出操作以提升性能。请注意，异步运行时，将无法保证输出结果的顺序。
+1. Select an action. Actions are used to write data to external systems. You can go to the [Action(Sink)](./sink/sink.md) page to get detailed configuration information.
+    Currently the built-in Sink list of NeuronEX:
+    - [MQTT sink](./sink/mqtt.md): Output to external MQTT service.
+    - [Neuron sink](./sink/neuron.md): Output to NeuronEX data collection module.
+    - [Rest sink](./sink/rest.md): Output to external HTTP server.
+    - [Memory sink](./sink/memory.md): Output to the memory topic to form a rule pipeline.
+    - [Log sink](./sink/log.md): Write logs, usually only used for debugging.
+    - [SQL sink](./sink/file.md): Write to relational database Mysql, Sqlserver, Sqlite, etc.
+    - [InfluxDB sink](./sink/memory.md): Write to the InfluxDB database.
+    - [InfluxDB V2 sink](./sink/log.md): Write to the InfluxDB database.
+    - [File sink](./sink/file.md): Write to file.
+    - [Nop sink](./sink/nop.md): No output, used for performance testing.
+    <!-- - [Redis sink](./sink/redis.md): Write to Redis. -->
+    <!-- - [Kafka sink](./sink/nop.md): Write to Kafka. -->
 
-完成设置后，点击**测试连接**，确认设置后，点击**提交**完成动作的创建。
 
-## 规则选项
+After completing the settings, click **Test Connection**. After confirming the settings, click **Submit** to complete the creation of the action.
 
-点开**选项**部分，可继续对当前规则进行配置：
+## Rule options (optional)
 
-- 是否使用事件时间：是否使用事件时间作为的时间戳。 如使用事件时间，则将从有效负载中提取时间戳。有关时间戳的配置，见 [流 - 时间戳](./stream.md#时间戳与时间戳格式)。
-- 是否发送元数据：指定是否将事件的元数据发送到目标，可选值 True、False
-- 延迟多少毫秒：在元素延迟到达的情况，指定在删除元素之前可以延迟多少时间（单位为 ms）。 默认为 0，表示后期元素将被删除。
-- 线程数：一条规则运行时会根据 sql 语句分解成多个 plan 运行。该参数设置每个 plan 运行的线程数。该参数值大于 1 时，消息处理顺序可能无法保证。
-- 缓存大小：指定每个 plan 可缓存消息数。若缓存消息数超过此限制，plan 将阻塞消息接收，直到缓存消息数目小于限制为止。此选项值越大，消息吞吐能力越强，但内存占用也会越多。
-- 流的 QoS：指定流的 QoS。 值：0、1、2
-- 检查点间隔毫秒数：指定触发检查点的时间间隔（单位为 ms）。 该设置仅在 qos 大于 0 时发挥作用。
-- 最大重试次数：最大重试次数。如果设置为 0，该规则将立即失败，不会进行重试
-- 重试间隔时间：默认的重试间隔时间，单位为毫秒。如果没有设置**重试间隔时间系数**（`multiplier`），重试的时间间隔将固定为这个值。
-- 重试的最大间隔时间：重试的最大间隔时间，单位为毫秒。仅在同时设置**重试间隔时间系数**（`multiplier`）时生效。
-- 重试间隔时间系数：重试间隔时间的乘数。
-- 随机值系数：添加或减去延迟的随机值系数，防止在同一时间重新启动多个规则。
+Click the **Options** section to continue configuring the current rules:
 
-完成设置后，点击提交，完成当前规则的创建。新建规则将出现在规则列表中。您可在此查看规则状态、编辑规则、停止规则、刷新规则、查看规则拓扑图，复制规则或删除规则。
+| Option name        | Type & Default Value | Description                                                  |
+| ------------------ | -------------------- | ------------------------------------------------------------ |
+| debug              | bool: false          | Specify whether to enable the debug level for this rule. By default, it will inherit the Debug configuration parameters in the global configuration. |
+| logFilename        | string: ""           | Specify the name of a separate log file for this rule, and the log will be saved in the global log folder. By default, the log configuration parameters in the global configuration will be used. |
+| isEventTime        | boolean: false       | Whether to use event time or processing time as the timestamp for an event. If event time is used, the timestamp will be extracted from the payload. The timestamp filed must be specified by the [stream](../../sqls/streams.md) definition. |
+| lateTolerance      | int64:0              | When working with event-time windowing, it can happen that elements arrive late. LateTolerance can specify by how much time(unit is millisecond) elements can be late before they are dropped. By default, the value is 0 which means late elements are dropped. |
+| concurrency        | int: 1               | A rule is processed by several phases of plans according to the sql statement. This option will specify how many instances will be run for each plan. If the value is bigger than 1, the order of the messages may not be retained. |
+| bufferLength       | int: 1024            | Specify how many messages can be buffered in memory for each plan. If the buffered messages exceed the limit, the plan will block message receiving until the buffered messages have been sent out so that the buffered size is less than the limit. A bigger value will accommodate more throughput but will also take up more memory footprint. |
+| sendMetaToSink     | bool:false           | Specify whether the meta data of an event will be sent to the sink. If true, the sink can get te meta data information. |
+| sendError          | bool: true           | Whether to send the error to sink. If true, any runtime error will be sent through the whole rule into sinks. Otherwise, the error will only be printed out in the log. |
+| qos                | int:0                | Specify the qos of the stream. The options are 0: At most once; 1: At least once and 2: Exactly once. If qos is bigger than 0, the checkpoint mechanism will be activated to save states periodically so that the rule can be resumed from errors. |
+| checkpointInterval | int:300000           | Specify the time interval in milliseconds to trigger a checkpoint. This is only effective when qos is bigger than 0. |
+| restartStrategy    | struct               | Specify the strategy to automatic restarting rule after failures. This can help to get over recoverable failures without manual operations. Please check [Rule Restart Strategy](#rule-restart-strategy) for detail configuration items. |
+| cron               | string: ""           | Specify the periodic trigger strategy of the rule, which is described by [cron expression](https://en.wikipedia.org/wiki/Cron) |
+| duration           | string: ""           | Specifies the running duration of the rule, only valid when cron is specified. The duration should not exceed the time interval between two cron cycles, otherwise it will cause unexpected behavior. |
+| cronDatetimeRange  | lists of struct      | Specify the effective time period of the Scheduled Rule, which is only valid when `cron` is specified. When this `cronDatetimeRange` is specified, the Scheduled Rule will only take effect within the time range specified. Please see [Scheduled Rule](#Scheduled Rule) for detailed configuration items |
 
-## 文本创建规则
 
-在 ECP Edge Web 端界面，点击**数据流处理** -> **规则**。点击**创建规则**按钮，点击右上角切换至文本模式。
+:::tip Tips
+In most scenarios, the default values for rule options are sufficient.
+:::
 
-规则由 JSON 定义，示例如下：
+After completing the settings, click **Submit** to complete the creation of the current rules. The new rule will appear in the rules list. Here you can view rule status, edit rules, stop rules, refresh rules, view rule topology map, copy rules or delete rules.
 
-```json
-{
-  "id": "rule1",
-  "name": "Test Condition",
-  "graph": {
-    "nodes": {
-      "demo": {
-        "type": "source",
-        "nodeType": "mqtt",
-        "props": {
-          "datasource": "devices/+/messages"
-        }
-      },
-      "humidityFilter": {
-        "type": "operator",
-        "nodeType": "filter",
-        "props": {
-          "expr": "humidity > 30"
-        }
-      },
-      "logfunc": {
-        "type": "operator",
-        "nodeType": "function",
-        "props": {
-          "expr": "log(temperature) as log_temperature"
-        }
-      },
-      "tempFilter": {
-        "type": "operator",
-        "nodeType": "filter",
-        "props": {
-          "expr": "log_temperature < 1.6"
-        }
-      },
-      "pick": {
-        "type": "operator",
-        "nodeType": "pick",
-        "props": {
-          "fields": ["log_temperature as temp", "humidity"]
-        }
-      },
-      "mqttout": {
-        "type": "sink",
-        "nodeType": "mqtt",
-        "props": {
-          "server": "tcp://${mqtt_srv}:1883",
-          "topic": "devices/result"
-        }
-      }
-    },
-    "topo": {
-      "sources": ["demo"],
-      "edges": {
-        "demo": ["humidityFilter"],
-        "humidityFilter": ["logfunc"],
-        "logfunc": ["tempFilter"],
-        "tempFilter": ["pick"],
-        "pick": ["mqttout"]
-      }
-    }
-  }
-}
-```
 
-## 导入规则
 
-在 ECP Edge Web 端界面，点击**数据流处理** -> **规则**。点击**导入规则**按钮。在弹出的窗口中，您可选择：
+## Import and export rules
 
-- 直接贴入文件内容，或通过上传文件的形式导入文件内容。
-- 点击文件 URL 页签，在文件 URL下拉列表中，上传预定义的规则文件。
+In the NeuronEX web UI, click **Data Processing** -> **Rules**. Click the **Import Rules** button. In the pop-up window, you can choose:
 
-点击**提交**后，新建规则将出现在规则列表中。您可在此查看规则状态、编辑规则、停止规则、刷新规则、查看规则拓扑图，复制规则或删除规则。
+- Paste file content directly
+- Import file contents by uploading files
+
+After clicking **Submit**, the new rule will appear in the rules list. Here you can view rule status, edit rules, stop rules, refresh rules, view rule topology map, copy rules or delete rules.
 
 ::: tip
 
-导入规则前，需提前上传预定义的规则文件，具体可参考[配置 - 文件管理](./config.md#文件管理)。
+When importing rules, if there are rules with the same ID, the original rules will be overwritten.
 
 :::
 
-## 规则 SQL
+In the NeuronEX web UI, click **Data Processing** -> **Rules**, click the **Export Rules** button, and the JSON file of the current rules will be exported.
 
-通过指定 `sql` 和 `actions` 属性，以声明的方式定义规则的业务逻辑。其中，`sql` 定义了针对预定义流运行的 SQL 查询，这将转换数据。然后，输出的数据可以通过 `action` 路由到多个位置。
+## [Rule Status](./rule_status.md)
 
-最简单的规则 SQL 如 `SELECT * FROM demo`。它有类似于 ANSI SQL 的语法，并且可以利用 ECP Edge 运行时提供的丰富的运算符和函数。参见 [SQL](https://ekuiper.org/docs/zh/latest/sqls/functions/overview.html) 获取更多 SQL 信息。
+When a rule is run in NeuronEX, we can understand the current rule running status through the rule indicators. See [Rule Status](./rule_status.md) for details.
 
-大部分的 SQL 子句都是定义逻辑的，除了负责指定流的 `FROM` 子句。在这个例子中，`demo` 是一个流。通过使用连接子句，可以有多个流或流/表。作为一个流引擎，一个规则中必须至少有一个流。
+## [Rule Pipeline](./rule_pipeline.md)
 
-因此，这里的 SQL 查询语句实际上定义了两个部分。
-
-- 要处理的流或表。
-- 如何处理。
+Multiple rules can form a processing pipeline by specifying sink/source union points. For example, the first rule produces results in an memory sink, and other rules subscribe to the topic in their memory sources. For more usage, please see the [Rule Pipeline](./rule_pipeline.md) chapter.

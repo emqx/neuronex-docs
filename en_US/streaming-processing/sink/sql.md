@@ -1,42 +1,26 @@
-# SQL 目标（Sink）
+# SQL Sink
 
-此插件将结果写入 SQL 数据库。
+<span style="background:green;color:white">updatable</span>
 
-## 编译部署插件
-
-此插件必须与至少一个数据库驱动程序一起使用。我们使用构建标签来确定将包含哪个驱动程序。[eKuiper - SQL 数据库插件 GitHub 页面](https://github.com/lf-edge/ekuiper/tree/master/extensions/sqldatabase/driver)列出了所有支持的驱动程序。
-该插件默认支持 `sqlserver\postgres\mysql\sqlite3\oracle` 驱动。用户可以自己编译只支持一个驱动的插件，例如，只需要 MySQL，则可以用 build tag mysql 构建。
-
-### 默认构建指令
-```shell
-# cd $eKuiper_src
-# go build -trimpath --buildmode=plugin -o plugins/sinks/Sql.so extensions/sinks/sql/sql.go
-# cp plugins/sinks/Sql.so $eKuiper_install/plugins/sinks
-```
-
-### MySQL 构建指令 
-```shell
-# cd $eKuiper_src
-# go build -trimpath --buildmode=plugin -tags mysql -o plugins/sinks/Sql.so extensions/sinks/sql/sql.go
-# cp plugins/sinks/Sql.so $eKuiper_install/plugins/sinks
-```
+The sink will write the result to the database.
 
 
-## 属性
 
-| 属性名称       | 是否可选 | 说明                                                         |
-| -------------- | -------- | ------------------------------------------------------------ |
-| url            | 否       | 目标数据库的url                                              |
-| table          | 否       | 结果的表名                                                   |
-| fields         | 是       | 要插入的字段。结果映射和数据库都应该有这些字段。如果未指定，将插入结果映射中的所有字段 |
-| tableDataField | 时       | 将 tableDataField 的嵌套值写入数据库。                       |
-| rowkindField   | 是       | 指定哪个字段表示操作，例如插入或更新。如果不指定，默认所有的数据都是插入操作 |
+## Properties
 
-其他通用的 sink 属性也支持，请参阅[公共属性](./sink.md#公共属性)。
+| Property name  | Optional | Description                                                                                                                                                   |
+|----------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| url            | false    | The url of the target database                                                                                                                                |
+| table          | false    | The table name of the result                                                                                                                                  |
+| fields         | true     | The fields to be inserted to. The result map and the database should both have these fields. If not specified, all fields in the result map will be inserted. |
+| tableDataField | true     | Write the nested values of the tableDataField into database.                                                                                                  |
+| rowkindField   | true     | Specify which field represents the action like insert or update. If not specified, all rows are default to insert.                                            |
 
-## 示例
+Other common sink properties are supported. Please refer to the [sink common properties](../overview.md#common-properties) for more information.
 
-下面是一个获取目标数据并写入 mysql 数据库的示例
+## Sample usage
+
+Below is a sample for using sql to get the target data and set to mysql database
 
 ```json
 {
@@ -56,9 +40,9 @@
 }
 ```
 
-根据 tableDataField 配置将结果写入数据库:
+Write values of tableDataField into database:
 
-以下配置将 telemetry 字段的对应值写入数据库
+The following configuration will write telemetry field's values into database
 
 ```json
 {
@@ -93,9 +77,9 @@
 }
 ```
 
-## 更新示例
+### Update Sample
 
-通过指定 `rowkindField` 和 `keyField` 属性，sink 可以生成针对主键的插入、更新或删除语句。
+By specifying the `rowkindField` and `keyField`, the sink can generate insert, update or delete statement against the primary key.
 
 ```json
 {

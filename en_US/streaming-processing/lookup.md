@@ -1,44 +1,52 @@
-# 查询表
+# Lookup Table Scenarios
 
-查询表（Lookup Table）用于绑定外部静态数据，可以处理大量的批数据连接的需求。本教程以两个场景为例，介绍了如何使用查询表进行流批结合的计算。我们分别使用了 Redis 和 MySQL 作为外部查询表的类型并展示了如何通过规则动态更新外部存储的数据。用户可以使用查询表工具探索更多的流批结合运算的场景。
+Not all data will change often, even in real-time computing. In some cases, you may need to supplement the stream data with externally stored static data. For example, user metadata may be stored in a relational database, and the only data in the stream data is data that changes in real time, requiring a connection between the stream data and the batch data in the database to make up the complete data.
 
-## 动态预警场景
+In earlier versions, eKuiper supported the Table concept for keeping a small amount of stream data in memory as a snapshot of the data for other streams to join and query. Such scan table is suitable for scenarios where there is less state and the state need to query very often. In version 1.7.0 and later, eKuiper added the new concept of lookup table for binding external static data, which can handle the needs of large number of batch data joins. This tutorial introduces how to perform batch stream binding calculations based on lookup tables.
 
-预警功能是边缘计算中最常见的场景之一。当告警标准固定时，我们通常可以通过简单的 `WHERE` 语句进行告警条件的匹配并触发动作。然而在更复杂的场景中，告警条件可能是动态可配置的，并且根据不同的数据维度，例如设备类型会有有不同的预警值。接下来，我们将讲解如何针对这个场景创建规则。当采集到数据后，规则需要根据动态预警值进行过滤警告。
+## Dynamic alerting scenarios
 
-### 场景输入
+Alerting function is one of the most common scenarios in edge computing. When alert criteria are fixed, we can usually match alert conditions and trigger actions with a simple `WHERE` statement. However, in more complex scenarios, the alert conditions may be dynamically configurable and have different alert values depending on different data dimensions, such as device type. Next, we will explain how to create rules for this scenario. Once the data is collected, the rule needs to filter the alerting based on the dynamic alerting criteria.
 
-本场景中，我们有两个输入：
+### Scenario Inputs
 
-- 采集数据流，其中包含多种设备的实时采集数据。本教程中，采集的数据流通过 MQTT 协议进行实时发送。
-- 预警值数据，每一类设备有对应的预警值，且预警值可更新。本教程中，预警值数据存储于 Redis 中。
+In this scenario, we have two inputs.
 
-针对这两种输入，我们分别创建流和查询表进行建模。
+- The event data stream, which contains real-time events from multiple devices. In this tutorial, the collected data stream is sent in real time via the MQTT protocol.
+- Alerting condition data, each type of device has a corresponding alerting threshold value, and the threshold value can be updated. In this tutorial, the threshold value data is stored in Redis.
 
-1. 创建数据流。假设数据流写入 MQTT Topic `scene1/data` 中，则我们可通过以下 REST API 创建名为 `demoStream` 的数据流。
+For both inputs, we create streams and lookup tables to model them separately.
+
+1. Create a data stream. Assuming that the data stream is written to the MQTT Topic `scene1/data`, we can create a data stream named `demoStream` using the following REST API.
+
    ```json
     {"sql":"CREATE STREAM demoStream() WITH (DATASOURCE=\"scene1/data\", FORMAT=\"json\", TYPE=\"mqtt\")"}
-   ```
-2. 创建查询表。假设预警值数据存储于 Redis 数据库0中，创建名为 `alertTable` 的查询表。此处，若使用其他存储方式，可将 `type` 替换为对应的 source 类型，例如 `sql`。
+    ```
+
+2. Create a lookup table. Assuming that the threshold value data is stored in Redis database 0, create a lookup table named `alertTable`. Here, if you use other storage methods, you can replace `type` with the corresponding source type, such as `sql`.
+
    ```json
     {"sql":"CREATE TABLE alertTable() WITH (DATASOURCE=\"0\", TYPE=\"redis\", KIND=\"lookup\")"}
-   ```
+    ```
 
-### 预警值动态更新
+### Update alertTable Dynamically
 
-动态预警值存储在 Redis 或者 Sqlite 等外部存储中。用户可通过应用程序对其进行更新也可通过 eKuiper 提供的 `Updatable Sink` 功能通过规则进行自动更新。本教程将使用规则，通过 Redis sink 对上文的 Redis 查询表进行动态更新。
+Alerting threshold values are stored in external storage such as Redis or SQL databases. They can be updated by the user through customized application or automatically by rules through the `Updatable Sink` feature provided by eKuiper. This tutorial will use rules to dynamically update the Redis lookup table which is defined above via Redis sink.
 
-预警值规则与常规规则无异，用户可接入任意的数据源，做任意数据计算，只需要确保输出结果中包含更新指令字段 `action`，例如 `{"action":"upsert","id":1,"alarm":50}`。本教程中，我们使用 MQTT 输入预警值更新指令通过规则更新 Redis 数据。
+The updating table rule is the same as the regular rule, the user can access any data source and do any data calculation, just make sure the output contains the update command field `action`, for example `{"action": "upsert", "id":1, "alarm":50}`. In this tutorial, we use the MQTT input update command to update Redis data via rules.
 
-1. 创建 MQTT 流，绑定预警值更新指令数据流。假设更新指令通过 MQTT topic `scene1/alert` 发布。
+1. Create an MQTT stream to bind the alert update command data stream. Assume that the update command is published through the MQTT topic `scene1/alert`.
+
    ```json
-   {"sql":"CREATE STREAM alertStream() WITH (DATASOURCE=\"scene1/alert\", FORMAT=\"json\", TYPE=\"mqtt\")"}
+   {"sql": "CREATE STREAM alertStream() WITH (DATASOURCE=\"scene1/alert\", FORMAT=\"json\", TYPE=\"mqtt\")"}
    ```
-2. 创建预警值更新规则。其中，规则接入了上一步创建的指令流，规则 SQL 只是简单的获取所有指令，然后在 action 中使用支持动态更新的 redis sink。配置了 redis 的地址，存储数据类型； key 使用的字段名设置为 `id`，更新类型使用的字段名设置为 `action`。这样，只需要保证指令流中包含 `id` 和 `action` 字段就可以对 Redis 进行更新了。
+
+2. Create the threshold value update rule. The rule accesses the command stream created in the previous step, the rule SQL simply gets all the instructions and then uses the redis sink that supports dynamic updates in the action. Redis address is configured to store the data type; the field name used for the key is set to `id` and the field name used for the update command type is set to `action`. Configured as below, you only need to ensure that the command stream contains the `id` and `action` fields in order to update Redis.
+
    ```json
    {
      "id": "ruleUpdateAlert",
-     "sql":"SELECT * FROM alertStream",
+     "sql": "SELECT * FROM alertStream",
      "actions":[
       {
         "redis": {
@@ -52,26 +60,27 @@
    }
    ```
 
-3. 接下来，我们可以向发送 MQTT 主题 `scene1/alert` 发送指令，更新预警值。例如：
+3. Next, we can send a command to the MQTT topic `scene1/alert` to update the alert value. For example.
+
    ```text
-   {"action":"upsert","id":1,"alarm":50}
-   {"action":"upsert","id":2,"alarm":80}
-   {"action":"upsert","id":3,"alarm":20}
-   {"action":"upsert","id":4,"alarm":50}
-   {"action":"delete","id":4}
-   {"action":"upsert","id":1,"alarm":55}
+   {"action": "upsert", "id":1, "alarm":50}
+   {"action": "upsert", "id":2, "alarm":80}
+   {"action": "upsert", "id":3, "alarm":20}
+   {"action": "upsert", "id":4, "alarm":50}
+   {"action": "delete", "id":4}
+   {"action": "upsert", "id":1, "alarm":55}
    ```
 
-查看 Redis 数据库，应当可以看到数据被写入和更新。该规则为流式计算规则，后续也会根据订阅的数据进行持续的更新。
+Looking at the Redis database, you should see data being written and updated. The rule is a streaming computation rule, which is also subsequently updated continuously based on the subscribed data.
 
-### 根据设备类型动态预警
+### Dynamic alerting based on device type
 
-前文中，我们已经创建了采集数据流，并且创建了可动态更新的预警条件查询表。接下来，我们可以创建规则，连接采集数据流与查询表以获取当前设备类型的预警值，然后判断是否需要预警。
+In the previous section, we have created the event data stream and created a dynamically updatable lookup table of alert conditions. Next, we can create rules that connect the event data stream to the lookup table to get the alert value for the current device type, and then determine if an alert is needed.
 
 ```json
 {
   "id": "ruleAlert",
-  "sql":"SELECT device, value FROM demoStream INNER JOIN alertTable ON demoStream.deviceKind = alertTable.id WHERE demoStream.value > alertTable.alarm",
+  "sql": "SELECT device, value FROM demoStream INNER JOIN alertTable ON demoStream.deviceKind = alertTable.id WHERE demoStream.value > alertTable. alarm",
   "actions":[
     {
       "mqtt": {
@@ -84,59 +93,62 @@
 }
 ```
 
-在规则中，我们根据采集数据流中的 deviceKind 字段与查询表中的 id 字段（此处为 Redis 中的 key）进行连接，获得查询表中对应设备类型的预警值 `alarm`。接下来在 `WHERE` 语句中过滤出采集的数值超过预警值的数据，并将其发送到 MQTT 的 `rule/alert` 主题中进行告警。
+In the rule, we get the alert value `alarm` for the corresponding device type in the lookup table based on a join between the deviceKind field in the event data stream and the id field in the lookup table (in this case, the key in Redis). Next, filter the collected data in the `WHERE` statement for values that exceed the alert value and send it to the MQTT `rule/alert` topic for alerting.
 
-发送 MQTT 指令到采集数据流的主题 `scene1/data`，模拟采集数据采集，观察规则告警结果。例如下列数据，虽然采集值相同，但因为不同的设备类型告警阈值不同，它们的告警情况可能有所区别。
+Send MQTT commands to the `scene1/data` topic of the event data stream and observe the rule alert results. For example, for the following data, although the event values are the same, they may differ due to different alarm thresholds for different device types.
 
 ```text
-{"device":"device1","deviceKind":1,"value":54}
-{"device":"device12","deviceKind":2,"value":54}
-{"device":"device22","deviceKind":3,"value":54}
-{"device":"device2","deviceKind":1,"value":54}
+{"device": "device1", "deviceKind":1, "value":54}
+{"device": "device12", "deviceKind":2, "value":54}
+{"device": "device22", "deviceKind":3, "value":54}
+{"device": "device2", "deviceKind":1, "value":54}
 ```
 
-## 数据补全场景
+## Data Enrichment Scenario
 
-流数据变化频繁，数据量大，通常只包含需要经常变化的数据；而不变或者变化较少的数据通常存储于数据库等外部存储中。在应用处理时，通常需要将流数据中缺少的静态数据补全。例如，流数据中包含了设备的 ID，但设备的具体名称，型号的描述数据存储于数据库中。本场景中，我们将介绍如何将流数据与批数据结合，进行自动数据补全。
+Streaming data changes frequently and has a large amount of data, and usually contains only data that needs to change frequently; while data that remains unchanged or changes less is usually stored in external storage such as a database. In application processing, it is usually necessary to complete the missing static data in the stream data. For example, the stream data contains the ID of the device, but the specific name of the device, the model description data is stored in the database. In this scenario, we will describe how to combine the stream data with the batch data for automatic data completion.
 
-### SQL 插件安装和配置
+### SQL Plugin Installation and Configuration
 
-本场景将使用 MySQL 作为外部表数据存储位置。eKuiper 提供了预编译的 SQL source 插件，可访问 MySQL 数据并将其作为查询表。因此，在开始教程之前，我们需要先安装 SQL source 插件。使用 eKuiper manager 管理控制台，可直接在插件管理中，点击创建插件，如下图选择 SQL source 插件进行安装。
+This scenario will use MySQL as an external table data storage location. eKuiper provides a pre-compiled SQL source plugin to access MySQL data and use it as a lookup table. So, before starting the tutorial, we need to install the SQL source plugin. Using eKuiper manager administration console, you can directly click Create Plugin in extension management tab and select SQL source plugin to install as shown below.
 
-<img src="./_assets/install_sql_source.png" alt="Install SQL source" style="zoom:50%;" />
+![Install SQL source](./install_sql_source.png)
 
-本场景将以 MySQL 为例，介绍如何与关系数据库进行连接。用户需要启动 MySQL 实例。在 MySQL 中创建表 `devices`, 其中包含 `id`, `name`, `deviceKind` 等字段并提前写入内容。
+This scenario will introduce how to connect to a relational database using MySQL as an example. The user needs to start a MySQL instance. Create table `devices` in MySQL, which contains fields `id`, `name`, `deviceKind` and write the content in advance.
 
-在管理控制台中，创建 SQL source 配置，指向创建的 MySQL 实例。由于 SQL 数据库 IO 延迟较大，用户可配置是否启用查询缓存及缓存过期时间等。
+In the management console, create a SQL source configuration that points to the created MySQL instance. Due to the large IO latency of SQL database, you can configure whether to enable query caching and cache expiration time, etc.
 
 ```yaml
   lookup:
-    cache: true # 启用缓存
-    cacheTtl: 600 # 缓存过期时间
-    cacheMissingKey: true # 是否缓存未命中的情况
+    cache: true # Enable caching
+    cacheTtl: 600 # cache expiration time
+    cacheMissingKey: true # whether to cache misses
 ```
 
-### 场景输入
+### Scenario Inputs
 
-本场景中，我们有两个输入：
+In this scenario, we have two inputs.
 
-- 采集数据流，与场景1相同，包含多种设备的实时采集数据。本教程中，采集的数据流通过 MQTT 协议进行实时发送。
-- 设备信息表，每一类设备对应的名字，型号等元数据。本教程中，设备信息数据存储于 MySQL 中。
+- The event data stream, which is the same as in scenario 1, contains real-time event data from multiple devices. In this tutorial, the event data stream is sent in real time via the MQTT protocol.
+- Device information table, with metadata such as name and model number corresponding to each type of device. In this tutorial, the device information data is stored in MySQL.
 
-针对这两种输入，我们分别创建流和查询表进行建模。
+For these two inputs, we create streams and loookup tables for modeling respectively.
 
-1. 创建数据流。假设数据流写入 MQTT Topic `scene2/data` 中，则我们可通过以下 REST API 创建名为 `demoStream2` 的数据流。
+1. Create a data stream. Assuming that the data stream is written to the MQTT Topic `scene2/data`, we can create a data stream named `demoStream2` with the following REST API.
+
    ```json
-    {"sql":"CREATE STREAM demoStream2() WITH (DATASOURCE=\"scene2/data\", FORMAT=\"json\", TYPE=\"mqtt\")"}
-   ```
-2. 创建查询表。假设设备数据存储于 MySQL 数据库 devices 中，创建名为 `deviceTable` 的查询表。CONF_KEY 设置为上一节中创建的 SQL source 配置。
-   ```json
-    {"sql":"CREATE TABLE deviceTable() WITH (DATASOURCE=\"devices\", CONF_KEY=\"mysql\",TYPE=\"sql\", KIND=\"lookup\")"}
-   ```
-   
-### 数据补全规则
+    {"sql": "CREATE STREAM demoStream2() WITH (DATASOURCE=\"scene2/data\", FORMAT=\"json\", TYPE=\"mqtt\")"}
+    ```
 
-流和表都创建完成后，我们就可以创建补全规则了。
+2. Create a lookup table. Assuming the device data is stored in the MySQL database devices, create a lookup table named `deviceTable`. CONF_KEY is set to the SQL source configuration created in the previous section.
+
+   ```json
+    {"sql": "CREATE TABLE deviceTable() WITH (DATASOURCE=\"devices\", CONF_KEY=\"mysql\",TYPE=\"sql\", KIND=\"lookup\")"}
+    ```
+
+### Data Enrichment Rules
+
+Once the streams and tables are created, we can create the data enrichment rules.
 
 ```json
 {
@@ -152,4 +164,8 @@
 }
 ```
 
-在这个规则中，通过流数据中的 deviceId 字段与设备数据库中的 id 进行匹配连接，并输出完整的数据。用户可以根据需要，在 `select` 语句中选择所需的字段。
+In this rule, the deviceId field in the stream data is matched with the id in the device database to connect and output the complete data. The user can select the desired field in the `select` statement as needed.
+
+## Summary
+
+This tutorial has presented two scenarios on how to use a lookup table for stream-batch integrated calculations. We used Redis and MySQL as external lookup table types and showed how to dynamically update the externally stored data with rules, respectively. Users can use the lookup table tool to explore more stream-batch integration scenarios.

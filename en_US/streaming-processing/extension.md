@@ -1,89 +1,105 @@
-# 扩展
+# extension
 
-::: danger
+NeuronEX allows users to customize extensions to support more functions. Users can write extension plugins through the portable plugin system, or call existing external REST services.
 
-函数这里在 ekuiper 文档的 sql 章节，需要评估怎么处理
 
-:::
+## Portable plugin extension
 
-ECP Edge 允许用户自定义扩展，以支持更多功能。 用户可以通过原生 golang 插件系统编写扩展插件，或者通过ECP Edge 便携插件系统编写扩展插件，后者支持更多语言。此外，用户也可以通过配置的方式扩展 SQL 中的函数，用于调用外部已有的 REST 或 RPC 服务。
+You can further expand the functionality of NeuronEX by installing portable plugins. Customized **data sources**, **custom functions** and **actions (Sink)** in rules can be implemented through convenient plugins.
 
-上述 3 种扩展方法都有其自身适合的场景。 一般来说，原生插件的性能最好，但最为复杂，兼容性最低。 便携插件在性能和复杂性之间有更好的平衡。 外部扩展不需要编码，但资源消耗最大，只支持函数扩展。本文将介绍每种扩展方法的特点，并讨论具体使用场景。
+Click **Data Processing** -> **Extensions**, on the **Portable Plugins** tab, click **Create Portable Plugins**. In the pop-up window, make the following settings:
 
-## 原生插件扩展
+- **Name**: Select or enter the plugin name
+- **File**: Paste the plugin file by uploading or text box.
 
-原生插件扩展利用原生 golang 插件系统在运行时动态加载自定义扩展。 ECP Edge 最初支持原生插件。 但是由于 golang 插件系统本身的原因，有许多限制，例如：
+After completing the above settings, click **Submit** to complete the creation of the plugin. The new plugin will appear in the plugin list on this page, and you can view or delete the plugin here.
 
-- 仅支持 Linux、FreeBSD 和 MacOS 操作系统，不支持 Alpine linux 。
-- 插件只初始化一次，不能关闭，即插件安装后无法卸载和管理。
-- 对构建和部署的要求较为苛刻，例如，插件必须使用与 ECP Edge 程序完全相同的 go 版本、依赖版本等构建。 也就是说，在升级 ECP Edge 主程序时，总是需要重新构建插件。
+## Portable plugin development
 
-安装后，原生插件像原生代码一样运行，可以与主程序共享或传输内存中的数据，从而保证最佳性能。
+The development plugin consists of sub-modules and main programs. The Python SDK provides the source, target and function API of the python language.
 
-因此，原生插件扩展适用于以下情况：用户只在支持的操作系统和环境中运行，在更新期间有能力或基础设施重建插件，不需要在运行时卸载插件，只使用 golang 语言系统。
+Source interface:
 
-## 便携插件扩展
+```python
+   class Source(object):
+     """abstract class for eKuiper source plugin"""
 
-便携插件扩展是利用 ECP Edge 自身基于 IPC 通信实现的插件系统。 它有可能支持所有编程语言，目前支持 **go** 和 **python**。与原生插件相比，它是可移植的，因为插件将在单独的进程中运行，并且没有那些苛刻的构建/部署要求。
+     @abstractmethod
+     def configure(self, datasource: str, conf: dict):
+         """configure with the string datasource and conf map and raise error if any"""
+         pass
 
-便携插件扩展旨在提供与原生插件相同的功能，但支持更简单的构建和部署。 如果开发者使用 go，甚至可以通过非常小的修改来重用插件代码，可以只构建和部署独立的插件。
+     @abstractmethod
+     def open(self, ctx: Context):
+         """run continuously and send out the data or error with ctx"""
+         pass
 
-因此，便携插件扩展是对原生插件的补充。 它适用于使用多种编程语言进行编码的情况，构建一次即可在所有版本运行。
+     @abstractmethod
+     def close(self, ctx: Context):
+         """stop running and clean up"""
+         pass
+```
 
-### 安装便携插件
+Sink interface:
 
-您可通过安装插件进一步拓展 ECP Edge 的功能。
+```python
+class Sink(object):
+     """abstract class for eKuiper sink plugin"""
 
-点击**数据流处理** -> **扩展**，在**便携插件**页签，点击**创建便携插件**。在弹出的窗口，进行如下设置：
+     @abstractmethod
+     def configure(self, conf: dict):
+         """configure with conf map and raise error if any"""
+         pass
 
-**名称**：选择或输入插件名称
+     @abstractmethod
+     def open(self, ctx: Context):
+         """open connection and wait to receive data"""
+         pass
 
-**文件**：通过上传或者文本框的形式贴如插件文件。
+     @abstractmethod
+     def collect(self, ctx: Context, data: Any):
+         """callback to deal with received data"""
+         pass
 
-**脚本参数**：输入安装插件脚本额外需要的参数配置，输入新条目后，按下回车键即可完成条目的添加。
+     @abstractmethod
+     def close(self, ctx: Context):
+         """stop running and clean up"""
+         pass
+```
 
-完成上述设置后，点击**提交**完成插件的创建。新建插件将出现在该页面的插件列表中，您可以在此查看或者删除插件。
+Function interface:
 
-## 外部函数扩展
+```python
+class Function(object):
+     """abstract class for eKuiper function plugin"""
 
-外部函数扩展，即外部服务，是指通过提供一种配置的方式，使得 ECP Edge 可以使用 SQL 以函数的方式直接调用外部服务，包括各种 rpc 服务、 http 服务等。该方式将可大大提高 ECP Edge 扩展的易用性。外部函数将作为插件系统的补充，仅在性能要求较高的情况下才建议使用插件。
+     @abstractmethod
+     def validate(self, args: List[Any]):
+         """callback to validate against ast args, return a string error or empty string"""
+         pass
 
-以 getFeature 函数为例，假设有 AI 服务基于 grpc 提供 getFeature 服务。则可在 ECP Edge 配置之后，使用 `SELECT getFeature(self) from demo` 的方式，无需定制插件，即可调用该 AI 服务。
+     @abstractmethod
+     def exec(self, args: List[Any], ctx: Context) -> Any:
+         """callback to do execution, return result"""
+         pass
 
-详细配置方法，请参考[外部函数](./external_func.md)。
+     @abstractmethod
+     def is_aggregate(self):
+         """callback to check if function is for aggregation, return bool"""
+         pass
+```
 
-当用户已经导出服务并且不想编写代码时，外部服务功能可以轻松实现 SQL 函数的批量扩展。
+Users create their own sources, Sinks and functions by implementing these abstract interfaces, and then declare the instantiation methods of these custom plugins in the main function
 
-### 外部函数列表
+```python
+if __name__ == '__main__':
+     c = PluginConfig("pysam", {"pyjson": lambda: PyJson()}, {"print": lambda: PrintSink()},
+                      {"revert": lambda: revertIns})
+     plugin.start(c)
+```
 
-外部函数通过注册外部服务配置的方式，将已有的服务映射成 eKuiper SQL 函数。运行使用外部函数的规则时，eKuiper 将根据配置，对数据输入输出进行转换，并调用对应的服务。用户通过**外部服务**页签注册外部服务后，函数将出现在**外部函数列表**页。
+## Portable plugin development example
 
-## 插件对比
+Portable plugin extensions currently support plugin extensions via the **Python** and **Golang** programming languages. For specific plugin writing methods, please refer to:
 
-让我们对这 3 种方法进行一些比较。 在下表中，*动态重载* 表示插件是否可以在运行时更新或删除。 *更新时重建* 表示更新主程序时是否需要重建插件。 如果是，版本更新将变得复杂。 *独立进程* 意味着插件是否独立于主程序运行。 如果是，插件崩溃不会影响主程序。 *通信* 表示主程序和插件之间如何进行通信。内存通信是最有效的方法，要求主程序和插件在同一个进程中运行。 IPC （进程间通信）需要在同一台机器上运行，具有中等的性能和依赖性。 Web 通信是指通过 TCP 等 Web 协议进行通信，可以在不同的机器上运行。
-
-| 扩展 | 扩展类型             | 需要编码？ | 语言                  | 操作系统              | 动态重载 | 更新时重建? | 独立进程? | 通信     |
-| ---- | -------------------- | ---------- | --------------------- | --------------------- | -------- | ----------- | --------- | -------- |
-| 原生 | 源<br>目标<br/>函数  | 是         | Go                    | Linux, FreeBSD, MacOs | 否       | 是          | 否        | 内存通信 |
-| 便捷 | 源<br/>目标<br/>函数 | 是         | Go, Python ，将来更多 | 任意                  | 是       | 否          | 是        | IPC      |
-| 外部 | 函数                 | 否         | JSON, protobuf        | 任意                  | 是       | 否          | 是        | Web      |
-
-## 安装插件
-
-您可通过安装插件进一步拓展 ECP Edge 的功能。
-
-点击**数据流处理** -> **扩展**，在**插件**页签，点击**创建插件**。在弹出的窗口，进行如下设置：
-
-**类型：**选择要创建的插件类型，可选值：sources、sinks、functions
-
-**名称**：选择或输入插件名称
-
-**文件**：通过上传或者文本框的形式贴如插件文件。
-
-**脚本参数**：输入安装插件脚本额外需要的参数配置，输入新条目后，按下回车键即可完成条目的添加。
-
-完成上述设置后，点击**提交**完成插件的创建。新建插件将出现在该页面的插件列表中，您可以在此查看或者删除插件。关于 ECP Edge 目前支持以下类型的扩展：
-
-- [数据源](./source.md)：为 ECP Edge 添加新的源类型，以便从中获取数据。新的扩展源可以在流/表定义中使用。
-- [数据汇](./sink/sink.md)：为  ECP Edge 增加新的 sink 类型来发送数据。新的扩展 sink 可以在规则动作定义中使用。
-- 函数：为 ECP Edge 添加新的函数类型来处理数据。新的扩展函数可以在规则 SQL 中使用。
+- [Python portable plugin example](portable_python.md)

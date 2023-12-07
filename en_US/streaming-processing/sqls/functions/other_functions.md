@@ -143,9 +143,7 @@ get_keyed_state(key, dataType, defaultValue)
 ```
 
 Return the keyed value in the database. The First parameter is the key, the second is the data type of the value,
-support bigint, float, string, boolean and datetime. Third is the default value if key does not exist. Default database
-is sqlite, users can change the database by
-this [configuration](../../configuration/global_configurations.md#external-state).
+support bigint, float, string, boolean and datetime. Third is the default value if key does not exist. 
 
 ## DELAY
 

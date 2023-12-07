@@ -108,15 +108,9 @@ Send MQTT commands to the `scene1/data` topic of the event data stream and obser
 
 Streaming data changes frequently and has a large amount of data, and usually contains only data that needs to change frequently; while data that remains unchanged or changes less is usually stored in external storage such as a database. In application processing, it is usually necessary to complete the missing static data in the stream data. For example, the stream data contains the ID of the device, but the specific name of the device, the model description data is stored in the database. In this scenario, we will describe how to combine the stream data with the batch data for automatic data completion.
 
-### SQL Plugin Installation and Configuration
-
-This scenario will use MySQL as an external table data storage location. eKuiper provides a pre-compiled SQL source plugin to access MySQL data and use it as a lookup table. So, before starting the tutorial, we need to install the SQL source plugin. Using eKuiper manager administration console, you can directly click Create Plugin in extension management tab and select SQL source plugin to install as shown below.
-
-![Install SQL source](./install_sql_source.png)
-
 This scenario will introduce how to connect to a relational database using MySQL as an example. The user needs to start a MySQL instance. Create table `devices` in MySQL, which contains fields `id`, `name`, `deviceKind` and write the content in advance.
 
-In the management console, create a SQL source configuration that points to the created MySQL instance. Due to the large IO latency of SQL database, you can configure whether to enable query caching and cache expiration time, etc.
+Create a SQL source configuration that points to the created MySQL instance. Due to the large IO latency of SQL database, you can configure whether to enable query caching and cache expiration time, etc.
 
 ```yaml
   lookup:

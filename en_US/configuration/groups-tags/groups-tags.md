@@ -4,7 +4,7 @@
 
 ## Create a group in the device card
 
-Create point groups, and data in the same group will be collected and reported at the same frequency.
+Create collection groups, and data in the same group will be collected and reported at the same frequency.
 
 Click the newly added device node to enter the group list management interface, and click `Create` to create the group.
 
@@ -23,11 +23,11 @@ Click the `Create` button to enter the add tag page, as shown in the figure belo
 ![tags-add](./assets/tags-add.png)
 
 * Name: fill in the Tag name, for example, tag1;
-* Attributes: Pull down to select Tag attributes, such as read, write, subscribe, static, and support the configuration of multiple point types. For an introduction to different types of points, see [Point Attributes] (#Point Attributes);
+* Attribute: Pull down to select Tag attributes, such as read, write, subscribe, static, and support the configuration of multiple point types. For an introduction to different types of points, see [Point Attributes](#point-attributes);
 * Type: drop-down to select data type, for example, int16, uint16, int32, uint32, float, bit;
-* Address: Fill in the driver address, for example, 1!40001. 1 represents the point site number set in the Modbus simulator, 40001 represents the point register address. For detailed instructions on using the driver address, please refer to [Modbus Introduction and Use](.. /south-devices/modbus-tcp/modbus-tcp.md);
-* Multiplication coefficient: not filled in by default; when the point attribute is write, it supports setting the multiplication coefficient. At this time, `device value * multiplication coefficient = display value`, if the point multiplication coefficient value is 0.1, write the display value on the page, For example, if 23.4 is used, the value displayed on the page is 23.4, and the value written to the device is 234.
-* Accuracy: Configure the accuracy when the point type is `float` or `double`, the accuracy range is 0 ~ 17
+* Address: Fill in the tag address. Different driver protocols have different address definition specifications. For details, please refer to [Create Southbound Driver](../south-devices/south-devices.md). Taking the Modbus protocol as an example, 1!40001. `1` represents the point site number set in the Modbus simulator, and `40001` represents the point register address.
+* Decimal: not filled in by default; when the point attribute is read, it supports setting the Decimal. At this time, `device value` * Decimal = `display value`.
+* Precision: Configure the precision when the point type is `float` or `double`, the accuracy range is 0 ~ 17
 * Description: Leave blank by default.
 
 ### Point attributes

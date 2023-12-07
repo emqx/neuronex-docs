@@ -1638,6 +1638,10 @@
         "collapsed": true,
         "children": [
           {
+            "title": "Data statistics",
+            "path": "admin/data-statistics"
+          },
+          {
             "title": "Configuration Management",
             "path": "admin/conf-management"
           },

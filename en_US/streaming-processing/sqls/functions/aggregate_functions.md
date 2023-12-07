@@ -156,8 +156,7 @@ deduplicate(col, false)
 
 Returns the deduplicate results in the group, usually a window. The first argument is the column as the key to
 deduplicate; the second argument is whether to return all items or just the latest item which is not duplicate. If the
-latest item is a duplicate, the sink will receive an empty map. Set the sink
-property [omitIfEmpty](../../guide/sinks/overview.md#common-properties) to the sink to not triggering the action.
+latest item is a duplicate, the sink will receive an empty map. 
 
 Examples:
 

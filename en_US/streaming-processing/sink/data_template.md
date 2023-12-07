@@ -78,7 +78,7 @@ In sendSingle=false mode:
 "dataTemplate": "<div>results</div><ul>{{range .}}<li>{{.ab}}</li>{{end}}</ul>",
 ```
 
-Actions could be customized to support different kinds of outputs, see [extension](../../extension/overview.md) for more detailed info.
+Actions could be customized to support different kinds of outputs, see [extension](../extension.md) for more detailed info.
 
 ## Functions supported in template
 

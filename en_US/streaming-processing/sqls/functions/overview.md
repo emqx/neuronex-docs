@@ -16,6 +16,6 @@ NeuronEX has many built-in functions for performing calculations on data.
 - [Analytic Functions](./analytic_functions.md)
 - [Multi-Row Functions](./multi_row_functions.md)
 - [Multi-Column Functions](./multi_column_functions.md)
-- [Window Functions](./window_functions.md)
+- [Window Functions](./window_funcs.md)
 
 

@@ -1,59 +1,38 @@
-# 数据统计
+# Statistics
 
-## 驱动状态统计
+## Driver status statistics
 
-每个驱动节点卡片都有一个 `数据统计` 的操作按键，用于显示该节点统计的信息。
+Each driver node card has a `data statistics` operation button, which is used to display the statistical information of the node.
 
-### 南向驱动节点统计
+### Southbound drive node statistics
 
-南向驱动节点的统计字段如下：
-- 节点类型
-- 连接状态
-- 工作状态
-- 当前采集延迟
-- 发送字节数
-- 接受字节数
-- 点位总数
-- 点位读取总数
-- 点位读取错误数总计
-- 采集组 XXX 点位数
-- 采集组 XXX 最近一次发送消息数
-- 采集组 XXX 最近一次执行消耗时间
-- 采集组 XXX 上一次采集错误信息
-- 采集组 XXX 上一次采集错误信息时间戳
+The statistical fields of the southbound driving node are as follows:
 
 ![south_statistics](./assets/south_statistics.png)
 
-::: tip 注意
-不同的驱动或者配置的采集组数量不同，南向驱动节点的统计字段会略有差异。
+::: tip note
+Depending on the driver or the number of configured collection groups, the statistical fields of the southbound driver node will be slightly different.
 :::
 
-### 北向应用节点统计
+### Northbound application node statistics
 
-北向应用节点的统计字段如下：
-- 节点类型
-- 连接状态
-- 工作状态
-- 发送消息数总计
-- 发送消息失败数总计
-- 下行消息指令数
-- 缓存消息数
+The statistical fields of the northbound application node are as follows:
 
 ![north_statistics](./assets/north_statistics.png)
 
-::: tip 注意
-不同的北向应用节点的统计字段会略有差异。
+::: tip note
+The statistical fields of different northbound application nodes will be slightly different.
 :::
 
 
-## 指标统计
+## metrics statistics
 
-NeuronEX 支持基于 Prometheus 的数据模型的指标统计功能，用于监测**驱动**、**规则**的运行状态。Prometheus 的基本原理是通过 HTTP 协议周期性抓取被监控组件的状态，任意组件只要提供对应的 HTTP 接口就可以接入监控，NeuronEX 提供对应的接口，可以顺利接入 Prometheus 进行监控。
+NeuronEX supports the metrics statistics function based on the Prometheus data model, which is used to monitor the running status of **drivers** and **rules**. The basic principle of Prometheus is to periodically capture the status of monitored components through the HTTP protocol. Any component can be accessed for monitoring as long as it provides the corresponding HTTP interface. NeuronEX provides the corresponding interface and can smoothly access Prometheus for monitoring.
 
-- 数据采集模块的指标统计
+-metrics statistics of data collection module
 
 http://x.x.x.x:8085/api/neuron/metrics
 
-- 数据流引擎模块的指标统计
+- metrics statistics of data processing module
 
 http://x.x.x.x:8085/api/ekuiper/metrics

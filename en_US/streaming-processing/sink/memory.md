@@ -55,7 +55,7 @@ Data transfer between memory actions and memory sources uses internal formats an
 
 ## renew
 
-Memory action support [update](./sink.md#update-action-sink). Can be used to update query tables subscribed to the same topic as the sink. A typical usage is to create a rule that uses an updateable sink to cumulatively update the memory table. In the following example, data from the stream alertStream will update the memory topic `alertVal`. The update action is specified by the `action` field in the incoming data.
+Memory action support [update](./sink.md#update-action-sink). Can be used to update lookup tables subscribed to the same topic as the sink. A typical usage is to create a rule that uses an updateable sink to cumulatively update the memory table. In the following example, data from the stream alertStream will update the memory topic `alertVal`. The update action is specified by the `action` field in the incoming data.
 
 ```json
 {

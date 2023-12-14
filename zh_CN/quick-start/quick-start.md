@@ -17,7 +17,7 @@ $ docker pull emqx/neuronex:latest
 启动 Docker 容器
 
 ```
-$ docker run -d --name neuronex -p 8085:8085  emqx/neuronex:latest
+$ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:latest
 ```
 
 ## 安装 Modbus 模拟器

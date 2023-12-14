@@ -5,13 +5,13 @@
 Download the installation package according to different versions and architectures, E.g:
 
 ```bash
-$ wget https://www.emqx.com/en/downloads/neuronex/3.0.1/neuronex-3.0.1-linux-amd64.deb
+$ wget https://www.emqx.com/en/downloads/neuronex/3.1.0/neuronex-3.1.0-linux-amd64.deb
 ```
 
 ## Install
 
 ```bash
-$ sudo dpkg -i neuronex-3.0.1-linux-amd64.deb
+$ sudo dpkg -i neuronex-3.1.0-linux-amd64.deb
 ```
 
 ## Start

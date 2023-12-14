@@ -33,6 +33,14 @@
           "path": "installation/tar.gz"
         },
         {
+          "title": "使用 rpm 包安装",
+          "path": "installation/centos"
+        },
+        {
+          "title": "使用 deb 包安装",
+          "path": "installation/ubuntu"
+        },
+        {
           "title": "通过 Docker 部署",
           "path": "installation/docker"
         },
@@ -847,6 +855,14 @@
         {
           "title": "Installation with .tar.gz Package",
           "path": "installation/tar.gz"
+        },
+        {
+          "title": "Installation with rpm Package",
+          "path": "installation/centos"
+        },
+        {
+          "title": "Installation with deb Package",
+          "path": "installation/ubuntu"
         },
         {
           "title": "Docker",

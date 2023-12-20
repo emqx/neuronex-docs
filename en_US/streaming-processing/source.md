@@ -23,6 +23,7 @@ Currently NeuronEX has the following built-in data source types and the loading 
 | [SQL](./sql.md)         | Query data from the database                        | ✅    | ✅      | ✅|
 | [File](./file.md)           | Read data from a file                           | ✅    | ✅    | ❌    |
 | [Video](./video.md)         | Query data from video stream                        | ✅    | ✅   | ❌    |
+| [Simulator](./simulator.md)         | Generate simulated data for testing                       | ✅    | ✅   | ❌    |
 
 ## Define and run
 

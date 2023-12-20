@@ -805,6 +805,10 @@
             "path": "admin/log-management"
           },
           {
+            "title": "监控告警管理",
+            "path": "admin/alert-monitor-management"
+          },
+          {
             "title": "修改密码",
             "path": "admin/password"
           }
@@ -1620,6 +1624,10 @@
           {
             "title": "Log Management",
             "path": "admin/log-management"
+          },
+          {
+            "title": "Monitor and Alert Management",
+            "path": "admin/alert-monitor-management"
           },
           {
             "title": "Change Password",

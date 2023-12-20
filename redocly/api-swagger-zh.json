@@ -13,13 +13,31 @@
       "name": "System"
     },
     {
-      "name": "template"
-    },
-    {
       "name": "server"
     },
     {
+      "name": "management"
+    },
+    {
+      "name": "liveness"
+    },
+    {
       "name": "log"
+    },
+    {
+      "name": "monitor"
+    },
+    {
+      "name": "process_control"
+    },
+    {
+      "name": "status"
+    },
+    {
+      "name": "sse"
+    },
+    {
+      "name": "template"
     },
     {
       "name": "license"
@@ -77,6 +95,9 @@
     },
     {
       "name": "data processing metrics"
+    },
+    {
+      "name": "test rule"
     }
   ],
   "paths": {
@@ -99,6 +120,62 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetLicenseResponse"
+                },
+                "examples": {
+                  "1": {
+                    "summary": "success",
+                    "value": {
+                      "licenseType": "TRIAL",
+                      "customerName": "EMQ Technologies Inc.",
+                      "customerContact": "support@emqx.io",
+                      "startDate": "2023-12-06 03:28:25",
+                      "expiredDate": "2123-12-06 03:28:25",
+                      "expired": false,
+                      "totalTagCount": 30,
+                      "usedTagCount": 0,
+                      "enabledPlugins": [
+                        "ABB COMLI",
+                        "Allen-Bradley ControlLogix 5500",
+                        "Allen-Bradley DF1",
+                        "Allen-Bradley MicroLogix 1400",
+                        "BACnet/IP",
+                        "Beckhoff ADS",
+                        "DLT645-1997",
+                        "DLT645-2007",
+                        "EtherNet/IP(CIP)",
+                        "GE SRTP",
+                        "HJ212-2017",
+                        "HOSTLINK CMODE",
+                        "IEC60870-5-104",
+                        "IEC61850",
+                        "Inovance Modbus TCP",
+                        "KNXnet/IP",
+                        "KUKA ETHERNET KRL TCP",
+                        "Mitsubishi 1E",
+                        "Mitsubishi 3E",
+                        "Mitsubishi FX",
+                        "Modbus RTU",
+                        "Modbus TCP",
+                        "Modbus TCP QH",
+                        "NON A11",
+                        "OPC UA",
+                        "Omron FINS TCP",
+                        "Omron FINS UDP",
+                        "Panasonic Mewtocol",
+                        "Profinet IO",
+                        "SECS GEM HSMS",
+                        "Siemens FetchWrite",
+                        "Siemens RK512",
+                        "Siemens S7 ISOTCP",
+                        "Siemens S7 ISOTCP for 300/400",
+                        "SparkPlugB",
+                        "WebSocket"
+                      ],
+                      "hardwareToken": "FdVCScD63F5gGcB0eO5OuwQsxg5jJoa+YOxyOub9c5g=",
+                      "ekuiperOn": true,
+                      "officialEmail": "support@emqx.io"
+                    }
+                  }
                 }
               }
             }
@@ -109,9 +186,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 }
               }
             }
@@ -136,7 +211,9 @@
               "schema": {
                 "$ref": "#/components/schemas/UploadLicenseReqData"
               },
-              "example": ""
+              "example": {
+                "license": "CAIaFUVNUSBUZWNobm9s..."
+              }
             }
           }
         },
@@ -147,6 +224,62 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UploadLicenseResponse"
+                },
+                "examples": {
+                  "1": {
+                    "summary": "success",
+                    "value": {
+                      "type": "TRIAL",
+                      "customerName": "EMQ Technologies Inc.",
+                      "customerContact": "support@emqx.io",
+                      "startDate": "2023-12-06",
+                      "expiredDate": "2123-12-06",
+                      "expired": false,
+                      "totalTagCount": 1000,
+                      "usedTagCount": 1,
+                      "enabledPlugins": [
+                        "ABB COMLI",
+                        "Allen-Bradley ControlLogix 5500",
+                        "Allen-Bradley DF1",
+                        "Allen-Bradley MicroLogix 1400",
+                        "BACnet/IP",
+                        "Beckhoff ADS",
+                        "DLT645-1997",
+                        "DLT645-2007",
+                        "EtherNet/IP(CIP)",
+                        "GE SRTP",
+                        "HJ212-2017",
+                        "HOSTLINK CMODE",
+                        "IEC60870-5-104",
+                        "IEC61850",
+                        "Inovance Modbus TCP",
+                        "KNXnet/IP",
+                        "KUKA ETHERNET KRL TCP",
+                        "Mitsubishi 1E",
+                        "Mitsubishi 3E",
+                        "Mitsubishi FX",
+                        "Modbus RTU",
+                        "Modbus TCP",
+                        "Modbus TCP QH",
+                        "NON A11",
+                        "OPC UA",
+                        "Omron FINS TCP",
+                        "Omron FINS UDP",
+                        "Panasonic Mewtocol",
+                        "Profinet IO",
+                        "SECS GEM HSMS",
+                        "Siemens FetchWrite",
+                        "Siemens RK512",
+                        "Siemens S7 ISOTCP",
+                        "Siemens S7 ISOTCP for 300/400",
+                        "SparkPlugB",
+                        "WebSocket"
+                      ],
+                      "hardwareToken": "",
+                      "ekuiperOn": true,
+                      "officialEmail": "support@emqx.io"
+                    }
+                  }
                 }
               }
             }
@@ -157,9 +290,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 }
               }
             }
@@ -186,13 +317,15 @@
               "schema": {
                 "$ref": "#/components/schemas/SendActivationCodeReqData"
               },
-              "example": ""
+              "example": {
+                "activationCode": "6YnJBVBOcL2pBQgwnPdtdtW..."
+              }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "@ErrorInfo(10001,\"unknown error\")\n@ErrorInfo(10003,\"Read failed\")\n@ErrorInfo(10041,\"invalid json\")\n@ErrorInfo(10043,\"no match field\")\n@ErrorInfo(10045,\"read form file failed\")",
+            "description": "success",
             "content": {
               "application/json": {
                 "schema": {
@@ -207,9 +340,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 }
               }
             }
@@ -220,9 +351,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 }
               }
             }
@@ -249,13 +378,15 @@
               "schema": {
                 "$ref": "#/components/schemas/DeliverLicenseReqData"
               },
-              "example": ""
+              "example": {
+                "license": "CAIaFUVNUSBUZWNobm9s..."
+              }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "@ErrorInfo(10001,\"unknown error\")\n@ErrorInfo(10003,\"Read failed\")\n@ErrorInfo(10041,\"invalid json\")\n@ErrorInfo(10043,\"no match field\")\n@ErrorInfo(10045,\"read form file failed\")",
+            "description": "success",
             "content": {
               "application/json": {
                 "schema": {
@@ -270,9 +401,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 }
               }
             }
@@ -283,9 +412,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 }
               }
             }
@@ -323,9 +450,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 }
               }
             }
@@ -350,13 +475,15 @@
               "schema": {
                 "$ref": "#/components/schemas/DeliverLicenseReqData"
               },
-              "example": ""
+              "example": {
+                "license": "CAIaFUVNUSBUZWNobm9s..."
+              }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "@ErrorInfo(10001,\"unknown error\")\n@ErrorInfo(10003,\"Read failed\")\n@ErrorInfo(10041,\"invalid json\")\n@ErrorInfo(10043,\"no match field\")\n@ErrorInfo(10045,\"read form file failed\")",
+            "description": "success",
             "content": {
               "application/json": {
                 "schema": {
@@ -371,9 +498,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 }
               }
             }
@@ -384,9 +509,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 }
               }
             }
@@ -412,9 +535,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 }
               }
             }
@@ -425,9 +546,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 }
               }
             }
@@ -454,7 +573,10 @@
               "schema": {
                 "$ref": "#/components/schemas/LoginBody"
               },
-              "example": ""
+              "example": {
+                "name": "admin",
+                "pass": "0000"
+              }
             }
           }
         },
@@ -465,6 +587,14 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/responseData"
+                },
+                "examples": {
+                  "1": {
+                    "summary": "success",
+                    "value": {
+                      "token": "eyJhbGciOiJ...."
+                    }
+                  }
                 }
               }
             }
@@ -475,9 +605,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 }
               }
             }
@@ -504,7 +632,11 @@
               "schema": {
                 "$ref": "#/components/schemas/PasswordChangeBody"
               },
-              "example": ""
+              "example": {
+                "name": "admin",
+                "old_pass": "0000",
+                "new_pass": "1111"
+              }
             }
           }
         },
@@ -515,9 +647,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 }
               }
             }
@@ -528,9 +658,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 }
               }
             }
@@ -558,6 +686,33 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/QuerySystemInfoResp"
+                },
+                "examples": {
+                  "1": {
+                    "summary": "success",
+                    "value": {
+                      "version": "3.1.0-beta.3",
+                      "systemStatus": "0",
+                      "neuronRunningTime": "6332",
+                      "neuronStatus": "0",
+                      "neuronMemoryUsed": "8364032",
+                      "neuronMemoryTotal": "4125425664",
+                      "ekuiperRunningTime": "6332",
+                      "ekuiperStatus": "0",
+                      "ekuiperMemoryUsed": "84316160",
+                      "ekuiperMemoryTotal": "4125425664",
+                      "submoduleStatus": {
+                        "alert": false,
+                        "monitor": false,
+                        "syslog": false
+                      },
+                      "hwToken": "m/djk5abRRToVTyBBCXkUVyMumgbYmo2PdwdjnVeqn8=",
+                      "os": "Debian GNU/Linux 11",
+                      "kernel": "5.10.124-linuxkit",
+                      "arch": "x86_64",
+                      "clib": "glibc-2.31"
+                    }
+                  }
                 }
               }
             }
@@ -568,9 +723,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 }
               }
             }
@@ -597,19 +750,42 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "string"
-                  },
-                  "x-apifox-orders": [],
-                  "properties": {},
-                  "x-apifox-ignore-properties": []
+                  "$ref": "#/components/schemas/VersionResp"
+                },
+                "examples": {
+                  "1": {
+                    "summary": "success",
+                    "value": {
+                      "version": "3.1.0-beta.3"
+                    }
+                  }
                 }
               }
             }
           }
         },
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-119719069-run"
+      }
+    },
+    "/api/management/cancel": {
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "management"
+        ],
+        "summary": "Cancel being Managed by ECP",
+        "x-apifox-folder": "NeuronEX/management",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "CancelManagement",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {}
+          }
+        }
       }
     },
     "/api/webhook/syslog": {
@@ -631,6 +807,18 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/syslogInfoData"
+                },
+                "examples": {
+                  "1": {
+                    "summary": "success",
+                    "value": {
+                      "enabled": false,
+                      "network": "udp4",
+                      "addr": "",
+                      "priority": 6,
+                      "tag": "neuronex"
+                    }
+                  }
                 }
               }
             }
@@ -654,7 +842,12 @@
               "schema": {
                 "$ref": "#/components/schemas/SyslogReq"
               },
-              "example": ""
+              "example": {
+                "enabled": true,
+                "addr": "localhost:10514",
+                "priority": 6,
+                "tag": "neuronex"
+              }
             }
           }
         },
@@ -665,9 +858,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 }
               }
             }
@@ -678,9 +869,295 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/liveness/report": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "liveness"
+        ],
+        "summary": "Query liveness info",
+        "x-apifox-folder": "NeuronEX/liveness",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "GetLivenessConfig",
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LivenessReq"
+                },
+                "examples": {
+                  "1": {
+                    "summary": "success",
+                    "value": {
+                      "endpointUrl": "",
+                      "serviceId": "",
+                      "interval": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "liveness"
+        ],
+        "summary": "Liveness configuration",
+        "x-apifox-folder": "NeuronEX/liveness",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "livenessConfigHandler",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LivenessReq"
+              },
+              "example": {
+                "endpointUrl": "127.0.0.1:1456",
+                "serviceId": "123456",
+                "interval": 10
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {}
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/log": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "log"
+        ],
+        "summary": "Get NeuronEX log level configuration",
+        "x-apifox-folder": "NeuronEX/log",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "LoglevelGetting",
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseLogData"
+                },
+                "examples": {
+                  "1": {
+                    "summary": "success",
+                    "value": {
+                      "level": "info"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "log"
+        ],
+        "summary": "Set NeuronEX log level configuration",
+        "x-apifox-folder": "NeuronEX/log",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "LoglevelSetting",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoglevelSettingReqData"
+              },
+              "example": {
+                "level": "info"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {}
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/log/ekuiper": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "log"
+        ],
+        "summary": "Download data processing engine log",
+        "x-apifox-folder": "NeuronEX/log",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "DownloadEkuiperLog",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": "log ..."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/log/neuron": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "log"
+        ],
+        "summary": "Download data collection engine log",
+        "x-apifox-folder": "NeuronEX/log",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "DownloadNeuronLog",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": "log ..."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/log/neuron/{nodeName}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "log"
+        ],
+        "summary": "Download the log of data collection engine driver node",
+        "x-apifox-folder": "NeuronEX/log",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "DownloadNeuronLogByNodeName",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": "log ..."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/log/neuronex": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "log"
+        ],
+        "summary": "Download NeuronEX  log",
+        "x-apifox-folder": "NeuronEX/log",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "DownloadNeuronexLog",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": "log ..."
+                  }
                 }
               }
             }
@@ -713,24 +1190,244 @@
         ],
         "responses": {
           "200": {
-            "description": "@ErrorInfo(10001,\"unknown error\")\n@ErrorInfo(10003,\"Read failed\")\n@ErrorInfo(10041,\"invalid json\")\n@ErrorInfo(10043,\"no match field\")\n@ErrorInfo(10045,\"read form file failed\")",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StatusError"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "500",
+            "description": "query neuron  template sueccess",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {
+                    "streams": {
+                      "type": "object",
+                      "properties": {
+                        "neuronStream": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "neuronStream"
+                      ],
+                      "x-apifox-orders": [
+                        "neuronStream"
+                      ]
+                    },
+                    "tables": {
+                      "type": "object",
+                      "properties": {},
+                      "x-apifox-orders": []
+                    },
+                    "rules": {
+                      "type": "object",
+                      "properties": {},
+                      "x-apifox-orders": []
+                    },
+                    "nativePlugins": {
+                      "type": "object",
+                      "properties": {},
+                      "x-apifox-orders": []
+                    },
+                    "portablePlugins": {
+                      "type": "object",
+                      "properties": {},
+                      "x-apifox-orders": []
+                    },
+                    "sourceConfig": {
+                      "type": "object",
+                      "properties": {},
+                      "x-apifox-orders": []
+                    },
+                    "sinkConfig": {
+                      "type": "object",
+                      "properties": {},
+                      "x-apifox-orders": []
+                    },
+                    "connectionConfig": {
+                      "type": "object",
+                      "properties": {},
+                      "x-apifox-orders": []
+                    },
+                    "Service": {
+                      "type": "object",
+                      "properties": {},
+                      "x-apifox-orders": []
+                    },
+                    "Schema": {
+                      "type": "object",
+                      "properties": {},
+                      "x-apifox-orders": []
+                    },
+                    "uploads": {
+                      "type": "object",
+                      "properties": {},
+                      "x-apifox-orders": []
+                    }
+                  },
+                  "required": [
+                    "streams",
+                    "tables",
+                    "rules",
+                    "nativePlugins",
+                    "portablePlugins",
+                    "sourceConfig",
+                    "sinkConfig",
+                    "connectionConfig",
+                    "Service",
+                    "Schema",
+                    "uploads"
+                  ],
+                  "x-apifox-orders": [
+                    "streams",
+                    "tables",
+                    "rules",
+                    "nativePlugins",
+                    "portablePlugins",
+                    "sourceConfig",
+                    "sinkConfig",
+                    "connectionConfig",
+                    "Service",
+                    "Schema",
+                    "uploads"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "ekuiper success",
+                    "value": {
+                      "streams": {
+                        "neuronStream": "CREATE STREAM neuronStream() WITH (TYPE=\"neuron\",FORMAT=\"json\",CONF_KEY=\"default\",SHARED=\"TRUE\");"
+                      },
+                      "tables": {},
+                      "rules": {},
+                      "nativePlugins": {},
+                      "portablePlugins": {},
+                      "sourceConfig": {},
+                      "sinkConfig": {},
+                      "connectionConfig": {},
+                      "Service": {},
+                      "Schema": {},
+                      "uploads": {}
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "x-200:query ekuiper template sueccess": {
+            "description": "query ekuiper template sueccess",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "nodes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "plugin": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "plugin",
+                          "name"
+                        ]
+                      }
+                    },
+                    "groups": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "tags": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "subscriptions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "settings": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "node": {
+                            "type": "string"
+                          },
+                          "params": {
+                            "type": "object",
+                            "properties": {
+                              "host": {
+                                "type": "string"
+                              },
+                              "port": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "host",
+                              "port"
+                            ],
+                            "x-apifox-orders": [
+                              "host",
+                              "port"
+                            ]
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "node",
+                          "params"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "nodes",
+                    "groups",
+                    "tags",
+                    "subscriptions",
+                    "settings"
+                  ],
+                  "x-apifox-orders": [
+                    "nodes",
+                    "groups",
+                    "tags",
+                    "subscriptions",
+                    "settings"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "query ekuiper template sueccess",
+                    "value": {
+                      "nodes": [
+                        {
+                          "plugin": "eKuiper",
+                          "name": "Processing"
+                        }
+                      ],
+                      "groups": [],
+                      "tags": [],
+                      "subscriptions": [],
+                      "settings": [
+                        {
+                          "node": "Processing",
+                          "params": {
+                            "host": "127.0.0.1",
+                            "port": 7081
+                          }
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -764,32 +1461,33 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/DeliverBody"
+                "type": "object",
+                "properties": {
+                  "template": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "template"
+                ],
+                "x-apifox-orders": [
+                  "template"
+                ]
               },
-              "example": ""
+              "example": {
+                "template": "{\n    \"streams\": {\n        \"neuronStream\": \"CREATE STREAM neuronStream() WITH (TYPE=\\\"neuron\\\",FORMAT=\\\"json\\\",CONF_KEY=\\\"default\\\",SHARED=\\\"TRUE\\\");\"\n    },\n    \"tables\": {},\n    \"rules\": {},\n    \"nativePlugins\": {},\n    \"portablePlugins\": {},\n    \"sourceConfig\": {},\n    \"sinkConfig\": {},\n    \"connectionConfig\": {},\n    \"Service\": {},\n    \"Schema\": {},\n    \"uploads\": {}\n}"
+              }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "@ErrorInfo(10001,\"unknown error\")\n@ErrorInfo(10003,\"Read failed\")\n@ErrorInfo(10041,\"invalid json\")\n@ErrorInfo(10043,\"no match field\")\n@ErrorInfo(10045,\"read form file failed\")",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StatusError"
-                }
-              }
-            }
-          },
-          "204": {
-            "description": "success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 }
               }
             }
@@ -800,9 +1498,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 }
               }
             }
@@ -811,23 +1507,627 @@
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-119719073-run"
       }
     },
-    "/api/log": {
+    "/api/process/ekuiper/start": {
       "get": {
         "produces": [
           "application/json"
         ],
         "tags": [
-          "log"
+          "process_control"
         ],
-        "summary": "Get NeuronEX log level configuration",
-        "operationId": "LoglevelGetting",
+        "summary": "Start ekuiper process",
+        "x-apifox-folder": "NeuronEX/process_control",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "StartKuiper",
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {}
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/process/ekuiper/stop": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "process_control"
+        ],
+        "summary": "Stop ekuiper process",
+        "x-apifox-folder": "NeuronEX/process_control",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "StopKuiper",
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {}
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/process/neuron/start": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "process_control"
+        ],
+        "summary": "Start neuron process",
+        "x-apifox-folder": "NeuronEX/process_control",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "StartNeuron",
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {}
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/process/neuron/stop": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "process_control"
+        ],
+        "summary": "Stop neuron process",
+        "x-apifox-folder": "NeuronEX/process_control",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "StopNeuron",
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {}
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/process/status": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "process_control"
+        ],
+        "summary": "The status of Ekuiper and Neuron process",
+        "x-apifox-folder": "NeuronEX/process_control",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "KuiperNeuronStatus",
         "responses": {
           "200": {
             "description": "",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/api/status/liveness": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "status"
+        ],
+        "summary": "Get NeuronEX liveness status",
+        "x-apifox-folder": "NeuronEX/status",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "LiveStatusGetting",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LoglevelRsqData"
+                  "type": "object",
+                  "properties": {
+                    "liveness": {
+                      "type": "object",
+                      "properties": {
+                        "in": {
+                          "type": "integer"
+                        },
+                        "out": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "in",
+                        "out"
+                      ],
+                      "x-apifox-orders": [
+                        "in",
+                        "out"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "liveness"
+                  ],
+                  "x-apifox-orders": [
+                    "liveness"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "liveness": {
+                        "in": 853,
+                        "out": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/status/log": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "status"
+        ],
+        "summary": "Get NeuronEX syslog status",
+        "x-apifox-folder": "NeuronEX/status",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "SyslogStatusGetting",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "server": {
+                      "type": "object",
+                      "properties": {
+                        "in": {
+                          "type": "integer"
+                        },
+                        "out": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "in",
+                        "out"
+                      ],
+                      "x-apifox-orders": [
+                        "in",
+                        "out"
+                      ]
+                    },
+                    "outSend": {
+                      "type": "object",
+                      "properties": {
+                        "in": {
+                          "type": "integer"
+                        },
+                        "out": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "in",
+                        "out"
+                      ],
+                      "x-apifox-orders": [
+                        "in",
+                        "out"
+                      ]
+                    },
+                    "sse": {
+                      "type": "object",
+                      "properties": {
+                        "in": {
+                          "type": "integer"
+                        },
+                        "out": {
+                          "type": "integer"
+                        },
+                        "neuron": {
+                          "type": "object",
+                          "properties": {
+                            "in": {
+                              "type": "integer"
+                            },
+                            "out": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "in",
+                            "out"
+                          ],
+                          "x-apifox-orders": [
+                            "in",
+                            "out"
+                          ]
+                        },
+                        "neuronex": {
+                          "type": "object",
+                          "properties": {
+                            "in": {
+                              "type": "integer"
+                            },
+                            "out": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "in",
+                            "out"
+                          ],
+                          "x-apifox-orders": [
+                            "in",
+                            "out"
+                          ]
+                        },
+                        "ekuiper": {
+                          "type": "object",
+                          "properties": {
+                            "in": {
+                              "type": "integer"
+                            },
+                            "out": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "in",
+                            "out"
+                          ],
+                          "x-apifox-orders": [
+                            "in",
+                            "out"
+                          ]
+                        },
+                        "others": {
+                          "type": "object",
+                          "properties": {
+                            "in": {
+                              "type": "integer"
+                            },
+                            "out": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "in",
+                            "out"
+                          ],
+                          "x-apifox-orders": [
+                            "in",
+                            "out"
+                          ]
+                        },
+                        "clientNumber": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "in",
+                        "out",
+                        "neuron",
+                        "neuronex",
+                        "ekuiper",
+                        "others",
+                        "clientNumber"
+                      ],
+                      "x-apifox-orders": [
+                        "in",
+                        "out",
+                        "neuron",
+                        "neuronex",
+                        "ekuiper",
+                        "others",
+                        "clientNumber"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "server",
+                    "outSend",
+                    "sse"
+                  ],
+                  "x-apifox-orders": [
+                    "server",
+                    "outSend",
+                    "sse"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "server": {
+                        "in": 75668145,
+                        "out": 75668144
+                      },
+                      "outSend": {
+                        "in": 75668145,
+                        "out": 2513
+                      },
+                      "sse": {
+                        "in": 75668145,
+                        "out": 75668144,
+                        "neuron": {
+                          "in": 464,
+                          "out": 464
+                        },
+                        "neuronex": {
+                          "in": 75665075,
+                          "out": 75665074
+                        },
+                        "ekuiper": {
+                          "in": 93,
+                          "out": 93
+                        },
+                        "others": {
+                          "in": 2513,
+                          "out": 2513
+                        },
+                        "clientNumber": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stream/log": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "sse"
+        ],
+        "summary": "Get NeuronEX streaming log",
+        "x-apifox-folder": "NeuronEX/sse",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "StreamingLog",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int64",
+            "default": "0",
+            "x-go-name": "Type",
+            "name": "type",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "default": "10",
+            "x-go-name": "Priority",
+            "name": "priority",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/event-stream": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": "2023-12-20T07:55:49Z neuronex[1]: level=error msg=\"forward syslog to server error [&{0x174ba08 true 0xc00054e000 neuronex neuronex-231220 6 localhost:10514}][failed to get connection]\" file=\"syslog/out_send.go:113\" func=\"internal/syslog.(*SendOut).Process\""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/monitor/alert": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "monitor"
+        ],
+        "summary": "Alert types currently supported by NeuronEX",
+        "x-apifox-folder": "NeuronEX/monitor",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "AlertRuleConfig",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ruleId": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "desc": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "ruleId",
+                      "name",
+                      "desc"
+                    ],
+                    "x-apifox-orders": [
+                      "ruleId",
+                      "name",
+                      "desc"
+                    ]
+                  }
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": [
+                      {
+                        "ruleId": "1",
+                        "name": "node_exception_alert",
+                        "desc": "Data collection node exception alert"
+                      },
+                      {
+                        "ruleId": "2",
+                        "name": "rule_exception_alert",
+                        "desc": "Data processing rule exception alert"
+                      },
+                      {
+                        "ruleId": "3",
+                        "name": "restart_alert",
+                        "desc": "neuronex restart alert"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/monitor/alert_config": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "monitor"
+        ],
+        "summary": "Query the current alert rule-related settings",
+        "x-apifox-folder": "NeuronEX/monitor",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "QueryAlertRuleConfig",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean"
+                    },
+                    "webhookUrl": {
+                      "type": "string"
+                    },
+                    "interval": {
+                      "type": "integer"
+                    },
+                    "fireChecks": {
+                      "type": "integer"
+                    },
+                    "resolveChecks": {
+                      "type": "integer"
+                    },
+                    "alertsConfig": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "enabled",
+                    "webhookUrl",
+                    "interval",
+                    "fireChecks",
+                    "resolveChecks",
+                    "alertsConfig"
+                  ],
+                  "x-apifox-orders": [
+                    "enabled",
+                    "webhookUrl",
+                    "interval",
+                    "fireChecks",
+                    "resolveChecks",
+                    "alertsConfig"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "enabled": true,
+                      "webhookUrl": "https://www.baidu.com",
+                      "interval": 15,
+                      "fireChecks": 0,
+                      "resolveChecks": 0,
+                      "alertsConfig": [
+                        {
+                          "ruleId": "3",
+                          "fireChecks": 1,
+                          "resolveChecks": -1,
+                          "ruleName": "restart_alert"
+                        },
+                        {
+                          "ruleId": "1",
+                          "fireChecks": 3,
+                          "resolveChecks": 3,
+                          "ruleName": "node_exception_alert"
+                        },
+                        {
+                          "ruleId": "2",
+                          "fireChecks": 1,
+                          "resolveChecks": 1,
+                          "ruleName": "rule_exception_alert"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -842,28 +2142,721 @@
           "application/json"
         ],
         "tags": [
-          "log"
+          "monitor"
         ],
-        "summary": "Set NeuronEX log level configuration",
-        "operationId": "LoglevelSetting",
+        "summary": "Configure Alert rule-related settings.",
+        "x-apifox-folder": "NeuronEX/monitor",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "DistributeAlertRuleConfig",
         "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LoglevelSettingReqData"
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean",
+                    "description": "false: disabled, true: enabled ,If the value is false, the other fields are non-required"
+                  },
+                  "webhookUrl": {
+                    "type": "string",
+                    "description": "optional,the webhook that alert events are pushed to"
+                  },
+                  "interval": {
+                    "type": "integer",
+                    "description": "required if enabled is true"
+                  },
+                  "fireChecks": {
+                    "type": "integer",
+                    "description": "required if alertsConfig is empty, the default fireChecks for all rules in alertsConfig"
+                  },
+                  "resolveChecks": {
+                    "type": "integer",
+                    "description": "required if alertsConfig is empty, the default resolveChecks for all rules in alertsConfig"
+                  },
+                  "alertsConfig": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "ruleId": {
+                          "type": "string"
+                        },
+                        "fireChecks": {
+                          "type": "integer",
+                          "description": "N"
+                        },
+                        "resolveChecks": {
+                          "type": "integer",
+                          "description": "P"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "ruleId",
+                        "fireChecks",
+                        "resolveChecks"
+                      ]
+                    },
+                    "description": "optional, the setting of the rule alerts to be pushed,if it is empty, it means that requires all alert types."
+                  }
+                },
+                "required": [
+                  "enabled",
+                  "webhookUrl",
+                  "interval",
+                  "fireChecks",
+                  "resolveChecks",
+                  "alertsConfig"
+                ],
+                "x-apifox-orders": [
+                  "enabled",
+                  "webhookUrl",
+                  "interval",
+                  "fireChecks",
+                  "resolveChecks",
+                  "alertsConfig"
+                ]
               },
-              "example": ""
+              "example": {
+                "enabled": true,
+                "webhookUrl": "https://www.baidu.com",
+                "interval": 15,
+                "fireChecks": 0,
+                "resolveChecks": 0,
+                "alertsConfig": [
+                  {
+                    "ruleId": "3",
+                    "fireChecks": 1,
+                    "resolveChecks": -1
+                  },
+                  {
+                    "ruleId": "1",
+                    "fireChecks": 3,
+                    "resolveChecks": 3
+                  },
+                  {
+                    "ruleId": "2",
+                    "fireChecks": 1,
+                    "resolveChecks": 1
+                  }
+                ]
+              }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "@ErrorInfo(10001,\"unknown error\")\n@ErrorInfo(10003,\"Read failed\")\n@ErrorInfo(10041,\"invalid json\")\n@ErrorInfo(10043,\"no match field\")\n@ErrorInfo(10045,\"read form file failed\")",
+            "description": "success",
+            "schema": {}
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/monitor/alert_result": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "monitor"
+        ],
+        "summary": "Query recently generated alert events",
+        "x-apifox-folder": "NeuronEX/monitor",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "QueryAlertResult",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/StatusError"
+                  "type": "object",
+                  "properties": {
+                    "firing": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "ruleId": {
+                            "type": "string"
+                          },
+                          "labels:": {
+                            "type": "object",
+                            "properties": {
+                              "driver": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "driver"
+                            ],
+                            "x-apifox-orders": [
+                              "driver"
+                            ]
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "ruleId",
+                          "labels:"
+                        ]
+                      },
+                      "description": "alert fire event array"
+                    },
+                    "resolved": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "ruleId": {
+                            "type": "string"
+                          },
+                          "labels:": {
+                            "type": "object",
+                            "properties": {
+                              "rule": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "rule"
+                            ],
+                            "x-apifox-orders": [
+                              "rule"
+                            ]
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "ruleId",
+                          "labels:"
+                        ]
+                      },
+                      "description": "alert resolved event array"
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "firing",
+                    "resolved",
+                    "timestamp"
+                  ],
+                  "x-apifox-orders": [
+                    "firing",
+                    "resolved",
+                    "timestamp"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "firing": [
+                        {
+                          "ruleId": "xxx",
+                          "labels:": {
+                            "driver": "xxx"
+                          }
+                        }
+                      ],
+                      "resolved": [
+                        {
+                          "ruleId": "xxx",
+                          "labels:": {
+                            "rule": "xxx"
+                          }
+                        }
+                      ],
+                      "timestamp": "2024-01-01T09:52:26.739266876+08:00"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/monitor/metric": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "monitor"
+        ],
+        "summary": "Metrics currently supported by NeuronEX",
+        "x-apifox-folder": "NeuronEX/monitor",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "MetricConfig",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "metricId": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "desc": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "metricId",
+                      "name",
+                      "desc"
+                    ],
+                    "x-apifox-orders": [
+                      "metricId",
+                      "name",
+                      "desc"
+                    ]
+                  }
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": [
+                      {
+                        "metricId": "1",
+                        "name": "os_info",
+                        "desc": "OS distro and kernel version"
+                      },
+                      {
+                        "metricId": "2",
+                        "name": "cpu_percent",
+                        "desc": "Total CPU utilisation percentage"
+                      },
+                      {
+                        "metricId": "3",
+                        "name": "cpu_cores",
+                        "desc": "Number of CPU cores"
+                      },
+                      {
+                        "metricId": "4",
+                        "name": "mem_total_bytes",
+                        "desc": "Total installed memory in bytes"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/monitor/metric_config": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "monitor"
+        ],
+        "summary": "Query the current metric-related settings",
+        "x-apifox-folder": "NeuronEX/monitor",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "QueryMetricConfig",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean"
+                    },
+                    "prometheusUrl": {
+                      "type": "string"
+                    },
+                    "interval": {
+                      "type": "integer"
+                    },
+                    "labels": {
+                      "type": "object",
+                      "properties": {
+                        "instance": {
+                          "type": "string"
+                        },
+                        "org_id": {
+                          "type": "string"
+                        },
+                        "project_id": {
+                          "type": "string"
+                        },
+                        "service_id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "instance",
+                        "org_id",
+                        "project_id",
+                        "service_id"
+                      ],
+                      "x-apifox-orders": [
+                        "instance",
+                        "org_id",
+                        "project_id",
+                        "service_id"
+                      ]
+                    },
+                    "metrics": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "metricId": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "desc": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "metricId",
+                          "name",
+                          "desc"
+                        ],
+                        "x-apifox-orders": [
+                          "metricId",
+                          "name",
+                          "desc"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "enabled",
+                    "prometheusUrl",
+                    "interval",
+                    "labels",
+                    "metrics"
+                  ],
+                  "x-apifox-orders": [
+                    "enabled",
+                    "prometheusUrl",
+                    "interval",
+                    "labels",
+                    "metrics"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "enabled": true,
+                      "prometheusUrl": "http://127.0.0.1:9091",
+                      "interval": 15,
+                      "labels": {
+                        "instance": "127.0.0.1:8111",
+                        "org_id": "76995af8",
+                        "project_id": "c1c69f9d",
+                        "service_id": "55f20f8b"
+                      },
+                      "metrics": [
+                        {
+                          "metricId": "13",
+                          "name": "north_nodes_total",
+                          "desc": "Number of north nodes"
+                        },
+                        {
+                          "metricId": "14",
+                          "name": "north_running_nodes_total",
+                          "desc": "Number of north nodes in running state"
+                        },
+                        {
+                          "metricId": "15",
+                          "name": "north_disconnected_nodes_total",
+                          "desc": "Number of north nodes disconnected"
+                        },
+                        {
+                          "metricId": "16",
+                          "name": "south_nodes_total",
+                          "desc": "Number of south nodes"
+                        },
+                        {
+                          "metricId": "17",
+                          "name": "south_running_nodes_total",
+                          "desc": "Number of south nodes in running state"
+                        },
+                        {
+                          "metricId": "20",
+                          "name": "license_max_tags",
+                          "desc": "License tags limit"
+                        },
+                        {
+                          "metricId": "21",
+                          "name": "license_used_tags",
+                          "desc": "License total used tags"
+                        },
+                        {
+                          "metricId": "1031",
+                          "name": "kuiper_op_records_in_total",
+                          "desc": "Total number of messages received by the operation of kuiper_op"
+                        },
+                        {
+                          "metricId": "1032",
+                          "name": "kuiper_op_records_out_total",
+                          "desc": "Total number of messages published by the operation of kuiper_op"
+                        },
+                        {
+                          "metricId": "2000",
+                          "name": "running_nodes_total",
+                          "desc": "Number of nodes in running state"
+                        },
+                        {
+                          "metricId": "2001",
+                          "name": "exception_nodes_total",
+                          "desc": "Number of nodes in running state"
+                        },
+                        {
+                          "metricId": "2002",
+                          "name": "south_connected_nodes_total",
+                          "desc": "Number of south nodes connected"
+                        },
+                        {
+                          "metricId": "2003",
+                          "name": "south_exception_nodes_total",
+                          "desc": "Number of south in exception state"
+                        },
+                        {
+                          "metricId": "2004",
+                          "name": "north_connected_nodes_total",
+                          "desc": "Number of north nodes connected"
+                        },
+                        {
+                          "metricId": "2005",
+                          "name": "north_exception_nodes_total",
+                          "desc": "Number of north in exception state"
+                        },
+                        {
+                          "metricId": "2006",
+                          "name": "running_rules_total",
+                          "desc": "Number of rules in running state"
+                        },
+                        {
+                          "metricId": "2007",
+                          "name": "stopped_rules_total",
+                          "desc": "Number of rules in stopped state"
+                        },
+                        {
+                          "metricId": "2008",
+                          "name": "not_running_node",
+                          "desc": "Node not in running state"
+                        },
+                        {
+                          "metricId": "2009",
+                          "name": "exception_node",
+                          "desc": "Node in exception state"
+                        },
+                        {
+                          "metricId": "3000",
+                          "name": "not_running_rule",
+                          "desc": "Rule not in running state"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "monitor"
+        ],
+        "summary": "Configure Metric-related settings.",
+        "x-apifox-folder": "NeuronEX/monitor",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "DistributeMetricConfig",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean",
+                    "description": "required,false: disabled, true: enabled ,If the value is false, the other fields are non-required"
+                  },
+                  "prometheusUrl": {
+                    "type": "string",
+                    "description": " optional, the url of pushgateway,like http://localhost:9091"
+                  },
+                  "prometheusUsername": {
+                    "type": "string",
+                    "description": "optional, the url of username for pushgateway"
+                  },
+                  "prometheusPassword": {
+                    "type": "string",
+                    "description": " optional, the url of password for pushgateway"
+                  },
+                  "metricIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "optional, metric id array,a value of null means push all metric data."
+                  },
+                  "interval": {
+                    "type": "integer",
+                    "description": "optional, the interval of generating metrics data,unit is second"
+                  },
+                  "labels": {
+                    "type": "object",
+                    "properties": {
+                      "key1": {
+                        "type": "string"
+                      }
+                    },
+                    "x-apifox-orders": [
+                      "key1"
+                    ],
+                    "description": "optional, additional labels needed for metric, will be pushed to pushgateway along with the metrics data for grouping of metrics,key: label name,value: label value"
+                  }
+                },
+                "required": [
+                  "enabled",
+                  "prometheusUrl",
+                  "metricIds",
+                  "interval"
+                ],
+                "x-apifox-orders": [
+                  "enabled",
+                  "prometheusUrl",
+                  "prometheusUsername",
+                  "prometheusPassword",
+                  "metricIds",
+                  "interval",
+                  "labels"
+                ]
+              },
+              "example": {
+                "enabled": false,
+                "prometheusUrl": "http://127.0.0.1:9091",
+                "prometheusUsername": "",
+                "prometheusPassword": "",
+                "metricIds": [
+                  "13",
+                  "14",
+                  "15",
+                  "16",
+                  "17",
+                  "20",
+                  "21",
+                  "1031",
+                  "1032",
+                  "2000",
+                  "2001",
+                  "2002",
+                  "2003",
+                  "2004",
+                  "2005",
+                  "2006",
+                  "2007",
+                  "2008",
+                  "2009",
+                  "3000"
+                ],
+                "interval": 15,
+                "labels": {
+                  "category": "4",
+                  "org_id": "ef5f285a",
+                  "project_id": "c46ffe05",
+                  "service_id": "25a967f3",
+                  "type": "4"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "500",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/monitor/metric_contents": {
+      "get": {
+        "tags": [
+          "monitor"
+        ],
+        "summary": "Query the most recent metric data",
+        "x-apifox-folder": "NeuronEX/monitor",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "operationId": "MetricContents",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": "license_max_tags 30\nlicense_used_tags 0\nnorth_nodes_total 1\nnorth_running_nodes_total 1\nnorth_disconnected_nodes_total 1\nsouth_nodes_total 0\nsouth_running_nodes_total 0\nrunning_nodes_total 1\nexception_nodes_total 1\nsouth_connected_nodes_total 0\nsouth_exception_nodes_total 0\nnorth_connected_nodes_total 0\nnorth_exception_nodes_total 1\nrunning_rules_total 0\nstopped_rules_total 0\n"
+                  }
                 }
               }
             }
@@ -1038,8 +3031,7 @@
                   "name",
                   "old_pass",
                   "new_pass"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "name": "admin",
@@ -1209,8 +3201,7 @@
                 "x-apifox-orders": [
                   "name",
                   "plugin"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "name": "modbus-tcp-node",
@@ -1383,8 +3374,7 @@
                 ],
                 "x-apifox-orders": [
                   "name"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "name": "modbus-tcp-node"
@@ -1462,8 +3452,7 @@
                 "x-apifox-orders": [
                   "name",
                   "new_name"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "name": "modbus-node",
@@ -1659,16 +3648,14 @@
                     "params": {
                       "type": "object",
                       "x-apifox-orders": [],
-                      "properties": {},
-                      "x-apifox-ignore-properties": []
+                      "properties": {}
                     }
                   },
                   "x-apifox-orders": [
                     "node",
                     "params"
                   ],
-                  "description": "//The parameter fields in json fill in different fields according to different plugins",
-                  "x-apifox-ignore-properties": []
+                  "description": "//The parameter fields in json fill in different fields according to different plugins"
                 },
                 "examples": {
                   "1": {
@@ -1753,8 +3740,7 @@
                       "param3",
                       "param4"
                     ],
-                    "description": "The parameter fields in json fill in different fields according to different plugins",
-                    "x-apifox-ignore-properties": []
+                    "description": "The parameter fields in json fill in different fields according to different plugins"
                   }
                 },
                 "required": [
@@ -1764,8 +3750,7 @@
                 "x-apifox-orders": [
                   "node",
                   "params"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "node": "modbus-node",
@@ -1786,9 +3771,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 },
                 "examples": {
                   "1": {
@@ -1861,8 +3844,7 @@
                 "x-apifox-orders": [
                   "node",
                   "cmd"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "node": "modbus-node",
@@ -1987,15 +3969,13 @@
                           "running",
                           "link",
                           "rtt"
-                        ],
-                        "x-apifox-ignore-properties": []
+                        ]
                       }
                     }
                   },
                   "x-apifox-orders": [
                     "states"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -2059,8 +4039,7 @@
                   "name",
                   "node",
                   "interval"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "name": "gconfig1",
@@ -2095,9 +4074,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 },
                 "examples": {
                   "1": {
@@ -2116,9 +4093,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-orders": [],
-                  "x-apifox-ignore-properties": []
+                  "properties": {}
                 },
                 "examples": {
                   "1": {
@@ -2162,8 +4137,7 @@
                 "x-apifox-orders": [
                   "name",
                   "node"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "name": "gconfig1",
@@ -2279,8 +4253,7 @@
                 "required": [
                   "node",
                   "group"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "node": "modbus-node",
@@ -2403,15 +4376,13 @@
                           "name",
                           "interval",
                           "tag_count"
-                        ],
-                        "x-apifox-ignore-properties": []
+                        ]
                       }
                     }
                   },
                   "x-apifox-orders": [
                     "groups"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -2519,8 +4490,7 @@
                         "address",
                         "attribute",
                         "type"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   }
                 },
@@ -2532,8 +4502,7 @@
                 "required": [
                   "node",
                   "group"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "node": "modbus-node",
@@ -2598,8 +4567,7 @@
                   "x-apifox-orders": [
                     "index",
                     "error"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -2778,8 +4746,7 @@
                           "decimal",
                           "value",
                           "precison"
-                        ],
-                        "x-apifox-ignore-properties": []
+                        ]
                       }
                     }
                   },
@@ -2788,8 +4755,7 @@
                   ],
                   "x-apifox-orders": [
                     "tags"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -2931,8 +4897,7 @@
                         "precision",
                         "decimal",
                         "value"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   }
                 },
@@ -2945,8 +4910,7 @@
                   "node",
                   "group",
                   "tags"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": "{\n    \"node\": \"modbus-tcp-test\",\n    \"group\": \"group1\",\n    \"tags\": [\n        {\n            \"name\": \"tag1\",\n            \"type\": 8,\n            \"attribute\": 0,\n            \"address\": \"1!400001\",\n            \"description\": \"\",\n            \"precision\": 0,\n            \"decimal\": 0,\n            \"value\": 12\n        },\n        {\n            \"name\": \"tag2\",\n            \"type\": 6,\n            \"attribute\": 0,\n            \"address\": \"1!400002\",\n            \"description\": \"\",\n            \"precison\": 0,\n            \"decimal\": 0,\n        },\n        {\n            \"name\": \"static_tag\",\n            \"address\": \"\",\n            \"attribute\": 10,\n            \"type\": 8,\n            \"description\": \"\",\n            \"precison\": 0,\n            \"decimal\": 0,\n            \"value\": 42\n        }\n    ]\n}"
             }
@@ -2974,8 +4938,7 @@
                   "x-apifox-orders": [
                     "error",
                     "index"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -3110,8 +5073,7 @@
                   "group",
                   "node",
                   "tags"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "group": "config_modbus_tcp_sample_2",
@@ -3192,8 +5154,7 @@
                 ],
                 "x-apifox-orders": [
                   "library"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               }
             }
           }
@@ -3264,8 +5225,7 @@
                 ],
                 "x-apifox-orders": [
                   "plugin"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               }
             }
           }
@@ -3368,8 +5328,7 @@
                           "description",
                           "description_zh",
                           "schema"
-                        ],
-                        "x-apifox-ignore-properties": []
+                        ]
                       }
                     }
                   },
@@ -3378,8 +5337,7 @@
                   ],
                   "x-apifox-orders": [
                     "plugins"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -3464,8 +5422,7 @@
                         "x-apifox-orders": [
                           "type",
                           "regex"
-                        ],
-                        "x-apifox-ignore-properties": []
+                        ]
                       }
                     },
                     "group_interval": {
@@ -3517,8 +5474,7 @@
                                 "x-apifox-orders": [
                                   "key",
                                   "value"
-                                ],
-                                "x-apifox-ignore-properties": []
+                                ]
                               }
                             }
                           },
@@ -3527,8 +5483,7 @@
                           ],
                           "x-apifox-orders": [
                             "map"
-                          ],
-                          "x-apifox-ignore-properties": []
+                          ]
                         }
                       },
                       "required": [
@@ -3550,8 +5505,7 @@
                         "type",
                         "default",
                         "valid"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     },
                     "interval": {
                       "type": "object",
@@ -3594,8 +5548,7 @@
                           "x-apifox-orders": [
                             "min",
                             "max"
-                          ],
-                          "x-apifox-ignore-properties": []
+                          ]
                         }
                       },
                       "required": [
@@ -3617,8 +5570,7 @@
                         "type",
                         "default",
                         "valid"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     },
                     "host": {
                       "type": "object",
@@ -3658,8 +5610,7 @@
                           "x-apifox-orders": [
                             "regex",
                             "length"
-                          ],
-                          "x-apifox-ignore-properties": []
+                          ]
                         }
                       },
                       "required": [
@@ -3679,8 +5630,7 @@
                         "attribute",
                         "type",
                         "valid"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     },
                     "port": {
                       "type": "object",
@@ -3723,8 +5673,7 @@
                           "x-apifox-orders": [
                             "min",
                             "max"
-                          ],
-                          "x-apifox-ignore-properties": []
+                          ]
                         }
                       },
                       "required": [
@@ -3746,8 +5695,7 @@
                         "type",
                         "default",
                         "valid"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     },
                     "timeout": {
                       "type": "object",
@@ -3790,8 +5738,7 @@
                           "x-apifox-orders": [
                             "min",
                             "max"
-                          ],
-                          "x-apifox-ignore-properties": []
+                          ]
                         }
                       },
                       "required": [
@@ -3813,8 +5760,7 @@
                         "type",
                         "default",
                         "valid"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   },
                   "required": [
@@ -3834,8 +5780,7 @@
                     "host",
                     "port",
                     "timeout"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -4006,8 +5951,7 @@
                     "description": "when using the MQTT plugin, the topic field needs to be added",
                     "x-apifox-orders": [
                       "topic"
-                    ],
-                    "x-apifox-ignore-properties": []
+                    ]
                   }
                 },
                 "required": [
@@ -4020,8 +5964,7 @@
                   "driver",
                   "group",
                   "params"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "app": "mqtt",
@@ -4115,8 +6058,7 @@
                     ],
                     "x-apifox-orders": [
                       "topic"
-                    ],
-                    "x-apifox-ignore-properties": []
+                    ]
                   }
                 },
                 "required": [
@@ -4130,8 +6072,7 @@
                   "driver",
                   "group",
                   "params"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               }
             }
           }
@@ -4218,8 +6159,7 @@
                     "description": "optional, when using the MQTT plugin, the topic field needs to be added",
                     "x-apifox-orders": [
                       "topic"
-                    ],
-                    "x-apifox-ignore-properties": []
+                    ]
                   }
                 },
                 "required": [
@@ -4233,8 +6173,7 @@
                   "driver",
                   "group",
                   "params"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "app": "mqtt",
@@ -4342,8 +6281,7 @@
                             "description": "when using the MQTT plugin, the topic field needs to be added",
                             "x-apifox-orders": [
                               "topic"
-                            ],
-                            "x-apifox-ignore-properties": []
+                            ]
                           }
                         },
                         "required": [
@@ -4355,8 +6293,7 @@
                           "driver",
                           "group",
                           "params"
-                        ],
-                        "x-apifox-ignore-properties": []
+                        ]
                       }
                     }
                   },
@@ -4365,8 +6302,7 @@
                   ],
                   "x-apifox-orders": [
                     "groups"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -4456,8 +6392,7 @@
                           "description": "optional, depends on plugins",
                           "x-apifox-orders": [
                             "topic"
-                          ],
-                          "x-apifox-ignore-properties": []
+                          ]
                         }
                       },
                       "required": [
@@ -4469,8 +6404,7 @@
                         "driver",
                         "group",
                         "params"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   }
                 },
@@ -4481,8 +6415,7 @@
                 "x-apifox-orders": [
                   "app",
                   "groups"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "app": "mqtt",
@@ -4586,8 +6519,7 @@
                     "build_date",
                     "revision",
                     "version"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -4650,8 +6582,7 @@
                 ],
                 "x-apifox-orders": [
                   "license"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "license": "-----BEGIN CERTIFICATE-----\nMIID2TCCAsGgAwIBAgIEATSJqjA....."
@@ -4807,8 +6738,7 @@
                     "hardware_token",
                     "object",
                     "email_address"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -4978,8 +6908,7 @@
                 ],
                 "x-apifox-orders": [
                   "node_name"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               }
             }
           }
@@ -5177,8 +7106,7 @@
                           "size",
                           "ctime",
                           "mtime"
-                        ],
-                        "x-apifox-ignore-properties": []
+                        ]
                       }
                     }
                   },
@@ -5187,8 +7115,7 @@
                   ],
                   "x-apifox-orders": [
                     "files"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -5313,8 +7240,7 @@
                               "attribute",
                               "precison",
                               "decimal"
-                            ],
-                            "x-apifox-ignore-properties": []
+                            ]
                           }
                         }
                       },
@@ -5322,8 +7248,7 @@
                         "name",
                         "interval",
                         "tags"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   }
                 },
@@ -5336,8 +7261,7 @@
                   "name",
                   "plugin",
                   "groups"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "name": "rtu template",
@@ -5695,8 +7619,7 @@
                         "x-apifox-orders": [
                           "name",
                           "plugin"
-                        ],
-                        "x-apifox-ignore-properties": []
+                        ]
                       }
                     }
                   },
@@ -5706,8 +7629,7 @@
                   "x-apifox-orders": [
                     "templates"
                   ],
-                  "description": "Without the **name** request parameter, return all templates.",
-                  "x-apifox-ignore-properties": []
+                  "description": "Without the **name** request parameter, return all templates."
                 },
                 "examples": {
                   "1": {
@@ -5727,7 +7649,7 @@
                   },
                   "2": {
                     "summary": "When the **name** request parameter is specified, return detail information of the template of the given name.",
-                    "value":  {
+                    "value": {
                       "name": "rtu template",
                       "plugin": "Modbus RTU",
                       "groups": [
@@ -5853,8 +7775,7 @@
                 "x-apifox-orders": [
                   "name",
                   "node"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "name": "rtu template",
@@ -5953,7 +7874,8 @@
                 }
               }
             }
-          }},
+          }
+        },
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120290329-run"
       }
     },
@@ -5993,8 +7915,7 @@
                       "x-apifox-orders": [
                         "name",
                         "node"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   }
                 },
@@ -6003,8 +7924,7 @@
                 ],
                 "x-apifox-orders": [
                   "nodes"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "nodes": [
@@ -6135,7 +8055,8 @@
                 }
               }
             }
-          }},
+          }
+        },
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120293844-run"
       }
     },
@@ -6175,8 +8096,7 @@
                   "template",
                   "group",
                   "interval"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               }
             }
           }
@@ -6289,7 +8209,8 @@
                 }
               }
             }
-          }},
+          }
+        },
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120295930-run"
       },
       "delete": {
@@ -6322,8 +8243,7 @@
                 "x-apifox-orders": [
                   "template",
                   "group"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               }
             }
           }
@@ -6418,7 +8338,8 @@
                 }
               }
             }
-          }},
+          }
+        },
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120297681-run"
       },
       "put": {
@@ -6464,8 +8385,7 @@
                   "group",
                   "interval",
                   "new_name"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "template": "modbus-template",
@@ -6572,7 +8492,8 @@
                 }
               }
             }
-          }},
+          }
+        },
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120298592-run"
       },
       "get": {
@@ -6623,8 +8544,7 @@
                           "name",
                           "interval",
                           "tag_count"
-                        ],
-                        "x-apifox-ignore-properties": []
+                        ]
                       }
                     }
                   },
@@ -6633,8 +8553,7 @@
                   ],
                   "x-apifox-orders": [
                     "groups"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -6712,7 +8631,8 @@
                 }
               }
             }
-          }},
+          }
+        },
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120299795-run"
       }
     },
@@ -6788,8 +8708,7 @@
                         "decimal",
                         "description",
                         "value"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   }
                 },
@@ -6802,8 +8721,7 @@
                   "template",
                   "group",
                   "tags"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "template": "modbus-template",
@@ -6853,8 +8771,7 @@
                   "x-apifox-orders": [
                     "index",
                     "error"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -7011,7 +8928,8 @@
                 }
               }
             }
-          }},
+          }
+        },
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120304450-run"
       },
       "put": {
@@ -7085,8 +9003,7 @@
                         "decimal",
                         "description",
                         "value"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   }
                 },
@@ -7099,8 +9016,7 @@
                   "template",
                   "group",
                   "tags"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "template": "modbus-template",
@@ -7150,8 +9066,7 @@
                   "x-apifox-orders": [
                     "index",
                     "error"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -7296,7 +9211,8 @@
                 }
               }
             }
-          }},
+          }
+        },
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120304471-run"
       },
       "delete": {
@@ -7337,8 +9253,7 @@
                   "template",
                   "group",
                   "tags"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "template": "modbus-template",
@@ -7368,8 +9283,7 @@
                   ],
                   "x-apifox-orders": [
                     "error"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -7471,7 +9385,8 @@
                 }
               }
             }
-          }},
+          }
+        },
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120312712-run"
       },
       "get": {
@@ -7577,8 +9492,7 @@
                           "decimal",
                           "value",
                           "precison"
-                        ],
-                        "x-apifox-ignore-properties": []
+                        ]
                       }
                     }
                   },
@@ -7589,8 +9503,7 @@
                   "x-apifox-orders": [
                     "error",
                     "tags"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -7688,7 +9601,8 @@
                 }
               }
             }
-          }},
+          }
+        },
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120313950-run"
       }
     },
@@ -7731,9 +9645,7 @@
               "*/*": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 },
                 "examples": {
                   "1": {
@@ -7801,8 +9713,7 @@
                 "x-apifox-orders": [
                   "node",
                   "group"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "node": "modbus-tcp-1",
@@ -7847,8 +9758,7 @@
                           "name",
                           "value",
                           "error"
-                        ],
-                        "x-apifox-ignore-properties": []
+                        ]
                       }
                     }
                   },
@@ -7858,8 +9768,7 @@
                   "x-apifox-orders": [
                     "tags"
                   ],
-                  "description": "The value is displayed only when the value is read correctly, when the value is read incorrectly, the error code is displayed, not the value.",
-                  "x-apifox-ignore-properties": []
+                  "description": "The value is displayed only when the value is read correctly, when the value is read incorrectly, the error code is displayed, not the value."
                 }
               }
             }
@@ -7909,8 +9818,7 @@
                   "group",
                   "tag",
                   "value"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "node": "modbus-tcp-1",
@@ -7989,8 +9897,7 @@
                       "x-apifox-orders": [
                         "tag",
                         "value"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   }
                 },
@@ -8003,8 +9910,7 @@
                   "node",
                   "group",
                   "tags"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "node": "modbus-tcp-1",
@@ -8120,8 +10026,7 @@
                         "qos",
                         "server",
                         "password"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     },
                     "default": {
                       "type": "object",
@@ -8140,8 +10045,7 @@
                       "x-apifox-orders": [
                         "qos",
                         "server"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     },
                     "demo_conf": {
                       "type": "object",
@@ -8160,8 +10064,7 @@
                       "x-apifox-orders": [
                         "qos",
                         "server"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   },
                   "required": [
@@ -8174,8 +10077,7 @@
                     "default",
                     "demo_conf"
                   ],
-                  "description": "Note: When retrieving Config Keys, if the properties contain a password field (case-insensitive, such as Password), the API will not return the actual password value, but instead replace it with \"******\" to conceal the password information.",
-                  "x-apifox-ignore-properties": []
+                  "description": "Note: When retrieving Config Keys, if the properties contain a password field (case-insensitive, such as Password), the API will not return the actual password value, but instead replace it with \"******\" to conceal the password information."
                 },
                 "examples": {
                   "1": {
@@ -8306,8 +10208,7 @@
                 "required": [
                   "confKey",
                   "name"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": ""
             }
@@ -8338,8 +10239,7 @@
                       "x-apifox-orders": [
                         "qos",
                         "server"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   },
                   "required": [
@@ -8347,8 +10247,7 @@
                   ],
                   "x-apifox-orders": [
                     "demo_conf"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -8403,8 +10302,7 @@
                   "consoleLog",
                   "fileLog",
                   "timezone"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "debug": true,
@@ -8428,6 +10326,33 @@
           }
         },
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120982132-run"
+      }
+    },
+    "/api/ekuiper/stop": {
+      "post": {
+        "summary": "Shutdown eKuiper",
+        "x-apifox-folder": "Ekuiper/configs",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "Shut down eKuiper through rest api.",
+        "tags": [
+          "configs"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/3516282/apis/api-133392280-run"
       }
     },
     "/api/ekuiper/data/import": {
@@ -8480,8 +10405,7 @@
                 "x-apifox-orders": [
                   "content",
                   "file"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "content": "{json of the ruleset}"
@@ -8506,62 +10430,52 @@
                         "streams": {
                           "type": "object",
                           "properties": {},
-                          "x-apifox-orders": [],
-                          "x-apifox-ignore-properties": []
+                          "x-apifox-orders": []
                         },
                         "tables": {
                           "type": "object",
                           "properties": {},
-                          "x-apifox-orders": [],
-                          "x-apifox-ignore-properties": []
+                          "x-apifox-orders": []
                         },
                         "rules": {
                           "type": "object",
                           "properties": {},
-                          "x-apifox-orders": [],
-                          "x-apifox-ignore-properties": []
+                          "x-apifox-orders": []
                         },
                         "nativePlugins": {
                           "type": "object",
                           "properties": {},
-                          "x-apifox-orders": [],
-                          "x-apifox-ignore-properties": []
+                          "x-apifox-orders": []
                         },
                         "portablePlugins": {
                           "type": "object",
                           "properties": {},
-                          "x-apifox-orders": [],
-                          "x-apifox-ignore-properties": []
+                          "x-apifox-orders": []
                         },
                         "sourceConfig": {
                           "type": "object",
                           "properties": {},
-                          "x-apifox-orders": [],
-                          "x-apifox-ignore-properties": []
+                          "x-apifox-orders": []
                         },
                         "sinkConfig": {
                           "type": "object",
                           "properties": {},
-                          "x-apifox-orders": [],
-                          "x-apifox-ignore-properties": []
+                          "x-apifox-orders": []
                         },
                         "connectionConfig": {
                           "type": "object",
                           "properties": {},
-                          "x-apifox-orders": [],
-                          "x-apifox-ignore-properties": []
+                          "x-apifox-orders": []
                         },
                         "Service": {
                           "type": "object",
                           "properties": {},
-                          "x-apifox-orders": [],
-                          "x-apifox-ignore-properties": []
+                          "x-apifox-orders": []
                         },
                         "Schema": {
                           "type": "object",
                           "properties": {},
-                          "x-apifox-orders": [],
-                          "x-apifox-ignore-properties": []
+                          "x-apifox-orders": []
                         }
                       },
                       "required": [
@@ -8587,8 +10501,7 @@
                         "connectionConfig",
                         "Service",
                         "Schema"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   },
                   "required": [
@@ -8598,8 +10511,7 @@
                   "x-apifox-orders": [
                     "ErrorMsg",
                     "ConfigResponse"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -8650,68 +10562,57 @@
                     "streams": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-orders": [],
-                      "x-apifox-ignore-properties": []
+                      "x-apifox-orders": []
                     },
                     "tables": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-orders": [],
-                      "x-apifox-ignore-properties": []
+                      "x-apifox-orders": []
                     },
                     "rules": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-orders": [],
-                      "x-apifox-ignore-properties": []
+                      "x-apifox-orders": []
                     },
                     "nativePlugins": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-orders": [],
-                      "x-apifox-ignore-properties": []
+                      "x-apifox-orders": []
                     },
                     "portablePlugins": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-orders": [],
-                      "x-apifox-ignore-properties": []
+                      "x-apifox-orders": []
                     },
                     "sourceConfig": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-orders": [],
-                      "x-apifox-ignore-properties": []
+                      "x-apifox-orders": []
                     },
                     "sinkConfig": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-orders": [],
-                      "x-apifox-ignore-properties": []
+                      "x-apifox-orders": []
                     },
                     "connectionConfig": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-orders": [],
-                      "x-apifox-ignore-properties": []
+                      "x-apifox-orders": []
                     },
                     "Service": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-orders": [],
-                      "x-apifox-ignore-properties": []
+                      "x-apifox-orders": []
                     },
                     "Schema": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-orders": [],
-                      "x-apifox-ignore-properties": []
+                      "x-apifox-orders": []
                     },
                     "uploads": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-orders": [],
-                      "x-apifox-ignore-properties": []
+                      "x-apifox-orders": []
                     }
                   },
                   "required": [
@@ -8739,8 +10640,7 @@
                     "Service",
                     "Schema",
                     "uploads"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -8804,9 +10704,7 @@
               "*/*": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 },
                 "examples": {
                   "1": {
@@ -8858,61 +10756,51 @@
                     "streams": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-ignore-properties": [],
                       "x-apifox-orders": []
                     },
                     "tables": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-ignore-properties": [],
                       "x-apifox-orders": []
                     },
                     "rules": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-ignore-properties": [],
                       "x-apifox-orders": []
                     },
                     "nativePlugins": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-ignore-properties": [],
                       "x-apifox-orders": []
                     },
                     "portablePlugins": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-ignore-properties": [],
                       "x-apifox-orders": []
                     },
                     "sourceConfig": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-ignore-properties": [],
                       "x-apifox-orders": []
                     },
                     "sinkConfig": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-ignore-properties": [],
                       "x-apifox-orders": []
                     },
                     "connectionConfig": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-ignore-properties": [],
                       "x-apifox-orders": []
                     },
                     "Service": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-ignore-properties": [],
                       "x-apifox-orders": []
                     },
                     "Schema": {
                       "type": "object",
                       "properties": {},
-                      "x-apifox-ignore-properties": [],
                       "x-apifox-orders": []
                     }
                   },
@@ -8928,7 +10816,6 @@
                     "Service",
                     "Schema"
                   ],
-                  "x-apifox-ignore-properties": [],
                   "x-apifox-orders": [
                     "streams",
                     "tables",
@@ -9004,8 +10891,7 @@
                     "version",
                     "os",
                     "upTimeSeconds"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -9093,8 +10979,7 @@
                 "x-apifox-orders": [
                   "name",
                   "file"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "name": "random",
@@ -9125,8 +11010,7 @@
                   "x-apifox-orders": [
                     "name",
                     "file"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -9243,8 +11127,7 @@
                   "x-apifox-orders": [
                     "name",
                     "version"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -9307,9 +11190,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -9353,9 +11234,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -9445,8 +11324,7 @@
                   "x-apifox-orders": [
                     "name",
                     "plugin"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -9505,8 +11383,7 @@
                   ],
                   "x-apifox-orders": [
                     "functions"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -9567,8 +11444,7 @@
                 "x-apifox-orders": [
                   "name",
                   "file"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               }
             }
           }
@@ -9595,8 +11471,7 @@
                   "x-apifox-orders": [
                     "name",
                     "file"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -9646,14 +11521,12 @@
                         "log": {
                           "type": "object",
                           "properties": {},
-                          "x-apifox-orders": [],
-                          "x-apifox-ignore-properties": []
+                          "x-apifox-orders": []
                         }
                       },
                       "x-apifox-orders": [
                         "log"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   }
                 },
@@ -9666,8 +11539,7 @@
                   "id",
                   "sql",
                   "actions"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "id": "rule1",
@@ -9688,9 +11560,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -9732,8 +11602,7 @@
                     "x-apifox-orders": [
                       "id",
                       "status"
-                    ],
-                    "x-apifox-ignore-properties": []
+                    ]
                   }
                 },
                 "examples": {
@@ -9798,8 +11667,7 @@
                           "log": {
                             "type": "object",
                             "properties": {},
-                            "x-apifox-orders": [],
-                            "x-apifox-ignore-properties": []
+                            "x-apifox-orders": []
                           },
                           "mqtt": {
                             "type": "object",
@@ -9818,15 +11686,13 @@
                             "x-apifox-orders": [
                               "server",
                               "topic"
-                            ],
-                            "x-apifox-ignore-properties": []
+                            ]
                           }
                         },
                         "x-apifox-orders": [
                           "log",
                           "mqtt"
-                        ],
-                        "x-apifox-ignore-properties": []
+                        ]
                       }
                     }
                   },
@@ -9837,8 +11703,7 @@
                   "x-apifox-orders": [
                     "sql",
                     "actions"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -9905,14 +11770,12 @@
                         "log": {
                           "type": "object",
                           "properties": {},
-                          "x-apifox-orders": [],
-                          "x-apifox-ignore-properties": []
+                          "x-apifox-orders": []
                         }
                       },
                       "x-apifox-orders": [
                         "log"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   }
                 },
@@ -9925,8 +11788,7 @@
                   "id",
                   "sql",
                   "actions"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "id": "rule1",
@@ -9947,9 +11809,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -9984,9 +11844,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -10023,9 +11881,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -10062,9 +11918,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -10101,9 +11955,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -10205,8 +12057,7 @@
                     "op_filter_0_process_latency_ms",
                     "op_filter_0_buffer_length",
                     "op_filter_0_last_invocation"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -10279,8 +12130,7 @@
                       "x-apifox-orders": [
                         "op_project",
                         "source_stream"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   },
                   "required": [
@@ -10290,8 +12140,7 @@
                   "x-apifox-orders": [
                     "sources",
                     "edges"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 }
               }
             }
@@ -10331,14 +12180,12 @@
                         "log": {
                           "type": "object",
                           "properties": {},
-                          "x-apifox-orders": [],
-                          "x-apifox-ignore-properties": []
+                          "x-apifox-orders": []
                         }
                       },
                       "x-apifox-orders": [
                         "log"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   }
                 },
@@ -10351,8 +12198,7 @@
                   "id",
                   "sql",
                   "actions"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "id": "rule1",
@@ -10373,9 +12219,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -10413,8 +12257,7 @@
                 "x-apifox-orders": [
                   "file",
                   "content"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "file": "file:///tmp/a.json"
@@ -10429,9 +12272,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -10458,9 +12299,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -10510,8 +12349,7 @@
                   "content",
                   "file",
                   "soFile"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               }
             }
           }
@@ -10523,9 +12361,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -10623,8 +12459,7 @@
                     "name",
                     "content",
                     "file"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -10670,9 +12505,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -10720,8 +12553,7 @@
                 "x-apifox-orders": [
                   "name",
                   "file"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               }
             }
           }
@@ -10733,9 +12565,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -10776,8 +12606,7 @@
                 "x-apifox-orders": [
                   "name",
                   "file"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "name": "random",
@@ -10793,9 +12622,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -10868,9 +12695,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -10905,9 +12730,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -10955,8 +12778,7 @@
                 "x-apifox-orders": [
                   "name",
                   "file"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               }
             }
           }
@@ -10968,9 +12790,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -11060,8 +12880,7 @@
                   "x-apifox-orders": [
                     "name",
                     "serviceName"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -11105,8 +12924,7 @@
                 ],
                 "x-apifox-orders": [
                   "sql"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "sql": "create stream my_stream (id bigint, name string, score float) WITH ( datasource = \"topic/temperature\", FORMAT = \"json\", KEY = \"id\")"
@@ -11121,9 +12939,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -11219,8 +13035,7 @@
                             ],
                             "x-apifox-orders": [
                               "Type"
-                            ],
-                            "x-apifox-ignore-properties": []
+                            ]
                           }
                         },
                         "required": [
@@ -11230,8 +13045,7 @@
                         "x-apifox-orders": [
                           "Name",
                           "FieldType"
-                        ],
-                        "x-apifox-ignore-properties": []
+                        ]
                       }
                     },
                     "Options": {
@@ -11251,8 +13065,7 @@
                       "x-apifox-orders": [
                         "DATASOURCE",
                         "FORMAT"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   },
                   "required": [
@@ -11264,8 +13077,7 @@
                     "Name",
                     "StreamFields",
                     "Options"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -11341,8 +13153,7 @@
                       ],
                       "x-apifox-orders": [
                         "type"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     },
                     "name": {
                       "type": "object",
@@ -11356,8 +13167,7 @@
                       ],
                       "x-apifox-orders": [
                         "type"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     },
                     "age": {
                       "type": "object",
@@ -11371,8 +13181,7 @@
                       ],
                       "x-apifox-orders": [
                         "type"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     },
                     "hobbies": {
                       "type": "object",
@@ -11401,8 +13210,7 @@
                                   ],
                                   "x-apifox-orders": [
                                     "type"
-                                  ],
-                                  "x-apifox-ignore-properties": []
+                                  ]
                                 }
                               },
                               "required": [
@@ -11412,8 +13220,7 @@
                               "x-apifox-orders": [
                                 "type",
                                 "items"
-                              ],
-                              "x-apifox-ignore-properties": []
+                              ]
                             },
                             "outdoor": {
                               "type": "object",
@@ -11433,8 +13240,7 @@
                                   ],
                                   "x-apifox-orders": [
                                     "type"
-                                  ],
-                                  "x-apifox-ignore-properties": []
+                                  ]
                                 }
                               },
                               "required": [
@@ -11444,8 +13250,7 @@
                               "x-apifox-orders": [
                                 "type",
                                 "items"
-                              ],
-                              "x-apifox-ignore-properties": []
+                              ]
                             }
                           },
                           "required": [
@@ -11455,8 +13260,7 @@
                           "x-apifox-orders": [
                             "indoor",
                             "outdoor"
-                          ],
-                          "x-apifox-ignore-properties": []
+                          ]
                         }
                       },
                       "required": [
@@ -11466,8 +13270,7 @@
                       "x-apifox-orders": [
                         "type",
                         "properties"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   },
                   "required": [
@@ -11481,8 +13284,7 @@
                     "name",
                     "age",
                     "hobbies"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -11560,8 +13362,7 @@
                 ],
                 "x-apifox-orders": [
                   "sql"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "sql": "create stream my_stream (id bigint, name string, score float) WITH ( datasource = \"topic/temperature\", FORMAT = \"json\", KEY = \"id\")"
@@ -11576,9 +13377,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -11613,9 +13412,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -11650,8 +13447,7 @@
                 ],
                 "x-apifox-orders": [
                   "sql"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "sql": "create table my_table (id bigint, name string, score float) WITH ( datasource = \"lookup.json\", FORMAT = \"json\", KEY = \"id\")"
@@ -11666,9 +13462,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -11775,8 +13569,7 @@
                             ],
                             "x-apifox-orders": [
                               "Type"
-                            ],
-                            "x-apifox-ignore-properties": []
+                            ]
                           }
                         },
                         "required": [
@@ -11786,8 +13579,7 @@
                         "x-apifox-orders": [
                           "Name",
                           "FieldType"
-                        ],
-                        "x-apifox-ignore-properties": []
+                        ]
                       }
                     },
                     "Options": {
@@ -11807,8 +13599,7 @@
                       "x-apifox-orders": [
                         "DATASOURCE",
                         "FORMAT"
-                      ],
-                      "x-apifox-ignore-properties": []
+                      ]
                     }
                   },
                   "required": [
@@ -11820,8 +13611,7 @@
                     "Name",
                     "StreamFields",
                     "Options"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -11884,9 +13674,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -11934,8 +13722,7 @@
                   ],
                   "x-apifox-orders": [
                     "sql"
-                  ],
-                  "x-apifox-ignore-properties": []
+                  ]
                 },
                 "examples": {
                   "1": {
@@ -11978,9 +13765,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -12028,8 +13813,7 @@
                   "name",
                   "content",
                   "file"
-                ],
-                "x-apifox-ignore-properties": []
+                ]
               },
               "example": {
                 "name": "my.json",
@@ -12045,9 +13829,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
@@ -12120,15 +13902,90 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 }
               }
             }
           }
         },
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-121119036-run"
+      }
+    },
+    "/api/ekuiper/rules/{id}/explain": {
+      "get": {
+        "summary": "Query Rule Plan",
+        "x-apifox-folder": "Ekuiper/rules",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "The API is used to get the plan of the SQL.",
+        "tags": [
+          "rules"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "rule id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "info": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "children": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "info",
+                    "id",
+                    "children"
+                  ],
+                  "x-apifox-orders": [
+                    "type",
+                    "info",
+                    "id",
+                    "children"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "type": "ProjectPlan",
+                      "info": "Fields:[ * ]",
+                      "id": 0,
+                      "children": [
+                        1
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/ekuiper/metrics": {
@@ -12149,14 +14006,12 @@
               "*/*": {
                 "schema": {
                   "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
+                  "properties": {}
                 },
                 "examples": {
                   "1": {
                     "summary": "success",
-                    "value":"# HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.\n# TYPE go_gc_duration_seconds summary\ngo_gc_duration_seconds{quantile=\"0\"} 0.000185937\ngo_gc_duration_seconds{quantile=\"0.25\"} 0.000342795\ngo_gc_duration_seconds{quantile=\"0.5\"} 0.000369361\ngo_gc_duration_seconds{quantile=\"0.75\"} 0.000391542\ngo_gc_duration_seconds{quantile=\"1\"} 0.000391542\ngo_gc_duration_seconds_sum 0.001289635\ngo_gc_duration_seconds_count 4\n# HELP go_goroutines Number of goroutines that currently exist.\n# TYPE go_goroutines gauge\ngo_goroutines 15\n# HELP go_info Information about the Go environment.\n# TYPE go_info gauge\ngo_info{version=\"go1.20.2\"} 1\n# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.\n# TYPE go_memstats_alloc_bytes gauge\ngo_memstats_alloc_bytes 6.983208e+06\n# HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.\n# TYPE go_memstats_alloc_bytes_total counter\ngo_memstats_alloc_bytes_total 1.1783664e+07\n# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.\n# TYPE go_memstats_buck_hash_sys_bytes gauge\ngo_memstats_buck_hash_sys_bytes 1.451727e+06\n# HELP go_memstats_frees_total Total number of frees.\n# TYPE go_memstats_frees_total counter\ngo_memstats_frees_total 62815\n# HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.\n# TYPE go_memstats_gc_sys_bytes gauge\ngo_memstats_gc_sys_bytes 8.595544e+06\n# HELP go_memstats_heap_alloc_bytes Number of heap bytes allocated and still in use.\n# TYPE go_memstats_heap_alloc_bytes gauge\ngo_memstats_heap_alloc_bytes 6.983208e+06\n# HELP go_memstats_heap_idle_bytes Number of heap bytes waiting to be used.\n# TYPE go_memstats_heap_idle_bytes gauge\ngo_memstats_heap_idle_bytes 6.209536e+06\n# HELP go_memstats_heap_inuse_bytes Number of heap bytes that are in use.\n# TYPE go_memstats_heap_inuse_bytes gauge\ngo_memstats_heap_inuse_bytes 9.91232e+06\n# HELP go_memstats_heap_objects Number of allocated objects.\n# TYPE go_memstats_heap_objects gauge\ngo_memstats_heap_objects 38478\n# HELP go_memstats_heap_released_bytes Number of heap bytes released to OS.\n# TYPE go_memstats_heap_released_bytes gauge\ngo_memstats_heap_released_bytes 4.58752e+06\n# HELP go_memstats_heap_sys_bytes Number of heap bytes obtained from system.\n# TYPE go_memstats_heap_sys_bytes gauge\ngo_memstats_heap_sys_bytes 1.6121856e+07\n# HELP go_memstats_last_gc_time_seconds Number of seconds since 1970 of last garbage collection.\n# TYPE go_memstats_last_gc_time_seconds gauge\ngo_memstats_last_gc_time_seconds 1.7001045398775318e+09\n# HELP go_memstats_lookups_total Total number of pointer lookups.\n# TYPE go_memstats_lookups_total counter\ngo_memstats_lookups_total 0\n# HELP go_memstats_mallocs_total Total number of mallocs.\n# TYPE go_memstats_mallocs_total counter\ngo_memstats_mallocs_total 101293\n# HELP go_memstats_mcache_inuse_bytes Number of bytes in use by mcache structures.\n# TYPE go_memstats_mcache_inuse_bytes gauge\ngo_memstats_mcache_inuse_bytes 4800\n# HELP go_memstats_mcache_sys_bytes Number of bytes used for mcache structures obtained from system.\n# TYPE go_memstats_mcache_sys_bytes gauge\ngo_memstats_mcache_sys_bytes 15600\n# HELP go_memstats_mspan_inuse_bytes Number of bytes in use by mspan structures.\n# TYPE go_memstats_mspan_inuse_bytes gauge\ngo_memstats_mspan_inuse_bytes 177280\n# HELP go_memstats_mspan_sys_bytes Number of bytes used for mspan structures obtained from system.\n# TYPE go_memstats_mspan_sys_bytes gauge\ngo_memstats_mspan_sys_bytes 179520\n# HELP go_memstats_next_gc_bytes Number of heap bytes when next garbage collection will take place.\n# TYPE go_memstats_next_gc_bytes gauge\ngo_memstats_next_gc_bytes 1.4275312e+07\n# HELP go_memstats_other_sys_bytes Number of bytes used for other system allocations.\n# TYPE go_memstats_other_sys_bytes gauge\ngo_memstats_other_sys_bytes 895921\n# HELP go_memstats_stack_inuse_bytes Number of bytes in use by the stack allocator.\n# TYPE go_memstats_stack_inuse_bytes gauge\ngo_memstats_stack_inuse_bytes 655360\n# HELP go_memstats_stack_sys_bytes Number of bytes obtained from system for stack allocator.\n# TYPE go_memstats_stack_sys_bytes gauge\ngo_memstats_stack_sys_bytes 655360\n# HELP go_memstats_sys_bytes Number of bytes obtained from system.\n# TYPE go_memstats_sys_bytes gauge\ngo_memstats_sys_bytes 2.7915528e+07\n# HELP go_threads Number of OS threads created.\n# TYPE go_threads gauge\ngo_threads 9\n# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.\n# TYPE process_cpu_seconds_total counter\nprocess_cpu_seconds_total 0.38\n# HELP process_max_fds Maximum number of open file descriptors.\n# TYPE process_max_fds gauge\nprocess_max_fds 1.048576e+06\n# HELP process_open_fds Number of open file descriptors.\n# TYPE process_open_fds gauge\nprocess_open_fds 14\n# HELP process_resident_memory_bytes Resident memory size in bytes.\n# TYPE process_resident_memory_bytes gauge\nprocess_resident_memory_bytes 7.012352e+07\n# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.\n# TYPE process_start_time_seconds gauge\nprocess_start_time_seconds 1.7001045391e+09\n# HELP process_virtual_memory_bytes Virtual memory size in bytes.\n# TYPE process_virtual_memory_bytes gauge\nprocess_virtual_memory_bytes 1.327280128e+09\n# HELP process_virtual_memory_max_bytes Maximum amount of virtual memory available in bytes.\n# TYPE process_virtual_memory_max_bytes gauge\nprocess_virtual_memory_max_bytes 1.8446744073709552e+19\n# HELP promhttp_metric_handler_requests_in_flight Current number of scrapes being served.\n# TYPE promhttp_metric_handler_requests_in_flight gauge\npromhttp_metric_handler_requests_in_flight 1\n# HELP promhttp_metric_handler_requests_total Total number of scrapes by HTTP status code.\n# TYPE promhttp_metric_handler_requests_total counter\npromhttp_metric_handler_requests_total{code=\"200\"} 0\npromhttp_metric_handler_requests_total{code=\"500\"} 0\npromhttp_metric_handler_requests_total{code=\"503\"} 0"
+                    "value": "# HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.\n# TYPE go_gc_duration_seconds summary\ngo_gc_duration_seconds{quantile=\"0\"} 0.000185937\ngo_gc_duration_seconds{quantile=\"0.25\"} 0.000342795\ngo_gc_duration_seconds{quantile=\"0.5\"} 0.000369361\ngo_gc_duration_seconds{quantile=\"0.75\"} 0.000391542\ngo_gc_duration_seconds{quantile=\"1\"} 0.000391542\ngo_gc_duration_seconds_sum 0.001289635\ngo_gc_duration_seconds_count 4\n# HELP go_goroutines Number of goroutines that currently exist.\n# TYPE go_goroutines gauge\ngo_goroutines 15\n# HELP go_info Information about the Go environment.\n# TYPE go_info gauge\ngo_info{version=\"go1.20.2\"} 1\n# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.\n# TYPE go_memstats_alloc_bytes gauge\ngo_memstats_alloc_bytes 6.983208e+06\n# HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.\n# TYPE go_memstats_alloc_bytes_total counter\ngo_memstats_alloc_bytes_total 1.1783664e+07\n# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.\n# TYPE go_memstats_buck_hash_sys_bytes gauge\ngo_memstats_buck_hash_sys_bytes 1.451727e+06\n# HELP go_memstats_frees_total Total number of frees.\n# TYPE go_memstats_frees_total counter\ngo_memstats_frees_total 62815\n# HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.\n# TYPE go_memstats_gc_sys_bytes gauge\ngo_memstats_gc_sys_bytes 8.595544e+06\n# HELP go_memstats_heap_alloc_bytes Number of heap bytes allocated and still in use.\n# TYPE go_memstats_heap_alloc_bytes gauge\ngo_memstats_heap_alloc_bytes 6.983208e+06\n# HELP go_memstats_heap_idle_bytes Number of heap bytes waiting to be used.\n# TYPE go_memstats_heap_idle_bytes gauge\ngo_memstats_heap_idle_bytes 6.209536e+06\n# HELP go_memstats_heap_inuse_bytes Number of heap bytes that are in use.\n# TYPE go_memstats_heap_inuse_bytes gauge\ngo_memstats_heap_inuse_bytes 9.91232e+06\n# HELP go_memstats_heap_objects Number of allocated objects.\n# TYPE go_memstats_heap_objects gauge\ngo_memstats_heap_objects 38478\n# HELP go_memstats_heap_released_bytes Number of heap bytes released to OS.\n# TYPE go_memstats_heap_released_bytes gauge\ngo_memstats_heap_released_bytes 4.58752e+06\n# HELP go_memstats_heap_sys_bytes Number of heap bytes obtained from system.\n# TYPE go_memstats_heap_sys_bytes gauge\ngo_memstats_heap_sys_bytes 1.6121856e+07\n# HELP go_memstats_last_gc_time_seconds Number of seconds since 1970 of last garbage collection.\n# TYPE go_memstats_last_gc_time_seconds gauge\ngo_memstats_last_gc_time_seconds 1.7001045398775318e+09\n# HELP go_memstats_lookups_total Total number of pointer lookups.\n# TYPE go_memstats_lookups_total counter\ngo_memstats_lookups_total 0\n# HELP go_memstats_mallocs_total Total number of mallocs.\n# TYPE go_memstats_mallocs_total counter\ngo_memstats_mallocs_total 101293\n# HELP go_memstats_mcache_inuse_bytes Number of bytes in use by mcache structures.\n# TYPE go_memstats_mcache_inuse_bytes gauge\ngo_memstats_mcache_inuse_bytes 4800\n# HELP go_memstats_mcache_sys_bytes Number of bytes used for mcache structures obtained from system.\n# TYPE go_memstats_mcache_sys_bytes gauge\ngo_memstats_mcache_sys_bytes 15600\n# HELP go_memstats_mspan_inuse_bytes Number of bytes in use by mspan structures.\n# TYPE go_memstats_mspan_inuse_bytes gauge\ngo_memstats_mspan_inuse_bytes 177280\n# HELP go_memstats_mspan_sys_bytes Number of bytes used for mspan structures obtained from system.\n# TYPE go_memstats_mspan_sys_bytes gauge\ngo_memstats_mspan_sys_bytes 179520\n# HELP go_memstats_next_gc_bytes Number of heap bytes when next garbage collection will take place.\n# TYPE go_memstats_next_gc_bytes gauge\ngo_memstats_next_gc_bytes 1.4275312e+07\n# HELP go_memstats_other_sys_bytes Number of bytes used for other system allocations.\n# TYPE go_memstats_other_sys_bytes gauge\ngo_memstats_other_sys_bytes 895921\n# HELP go_memstats_stack_inuse_bytes Number of bytes in use by the stack allocator.\n# TYPE go_memstats_stack_inuse_bytes gauge\ngo_memstats_stack_inuse_bytes 655360\n# HELP go_memstats_stack_sys_bytes Number of bytes obtained from system for stack allocator.\n# TYPE go_memstats_stack_sys_bytes gauge\ngo_memstats_stack_sys_bytes 655360\n# HELP go_memstats_sys_bytes Number of bytes obtained from system.\n# TYPE go_memstats_sys_bytes gauge\ngo_memstats_sys_bytes 2.7915528e+07\n# HELP go_threads Number of OS threads created.\n# TYPE go_threads gauge\ngo_threads 9\n# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.\n# TYPE process_cpu_seconds_total counter\nprocess_cpu_seconds_total 0.38\n# HELP process_max_fds Maximum number of open file descriptors.\n# TYPE process_max_fds gauge\nprocess_max_fds 1.048576e+06\n# HELP process_open_fds Number of open file descriptors.\n# TYPE process_open_fds gauge\nprocess_open_fds 14\n# HELP process_resident_memory_bytes Resident memory size in bytes.\n# TYPE process_resident_memory_bytes gauge\nprocess_resident_memory_bytes 7.012352e+07\n# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.\n# TYPE process_start_time_seconds gauge\nprocess_start_time_seconds 1.7001045391e+09\n# HELP process_virtual_memory_bytes Virtual memory size in bytes.\n# TYPE process_virtual_memory_bytes gauge\nprocess_virtual_memory_bytes 1.327280128e+09\n# HELP process_virtual_memory_max_bytes Maximum amount of virtual memory available in bytes.\n# TYPE process_virtual_memory_max_bytes gauge\nprocess_virtual_memory_max_bytes 1.8446744073709552e+19\n# HELP promhttp_metric_handler_requests_in_flight Current number of scrapes being served.\n# TYPE promhttp_metric_handler_requests_in_flight gauge\npromhttp_metric_handler_requests_in_flight 1\n# HELP promhttp_metric_handler_requests_total Total number of scrapes by HTTP status code.\n# TYPE promhttp_metric_handler_requests_total counter\npromhttp_metric_handler_requests_total{code=\"200\"} 0\npromhttp_metric_handler_requests_total{code=\"500\"} 0\npromhttp_metric_handler_requests_total{code=\"503\"} 0"
                   }
                 }
               }
@@ -12164,6 +14019,364 @@
           }
         },
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120511756-run"
+      }
+    },
+    "/api/ekuiper/ruletest": {
+      "post": {
+        "summary": "Create a Test Rule",
+        "x-apifox-folder": "Ekuiper/Test Rule",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "Create a trial run rule, wait for it to run. This API can check syntax, ensuring the creation of an executable trial run rule.After the rule is created successfully, the websocket endpoint starts. Users can listen to the websocket address http://locahost:10081/test/uuid to get the result output. Among them, the port and id are the above return values.",
+        "tags": [
+          "test rule"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "The id of the test rule, required, used for subsequent test rule management. Ensure uniqueness, it cannot be repeated with other test rules, otherwise the original test rule will be overwritten. This id has no association with the id of ordinary rules."
+                  },
+                  "sql": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "The sql statement of the test rule, required, used to define the syntax of the test rule."
+                  },
+                  "mockSource": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {
+                      "demo": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "a": {
+                                  "type": "integer"
+                                },
+                                "b": {
+                                  "type": "integer"
+                                }
+                              },
+                              "x-apifox-orders": [
+                                "a",
+                                "b"
+                              ]
+                            }
+                          },
+                          "interval": {
+                            "type": "integer"
+                          },
+                          "loop": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "data",
+                          "interval",
+                          "loop"
+                        ],
+                        "x-apifox-orders": [
+                          "data",
+                          "interval",
+                          "loop"
+                        ]
+                      },
+                      "demo1": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "n": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "n"
+                              ],
+                              "x-apifox-orders": [
+                                "n"
+                              ]
+                            }
+                          },
+                          "interval": {
+                            "type": "integer"
+                          },
+                          "loop": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "data",
+                          "interval",
+                          "loop"
+                        ],
+                        "x-apifox-orders": [
+                          "data",
+                          "interval",
+                          "loop"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "demo",
+                      "demo1"
+                    ],
+                    "x-apifox-orders": [
+                      "demo",
+                      "demo1"
+                    ],
+                    "description": "The mock rule definition of the data source of the test rule, optional, used to define the input data of the test rule. If not defined, the real data source in SQL will be used."
+                  },
+                  "sinkProps": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {
+                      "dataTemplate": {
+                        "type": "string"
+                      },
+                      "fields": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "required": [
+                      "dataTemplate",
+                      "fields"
+                    ],
+                    "x-apifox-orders": [
+                      "dataTemplate",
+                      "fields"
+                    ],
+                    "description": "The definition of the sink parameters of the test rule, optional. Most of the common parameters of the sink can be used, such as dataTemplate and fields. If not defined, the default sink parameters will be used."
+                  }
+                },
+                "required": [
+                  "id",
+                  "sql",
+                  "mockSource",
+                  "sinkProps"
+                ],
+                "x-apifox-orders": [
+                  "id",
+                  "sql",
+                  "mockSource",
+                  "sinkProps"
+                ]
+              },
+              "example": {
+                "id": "uuid",
+                "sql": "select * from demo",
+                "mockSource": {
+                  "demo": {
+                    "data": [
+                      {
+                        "a": 2
+                      },
+                      {
+                        "b": 3
+                      }
+                    ],
+                    "interval": 100,
+                    "loop": true
+                  },
+                  "demo1": {
+                    "data": [
+                      {
+                        "n": 2
+                      },
+                      {
+                        "n": 3
+                      }
+                    ],
+                    "interval": 200,
+                    "loop": true
+                  }
+                },
+                "sinkProps": {
+                  "dataTemplate": "xxx",
+                  "fields": [
+                    "abc",
+                    "test"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "port": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "port"
+                  ],
+                  "x-apifox-orders": [
+                    "id",
+                    "port"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "id": "uuid",
+                      "port": 10081
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "msg": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "msg"
+                  ],
+                  "x-apifox-orders": [
+                    "msg"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Exception",
+                    "value": {
+                      "msg": "error message here"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ekuiper/ruletest/{id}/start": {
+      "post": {
+        "summary": "Start the Test Rule",
+        "x-apifox-folder": "Ekuiper/Test Rule",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "Start the trial run rule, WebSocket will be able to receive the data output after the rule runs.",
+        "tags": [
+          "test rule"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": "Test rule uuid was started"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ekuiper/ruletest/{id}": {
+      "delete": {
+        "summary": "Delete the Test Rule",
+        "x-apifox-folder": "Ekuiper/Test Rule",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "Delete the trial run rule, WebSocket will stop the service.",
+        "tags": [
+          "test rule"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": "Test rule uuid was stopped"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/3516282/apis/api-133383197-run"
       }
     }
   },
@@ -12182,7 +14395,6 @@
         "x-apifox-orders": [
           "error"
         ],
-        "x-apifox-ignore-properties": [],
         "x-apifox-folder": "Data-schemas"
       },
       "neuron-0": {
@@ -12198,7 +14410,6 @@
         "x-apifox-orders": [
           "error"
         ],
-        "x-apifox-ignore-properties": [],
         "x-apifox-folder": "Data-schemas"
       },
       "neuron-token": {
@@ -12214,7 +14425,21 @@
         "x-apifox-orders": [
           "token"
         ],
-        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": "Data-schemas"
+      },
+      "VersionResp": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "version"
+        ],
+        "x-apifox-orders": [
+          "version"
+        ],
         "x-apifox-folder": "Data-schemas"
       },
       "DeliverBody": {
@@ -12231,7 +14456,6 @@
         "x-apifox-orders": [
           "template"
         ],
-        "x-apifox-ignore-properties": [],
         "x-apifox-folder": "Schemas"
       },
       "SyslogReq": {
@@ -12277,7 +14501,6 @@
           "priority",
           "tag"
         ],
-        "x-apifox-ignore-properties": [],
         "x-apifox-folder": "Schemas"
       },
       "syslogInfoData": {
@@ -12323,7 +14546,47 @@
           "priority",
           "tag"
         ],
-        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": "Schemas"
+      },
+      "LivenessReq": {
+        "type": "object",
+        "required": [
+          "endpointUrl",
+          "serviceId",
+          "interval"
+        ],
+        "properties": {
+          "addr": {
+            "description": "address of log remote forwarding.",
+            "type": "string",
+            "x-go-name": "Addr"
+          },
+          "enabled": {
+            "description": "whether to enable log remote forwarding. true: enable; false: disable",
+            "type": "boolean",
+            "x-go-name": "Enabled"
+          },
+          "network": {
+            "description": "now only support udp4",
+            "type": "string",
+            "x-go-name": "Network"
+          },
+          "priority": {
+            "description": "value can be emerg/alert/crit/err/warning/notice/info/debug",
+            "type": "string",
+            "x-go-name": "Priority"
+          },
+          "tag": {
+            "description": "syslog protocol tag field, used for syslog server to identify which neuronex client send the syslog message",
+            "type": "string",
+            "x-go-name": "Tag"
+          }
+        },
+        "x-apifox-orders": [
+          "endpointUrl",
+          "serviceId",
+          "interval"
+        ],
         "x-apifox-folder": "Schemas"
       },
       "LoglevelRsqData": {
@@ -12390,7 +14653,7 @@
             "x-go-name": "EkuiperRunningTime"
           },
           "ekuiperStatus": {
-            "description": " 0:normal 1:exception",
+            "description": " 0:normal 1:stop",
             "type": "string",
             "x-go-name": "EkuiperStatus"
           },
@@ -12415,7 +14678,7 @@
             "x-go-name": "NeuronRunningTime"
           },
           "neuronStatus": {
-            "description": " 0:normal 1:exception",
+            "description": " 0:normal 1:stop",
             "type": "string",
             "x-go-name": "NeuronStatus"
           },
@@ -12424,7 +14687,7 @@
             "x-go-name": "Os"
           },
           "systemStatus": {
-            "description": " 0:normal 1:exception",
+            "description": " 0:normal 1:stop",
             "type": "string",
             "x-go-name": "SystemStatus"
           },
@@ -12448,36 +14711,6 @@
           "systemStatus",
           "version"
         ],
-        "x-apifox-ignore-properties": [],
-        "x-apifox-folder": "Schemas"
-      },
-      "PasswordChangeBody": {
-        "type": "object",
-        "required": [
-          "name",
-          "old_pass",
-          "new_pass"
-        ],
-        "properties": {
-          "name": {
-            "type": "string",
-            "x-go-name": "Username"
-          },
-          "new_pass": {
-            "type": "string",
-            "x-go-name": "NewPassword"
-          },
-          "old_pass": {
-            "type": "string",
-            "x-go-name": "OldPassword"
-          }
-        },
-        "x-apifox-orders": [
-          "name",
-          "new_pass",
-          "old_pass"
-        ],
-        "x-apifox-ignore-properties": [],
         "x-apifox-folder": "Schemas"
       },
       "responseData": {
@@ -12494,7 +14727,22 @@
         "x-apifox-orders": [
           "token"
         ],
-        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": "Schemas"
+      },
+      "responseLogData": {
+        "type": "object",
+        "required": [
+          "level"
+        ],
+        "properties": {
+          "level": {
+            "type": "string",
+            "x-go-name": "level"
+          }
+        },
+        "x-apifox-orders": [
+          "level"
+        ],
         "x-apifox-folder": "Schemas"
       },
       "LoginBody": {
@@ -12517,7 +14765,6 @@
           "name",
           "pass"
         ],
-        "x-apifox-ignore-properties": [],
         "x-apifox-folder": "Schemas"
       },
       "UsedTagCountResponse": {
@@ -12535,7 +14782,6 @@
         "x-apifox-orders": [
           "usedTagCount"
         ],
-        "x-apifox-ignore-properties": [],
         "x-apifox-folder": "Schemas"
       },
       "DeliverLicenseReqData": {
@@ -12553,7 +14799,6 @@
         "x-apifox-orders": [
           "license"
         ],
-        "x-apifox-ignore-properties": [],
         "x-apifox-folder": "Schemas"
       },
       "StatusError": {
@@ -12579,7 +14824,6 @@
           "code",
           "message"
         ],
-        "x-apifox-ignore-properties": [],
         "x-apifox-folder": "Schemas"
       },
       "SendActivationCodeReqData": {
@@ -12596,7 +14840,6 @@
         "x-apifox-orders": [
           "activationCode"
         ],
-        "x-apifox-ignore-properties": [],
         "x-apifox-folder": "Schemas"
       },
       "UploadLicenseResponse": {
@@ -12694,7 +14937,6 @@
           "type",
           "usedTagCount"
         ],
-        "x-apifox-ignore-properties": [],
         "x-apifox-folder": "Schemas"
       },
       "UploadLicenseReqData": {
@@ -12712,7 +14954,6 @@
         "x-apifox-orders": [
           "license"
         ],
-        "x-apifox-ignore-properties": [],
         "x-apifox-folder": "Schemas"
       },
       "GetLicenseResponse": {
@@ -12810,8 +15051,188 @@
           "totalTagCount",
           "usedTagCount"
         ],
-        "x-apifox-ignore-properties": [],
         "x-apifox-folder": "Schemas"
+      },
+      "LivenessBody": {
+        "type": "object",
+        "required": [
+          "endpointUrl",
+          "serviceId",
+          "interval"
+        ],
+        "properties": {
+          "endpointUrl": {
+            "type": "string",
+            "x-go-name": "EndpointUrl"
+          },
+          "interval": {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "Interval"
+          },
+          "serviceId": {
+            "type": "string",
+            "x-go-name": "ServiceID"
+          }
+        }
+      },
+      "AlertConfig": {
+        "type": "object",
+        "required": [
+          "enabled",
+          "webhookUrl",
+          "interval",
+          "fireChecks",
+          "resolveChecks",
+          "alertsConfig"
+        ],
+        "properties": {
+          "alertsConfig": {
+            "description": " optional, the setting of the rule alerts to be pushed,if it is empty, it means that requires all alert types.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AlertRuleConfig"
+            },
+            "x-go-name": "AlertsConfig"
+          },
+          "enabled": {
+            "description": " false: disabled, true: enabled ,If the value is false, the other fields are non-required",
+            "type": "boolean",
+            "x-go-name": "Enable"
+          },
+          "fireChecks": {
+            "description": " required if alertsConfig is empty, the default fireChecks for all rules in alertsConfig",
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "FireChecks"
+          },
+          "interval": {
+            "description": "\trequired if enabled is true",
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "Interval"
+          },
+          "resolveChecks": {
+            "description": " required if alertsConfig is empty, the default resolveChecks for all rules in alertsConfig",
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "ResolveChecks"
+          },
+          "webhookUrl": {
+            "description": "\toptional,the webhook that alert events are pushed to",
+            "type": "string",
+            "x-go-name": "WebhookUrl"
+          }
+        }
+      },
+      "AlertRuleConfig": {
+        "type": "object",
+        "required": [
+          "ruleId",
+          "fireChecks",
+          "resolveChecks",
+          "ruleName"
+        ],
+        "properties": {
+          "fireChecks": {
+            "description": "how many consecutive monitoring times will trigger an alarm,means that N.",
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "FireChecks"
+          },
+          "resolveChecks": {
+            "description": "how many times to monitor continuously, the alarm will be resumed,means that P.",
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "ResolveChecks"
+          },
+          "ruleId": {
+            "type": "string",
+            "x-go-name": "RuleId"
+          },
+          "ruleName": {
+            "type": "string",
+            "x-go-name": "RuleName"
+          }
+        }
+      },
+      "MetricConfig": {
+        "type": "object",
+        "required": [
+          "enabled",
+          "prometheusUrl",
+          "prometheusUsername",
+          "prometheusPassword",
+          "interval",
+          "metricIds",
+          "labels"
+        ],
+        "properties": {
+          "enabled": {
+            "description": "required,false: disabled, true: enabled ,If the value is false, the other fields are non-required",
+            "type": "boolean",
+            "x-go-name": "Enable"
+          },
+          "interval": {
+            "description": " optional, the interval of generating metrics data,unit is second",
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "Interval"
+          },
+          "labels": {
+            "description": "optional, additional labels needed for metric, will be pushed to pushgateway along with the metrics data for grouping of metrics,key: label name,value: label value",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "x-go-name": "Labels"
+          },
+          "metricIds": {
+            "description": "optional, metric id array,a value of null means push all metric data.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "x-go-name": "MetricIds"
+          },
+          "prometheusPassword": {
+            "description": " optional, the url of password for pushgateway",
+            "type": "string",
+            "x-go-name": "PrometheusPassword"
+          },
+          "prometheusUrl": {
+            "description": " optional, the url of pushgateway,like http://localhost:9091",
+            "type": "string",
+            "x-go-name": "PrometheusUrl"
+          },
+          "prometheusUsername": {
+            "description": " optional, the url of username for pushgateway",
+            "type": "string",
+            "x-go-name": "PrometheusUsername"
+          }
+        }
+      },
+      "PasswordChangeBody": {
+        "type": "object",
+        "required": [
+          "name",
+          "old_pass",
+          "new_pass"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-go-name": "Username"
+          },
+          "new_pass": {
+            "type": "string",
+            "x-go-name": "NewPassword"
+          },
+          "old_pass": {
+            "type": "string",
+            "x-go-name": "OldPassword"
+          }
+        }
       }
     }
   },

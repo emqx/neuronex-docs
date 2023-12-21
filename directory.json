@@ -805,6 +805,10 @@
             "path": "admin/log-management"
           },
           {
+            "title": "系统配置",
+            "path": "admin/sys-configuration"
+          },
+          {
             "title": "修改密码",
             "path": "admin/password"
           }

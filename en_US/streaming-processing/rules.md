@@ -35,6 +35,8 @@ Rules `sql` define the streams or tables to be processed and how to process them
 
 The simplest rule SQL is `SELECT * FROM neuronStream`. This rule will get all the data from the `neuronStream` data stream. NeuronEX provides a wealth of operators and functions. For more usage, please see the [SQL](./sqls/overview.md) chapter.
 
+Click the **SQL Examples** button to view commonly used SQL examples, where you can get SQL statements, application scenarios, input message examples, and processing results.
+
 ## Add action (Sink)
 
 The action (Sink) part defines the output behavior of a rule. Each rule can have multiple actions.
@@ -59,26 +61,33 @@ In the **Actions** area, click the **Add** button.
 
 After completing the settings, click **Test Connection**. After confirming the settings, click **Submit** to complete the creation of the action.
 
+:::tip Tips
+Only the test connection function is provided for MQTT. Click the **Test Connection**. After confirming the settings, click **Submit** to complete the creation of the action.
+:::
+
+
+## Resuorce Examples
+You can view the created data sources and usage examples.
+
 ## Rule options (optional)
 
 Click the **Options** section to continue configuring the current rules:
 
 | Option name        | Type & Default Value | Description                                                  |
 | ------------------ | -------------------- | ------------------------------------------------------------ |
-| debug              | bool: false          | Specify whether to enable the debug level for this rule. By default, it will inherit the Debug configuration parameters in the global configuration. |
-| logFilename        | string: ""           | Specify the name of a separate log file for this rule, and the log will be saved in the global log folder. By default, the log configuration parameters in the global configuration will be used. |
-| isEventTime        | boolean: false       | Whether to use event time or processing time as the timestamp for an event. If event time is used, the timestamp will be extracted from the payload. |
-| lateTolerance      | int64:0              | When working with event-time windowing, it can happen that elements arrive late. LateTolerance can specify by how much time(unit is millisecond) elements can be late before they are dropped. By default, the value is 0 which means late elements are dropped. |
 | concurrency        | int: 1               | A rule is processed by several phases of plans according to the sql statement. This option will specify how many instances will be run for each plan. If the value is bigger than 1, the order of the messages may not be retained. |
 | bufferLength       | int: 1024            | Specify how many messages can be buffered in memory for each plan. If the buffered messages exceed the limit, the plan will block message receiving until the buffered messages have been sent out so that the buffered size is less than the limit. A bigger value will accommodate more throughput but will also take up more memory footprint. |
+| debug              | bool: false          | Specify whether to enable the debug level for this rule. By default, it will inherit the Debug configuration parameters in the global configuration. |
 | sendMetaToSink     | bool:false           | Specify whether the meta data of an event will be sent to the sink. If true, the sink can get te meta data information. |
-| sendError          | bool: true           | Whether to send the error to sink. If true, any runtime error will be sent through the whole rule into sinks. Otherwise, the error will only be printed out in the log. |
+| isEventTime        | boolean: false       | Whether to use event time or processing time as the timestamp for an event. If event time is used, the timestamp will be extracted from the payload. |
+| lateTolerance      | int64:0              | When working with event-time windowing, it can happen that elements arrive late. LateTolerance can specify by how much time(unit is millisecond) elements can be late before they are dropped. By default, the value is 0 which means late elements are dropped. |
 | qos                | int:0                | Specify the qos of the stream. The options are 0: At most once; 1: At least once and 2: Exactly once. If qos is bigger than 0, the checkpoint mechanism will be activated to save states periodically so that the rule can be resumed from errors. |
 | checkpointInterval | int:300000           | Specify the time interval in milliseconds to trigger a checkpoint. This is only effective when qos is bigger than 0. |
-| restartStrategy    | struct               | Specify the strategy to automatic restarting rule after failures. This can help to get over recoverable failures without manual operations. Please check [Rule Restart Strategy](#rule-restart-strategy) for detail configuration items. |
-| cron               | string: ""           | Specify the periodic trigger strategy of the rule, which is described by [cron expression](https://en.wikipedia.org/wiki/Cron) |
-| duration           | string: ""           | Specifies the running duration of the rule, only valid when cron is specified. The duration should not exceed the time interval between two cron cycles, otherwise it will cause unexpected behavior. |
-| cronDatetimeRange  | lists of struct      | Specify the effective time period of the Scheduled Rule, which is only valid when `cron` is specified. When this `cronDatetimeRange` is specified, the Scheduled Rule will only take effect within the time range specified. Please see [Scheduled Rule](#Scheduled Rule) for detailed configuration items |
+| attempts        | int: 0          | Maximum number of retries. If set to 0, the rule will fail immediately without retrying. |
+| delay        | int: 1000          | Default retry interval in milliseconds. If the multiplier is not set, the retry interval will be fixed to this value. |
+| maxDelay        | int: 30000          | The maximum interval between retries, in milliseconds. This only takes effect if the multiplier is set so that the delay is increased for each retry. |
+| multiplier        | float: 2          | Multiplier for the retry interval. |
+| jitterFactor        | float: 0.1         | Adds or subtracts a random value coefficient to the delay to prevent multiple rules from being restarted at the same time. |
 
 
 :::tip Tips
@@ -87,8 +96,51 @@ In most scenarios, the default values for rule options are sufficient.
 
 After completing the settings, click **Submit** to complete the creation of the current rules. The new rule will appear in the rules list. Here you can view rule status, edit rules, stop rules, refresh rules, view rule topology map, copy rules or delete rules.
 
+## Rule test
+Enable Test
+- Close simulate data source
 
+  1. Click **Run Test** to output the results on the right.
 
+  2. The data template can be configured to simulate the Data Template in Sink and modify the data format of the output after SQL statement processing.
+  
+  3. Click **Stop** to stop testing.
+
+- Open simulate data source
+
+  1. Select a data source in SQL for simulation. Click the plus sign to add multiple simulation data sources.
+
+  2. interval: set the sending interval, and receive test results according to the sending interval.
+
+  3. Send Cyclically: Enable cyclic sending to receive test results continuously.
+
+  4. Simulation data supports "multiple lines and one json", "single line and one json", and "multiple lines and single line and one json".
+
+  - multiple lines in one json
+  ```json
+  {
+    "ts" : 1672545661000,
+    "tag1" : "area1",
+    "value1" : 123
+  }
+  ```
+  - single line in one json
+  ```json
+  {"ts" : 1672545661000, "tag1" : "area1", "value1" : 1}
+  ```
+  - multiple lines and single line is one json
+  ```json
+  {"ts" : 1672545661000, "tag1" : "area1", "value1" : 1}
+  {"ts" : 1672545662000, "tag1" : "area1", "value1" : 2}
+  {"ts" : 1672545663000, "tag1" : "area1", "value1" : 3}
+  {"ts" : 1672545664000, "tag1" : "area1", "value1" : 4}
+  {"ts" : 1672545665000, "tag1" : "area1", "value1" : 5}
+  ```
+  5. Click **Run Test** to output the results on the right.
+
+  6. The data template can be configured to simulate the Data Template in Sink and modify the data format of the output after SQL statement processing.
+  
+  7. Click **Stop** to stop testing.
 ## Import and export rules
 
 In the NeuronEX web UI, click **Data Processing** -> **Rules**. Click the **Import Rules** button. In the pop-up window, you can choose:

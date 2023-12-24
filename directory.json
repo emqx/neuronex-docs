@@ -578,6 +578,10 @@
             {
               "title": "Video",
               "path": "streaming-processing/video"
+            },
+            {
+              "title": "Simulator",
+              "path": "streaming-processing/simulator"
             }
           ]
         },
@@ -1409,6 +1413,10 @@
             {
               "title": "Video",
               "path": "streaming-processing/video"
+            },
+            {
+              "title": "Simulator",
+              "path": "streaming-processing/simulator"
             }
           ]
         },

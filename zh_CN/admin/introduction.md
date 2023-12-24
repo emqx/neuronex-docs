@@ -27,4 +27,5 @@ $ systemctl status neuron
 * [数据统计](./data-statistics.md)
 * [配置管理](./conf-management.md)
 * [日志管理](./log-management.md)
+* [系统配置](./sys-configuration.md)
 * [修改密码](./password.md)

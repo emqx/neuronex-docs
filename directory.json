@@ -1658,10 +1658,6 @@
             "path": "admin/alert-monitor-management"
           },
           {
-            "title": "System Configuration",
-            "path": "admin/sys-configuration"
-          },
-          {
             "title": "Change Password",
             "path": "admin/password"
           }

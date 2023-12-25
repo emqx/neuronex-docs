@@ -92,12 +92,17 @@ You can click to expand the **Advanced** section for more customized settings.
 
 - **Concurrency**: Set the number of running threads. When the parameter value is greater than 1, the order in which messages are sent may not be guaranteed.
 - **Buffer Length**: Set the number of cacheable messages. If the number of cached messages exceeds this limit, the sink will block message reception until the number of cached messages is less than the limit.
+- **Buffer Size**: Set the number of messages sent in batches.
+- **Linger Interval**: Set the interval for batch sending, in milliseconds.
 - **Enable Cache**: Set whether to enable caching, optional values True, False
-- **Clean Cache At Stop**: Set whether to clear the cache when stopping, optional values are True and False
-- **Memory Cache Threshold**: The maximum number of messages cached in memory.
+- **Resend Interval**: The interval in millisecond to resend the cached messages.
+- **Memory Cache Threshold**: The maximum number of messages to be cached in memory.
 - **Max Disk Cache**: The maximum number of messages cached on disk.
-- **Resend Interval**: The time interval (milliseconds) for resending cached messages.
-
+- **Clean Cache At Stop**: Whether to clean the cache when the rule stops.
+- **Resend Alter Queue**: Whether to use the backup queue when resending cache. If set to true, cache will be sent to the alternate queue instead of the original queue. This will cause real-time messages and resent messages to be sent using different queues, and the order of the messages will change, but it can prevent message storms. The following resend related configurations can only take effect when set to true.
+- **Resend Priority**: The priority of the resend cache, type int, default is 0. -1 means sending real-time data first; 0 means equal priority; 1 means sending cached data first.
+- **Resend Indicator Field**: Resend cached field names.
+- **Resend Destination**: MQTT sink: This attribute indicates the topic of retransmission. If not set, it will still be passed to the original theme.
 
 ## Data cache
 

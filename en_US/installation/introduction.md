@@ -1,11 +1,10 @@
 # Install NeuronEX
 
-NeuronEX supports 64-bit ARM and 64-bit X86 architectures on Linux-based operating systems. It provides the following installation package formats:
+NeuronEX supports 32-bit/64-bit ARM and 64-bit X86 architectures on Linux-based operating systems. It provides the following installation package formats:
 
 - tar package: Suitable for all Linux operating systems.
-- zip package: Suitable for all Linux operating systems.
-<!-- - Debian package (.deb) format: Used for Debian and Ubuntu Linux-based operating systems (coming soon).
-- Redhat Package Manager (.rpm) format: Suitable for RedHat and CentOS Linux-based operating systems (coming soon). -->
+- Debian package (.deb) format: Used for Debian and Ubuntu Linux-based operating systems.
+- Redhat Package Manager (.rpm) format: Suitable for RedHat and CentOS Linux-based operating systems.
 
 ## Download the installation package
 
@@ -15,7 +14,7 @@ Neuron software packages can be downloaded from the [Website](https://www.emqx.c
 
 The NeuronEX supports the following operating systems:
 
-- CentOS 8.0 and above, Ubuntu 20.04 and above, and other operating systems based on the Linux kernel.
+- CentOS 7.0 and above, Ubuntu 18.04 and above, and other operating systems based on the Linux kernel.
 
 :::tip
 For Windows operating systems, the following installation methods are supported:
@@ -31,12 +30,12 @@ NeuronEX supports running on x86, ARM and other hardware architectures as well a
 
 The following table lists the hardware conditions required for the minimum demand of NeuronEX at different number of tags.
 
-|Tag Limits|Minimum Memory Recommendation|Hardware Architecture|Remarks|
-| :-------------------- | :------------------------------ | :---------------------------------- | :----------------------------------- |
-| 100 tags    | 128M memory | 64-bit ARM and 64-bit x86 architectures | Raspberry Pi 3 |
-| 1,000 tags  | 256M memory | 64-bit ARM and 64-bit x86 architectures | Raspberry Pi 4 |
-| 10,000 tags | 512M memory | 64-bit ARM and 64-bit x86 architectures | Industrial PC, etc |
-| More than 10,000 tags | 1G memory | 64-bit x86 architectures | Powerful Industrial PC, Server, etc |
+|Tag Limits             | Minimum Memory Recommendation| Hardware Architecture  | Remarks                             |
+| :-------------------- | :---------  | :-------------------------------------- | :---------------------------------- |
+| 100 tags              | 128M memory | 64-bit ARM and 64-bit x86 architectures | Raspberry Pi 3                      |
+| 1,000 tags            | 256M memory | 64-bit ARM and 64-bit x86 architectures | Raspberry Pi 4                      |
+| 10,000 tags           | 512M memory | 64-bit ARM and 64-bit x86 architectures | Industrial PC, etc                  |
+| More than 10,000 tags | 1G memory   | 64-bit x86 architectures                | Powerful Industrial PC, Server, etc |
 
 :::tip
 NeuronEX has no upper limitation on the number of tags. It depends on the allocated CPU and memory resources. The following figures are the results of Neuron performance test for your reference and these benchmark results are still not the upper limits. A more powerful server can be used for more tags.
@@ -53,13 +52,13 @@ CPU Usage                        : 90%<br>
 
 :::
 
-<!-- ## Debian 软件包
+## Debian 软件包
 
 | Download files                 | Architecture  |
 | ------------------------------ | ------------- |
 | neuronex-x.y.z-linux-amd64.deb | AMD64         |
-| neuronex-x.y.z-linux-armhf.deb | ARMHF         |
-| neuronex-x.y.z-linux-arm64.deb | ARM64         |
+| neuronex-x.y.z-linux-arm.deb   | ARM           |
+| neuronex-x.y.z-linux-arm64.deb | ARM           |
 
 
 ## Redhat 软件包管理工具
@@ -67,17 +66,16 @@ CPU Usage                        : 90%<br>
 | Download files                 | Architecture  |
 | ------------------------------ | ------------- |
 | neuronex-x.y.z-linux-amd64.rpm | AMD64         |
-| neuronex-x.y.z-linux-armhf.rpm | ARMHF         |
-| neuronex-x.y.z-linux-arm64.rpm | ARM64         |
+| neuronex-x.y.z-linux-arm64.rpm | ARM           |
 
 
 ## Tape Archive（tar）
 
-| Download files                 | Architecture  |
-| ------------------------------ | ------------- |
-| neuronex-x.y.z-linux-amd64.rpm | AMD64         |
-| neuronex-x.y.z-linux-armhf.rpm | ARMHF         |
-| neuronex-x.y.z-linux-arm64.rpm | ARM64         | -->
+| Download files                     | Architecture  |
+| ---------------------------------- | ------------- |
+| neuronex-x.y.z-linux-amd64.tar.gz  | AMD64         |
+| neuronex-x.y.z-linux-armhf.tar.gz  | ARM           |
+| neuronex-x.y.z-linux-arm64.tar.gz  | ARM           |
 
 ## Docker Image
 

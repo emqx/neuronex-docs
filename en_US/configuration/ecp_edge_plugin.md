@@ -19,12 +19,16 @@ Plugin types include the following three modes:
 
 ## Add new pluggable module
 
-On the plugin page, click the **Add plugin** button in the upper left corner to upload the local plugin .so file.
+On the plugin page, click the **Add plugin** button in the upper left corner to upload the local plugin .so file and .json file.
+
+![plugin-options](./_assets/plugin_add.png)
 
 For specific plug-in development tutorials, please refer to [SKD Tutorial](https://neugates.io/docs/zh/latest/dev-guide/sdk-tutorial/sdk-tutorial.html).
 
 ## Replace existing plug-in modules
 
-On the plugin page, click the **Replace** button on each plugin card to upload the local plugin .so file.
+On the plugin page, click the **Replace** button on each plugin card to upload the local plugin .so file and .json file.
+
+![plugin-options](./_assets/plugin_update.png)
 
 For specific plugin replacement and updates, please contact the EMQ business team.

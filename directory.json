@@ -33,6 +33,14 @@
           "path": "installation/tar.gz"
         },
         {
+          "title": "使用 rpm 包安装",
+          "path": "installation/centos"
+        },
+        {
+          "title": "使用 deb 包安装",
+          "path": "installation/ubuntu"
+        },
+        {
           "title": "通过 Docker 部署",
           "path": "installation/docker"
         },
@@ -570,6 +578,10 @@
             {
               "title": "Video",
               "path": "streaming-processing/video"
+            },
+            {
+              "title": "Simulator",
+              "path": "streaming-processing/simulator"
             }
           ]
         },
@@ -807,6 +819,10 @@
           {
             "title": "监控告警管理",
             "path": "admin/alert-monitor-management"
+           },
+          {
+            "title": "系统配置",
+            "path": "admin/sys-configuration"
           },
           {
             "title": "修改密码",
@@ -851,6 +867,14 @@
         {
           "title": "Installation with .tar.gz Package",
           "path": "installation/tar.gz"
+        },
+        {
+          "title": "Installation with rpm Package",
+          "path": "installation/centos"
+        },
+        {
+          "title": "Installation with deb Package",
+          "path": "installation/ubuntu"
         },
         {
           "title": "Docker",
@@ -1393,6 +1417,10 @@
             {
               "title": "Video",
               "path": "streaming-processing/video"
+            },
+            {
+              "title": "Simulator",
+              "path": "streaming-processing/simulator"
             }
           ]
         },
@@ -1628,6 +1656,10 @@
           {
             "title": "Monitor and Alert Management",
             "path": "admin/alert-monitor-management"
+          },
+          {
+            "title": "System Configuration",
+            "path": "admin/sys-configuration"
           },
           {
             "title": "Change Password",

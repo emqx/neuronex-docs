@@ -825,6 +825,10 @@
             "path": "admin/sys-configuration"
           },
           {
+            "title": "持久化目录管理",
+            "path": "admin/data-persistence"
+          },
+          {
             "title": "修改密码",
             "path": "admin/password"
           }
@@ -1656,6 +1660,10 @@
           {
             "title": "Monitor and Alert Management",
             "path": "admin/alert-monitor-management"
+          },
+          {
+            "title": "Persistence Data Management",
+            "path": "admin/data-persistence"
           },
           {
             "title": "Change Password",

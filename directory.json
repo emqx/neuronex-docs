@@ -817,6 +817,10 @@
             "path": "admin/log-management"
           },
           {
+            "title": "监控告警管理",
+            "path": "admin/alert-monitor-management"
+           },
+          {
             "title": "系统配置",
             "path": "admin/sys-configuration"
           },
@@ -1652,6 +1656,10 @@
           {
             "title": "Log Management",
             "path": "admin/log-management"
+          },
+          {
+            "title": "Monitor and Alert Management",
+            "path": "admin/alert-monitor-management"
           },
           {
             "title": "Persistence Data Management",

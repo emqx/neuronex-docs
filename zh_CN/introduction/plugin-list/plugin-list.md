@@ -15,15 +15,15 @@
 
 ## 添加新的可插拔模块
 
-在插件页面，点击左上角的**添加插件**按钮，上传本地的插件 .so 文件。
+在插件页面，点击左上角的**添加插件**按钮，上传本地的插件 .so 文件和.json文件。
 
 具体的插件开发教程请参考 [SKD 教程](https://neugates.io/docs/zh/latest/dev-guide/sdk-tutorial/sdk-tutorial.html)。
 
 ## 替换已有插件模块
 
-在插件页面，点击每个插件卡片上的**替换**按钮，上传本地的插件 .so 文件。
+在插件页面，点击每个插件卡片上的**替换**按钮，上传本地的插件 .so 文件和.json文件。
 
-具体的插件替换更新，请联系EMQ商务团队。
+具体的插件替换更新，请联系[EMQ商务](https://www.emqx.com/zh/contact?product=neuronex)团队。
 
 ## 南向插件列表
 
@@ -52,6 +52,7 @@
 | Allen-Bradley MicroLogix 1400                             | 以太网     | - |
 | Schneider PLC Modbus RTU                                     | 串口    | 通用Modbus RTU |
 | Schneider PLC Modbus TCP                                     | 以太网  |  通用Modbus TCP |
+| Inovance PLC Modbus TCP                             | 以太网  |  汇川PLC Modbus TCP |
 | ABB COMLI                                        | 串口    |  与 ABB 的 PLC通讯 |
 | Omron Host Link                                              | 串口    |   HostLink Cmode 方式通过串口网络与欧姆龙 PLC 进行通信。 |
 | Omron FINS on TCP                                            | 以太网  |  通过 FINS TCP 协议与欧姆龙 PLC 进行通信。 |

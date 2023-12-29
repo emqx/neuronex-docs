@@ -21,9 +21,9 @@ NeuronEX 还具备各类数据灵活获取的能力，在工业场景下，可�
   
   [HTTP Pull](../streaming-processing/http_pull.md)及[HTTP Push](../streaming-processing/http_push.md)的方式与MES、WMS、ERP系统对接，进行数据的双向收发
 
-- 数据库对接
+- [数据库对接](../streaming-processing/sql.md)
   
-  SQLite、MySQL、SQLserver等数据库数据获取
+  MySQL、SQL Server、PostgreSQL、SQLite等数据库数据获取
 
 - 企业服务总线（ESB）对接
   
@@ -31,7 +31,7 @@ NeuronEX 还具备各类数据灵活获取的能力，在工业场景下，可�
     
 - [文件](../streaming-processing/file.md)数据采集
 
-- 视频流接入分析
+- [视频流](../streaming-processing/video.md)接入分析
 
 ## 数据处理分析模块
 
@@ -45,7 +45,7 @@ NeuronEX 的数据处理分析模块可提供以下能力：
 
 - 数据过滤清洗
 
-  NeuronEX 内置数据抽取、转换、过滤、排序、分组、聚合、连接等功能，内置 160+ 各类函数，覆盖数学运算、字符串处理、聚合运算和哈希运算等，可满足各种数据过滤清洗的需求。
+  NeuronEX 内置数据抽取、转换、过滤、排序、分组、聚合、连接等功能，内置 160+ 各类[函数](../streaming-processing/sqls/functions/overview.md)，覆盖数学运算、字符串处理、聚合运算和哈希运算等，可满足各种数据过滤清洗的需求。
 
 - 实时数据流处理
   
@@ -53,7 +53,7 @@ NeuronEX 的数据处理分析模块可提供以下能力：
 
 - AI/ML 算法集成
     
-  NeuronEX 支持用户自定义函数扩展和 AI 算法集成，提供智能数据分析能力。
+  NeuronEX 支持用户[自定义函数扩展](../streaming-processing/extension.md)和 [AI 算法](../streaming-processing/portable_python.md)集成，提供智能数据分析能力。
 
 
 ## 数据转发存储模块

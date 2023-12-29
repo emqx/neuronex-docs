@@ -595,6 +595,10 @@
               "path": "streaming-processing/rule_status"
             },
             {
+              "title": "规则调试",
+              "path": "streaming-processing/rule_test"
+            },
+            {
               "title": "规则流水线",
               "path": "streaming-processing/rule_pipeline"
             }

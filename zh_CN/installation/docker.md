@@ -35,8 +35,8 @@ neuronex:3.x.x类型的安装包，不集成 Python 运行环境,安装包体积
 
 ```bash
 #run NeuronEX by neuronex:3.x.x
-docker pull emqx/neuronex:3.0.1
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.0.1
+docker pull emqx/neuronex:3.1.0
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.1.0
 ```
 
 - **neuronex:3.x.x-python**
@@ -45,7 +45,7 @@ neuronex:3.x.x-python类型的安装包，集成了 Python 运行环境，如果
 
 ```bash
 #run NeuronEX by neuronex:3.x.x-python
-docker pull emqx/neuronex:3.0.1-python
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.0.1-python
+docker pull emqx/neuronex:3.1.0-python
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.1.0-python
 ```
 

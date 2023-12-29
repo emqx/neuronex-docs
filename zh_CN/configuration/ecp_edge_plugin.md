@@ -31,4 +31,4 @@
 
 ![plugin-options](./_assets/plugin_update.png)
 
-具体的插件替换更新，请联系EMQ商务团队。
+具体的插件替换更新，请联系[EMQ商务](https://www.emqx.com/zh/contact?product=neuronex)团队。

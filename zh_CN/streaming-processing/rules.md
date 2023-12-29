@@ -20,6 +20,8 @@ NeuronEX 规则 SQL 中至少有一个数据源应该是`流(Stream)`类型。�
 
 - 名称：输入规则名称
 
+- 立即运行：如开启，规则创建后将立即运行。
+
 - 输入规则 SQL，例如
 
   ```sql
@@ -30,13 +32,17 @@ NeuronEX 规则 SQL 中至少有一个数据源应该是`流(Stream)`类型。�
   GROUP BY demo.temperature, HOPPINGWINDOW(ss, 20, 10)
   ```
 
+<img src="./_assets/create_rule.png" alt="create_rule" style="zoom:100%;" />
+
 ## 规则 SQL
 
 规则`sql` 中定义了要处理的流或表，以及如何处理。规则 SQL 是，并将处理结果发送到一个或多个动作(Sink)。规则`sql` 中可以使用内置函数和运算符，也可以使用自定义函数和算法。
 
-最简单的规则 SQL 如 `SELECT * FROM neuronStream`，这条规则会从 `neuronStream` 数据流中获取所有数据。 NeuronEX 提供的丰富的运算符和函数，更多用法请参见 [SQL](./sqls/overview.md)章节 。
+最简单的规则 SQL 如 `SELECT * FROM neuronStream`，这条规则会从 `neuronStream` 数据流中获取所有数据。 NeuronEX 提供的丰富的运算符和函数，更多用法请参见 [SQL](./sqls/overview.md) 章节 。
 
 点击**SQL 示例**按钮，查看常用 SQL 示例，将展示 SQL 语句、应用场景、输入消息示例和处理结果。
+
+<img src="./_assets/create_rule_sql.png" alt="create_rule_sql" style="zoom:100%;" />
 
 ## 添加 动作(Sink)
 
@@ -62,12 +68,16 @@ NeuronEX 规则 SQL 中至少有一个数据源应该是`流(Stream)`类型。�
 
 完成设置后，点击**提交**完成动作的创建。
 
+<img src="./_assets/create_rule_sink.png" alt="create_rule_sink" style="zoom:100%;" />
+
 :::tip 提示
 仅对 MQTT 提供测试连接功能，点击**测试连接**，确认设置后，点击**提交**完成动作的创建。
 :::
 
 ## 数据源示例
 可查看已创建的数据源，以及用法示例。
+<img src="./_assets/create_rule_sinkexample.png" alt="create_rule_sinkexample" style="zoom:100%;" />
+
 
 ## 规则选项 (可选)
 
@@ -96,52 +106,20 @@ NeuronEX 规则 SQL 中至少有一个数据源应该是`流(Stream)`类型。�
 
 完成设置后，点击**提交**，完成当前规则的创建。新建规则将出现在规则列表中。您可在此查看规则状态、编辑规则、停止规则、刷新规则、查看规则拓扑图，复制规则或删除规则。
 
+<img src="./_assets/create_rule_option.png" alt="create_rule_option" style="zoom:100%;" />
+
 
 ## 规则调试
 
-启用调试
-- 不开启模拟数据源
+在规则创建时，开启规则调试功能，可以实时查看数据源接入后，经过 SQL 处理后的规则输出结果，可以快速对 SQL 语法、内置函数以及数据模板等内容进行测试验证，是否符合预期输出结果。
 
-  1. 点击**运行测试**，右侧将展示测试的输出结果。
+同时，还支持模拟数据源规则调试，将 SQL 编辑器内的原始数据源替换为自定义的模拟数据源，提供了更加灵活的数据源模拟方式。
 
-  2. 可配置数据模版，模拟 Sink 中的 Data Template，对 SQL 语句处理过后的输出，进行数据格式修改。
-  
-  3. 点击**停止**，停止测试。
-- 开启模拟数据源
+详情请参见[规则调试](./rule_test.md)。
 
-  1. 选择 SQL 中数据源进行模拟。点击加号，可以添加多个模拟数据源。
+<img src="./_assets/create_rule_ruletest.png" alt="create_rule_ruletest" style="zoom:100%;" />
 
-  2. 发送间隔: 设置发送间隔，根据发送间隔接收测试结果。
 
-  3. 循环发送: 开启循环发送，可持续接收测试结果。
-
-  4. 模拟数据支持“多行一条 json ”、“单行一条 json ”，“有多行单行一条 json ”。
-
-  - 多行一条 json
-  ```json
-  {
-    "ts" : 1672545661000,
-    "tag1" : "area1",
-    "value1" : 123
-  }
-  ```
-  - 单行一条 json
-  ```json
-  {"ts" : 1672545661000, "tag1" : "area1", "value1" : 1}
-  ```
-  - 有多行单行一条 json
-  ```json
-  {"ts" : 1672545661000, "tag1" : "area1", "value1" : 1}
-  {"ts" : 1672545662000, "tag1" : "area1", "value1" : 2}
-  {"ts" : 1672545663000, "tag1" : "area1", "value1" : 3}
-  {"ts" : 1672545664000, "tag1" : "area1", "value1" : 4}
-  {"ts" : 1672545665000, "tag1" : "area1", "value1" : 5}
-  ```
-  5. 点击**运行测试**，右侧将展示测试的输出结果。
-
-  6. 可配置数据模版，模拟 Sink 中的 Data Template，对 SQL 语句处理过后的输出，进行数据格式修改。
-  
-  7. 点击**停止**，停止测试。
 ## 导入导出规则
 
 在 NeuronEX Web 端界面，点击**数据流处理** -> **规则**。点击**导入规则**按钮。在弹出的窗口中，您可选择：
@@ -158,10 +136,11 @@ NeuronEX 规则 SQL 中至少有一个数据源应该是`流(Stream)`类型。�
 :::
 
 在 NeuronEX Web 端界面，点击**数据流处理** -> **规则**，点击**导出规则**按钮，将会导出当前规则的 JSON 文件。
+<img src="./_assets/rule_importexport.png" alt="rule_importexport" style="zoom:100%;" />
 
-## [规则状态](./rule_status.md)
+## [规则管理](./rule_status.md)
 
-当一条规则在 NeuronEX 中运行后，我们可以通过规则指标来了解到当前的规则运行状态。详情请参见[规则状态](./rule_status.md)。
+当一条规则运行后，我们可以在规则列表页查看规则的运行状态、告警信息，也可以通过规则指标来了解到当前的[规则运行状态](./rule_status.md#了解规则运行的状态指标)。详情请参见[规则管理](./rule_status.md)。
 
 ## [规则流水线](./rule_pipeline.md)
 

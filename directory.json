@@ -103,6 +103,24 @@
               ]
             },
             {
+              "title": "Inovance Modbus TCP",
+              "path": "configuration/south-devices/modbus-hc-tcp/modbus-hc-tcp",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-hc-tcp/modbus-hc-tcp.md",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Easy521 连接示例",
+                  "path": "configuration/south-devices/modbus-hc-tcp/example/autoshop/autoshop-modbus",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-hc-tcp/example/autoshop/autoshop-modbus.md" 
+                },
+                {
+                  "title": "常见问题",
+                  "path": "configuration/south-devices/modbus-hc-tcp/faq/faq",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-hc-tcp/faq/faq.md"
+                }
+              ]
+            },
+            {
               "title": "OPC UA",
               "path": "configuration/south-devices/opc-ua/overview",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/opc-ua/overview.md",
@@ -281,6 +299,11 @@
               ]
             },
             {
+              "title": "Hostlink Cmode",
+              "path": "configuration/south-devices/hostlink/hostlink-cmode",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/hostlink/hostlink-cmode.md"
+            },
+            {
               "title": "Beckhoff ADS",
               "path": "configuration/south-devices/ads/ads",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/ads/ads.md",
@@ -425,6 +448,11 @@
               "title": "KUKA Ethernet KRL TCP",
               "path": "configuration/south-devices/kuka/kuka",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/kuka/kuka.md"
+            },
+            {
+              "title": "GE SRTP",
+              "path": "configuration/south-devices/srtp/srtp",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/srtp/srtp.md"
             }
           ]
         },

@@ -15,10 +15,10 @@ NeuronEX 数据流处理模块的架构如下：
 
 ### 完整的数据分析
 
-- 数据抽取、转换和过滤
-- 数据排序、分组、聚合、连接
-- 160+ 各类函数，覆盖数学运算、字符串处理、聚合运算和哈希运算等
-- 4 类时间窗口，以及计数窗口
+- [数据抽取、转换和过滤](./sqls/query_language_elements.md)
+- [数据排序、分组、聚合、连接](./sqls/query_language_elements.md)
+- 160+ 各类[函数](./sqls/functions/overview.md)，覆盖数学运算、字符串处理、聚合运算和哈希运算等
+- 4 类[时间窗口](./sqls/windows.md)，以及计数窗口
 
 ### AI/ML 集成
 
@@ -69,6 +69,7 @@ NeuronEX 数据流处理模块的架构如下：
 - [SQL](./sql.md)：从 `sqlserver\postgres\mysql\sqlite3\oracle`` 数据库中获取数据；
 - [文件](./file.md)：从文件中读取数据，通常用作表格，可以作为流、扫描表的数据源；
 - [Video](./video.md)：从视频流中获取数据，可以作为流、扫描表的数据源。
+- [Simulator](./simulator.md)：内置模拟数据源，用来模拟数据以及调试。
 
 ### [规则(Rule)](./rules.md)
 

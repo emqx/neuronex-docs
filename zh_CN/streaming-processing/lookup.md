@@ -1,6 +1,81 @@
 # 查询表
 
-查询表（Lookup Table）用于绑定外部静态数据，可以处理大量的批数据连接的需求。本教程以两个场景为例，介绍了如何使用查询表进行流批结合的计算。我们分别使用了 Redis 和 MySQL 作为外部查询表的类型并展示了如何通过规则动态更新外部存储的数据。用户可以使用查询表工具探索更多的流批结合运算的场景。
+查询表（Lookup Table）用于绑定外部静态数据，可以处理大量的批数据连接的需求。本教程以两个场景为例，介绍了如何使用查询表进行流批结合的计算。我们分别使用了 MySQL 和 Redis 作为外部查询表的类型并展示了如何通过规则动态更新外部存储的数据。用户可以使用查询表工具探索更多的流批结合运算的场景。
+
+## 数据补全场景
+
+流数据变化频繁，数据量大，通常只包含需要经常变化的数据；而不变或者变化较少的数据通常存储于数据库等外部存储中。在应用处理时，通常需要将流数据中缺少的静态数据补全。例如，流数据中包含了设备的 ID，但设备的具体名称，型号的描述数据存储于数据库中。本场景中，我们将介绍如何将流数据与批数据结合，进行自动数据补全。
+
+### MySQL 数据库配置
+
+本场景将以 MySQL 为例，介绍如何与关系数据库进行连接。用户需要启动 MySQL 实例。在 MySQL 中创建表 `devices`, 其中包含 `id`, `name`, `deviceKind` 字段。
+```sql
+CREATE TABLE devices (
+    id INT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    deviceKind VARCHAR(255) NOT NULL
+);
+```
+
+提前写入内容,如下：
+```sql
+INSERT INTO devices (id, name, deviceKind) VALUES
+    (1, 'Device1', 'Kind1'),
+    (2, 'Device2', 'Kind2'),
+    (3, 'Device3', 'Kind1'),
+    (4, 'Device4', 'Kind4');
+```
+在该示例中，每一类设备对应的名字，型号等设备信息数据，存储于 MySQL 中。
+
+
+### 创建查询表
+
+在**源管理**->**查询表**页面，创建 SQL source 配置，指向创建的 MySQL 实例。由于 SQL 数据库 IO 延迟较大，用户可配置是否启用查询缓存及缓存过期时间等。
+
+其中数据库地址中，需要填入正确的数据库地址，包括IP、端口、数据库名称、用户名、密码等。
+
+数据源选项框中，需要填入正确的表名`devices`。
+
+![lookup](./_assets/lookup1.png)
+
+### 创建数据流
+
+创建了一个数据流 demoStream2 来从 MQTT Broker 的主题 `scene2/data` 中读取 json 数据。这个流实时接收数据流。
+![scan](./_assets/lookup2.png)
+
+### 创建数据补全规则
+
+流和表都创建完成后，我们就可以创建补全规则了。
+
+```sql
+SELECT * FROM demoStream2 INNER JOIN deviceTable ON demoStream.deviceId = deviceTable.id
+
+```
+
+![scan](./_assets/lookup3.png)
+
+在这个规则中，通过流数据中的 deviceId 字段与设备数据库中的 id 进行匹配连接，并输出完整的数据。用户可以根据需要，在 `select` 语句中选择所需的字段。
+
+通过向 MQTT Broker的主题 `scene2/data`发送json数据，当`demo`数据流中的数据输入，如下：
+```json
+{
+    "deviceId": 1,
+    "value": 2
+}
+
+```
+则经过该规则处理后的输入，如下：
+```json
+{
+    "deviceId": 1,
+    "name": "device1",
+    "deviceKind": "Kind1",
+    "value": 2
+}
+
+```
+
+
 
 ## 动态预警场景
 
@@ -94,59 +169,3 @@
 {"device":"device22","deviceKind":3,"value":54}
 {"device":"device2","deviceKind":1,"value":54}
 ```
-
-## 数据补全场景
-
-流数据变化频繁，数据量大，通常只包含需要经常变化的数据；而不变或者变化较少的数据通常存储于数据库等外部存储中。在应用处理时，通常需要将流数据中缺少的静态数据补全。例如，流数据中包含了设备的 ID，但设备的具体名称，型号的描述数据存储于数据库中。本场景中，我们将介绍如何将流数据与批数据结合，进行自动数据补全。
-
-### SQL 插件配置
-
-
-本场景将以 MySQL 为例，介绍如何与关系数据库进行连接。用户需要启动 MySQL 实例。在 MySQL 中创建表 `devices`, 其中包含 `id`, `name`, `deviceKind` 等字段并提前写入内容。
-
-在管理控制台中，创建 SQL source 配置，指向创建的 MySQL 实例。由于 SQL 数据库 IO 延迟较大，用户可配置是否启用查询缓存及缓存过期时间等。
-
-```yaml
-  lookup:
-    cache: true # 启用缓存
-    cacheTtl: 600 # 缓存过期时间
-    cacheMissingKey: true # 是否缓存未命中的情况
-```
-
-### 场景输入
-
-本场景中，我们有两个输入：
-
-- 采集数据流，与场景 1 相同，包含多种设备的实时采集数据。本教程中，采集的数据流通过 MQTT 协议进行实时发送。
-- 设备信息表，每一类设备对应的名字，型号等元数据。本教程中，设备信息数据存储于 MySQL 中。
-
-针对这两种输入，我们分别创建流和查询表进行建模。
-
-1. 创建数据流。假设数据流写入 MQTT Topic `scene2/data` 中，则我们可通过以下 REST API 创建名为 `demoStream2` 的数据流。
-   ```json
-    {"sql":"CREATE STREAM demoStream2() WITH (DATASOURCE=\"scene2/data\", FORMAT=\"json\", TYPE=\"mqtt\")"}
-   ```
-2. 创建查询表。假设设备数据存储于 MySQL 数据库 devices 中，创建名为 `deviceTable` 的查询表。CONF_KEY 设置为上一节中创建的 SQL source 配置。
-   ```json
-    {"sql":"CREATE TABLE deviceTable() WITH (DATASOURCE=\"devices\", CONF_KEY=\"mysql\",TYPE=\"sql\", KIND=\"lookup\")"}
-   ```
-   
-### 数据补全规则
-
-流和表都创建完成后，我们就可以创建补全规则了。
-
-```json
-{
-  "id": "ruleLookup",
-  "sql": "SELECT * FROM demoStream2 INNER JOIN deviceTable ON demoStream.deviceId = deviceTable.id",
-  "actions": [{
-    "mqtt": {
-      "server": "tcp://myhost:1883",
-      "topic": "rule/lookup",
-      "sendSingle": true
-    }
-  }]
-}
-```
-
-在这个规则中，通过流数据中的 deviceId 字段与设备数据库中的 id 进行匹配连接，并输出完整的数据。用户可以根据需要，在 `select` 语句中选择所需的字段。

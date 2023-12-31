@@ -28,4 +28,4 @@ NeuronEX 数据处理模块通过 `Simulator` 类型的数据源，可以生成�
 - **流格式**：选择 json 格式。
 - **共享**：勾选确认是否共享源。
 
-
+![source](./_assets/source_simulator.png)

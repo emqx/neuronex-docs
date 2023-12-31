@@ -120,38 +120,27 @@
 
 **示例1**
 
-```sql
-my_stream 
-  (id bigint, name string, score float)
-WITH ( datasource = "topic/temperature", FORMAT = "json", KEY = "id");
-```
+该 testStream 流将订阅 MQTT 主题`topic1`，MQTT Broker地址为`tcp://broker.emqx.io:1883`。
 
-该流将订阅 MQTT 主题`topic/temperature`，服务器连接使用配置文件`$ekuiper/etc/mqtt_source.yaml` 中默认部分的 server 键。
+![stream](./_assets/stream1.png)
+
+
 
 **示例2**
 
-```sql
-demo (
-		USERID BIGINT,
-		FIRST_NAME STRING,
-		LAST_NAME STRING,
-		NICKNAMES ARRAY(STRING),
-		Gender BOOLEAN,
-		ADDRESS STRUCT(STREET_NAME STRING, NUMBER BIGINT),
-	) WITH (DATASOURCE="test/", FORMAT="JSON", KEY="USERID", CONF_KEY="demo");
-```
+该 testStream 流将订阅 MQTT 主题`topic/a`，MQTT Broker地址为`tcp://broker.emqx.io:1883`。
+该流预先定义了数据结构，包含 `USERID`、`FIRST_NAME`、`LAST_NAME`、`NICKNAMES`、`Gender` 和 `ADDRESS` 字段。
 
-流将订阅 MQTT 主题 `test/`，服务器连接使用配置文件`$ekuiper/etc/mqtt_source.yaml` 中 demo 部分的设置。
+![stream](./_assets/stream2.png)
+
 
 **示例3**
 
-```sql
-demo () WITH (DATASOURCE="test/", FORMAT="protobuf", SCHEMAID="proto1.Book");
-```
 
-流将订阅 MQTT 主题 `test/`，使用 PROTOBUF 格式，根据在 `$ekuiper/data/schemas/protobuf/schema1.proto` 文件中的 `Book` 定义对流入的数据进行解码。其中，模式的管理详见 [模式](./config.md#模式)。
+该 testStream 流将订阅 MQTT 主题 `test/`，MQTT Broker地址为`tcp://broker.emqx.io:1883`。
+该流接收到protobuf格式的数据，并根据在 NeuronEX 中预先添加的模式文件`protobuf1`，对流入的数据进行解码。模式的管理详见 [模式](./config.md#模式)。
 
-
+![stream](./_assets/stream3.png)
 
 
 

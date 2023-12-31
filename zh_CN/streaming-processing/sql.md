@@ -43,6 +43,7 @@ NeuronEX 数据处理模块通过 `SQL` 类型的数据源，支持对接`sqlser
 ### SQL 语句模板示例
 
 - 通过单独使用`TemplateSql`配置项，获取数据库数据。
+  ![sql_source](./_assets/sql_source_stream1.png)
   
   TemplateSql输入：
   ```sql
@@ -53,13 +54,17 @@ NeuronEX 数据处理模块通过 `SQL` 类型的数据源，支持对接`sqlser
   select top 10 * from Student where id > 1010 order by id ASC
   ```
 
-- 通过`TemplateSql`配置项和`indexField`、`indexValue`组合使用，获取数据库数据。
+- 通过`TemplateSql`配置项和`indexField`、`indexFieldType`、`indexValue`组合使用，获取数据库数据。
 
-  indexField输入：`stun`
+  ![sql_source](./_assets/sql_source_stream2.png)
   
-  indexValue输入：`100`
+  indexField 输入：`stun`
+  
+  indexFieldType 输入：`INT`
 
-  TemplateSql输入：
+  indexValue 输入：`100`
+
+  TemplateSql 输入：
   ```sql
   select * from Student where stun > {{.stun}} limit 10
   ```
@@ -67,7 +72,13 @@ NeuronEX 数据处理模块通过 `SQL` 类型的数据源，支持对接`sqlser
   ```sql
   select * from Student where stun > 100 limit 10
   ```
+  ::: tip
+    该配置方式，支持对数据库中的数据进行增量查询，即每次查询时，会将上次查询的 `indexField` 最大值作为查询条件，查询出大于该值的数据。
+  :::
+
 - 通过`TemplateSql`配置项和`indexField`、`indexValue`、`indexFieldType`、`dateTimeFormat`组合使用，获取数据库数据。
+
+  ![sql_source](./_assets/sql_source_stream3.png)
 
   indexField输入：`registerTime`
   
@@ -86,6 +97,10 @@ NeuronEX 数据处理模块通过 `SQL` 类型的数据源，支持对接`sqlser
   select * from Student where registerTime > '2022-04-21 10:23:55' order by registerTime ASC limit 10
   ```
 
+  ::: tip
+    该配置方式，支持对数据库中的数据进行增量查询，即每次查询时，会将上次查询的 `indexField` 最大值作为查询条件，查询出大于该值的数据。
+  :::
+
 ## 创建扫描表
 
 请参考[创建流](#创建流)部分。
@@ -94,23 +109,14 @@ NeuronEX 数据处理模块通过 `SQL` 类型的数据源，支持对接`sqlser
 
 SQL 源支持成为一个查询表。我们可以使用创建表语句来创建一个 SQL 查询表。它将与实体关系数据库绑定并按需查询。
 
-```text
-CREATE TABLE alertTable() WITH (DATASOURCE="tableName", CONF_KEY="sqlite_config", TYPE="sql", KIND="lookup")
-```
+![sql_source_lookup](./_assets/sql_source_lookup.png)
 
-### 查询缓存
+* **cache**: bool 值，表示是否启用缓存。
+* **cacheMissingKey**：是否对空值进行缓存。
+* **cacheTtl**: 缓存的生存时间，单位是秒。
 
 查询外部数据库比在内存中计算要慢。如果吞吐量很高，可以使用查找缓存来提高性能。如果不启用查找缓存，那么所有的请求都被发送到外部数据库。当启用查找缓存时，每个查找表实例将持有一个缓存。当查询时，我们将首先查询缓存，然后再发送到外部数据库。
 
-缓存的配置在 `sql.yaml` 中。
 
-```yaml
-  lookup:
-    cache: true
-    cacheTtl: 600
-    cacheMissingKey: true
-```
 
-* cache: bool 值，表示是否启用缓存。
-* cacheTtl: 缓存的生存时间，单位是秒。
-* cacheMissingKey：是否对空值进行缓存。
+

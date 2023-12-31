@@ -85,18 +85,15 @@ id name age
 
 该文件第一行为文件头，定义了文件的列名。读取这样的文件时，配置文件如下，需要指定文件有一个头。
 
-```yaml
-csv:
-  fileType: csv
-  hasHeader: true
-```
-
 在流定义中，将流数据设置为 `DELIMITED` 格式，用 `DELIMITER` 参数指定分隔符为空格。
 
-```SQL
-create
-stream cscFileDemo () WITH (FORMAT="DELIMITED", DATASOURCE="abc.csv", TYPE="file", DELIMITER=" ", CONF_KEY="csv"
-```
+![source](./_assets/source_file3.png)
+
+通过以上命令，我们创建了一个名为 file1 的流，该流将从 abc.csv 文件中读取数据，预期分隔符为空格。
+
+::: tip 注意
+  在分隔符配置项中，需要输入空格。
+:::
 
 ### 读取多行 JSON 数据
 
@@ -108,17 +105,9 @@ stream cscFileDemo () WITH (FORMAT="DELIMITED", DATASOURCE="abc.csv", TYPE="file
 {"id": 3, "name": "John Smith"}
 ```
 
-读取这种格式的文件时，配置中的文件类型设置为 `lines`。
+读取这种格式的文件时，配置中的文件类型设置为 `lines`，流格式设置为`JSON`格式。
 
-```yaml
-jsonlines:
-  fileType: lines
-```
+![source](./_assets/source_file2.png)
 
-在流定义中，设置流数据为`JSON`格式。
-
-```SQL
-create stream linesFileDemo () WITH (FORMAT="JSON", TYPE="file", CONF_KEY="jsonlines"
-```
 
 此外，lines 文件类型可以与任何格式相结合。例如，如果你将格式设置为 protobuf，并且配置模式，它可以用来解析包含多个 Protobuf 编码行的数据。

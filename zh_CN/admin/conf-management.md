@@ -70,6 +70,7 @@ NeuronEX 支持在启动过程中读取环境变量来配置启动参数，目�
 | NEURON_DAEMON                  | 设置为1，Neuron 守护进程运行；设置为0，Neuron 正常运行                                   |
 | NEURON_CONFIG_DIR              | Neuron 配置文件目录                                                                  |
 | NEURON_PLUGIN_DIR              | Neuron 插件文件目录                                                                  |
+
 ## 配置文件
 
 NeuronEX 提供 YAML 格式文件，用于配置与 NeuronEX 相关的个性化参数。
@@ -162,3 +163,16 @@ log:
 official:
   url: https://license-test.mqttce.com
 ```
+
+## 配置文件以及 JWT Token 认证公钥持久化
+
+配置文件上面已有详细描述，正常情况下按照默认配置即可，用户无需更改配置文件。如果必须修改，则需要考虑配置文件持久化，以方便应对升级问题。
+另外一个与此类似的情况是，默认情况下 NeuronEX 对外暴露的 REST API 需要 JWT Token 认证， 签名私钥和认证公钥为 NeuronEX 系统自带。
+如果用户出于安全考虑想用自己的签名私钥和认证公钥，则需要覆盖系统自带的，同样需要考虑持久化问题以方便升级。
+
+以上提到的文件位于 NeuronEX 安装包的 etc 目录内, 如果用户采用二进制安装方式，直接进入到 NeuronEX 的安装目录修改系统自带的配置即可。在升级时，
+将 etc 目录做一下备份，等新的安装包下载好后，用备份的 etc 目录覆盖 NeuronEX 自带的 etc 目录即可。
+
+如果采用 Docker 部署的方式，则需要将本地目录映射进 NeuronEX 的 etc 目录。注意首次映射时本地目录不能为空, 必须具有 neuronex.yaml 配置文件以及
+公钥私钥文件。一个可行的办法是，首次启动 NeuronEX 时，不做 etc 目录的映射，然后进入 NeuronEX 容器内修改成自己需要的配置。然后将配置拷贝出来，在本地目录持久化，
+并将此目录再次映射进新创建的 NeuronEX 容器内。

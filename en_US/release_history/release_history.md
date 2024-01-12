@@ -10,6 +10,7 @@ Release Date： 2024-01-12
 - modify the log page
 - the new password cannot be the same as the old password
 - add filter search and pagination for north driver and north group
+- store ecp related data(liveness、syslog、password) into sqlite
 
 ## Bug Fixes
 
@@ -23,10 +24,6 @@ Release Date： 2024-01-12
 - check ekuiper liveness when setting log level
 - liveness report to ecp do not work except reboot neuronex
 
-## Breaking Changes
-
-- store ecp related data(liveness、syslog、password) into sqlite
-- Stop all rules for original install license every 1 hour.
 
 
 ## v3.1.0

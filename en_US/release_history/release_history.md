@@ -10,7 +10,7 @@ Release Date： 2024-01-12
 - Optimized the log monitoring page.
 - Implemented password change validation to ensure old and new passwords cannot be the same.
 - Added filter search and pagination for the North Apps page and North Group List page.
-- Stored ECP-related data (liveness, syslog, password) into SQLite.
+- Stored ECP related data (liveness, syslog, password) into SQLite.
 - Set the runImmediately option to true by default when creating a rule.
 
 ## Bug Fixes

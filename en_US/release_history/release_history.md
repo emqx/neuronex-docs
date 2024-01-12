@@ -1,5 +1,32 @@
 # Release history
 
+## v3.1.1
+
+Release Date： 2024-01-12
+
+## Enhancements
+
+- Added redis source
+- Optimize the log monitoring page
+- When changing the password, the old and new passwords cannot be the same
+- add filter search and pagination for north apps page and north group list page
+- store ecp related data(liveness、syslog、password) into sqlite
+- When creating a rule, the runImmediately option is set to true by default
+
+## Bug Fixes
+
+- Fixed SQL database password validation error
+- Fixed node/group display error in DataMonitoring page
+- Fixed error when creating rules while rule testing is in progress
+- Fixed hexadecimal writing data tag error
+- Fixed tls certificates validation error
+- Fixed rule exception for multiple op.
+- Fixed syslog body validate
+- Fixed ekuiper liveness check when setting log level
+- Fixed liveness report to ecp do not work except reboot neuronex
+
+
+
 ## v3.1.0
 
 Release Date： 2023-12-22

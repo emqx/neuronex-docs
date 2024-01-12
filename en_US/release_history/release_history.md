@@ -6,23 +6,24 @@ Release Date： 2024-01-12
 
 ## Enhancements
 
-- enable redis source
-- modify the log page
-- the new password cannot be the same as the old password
-- add filter search and pagination for north driver and north group
+- Added redis source
+- Optimize the log monitoring page
+- When changing the password, the old and new passwords cannot be the same
+- add filter search and pagination for north apps page and north group list page
 - store ecp related data(liveness、syslog、password) into sqlite
+- When creating a rule, the runImmediately option is set to true by default
 
 ## Bug Fixes
 
-- fix view rule to edit rule and set runImmediately is true
-- delete no node or group bug in DataMonitoring
-- set interval is disabled when set loop is false in rule test
-- fix that can't check hexadecimal data
-- fix: tls certificates are not verified .
-- fix rule exception for multiple op.
-- syslog request body validate
-- check ekuiper liveness when setting log level
-- liveness report to ecp do not work except reboot neuronex
+- Fixed SQL database password validation error
+- Fixed node/group display error in DataMonitoring page
+- Fixed error when creating rules while rule testing is in progress
+- Fixed hexadecimal writing data tag error
+- Fixed tls certificates validation error
+- Fixed rule exception for multiple op.
+- Fixed syslog body validate
+- Fixed ekuiper liveness check when setting log level
+- Fixed liveness report to ecp do not work except reboot neuronex
 
 
 

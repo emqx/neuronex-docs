@@ -1,5 +1,34 @@
 # Release history
 
+## v3.1.1
+
+Release Date： 2024-01-12
+
+## Enhancements
+
+- enable redis source
+- modify the log page
+- the new password cannot be the same as the old password
+- add filter search and pagination for north driver and north group
+
+## Bug Fixes
+
+- fix view rule to edit rule and set runImmediately is true
+- delete no node or group bug in DataMonitoring
+- set interval is disabled when set loop is false in rule test
+- fix that can't check hexadecimal data
+- fix: tls certificates are not verified .
+- fix rule exception for multiple op.
+- syslog request body validate
+- check ekuiper liveness when setting log level
+- liveness report to ecp do not work except reboot neuronex
+
+## Breaking Changes
+
+- store ecp related data(liveness、syslog、password) into sqlite
+- Stop all rules for original install license every 1 hour.
+
+
 ## v3.1.0
 
 Release Date： 2023-12-22

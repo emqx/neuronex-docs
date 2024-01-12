@@ -20,7 +20,7 @@ Release Date： 2024-01-12
 - Fixed error that occurred when creating rules while rule testing is in progress.
 - Fixed hexadecimal writing data tag error.
 - Fixed TLS certificates validation error.
-- Fixed rule exception for multiple operations.
+- Fixed rule exception for multiple operators.
 - Fixed syslog body validation.
 - Fixed eKuiper liveness check when setting log level.
 - Fixed liveness report to ECP not working except reboot NeuronEX.

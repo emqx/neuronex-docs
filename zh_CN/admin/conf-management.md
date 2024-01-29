@@ -11,6 +11,9 @@ NeuronEX 的命令行位于 `/bin/neuronex`，它提供了以下的常用选项�
 -e, --disable_auth 选择是否启用身份验证（默认为 true）
 -h, --help 运行帮助
 -m, --manage 管理 eKuiper 和 Neuron 的生命周期（默认为 true）
+-a, --ecp_address ECP MQTT Broker 连接地址
+-u, --ecp_username ECP MQTT Broker 登录用户名
+-p, --ecp_password ECP MQTT Broker 登录密码
 ```
 
 ### `run` 命令
@@ -23,6 +26,14 @@ NeuronEX 的命令行位于 `/bin/neuronex`，它提供了以下的常用选项�
 ```
 
 该命令将 NeuronEX 作为进程启动，并在终端中显示其输出。NeuronEX 不会管理 Neuron 和 eKuiper 的生命周期，也不会开启权限验证。
+
+例如：
+```sh
+./bin/neuronex run -c etc/neuronex.yaml -m false -e false -a="127.0.0.1:1883" -u="admin" -p="pass"
+```
+
+该命令使 NeuronEX 工作在 ECP Tunnel 模式，即模式支持 NeuronEX 从 ECP MQTT Broker 订阅配置信息，执行配置后，通过 MQTT 将操作结果返回。
+
 
 ### `start` 命令
 
@@ -64,12 +75,12 @@ NeuronEX 的命令行位于 `/bin/neuronex`，它提供了以下的常用选项�
 
 NeuronEX 支持在启动过程中读取环境变量来配置启动参数，目前支持的环境变量如下:
 
-| 配置名                          | 配置作用                                                                           |
-| ------------------------------ | --------------------------------------------------------------------------------- |
-| NEURONEX_DISABLE_AUTH          | 设置为 1，NeuronEX 关闭 Token 鉴权认证；设置为0，NeuronEX 开启 Token 鉴权认证                |
-| NEURON_DAEMON                  | 设置为1，Neuron 守护进程运行；设置为0，Neuron 正常运行                                   |
-| NEURON_CONFIG_DIR              | Neuron 配置文件目录                                                                  |
-| NEURON_PLUGIN_DIR              | Neuron 插件文件目录                                                                  |
+| 配置名                   | 配置作用                                                     |
+|-----------------------|----------------------------------------------------------|
+| NEURONEX_DISABLE_AUTH | 设置为 1，NeuronEX 关闭 Token 鉴权认证；设置为0，NeuronEX 开启 Token 鉴权认证 |
+| ECP_MQTT_ADDRESS      | 在 ECP Tunnel 模式下，ECP MQTT Broker 连接地址                    |
+| ECP_MQTT_USERNAME     | 在 ECP Tunnel 模式下，ECP MQTT Broker 登录用户名                   |
+| ECP_MQTT_PASSWORD     | 在 ECP Tunnel 模式下，ECP MQTT Broker 登录密码                    |
 
 ## 配置文件
 
@@ -85,7 +96,6 @@ NeuronEX 提供 YAML 格式文件，用于配置与 NeuronEX 相关的个性化�
 
 ` neuron ` 部分定义 Neuron 的版本号和反向代理配置。
 
-- ` version`：Neuron 的版本号。
 - ` reverseProxies`：Neuron 的反向代理配置列表。
   - ` location`： Neuron 的路径： Neuron 的路径。
   - ` proxyPath` ：Neuron 后端服务器的路径。
@@ -94,7 +104,6 @@ NeuronEX 提供 YAML 格式文件，用于配置与 NeuronEX 相关的个性化�
 
 ` ekuiper ` 部分定义了 eKuiper 的版本号和反向代理配置。
 
-- ` version`：eKuiper 的版本号。
 - ` reverseProxies` ：eKuiper 的反向代理配置列表。
   - ` location`：eKuiper 的路径： eKuiper 的路径。
   - ` proxyPath` ：eKuiper 后端服务器的路径。
@@ -122,6 +131,21 @@ NeuronEX 提供 YAML 格式文件，用于配置与 NeuronEX 相关的个性化�
 `offcial` 部分定义生态 license 官网服务器信息。
 
 - `url`：生态 license 官网服务器地址。
+
+### ecp_tunnel
+
+`ecp_tunnel` 部分定义 Tunnel 模式下 ECP 连接相关信息。
+
+-  `description`: NeuronEX 描述信息，NeuronEX 向 ECP 注册时，会将此信息发送给 ECP
+-  `mqtt`: NeuronEX MQTT client 相关连接信息
+   - `useSSL`: 此连接是否是 TLS/SSL 连接
+   - `addr`: ECP MQTT Broker 地址
+   - `username`: ECP MQTT Broker 认证用户名
+   - `password`: ECP MQTT Broker 认证密码
+   - `cleanSession`: 当与 ECP MQTT Broker 连接断开时，是否清除 session
+   - `maxReconnectInterval`: 当与 ECP MQTT Broker 连接断开时，最大重连时间间隔
+   - `connectTimeout`: 当与 ECP MQTT Broker 连接时，连接超时时间
+   - `verifyCertificate`: 当与ECP MQTT Broker 连接时，是否检查对方证书合法性
 
  默认配置如下
 
@@ -162,6 +186,18 @@ log:
 
 official:
   url: https://license-test.mqttce.com
+
+ecp_tunnel:
+  description: "description name for the NeuronEX instance"
+  mqtt:
+    useSSL: false
+    addr: ""
+    username: ""
+    password: ""
+    cleanSession: false
+    maxReconnectInterval: 30
+    connectTimeout: 10
+    verifyCertificate: true
 ```
 
 ## 配置文件以及 JWT Token 认证公钥持久化

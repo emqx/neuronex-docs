@@ -20,7 +20,7 @@ NeuronEX 的功能受许可证的限制，请在许可证有效期前更换合�
 
   - 用户与 EMQ 商务沟通，购买批量 NeuronEX 许可证，完成订单后，EMQ 将订单号发送到客户指定邮箱。一个订单号可包含同一规格的多个 NeuronEX 许可证，每个许可证可激活一个 NeuronEX 软件实例。
 
-  - 用户进入到[NeuronEX许可证信息查询](https://site.mqttce.com/zh/neuronex-license-info)页面,输入订单号，订单号绑定的邮箱及验证码，可以查询到当前购买的许可证订单信息以及激活码信息，保存激活码信息。
+  - 用户进入到[NeuronEX许可证信息查询](https://www.emqx.com/zh/neuronex-license-info)页面,输入订单号，订单号绑定的邮箱及验证码，可以查询到当前购买的许可证订单信息以及激活码信息，保存激活码信息。
 
     ![license-order](_assets/license-order.png)
 

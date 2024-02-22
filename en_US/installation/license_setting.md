@@ -18,7 +18,7 @@ Licenses can be installed multiple times. When you reinstall a license, the old 
 
   - Users first place an order on the EMQ website to purchase a batch of NeuronEX licenses and obtain an order number. You can also contact us.
 
-  - Users go to the [NeuronEX License Information Query](https://site.mqttce.com/en/neuronex-license-info) page, enter the order number, the email address associated with the order number, and the verification code to query the information of the current purchased license order. Save the activation code.
+  - Users go to the [NeuronEX License Information Query](https://www.emqx.com/zh/neuronex-license-info) page, enter the order number, the email address associated with the order number, and the verification code to query the information of the current purchased license order. Save the activation code.
 
     ![license-order](_assets/license-order.png)
 

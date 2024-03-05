@@ -1,10 +1,27 @@
 # Release history
 
+## v3.1.2
+
+Release Date： 2024-03-05
+
+### Enhancements
+- Data tag name length limit increased to 128 bits
+- Added support for single-point and multi-point reading and writing in Inovance Modbus TCP driver I address area
+- Inovance Modbus TCP driver modifies the default byte order and matches it with the device
+- Improve OPC UA asynchronous read and write performance
+- S7 driver supports Q/M named address input specification
+
+### Fixes
+- Fixed Mitsubishi driver of abnormal disconnection when the amount of data is large
+- Fixed 104 protocol, error 3008 problem
+- Fixed the problem of excessive dump file generation
+
+
 ## v3.1.1
 
 Release Date： 2024-01-12
 
-## Enhancements
+### Enhancements
 
 - Added Redis source.
 - Optimized the log monitoring page.
@@ -13,7 +30,7 @@ Release Date： 2024-01-12
 - Stored ECP related data (liveness, syslog, password) into SQLite.
 - Set the `runImmediately` option to `true` by default when creating a rule.
 
-## Bug Fixes
+### Bug Fixes
 
 - Fixed SQL database password validation error.
 - Fixed node/group display error in Data Monitoring page.

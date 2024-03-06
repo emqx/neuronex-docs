@@ -2,7 +2,7 @@
 
 ## v3.1.2
 
-Release Date： 2024-03-05
+Release Date： 2024-03-06
 
 ### Enhancements
 - Data tag name length limit increased to 128 bits

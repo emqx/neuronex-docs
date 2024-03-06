@@ -5,16 +5,16 @@
 Release Date： 2024-03-06
 
 ### Enhancements
-- Data tag name length limit increased to 128 bits
-- Added support for single-point and multi-point reading and writing in Inovance Modbus TCP driver I address area
-- Inovance Modbus TCP driver modifies the default byte order and matches it with the device
-- Improve OPC UA asynchronous read and write performance
-- S7 driver supports Q/M named address input specification
+- Increased the data tag name length limit to 128 bits.
+- Added support for single-point and multi-point reading and writing in the Inovance Modbus TCP driver's I address area.
+- Modified the default byte order in the Inovance Modbus TCP driver to match with the device.
+- Enhanced OPC UA asynchronous read and write performance.
+- Added support for Q/M named address input specification in the S7 driver.
 
 ### Fixes
-- Fixed Mitsubishi driver of abnormal disconnection when the amount of data is large
-- Fixed 104 protocol, error 3008 problem
-- Fixed the problem of excessive dump file generation
+- Fixed abnormal disconnection issue in the Mitsubishi driver when handling large amounts of data.
+- Fixed error 3008 in the 104 protocol.
+- Addressed the problem of excessive dump file generation.
 
 
 ## v3.1.1

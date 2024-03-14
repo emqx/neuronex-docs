@@ -10,91 +10,38 @@ The sink will write the result to the database.
 
 | Property name  | Optional | Description                                                                                                                                                   |
 |----------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| url            | false    | The url of the target database                                                                                                                                |
-| table          | false    | The table name of the result                                                                                                                                  |
-| fields         | true     | The fields to be inserted to. The result map and the database should both have these fields. If not specified, all fields in the result map will be inserted. |
-| tableDataField | true     | Write the nested values of the tableDataField into database.                                                                                                  |
-| rowkindField   | true     | Specify which field represents the action like insert or update. If not specified, all rows are default to insert.                                            |
+| Server Address            | false    | The url of the target database                                                                                                                                |
+| Table Name         | false    | The table name of the database                                                                                                                                  |
+| Tag Fields         | true     | The fields to be inserted to. The result map and the database should both have these fields. If not specified, all fields in the result map will be inserted. |
 
 Other common sink properties are supported. Please refer to the [sink common properties](../overview.md#common-properties) for more information.
 
-## Sample usage
+## Database Connection Address
 
-Below is a sample for using sql to get the target data and set to mysql database
+Database connection address reference:
 
-```json
-{
-  "id": "rule",
-  "sql": "SELECT stuno as id, stuName as name, format_time(entry_data,\"YYYY-MM-dd HH:mm:ss\") as registerTime FROM SqlServerStream",
-  "actions": [
-    {
-      "log": {
-      },
-      "sql": {
-        "url": "mysql://user:test@140.210.204.147/user?parseTime=true",
-        "table": "test",
-        "fields": ["id","name","registerTime"]
-      }
-    }
-  ]
-}
-```
+| database   | url sample                                            |
+| ---------- | ----------------------------------------------------- |
+| mysql      | mysql://username:password@127.0.0.1:3306/testdb |
+| sql server | sqlserver://username:password@127.0.0.1:1433/testdb  |
+| postgres   | postgres://username:password@127.0.0.1:5432/testdb             |
+| oracle     | oracle://username:password@127.0.0.1:1521/testdb               |
+| sqlite     | sqlite:/tmp/test.db                             |
 
-Write values of tableDataField into database:
+## Sample 
 
-The following configuration will write telemetry field's values into database
+The following is an example of writing device data collected by the data collection module into a MySQL database.
 
-```json
-{
-  "telemetry": [{
-    "temperature": 32.32,
-    "humidity": 80.8,
-    "ts": 1388082430
-  },{
-    "temperature": 34.32,
-    "humidity": 81.8,
-    "ts": 1388082440
-  }]
-}
-```
+* Filter the points that need to be stored in MySQL in the SQL editor: `deviceid`, `devicename`, `temp`
 
-```json lines
-{
-  "id": "rule",
-  "sql": "SELECT telemetry FROM dataStream",
-  "actions": [
-    {
-      "log": {
-      },
-      "sql": {
-        "url": "mysql://user:test@140.210.204.147/user?parseTime=true",
-        "table": "test",
-        "fields": ["temperature","humidity"],
-        "tableDataField":  "telemetry",
-      }
-    }
-  ]
-}
-```
+<img src="../_assets/sql_sink_example1.png" alt="sql_sink_example1" style="zoom:100%;" />
 
-### Update Sample
+* Add SQL Sink action
+   * Click the `Test Connection` button to test the database connection status
+   * Write `deviceid`, `devicename`, `temp` data into table `table1` of MySQL database `test`.
 
-By specifying the `rowkindField` and `keyField`, the sink can generate insert, update or delete statement against the primary key.
+<img src="../_assets/sql_sink_example2.png" alt="sql_sink_example2" style="zoom:100%;" />
 
-```json
-{
-  "id": "ruleUpdateAlert",
-  "sql":"SELECT * FROM alertStream",
-  "actions":[
-    {
-      "sql": {
-        "url": "sqlite://test.db",
-        "keyField": "id",
-        "rowkindField": "action",
-        "table": "alertTable",
-        "sendSingle": true
-      }
-    }
-  ]
-}
-```
+::: tip 
+   Table `table1` needs to be created in advance in the MySQL database, and fields with the same column names `deviceid`, `devicename`, and `temp` exist, and the data types must be consistent.
+:::

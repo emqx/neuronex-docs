@@ -1,5 +1,49 @@
 # Release history
 
+## v3.1.2
+
+Release Date： 2024-03-06
+
+### Enhancements
+- Increased the data tag name length limit to 128 bits.
+- Added support for single-point and multi-point reading and writing in the Inovance Modbus TCP driver's I address area.
+- Modified the default byte order in the Inovance Modbus TCP driver to match with the device.
+- Enhanced OPC UA asynchronous read and write performance.
+- Added support for Q/M named address input specification in the S7 driver.
+
+### Fixes
+- Fixed abnormal disconnection issue in the Mitsubishi driver when handling large amounts of data.
+- Fixed error 3008 in the 104 protocol.
+- Addressed the problem of excessive dump file generation.
+
+
+## v3.1.1
+
+Release Date： 2024-01-12
+
+### Enhancements
+
+- Added Redis source.
+- Optimized the log monitoring page.
+- Implemented password change validation to ensure old and new passwords cannot be the same.
+- Added filter search and pagination for the North Apps page and North Group List page.
+- Stored ECP related data (liveness, syslog, password) into SQLite.
+- Set the `runImmediately` option to `true` by default when creating a rule.
+
+### Bug Fixes
+
+- Fixed SQL database password validation error.
+- Fixed node/group display error in Data Monitoring page.
+- Fixed error that occurred when creating rules while rule testing is in progress.
+- Fixed hexadecimal writing data tag error.
+- Fixed TLS certificates validation error.
+- Fixed rule exception for multiple operators.
+- Fixed syslog body validation.
+- Fixed eKuiper liveness check when setting log level.
+- Fixed liveness report to ECP not working except reboot NeuronEX.
+
+
+
 ## v3.1.0
 
 Release Date： 2023-12-22

@@ -48,6 +48,7 @@ This document describes the error codes that the data collection function will r
 * 2105    Group parameters are invalid
 * 2106    Group does not exist
 * 2107    Group name is too long
+* 2108    Group exceeds the maximum number under one node
 
 * 2201    Tag does not exist
 * 2202    Tag name conflict
@@ -68,6 +69,15 @@ This document describes the error codes that the data collection function will r
 * 2306    System library is not allowed to be deleted
 * 2307    Plugin is not allowed to be instantiated
 * 2308    Plugin does not support this architecture
+* 2309    Plugin in using
+* 2310    Plugin add failed
+* 2311    Plugin already exit
+* 2312    Plugin not exist
+* 2313    Plugin type no support
+* 2314    Plugin version not match with core
+* 2315    Plugin name error
+* 2316    Plugin not match with c lib
+* 2317    Plugin update failed
 
 * 2400    License not found
 * 2401    License is invalid
@@ -78,6 +88,7 @@ This document describes the error codes that the data collection function will r
 * 2406    Hardware does not match the license
 * 2407    License detects an abnormal clock
 * 2408    License module is invalid
+* 2409    License hardware token not found
 
 * 2500    Template already exists
 * 2501    Template does not exist
@@ -101,6 +112,7 @@ This document describes the error codes that the data collection function will r
 * 3015    Plugin device is not responding
 * 3016    Plugin does not support template
 * 3017    Plugin does not support writing points
+* 3018    Plugin does not support synchronous reading
 
 ## FILE error codes
 

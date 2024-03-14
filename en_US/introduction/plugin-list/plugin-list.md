@@ -35,6 +35,7 @@ For specific instructions on replacing and updating plugins, please contact the 
 | Modbus RTU              | Serial port    |  - |
 | Modbus RTU over TCP     | Ethernet  |  - |
 | OPC UA                  | Ethernet  |  - |
+| OPC DA                  | Ethernet  |  - |
 | CIP Ethernet/IP         | Ethernet  | - |
 | Profinet IO             | Ethernet  |  - |
 | SECS GEM HSMS         | Ethernet  |  Semiconductor Industry Protocol |
@@ -65,6 +66,8 @@ For specific instructions on replacing and updating plugins, please contact the 
 | Keyence MC Protocol                                          | Ethernet  |  Mitsubishi MC Protocol |
 | Delta Modbus TCP                             | Ethernet    |   connect to Delta DVP series、AS series PLC |
 | KUKA Ethernet KRL TCP                        | Ethernet    |  connect to Kuka Device|
+| GE SRTP                      | Ethernet    |  Access GE PLC devices that support SRTP protocol through TCP protocol. |
+
 
 
 ### electricity
@@ -98,7 +101,7 @@ For specific instructions on replacing and updating plugins, please contact the 
 | MQTT                   | -  | 
 | MQTT Sparkplug B       | -  | 
 | Websocket              | -  | 
-
+| eKuiper               | push data to data processing module  |
 
 
 

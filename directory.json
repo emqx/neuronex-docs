@@ -30,7 +30,7 @@
       "children": [
         {
           "title": "使用 .tar.gz 包安装",
-          "path": "installation/tar.gz"
+          "path": "installation/targz"
         },
         {
           "title": "使用 rpm 包安装",
@@ -902,7 +902,7 @@
       "children": [
         {
           "title": "Installation with .tar.gz Package",
-          "path": "installation/tar.gz"
+          "path": "installation/targz"
         },
         {
           "title": "Installation with rpm Package",

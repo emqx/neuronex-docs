@@ -263,6 +263,18 @@
               ]
             },
             {
+              "title": "Siemens MPI",
+              "path": "configuration/south-devices/siemens-mpi/mpi",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/siemens-mpi/mpi.md",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Siemens S7300 PLC 连接示例",
+                  "path": "configuration/south-devices/siemens-mpi/s7300",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/siemens-mpi/s7300.md"
+                }]
+            },
+            {
               "title": "Siemens S5 FetchWrite",
               "path": "configuration/south-devices/siemens-fetchwrite/fetchwrite",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/siemens-fetchwrite/fetchwrite.md"
@@ -453,6 +465,16 @@
               "title": "GE SRTP",
               "path": "configuration/south-devices/srtp/srtp",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/srtp/srtp.md"
+            },
+            {
+              "title": "HEIDENHAIN CNC",
+              "path": "configuration/south-devices/heidenhain-cnc/heidenhain-cnc",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/heidenhain-cnc/heidenhain-cnc.md"
+            },
+            {
+              "title": "MTConnect",
+              "path": "configuration/south-devices/mtconnect/mtconnect",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/mtconnect/mtconnect.md"
             }
           ]
         },
@@ -1292,6 +1314,21 @@
               "title": "KUKA Ethernet KRL TCP",
               "path": "configuration/south-devices/kuka/kuka",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/kuka/kuka.md"
+            },
+            {
+              "title": "GE SRTP",
+              "path": "configuration/south-devices/srtp/srtp",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/srtp/srtp.md"
+            },
+            {
+              "title": "HEIDENHAIN CNC",
+              "path": "configuration/south-devices/heidenhain-cnc/heidenhain-cnc",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/heidenhain-cnc/heidenhain-cnc.md"
+            },
+            {
+              "title": "MTConnect",
+              "path": "configuration/south-devices/mtconnect/mtconnect",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/mtconnect/mtconnect.md"
             }
           ]
         },

@@ -41,6 +41,8 @@ Release Date： 2024-03-18
 - ci: rename python and slim for neuronex docker image
 - do not remove service id when modified config
 - API use neuron api err code rather than transfer.
+- adapt the style of custom logo
+- adapt error code '13005'
 
 ### Breaking Changes
 
@@ -49,8 +51,6 @@ Release Date： 2024-03-18
 - Operational audit record push
 - add body check about monitor post api .
 - fix alert metric config request body error
-- adapt the style of custom logo
-- adapt error code '13005'
 - fix int type passing string value
 - fix Boolean type value loading issue
 - modify 'sql.json' file

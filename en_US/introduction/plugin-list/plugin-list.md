@@ -46,6 +46,7 @@ For specific instructions on replacing and updating plugins, please contact the 
 | ------------------------------------------------------------ | ------ | ---- |
 | Siemens S7 ISO TCP                                          | Ethernet    | connect to Siemens S200、S200smart、S1200、S1500 PLC |
 | Siemens S7 ISOTCP for 300/400 | Ethernet  | s7-300/400 |
+| Siemens MPI | Serial port  | Connect to devices that support Siemens MPI protocol |
 | Siemens S5 FetchWrite | Ethernet  | connect to Siemens PLCs with network expansion module CP443 |
 | Allen-Bradley DF1          | Serial port  |  - |
 | Allen-Bradley CIP EtherNet/IP                       | Ethernet    |  - |
@@ -65,8 +66,9 @@ For specific instructions on replacing and updating plugins, please contact the 
 | Keyence CIP Ethernet/IP                                      | Ethernet  |  - |
 | Keyence MC Protocol                                          | Ethernet  |  Mitsubishi MC Protocol |
 | Delta Modbus TCP                             | Ethernet    |   connect to Delta DVP series、AS series PLC |
-| KUKA Ethernet KRL TCP                        | Ethernet    |  connect to Kuka Device|
+| KUKA Ethernet KRL TCP                        | Ethernet    |  connect to Kuka Devices|
 | GE SRTP                      | Ethernet    |  Access GE PLC devices that support SRTP protocol through TCP protocol. |
+| MTConnect                      | Ethernet    |  Access devices installed with MTConnect Agent through the HTTP protocol. |
 
 
 
@@ -91,7 +93,8 @@ For specific instructions on replacing and updating plugins, please contact the 
 | Protocol Name        |  <div style="width:100pt">Communication Interface</div>        | Remark      |
 | ------------- | ------- | ----- | 
 |  Fanuc Focas Ethernet  | Ethernet    |    connect to Fanuc 0i, 30i, 31i, 32i and 35i series CNC        |
-| Mitsubishi CNC    | Ethernet    |       | connect to M70、M80、M700、M800、E70 series CNC |
+| Mitsubishi CNC    | Ethernet    |     connect to M70、M80、M700、M800、E70 series CNC |
+| Heidenhain CNC    | Ethernet    |     connect to Heidenhain TNC640, iTNC530 and others through the LSV2 protocol |
 
 ## Northbound plugins
 

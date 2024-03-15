@@ -46,6 +46,7 @@
 | ------------------------------------------------------------ | ------ | ---- |
 | Siemens S7 ISO TCP                                          | 以太网    | 连接西门子 S200、S200smart、S1200、S1500 型号的 PLC |
 | Siemens S7 ISOTCP for 300/400 | 以太网  | s7-300/400 |
+| Siemens MPI | 串口  | 连接支持西门子 MPI 接口的通信协议的设备 |
 | Siemens S5 FetchWrite | 以太网  | 用于带有网络扩展模块 CP443 的西门子 PLC 的访问 |
 | Allen-Bradley DF1          | 串口  |  - |
 | Allen-Bradley CIP EtherNet/IP                       | 以太网    |  CIP – 通用工业协议 |
@@ -68,6 +69,7 @@
 | Delta Modbus TCP                             | 以太网    |  对接台达DVP系列、AS系列PLC |
 | KUKA Ethernet KRL TCP                        | 以太网    |  对接库卡设备 |
 | GE SRTP                      | 以太网    |  通过 TCP 协议访问支持 SRTP 协议的 GE PLC 设备。 |
+| MTconnect                      | 以太网    |  通过 HTTP 协议访问安装有 MTConnect Agent 的设备。 |
 
 
 ### 电力
@@ -91,7 +93,8 @@
 | 协议名称       |  <div style="width:60pt">接口类型</div>        | 备注      |
 | ------------- | ------- | ----- | 
 |  Fanuc Focas Ethernet  | 以太网    |    连接Fanuc 0i, 30i, 31i, 32i and 35i系列CNC设备        |
-| Mitsubishi CNC    | 以太网    |       | 连接M70、M80、M700、M800、E70等系列CNC设备 |
+| Mitsubishi CNC    | 以太网    |   连接M70、M80、M700、M800、E70等系列CNC设备 |
+| 海德汉 CNC    | 以太网    |   通过 LSV2 协议访问海德汉 TNC640, iTNC530 等系列设备 |
 
 ### 其他
 

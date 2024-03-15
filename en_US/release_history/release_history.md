@@ -6,12 +6,12 @@ Release Date： 2024-03-18
 
 ### Enhancements
 
-- add PR template
+- ~~add PR template~~
 - Support for OAuth 2.0 Single Sign-On (SSO)
 - Uploaded license without data processing same as original installation license.
 - support tunnel mqtt payload split
-- build_static_neuronex in makefile
-- remove unused mock files
+- ~~build_static_neuronex in makefile~~
+- ~~remove unused mock files~~
 - fix: discard db trace log
 - adapt rules tip for license with test use of data processing
 - refactor add south node page
@@ -20,7 +20,7 @@ Release Date： 2024-03-18
 - support import and export south devices
 - support uploading ca certificate for mqtt sink
 - system configuration supports agent function
-- support OAuth 2.0 single sign-on
+- ~~support OAuth 2.0 single sign-on~~ # duplicated
 - provides downloads of portable sample
 - support external service
 

@@ -29,6 +29,4 @@
 
 在插件页面，点击每个插件卡片上的**替换插件**按钮，上传本地的插件 .so 文件和 .json 文件。
 
-![plugin-options](./_assets/plugin_update.png)
-
 具体的插件替换更新，请联系[EMQ商务](https://www.emqx.com/zh/contact?product=neuronex)团队。

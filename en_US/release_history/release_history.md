@@ -1,5 +1,47 @@
 # Release history
 
+## v3.2.0
+
+Release Date： 2024-03-18
+
+### Enhancements
+
+- Added MTConnect southbound driver.
+- Added Siemens MPI southbound driver.
+- Added Heidenhain CNC southbound driver.
+- Added import and export functionality for southbound driver.
+- Added data processing Kafka Sink.
+- Added support for calling third-party AI algorithm services.
+- Added southbound driver replication.
+- Added Single Sign-On (SSO) support.
+- Added agent connection to ECP platform.
+- Added support for `Array` type in OPCUA driver.
+- Optimized asynchronous read/write performance in OPCUA driver.
+- Inovance Modbus TCP driver supports AM series and AC series medium-sized PLCs.
+- Added function features to Focas driver.
+- Added support for `wstring` type in S7 driver.
+- Enhanced data collection plugin update, replacement, and deletion functionality.
+- MQTT, SQL, Kafka Source/Sink support for connection testing.
+- Source and Sink configurations support direct import of certificate files.
+- Redesigned and optimized UI pages.
+- Optimized southbound driver creation page.
+- Optimized rule debugging page.
+- Optimized data statistics page for drivers and rules.
+- Optimized data processing Sink configuration page.
+- Enhanced search and query functionality for multiple UI pages.
+- UI supports downloading portable plugin examples.
+- Optimized Dump file generation.
+- Adjusted built-in license functionality; data processing functionality is available, but rules will stop after 60 minutes.
+- Changed docker installation package naming convention; `neuronex:latest` and `neuronex:3.2.0` - standard installation packages include Python basic environment, while `neuronex:3.2.0-slim` lightweight version does not include Python environment.
+- Removed southbound driver template functionality.
+
+### Fixes
+
+- Fixed an issue where the default timeout for Mitsubishi drivers was too short, causing abnormal disconnection when the data volume was large.
+- Fixed an issue where the .so file and .json file did not match when uploading plugins.
+- Fixed an issue where the connection status of Mitsubishi PLC 3E was inaccurate.
+- Fixed an issue where spaces and carriage returns were transmitted to the backend in rule debugging data templates.
+
 ## v3.1.2
 
 Release Date： 2024-03-06

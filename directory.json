@@ -570,7 +570,7 @@
       ]
     },
     {
-      "title": "数据流处理",
+      "title": "数据处理",
       "path": "streaming-processing/overview",
       "collapsed": true,
       "children": [
@@ -632,6 +632,10 @@
             {
               "title": "Simulator",
               "path": "streaming-processing/simulator"
+            },
+            {
+              "title": "Redis",
+              "path": "streaming-processing/redis"
             }
           ]
         },
@@ -908,7 +912,7 @@
           "path": "introduction/plugin-list/plugin-list"
         },
         {
-          "title": "Licensing Policy",
+          "title": "License Policy",
           "path": "introduction/license/license-policy"
         }
       ]
@@ -1333,7 +1337,7 @@
           ]
         },
         {
-          "title": "Connecting Southbound Equipment",
+          "title": "Connecting Southbound Device",
           "path": "configuration/groups-tags/groups-tags",
           "collapsed": true,
           "children": [
@@ -1422,7 +1426,7 @@
           "path": "configuration/subscription"
         },
         {
-          "title": "Managing Plug-in Modules",
+          "title": "Managing Plugins ",
           "path": "configuration/ecp_edge_plugin"
         },
         {
@@ -1494,6 +1498,10 @@
             {
               "title": "Simulator",
               "path": "streaming-processing/simulator"
+            },
+            {
+              "title": "Redis",
+              "path": "streaming-processing/redis"
             }
           ]
         },

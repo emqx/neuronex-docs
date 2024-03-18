@@ -1,6 +1,6 @@
 # 函数
 
-数据流处理功能具有许多内置函数，可以对数据执行计算。
+数据处理功能具有许多内置函数，可以对数据执行计算。
 
 - [聚合函数](./aggregate_functions.md)
 - [数学函数](./mathematical_functions.md)

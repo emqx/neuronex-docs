@@ -25,6 +25,7 @@ With a streaming data source, any new data is appended to the current stream for
 | [SQL](./sql.md)         | Query data from the database                            | ✅      | ✅|
 | [File](./file.md)           | Read data from a file                            | ✅    | ❌    |
 | [Video](./video.md)         | Query data from video stream                      | ✅   | ❌    |
+| [Redis](./redis.md)         | Read data from Redis                     |  ❌   |  ✅   |
 
 ## Create table
 

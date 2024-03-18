@@ -13,8 +13,8 @@ NeuronEX 是一个实时异步处理的服务器，充分利用边缘的低延�
 ### 大规模并发
 NeuronEX 可以同时与不同的工业设备建立连接。得益于解耦的模块化架构设计，可以单独运行每个连接。并发连接的数量取决于硬件资源。
 
-### 便携式部署
-NeuronEX 数据采集功能具有非常低的内存占用，启动时内存占用不到 10M，适合在低配置架构设备上运行，如 X86、ARM 和 RISC-V 等。NeuronEX 还支持 Docker 容器化部署，以及在 Kubernetes 环境中运行。
+### 灵活部署
+NeuronEX 具有非常低的内存占用，启动时内存占用不到 100M，适合在低配置架构设备上运行，如 X86、ARM 和 RISC-V 等。NeuronEX 还支持 Docker 容器化部署，以及在 Kubernetes 环境中运行。
 
 ### 更好的集成
 NeuronEX 支持与工业互联网平台、公有云平台、第三方应用的无缝集成。 NeuronEX 可以通过 MQTT、SparkPlugB、API等各种方式连接私有云、EMQX Cloud、AWS、Microsoft Azure 或本地服务器，将实时工业数据直接无缝地流向工业应用，如 MES、ERP、大数据、分析软件等等，实现各类复杂的数据处理和存储场景。

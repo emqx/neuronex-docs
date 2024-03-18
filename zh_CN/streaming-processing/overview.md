@@ -1,10 +1,10 @@
-# 数据流处理
+# 数据处理
 
-NeuronEX 内置了数据流处理引擎，提高数据处理的实时性，降低边云通信成本，为工业场景提供低延迟的数据接入管理及智能分析服务。
+NeuronEX 内置了数据处理引擎，提高数据处理的实时性，降低边云通信成本，为工业场景提供低延迟的数据接入管理及智能分析服务。
 
 ## 架构
 
-NeuronEX 数据流处理模块的架构如下：
+NeuronEX 数据处理模块的架构如下：
 
 ![arch](./_assets/arch.png)
 
@@ -61,19 +61,20 @@ NeuronEX 数据流处理模块的架构如下：
 
 目前 NeuronEX 内置以下数据源：
 
-- [Neuron](./neuron.md): 从 NeuronEX 数采模块读取数据，可以作为流、扫描表的数据源；
-- [MQTT](./mqtt.md)：从 MQTT 主题读取数据，可以作为流、扫描表的数据源；
-- [HTTP pull](./http_pull.md)：从 HTTP 服务器中拉取数据，可以作为流、扫描表的数据源；
-- [HTTP push](./http_push.md)：通过 NeuronEX 内置的HTTP Server源接收 HTTP 客户端消息，可以作为流、扫描表的数据源；
-- [内存](./memory.md)：从内存主题读取数据以形成规则流水线，可以作为流、扫描表和查询表的数据源；
-- [SQL](./sql.md)：从 `sqlserver\postgres\mysql\sqlite3\oracle`` 数据库中获取数据；
-- [文件](./file.md)：从文件中读取数据，通常用作表格，可以作为流、扫描表的数据源；
-- [Video](./video.md)：从视频流中获取数据，可以作为流、扫描表的数据源。
-- [Simulator](./simulator.md)：内置模拟数据源，用来模拟数据以及调试。
+- [Neuron](./neuron.md): 从 NeuronEX 数采模块读取数据；
+- [MQTT](./mqtt.md)：从 MQTT 主题读取数据；
+- [HTTP pull](./http_pull.md)：从 HTTP 服务器中拉取数据；
+- [HTTP push](./http_push.md)：通过 NeuronEX 内置的HTTP Server源接收 HTTP 客户端消息；
+- [内存](./memory.md)：从内存主题读取数据以形成规则流水线；
+- [SQL](./sql.md)：从 `sqlserver\postgresql\mysql\sqlite3\oracle` 数据库中获取数据；
+- [文件](./file.md)：从文件中读取数据；
+- [Video](./video.md)：从视频流中获取数据；
+- [Simulator](./simulator.md)：内置模拟数据源，用来模拟数据以及调试；
+- [Redis](./redis.md)：从 Redis 读取数据。
 
 ### [规则(Rule)](./rules.md)
 
-规则代表了一个数据流处理流程，定义了从数据源输入、到各种处理逻辑，再到将数据输出到动作(Sink)。
+规则代表了一个数据处理流程，定义了从数据源输入、到各种处理逻辑，再到将数据输出到动作(Sink)。
 
 - **规则生命周期**：规则一旦启动就会连续运行，只有在用户明确发送停止命令时才会停止。规则可能会因为错误或 NeuronEX 实例退出而异常停止。
 

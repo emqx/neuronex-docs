@@ -24,6 +24,7 @@ Currently NeuronEX has the following built-in data source types and the loading 
 | [File](./file.md)           | Read data from a file                           | ✅    | ✅    | ❌    |
 | [Video](./video.md)         | Query data from video stream                        | ✅    | ✅   | ❌    |
 | [Simulator](./simulator.md)         | Generate simulated data for testing                       | ✅    | ✅   | ❌    |
+| [Redis](./redis.md)         | Read data from Redis                     | ❌    | ❌   |  ✅   |
 
 ## Define and run
 

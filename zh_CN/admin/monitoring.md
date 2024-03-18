@@ -6,15 +6,15 @@
 
 ![data-monitoring](./_assets/data-monitoring.png)
 
-* 南向设备：选择想要查看的南向设备，例如，选择已创建的设备 modbus-tcp-1;
-* 组名称：选择想要查看的南向设备下的组，例如，选择已创建的组 group-1；
+* 南向设备：选择想要查看的南向设备，例如，选择已创建的设备 modbus-tcp;
+* 组名称：选择想要查看的南向设备下的组，例如，选择已创建的组 group1；
 * 数据监控以组为单位显示数值，页面将会展示读取到的组内每个标签的值。
 
 ## 反控设备
 
 NeuronEX 提供通过南向驱动向设备下发指令控制的能力。通过以下各种途径可以向设备发出指令:
 
-- NeuronEX 的数据流处理模块
+- NeuronEX 的[数据处理模块](../streaming-processing/sink/neuron.md)
 - 其他第三方应用程序
 - 工业互联网平台
 - 云平台应用
@@ -22,7 +22,7 @@ NeuronEX 提供通过南向驱动向设备下发指令控制的能力。通过�
 向设备发送命令有三种方式：
 - 用户可以在[仪表板监控屏幕](#监控仪表盘数据写入)上发出命令。
 - 通过 [RESTful APIs](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html#tag/rw) 传递命令。
-- 通过NeuronEX 的MQTT 数据下行通道。任何外部系统，如基于云的平台，都可以将指令数据发布到特定MQTT主题，NeuronEX 接收到指令数据并发送到设备。
+- 通过 NeuronEX 的 [MQTT 数据下行通道](../configuration/north-apps/mqtt/api.md)。任何外部系统，如基于云的平台，都可以将指令数据发布到指定的 MQTT 主题，NeuronEX 接收到指令数据并发送到设备。
 
 ### 监控仪表盘数据写入
 

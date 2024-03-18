@@ -5,7 +5,7 @@
 NeuronEX 数据处理模块通过 `Neuron` 类型的数据源，可以接收来自 NeuronEX 数采模块的数据并通过规则处理分析。
 
 
-在 NeuronEX **数据流处理** -> **源管理**，在**流管理**页签下，NeuronEX 已经默认配置的 `Neuron` 类型的数据源 neuronStream。
+在 NeuronEX **数据处理** -> **源管理**，在**流管理**页签下，NeuronEX 已经默认配置的 `Neuron` 类型的数据源 neuronStream。
 
 <img src="./_assets/source_neuronStream.png" alt="neuronstream" style="zoom:100%;" />
 
@@ -16,7 +16,7 @@ NeuronEX 数据处理模块通过 `Neuron` 类型的数据源，可以接收来�
 <img src="./_assets/neuron_dataprocessing.png" alt="dataprocessing" style="zoom:100%;" />
 
 
-然后，用户可直接在 **数据流处理** -> **规则** -> **新建规则** 里，选择 `neuronStream` 作为数据源，进行规则的创建。
+然后，用户可直接在 **数据处理** -> **规则** -> **新建规则** 里，选择 `neuronStream` 作为数据源，进行规则的创建。
 ```sql
 
 SELECT * FROM neuronStream
@@ -44,7 +44,7 @@ SELECT * FROM neuronStream
 
 ## 创建流
 
-创建 `Neuron` 类型的流。登录 NeuronEX，点击**数据流处理** -> **源管理**。在**流管理**页签，点击**创建流**。
+创建 `Neuron` 类型的流。登录 NeuronEX，点击**数据处理** -> **源管理**。在**流管理**页签，点击**创建流**。
 
 在弹出的**源管理** / **创建**页面，进入如下配置：
 
@@ -64,7 +64,7 @@ SELECT * FROM neuronStream
 
 ## 创建扫描表
 
-创建 `Neuron` 类型的扫描表。登录 NeuronEX，点击**数据流处理** -> **源管理**。在**扫描表**页签，点击**创建扫描表**。
+创建 `Neuron` 类型的扫描表。登录 NeuronEX，点击**数据处理** -> **源管理**。在**扫描表**页签，点击**创建扫描表**。
 
 - **表名称**：输入表名称
 - **是否为带结构的表**：默认不勾选即可

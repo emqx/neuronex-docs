@@ -1,10 +1,10 @@
 # Data processing
 
-NeuronEX has a built-in data stream processing engine to improve the real-time performance of data processing, reduce edge-cloud communication costs, and provide low-latency data access management and intelligent analysis services for industrial scenarios.
+NeuronEX has a built-in data processing engine to improve the real-time performance of data processing, reduce edge-cloud communication costs, and provide low-latency data access management and intelligent analysis services for industrial scenarios.
 
 ## Architecture
 
-The architecture of the NeuronEX data stream processing module is as follows:
+The architecture of the NeuronEX data processing module is as follows:
 
 ![arch](./_assets/arch.png)
 
@@ -22,10 +22,10 @@ It provides low-latency data processing and analysis, which can transfer data be
 
 ### AI/ML integration
 
-Custom functions, AI/ML algorithms, etc. can be accessed through Python or Go extensions to achieve expansion in the three aspects of source (Source), function (Function), and action (Sink).
+Custom functions, AI/ML algorithms, etc. can be accessed through Python or Go extensions to achieve expansion in the three aspects of `Source`, `Function`, and `Sink`.
 - [Source](./source.md): allows users to access more data sources for data analysis
-- [Sink](./sink/sink.md): allows users to send analysis results to different extension systems
 - [Function](./extension.md): Allows users to add custom functions for data analysis (for example, AI/ML function calls)
+- [Sink](./sink/sink.md): allows users to send analysis results to different extension systems
 
 ### Multi-source data access integration
 It has the ability to flexibly acquire various types of data and can support:
@@ -49,11 +49,11 @@ It has the ability to flexibly acquire various types of data and can support:
 
 - [Stream](./stream.md): Stream is the main operation mode of data source access in NeuronEX. Users can define how to connect to external resources by selecting the data source type and configuration parameters. Whenever data flows into the data stream, calculations in the rules will be triggered.
 
-- [Table](./tables.md): Table (**Table**) is used to represent the current status of the stream. It can be thought of as a snapshot of a stream where you can batch process data through a table. By combining **stream** and **table** in rules, more data processing functions can be achieved.
+- [Table](./tables.md): Table is used to represent the current status of the stream. It can be thought of as a snapshot of a stream where you can batch process data through a table. By combining **stream** and **table** in rules, more data processing functions can be achieved.
 
    - [Scan Table](./scan.md): In NeuronEX save state data in memory like an event-driven stream, loading data events one by one.
 
-   - [Lookup table](./lookup.md): Bind external data (such as data in a SQL database) and query and reference external data when needed.
+   - [Lookup Table](./lookup.md): Bind external data (such as data in a SQL database) and query and reference external data when needed.
 
 - **Decoding of source**: Users can define the decoding method by specifying the `format` attribute when creating the source. Currently `json`, `binary`, `protobuf` and `delimited` formats are supported. You can also use your own encoding format and define the field as `custom`.
 
@@ -61,14 +61,16 @@ It has the ability to flexibly acquire various types of data and can support:
 
 Currently NeuronEX has the following built-in data sources:
 
-- [Neuron](./neuron.md): Read data from the NeuronEX data collection module, which can be used as a data source for streams and scan tables;
-- [MQTT](./mqtt.md): Read data from the MQTT topic and can be used as a data source for streams and scan tables;
-- [HTTP pull](./http_pull.md): Pulls data from the HTTP server and can be used as a data source for streams and scan tables;
-- [HTTP push](./http_push.md): Receive HTTP client messages through the built-in HTTP Server source of NeuronEX, which can be used as a data source for streams and scan tables;
-- [Memory](./memory.md): Read data from the memory topic to form a rule pipeline, which can be used as a data source for streams, scan tables and lookup tables;
-- [SQL](./sql.md): Get data from `sqlserver\postgres\mysql\sqlite3\oracle`` database;
-- [File](./file.md): Read data from a file, usually used as a table, and can be used as a data source for streams and scan tables;
-- [Video](./video.md): Obtain data from the video stream and can be used as a data source for streams and scan tables.
+- [Neuron](./neuron.md): Read data from the NeuronEX data collection module.
+- [MQTT](./mqtt.md): Read data from the MQTT topic.
+- [HTTP pull](./http_pull.md): Pulls data from the HTTP server.
+- [HTTP push](./http_push.md): Receive HTTP client messages through the built-in HTTP Server.
+- [Memory](./memory.md): Read data from the memory topic to form a rule pipeline.
+- [SQL](./sql.md): Get data from `sqlserver\postgres\mysql\sqlite3\oracle` database.
+- [File](./file.md): Read data from a file.
+- [Video](./video.md): Obtain data from the video stream.
+- [Simulator](./simulator.md): built-in simulation data source for simulating data and debugging.
+- [Redis](./redis.md): Obtain data from Redis.
 
 ### [Rule](./rules.md)
 

@@ -32,20 +32,20 @@ NeuronEX provides two types of Docker installation packages:
 
 - **neuronex:3.x.x**
 
-The installation package of type neuronex:3.x.x does not integrate a Python runtime environment. It has a smaller package size. If you do not use Python-related algorithm plugins, please use this type of image.
+The installation package of type neuronex:3.x.x integrates the Python runtime environment. If you want to use Python-related algorithm plugins, please use this type of image.
 
 ```bash
 #run NeuronEX by neuronex:3.x.x
-docker pull emqx/neuronex:3.0.1
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.0.1
+docker pull emqx/neuronex:3.2.0
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.2.0
 ```
 
-- **neuronex:3.x.x-python**
+- **neuronex:3.x.x-slim**
 
-The installation package of type neuronex:3.x.x-python integrates the Python runtime environment. If you have Python algorithm usage requirements, please use this type of image.
+The installation package of type neuronex:3.x.x-slim does not integrate the Python runtime environment. It has a smaller package size. If you do not use Python-related algorithm plugins, please use this type of image.
 
 ```bash
-#run NeuronEX by neuronex:3.x.x-python
-docker pull emqx/neuronex:3.0.1-python
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.0.1-python
+#run NeuronEX by neuronex:3.x.x-slim
+docker pull emqx/neuronex:3.2.0-slim
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.2.0-slim
 ```

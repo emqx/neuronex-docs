@@ -1,27 +1,31 @@
-# Redis 源
+# Redis
 
-<span style="background:green;color:white">查询表</span>
+<span style="background:green;color:white">Lookup table</span>
 
-NeuronEX 提供了对 redis 中数据查询的内置支持。请注意，现在 redis 源只能作为查询表使用。
+NeuronEX data processing module can receive data from `Redis` source.
+::: tip
+Redis can only be used as lookup table.
+:::
 
-## 创建查询表
+## Create Lookup table
 
-Redis 源支持查询表。登录 NeuronEX，点击**数据流处理** -> **源管理**。在**查询表**页签，点击**创建查询表**。
+Log in to NeuronEX and click **Data Processing** -> **Sources**. On the **Lookup Table** tab, click **Create Lookup Table**.
 
-- **表名称**：输入表名称
-- **是否为带结构的表**：勾选确认是否为带结构的表，如为带结构的表，则需进一步添加表字段
-  - **名称**：字段名称
-  - **类型**：支持 bigint、float、string、datetime、boolean、array、struct、bytea
-- **表类型**：选择 redis
-- **数据源**（主题）：将要订阅的内存主题， 例如 topic1。类似 MQTT 主题。
-- **配置组**：可使用默认配置组，也可点击添加配置组按钮，按照如下说明进行配置。设置完成后，可点击**测试连接**进行测试：
-  - **名称**：输入配置组名称
-  - **地址**：Redis 的地址, 例如: 10.122.48.17:6379
-  - **用户名**：Redis 用户名
-  - **密码**：Redis 登录密码
-  - **数据类型**：选择 string 或者 list
-- **表格式**：支持 json、binary、delimited、custom。
-  - 如选择 custom，还应配置对应的[模式和模式消息](./config.md#模式)
-  - 如选择 delimited，还应配置分隔符，如 ","
+In the pop-up **Sources**/**Create** page, enter the following configuration:
 
-- **主键**：指定主键。
+- **Table Name**: Enter the stream name
+- **Whether the schema table**: Check to confirm whether it is a structured table. If it is a structured table, you need to add further table fields. It can be unchecked by default.
+- **Table Type**: select redis
+- **Data Source**: The topic to be subscribed, for example topic1.
+- **Configuration key**: You can edit and use the default configuration key, or click to add a configuration key and make the following settings in the pop-up dialog box. After the settings are completed, you can click **Test Connection** to test:
+
+   - **Name**: Enter the configuration key name.
+   - **Address**: The address of redis service, such as `tcp://127.0.0.1:1883`.
+   - **Username**: Optional parameter, MQTT connection username.
+   - **Password**: Optional parameter, MQTT connection password.
+   - **data type**: The Redis data type, could be string or list. The default is string.
+- **Table format**: supports json, binary, protobuf, delimited, custom. Default json format.
+   - If you select protobuf or custom, you should also configure the corresponding [mode](./config.md#mode)
+   - If you select delimited, you should also configure the delimiter, such as "`,`"
+
+- **key**: Set the key of the table.

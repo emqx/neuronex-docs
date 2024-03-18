@@ -31,21 +31,22 @@ $ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuron
 NeuronEX提供两种类型的 Docker 安装包：
 - **neuronex:3.x.x**
 
-neuronex:3.x.x类型的安装包，不集成 Python 运行环境,安装包体积更小，如果您不使用 Python 相关的算法插件，请使用这类镜像。
+neuronex:3.x.x类型的安装包，集成了 Python 运行环境，如果您有 Python 算法的使用需求，请用这类镜像。
+
 
 ```bash
 #run NeuronEX by neuronex:3.x.x
-docker pull emqx/neuronex:3.1.0
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.1.0
+docker pull emqx/neuronex:3.2.0
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.2.0
 ```
 
-- **neuronex:3.x.x-python**
+- **neuronex:3.x.x-slim**
 
-neuronex:3.x.x-python类型的安装包，集成了 Python 运行环境，如果您有 Python 算法的使用需求，请用这类镜像。
+neuronex:3.x.x-slim类型的安装包，不集成 Python 运行环境,安装包体积更小，如果您不使用 Python 相关的算法插件，请使用这类镜像。
 
 ```bash
-#run NeuronEX by neuronex:3.x.x-python
-docker pull emqx/neuronex:3.1.0-python
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.1.0-python
+#run NeuronEX by neuronex:3.x.x-slim
+docker pull emqx/neuronex:3.2.0-slim
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.2.0-slim
 ```
 

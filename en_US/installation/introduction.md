@@ -40,15 +40,17 @@ The following table lists the hardware conditions required for the minimum deman
 :::tip
 NeuronEX has no upper limitation on the number of tags. It depends on the allocated CPU and memory resources. The following figures are the results of Neuron performance test for your reference and these benchmark results are still not the upper limits. A more powerful server can be used for more tags.
 
-Platform                         : Intel(R) Xeon(R) Gold 6266C@3.00GHz<br>
-Memory                           : 4G<br>
-Architecture                     : x86<br>
-OS Support                       : Ubuntu 20.04<br>
-No. of connections               : 1000 connections<br>
-No. of tags for each connection  : 300 tags<br>
-Total tags                       : 300,000 tags<br>
-Memory Usage                     : 300M<br>
-CPU Usage                        : 90%<br>
+|Platform                         | Intel(R) Xeon(R) Gold 6266C@3.00GHz<br>|
+| :-------------------- | :---------  |
+|Memory                           | 4G<br>  |
+|Architecture                     | x86<br>  |
+|OS Support                       | Ubuntu 20.04<br>  |
+|No. of Connections               | 500 connections of Modbus TCP driver<br>  |
+|No. of Tags for Each Connection  | 30 tags<br>  |
+|Collection Interval              | 1 second<br>  |
+|Total Tags                       | 15,000 tags<br>  |
+|Memory Usage                     | 300M<br>  |
+|CPU Usage                        | 0.9 * 1 core<br>  |
 
 :::
 
@@ -82,7 +84,7 @@ CPU Usage                        : 90%<br>
 | Download files               | Architecture   |
 | ---------------------------- | -------------- |
 | emqx/neuronex:x.y.z          | Docker         |
-| emqx/neuronex:x.y.z-python   | Docker         |
+| emqx/neuronex:x.y.z-slim     | Docker         |
 
 ## Version Number Explanation
 

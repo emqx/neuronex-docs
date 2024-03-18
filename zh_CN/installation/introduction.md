@@ -2,8 +2,8 @@
 
 NeuronEX 在基于 Linux 的操作系统上支持 32/64位 ARM 和 64位 X86 架构，并提供以下安装包格式：
 - tar 软件包方式，适用于所有 Linux 操作系统
-- Debian 软件包（.deb）格式，用于基于 Debian、Ubuntu Linux 的操作系统
-- Redhat 包管理器（.rpm）格式，适用于基于 RedHat、CentOS Linux 的操作系统
+- Debian 软件包（.deb）格式，用于基于 Debian、Ubuntu 的 Linux 操作系统
+- Redhat 包管理器（.rpm）格式，适用于基于 RedHat、CentOS 的 Linux 操作系统
 
 ## 下载安装包
 
@@ -38,15 +38,18 @@ NeuronEX 支持运行在 X86，ARM 等硬件架构的设备上以及支持容器
 :::tip
 NeuronEX 没有点位数量上限。取决于分配的 CPU 和内存资源。以下提供一些 NeuronEX 的性能测试结果供用户参考，这些测试数据仍然不是上限。更强大的服务器支持配置更多的数据点位。
 
-Platform                         : Intel(R) Xeon(R) Gold 6266C@3.00GHz<br>
-Memory                           : 4G<br>
-Architecture                     : x86<br>
-OS Support                       : Ubuntu 20.04<br>
-No. of connections               : 1000 connections<br>
-No. of tags for each connection  : 300 tags<br>
-Total tags                       : 300,000 tags<br>
-Memory Usage                     : 300M<br>
-CPU Usage                        : 90%<br>
+|Platform                         | Intel(R) Xeon(R) Gold 6266C@3.00GHz<br>|
+| :-------------------- | :---------  |
+|Memory                           | 4G<br>  |
+|Architecture                     | x86<br>  |
+|OS Support                       | Ubuntu 20.04<br>  |
+|No. of Connections               | 500 connections of Modbus TCP driver<br>  |
+|No. of Tags for Each Connection  | 30 tags<br>  |
+|Collection Interval              | 1 second<br>  |
+|Total Tags                       | 15,000 tags<br>  |
+|Memory Usage                     | 300M<br>  |
+|CPU Usage                        | 0.9 * 1 core<br>  |
+
 
 :::
 
@@ -81,7 +84,7 @@ CPU Usage                        : 90%<br>
 | 下载文件                           | 架构   |
 | -------------------------------- | ------ |
 | emqx/neuronex:x.y.z              | Docker |
-| emqx/neuronex:x.y.z-python       | Docker |
+| emqx/neuronex:x.y.z-slim         | Docker |
 
 ## 版本号说明
 

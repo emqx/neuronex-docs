@@ -185,7 +185,7 @@ SELECT followers->Group1[:1]->first FROM demo
 
 ## Json 路径函数
 
-数据流处理功能提供了一系列函数，以允许通过结构或数组列或值进行 json 路径操作。 这些函数是：
+数据处理功能提供了一系列函数，以允许通过结构或数组列或值进行 json 路径操作。 这些函数是：
 
 ```sql
 json_path_exists(col, jsonpath)
@@ -195,7 +195,7 @@ json_path_query_first(col, jsonpath)
 
 请参考 [json 函数](./functions/json_functions.md) 获得详细信息.
 
-所有这些函数共享相同的参数签名，其中，第二个参数是 jsonpath 字符串。 数据流处理功能使用的 jsonpath
+所有这些函数共享相同的参数签名，其中，第二个参数是 jsonpath 字符串。 数据处理功能使用的 jsonpath
 语法基于[JsonPath](https://goessner.net/articles/JsonPath/)
 
 这些表达式的基本语法是将 JSON 对象的字段部分与一些元素结合使用：

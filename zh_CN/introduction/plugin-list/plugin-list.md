@@ -117,5 +117,5 @@
 
 | 协议名称                                 | 备注              | 
 | --------------------------------------- | --------------   |
-| eKuiper Stream Processing               | 对接数据流处理模块  |
+| eKuiper Stream Processing               | 对接数据处理模块  |
 

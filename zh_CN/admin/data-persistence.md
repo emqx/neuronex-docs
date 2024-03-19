@@ -1,15 +1,15 @@
-# 数据持久化
+# 持久化目录管理
 
 NeuronEX 将所有持久性数据放入其 `data` 目录中，用户可以轻松地升级 NeuronEX 而不担心丢失配置。
 
 ## 数据目录结构
 
-`data` 目录中有三个目录，如下所示。
+`data` 目录下有三个子目录，如下图所示。
 ![image](./assets/data-struct.jpg)
 
-* ekuiper：数据处理相关配置
-* Neuron：数据收集相关配置
-* Neuronex：NeuronEX 相关配置
+* ekuiper：数据处理模块相关配置
+* neuron：数据采集模块相关配置
+* neuronex：NeuronEX 相关配置
 
 ## 通过 Docker 部署
 
@@ -25,7 +25,7 @@ admin@Jianxiangs-MacBook-Pro /tmp % cd data
 admin@Jianxiangs-MacBook-Pro data % ls 
 admin@Jianxiangs-MacBook-Pro data % pwd
 /tmp/data
-admin@Jianxiangs-MacBook-Pro data % docker run -d -p 8085:8085 -v /tmp/data:/opt/neuronex/data  --name neuronex  docker.io/library/neuronex:3.1.0-beta.2
+admin@Jianxiangs-MacBook-Pro data % docker run -d --name neuronex  -p 8085:8085 -v /tmp/data:/opt/neuronex/data  emqx/neuronex:latest
 
 5e256e21b0e5c7ca770fdcae64446d749d841148614bcacfcd064d3911004421
 admin@Jianxiangs-MacBook-Pro data % 

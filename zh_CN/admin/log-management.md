@@ -3,31 +3,34 @@
 
 NeuronEX 默认将日志打印到本地文件系统中，并在 Dashboard 上提供日志管理功能。
 
-## 通过 Dashboard 查看日志监控
-NeuronEX 支持实时查看日志信息。登录 NeuronEX 后，点击页面左侧的 **管理** -> **日志**， 进入日志监控界面。
-![如图所示](./assets/log_monitor_zh.png)
+## 数采驱动 Debug 日志
 
-### 日志过滤
-支持对服务类型和日志级别进行过滤。服务类型支持 All、NeuronEX、数采引擎、数据处理引擎，日志级别支持 All、Debug、Info、Notice、Warn、Error、Fatal。
-![如图所示](./assets/log_monitor_filter_zh.png)
+NeuronEX 数采驱动支持开启/关闭某个驱动节点的 debug 日志，方便用户调试驱动，点击驱动节点的 `更多` -> `开启DEBUG日志`，即可将日志级别设置为 debug，如下图所示。
+![调试节点](./assets/neuron_node_debug_zh.png)
 
-## 通过 Dashboard 进行日志管理
+此时，该驱动节点开始打印 debug 日志，用户点击该驱动节点下的`下载驱动日志`，即可将日志文件下载到本地。
+
+::: tip 注意
+打印节点 debug 日志时会打印很多冗余信息并对性能产生一定影响，当不需要时，请点击`关闭DEBUG日志`及时关闭。
+:::
+
+## 日志管理
 
 NeuronEX 支持在 Dashboard 页面一键下载所有日志文件的功能。登录 NeuronEX 后，点击页面左侧的 **管理** -> **日志**， 进入日志管理界面。
 ![如图所示](./assets/log_manage_zh.png)
 
 ### 日志下载
 
-  在日志下载部分，支持下载 **数采引擎日志**、**数据处理引擎日志**、**NeuronEX 系统日志**。<br>
-  点击 **下载数采引擎日志** 按钮，即可下载数据采集引擎模块的日志。
-  该功能是把 /opt/neuronex/software/neuron/logs 的文件夹打包成 neuron_debug.tar.gz 文件并下载到网页上。文件包含所有已创建的驱动及 neuron 的日志文件，文件目录级别示例，如下图所示。
+在日志下载部分，支持下载 **数采引擎日志**、**数据处理引擎日志**、**NeuronEX 系统日志**。
+
+以 **下载数采引擎日志** 为例，该功能是把 `/opt/neuronex/software/neuron/logs` 的文件夹打包成 neuron_debug.tar.gz 文件并下载到本地。文件包含所有已创建的驱动及 neuron 核心的日志文件，文件目录级别如下图所示。
 
 <img src="./assets/neuron_logs.png" alt="neuron_logs" style="zoom:50%;" />
 
-  * data-stream-processing.log：数据处理配置
-  * dlt645.log：北向应用配置
-  * modbus-plus-tcp.log：南向设备配置
-  * neuron.log：Neuron 日志
+  * data-stream-processing.log：数据处理节点日志
+  * dlt645.log：驱动日志
+  * modbus-plus-tcp.log：驱动日志
+  * neuron.log：Neuron 核心日志
 
 ### 日志配置
 
@@ -45,12 +48,12 @@ NeuronEX 支持在 Dashboard 页面一键下载所有日志文件的功能。登
 
 ![如图所示](./assets/log_manage_zh.png)
 
-需配置以下参数
-* 开启/关闭日志上传
-* Syslog 服务地址 （只读，由 ECP 端配置）
-* Syslog 日志标签 （只读，由 ECP 端配置）
-* 网络协议类型 （只读，由 ECP 端配置）
-* 上传日志等级 （只读，由 ECP 端配置）
+以下参数均为只读，由 ECP 端配置：
+* 开启/关闭日志上传 
+* Syslog 服务地址 
+* Syslog 日志标签 
+* 网络协议类型 
+* 上传日志等级 
 
 :::tip  注意
 
@@ -58,16 +61,13 @@ NeuronEX 支持在 Dashboard 页面一键下载所有日志文件的功能。登
 
 :::
 
-## 开启/关闭 驱动节点的 debug 日志
+## 日志监控
+NeuronEX 支持实时查看日志信息。登录 NeuronEX 后，点击页面左侧的 **管理** -> **日志**， 进入日志监控界面。
+![如图所示](./assets/log_monitor_zh.png)
 
-NeuronEX 支持开启/关闭某个驱动节点的 debug 日志，方便用户调试驱动，点击驱动节点的 `更多` -> `开启DEBUG日志` 按键，即可将日志级别设置为 debug，如下图所示。
-![调试节点](./assets/neuron_node_debug_zh.png)
-
-此时，该驱动节点开始打印 debug 日志，用户可选择**下载数采引擎日志**，也可以选择在  /opt/neuronex/software/neuron/logs 下实时查看节点打印的日志。
-
-::: tip 注意
-打印节点 debug 日志时会打印很多冗余信息并对性能产生一定影响，当不需要时，请及时关闭。
-:::
+### 日志过滤
+支持对服务类型和日志级别进行过滤。服务类型支持 All、NeuronEX、数据处理引擎，日志级别支持 All、Debug、Info、Notice、Warn、Error、Fatal。
+![如图所示](./assets/log_monitor_filter_zh.png)
 
 ## 后台查看日志
 

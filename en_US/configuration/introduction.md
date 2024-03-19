@@ -65,3 +65,19 @@ The following is the workflow of how to set up NeuronEX to convert various indus
 The overall process is shown in the figure below:
 
 <img src="./_assets/config.png" alt="Configuration steps" style="zoom:40%;" />
+
+
+## Configuration Specification
+
+| Object             | Specification Limit                                 | 
+| --------------------------------------- | ----------------------------------- | 
+|     Node Name Length       | Maximum 128 characters  |
+|     Tag Name Length      | Maximum 128 characters  |
+| Tag Address Length                  | Maximum 128 characters  | 
+| Group Name Length         | Maximum 128 characters  | 
+|  Maximum groups per southbound driver      | Maximum 512  | 
+|  Maximum subscribed groups per northbound application      | unlimited  | 
+|  Plugin Module Name Length     | Maximum 32 characters  | 
+|  Plugin File Name Length     | Maximum 64 characters  | 
+|  Plugin Description Length      | Maximum 512 characters  | 
+|  Southbound Driver collection interval      | Minimum 100 milliseconds  | 

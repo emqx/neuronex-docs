@@ -14,7 +14,7 @@ NeuronEX 规则 SQL 中至少有一个数据源应该是`流(Stream)`类型。�
 
 ## 创建规则
 
-在 NeuronEX Web 端界面，点击**数据处理** -> **规则**。点击**创建规则**按钮：
+在 NeuronEX dashboard 界面，点击**数据处理** -> **规则**。点击**创建规则**按钮：
 
 - 规则 ID：输入规则 ID，规则 id 在同一 NeuronEX 实例中必须唯一。
 
@@ -48,30 +48,21 @@ NeuronEX 规则 SQL 中至少有一个数据源应该是`流(Stream)`类型。�
 
 动作(Sink)部分定义了一个规则的输出行为。每个规则可以有多个动作。
 
-在**动作**区域，点击**添加**按钮。
+- 在**动作**区域，点击**添加动作**按钮。
 
-1. 选择动作。动作用来向外部系统写入数据，您可前往 [动作(Sink)](./sink/sink.md) 页面获取详细的配置信息。
-   目前 NeuronEX 内置的 Sink 列表：
-   - [MQTT sink](./sink/mqtt.md)：输出到外部 MQTT 服务。
-   - [Neuron sink](./sink/neuron.md)：输出到 NeuronEX 数采模块。
-   - [Rest sink](./sink/rest.md)：输出到外部 HTTP 服务器。
-   - [内存 sink](./sink/memory.md)：输出到内存主题以形成规则流水线。
-   - [Log sink](./sink/log.md)：写入日志，通常只用于调试。
-   - [SQL sink](./sink/file.md)： 写入关系型数据库Mysql、Sqlserver、Sqlite等。
-   - [InfluxDB sink](./sink/memory.md)：写入InfluxDB数据库。
-   - [InfluxDB V2 sink](./sink/log.md)：写入InfluxDB数据库。
-   - [文件 sink](./sink/file.md)： 写入文件。
-   - [Nop sink](./sink/nop.md)：不输出，用于性能测试。
-   <!-- - [Redis sink](./sink/redis.md): 写入 Redis。 -->
-   <!-- - [Kafka sink](./sink/nop.md)：写入Kafka。   -->
+<img src="./_assets/create_rule_sink1.png" alt="create_rule_sql" style="zoom:100%;" />
+
+- 选择动作插件类型
+
+<img src="./_assets/create_rule_sink2.png" alt="create_rule_sql" style="zoom:100%;" />
+
+- 填写插件配置，并提交
+
+<img src="./_assets/create_rule_sink3.png" alt="create_rule_sql" style="zoom:100%;" />
 
 
-完成设置后，点击**提交**完成动作的创建。
-
-<img src="./_assets/create_rule_sink.png" alt="create_rule_sink" style="zoom:100%;" />
-
-:::tip 提示
-仅对 MQTT 提供测试连接功能，点击**测试连接**，确认设置后，点击**提交**完成动作的创建。
+::: tip
+动作用来向外部系统写入数据，您可前往 [动作(Sink)](./sink/sink.md) 页面获取详细的配置信息。
 :::
 
 ## 数据源示例
@@ -122,7 +113,7 @@ NeuronEX 规则 SQL 中至少有一个数据源应该是`流(Stream)`类型。�
 
 ## 导入导出规则
 
-在 NeuronEX Web 端界面，点击**数据处理** -> **规则**。点击**导入规则**按钮。在弹出的窗口中，您可选择：
+在 NeuronEX Dashboard 界面，点击**数据处理** -> **规则**。点击**导入规则**按钮。在弹出的窗口中，您可选择：
 
 - 直接贴入文件内容
 - 通过上传文件的形式导入文件内容
@@ -135,7 +126,7 @@ NeuronEX 规则 SQL 中至少有一个数据源应该是`流(Stream)`类型。�
 
 :::
 
-在 NeuronEX Web 端界面，点击**数据处理** -> **规则**，点击**导出规则**按钮，将会导出当前规则的 JSON 文件。
+在 NeuronEX Dashboard 界面，点击**数据处理** -> **规则**，点击**导出规则**按钮，将会导出当前规则的 JSON 文件。
 <img src="./_assets/rule_importexport.png" alt="rule_importexport" style="zoom:100%;" />
 
 ## [规则管理](./rule_status.md)
@@ -145,74 +136,3 @@ NeuronEX 规则 SQL 中至少有一个数据源应该是`流(Stream)`类型。�
 ## [规则流水线](./rule_pipeline.md)
 
 多个规则可以通过指定 sink /源的联合点形成一个处理管道。例如，第一条规则在内存 sink 中产生结果，其他规则在其内存源中订阅该主题。更多用法请参见[规则流水线](./rule_pipeline.md)章节 。
-
-
-<!-- ## 文本创建规则
-
-在 NeuronEX Web 端界面，点击**数据处理** -> **规则**。点击**创建规则**按钮，点击右上角切换至文本模式。
-
-规则由 JSON 定义，示例如下：
-
-```json
-{
-  "id": "rule1",
-  "name": "Test Condition",
-  "graph": {
-    "nodes": {
-      "demo": {
-        "type": "source",
-        "nodeType": "mqtt",
-        "props": {
-          "datasource": "devices/+/messages"
-        }
-      },
-      "humidityFilter": {
-        "type": "operator",
-        "nodeType": "filter",
-        "props": {
-          "expr": "humidity > 30"
-        }
-      },
-      "logfunc": {
-        "type": "operator",
-        "nodeType": "function",
-        "props": {
-          "expr": "log(temperature) as log_temperature"
-        }
-      },
-      "tempFilter": {
-        "type": "operator",
-        "nodeType": "filter",
-        "props": {
-          "expr": "log_temperature < 1.6"
-        }
-      },
-      "pick": {
-        "type": "operator",
-        "nodeType": "pick",
-        "props": {
-          "fields": ["log_temperature as temp", "humidity"]
-        }
-      },
-      "mqttout": {
-        "type": "sink",
-        "nodeType": "mqtt",
-        "props": {
-          "server": "tcp://${mqtt_srv}:1883",
-          "topic": "devices/result"
-        }
-      }
-    },
-    "topo": {
-      "sources": ["demo"],
-      "edges": {
-        "demo": ["humidityFilter"],
-        "humidityFilter": ["logfunc"],
-        "logfunc": ["tempFilter"],
-        "tempFilter": ["pick"],
-        "pick": ["mqttout"]
-      }
-    }
-  }
-}
-``` -->

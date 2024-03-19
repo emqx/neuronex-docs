@@ -39,6 +39,6 @@ After completing the settings, you can click **Test Connection** to confirm the 
 
 The following is an example of using MQTT Sink to connect to EMQX.
 
-<img src="../_assets/sink_mqtt.png" alt="sink_mqtt" style="zoom:100%;" />
+<img src="./_assets/sink_mqtt_en.png" alt="sink_mqtt" style="zoom:100%;" />
 
 

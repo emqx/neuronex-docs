@@ -1,6 +1,6 @@
 # rule
 
-All calculation logic is handled through **Rules** in NeuronEX. The rules take the data source as input, define the calculation logic through **SQL**, and output the results to **Action (Sink)**. Once a rule definition is submitted, it will continue to run. It will continuously obtain data from the source, perform calculations based on SQL logic, and trigger **Action (Sink)** in real time based on the results.
+All calculation logic is handled through **Rules** in NeuronEX. The rules take the data source as input, define the calculation logic through **SQL**, and output the results to **Sink (Action)**. Once a rule definition is submitted, it will continue to run. It will continuously obtain data from the source, perform calculations based on SQL logic, and trigger **Sink (Action)** in real time based on the results.
 
 NeuronEX supports running multiple rules simultaneously. These rules run in the same memory space and share the same hardware resources. Multiple parallel rules are separated at run time, and an error in one rule will not affect other rules.
 
@@ -13,11 +13,13 @@ NeuronEX rules that at least one data source in SQL should be of type `Stream`. 
 
 ## Create rules
 
-In the NeuronEX web interface, click **Data Processing** -> **Rules**. Click the **Create Rule** button:
+In the NeuronEX dashboard, click **Data Processing** -> **Rules**. Click the **Create Rule** button:
 
 - Rule ID: Enter the rule ID, which must be unique within the same NeuronEX instance.
 
 - Name: Enter the rule name
+
+- Enable：Run the rule immediately after creating it
 
 - Enter rule SQL,for example:
 
@@ -29,6 +31,8 @@ In the NeuronEX web interface, click **Data Processing** -> **Rules**. Click the
    GROUP BY demo.temperature, HOPPINGWINDOW(ss, 20, 10)
    ```
 
+<img src="./_assets/create_rule.png" alt="create_rule" style="zoom:100%;" />
+
 ## Rules SQL
 
 Rules `sql` define the streams or tables to be processed and how to process them. The rule SQL is and sends the processing results to one or more actions (Sink). You can use built-in functions and operators in rules `sql`, or you can use custom functions and algorithms.
@@ -37,41 +41,38 @@ The simplest rule SQL is `SELECT * FROM neuronStream`. This rule will get all th
 
 Click the **SQL Examples** button to view commonly used SQL examples, where you can get SQL statements, application scenarios, input message examples, and processing results.
 
+<img src="./_assets/create_rule_sql.png" alt="create_rule_sql" style="zoom:100%;" />
+
 ## Add action (Sink)
 
 The action (Sink) part defines the output behavior of a rule. Each rule can have multiple actions.
 
-In the **Actions** area, click the **Add** button.
+- In the **Actions** area, click the **Add Action** button.
 
-1. Select an action. Actions are used to write data to external systems. You can go to the [Action(Sink)](./sink/sink.md) page to get detailed configuration information.
-    Currently the built-in Sink list of NeuronEX:
-    - [MQTT sink](./sink/mqtt.md): Output to external MQTT service.
-    - [Neuron sink](./sink/neuron.md): Output to NeuronEX data collection module.
-    - [Rest sink](./sink/rest.md): Output to external HTTP server.
-    - [Memory sink](./sink/memory.md): Output to the memory topic to form a rule pipeline.
-    - [Log sink](./sink/log.md): Write logs, usually only used for debugging.
-    - [SQL sink](./sink/file.md): Write to relational database Mysql, Sqlserver, Sqlite, etc.
-    - [InfluxDB sink](./sink/memory.md): Write to the InfluxDB database.
-    - [InfluxDB V2 sink](./sink/log.md): Write to the InfluxDB database.
-    - [File sink](./sink/file.md): Write to file.
-    - [Nop sink](./sink/nop.md): No output, used for performance testing.
-    <!-- - [Redis sink](./sink/redis.md): Write to Redis. -->
-    <!-- - [Kafka sink](./sink/nop.md): Write to Kafka. -->
+<img src="./_assets/create_rule_sink1.png" alt="create_rule_sql" style="zoom:100%;" />
+
+- Select sink plugin type.
+
+<img src="./_assets/create_rule_sink2.png" alt="create_rule_sql" style="zoom:100%;" />
+
+- Fill in the plugin configuration and submit it.
+
+<img src="./_assets/create_rule_sink3.png" alt="create_rule_sql" style="zoom:100%;" />
 
 
-After completing the settings, click **Test Connection**. After confirming the settings, click **Submit** to complete the creation of the action.
-
-:::tip Tips
-Only the test connection function is provided for MQTT. Click the **Test Connection**. After confirming the settings, click **Submit** to complete the creation of the action.
+::: tip
+Sink are used to write data to external systems. You can go to the [Action(Sink)](./sink/sink.md) page to get detailed configuration information.
 :::
 
 
-## Resuorce Examples
+## Resource Examples
 You can view the created data sources and usage examples.
+
+<img src="./_assets/create_rule_sinkexample.png" alt="create_rule_sinkexample" style="zoom:100%;" />
 
 ## Rule options (optional)
 
-Click the **Options** section to continue configuring the current rules:
+Click the **Options** section to continue configuring the current rule:
 
 | Option name        | Type & Default Value | Description                                                  |
 | ------------------ | -------------------- | ------------------------------------------------------------ |
@@ -94,56 +95,24 @@ Click the **Options** section to continue configuring the current rules:
 In most scenarios, the default values for rule options are sufficient.
 :::
 
-After completing the settings, click **Submit** to complete the creation of the current rules. The new rule will appear in the rules list. Here you can view rule status, edit rules, stop rules, refresh rules, view rule topology map, copy rules or delete rules.
+After completing the settings, click **Save Rule** to complete the creation of the current rules. The new rule will appear in the rules list. Here you can view rule status, edit rules, stop rules, refresh rules, view rule topology map, copy rules or delete rules.
+
+<img src="./_assets/create_rule_option.png" alt="create_rule_option" style="zoom:100%;" />
 
 ## Rule test
-Enable Test
-- Close simulate data source
 
-  1. Click **Run Test** to output the results on the right.
+When creating rules, rule test allows you to view the output results of rules after SQL processing in real-time, ensuring that SQL syntax, built-in functions, and data templates meet the expected output results.
 
-  2. The data template can be configured to simulate the Data Template in Sink and modify the data format of the output after SQL statement processing.
-  
-  3. Click **Stop** to stop testing.
+Additionally, NeuronEX supports debugging rules with simulated data sources, where you can replace the original data source in the SQL editor with a custom simulated data source, providing a more flexible way to simulate data sources.
 
-- Open simulate data source
+For more details, please refer to [Rule Test](./rule_test.md).
 
-  1. Select a data source in SQL for simulation. Click the plus sign to add multiple simulation data sources.
+<img src="./_assets/create_rule_ruletest.png" alt="create_rule_ruletest" style="zoom:100%;" />
 
-  2. interval: set the sending interval, and receive test results according to the sending interval.
 
-  3. Send Cyclically: Enable cyclic sending to receive test results continuously.
-
-  4. Simulation data supports "multiple lines and one json", "single line and one json", and "multiple lines and single line and one json".
-
-  - multiple lines in one json
-  ```json
-  {
-    "ts" : 1672545661000,
-    "tag1" : "area1",
-    "value1" : 123
-  }
-  ```
-  - single line in one json
-  ```json
-  {"ts" : 1672545661000, "tag1" : "area1", "value1" : 1}
-  ```
-  - multiple lines and single line is one json
-  ```json
-  {"ts" : 1672545661000, "tag1" : "area1", "value1" : 1}
-  {"ts" : 1672545662000, "tag1" : "area1", "value1" : 2}
-  {"ts" : 1672545663000, "tag1" : "area1", "value1" : 3}
-  {"ts" : 1672545664000, "tag1" : "area1", "value1" : 4}
-  {"ts" : 1672545665000, "tag1" : "area1", "value1" : 5}
-  ```
-  5. Click **Run Test** to output the results on the right.
-
-  6. The data template can be configured to simulate the Data Template in Sink and modify the data format of the output after SQL statement processing.
-  
-  7. Click **Stop** to stop testing.
 ## Import and export rules
 
-In the NeuronEX web UI, click **Data Processing** -> **Rules**. Click the **Import Rules** button. In the pop-up window, you can choose:
+In the NeuronEX dashboard, click **Data Processing** -> **Rules**. Click the **Import Rules** button. In the pop-up window, you can choose:
 
 - Paste file content directly
 - Import file contents by uploading files
@@ -156,7 +125,7 @@ When importing rules, if there are rules with the same ID, the original rules wi
 
 :::
 
-In the NeuronEX web UI, click **Data Processing** -> **Rules**, click the **Export Rules** button, and the JSON file of the current rules will be exported.
+In the NeuronEX dashboard, click **Data Processing** -> **Rules**, click the **Export Rules** button, and the JSON file of the current rules will be exported.
 
 ## [Rule Status](./rule_status.md)
 
@@ -165,3 +134,4 @@ When a rule is run in NeuronEX, we can understand the current rule running statu
 ## [Rule Pipeline](./rule_pipeline.md)
 
 Multiple rules can form a processing pipeline by specifying sink/source union points. For example, the first rule produces results in an memory sink, and other rules subscribe to the topic in their memory sources. For more usage, please see the [Rule Pipeline](./rule_pipeline.md) chapter.
+

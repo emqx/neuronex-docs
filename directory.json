@@ -709,6 +709,10 @@
                 {
                   "title": "Nop",
                   "path": "streaming-processing/sink/nop"
+                },
+                {
+                  "title": "Kafka",
+                  "path": "streaming-processing/sink/kafka"
                 }
               ]
             }
@@ -1511,11 +1515,15 @@
           "collapsed": true,
           "children": [
             {
-              "title": "Rules Management",
+              "title": "Rule Management",
               "path": "streaming-processing/rule_status"
             },
             {
-              "title": "Rules Pipeline",
+              "title": "Rule Test",
+              "path": "streaming-processing/rule_test"
+            },
+            {
+              "title": "Rule Pipeline",
               "path": "streaming-processing/rule_pipeline"
             }
           ]
@@ -1571,6 +1579,10 @@
                 {
                   "title": "Nop",
                   "path": "streaming-processing/sink/nop"
+                },
+                {
+                  "title": "Kafka",
+                  "path": "streaming-processing/sink/kafka"
                 }
               ]
             }
@@ -1737,6 +1749,10 @@
           {
             "title": "Monitor and Alert Management",
             "path": "admin/alert-monitor-management"
+          },
+          {
+            "title": "System Configuration",
+            "path": "admin/sys-configuration"
           },
           {
             "title": "Persistence Data Management",

@@ -82,7 +82,9 @@ Rules represent a data flow processing process, defining input from data sources
 
 - [**Rule Pipeline**](./rule_pipeline.md): Multiple rules can form a processing pipeline by specifying `Memory Source/Sink`. For example, the first rule saves the results in memory sink, and other rules subscribe to topics in their memory sources to get data. In addition to `memory Source/Sink`, users can also use `MQTT Source/Sink` to connect rules.
 
-- **[SQL statement](./sqls/overview.md)**: The NeuronEX data processing module provides a SQL-like query language for performing transformations and calculations on data streams. SQL language support in rules includes data definition language (DDL), data manipulation language (DML), and query language. SQL support in NeuronEX is a subset of ANSI SQL, with some custom extensions.
+- **[SQL Statement](./sqls/overview.md)**: The NeuronEX data processing module provides a SQL-like query language for performing transformations and calculations on data streams. SQL language support in rules includes data definition language (DDL), data manipulation language (DML), and query language. SQL support in NeuronEX is a subset of ANSI SQL, with some custom extensions.
+
+- **[Rule Test](./rule_test.md)**: When creating rules, rule test allows you to view the output results of rules after SQL processing in real-time, ensuring that SQL syntax, built-in functions, and data templates meet the expected output results.
 
 ### Sink
 

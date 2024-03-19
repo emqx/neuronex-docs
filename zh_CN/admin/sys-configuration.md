@@ -1,7 +1,6 @@
 # 系统配置
 
-
-NeuronEX 支持在 Dashboard  上对相关功能进行定制化配置。
+NeuronEX supports configuration modifications to related functions on the Dashboard.
 
 ## 数据处理引擎配置
 登录 NeuronEX 后，点击页面左侧的 **管理** -> **系统配置**， 进入系统配置界面。可手动开启、关闭数据处理引擎。

@@ -48,10 +48,10 @@ payload
 
 ## 生成公私钥
 
-签发 JWT 前需要生成一对公私钥，并把生成的公钥 public.pem 放在 NeuronEX 安装目录下的子目录 **etc** 中。NeuronEX 自动加载 **certs** 中的文件，根据公钥解码。
+签发 JWT 前需要生成一对公私钥，并把生成的公钥 public.pem 放在 NeuronEX 安装目录下的子目录 **etc** 中。NeuronEX 自动加载 **etc** 中的文件，根据公钥解码。
 
 :::tip
-Docker 以及 deb/rpm 安装包的默认安装路径为 `/opt/neuron`。
+Docker 以及 deb/rpm 安装包的默认安装路径为 `/opt/neuronex`。
 
 公钥文件名称必须要与 JWT 中的签发者保持一致。
 :::

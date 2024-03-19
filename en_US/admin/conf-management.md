@@ -168,3 +168,32 @@ log:
 official:
   url: https://license-test.mqttce.com
 ```
+
+
+## Dump File
+
+By default, NeuronEX does not generate dump files upon crashing after installation and startup. If dump files are required for troubleshooting purposes, you need to execute the following command to enable dump file storage.
+
+```shell
+#!/bin/sh
+
+set -e
+
+core_pattern_path="/proc/sys/kernel/core_pattern"
+target_pattern="/tmp/core-%e-%s"
+sudo echo $target_pattern | sudo tee $core_pattern_path
+
+core_pid_path="/proc/sys/kernel/core_uses_pid"
+target_pid="0"
+sudo echo $target_pid | sudo tee $core_pid_path
+
+core_pattern=$(cat $core_pattern_path)
+core_pid=$(cat $core_pid_path)
+
+if [ "$core_pattern" = "$target_pattern" ] && [ "$core_pid" = "$target_pid" ];then
+  echo "setting success"
+else
+  echo "setting failed"
+fi
+
+```

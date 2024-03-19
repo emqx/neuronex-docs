@@ -863,7 +863,7 @@
         "collapsed": true,
         "children": [
           {
-            "title": "数据统计",
+            "title": "运行监控",
             "path": "admin/data-statistics"
           },
           {
@@ -1723,7 +1723,7 @@
         "collapsed": true,
         "children": [
           {
-            "title": "Data statistics",
+            "title": "Operation Monitoring",
             "path": "admin/data-statistics"
           },
           {

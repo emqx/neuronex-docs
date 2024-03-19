@@ -176,3 +176,31 @@ official:
 如果采用 Docker 部署的方式，则需要将本地目录映射进 NeuronEX 的 etc 目录。注意首次映射时本地目录不能为空, 必须具有 neuronex.yaml 配置文件以及
 公钥私钥文件。一个可行的办法是，首次启动 NeuronEX 时，不做 etc 目录的映射，然后进入 NeuronEX 容器内修改成自己需要的配置。然后将配置拷贝出来，在本地目录持久化，
 并将此目录再次映射进新创建的 NeuronEX 容器内。
+
+## Dump文件
+
+NeuronEX 默认安装启动后，发生 Crash 不生成 dump 文件。如需 dump 文件进行故障排查。需要生成dump文件的话，需要执行以下命令后开启dump文件存储。
+
+```shell
+#!/bin/sh
+
+set -e
+
+core_pattern_path="/proc/sys/kernel/core_pattern"
+target_pattern="/tmp/core-%e-%s"
+sudo echo $target_pattern | sudo tee $core_pattern_path
+
+core_pid_path="/proc/sys/kernel/core_uses_pid"
+target_pid="0"
+sudo echo $target_pid | sudo tee $core_pid_path
+
+core_pattern=$(cat $core_pattern_path)
+core_pid=$(cat $core_pid_path)
+
+if [ "$core_pattern" = "$target_pattern" ] && [ "$core_pid" = "$target_pid" ];then
+  echo "setting success"
+else
+  echo "setting failed"
+fi
+
+```

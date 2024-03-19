@@ -1,14 +1,14 @@
 # Operation and Maintenance Guide
 
-This chapter is designed to help administrators and operation and maintenance personnel effectively manage and maintain NeuronEX. In this chapter, we'll explore various management tasks and provide comprehensive guidance and best practices to ensure your NeuronEX runs smoothly and efficiently.
+This chapter aims to assist administrators and operations personnel in effectively managing and maintaining NeuronEX. In this chapter, we will explore various management tasks and provide comprehensive guidance and best practices to ensure smooth and efficient operation of NeuronEX.
 
 ## Log in
 
-Open a web browser and enter the gateway address and port number running NeuronEX to enter the management console page. The default port number is 8085.
+Open a web browser and enter the gateway address and port number running NeuronEX to enter the dashboard. The default port number is 8085.
 
 Access address, http://x.x.x.x:8085 where x.x.x.x represents the gateway address where NeuronEX is installed.
 
-After the page opens, the login interface is entered. The user can log in using the initial username and password (initial username: admin, initial password: 0000).
+After the login page is opened. The user can log in using the initial username and password (initial username: `admin`, initial password: `0000`).
 
 If the page cannot be opened, please execute the following command in the terminal to detect:
 
@@ -20,7 +20,7 @@ If the page cannot be opened, please execute the following command in the termin
 $ systemctl status neuron
 ```
 
-## manage
+## Management
 
 Please see the following pages for specific management functions:
 

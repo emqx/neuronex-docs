@@ -16,14 +16,11 @@ Users can directly use NeuronEX's built-in sink. The list of sink types is as fo
 - [InfluxDB V2](./influx2.md): Write to InfluxDB `v2.x`.
 - [File](./file.md): Write to file.
 - [Nop](./nop.md): No output, used for performance testing.
+- [Kafka](./kafka.md)：Output to Kafka 。
 
 ## Sink public parameter configuration
 
-- **Resource ID**
-
-   Select a resource ID to enable configuration reuse.
-  
-   Like data sources, actions (Sink) also support configuration reuse. You can view the added ones on Sink Template tab of **Data Processing** -> **Configuration** -> **Resources** Configure, edit or delete the configuration group, or click the Add Sink Template button in the upper right corner to add it.
+<img src="./_assets/sink_public_en.png" alt="alt" style="zoom:100%;" />
 
 - **Omit if content is empty**
 
@@ -92,7 +89,7 @@ You can click to expand the **Advanced** section for more customized settings.
 
 - **Concurrency**: Set the number of running threads. When the parameter value is greater than 1, the order in which messages are sent may not be guaranteed.
 - **Buffer Length**: Set the number of cacheable messages. If the number of cached messages exceeds this limit, the sink will block message reception until the number of cached messages is less than the limit.
-- **Buffer Size**: Set the number of messages sent in batches.
+- **batch Size**: Set the number of messages sent in batches.
 - **Linger Interval**: Set the interval for batch sending, in milliseconds.
 - **Enable Cache**: Set whether to enable caching, optional values True, False
 - **Resend Interval**: The interval in millisecond to resend the cached messages.
@@ -103,6 +100,8 @@ You can click to expand the **Advanced** section for more customized settings.
 - **Resend Priority**: The priority of the resend cache, type int, default is 0. -1 means sending real-time data first; 0 means equal priority; 1 means sending cached data first.
 - **Resend Indicator Field**: Resend cached field names.
 - **Resend Destination**: MQTT sink: This attribute indicates the topic of retransmission. If not set, it will still be passed to the original theme.
+
+<img src="./_assets/sink_property_en.png" alt="alt" style="zoom:100%;" />
 
 ## Data cache
 

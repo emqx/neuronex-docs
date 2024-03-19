@@ -84,6 +84,8 @@ NeuronEX 数据处理模块的架构如下：
 
 - **[SQL语句](./sqls/overview.md)**：NeuronEX 数据处理模块提供了一种类似于 SQL 的查询语言，用于对数据流执行转换和计算。规则中的 SQL 语言支持包括数据定义语言（DDL）、数据操作语言（DML）和查询语言。NeuronEX 中的 SQL 支持是 ANSI SQL 的一个子集，并有一些定制的扩展。
 
+- **[规则调试](./rule_test.md)**：在规则创建时，开启规则调试功能，可以实时查看数据源接入后，经过 SQL 处理后的规则输出结果，可以快速对 SQL 语法、内置函数以及数据模板等内容进行测试验证，是否符合预期输出结果。
+
 ### 动作(Sink)
 
 - [动作Sink](./sink/sink.md)：动作Sink 用来向外部系统写入数据，一个规则可以有多个动作，不同的动作可以是同一个动作类型。
@@ -102,6 +104,7 @@ NeuronEX 数据处理模块的架构如下：
   - [InfluxDB V2 sink](./sink/influx2.md)： 写入 Influx DB `v2.x`。
   - [File sink](./sink/file.md)： 写入文件。
   - [Nop sink](./sink/nop.md)：不输出，用于性能测试。
+  - [Kafka sink](./sink/kafka.md)：输出到 Kafka。
 
 
 ### 流式处理

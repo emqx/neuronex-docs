@@ -39,12 +39,10 @@
 
 以下为使用 MQTT Sink 连接到 EMQX 的样例。
 
-<img src="../_assets/sink_mqtt.png" alt="sink_mqtt_dynamic_topic" style="zoom:100%;" />
+<img src="./_assets/sink_mqtt_zh.png" alt="sink_mqtt_dynamic_topic" style="zoom:100%;" />
 
 
 ## MQTT 动态主题
 
-若结果数据中包含主题内容，可以将其作为主题属性，从而实现 MQTT 动态主题的需求。假设 SQL 选出的数据包含 `mytopic`, 则可以使用数据模板的语法将其设置为 `topic` 属性的值，如下所示：
+若结果数据中包含主题内容，可以将其作为主题属性，从而实现 MQTT 动态主题的需求。假设 SQL 选出的数据包含 `input`, 则可以使用数据模板的语法将其设置为 MQTT 主题的值，如上图所示。
 
-
-<img src="../_assets/sink_mqtt_dynamic_topic.png" alt="sink_mqtt_dynamic_topic" style="zoom:100%;" />

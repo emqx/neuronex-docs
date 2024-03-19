@@ -24,8 +24,10 @@ $ systemctl status neuron
 
 具体各项管理功能请查看以下页面：
 
-* [数据统计](./data-statistics.md)
+* [运行监控](./data-statistics.md)
 * [配置管理](./conf-management.md)
 * [日志管理](./log-management.md)
+* [告警监控管理](alert-monitor-management.md)
 * [系统配置](./sys-configuration.md)
+* [持久化目录管理](data-persistence.md)
 * [修改密码](./password.md)

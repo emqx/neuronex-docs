@@ -1,97 +1,37 @@
 # Kafka 目标（Sink）
 
-该插件将分析结果发送到 Kafka 中。
-## 编译插件&创建插件
+This plugin sends the analysis results into Kafka.
 
-### 本地构建
-```shell
-# cd $eKuiper_src
-# go build -trimpath --buildmode=plugin -o plugins/sinks/kafka.so extensions/sinks/kafka/kafka.go
-# zip kafka.zip plugins/sinks/kafka.so
-# cp kafka.zip /root/tomcat_path/webapps/ROOT/
-# bin/kuiper create plugin sink kafka -f /tmp/kafkaPlugin.txt
-# bin/kuiper create rule kafka -f /tmp/kafkaRule.txt
-```
 
-### 镜像构建
-```
-docker build -t demo/plugins:v1 -f build/plugins/Dockerfile .
-docker run demo/plugins:v1
-docker cp  90eae15a7245:/workspace/_plugins/debian/sinks /tmp
-```
-Dockerfile 如下所示：
-```
-## plase check go version that kuiper used
-ARG GO_VERSION=1.18.5
-FROM ghcr.io/lf-edge/ekuiper/base:$GO_VERSION-debian AS builder
-WORKDIR /workspace
-ADD . /workspace/
-RUN go env -w GOPROXY=https://goproxy.cn,direct
-RUN make plugins_c
-CMD ["sleep","3600"]
-```
-在 Makefile 中添加：
-```
-PLUGINS_CUSTOM := sinks/kafka
+## Property
 
-.PHONY: plugins_c $(PLUGINS_CUSTOM)
-plugins_c: $(PLUGINS_CUSTOM)
-
-$(PLUGINS_CUSTOM): PLUGIN_TYPE = $(word 1, $(subst /, , $@))
-$(PLUGINS_CUSTOM): PLUGIN_NAME = $(word 2, $(subst /, , $@))
-$(PLUGINS_CUSTOM):
-	@$(CURDIR)/build-plugins.sh $(PLUGIN_TYPE) $(PLUGIN_NAME)
-```
-
-重新启动 NeuronEX 服务器以激活插件。
-
-## 属性
-
-| 属性名称     | 是否可选 | 说明                                    |
+| Property Name     | Options | Description                                    |
 | ------------ | -------- | --------------------------------------- |
-| brokers      | 否       | broke r地址列表 ,用 "," 分割            |
-| topic        | 否       | kafka 主题                              |
-| saslAuthType | 否       | sasl 认证类型 , 支持 none，plain，scram |
-| saslUserName | 是       | sasl 用户名                             |
-| saslPassword | 是       | sasl 密码                               |
+| Broker List      | no       | kafka broker list            |
+| Topic        | no       | kafka topic                              |
+| Sasl auth type | no       | support none，plain，scram |
+| Sasl username | yes       | -                             |
+| Sasl password | yes      | -                               |
 
 
-其他通用的 sink 属性也支持，请参阅[公共属性](./sink.md#公共属性)。
+## Example
 
-## 示例用法
+Select data with a temperature greater than 50 degrees from the `demo_stream` data source and forward it to Kafka.
 
-下面是选择温度大于 50 度的样本规则，和一些配置文件仅供参考。
+- SQL configuration
 
-### /tmp/kafkaRule.txt
-```json
-{
-  "id": "kafka",
-  "sql": "SELECT * from  demo_stream where temperature > 50",
-  "actions": [
-    {
-      "log": {}
-    },
-    {
-      "kafka":{
-        "brokers": "127.0.0.1:9092,127.0.0.2:9092",
-        "topic": "test_topic",
-        "saslAuthType": "none"
-      }
-    }
-  ]
-}
-```
-### /tmp/kafkaPlugin.txt
-```json
-{
-  "file":"http://localhost:8080/kafka.zip"
-}
-```
+<img src="./_assets/sink_kafka1_en.png" alt="sink" style="zoom:100%;" />
 
-## 注意事项
+- kafka sink configuration
 
-如果通过 docker compose 将 NeuronEX 与 kafka 部署在同一容器网络中，可在 NeuronEX 中通过 kafka 主机名配置 brokers 地址。
-但是 kafka 需要特别注意 `` KAFKA_CFG_ADVERTISED_LISTENERS `` 需要配置为主机 IP 地址, 如下所示
+<img src="./_assets/sink_kafka2_en.png" alt="sink" style="zoom:100%;" />
+
+
+## Precautions
+
+If NeuronEX and kafka are deployed in the same container network through docker compose, the brokers address can be configured in NeuronEX through the kafka host name.
+
+But kafka needs special attention. `` KAFKA_CFG_ADVERTISED_LISTENERS `` needs to be configured as the host IP address, as shown below
 
 ```yaml
     zookeeper:

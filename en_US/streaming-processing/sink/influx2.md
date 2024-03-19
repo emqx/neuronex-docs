@@ -1,6 +1,6 @@
 # InfluxDB Sink
 
-The sink will publish the result into a InfluxDB `V2.X` .
+The sink will write the result into a InfluxDB `V2.X` .
 
 ## Properties
 

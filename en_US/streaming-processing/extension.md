@@ -103,3 +103,34 @@ if __name__ == '__main__':
 Portable plugin extensions currently support plugin extensions via the **Python** and **Golang** programming languages. For specific plugin writing methods, please refer to:
 
 - [Python portable plugin example](portable_python.md)
+
+
+## External algorithm function 
+
+The external algorithm function, also called the external service, refers to mapping an existing external HTTP service to a SQL function of NeuronEX. When using external service in rules, the data from source will be passed to the external service, and the calculation result of the external service will be returned to NeuronEX for output.
+
+To use an external service, just follow these 2 steps:
+- [Create an external service](#create-an-external-service)
+- [Use external services in rules](#using-external-service-in-rules)
+
+### Create an external service
+
+Click **Data Processing** -> **Extensions**, on the **External Service** tab, click **Add External Service**.
+
+- **Name**: Enter the external service name, which will be used in SQL. Please enter    characters and numbers;
+- **Address**: The service address of the external service, only includes `http://[ip]:[port]`, and the service suffix is filled in SQL;
+- **Headers**: Optional, headers information of external services.
+
+![alt text](_assets/ex_service_create_en.png)
+
+### Using external service in rules
+
+Enter the following in the rule:
+
+![alt text](_assets/ex_service_sql.png)
+
+`ex_service("post","/api/test1", *)` means that all data from `neuronStream` will be sent to the HTTP Server address `http://127.0.0.1:9876/api/test1` through the HTTP POST method, and the processing result of external service will be sent to Sink.
+
+### Example of external algorithm function
+
+Please refer to [External Algorithm Function Example](./ex_func.md).

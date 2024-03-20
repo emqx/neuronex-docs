@@ -719,13 +719,17 @@
           ]
         },
         {
-          "title": "扩展",
+          "title": "算法集成",
           "path": "streaming-processing/extension",
           "collapsed": true,
           "children":[
             {
-              "title": "Python 便携插件扩展示例",
+              "title": "Python 便携插件示例",
               "path": "streaming-processing/portable_python"
+            },
+            {
+              "title": "外部算法函数示例",
+              "path": "streaming-processing/ex_func"
             }
           ]
         },
@@ -1595,6 +1599,10 @@
             {
               "title": "Python portable plugin example",
               "path": "streaming-processing/portable_python"
+            },
+            {
+              "title": "External algorithm function example",
+              "path": "streaming-processing/ex_func"
             }
           ]
         },

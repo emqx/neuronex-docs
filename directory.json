@@ -1151,6 +1151,18 @@
               ]
             },
             {
+              "title": "Siemens MPI",
+              "path": "configuration/south-devices/siemens-mpi/mpi",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/siemens-mpi/mpi.md",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Siemens S7-300 PLC Connection Example",
+                  "path": "configuration/south-devices/siemens-mpi/s7300",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/siemens-mpi/s7300.md"
+                }]
+            },
+            {
               "title": "Siemens S5 FetchWrite",
               "path": "configuration/south-devices/siemens-fetchwrite/fetchwrite",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/siemens-fetchwrite/fetchwrite.md"

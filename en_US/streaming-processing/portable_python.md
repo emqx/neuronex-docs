@@ -1,6 +1,6 @@
 # Python portable plugin example
 
-The following is the introduction and packaging process of the pysam plugin example. The pysam plugin can be downloaded and tested through this link [python sdk example](https://github.com/lf-edge/ekuiper/tree/master/sdk/python).
+The following is the introduction and packaging process of the pysam plugin example.The pysam plugin can be obtained through the **Portable Plugin** tab of **Extensions** and click **Download Example**.
 
 
 ## Deployment requirements
@@ -13,7 +13,7 @@ To use the Python portable plugin, Python3 environment is required.
    pip install ekuiper pynng
    ```
 
-- If you install NeuronEX through docker, please use the NeuronEX image of type [neuronex:3.x.x-python](../installation/docker.md#docker-container-python-runtime-environment), which is already included Python3 environment, as well as some related function libraries.
+- If you install NeuronEX through docker, please use the NeuronEX image of type [neuronex:3.x.x](../installation/docker.md#docker-container-python-runtime-environment), which is already included Python3 environment, as well as some related function libraries.
 
 ## Overall introduction of pysam plugin
 

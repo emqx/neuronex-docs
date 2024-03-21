@@ -1,6 +1,6 @@
 # Python 便携插件扩展示例
 
-以下为pysam插件示例的介绍及打包过程，pysam插件可通过该链接[python sdk example](https://github.com/lf-edge/ekuiper/tree/master/sdk/python)下载获取及测试。
+以下为pysam插件示例的介绍及打包过程，pysam插件可通过**算法集成**的**便捷插件**页签，点击**下载便携插件示例**获取。
 
 ## 部署要求
 使用Python 便携插件，需要有 Python3 环境。
@@ -12,7 +12,7 @@
   pip install ekuiper pynng
   ```
 
-- 如果您通过 docker 的方式安装 NeuronEX ，请使用[neuronex:3.x.x-python](../installation/docker.md#docker-容器-python-运行环境)类型的 NeuronEX 镜像，该镜像已经包含了 Python3 环境，以及一些相关的函数库。
+- 如果您通过 docker 的方式安装 NeuronEX ，请使用 [neuronex:3.x.x](../installation/docker.md#docker-容器-python-运行环境) 类型的 NeuronEX 镜像，该镜像已经包含了 Python3 环境，以及一些相关的函数库。
 
 ## pysam插件整体介绍
 

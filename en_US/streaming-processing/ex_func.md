@@ -16,13 +16,13 @@ app = Flask(__name__)
 @app.route('/api/test1', methods=['POST'])
 def test1():
     try:
-        data = request.get_json()  # 获取POST请求中的JSON数据
+        data = request.get_json()  
         a = data['a']
         b = data['b']
         result = a + b
-        return jsonify({'result': result}), 200  # 返回JSON格式的结果和状态码200
+        return jsonify({'result': result}), 200  
     except Exception as e:
-        return jsonify({'error': str(e)}), 400  # 如果发生错误，返回错误信息和状态码400
+        return jsonify({'error': str(e)}), 400  
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=9876)

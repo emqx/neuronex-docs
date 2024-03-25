@@ -48,7 +48,7 @@ INSERT INTO devices (id, name, deviceKind) VALUES
 流和表都创建完成后，我们就可以创建补全规则了。
 
 ```sql
-SELECT * FROM demoStream2 INNER JOIN deviceTable ON demoStream.deviceId = deviceTable.id
+SELECT * FROM demoStream2 INNER JOIN deviceTable ON demoStream2.deviceId = deviceTable.id
 
 ```
 

@@ -883,6 +883,10 @@
             "path": "admin/log-management"
           },
           {
+            "title": "ECP 纳管",
+            "path": "admin/ecp-management"
+          },
+          {
             "title": "监控告警管理",
             "path": "admin/alert-monitor-management"
            },
@@ -1765,6 +1769,10 @@
           {
             "title": "Log Management",
             "path": "admin/log-management"
+          },
+          {
+            "title": "ECP Management",
+            "path": "admin/ecp-management"
           },
           {
             "title": "Monitor and Alert Management",

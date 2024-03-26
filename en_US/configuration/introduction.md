@@ -29,7 +29,7 @@ NeuronEX helps traditional industrial devices deliver data messages asynchronous
 
 Plugins can be divided into northbound applications and southbound drivers. Northbound plugins are typically used to connect to cloud platforms. Southbound plugins are communication drivers that implement specific protocols to access external devices. In order to implement protocol format conversion, at least one northbound plugin and one southbound plugin are required for data transmission and data collection respectively.
 
-All plugin modules are written based on C language, and SDK files are provided for users who want secondary development. For specific plugin development tutorials, please refer to [SKD Tutorial](https://neugates.io/docs/zh/latest/dev-guide/sdk-tutorial/sdk-tutorial.html).
+All plugin modules are written based on C language, and SDK files are provided for users who want secondary development. For specific plugin development tutorials, please refer to [SDK Tutorial](https://neugates.io/docs/zh/latest/dev-guide/sdk-tutorial/sdk-tutorial.html).
 
 ### [Node](./groups-tags/groups-tags.md)
 

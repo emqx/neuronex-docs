@@ -48,10 +48,10 @@ payload
 
 ## Generate public and private keys
 
-Before signing the JWT, you need to generate a pair of public and private keys, and put the generated public key public.pem in the subdirectories of the NeuronEX installation directory **etc**. NeuronEX automatically loads files in **certs** and decodes them using the public key.
+Before signing the JWT, you need to generate a pair of public and private keys, and put the generated public key public.pem in the subdirectories of the NeuronEX installation directory **etc**. NeuronEX automatically loads files in **etc** and decodes them using the public key.
 
 :::tip
-The default installation path for Docker and deb/rpm packages is `/opt/neuron`.
+The default installation path for Docker and deb/rpm packages is `/opt/neuronex`.
 
 The public key file name must be consistent with the issuer in the JWT.
 :::

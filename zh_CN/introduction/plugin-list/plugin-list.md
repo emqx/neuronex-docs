@@ -17,7 +17,7 @@
 
 在插件页面，点击左上角的**添加插件**按钮，上传本地的插件 .so 文件和.json文件。
 
-具体的插件开发教程请参考 [SKD 教程](https://neugates.io/docs/zh/latest/dev-guide/sdk-tutorial/sdk-tutorial.html)。
+具体的插件开发教程请参考 [SDK 教程](https://neugates.io/docs/zh/latest/dev-guide/sdk-tutorial/sdk-tutorial.html)。
 
 ## 替换已有插件模块
 

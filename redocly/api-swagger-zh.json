@@ -37,6 +37,9 @@
       "name": "sse"
     },
     {
+      "name": "sso"
+    },
+    {
       "name": "template"
     },
     {
@@ -1960,6 +1963,285 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/sso": {
+      "get": {
+        "summary": "Get all SSO configurations",
+        "x-apifox-folder": "NeuronEX/sso",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "operationId": "QuerySSOConfigs",
+        "tags": [
+          "sso"
+        ],
+        "parameters": [
+          {
+            "name": "enabled",
+            "in": "query",
+            "description": "Optional, query configurations by 'enabled' field",
+            "required": false,
+            "example": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      },
+                      "clientId": {
+                        "type": "string"
+                      },
+                      "clientSecret": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "enabled": {
+                        "type": "boolean",
+                        "default": false
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "url",
+                      "clientId",
+                      "clientSecret",
+                      "type",
+                      "enabled"
+                    ],
+                    "x-apifox-orders": [
+                      "name",
+                      "url",
+                      "clientId",
+                      "clientSecret",
+                      "type",
+                      "enabled"
+                    ]
+                  }
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": [
+                      {
+                        "name": "sso1",
+                        "url": "https://iamnew.ctwing.cn",
+                        "clientId": "8I744Myxxxx",
+                        "clientSecret": "5jMnFyxxxx",
+                        "type": "oauth2",
+                        "enabled": true
+                      },
+                      {
+                        "name": "sso2",
+                        "url": "https://iamnew.ctwing.cn",
+                        "clientId": "VDx2v0uxxxx",
+                        "clientSecret": "1uu9c5xxxx",
+                        "type": "oauth2",
+                        "enabled": false
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "@ErrorInfo(1003,\"Request param invalid\")\n@ErrorInfo(19002,\"Configuration name not found in the query\")\n)"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a new SSO configuration",
+        "x-apifox-folder": "NeuronEX/sso",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "operationId": "SSOConfigHandler",
+        "tags": [
+          "sso"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SSOConfigBody"
+              },
+              "example": {
+                "name": "sso1",
+                "url": "https://iamnew.ctwing.cn",
+                "clientId": "VDx2v0usxxx",
+                "clientSecret": "1uu9c5xxxx",
+                "type": "oauth2",
+                "enabled": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {}
+          },
+          "400": {
+            "description": "@ErrorInfo(1002,\"Request body invalid\")\n@ErrorInfo(19000,\"Add ssoConfiguration failed\")\n@ErrorInfo(19004,\"Configuration already exists\")\n"
+          }
+        }
+      }
+    },
+    "/api/sso/{serverName}": {
+      "get": {
+        "summary": "Get an SSO configuration",
+        "x-apifox-folder": "NeuronEX/sso",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "operationId": "QuerySSOConfig",
+        "tags": [
+          "sso"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SSOConfigBody"
+                },
+                "example": {
+                  "name": "sso1",
+                  "url": "https://iamnew.ctwing.cn",
+                  "clientId": "VDx2v0usxxx",
+                  "clientSecret": "1uu9c5xxxx",
+                  "type": "oauth2",
+                  "enabled": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "@ErrorInfo(19002,\"Configuration name not found in the query\")\n"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update an SSO configuration",
+        "x-apifox-folder": "NeuronEX/server",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "operationId": "UpdateSSOConfig",
+        "tags": [
+          "sso"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSSOConfigBody"
+              },
+              "example": {
+                "name": "sso1",
+                "url": "https://iamnew.ctwing.cn",
+                "clientId": "VDx2v0usxxx",
+                "clientSecret": "1uu9c5xxxx",
+                "type": "oauth2",
+                "enabled": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {}
+          },
+          "400": {
+            "description": "@ErrorInfo(1002,\"Request body invalid\")\n@ErrorInfo(19001,\"Update ssoConfiguration failed\")\n@ErrorInfo(19002,\"Configuration name not found in the query\")\n"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an SSO configuration",
+        "x-apifox-folder": "NeuronEX/sso",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "operationId": "DeleteSSOConfig",
+        "tags": [
+          "sso"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {}
+          },
+          "400": {
+            "description": "@ErrorInfo(19003,\"Delete ssoConfiguration failed\")\n"
+          }
+        }
+      }
+    },
+    "/sso/{serverName}/oauth2": {
+      "get": {
+        "summary": "SSO Handling",
+        "x-apifox-folder": "NeuronEX/sso",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "operationId": "OAuth2Handler",
+        "tags": [
+          "sso"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": "5068471130381875",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/neuron-token"
+                },
+                "example": {
+                  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzcyODcxNjMsImlhdCI6MTYzNzIwMDc2MywiaXNzIjoiRU1RIFRlY2hub2xvZ2llcyBDby4sIEx0ZCBBbGwgcmlnaHRzIHJlc2VydmVkLiIsInBhc3MiOiIwMDAwIiwidXNlciI6ImFkbWluIn0.2EZzPC9djErrCeYNrK2av0smh-eKxDYeyu7cW4MyknI"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "@ErrorInfo(19002,\"Configuration name not found in the query\")\n"
           }
         }
       }
@@ -15231,6 +15513,75 @@
           "old_pass": {
             "type": "string",
             "x-go-name": "OldPassword"
+          }
+        }
+      },
+      "SSOConfigBody": {
+        "type": "object",
+        "required": [
+          "name",
+          "url",
+          "clientId",
+          "clientSecret",
+          "type"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-go-name": "Name"
+          },
+          "url": {
+            "type": "string",
+            "x-go-name": "URL"
+          },
+          "clientId": {
+            "type": "string",
+            "x-go-name": "ClientID"
+          },
+          "clientSecret": {
+            "type": "string",
+            "x-go-name": "ClientSecret"
+          },
+          "type": {
+            "type": "string",
+            "x-go-name": "Type"
+          },
+          "enabled": {
+            "type": "boolean",
+            "default": false,
+            "x-go-name": "Enabled"
+          }
+        }
+      },
+      "UpdateSSOConfigBody": {
+        "type": "object",
+        "required": [
+          "url",
+          "clientId",
+          "clientSecret",
+          "type",
+          "enabled"
+        ],
+        "properties": {
+          "url": {
+            "type": "string",
+            "x-go-name": "URL"
+          },
+          "clientId": {
+            "type": "string",
+            "x-go-name": "ClientID"
+          },
+          "clientSecret": {
+            "type": "string",
+            "x-go-name": "ClientSecret"
+          },
+          "type": {
+            "type": "string",
+            "x-go-name": "Type"
+          },
+          "enabled": {
+            "type": "boolean",
+            "x-go-name": "Enabled"
           }
         }
       }

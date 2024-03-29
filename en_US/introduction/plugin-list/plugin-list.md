@@ -40,7 +40,7 @@ For specific instructions on replacing and updating plugins, please contact the 
 | Profinet IO             | Ethernet  |  - |
 | SECS GEM HSMS         | Ethernet  |  Semiconductor Industry Protocol |
 
-### PLC 驱动
+### PLC Drivers
 
 | <div style="width:120pt">Protocol Name</div>    | <div style="width:100pt">Communication Interface</div> | <div style="width:40pt">Remark</div> |
 | ------------------------------------------------------------ | ------ | ---- |
@@ -72,7 +72,7 @@ For specific instructions on replacing and updating plugins, please contact the 
 
 
 
-### electricity
+### Electricity
 
 | Protocol Name             |   <div style="width:100pt">Communication Interface</div>  |  Remark     |
 | ------------------- | ------ |  ---------- |
@@ -81,7 +81,7 @@ For specific instructions on replacing and updating plugins, please contact the 
 | IEC 60870-5-104     | Ethernet    | - |
 | IEC 61850           | Ethernet    | - |
 
-### building automation
+### Building Automation
 
 | Protocol Name         |  <div style="width:100pt">Communication Interface</div>    | Remark      | 
 | -------------- | ------- | ---------- | 
@@ -96,7 +96,7 @@ For specific instructions on replacing and updating plugins, please contact the 
 | Mitsubishi CNC    | Ethernet    |     connect to M70、M80、M700、M800、E70 series CNC |
 | Heidenhain CNC    | Ethernet    |     connect to Heidenhain TNC640, iTNC530 and others through the LSV2 protocol |
 
-## Northbound plugins
+## Northbound Plugins
 
 | Protocol Name                                  | Remark                                 | 
 | --------------------------------------- | ----------------------------------- | 

@@ -3952,13 +3952,43 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "description": "plugin name",
+                    "description": "node name",
                     "type": "string",
                     "title": "node name"
                   },
                   "plugin": {
                     "type": "string",
                     "title": "plugin name"
+                  },
+                  "params": {
+                    "type": "array",
+                    "title": "setting (optional)",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "param1": {
+                          "type": "integer",
+                          "description": ""
+                        },
+                        "param2": {
+                          "type": "string",
+                          "description": ""
+                        },
+                        "param3": {
+                          "type": "bool",
+                          "description": ""
+                        },
+                        "param4": {
+                          "type": "integer",
+                          "description": ""
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "name",
+                        "plugin",
+                        "params"
+                      ]
+                    }
                   }
                 },
                 "required": [
@@ -3996,7 +4026,7 @@
               }
             }
           },
-          "400": {
+          "400(2001)": {
             "description": "node type invalid",
             "content": {
               "application/json": {
@@ -4008,6 +4038,24 @@
                     "summary": "node type invalid",
                     "value": {
                       "error": 2001
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400(2004)": {
+            "description": "node setting invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/neuron-error"
+                },
+                "examples": {
+                  "1": {
+                    "summary": "node setting invalid",
+                    "value": {
+                      "error": 2004
                     }
                   }
                 }
@@ -4702,7 +4750,7 @@
           }
         ],
         "responses": {
-          "200": {
+        "200": {
             "description": "OK",
             "content": {
               "application/json": {
@@ -6700,11 +6748,11 @@
                     "type": "string"
                   },
                   "driver": {
-                    "description": "driver name",
+                    "description": "substring match against driver name",
                     "type": "string"
                   },
                   "group": {
-                    "description": "driver node group name",
+                    "description": "substring match against group name",
                     "type": "string"
                   },
                   "params": {
@@ -6722,9 +6770,7 @@
                   }
                 },
                 "required": [
-                  "app",
-                  "driver",
-                  "group"
+                  "app"
                 ],
                 "x-apifox-orders": [
                   "app",
@@ -7936,9 +7982,9 @@
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120273202-run"
       }
     },
-    "/api/neuron/template": {
-      "post": {
-        "summary": "Add Template",
+    "/api/neuron/global/drivers": {
+      "put": {
+        "summary": "Put Drivers",
         "x-apifox-folder": "Neuron/configuration",
         "x-apifox-status": "released",
         "deprecated": false,
@@ -8031,31 +8077,41 @@
                 ]
               },
               "example": {
-                "name": "rtu template",
-                "plugin": "Modbus RTU",
-                "groups": [
-                  {
-                    "name": "group1",
-                    "interval": 2000,
-                    "tags": [
-                      {
-                        "name": "tag1",
-                        "type": 4,
-                        "address": "1!400001",
-                        "attribute": 1,
-                        "precison": 1,
-                        "decimal": 0
-                      },
-                      {
-                        "name": "tag2",
-                        "type": 11,
-                        "address": "1!400009",
-                        "attribute": 3
-                      }
-                    ]
-                  }
+                "nodes": [
+                    {
+                        "name": "rtu template",
+                        "plugin": "Modbus RTU",
+                        "params": {
+                            "param1": 1,
+                            "param2": "1.1.1.1",
+                            "param3": true,
+                            "param4": 11.22
+                        },
+                        "groups": [
+                            {
+                                "name": "group1",
+                                "interval": 2000,
+                                "tags": [
+                                    {
+                                        "name": "tag1",
+                                        "type": 4,
+                                        "address": "1!400001",
+                                        "attribute": 1,
+                                        "precison": 1,
+                                        "decimal": 0
+                                    },
+                                    {
+                                        "name": "tag2",
+                                        "type": 11,
+                                        "address": "1!400009",
+                                        "attribute": 3
+                                    }
+                                ]
+                            }
+                        ]
+                    }
                 ]
-              }
+            }
             }
           }
         },
@@ -8141,33 +8197,63 @@
                 },
                 "examples": {
                   "1": {
+                    "summary": "request body invalid",
+                    "value": {
+                      "error": 1002
+                    }
+                  },
+                  "2": {
+                    "summary": "node name too long",
+                    "value": {
+                      "error": 2010
+                    }
+                  },
+                  "3": {
+                    "summary": "node not allow delete",
+                    "value": {
+                      "error": 2011
+                    }
+                  },
+                  "4": {
                     "summary": "group parameter invalid",
                     "value": {
                       "error": 2105
                     }
                   },
-                  "2": {
+                  "5": {
                     "summary": "group name too long",
                     "value": {
                       "error": 2107
                     }
                   },
-                  "3": {
-                    "summary": "template name too long",
+                  "6": {
+                    "summary": "reach max number of groups",
                     "value": {
-                      "error": 2502
+                      "error": 2108
                     }
                   },
-                  "4": {
+                  "7": {
+                    "summary": "reach max number of groups",
+                    "value": {
+                      "error": 2108
+                    }
+                  },
+                  "8": {
+                    "summary": " library failed to open",
+                    "value": {
+                      "error": 2304
+                    }
+                  },
+                  "9": {
                     "summary": "plugin name too long",
                     "value": {
                       "error": 3013
                     }
                   },
-                  "5": {
-                    "summary": "plugin does not support template",
+                  "10": {
+                    "summary": "plugin does not support requested operation",
                     "value": {
-                      "error": 3016
+                      "error": 3019
                     }
                   }
                 }
@@ -8186,6 +8272,12 @@
                     "summary": "plugin not found",
                     "value": {
                       "error": 3014
+                    }
+                  },
+                  "2": {
+                    "summary": "library not found",
+                    "value": {
+                      "error": 2301
                     }
                   }
                 }
@@ -8213,9 +8305,9 @@
                     }
                   },
                   "3": {
-                    "summary": "template already exists",
+                    "summary": "library not allow create instance",
                     "value": {
-                      "error": 2500
+                      "error": 2307
                     }
                   }
                 }
@@ -8259,87 +8351,8 @@
         },
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120283074-run"
       },
-      "delete": {
-        "summary": "Del Template",
-        "x-apifox-folder": "Neuron/configuration",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "configuration"
-        ],
-        "parameters": [
-          {
-            "name": "name",
-            "in": "query",
-            "description": "optional, name of the template to delete. If not specified, then delete all templates.",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "success",
-                    "value": {
-                      "error": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "template not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "template not found",
-                    "value": {
-                      "error": 2501
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "server is busy",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "server is busy",
-                    "value": {
-                      "error": 1010
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120284812-run"
-      },
       "get": {
-        "summary": "Get Template",
+        "summary": "Get Drivers",
         "x-apifox-folder": "Neuron/configuration",
         "x-apifox-status": "released",
         "deprecated": false,
@@ -8351,7 +8364,7 @@
           {
             "name": "name",
             "in": "query",
-            "description": "name of a particular template.",
+            "description": " Optional, list of names to filter out driver nodes (separated by ',')",
             "required": false,
             "example": "",
             "schema": {
@@ -8361,7 +8374,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Without the **name** request parameter",
+            "description": "If success, returns the list of drivers",
             "content": {
               "application/json": {
                 "schema": {
@@ -8396,52 +8409,47 @@
                   "x-apifox-orders": [
                     "templates"
                   ],
-                  "description": "Without the **name** request parameter, return all templates."
+                  "description": ""
                 },
                 "examples": {
                   "1": {
-                    "summary": "Without the **name** request parameter, return all templates.",
+                    "summary": "success",
                     "value": {
-                      "templates": [
-                        {
-                          "name": "template1",
-                          "plugin": "modbus tcp"
-                        },
-                        {
-                          "name": "template2",
-                          "plugin": "opc ua"
-                        }
+                      "nodes": [
+                          {
+                              "name": "rtu template",
+                              "plugin": "Modbus RTU",
+                              "params": {
+                                  "param1": 1,
+                                  "param2": "1.1.1.1",
+                                  "param3": true,
+                                  "param4": 11.22
+                              },
+                              "groups": [
+                                  {
+                                      "name": "group1",
+                                      "interval": 2000,
+                                      "tags": [
+                                          {
+                                              "name": "tag1",
+                                              "type": 4,
+                                              "address": "1!400001",
+                                              "attribute": 1,
+                                              "precison": 1,
+                                              "decimal": 0
+                                          },
+                                          {
+                                              "name": "tag2",
+                                              "type": 11,
+                                              "address": "1!400009",
+                                              "attribute": 3
+                                          }
+                                      ]
+                                  }
+                              ]
+                          }
                       ]
-                    }
-                  },
-                  "2": {
-                    "summary": "When the **name** request parameter is specified, return detail information of the template of the given name.",
-                    "value": {
-                      "name": "rtu template",
-                      "plugin": "Modbus RTU",
-                      "groups": [
-                        {
-                          "name": "group1",
-                          "interval": 2000,
-                          "tags": [
-                            {
-                              "name": "tag1",
-                              "type": 4,
-                              "address": "1!400001",
-                              "attribute": 1,
-                              "precison": 1,
-                              "decimal": 0
-                            },
-                            {
-                              "name": "tag2",
-                              "type": 11,
-                              "address": "1!400009",
-                              "attribute": 3
-                            }
-                          ]
-                        }
-                      ]
-                    }
+                  }
                   }
                 }
               }
@@ -8466,7 +8474,7 @@
             }
           },
           "404": {
-            "description": "template not found",
+            "description": "node not exist",
             "content": {
               "application/json": {
                 "schema": {
@@ -8474,9 +8482,9 @@
                 },
                 "examples": {
                   "1": {
-                    "summary": "template not found",
+                    "summary": "node not exist",
                     "value": {
-                      "error": 2501
+                      "error": 2003
                     }
                   }
                 }
@@ -8510,1868 +8518,6 @@
         }
       },
       "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120288549-run"
-    },
-    "/api/neuron/template/inst": {
-      "post": {
-        "summary": "Template Instantiation",
-        "x-apifox-folder": "Neuron/configuration",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "configuration"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "node": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "name",
-                  "node"
-                ],
-                "x-apifox-orders": [
-                  "name",
-                  "node"
-                ]
-              },
-              "example": {
-                "name": "rtu template",
-                "node": "modbus-rtu"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-0"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "success",
-                    "value": {
-                      "error": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Incorrect request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "library failed to open",
-                    "value": {
-                      "error": 2304
-                    }
-                  },
-                  "2": {
-                    "summary": "template name too long",
-                    "value": {
-                      "error": 2502
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Incorrect request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "node exist",
-                    "value": {
-                      "error": 2002
-                    }
-                  },
-                  "2": {
-                    "summary": "library not allow create instance",
-                    "value": {
-                      "error": 2307
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "500",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "server is busy",
-                    "value": {
-                      "error": 1010
-                    }
-                  },
-                  "2": {
-                    "summary": "internal error",
-                    "value": {
-                      "error": 1001
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120290329-run"
-      }
-    },
-    "/api/neuron/template/instances": {
-      "post": {
-        "summary": "Template Multi Node Instantiation",
-        "x-apifox-folder": "Neuron/configuration",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "configuration"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "nodes": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string"
-                        },
-                        "node": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "name",
-                        "node"
-                      ],
-                      "x-apifox-orders": [
-                        "name",
-                        "node"
-                      ]
-                    }
-                  }
-                },
-                "required": [
-                  "nodes"
-                ],
-                "x-apifox-orders": [
-                  "nodes"
-                ]
-              },
-              "example": {
-                "nodes": [
-                  {
-                    "name": "rtu template",
-                    "node": "node1"
-                  },
-                  {
-                    "name": "tcp template",
-                    "node": "node2"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-0"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "success",
-                    "value": {
-                      "error": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Incorrect request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "library failed to open",
-                    "value": {
-                      "error": 2304
-                    }
-                  },
-                  "2": {
-                    "summary": "template name too long",
-                    "value": {
-                      "error": 2502
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Record does not exist",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "library not found",
-                    "value": {
-                      "error": 2301
-                    }
-                  },
-                  "2": {
-                    "summary": "template not found",
-                    "value": {
-                      "error": 2501
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Incorrect request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "node exist",
-                    "value": {
-                      "error": 2002
-                    }
-                  },
-                  "2": {
-                    "summary": "library not allow create instance",
-                    "value": {
-                      "error": 2307
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "500",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "server is busy",
-                    "value": {
-                      "error": 1010
-                    }
-                  },
-                  "2": {
-                    "summary": "internal error",
-                    "value": {
-                      "error": 1001
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120293844-run"
-      }
-    },
-    "/api/neuron/template/group": {
-      "post": {
-        "summary": "Add Template Group",
-        "x-apifox-folder": "Neuron/configuration",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "configuration"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "template": {
-                    "type": "string"
-                  },
-                  "group": {
-                    "type": "string"
-                  },
-                  "interval": {
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "template",
-                  "group",
-                  "interval"
-                ],
-                "x-apifox-orders": [
-                  "template",
-                  "group",
-                  "interval"
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-0"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "success",
-                    "value": {
-                      "error": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Incorrect request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "group parameter invalid",
-                    "value": {
-                      "error": 2105
-                    }
-                  },
-                  "2": {
-                    "summary": "group name too long",
-                    "value": {
-                      "error": 2107
-                    }
-                  },
-                  "3": {
-                    "summary": "template name too long",
-                    "value": {
-                      "error": 2502
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Record does not exist",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "template not found",
-                    "value": {
-                      "error": 2501
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "group exist",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "group exist",
-                    "value": {
-                      "error": 2104
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "500",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "server is busy",
-                    "value": {
-                      "error": 1010
-                    }
-                  },
-                  "2": {
-                    "summary": "internal error",
-                    "value": {
-                      "error": 1001
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120295930-run"
-      },
-      "delete": {
-        "summary": "Del Template Group",
-        "x-apifox-folder": "Neuron/configuration",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "configuration"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "template": {
-                    "type": "string"
-                  },
-                  "group": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "template",
-                  "group"
-                ],
-                "x-apifox-orders": [
-                  "template",
-                  "group"
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "success",
-                    "value": {
-                      "error": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Incorrect request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "group name too long",
-                    "value": {
-                      "error": 2107
-                    }
-                  },
-                  "2": {
-                    "summary": "template name too long",
-                    "value": {
-                      "error": 2502
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Record does not exist",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "group not exist",
-                    "value": {
-                      "error": 2106
-                    }
-                  },
-                  "2": {
-                    "summary": "template not found",
-                    "value": {
-                      "error": 2501
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "500",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "server is busy",
-                    "value": {
-                      "error": 1010
-                    }
-                  },
-                  "2": {
-                    "summary": "internal error",
-                    "value": {
-                      "error": 1001
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120297681-run"
-      },
-      "put": {
-        "summary": "Update Template Group",
-        "x-apifox-folder": "Neuron/configuration",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "configuration"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "template": {
-                    "type": "string"
-                  },
-                  "group": {
-                    "type": "string",
-                    "description": "group name"
-                  },
-                  "interval": {
-                    "type": "integer",
-                    "description": "interval(ms)"
-                  },
-                  "new_name": {
-                    "type": "string",
-                    "description": "group new name"
-                  }
-                },
-                "required": [
-                  "template",
-                  "group",
-                  "interval",
-                  "new_name"
-                ],
-                "x-apifox-orders": [
-                  "template",
-                  "group",
-                  "interval",
-                  "new_name"
-                ]
-              },
-              "example": {
-                "template": "modbus-template",
-                "group": "gconfig1",
-                "new_name": "group1",
-                "interval": 10000
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-0"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "success",
-                    "value": {
-                      "error": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Incorrect request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "group parameter invalid",
-                    "value": {
-                      "error": 2105
-                    }
-                  },
-                  "2": {
-                    "summary": "group name too long",
-                    "value": {
-                      "error": 2107
-                    }
-                  },
-                  "3": {
-                    "summary": "template name too long",
-                    "value": {
-                      "error": 2502
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Record does not exist",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "template not found",
-                    "value": {
-                      "error": 2501
-                    }
-                  },
-                  "2": {
-                    "summary": "group not exist",
-                    "value": {
-                      "error": 2106
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "500",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "server is busy",
-                    "value": {
-                      "error": 1010
-                    }
-                  },
-                  "2": {
-                    "summary": "internal error",
-                    "value": {
-                      "error": 1001
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120298592-run"
-      },
-      "get": {
-        "summary": "Get Template Group",
-        "x-apifox-folder": "Neuron/configuration",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "configuration"
-        ],
-        "parameters": [
-          {
-            "name": "name",
-            "in": "query",
-            "description": "name of the template.",
-            "required": true,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "groups": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": "string"
-                          },
-                          "interval": {
-                            "type": "integer"
-                          },
-                          "tag_count": {
-                            "type": "integer"
-                          }
-                        },
-                        "x-apifox-orders": [
-                          "name",
-                          "interval",
-                          "tag_count"
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "groups"
-                  ],
-                  "x-apifox-orders": [
-                    "groups"
-                  ]
-                },
-                "examples": {
-                  "1": {
-                    "summary": "success",
-                    "value": {
-                      "groups": [
-                        {
-                          "name": "group1",
-                          "interval": 2000,
-                          "tag_count": 2
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "request param invalid",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "request param invalid",
-                    "value": {
-                      "error": 1003
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "template not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "template not found",
-                    "value": {
-                      "error": 2501
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "500",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "server is busy",
-                    "value": {
-                      "error": 1010
-                    }
-                  },
-                  "2": {
-                    "summary": "internal error",
-                    "value": {
-                      "error": 1001
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120299795-run"
-      }
-    },
-    "/api/neuron/template/tag": {
-      "post": {
-        "summary": "Add Template Tag",
-        "x-apifox-folder": "Neuron/configuration",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "configuration"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "template": {
-                    "type": "string"
-                  },
-                  "group": {
-                    "type": "string"
-                  },
-                  "tags": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string"
-                        },
-                        "address": {
-                          "type": "string"
-                        },
-                        "attribute": {
-                          "type": "integer"
-                        },
-                        "type": {
-                          "type": "integer"
-                        },
-                        "precision": {
-                          "type": "integer"
-                        },
-                        "decimal": {
-                          "type": [
-                            "integer",
-                            "number"
-                          ]
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "value": {
-                          "type": "integer"
-                        }
-                      },
-                      "required": [
-                        "name",
-                        "address",
-                        "attribute",
-                        "type",
-                        "decimal"
-                      ],
-                      "x-apifox-orders": [
-                        "name",
-                        "address",
-                        "attribute",
-                        "type",
-                        "precision",
-                        "decimal",
-                        "description",
-                        "value"
-                      ]
-                    }
-                  }
-                },
-                "required": [
-                  "template",
-                  "group",
-                  "tags"
-                ],
-                "x-apifox-orders": [
-                  "template",
-                  "group",
-                  "tags"
-                ]
-              },
-              "example": {
-                "template": "modbus-template",
-                "group": "group1",
-                "tags": [
-                  {
-                    "name": "tag1",
-                    "address": "1!400001",
-                    "attribute": 8,
-                    "type": 4,
-                    "precision": 0,
-                    "decimal": 0,
-                    "description": "",
-                    "value": 12
-                  },
-                  {
-                    "name": "tag2",
-                    "address": "1!00001",
-                    "attribute": 3,
-                    "type": 3,
-                    "decimal": 0.01
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "index": {
-                      "type": "integer"
-                    },
-                    "error": {
-                      "type": "integer"
-                    }
-                  },
-                  "required": [
-                    "index",
-                    "error"
-                  ],
-                  "x-apifox-orders": [
-                    "index",
-                    "error"
-                  ]
-                },
-                "examples": {
-                  "1": {
-                    "summary": "success",
-                    "value": {
-                      "index": 2,
-                      "error": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "206": {
-            "description": "206",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "tag attribute not support",
-                    "value": {
-                      "error": 2203
-                    }
-                  },
-                  "2": {
-                    "summary": "tag type not support",
-                    "value": {
-                      "error": 2204
-                    }
-                  },
-                  "3": {
-                    "summary": "tag address format invalid",
-                    "value": {
-                      "error": 2205
-                    }
-                  },
-                  "4": {
-                    "summary": "tag name too long",
-                    "value": {
-                      "error": 2206
-                    }
-                  },
-                  "5": {
-                    "summary": "tag address too long",
-                    "value": {
-                      "error": 2207
-                    }
-                  },
-                  "6": {
-                    "summary": "tag description too long",
-                    "value": {
-                      "error": 2208
-                    }
-                  },
-                  "7": {
-                    "summary": "tag precision invalid",
-                    "value": {
-                      "error": 2209
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Incorrect request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "group name too long",
-                    "value": {
-                      "error": 2107
-                    }
-                  },
-                  "2": {
-                    "summary": "template name too long",
-                    "value": {
-                      "error": 2502
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Record does not exist",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "group not exist",
-                    "value": {
-                      "error": 2106
-                    }
-                  },
-                  "2": {
-                    "summary": "template not found",
-                    "value": {
-                      "error": 2501
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "tag name conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "tag name conflict",
-                    "value": {
-                      "error": 2202
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "500",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "server is busy",
-                    "value": {
-                      "error": 1010
-                    }
-                  },
-                  "2": {
-                    "summary": "internal error",
-                    "value": {
-                      "error": 1001
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120304450-run"
-      },
-      "put": {
-        "summary": "Update Template Tag",
-        "x-apifox-folder": "Neuron/configuration",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "configuration"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "template": {
-                    "type": "string"
-                  },
-                  "group": {
-                    "type": "string"
-                  },
-                  "tags": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string"
-                        },
-                        "address": {
-                          "type": "string"
-                        },
-                        "attribute": {
-                          "type": "integer"
-                        },
-                        "type": {
-                          "type": "integer"
-                        },
-                        "precision": {
-                          "type": "integer"
-                        },
-                        "decimal": {
-                          "type": [
-                            "integer",
-                            "number"
-                          ]
-                        },
-                        "description": {
-                          "type": "string"
-                        },
-                        "value": {
-                          "type": "integer"
-                        }
-                      },
-                      "required": [
-                        "name",
-                        "address",
-                        "attribute",
-                        "type",
-                        "decimal"
-                      ],
-                      "x-apifox-orders": [
-                        "name",
-                        "address",
-                        "attribute",
-                        "type",
-                        "precision",
-                        "decimal",
-                        "description",
-                        "value"
-                      ]
-                    }
-                  }
-                },
-                "required": [
-                  "template",
-                  "group",
-                  "tags"
-                ],
-                "x-apifox-orders": [
-                  "template",
-                  "group",
-                  "tags"
-                ]
-              },
-              "example": {
-                "template": "modbus-template",
-                "group": "group1",
-                "tags": [
-                  {
-                    "name": "tag1",
-                    "address": "1!400001",
-                    "attribute": 8,
-                    "type": 4,
-                    "precision": 0,
-                    "decimal": 0,
-                    "description": "",
-                    "value": 12
-                  },
-                  {
-                    "name": "tag2",
-                    "address": "1!00001",
-                    "attribute": 3,
-                    "type": 3,
-                    "decimal": 0.01
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "index": {
-                      "type": "integer"
-                    },
-                    "error": {
-                      "type": "integer"
-                    }
-                  },
-                  "required": [
-                    "index",
-                    "error"
-                  ],
-                  "x-apifox-orders": [
-                    "index",
-                    "error"
-                  ]
-                },
-                "examples": {
-                  "1": {
-                    "summary": "success",
-                    "value": {
-                      "index": 2,
-                      "error": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "206": {
-            "description": "206",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "tag attribute not support",
-                    "value": {
-                      "error": 2203
-                    }
-                  },
-                  "2": {
-                    "summary": "tag type not support",
-                    "value": {
-                      "error": 2204
-                    }
-                  },
-                  "3": {
-                    "summary": "tag address format invalid",
-                    "value": {
-                      "error": 2205
-                    }
-                  },
-                  "4": {
-                    "summary": "tag name too long",
-                    "value": {
-                      "error": 2206
-                    }
-                  },
-                  "5": {
-                    "summary": "tag address too long",
-                    "value": {
-                      "error": 2207
-                    }
-                  },
-                  "6": {
-                    "summary": "tag description too long",
-                    "value": {
-                      "error": 2208
-                    }
-                  },
-                  "7": {
-                    "summary": "tag precision invalid",
-                    "value": {
-                      "error": 2209
-                    }
-                  },
-                  "8": {
-                    "summary": "tag not exist",
-                    "value": {
-                      "error": 2201
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Incorrect request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "group name too long",
-                    "value": {
-                      "error": 2107
-                    }
-                  },
-                  "2": {
-                    "summary": "template name too long",
-                    "value": {
-                      "error": 2502
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Record does not exist",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "group not exist",
-                    "value": {
-                      "error": 2106
-                    }
-                  },
-                  "2": {
-                    "summary": "template not found",
-                    "value": {
-                      "error": 2501
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "500",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "server is busy",
-                    "value": {
-                      "error": 1010
-                    }
-                  },
-                  "2": {
-                    "summary": "internal error",
-                    "value": {
-                      "error": 1001
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120304471-run"
-      },
-      "delete": {
-        "summary": "Del Template Tag",
-        "x-apifox-folder": "Neuron/configuration",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "configuration"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "template": {
-                    "type": "string"
-                  },
-                  "group": {
-                    "type": "string"
-                  },
-                  "tags": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "required": [
-                  "template",
-                  "group",
-                  "tags"
-                ],
-                "x-apifox-orders": [
-                  "template",
-                  "group",
-                  "tags"
-                ]
-              },
-              "example": {
-                "template": "modbus-template",
-                "group": "group1",
-                "tags": [
-                  "tag1",
-                  "tag2"
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "integer"
-                    }
-                  },
-                  "required": [
-                    "error"
-                  ],
-                  "x-apifox-orders": [
-                    "error"
-                  ]
-                },
-                "examples": {
-                  "1": {
-                    "summary": "success",
-                    "value": {
-                      "error": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "206": {
-            "description": "tag name too long",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "tag name too long",
-                    "value": {
-                      "error": 2206
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Incorrect request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "group name too long",
-                    "value": {
-                      "error": 2107
-                    }
-                  },
-                  "2": {
-                    "summary": "template name too long",
-                    "value": {
-                      "error": 2502
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Record does not exist",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "group not exist",
-                    "value": {
-                      "error": 2106
-                    }
-                  },
-                  "2": {
-                    "summary": "template not found",
-                    "value": {
-                      "error": 2501
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "500",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "server is busy",
-                    "value": {
-                      "error": 1010
-                    }
-                  },
-                  "2": {
-                    "summary": "internal error",
-                    "value": {
-                      "error": 1001
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120312712-run"
-      },
-      "get": {
-        "summary": "Get Template Tag ",
-        "x-apifox-folder": "Neuron/configuration",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "configuration"
-        ],
-        "parameters": [
-          {
-            "name": "template",
-            "in": "query",
-            "description": " name of the template.",
-            "required": true,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "group",
-            "in": "query",
-            "description": "name of the group.",
-            "required": true,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "name",
-            "in": "query",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "integer"
-                    },
-                    "tags": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": "string"
-                          },
-                          "type": {
-                            "type": "integer"
-                          },
-                          "address": {
-                            "type": "string"
-                          },
-                          "attribute": {
-                            "type": "integer"
-                          },
-                          "description": {
-                            "type": "string"
-                          },
-                          "precision": {
-                            "type": "integer"
-                          },
-                          "decimal": {
-                            "type": "integer"
-                          },
-                          "value": {
-                            "type": "integer"
-                          },
-                          "precison": {
-                            "type": "integer"
-                          }
-                        },
-                        "required": [
-                          "name",
-                          "type",
-                          "address",
-                          "attribute",
-                          "description",
-                          "decimal"
-                        ],
-                        "x-apifox-orders": [
-                          "name",
-                          "type",
-                          "address",
-                          "attribute",
-                          "description",
-                          "precision",
-                          "decimal",
-                          "value",
-                          "precison"
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "tags",
-                    "error"
-                  ],
-                  "x-apifox-orders": [
-                    "error",
-                    "tags"
-                  ]
-                },
-                "examples": {
-                  "1": {
-                    "summary": "success",
-                    "value": {
-                      "tags": [
-                        {
-                          "name": "tag1",
-                          "type": 4,
-                          "address": "1!400001",
-                          "attribute": 8,
-                          "description": "",
-                          "precision": 0,
-                          "decimal": 0,
-                          "value": 12
-                        },
-                        {
-                          "name": "tag2",
-                          "type": 14,
-                          "address": "1!00001",
-                          "attribute": 3,
-                          "description": "",
-                          "precison": 0,
-                          "decimal": 0
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Incorrect request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "request param invalid",
-                    "value": {
-                      "error": 1003
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Record does not exist",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "group not exist",
-                    "value": {
-                      "error": 2106
-                    }
-                  },
-                  "2": {
-                    "summary": "template not found",
-                    "value": {
-                      "error": 2501
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "500",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "server is busy",
-                    "value": {
-                      "error": 1010
-                    }
-                  },
-                  "2": {
-                    "summary": "internal error",
-                    "value": {
-                      "error": 1001
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120313950-run"
-      }
     },
     "/api/neuron/metrics": {
       "get": {
@@ -10471,6 +8617,18 @@
                   "group": {
                     "type": "string",
                     "description": "group name"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "tag name substring match"
+                  },
+                  "desc": {
+                    "type": "string",
+                    "description": "tag description substring match"
+                  },
+                  "sync": {
+                    "type": "string",
+                    "description": "synchronous read ,default false"
                   }
                 },
                 "required": [

@@ -43,6 +43,12 @@
       "name": "template"
     },
     {
+      "name": "ekuiper_plugin"
+    },
+    {
+      "name": "tunnel"
+    },
+    {
       "name": "license"
     },
     {
@@ -556,6 +562,345 @@
           }
         },
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-119719065-run"
+      }
+    },
+    "/api/plugin/portable": {
+      "post": {
+        "summary": "Create ekuiper plugin ",
+        "x-apifox-folder": "NeuronEX/ekuiper_plugin",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "ekuiper_plugin"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "operationId": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "address",
+                  "name",
+                  "operationId"
+                ],
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": [
+                  "address",
+                  "name",
+                  "operationId"
+                ]
+              },
+              "example": {
+                "address": "http://127.0.0.1:9081",
+                "name": "123456",
+                "operationId": 10
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ek_service": {
+      "post": {
+        "summary": "Create external service",
+        "x-apifox-folder": "NeuronEX/ekuiper_plugin",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "ekuiper_plugin"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "address": {
+                    "type": "string"
+                  },
+                  "headers": {
+                    "type": "object",
+                    "properties": {},
+                    "x-apifox-ignore-properties": [],
+                    "x-apifox-orders": []
+                  }
+                },
+                "required": [
+                  "name",
+                  "address",
+                  "headers"
+                ],
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": [
+                  "name",
+                  "address",
+                  "headers"
+                ]
+              },
+              "example": {
+                "name": "test",
+                "address": "http://127.0.0.1:9081",
+                "headers": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ek_service/${serviceName}": {
+      "delete": {
+        "summary": "Delete  external service ",
+        "x-apifox-folder": "NeuronEX/ekuiper_plugin",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "ekuiper_plugin"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/tunnel": {
+      "get": {
+        "summary": "Get ECP Tunnel Config info",
+        "x-apifox-folder": "NeuronEX/tunnel",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "tunnel"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "enable": {
+                      "type": "boolean"
+                    },
+                    "enableSSL": {
+                      "type": "boolean"
+                    },
+                    "registerId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "enable",
+                    "enableSSL",
+                    "registerId"
+                  ],
+                  "x-apifox-orders": [
+                    "enable",
+                    "enableSSL",
+                    "registerId"
+                  ],
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "enable": false,
+                      "enableSSL": false,
+                      "registerId": "dc3e97118e33-1115b9328bfb58948407"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-161376701-run"
+      },
+      "post": {
+        "summary": "ECP Tunnel configuration",
+        "x-apifox-folder": "NeuronEX/tunnel",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "tunnel"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enable": {
+                    "type": "boolean"
+                  },
+                  "enableSSL": {
+                    "type": "boolean"
+                  },
+                  "address": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "certificationRaw": {
+                    "type": "string"
+                  },
+                  "privateKeyRaw": {
+                    "type": "string"
+                  },
+                  "rootCARaw": {
+                    "type": "string"
+                  },
+                  "registerId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "enable",
+                  "enableSSL",
+                  "address",
+                  "username",
+                  "password",
+                  "description",
+                  "certificationRaw",
+                  "privateKeyRaw",
+                  "rootCARaw",
+                  "registerId"
+                ],
+                "x-apifox-orders": [
+                  "enable",
+                  "enableSSL",
+                  "address",
+                  "username",
+                  "password",
+                  "description",
+                  "certificationRaw",
+                  "privateKeyRaw",
+                  "rootCARaw",
+                  "registerId"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "enable": false,
+                "enableSSL": false,
+                "address": "tcp://127.0.0.1:1883",
+                "username": "admin",
+                "password": "password",
+                "description": "test",
+                "certificationRaw": "cert_base64",
+                "privateKeyRaw": "key_base64",
+                "rootCARaw": "ca_base64",
+                "registerId": "1234567890"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/login": {
@@ -1189,6 +1534,26 @@
             "schema": {
               "type": "integer"
             }
+          },
+          {
+            "name": "nodes",
+            "in": "query",
+            "description": "List of nodes to be queried",
+            "required": false,
+            "example": "south1,south3",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rules",
+            "in": "query",
+            "description": "List of rules to be queried",
+            "required": false,
+            "example": "rule1,rule2",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1452,7 +1817,7 @@
           {
             "name": "category",
             "in": "query",
-            "description": "Category 1: ekuiper, 2: neuron\n0-all,1-partial   now only support 0\nType uint        `json:\"type\" in:\"query\"`",
+            "description": "Category 1: ekuiper, 2: neuron ",
             "required": true,
             "example": "",
             "schema": {
@@ -1467,14 +1832,23 @@
                 "type": "object",
                 "properties": {
                   "template": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "optional, Node data to be deliver if category is 1, or rule data to be deliver if category is 2 "
+                  },
+                  "ruleData": {
+                    "type": "string",
+                    "description": "optional, Rule data to be deliver "
+                  },
+                  "NodeData": {
+                    "type": "string",
+                    "description": "optional, Node data to be deliver "
+                  },
+                  "operationId": {
+                    "type": "integer",
+                    "description": "optional,if operationId > 0, The operation will be logged and pushed"
                   }
                 },
                 "required": [
-                  "template"
-                ],
-                "x-apifox-orders": [
-                  "template"
                 ]
               },
               "example": {
@@ -1495,13 +1869,32 @@
               }
             }
           },
-          "500": {
-            "description": "500",
+          "400": {
+            "description": "Deliver failed",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {}
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "failed reason message"
+                    }
+                  },
+                  "required": [
+                    "message"
+                  ],
+                  "x-apifox-orders": [
+                    "message"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Json format err",
+                    "value": {
+                      "message": "Json format err"
+                    }
+                  }
                 }
               }
             }
@@ -1915,6 +2308,52 @@
         }
       }
     },
+    "/api/status/ecp_tunnel": {
+      "get": {
+        "summary": "Get ecp tunnel status",
+        "x-apifox-folder": "NeuronEX/status",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "Get ecp tunnel status",
+        "tags": [
+          "status"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "tunnel status,value can be init,idle,subscribe serviceId,subscribe revoke serviceId,activating,subscribe configuration,revoke serviceId,ECP config modified."
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ],
+                  "x-apifox-orders": [
+                    "status"
+                  ],
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "init"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/stream/log": {
       "get": {
         "produces": [
@@ -1959,6 +2398,53 @@
                   "1": {
                     "summary": "Success",
                     "value": "2023-12-20T07:55:49Z neuronex[1]: level=error msg=\"forward syslog to server error [&{0x174ba08 true 0xc00054e000 neuronex neuronex-231220 6 localhost:10514}][failed to get connection]\" file=\"syslog/out_send.go:113\" func=\"internal/syslog.(*SendOut).Process\""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/stream/clients": {
+      "get": {
+        "summary": "Get stream client status",
+        "x-apifox-folder": "NeuronEX/sse",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "Get stream client status",
+        "tags": [
+          "sse"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "clientAddress": {
+                        "type": "string"
+                      }
+                    },
+                    "x-apifox-orders": [
+                      "clientAddress"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  }
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": [
+                      {
+                        "clientAddress": "127.0.0.1:9081"
+                      }
+                    ]
                   }
                 }
               }
@@ -2444,7 +2930,7 @@
                   },
                   "webhookUrl": {
                     "type": "string",
-                    "description": "optional,the webhook that alert events are pushed to"
+                    "description": "required if enabled is true,the webhook that alert events are pushed to"
                   },
                   "interval": {
                     "type": "integer",
@@ -2468,11 +2954,11 @@
                         },
                         "fireChecks": {
                           "type": "integer",
-                          "description": "N"
+                          "description": "how many consecutive monitoring times will trigger an alarm,means that N.Value must be greater than 0 unless ruleId=3, value can be -1"
                         },
                         "resolveChecks": {
                           "type": "integer",
-                          "description": "P"
+                          "description": "how many times to monitor continuously, the alarm will be resumed,means that P.Value must be greater than 0 unless ruleId=3, value can be -1"
                         }
                       },
                       "x-apifox-orders": [
@@ -2487,10 +2973,7 @@
                 "required": [
                   "enabled",
                   "webhookUrl",
-                  "interval",
-                  "fireChecks",
-                  "resolveChecks",
-                  "alertsConfig"
+                  "interval"
                 ],
                 "x-apifox-orders": [
                   "enabled",
@@ -2999,7 +3482,7 @@
                   },
                   "prometheusUrl": {
                     "type": "string",
-                    "description": " optional, the url of pushgateway,like http://localhost:9091"
+                    "description": " required if enabled is true, the url of pushgateway,like http://localhost:9091"
                   },
                   "prometheusUsername": {
                     "type": "string",
@@ -3018,7 +3501,7 @@
                   },
                   "interval": {
                     "type": "integer",
-                    "description": "optional, the interval of generating metrics data,unit is second"
+                    "description": "required if enabled is true, the interval of generating metrics data,unit is second"
                   },
                   "labels": {
                     "type": "object",
@@ -3036,7 +3519,6 @@
                 "required": [
                   "enabled",
                   "prometheusUrl",
-                  "metricIds",
                   "interval"
                 ],
                 "x-apifox-orders": [

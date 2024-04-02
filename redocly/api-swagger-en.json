@@ -107,6 +107,9 @@
     },
     {
       "name": "test rule"
+    },
+    {
+      "name": "udf"
     }
   ],
   "paths": {
@@ -15141,6 +15144,256 @@
           }
         },
         "x-run-in-apifox": "https://apifox.com/web/project/3516282/apis/api-133383197-run"
+      }
+    },
+    "/api/ekuiper/udf/javascript": {
+      "post": {
+        "summary": "Create a UDF",
+        "x-apifox-folder": "Ekuiper/udf",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "Besides defining function in plugins, user-defined functions (UDF) are also supported independently. Currently, we only support JavaScript UDF. We can use REST API or CLI to manage JavaScript functions. \n\nUse this endpoint to create a new function.",
+        "tags": [
+          "udf"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": " A unique name for the function. This name must also be defined as a function in the script field."
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "A brief description of the function."
+                  },
+                  "script": {
+                    "type": "string",
+                    "description": "The function implementation in JavaScript."
+                  },
+                  "isAgg": {
+                    "type": "boolean",
+                    "description": "A boolean indicating whether the function is an aggregate function."
+                  }
+                },
+                "required": [
+                  "id",
+                  "description",
+                  "script",
+                  "isAgg"
+                ],
+                "x-apifox-orders": [
+                  "id",
+                  "description",
+                  "script",
+                  "isAgg"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "id": "area",
+                "description": "calculate area",
+                "script": "function area(x, y) { return x * y; }",
+                "isAgg": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "List UDFs",
+        "x-apifox-folder": "Ekuiper/udf",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "Use this endpoint to display all JavaScript functions defined in the server.The response will be a list of function names. ",
+        "tags": [
+          "udf"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "examples": {
+                  "1": {
+                    "summary": "success",
+                    "value": [
+                      "area"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ekuiper/udf/javascript/{id}": {
+      "get": {
+        "summary": "Describe a UDF",
+        "x-apifox-folder": "Ekuiper/udf",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "Use this endpoint to get the detailed definition of a function.Replace {id} with the name of the function you want to describe. The response will be a JSON object with the function's details.",
+        "tags": [
+          "udf"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "script": {
+                      "type": "string"
+                    },
+                    "isAgg": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "description",
+                    "script",
+                    "isAgg"
+                  ],
+                  "x-apifox-orders": [
+                    "id",
+                    "description",
+                    "script",
+                    "isAgg"
+                  ],
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "success",
+                    "value": {
+                      "id": "area",
+                      "description": "calculate area",
+                      "script": "function area(x, y) { return x * y; }",
+                      "isAgg": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a UDF",
+        "x-apifox-folder": "Ekuiper/udf",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "Use this endpoint to delete a function.Replace {id} with the name of the function you want to delete. Note that you need to manually stop or delete any rules using the UDF before deleting it. A running rule will not be affected by the deletion of a UDF.",
+        "tags": [
+          "udf"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a UDF",
+        "x-apifox-folder": "Ekuiper/udf",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "The JavaScript UDF can be updated and hot reload. Notice that, a running rule must be restarted to load the updated function.Replace {id} with the name of the function you want to update. The request body should be the same as when creating a UDF. If the function of the id does not exist, it will be created. Otherwise, it will be updated.",
+        "tags": [
+          "udf"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        }
       }
     }
   },

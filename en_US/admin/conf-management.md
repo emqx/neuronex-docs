@@ -169,6 +169,17 @@ official:
   url: https://license-test.mqttce.com
 ```
 
+::: tip
+  Users do not need to modify the configuration file and can use the default configuration generally.
+:::
+
+## JWT Token Authentication 
+
+By default, the REST API exposed by NeuronEX requires JWT Token authentication. NeuronEX supports users to place the authentication public key in the etc folder in the NeuronEX installation directory to achieve JWT Token authentication.
+
+If NeuronEX is deployed using Docker, you need to map the local directory to the etc directory of NeuronEX in the container. Note that the local directory cannot be empty when mapping for the first time, and must have a `neuronex.yaml` configuration file and a public key file.
+
+When upgrading or migrating NeuronEX software, you need to consider the backup and recovery of the etc directory.
 
 ## Dump File
 

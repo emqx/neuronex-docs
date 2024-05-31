@@ -901,6 +901,26 @@
         ]
       },
       {
+        "title": "性能测试",
+        "path": "performance/performance",
+        "url": "",
+        "collapsed": true,
+        "children": [
+          {
+            "title": "Modbus TCP 驱动性能测试",
+            "path": "performance/modbustcp"
+          },
+          {
+            "title": "OPCUA 驱动性能测试",
+            "path": "performance/opcua"
+          },
+          {
+            "title": "Siemens S7 驱动性能测试",
+            "path": "performance/siemens-s7"
+          }
+        ]
+      },
+      {
         "title": "发版历史",
         "path": "release_history/release_history"
       }

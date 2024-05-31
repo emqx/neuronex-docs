@@ -1,5 +1,41 @@
 # Release history
 
+## v3.2.1
+
+Release Date： 2024-04-26
+
+### Enhancements
+- Focas driver supports more function
+- SECS/GEM driver tag resolution to specific values
+- Inovance Modbus driver supports collecting TIME and DATA_AND_TIME data types
+- Siemens S7 driver supports collecting DATA_AND_TIME data type
+- Modbus driver configuration items support configuration endian
+- Modbus driver configuration items support configuring the starting address 0 or 1
+- Added file upload function
+- Optimize the creation page of northbound node
+- Optimize sources,  extensions and configuration pages
+- The default log collection level is adjusted to error
+- Add some SQL examples
+- When creating a rule, generate a random Rule ID
+- When copying drivers and rules, a default name is generated
+- Adjust the operation position of rule status statistics
+- On the southbound driver data statistics page, the timestamp of the collection error information is displayed as local time.
+- Remove clock check for trial license
+- NeuronEX server optimizes 100-continue response
+- MQTT sink password is hidden and not displayed
+
+### Fixes
+- Fixed the issue where after the rules are imported, the page needs to be refreshed to see the new rules.
+- Fixed the issue where the portable plugin list display is empty and the list interface returns data.
+- Fixed data template multi-line display error during rule testing.
+- Fixed the problem that the portable plugin re-upload function is invalid.
+- Fixed the issue where influxdb v2 line protocol selects true and submits sink error.
+- Fixed the issue where OPCUA driver bool value would fail when writing false.
+- Fixed OPCUA driver, memory growth problem.
+- Fixed cli reset password function.
+- Fixed ECP managed NeuronEX by agent being unable to use the log monitoring function
+
+
 ## v3.2.0
 
 Release Date： 2024-03-18

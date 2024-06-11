@@ -921,6 +921,18 @@
         ]
       },
       {
+        "title": "FAQ 常见问题解答",
+        "path": "faq/faq",
+        "url": "",
+        "collapsed": true,
+        "children": [
+          {
+            "title": "常见问题解答",
+            "path": "faq/faq_basic"
+          }
+        ]
+      },
+      {
         "title": "发版历史",
         "path": "release_history/release_history"
       }

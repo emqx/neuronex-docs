@@ -1817,6 +1817,18 @@
         ]
     },
     {
+      "title": "FAQ",
+      "path": "faq/faq",
+      "url": "",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "Use Guide",
+          "path": "faq/faq_basic"
+        }
+      ]
+    },
+    {
         "title": "Publishing History",
         "path": "release_history/release_history"
     }

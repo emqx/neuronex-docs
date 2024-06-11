@@ -96,16 +96,9 @@ NeuronEX 标准产品最低采集周期是 `100ms`，如果有更低的采集频
 
 支持。NeuronEX 通过数据处理功能，可将数采数据存储到本地数据库，支持的数据库类型有 MySQL、PostgreSQL、SQLite、SQLServer、Oracle、InfluxDB v1、InfluxDB v2等。详情请参考[数据存储到SQL](../streaming-processing/sink/sql.md)、[数据存储到InfluxDB v1](../streaming-processing/sink/influx.md)、[数据存储到InfluxDB v2](../streaming-processing/sink/influx2.md)。
 
-
 ## 如何将 Modbus TCP 驱动采集数据转发到 MQTT 服务器？
 
 在**数据采集**->**北向应用**页面，添加 MQTT 插件，并添加订阅，将 Modbus TCP 驱动的采集 group 添加进来。
-
-## 如何将 Modbus TCP 驱动采集数据转发到 Kafka 服务器？
-
-在**数据采集**->**北向应用**页面，添加 Kafka 插件，并添加订阅，将 Modbus TCP 驱动采集的数据转发到 Kafka 服务器。
-
-## 如何将 Modbus TCP 驱动采集数据转发到 Redis 服务器？
 
 ## NeuronEX 版本升级后，如何快速迁移配置？
 

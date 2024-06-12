@@ -34,5 +34,5 @@ $ sudo systemctl stop neuronex
 ## Uninstall
 
 ```bash
-$ sudo rpm -e neuron
+$ sudo rpm -e neuronex
 ```

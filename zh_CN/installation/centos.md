@@ -37,5 +37,5 @@ $ sudo systemctl stop neuronex
 ## 卸载
 
 ```bash
-$ sudo rpm -e neuron
+$ sudo rpm -e neuronex
 ```

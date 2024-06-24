@@ -17,7 +17,7 @@
 - [文件](./file.md)： 写入文件。
 - [Nop](./nop.md)：不输出，用于性能测试。
 - [Kafka](./kafka.md)：输出到 Kafka 。
-- [Image sink](./sink/image.md)：输出到图片文件。
+- [Image sink](./image.md)：输出到图片文件。
 <!-- - [Redis](./redis.md): 写入 Redis。 -->
 <!-- - [Image sink](./image.md)： 写入一个图像文件。仅用于处理二进制结果。 -->
 <!-- - [ZeroMQ sink](./zmq.md)：输出到 Zero MQ 。 -->

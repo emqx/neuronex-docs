@@ -57,7 +57,7 @@
       "children": [
         {
           "title": "连接南向驱动",
-          "path": "configuration/groups-tags/groups-tags",
+          "path": "configuration/south-devices/south-devices",
           "collapsed": true,
           "children": [
             {

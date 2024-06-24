@@ -33,7 +33,7 @@ NeuronEX 是一款工业边缘网关软件，提供设备数据采集和边缘�
 
 | <div style="width:40pt">功能</div> | 描述     | <div style="width:80pt">功能清单</div>   |
 | ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 数据采集                           | NeuronEX 支持数十种工业协议的一站式设备连接、数据采集、设备反控、MQTT 协议转换、南向数采监控，为工业设备赋予工业 4.0 时代关键的互联互通能力。| [创建南向驱动](./configuration/south-devices/south-devices.md)<br /><br />[连接南向设备](./configuration/groups-tags/groups-tags.md) <br /><br />[南向数采监控](./admin/monitoring.md)|
+| 数据采集                           | NeuronEX 支持数十种工业协议的一站式设备连接、数据采集、设备反控、MQTT 协议转换、南向数采监控，为工业设备赋予工业 4.0 时代关键的互联互通能力。| [创建南向驱动](./configuration/south-devices/south-devices.md)<br /><br />[连接南向设备](./configuration/south-devices/south-devices.md) <br /><br />[南向数采监控](./admin/monitoring.md)|
 | 数据传递                           | 完成设备数据的采集后，NeuronEX 支持用户通过北向应用将数据转发到云平台或外部处理引擎 | [创建北向应用](./configuration/north-apps/north-apps.md)<br /><br />[订阅南向数据](./configuration/subscription.md) |
 | 数据处理                         | NeuronEX 集成了边缘数据处理引擎，提供低延迟的数据处理分析，能够更快速地将数据在多系统间传递，结合 AI/ML 算法，可以实现智能决策与控制。此外，边缘端分析还可以对数据做预处理和边缘计算，减少云边通讯负载及后端存储压力。 | [数据源](./streaming-processing/source.md)<br /><br />[规则](./streaming-processing/rules.md)<br /><br />[Sink 连接](./streaming-processing/sink/sink.md)<br /><br />[扩展功能](./streaming-processing/extension.md) |
 | 系统管理                           | NeuronEX提供了一站式的运维与管理平台，您可通过 Web 页面进行系统配置管理、日志下载、查看系统信息等操作。 | [日志管理](./admin/log-management.md)<br /><br />[数据统计](./admin/data-statistics.md)<br /><br />[配置管理](./admin/conf-management.md) |

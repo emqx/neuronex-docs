@@ -30,4 +30,4 @@ $ systemctl status neuron
 * [告警监控管理](alert-monitor-management.md)
 * [系统配置](./sys-configuration.md)
 * [持久化目录管理](data-persistence.md)
-* [修改密码](./password.md)
+* [用户管理](./user.md)

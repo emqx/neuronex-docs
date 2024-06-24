@@ -31,16 +31,16 @@ NeuronEX 帮助传统工业设备以异步方式传递数据消息，作为 Spar
 
 所有插件模块都是基于 C 语言编写，并为希望二次开发的用户提供了 SDK 文件。具体的插件开发教程请参考 [SDK 教程](https://neugates.io/docs/zh/latest/dev-guide/sdk-tutorial/sdk-tutorial.html)。
 
-### [节点 (Node)](./groups-tags/groups-tags.md)
+### [节点 (Node)](./south-devices/south-devices.md#添加南向设备)
 
 在 NeuronEX中节点是插件的实例化，在单个NeuronEX运行实例中，可以创建包含各类插件的多个节点，用于相互通信。NeuronEX的核心框架负责管理这些节点之间的消息路由。NeuronEX具备强大的性能，支持上百节点的同时工作运行。
 
-### [数据点位 (Tag)](./groups-tags/groups-tags.md)
+### [数据点位 (Tag)](./south-devices/south-devices.md#在组中添加数据点)
 
 数据点位是描述设备内数据的存储位置、操作属性和元数据的描述符，有助于用户访问和操作数据。<br>
 数据点位定义了设备中的数据存储位置和数据操作属性，还包含有关数据的一些元数据信息，如缩放、精确度和读/写属性等。点位信息有助于描述项目，并允许在设备中找到该项目或对其进行处理以自动读取/写入。用户将识别设备中那些感兴趣的点位，以从设备中读取数据或向设备写入数据。
 
-### [组 (Group)](./groups-tags/groups-tags.md)
+### [组 (Group)](./south-devices/south-devices.md#创建采集组)
 
 点位将被分配到组中。每个组都有独立的轮询频率以从设备中读取数据。设备中用户感兴趣的点位集合被分成几个组以便更好地管理。路由机制基于这些组作为信息单元在节点之间进行交换。北向节点可以订阅任何南向节点中的任何组。这些订阅将用于在节点之间路由数据消息。此外，还有一个组轮询频率用于控制设备轮询的时间间隔。
 
@@ -52,7 +52,7 @@ NeuronEX 帮助传统工业设备以异步方式传递数据消息，作为 Spar
 
 2. [创建南向驱动](./south-devices/south-devices.md)：根据设备的协议类型，在NeuronEX上选择南向插件驱动并创建节点。对驱动进行参数配置，来建立NeuronEX与设备之间的通讯连接。
 
-3. [建立设备与 NeuronEX 之间的通信](./groups-tags/groups-tags.md)：首先为南向驱动程序添加组和点位。创建好组和点位，即可从数据监控中获取点位的实时值。为方便用户操作，NeuronEX 支持通过离线 Excel 文件[批量导入](./import-export/import-export.md)相关配置信息。
+3. [建立设备与 NeuronEX 之间的通信](./south-devices/south-devices.md#创建南向驱动)：首先为南向驱动程序添加组和点位。创建好组和点位，即可从数据监控中获取点位的实时值。为方便用户操作，NeuronEX 支持通过离线 Excel 文件[批量导入](./south-devices/south-devices.md#批量点位配置)相关配置信息。
 
    :::tip
 

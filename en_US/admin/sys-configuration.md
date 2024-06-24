@@ -50,3 +50,9 @@ On the NeuronEX dashboard, the access address and relevant parameters of the SSO
 
 The Client ID and Client Secret are to be retrieved from the SSO service and must be filled in correctly.
 :::
+
+## Network Connection Test
+
+Enter the device IP to confirm whether NeuronEX can access the device IP address:
+
+![alt text](./_assets/network-test.png)

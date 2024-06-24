@@ -11,14 +11,14 @@ File sinks can write data to different types of files, such as:
 - csv: This type writes comma-delimited csv files. You can also use custom separators. To use this file type, set format to delimited.
 
 If you want to use the File Sink connector, click **Data Processing** -> **Rules** -> **Create Rule**, in the **Action** area, click **Add**, **Sink** Select **file**.
-
+<!-- 
 ## Sink configuration
 
 On the page that pops up, make the following settings:
 
 ::: tip
 If you want to save the settings as a template, you can also click **Add Sink Template** to make settings in the pop-up window. The newly added template will be automatically added to the **Sink Templates** list. You can click **Data Processing** -> **Configuration** -> **Sink Templates** of **Resources** View or edit existing Sink templates.
-:::
+::: -->
 
 ## Properties
 

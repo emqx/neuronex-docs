@@ -26,11 +26,9 @@ Please see the following pages for specific management functions:
 
 * [Configuration Management](./conf-management.md)
 * [Log Management](./log-management.md)
-* [Change password](./password.md)
 * [Operation Monitoring](./data-statistics.md)
 * [Configuration Management](./conf-management.md)
-* [Log Management](./log-management.md)
 * [Monitor and Alert Management](alert-monitor-management.md)
 * [System Configuration](./sys-configuration.md)
 * [Persistence Data Management](data-persistence.md)
-* [Change Password](./password.md)
+* [User](./user.md)

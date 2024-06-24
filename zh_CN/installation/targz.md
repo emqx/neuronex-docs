@@ -5,14 +5,14 @@
 根据不同版本及架构下载安装包，例如：
 
 ```bash
-$ wget https://www.emqx.com/zh/downloads/neuronex/3.1.0/neuronex-3.1.0-linux-amd64.tar.gz
+$ wget https://www.emqx.com/zh/downloads/neuronex/3.3.0/neuronex-3.3.0-linux-amd64.tar.gz
 ```
 
 ## 安装
 
 ```bash
-$ tar -zxvf neuronex-3.1.0-linux-amd64.tar.gz
-$ cd neuronex-3.1.0-linux-amd64
+$ tar -zxvf neuronex-3.3.0-linux-amd64.tar.gz
+$ cd neuronex-3.3.0-linux-amd64
 ```
 
 ::: tip 

@@ -1,5 +1,54 @@
 # Release history
 
+## v3.3.0
+
+Release Date： 2024-06-24
+
+### Enhancements
+
+- Added Modbus ASCII southbound driver
+- Added XINJE Modbus RTU southbound driver
+- Added Codesys V3 southbound driver
+- Added IEC 60870-5-101 southbound driver
+- Added IEC 60870-5-102 southbound driver
+- Added IEC 60870-5-103 southbound driver
+- Added AWS IOT northbound application
+- Added Azure IOT northbound application
+- OPCUA driver supports data tag discovery
+- OPCUA driver supports localizedtext data type
+- IEC 61850 driver supports asynchronous read and write
+- IEC 60870-5-104 driver adjusted to standard version, and supports providing private - customized version
+- DLT645 supports multi-data reading
+- Supports uploading CNC files
+- Data tag supports offset
+- Support tag test when adding data tags (currently only supports Modbus TCP driver)
+- Data monitoring page supports filtering to display only error tags
+- Data monitoring page supports tags paging display
+- Optimize decimal display of floating data tags
+- Add CAN Source
+- Support for Javascript custom functions
+- Add Image Sink
+- Neuron Sink supports writing multiple tags in data template
+- Data source redis, influxdb v1/v2 support connection test
+- Add RBAC user management, support two roles of administrator and viewer
+- Support network connection test
+- Support display of system CPU and memory load
+- Optimize SQL Source parameter configuration
+- Optimize time display on rule status page
+- Optimize SSO function
+- Optimize MQTT Northbound applications generate default clientid and topic
+- In the default configuration of rule retry, the delay is changed to 5000ms, and the - multiplier is changed to 1
+- Add some rules SQL usage examples
+- Support custom hiding of left and top menu bars
+
+### Fixes
+
+- Fix the growth of ekuiper log after NeuronEX Log Level is set to debug
+- Fix the names of southbound drivers, resulting in configuration export errors
+- Fix the tag descriptions that all become the last edited content when adding multiple tags
+- Fix the problem of inaccurate statistics of southbound driver nodes
+- Fix the driver exception caused by modbus batch writing tags
+
 ## v3.2.1
 
 Release Date： 2024-04-26

@@ -1,6 +1,6 @@
 # eKuiper
 
-The eKuiper plug-in is used to send data from the NeuronEX data collection module to the data processing module.
+The eKuiper plugin is used to send data from the NeuronEX data collection module to the data processing module.
 
 The **eKuiper** type node `DataProcessing` has been configured by default on the **North Apps** page of NeuronEX, and the parameters have been configured. Users only need to add and subscribe the southbound driver data to the `DataProcessing` node.
 

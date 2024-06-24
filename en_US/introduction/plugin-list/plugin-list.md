@@ -34,6 +34,7 @@ For specific instructions on replacing and updating plugins, please contact the 
 | Modbus TCP              | Ethernet  |  - |
 | Modbus RTU              | Serial port    |  - |
 | Modbus RTU over TCP     | Ethernet  |  - |
+| Modbus Ascii           | Serial port  |  - |
 | OPC UA                  | Ethernet  |  - |
 | OPC DA                  | Ethernet  |  - |
 | CIP Ethernet/IP         | Ethernet  | - |
@@ -54,10 +55,12 @@ For specific instructions on replacing and updating plugins, please contact the 
 | Allen-Bradley MicroLogix 1400                             | Ethernet     | - |
 | Schneider PLC Modbus RTU                                     | Serial port    | - |
 | Schneider PLC Modbus TCP                                     | Ethernet  |  - |
+| Inovance PLC Modbus TCP                             | Ethernet  |  connect to Inovance PLC |
+| XINJE PLC Modbus RTU                 | Serial port  |  connect to XINJEXC/XD/XL series PLC |
 | ABB COMLI                                        | Serial port    |  connect to ABB PLC |
-| Omron Host Link                                              | Serial port    |   connect to Omron PLC with HostLink Cmode |
-| Omron FINS on TCP                                            | Ethernet  |  connect to Omron PLC with FINS TCP |
-| Omron FINS on UDP                                            | Ethernet  | connect to Omron PLC with FINS UDP  |
+| Omron Host Link                      | Serial port    |   connect to Omron PLC with HostLink Cmode |
+| Omron FINS on TCP         | Ethernet  |  connect to Omron PLC with FINS TCP |
+| Omron FINS on UDP                     | Ethernet  | connect to Omron PLC with FINS UDP  |
 | Mitsubishi 1E           | Ethernet  |  connect to Mitsubishi A series、FX3U、FX3G、iQ-F series PLC |
 | Mitsubishi 3E           | Ethernet  |  connect to Mitsubishi Q series（MC）、iQ-F series（SLMP）and iQ-L series PLC |
 | Mitsubishi FX           | Serial port    |  connect to Mitsubishi FX0、FX2、FX3 series PLC |
@@ -65,10 +68,11 @@ For specific instructions on replacing and updating plugins, please contact the 
 | Beckhoff ADS            | Ethernet  |  connect to Beckhoff TwinCAT PLC |
 | Keyence CIP Ethernet/IP                                      | Ethernet  |  - |
 | Keyence MC Protocol                                          | Ethernet  |  Mitsubishi MC Protocol |
-| Delta Modbus TCP                             | Ethernet    |   connect to Delta DVP series、AS series PLC |
+| Delta Modbus TCP                  | Ethernet    |   connect to Delta DVP series、AS series PLC |
 | KUKA Ethernet KRL TCP                        | Ethernet    |  connect to Kuka Devices|
-| GE SRTP                      | Ethernet    |  Access GE PLC devices that support SRTP protocol through TCP protocol. |
-| MTConnect                      | Ethernet    |  Access devices installed with MTConnect Agent through the HTTP protocol. |
+| GE SRTP      | Ethernet    |  Access GE PLC devices that support SRTP protocol through TCP protocol. |
+| MTConnect          | Ethernet    |  Access devices installed with MTConnect Agent through the HTTP protocol. |
+| Codesys V3         | Ethernet  |  Codesys V3 platform |
 
 
 
@@ -78,6 +82,9 @@ For specific instructions on replacing and updating plugins, please contact the 
 | ------------------- | ------ |  ---------- |
 | DL/T645-1997          | Serial port    | China Electric Power Instrument Standard  |
 | DL/T645-2007          | Serial port    | China Electric Power Instrument Standard  |
+| IEC 60870-5-101     | Ethernet/Serial port   | - |
+| IEC 60870-5-102     | Ethernet/Serial port    | - |
+| IEC 60870-5-103     | Ethernet/Serial port    | - |
 | IEC 60870-5-104     | Ethernet    | - |
 | IEC 61850           | Ethernet    | - |
 
@@ -102,7 +109,9 @@ For specific instructions on replacing and updating plugins, please contact the 
 | --------------------------------------- | ----------------------------------- | 
 | RESTful API            | -  |
 | MQTT                   | -  | 
-| MQTT Sparkplug B       | -  | 
+| MQTT SparkplugB       | -  | 
+| Azure IOT                   | connect to Azure IoT Hub  | 
+| AWS IOT                   | connect to AWS IoT Core  | 
 | Websocket              | -  | 
 | eKuiper               | push data to data processing module  |
 

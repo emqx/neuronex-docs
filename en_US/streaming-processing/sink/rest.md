@@ -10,11 +10,11 @@ If you want to use the REST Sink connector, click **Data Processing** -> **Rules
 
 On the page that pops up, make the following settings:
 
-::: tip
+<!-- ::: tip
 If you want to save the settings as a template, you can also click **Add Sink Template** to make settings in the pop-up window. The newly added template will be automatically added to the **Sink Templates** list. You can click **Data Processing** -> **Configuration** -> **Sink Templates** of **Resources** View or edit existing Sink templates.
-:::
+::: -->
 
-- **Name**: Enter a name
+<!-- - **Name**: Enter a name -->
 - **URL**: RESTful API terminal address, such as `https://www.example.com/api/dummy`
 - **HTTP method**: HTTP method of RESTful API, optional values: `get`, `post`, `put`, `patch`, `delete` and `head`. The default value is `get`, which supports dynamic acquisition.
 - **Body type**: supports dynamic acquisition.

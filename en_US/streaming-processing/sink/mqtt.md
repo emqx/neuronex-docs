@@ -8,11 +8,11 @@ If you want to use the MQTT Sink connector, click **Data Processing** -> **Rules
 
 On the page that pops up, make the following settings:
 
-::: tip
+<!-- ::: tip
 If you want to save the settings as a template, you can also click **Add Sink Template** to make settings in the pop-up window. The newly added template will be automatically added to the **Sink Templates** list. You can click **Data Processing** -> **Configuration** -> **Sink Templates** of **Resources** View or edit existing Sink templates.
-:::
+::: -->
 
-- **Name**: Enter a name
+<!-- - **Name**: Enter a name -->
 - **MQTT broker address**: The server of the MQTT message broker, such as `tcp://127.0.0.1:1883`
 - **MQTT topic**: The MQTT topic to be subscribed to, for example topic1.
 - **MQTT ClientID**: Client ID of the MQTT connection. If not specified, a uuid will be used.

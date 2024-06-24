@@ -10,9 +10,9 @@ If you want to use the Memory Sink connector, click **Data Processing** -> **Rul
 
 On the page that pops up, make the following settings:
 
-::: tip
+<!-- ::: tip
 If you want to save the settings as a template, you can also click **Add Sink Template** to make settings in the pop-up window. The newly added template will be automatically added to the **Sink Templates** list. You can click **Data Processing** -> **Configuration** -> **Sink Templates** of **Resources** View or edit existing Sink templates.
-:::
+::: -->
 
 - **Name**: Enter a name
 - **Topic**: topic, such as analysis/result

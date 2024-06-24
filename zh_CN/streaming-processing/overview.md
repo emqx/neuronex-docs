@@ -71,6 +71,7 @@ NeuronEX 数据处理模块的架构如下：
 - [Video](./video.md)：从视频流中获取数据；
 - [Simulator](./simulator.md)：内置模拟数据源，用来模拟数据以及调试；
 - [Redis](./redis.md)：从 Redis 读取数据。
+- [CAN](./can.md)：连接 CAN 总线读取数据。
 
 ### [规则(Rule)](./rules.md)
 
@@ -105,6 +106,7 @@ NeuronEX 数据处理模块的架构如下：
   - [File sink](./sink/file.md)： 写入文件。
   - [Nop sink](./sink/nop.md)：不输出，用于性能测试。
   - [Kafka sink](./sink/kafka.md)：输出到 Kafka。
+  - [Image sink](./sink/image.md)：输出到图片文件。
 
 
 ### 流式处理

@@ -1,0 +1,34 @@
+# User Management
+
+Starting with NeuronEX 3.3, the Dashboard user has introduced the Role-Based Access Control (RBAC) feature. RBAC allows assigning permissions to users based on their role in the organization. This feature simplifies authorization management and improves security by limiting access rights.
+
+The **User Management** page provides an overview of all active Dashboard users.
+
+## Create User
+
+To add a new user, simply click the **Create User** button. A pop-up dialog box will prompt you to enter the necessary user details. Once you have entered them, click the **Create** button to generate the user account. For further user management, such as editing user information, updating passwords, or deleting users, you can easily access these options through the **Action** column.
+
+![alt text](_assets/user_info_en.png)
+
+## Role Introduction
+
+Currently, one of the following two predefined roles can be set for a user. You can select the role from the **Role** drop-down menu when creating a user.
+- **Administrator**
+
+Administrator has full management access to all NeuronEX functions and resources, including data acquisition, data processing, and system configuration management.
+
+- **Viewer**
+
+Viewer can access all data and configuration information of NeuronEX, corresponding to all `GET` requests in the REST API, but has no right to create, modify, or delete operations.
+
+:::tip
+NeuronEX comes with a login username and password of `admin/0000` after installation. The `admin` user defaults to the Administrator role, which cannot be deleted or modified, but can modify the password.
+:::
+
+## ECP User Management
+
+When users use ECP to remotely manage NeuronEX.
+
+The project administrator on the ECP side is equivalent to the Administrator role of NeuronEX and will have full management access to all NeuronEX functions and resources. 
+
+The project member on the ECP side is equivalent to the Viewer role of NeuronEX and can only access the data and configuration information of NeuronEX.

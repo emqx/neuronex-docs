@@ -50,3 +50,9 @@ NeuronEX 页面上需配置 SSO 服务的访问地址及相关参数。
 客户端标识和客户端密钥从 SSO 服务上查找，需正确填写。
 
 :::
+
+## 网络连接测试
+
+输入设备的 IP，确认 NeuronEX 运行环境能否访问到设备的 IP 地址：
+
+![alt text](./_assets/network-test.png)

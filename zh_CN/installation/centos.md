@@ -5,7 +5,7 @@
 根据不同版本及架构下载安装包，例如：
 
 ```bash
-$ wget https://www.emqx.com/zh/downloads/neuronex/3.1.0/neuronex-3.1.0-linux-amd64.rpm
+$ wget https://www.emqx.com/zh/downloads/neuronex/3.3.0/neuronex-3.3.0-linux-amd64.rpm
 ```
 
 ## 安装
@@ -13,7 +13,7 @@ $ wget https://www.emqx.com/zh/downloads/neuronex/3.1.0/neuronex-3.1.0-linux-amd
 根据不同版本及架构安装，例如：
 
 ```bash
-$ sudo rpm -ivh neuronex-3.1.0-linux-amd64.rpm
+$ sudo rpm -ivh neuronex-3.3.0-linux-amd64.rpm
 ```
 
 ## 运行

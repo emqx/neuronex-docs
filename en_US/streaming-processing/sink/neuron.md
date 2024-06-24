@@ -59,13 +59,13 @@ Use dynamic template to send two tags tag1 and tag2 to node5 node group5 group.
 In the NeuronEX data collection module, the node5 node group5 group and two data tags named tag1 and tag2 must exist before the distribution can be successful.
 :::
 
-<!-- 
+
 
 ### Send tag data using raw string
 
-Using the raw string, send a tag tag1 to node5 node group5 group.
+- Using the raw string, send a tag tag1 to node5 node group5 group.
 
-<img src="../_assets/sink_neuron3.png" alt="sink_neuron3" style="zoom:100%;" />
+![sink_neuron3](_assets/sink_neuron3.png)
 
 The content of the data template is as follows:
   
@@ -78,6 +78,27 @@ The content of the data template is as follows:
 }
    ```
 
-:::tip note
-Use raw strings to send label data. Currently, only writing a single point label is supported.
-::: -->
+- Using the raw string, send multiple tags tag1/tag2/tag3 to node5 node group5 group.
+
+The content of the data template is as follows:
+  
+```json
+{
+    "node_name": {{.node}},
+    "group_name": {{.group}},
+    "tags": [
+        {
+            "tag_name": "tag1",
+            "value": {{.tag1}}
+        },
+        {
+            "tag_name": "tag2",
+            "value": {{.tag2}}
+        },
+        {
+            "tag_name": "tag3",
+            "value": {{.tag3}}
+        }
+    ]
+}
+   ```

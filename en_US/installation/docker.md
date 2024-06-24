@@ -36,8 +36,8 @@ The installation package of type neuronex:3.x.x integrates the Python runtime en
 
 ```bash
 #run NeuronEX by neuronex:3.x.x
-docker pull emqx/neuronex:3.2.0
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.2.0
+docker pull emqx/neuronex:3.3.0
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.3.0
 ```
 
 - **neuronex:3.x.x-slim**
@@ -46,6 +46,6 @@ The installation package of type neuronex:3.x.x-slim does not integrate the Pyth
 
 ```bash
 #run NeuronEX by neuronex:3.x.x-slim
-docker pull emqx/neuronex:3.2.0-slim
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.2.0-slim
+docker pull emqx/neuronex:3.3.0-slim
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.3.0-slim
 ```

@@ -17,6 +17,7 @@ Users can directly use NeuronEX's built-in sink. The list of sink types is as fo
 - [File](./file.md): Write to file.
 - [Nop](./nop.md): No output, used for performance testing.
 - [Kafka](./kafka.md)：Output to Kafka 。
+- [Image sink](./sink/image.md): Output to image file.
 
 ## Sink public parameter configuration
 

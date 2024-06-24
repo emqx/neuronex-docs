@@ -71,6 +71,7 @@ Currently NeuronEX has the following built-in data sources:
 - [Video](./video.md): Obtain data from the video stream.
 - [Simulator](./simulator.md): built-in simulation data source for simulating data and debugging.
 - [Redis](./redis.md): Obtain data from Redis.
+- [CAN](./can.md): Read data from CAN bus.
 
 ### [Rule](./rules.md)
 
@@ -104,6 +105,8 @@ Rules represent a data flow processing process, defining input from data sources
    - [InfluxDB V2 sink](./sink/influx2.md): Write to Influx DB `v2.x`.
    - [File sink](./sink/file.md): Write to file.
    - [Nop sink](./sink/nop.md): No output, used for performance testing.
+   - [Kafka sink](./sink/kafka.md): Output to Kafka.
+   - [Image sink](./sink/image.md): Output to image file.
 
 
 ### Streaming

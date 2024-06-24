@@ -37,18 +37,48 @@ When the above information is confirmed to be correct, click `Save Agent Configu
 
 Users can disable agent function by turning off the `Enable Agent` button and clicking `Save Agent Configuration`.
 
-
 ## SSO Configuration
 
-NeuronEX utilizes the OAuth 2.0 protocol to implement single sign-on functionality. Users need to configure NeuronEX's single sign-on URL address on the SSO service first. For example, http://127.0.0.1:8085/web/common.
+NeuronEX utilizes the OAuth 2.0 protocol to implement single sign-on functionality.
 
-On the NeuronEX dashboard, the access address and relevant parameters of the SSO service need to be configured.
+### AIoT
 
-![sso](./assets/sso.png)
+Configure the Single Sign-On (SSO) URL address for NeuronEX on the AIoT platform in the format: [NeuronEX Access Address]/web/common. e.g, http://127.0.0.1:8085/web/common.
+
+The AIoT platform provides the client identifier (App Key) and client secret (App Secret) for the NeuronEX configuration page.
+
+On the NeuronEX page, you need to configure the access address of the SSO service and the related parameters.
+
+![AIoT](./assets/AIoT.png)
 
 :::tip
 
-The Client ID and Client Secret are to be retrieved from the SSO service and must be filled in correctly.
+The fields for Scope, Grant Type, Request Method, and Content Type need to be filled out according to the platform requirements.
+
+:::
+
+### Azure
+
+On the Azure platform, navigate to Microsoft Entra ID -> App registrations page, find the corresponding App, and fill in the Single Sign-On (SSO) URL address for NeuronEX in the same format as before.
+
+![azure](./assets/azure-1.png)
+
+On the Overview page, obtain the client identifier (client id) and provide it to the NeuronEX configuration page.
+
+On the Certificates & secrets page, obtain the client secret and provide it to the NeuronEX configuration page.
+
+On the Overview -> Endpoints page, obtain the authorization endpoint URL and token endpoint URL.
+
+![azure](./assets/azure-2.png)
+
+On the NeuronEX page, you need to configure the SSO service access address and the related parameters.
+
+![azure](./assets/azure.png)
+
+:::tip
+
+The fields for Scope, Grant Type, Request Method, and Content Type need to be filled out according to the platform requirements.
+
 :::
 
 ## Network Connection Test

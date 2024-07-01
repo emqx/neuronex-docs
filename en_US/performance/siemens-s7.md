@@ -66,7 +66,8 @@ Scenario | Number of Drivers | Number of Groups per Driver | Number of Points pe
 | Scenario 6 | 10 | 1 | 1000 | 100 ms | 10,000 | Float | 199MB | 37% | receive: 156kb/s transmit: 63kb/s |
 
 
-###  Device Control Latency Test
+### Device Control Latency Test
+
 |Scenario	|Dispatch Method|	Number of Points Dispatched	|Test Count|	Minimum Response Time	|Maximum Response Time|	Average Response Time
 | ---------------- | ------- | --------- | ------ |------ |------ |------ |
 |Configured 10 Siemens S7 drivers in NeuronEX, each driver containing 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 100,000 data points under normal collection conditions.	|API Dispatch	|100|	100 times|	15ms	|47ms	|30ms|

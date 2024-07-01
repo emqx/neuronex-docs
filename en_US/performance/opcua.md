@@ -64,7 +64,8 @@ Scenario | Number of Drivers | Number of Groups per Driver | Number of Points pe
 | Scenario 5 | 5 | 1 | 1000 | 100 ms | 5,000 | Float | 162MB | 20% | receive: 741kb/s transmit: 939kb/s |
 | Scenario 6 | 10 | 1 | 1000 | 100 ms | 10,000 | Float | 199MB | 36% | receive: 1.49mb/s transmit: 1.88mb/s |
 
-###  Device Control Latency Test
+### Device Control Latency Test
+
 |Scenario	|Dispatch Method|	Number of Points Dispatched	|Test Count|	Minimum Response Time	|Maximum Response Time|	Average Response Time
 | ---------------- | ------- | --------- | ------ |------ |------ |------ |
 |Configured 10 OPCUA drivers in NeuronEX, each driver containing 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 100,000 data points under normal collection conditions.	|API Dispatch	|100|	100 times|	6ms	|19ms	|12ms|

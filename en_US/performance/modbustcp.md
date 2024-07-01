@@ -66,7 +66,8 @@ Scenario 5 | 5 | 1 | 1000 | 100 ms | 5,000 | Float | 165MB | 12% | receive: 47kb
 Scenario 6 | 10 | 1 | 1000 | 100 ms | 10,000 | Float | 189MB | 21% | receive: 94kb/s transmit: 24kb/s
 
 
-###  Device Control Latency Test
+### Device Control Latency Test
+
 |Scenario	|Dispatch Method|	Number of Points Dispatched	|Test Count|	Minimum Response Time	|Maximum Response Time|	Average Response Time
 | ---------------- | ------- | --------- | ------ |------ |------ |------ |
 |Configured 10 Modbus TCP drivers in NeuronEX, each driver containing 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 100,000 data points under normal collection conditions.	|API Dispatch	|100|	100 times|	85ms	|778ms	|523ms|

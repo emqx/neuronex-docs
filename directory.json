@@ -1990,6 +1990,26 @@
         ]
     },
     {
+      "title": "Performance Testing",
+      "path": "performance/performance",
+      "url": "",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "Modbus TCP Driver",
+          "path": "performance/modbustcp"
+        },
+        {
+          "title": "OPCUA Driver",
+          "path": "performance/opcua"
+        },
+        { 
+          "title": "Siemens S7 Driver",
+          "path": "performance/siemens-s7"
+        }
+      ]
+    },
+    {
       "title": "FAQ",
       "path": "faq/faq",
       "url": "",

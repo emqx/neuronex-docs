@@ -49,6 +49,30 @@ Release Date： 2024-06-24
 - Fix the problem of inaccurate statistics of southbound driver nodes
 - Fix the driver exception caused by modbus batch writing tags
 
+## v3.2.2
+
+Release Date： 2024-06-28
+
+### Enhancements
+- Inovance Modbus supports coil area merge reading and writing
+- Optimize Siemens S7 driver performance
+- Optimize neuron core module log
+- Display of floating point data, remove invalid suffixes
+- In the default configuration of rule retry, the delay is changed to 5000ms, and the - multiplier is changed to 1
+
+### Fixes
+- opc ua cannot correctly connect to the third-party opc server
+- Inaccurate display of group tags in driver statistics
+- Issuing wrong configuration causes neuron to exit
+- Too many "tag not changed" logs
+- Issue of inconsistency between rule status and import configuration after rule import
+- Using non-existent httppull lookuptable address, the rule still runs normally
+- Kafka sink writes to multiple partitions when the same key pub is used
+- Add multiple points at one time, and when adding descriptions, all become the last edited content.
+- After the northbound application is stopped, the trans_data_message statistical indicator does not return to 0
+- Incorrect display of floating point numbers on the data monitoring page
+
+
 ## v3.2.1
 
 Release Date： 2024-04-26

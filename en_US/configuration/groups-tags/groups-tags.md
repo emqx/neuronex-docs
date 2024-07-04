@@ -22,7 +22,7 @@ Click the `Create` button to enter the add tag page, as shown in the figure belo
 
 ![tags-add](./assets/tags-add.png)
 
-* **Name**: fill in the Tag name, for example, tag1;
+* **Name**: fill in the tag name, for example, tag1;
 * **Attribute**: Pull down to select Tag attributes, such as read, write, subscribe, static, and support the configuration of multiple tag types. For an introduction to different types of tags, see [Tag Attributes](#tag-attributes);
 * **Type**: drop-down to select data type, for example, int16, uint16, int32, uint32, float, bit;
 * **Address**: Fill in the tag address. Different driver protocols have different address definition specifications. For details, please refer to [Create Southbound Driver](../south-devices/south-devices.md). Taking the Modbus protocol as an example, 1!40001. `1` represents the tag site number set in the Modbus simulator, and `40001` represents the tag register address.

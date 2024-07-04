@@ -27,7 +27,7 @@ Click the `Create` button to enter the add tag page, as shown in the figure belo
 * **Type**: drop-down to select data type, for example, int16, uint16, int32, uint32, float, bit;
 * **Address**: Fill in the tag address. Different driver protocols have different address definition specifications. For details, please refer to [Create Southbound Driver](../south-devices/south-devices.md). Taking the Modbus protocol as an example, 1!40001. `1` represents the tag site number set in the Modbus simulator, and `40001` represents the tag register address.
 * **Decimal**: not filled in by default; when the tag attribute is read, it supports setting Decimal. At this time, `device value` * Decimal = `display value`.
-* **Bias**: not filled in by default; when the tag attribute is read, it supports setting Bias. At this time, `device value` * Bias = `display value`.
+* **Bias**: not filled in by default; when the tag attribute is read, it supports setting Bias. At this time, `device value` + Bias = `display value`.
 * **Precision**: Configure the precision when the tag type is `float` or `double`, the accuracy range is 0 ~ 17
 * **Description**: Leave blank by default.
 

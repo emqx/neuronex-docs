@@ -65,7 +65,13 @@ The ` uninstall` command is used to unregister the NeuronEX service configuratio
 ./bin/neuronex uninstall
 ```
 
-## 环境变量
+### `reset-password` command
+
+The `reset-password` command is used to change the default user's (admin) password to the default password 0000.
+
+```sh
+./bin/neuronex reset-password
+```
 
 ## Environment Variables
 

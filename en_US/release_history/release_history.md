@@ -1,5 +1,27 @@
 # Release history
 
+## v3.3.1
+
+Release Date： 2024-07-31
+
+### Enhancements
+- Focas driver PMC reading optimization
+- Data monitoring page optimization
+- Optimize data collection core module log
+- IEC61850 driver supports tag browser 
+- Add dataField and Field fields to action property configuration items
+- File source supports cime file type
+- When logging into NeuronEX for the first time, the browser language is used as the default language
+- Tag subscribe attribute, triggers subscribe to report data only when normal data changes.
+
+### Fixes
+- Dataprocessing node communication error after NeuronEX starts
+- Southbound driver imports API, and the error caused by importing points exceeding the license limit
+- When northbound application contains Chinese, garbled characters appear in the downloaded log file
+- The style of the drop-down multi-select input box on the action page is messy
+- Fix the ECP update portable plugin package is invalid
+- Fix some issues with the single sign-on function
+
 ## v3.3.0
 
 Release Date： 2024-06-24

@@ -10,7 +10,6 @@
 - 第一次登录 NeuronEX，以浏览器语言作为默认语言
 - 点位 subscribe 属性，核心缓存数据将正常数据和错误码分开存储，正常数据发生变化时才触发subscribe上报数据。
 - 优化数采模块核心部分日志
-- IEC61850 驱动支持点位发现功能
 - Action 公共配置项增加 dataField 和 Field 字段
 - File source 支持 cime 文件类型
 
@@ -21,6 +20,7 @@
 - Action 页面下拉多选输入框样式错乱
 - 修复ECP 下发更新便携插件包无效
 - 修复单点登录功能的一些问题
+- 修复 REST Sink 在 Content-type 内容为 application/vnd.microsoft.servicebus.json 时出现的问题
 
 ## v3.3.0
 

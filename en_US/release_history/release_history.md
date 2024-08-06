@@ -8,7 +8,6 @@ Release Date： 2024-07-31
 - Focas driver PMC reading optimization
 - Data monitoring page optimization
 - Optimize data collection core module log
-- IEC61850 driver supports tag browser 
 - Add dataField and Field fields to action property configuration items
 - File source supports cime file type
 - When logging into NeuronEX for the first time, the browser language is used as the default language
@@ -21,6 +20,7 @@ Release Date： 2024-07-31
 - The style of the drop-down multi-select input box on the action page is messy
 - Fix the ECP update portable plugin package is invalid
 - Fix some issues with the single sign-on function
+- Fix the problem of REST Sink when the Content-type is application/vnd.microsoft.servicebus.json
 
 ## v3.3.0
 

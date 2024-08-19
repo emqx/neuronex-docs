@@ -1,6 +1,6 @@
 # Configuration Management
 
-NeuronEX supports modifying Neuron's configuration parameters through `command line`, `environment variables`, and `configuration files`, which can provide a more flexible way of starting and running. If `command line`, `environment variables`, and `configuration files` are configured at the same time, the priority relationship between the three is: environment variable > command line > configuration file
+NeuronEX supports modifying Neuron's configuration parameters through `command line`, `environment variables`, and `configuration files`, which can provide a more flexible way of starting and running. If `command line`, `environment variables`, and `configuration files` are configured at the same time, the priority relationship between the three is: command line > environment variable > configuration file
 
 ## Command Line
 
@@ -10,33 +10,24 @@ The `run` command is used to run NeuronEX on the console.This command starts Neu
 
 ```shell
 -c, --config string   config file path (default "etc/neuronex.yaml")
--e, --disable_auth    select whether to enable authentication
--h, --help            help for run
--m, --manage          manage the lifecycle of eKuiper and Neuron (default true)
+-k, --disable_kuiper    select whether to disable ekuiper
 ```
 Eg:
 
 ```shell
-./bin/neuronex run -c etc/neuronex.yaml -m false -e false
+./bin/neuronex run -c etc/neuronex.yaml -k true
 ```
 
-This command starts NeuronEX as a process and displays its output in the terminal. The NeuronEX will not manage the lifecycle of Neuron and Ekuiper and will not turn on privilege authentication.
+This command starts NeuronEX as a process and displays its output in the terminal. The NeuronEX will not manage the lifecycle of Ekuiper.
 
 ### `start` command
 
 The `start` command is used to start NeuronEX in daemon mode.This command starts NeuronEX as a daemon and runs it in the background.
 
-```
--c, --config string   config file path (default "etc/neuronex.yaml")
--e, --disable_auth    select whether to enable authentication
--h, --help            help for run
--m, --manage          manage the lifecycle of eKuiper and Neuron (default true)
-```
-
 Eg:
 
 ```sh
-./bin/neuronex start -c etc/neuronex.yaml -m false -e false
+./bin/neuronex start 
 ```
 
 This command starts NeuronEX as a daemon and runs it in the background. The NeuronEX will not manage the lifecycle of Neuron and Ekuiper and will not turn on privilege authentication.
@@ -92,6 +83,10 @@ NeuronEX provides a YAML format file to configure personalized parameters relate
 The `server` section defines the port number of the NeuronEX server.
 
 - `port`: port number of the NeuronEX server, default value is 8085.
+- `disableAuth`: whether to disable TOKEN authentication.
+- `disableKuiper`: whether to disable eKuiper.
+- `certFile`: the certificate file location when enable TLS.
+- `keyFile`: the key file location when enable TLS.
 
 ### neuron
 
@@ -139,6 +134,8 @@ The `official` section defines ecosy license official server address information
 ```yaml
 server:
   port: 8085
+  disableAuth: false
+  disableKuiper: false
 
 neuron:
   version: 2.6.0

@@ -23,6 +23,13 @@
 
 :::tip  
 NeuronEX 安装后自带的登录用户名及密码为`admin/0000`，`admin` 用户默认为 Administrator 角色，无法删除及修改角色，可以修改密码。
+另外可以通过环境变量的方式，在首次启动时修改 admin 用户默认密码以及增加一个 viewer 用户。  
+- NEURONEX__SERVER__ADMIN__PASSWORD='xxxxxx'， xxxxxx 为 admin 用户修改后的密码
+- NEURONEX__SERVER__VIEWER__USERNAME='xxxxxx'，xxxxxx 为 viewer 用户用户名
+- NEURONEX__SERVER__VIEWER__PASSWORD='xxxxxx'，xxxxxx 为 viewer 用户密码
+
+admin 用户通过以上设置登录系统后，可以继续修改上述用户的密码
+
 :::
 
 ## ECP 用户管理

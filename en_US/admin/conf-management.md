@@ -68,12 +68,15 @@ The `reset-password` command is used to change the default user's (admin) passwo
 
 NeuronEX supports reading environment variables during the startup process to configure startup parameters. The currently supported environment variables are as follows:
 
-| Configuration name             | Configuration function                                                            |
-| ------------------------------ | --------------------------------------------------------------------------------- |
-| NEURONEX_DISABLE_AUTH          | Set to 1, NeuronEX turns off Token authentication and authentication; set to 0, NeuronEX turns on Token authentication and authentication   |
-| NEURON_DAEMON                  | Set to 1, the Neuron daemon runs; set to 0, Neuron runs normally                   |
-| NEURON_CONFIG_DIR              | Neuron configuration file directory                                                |
-| NEURON_PLUGIN_DIR              | Neuron plug-in file directory                                                      |
+| Configuration name                 | Configuration function                                                                                                                    |
+|------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| NEURONEX_DISABLE_AUTH              | Set to 1, NeuronEX turns off Token authentication and authentication; set to 0, NeuronEX turns on Token authentication and authentication |
+| NEURON_CONFIG_DIR                  | Neuron configuration file directory                                                                                                       |
+| NEURON_PLUGIN_DIR                  | Neuron plug-in file directory                                                                                                             |
+| NEURONEX__SERVER__ADMIN__PASSWORD  | Modify the default password of the admin user                                                                                             |
+| NEURONEX__SERVER__VIEWER__USERNAME | The username of the newly added viewer user                                                                                               |
+| NEURONEX__SERVER__VIEWER__PASSWORD | The password of the newly added viewer user                                                                                               |
+
 ## Configuration File
 
 NeuronEX provides a YAML format file to configure personalized parameters related to NeuronEX.

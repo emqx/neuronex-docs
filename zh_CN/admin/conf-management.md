@@ -63,12 +63,14 @@ NeuronEX 的命令行位于 `/bin/neuronex`，它提供了以下的常用选项�
 
 NeuronEX 支持在启动过程中读取环境变量来配置启动参数，目前支持的环境变量如下:
 
-| 配置名                          | 配置作用                                                                           |
-| ------------------------------ | --------------------------------------------------------------------------------- |
-| NEURONEX_DISABLE_AUTH          | 设置为 1，NeuronEX 关闭 Token 鉴权认证；设置为0，NeuronEX 开启 Token 鉴权认证                |
-| NEURON_DAEMON                  | 设置为1，Neuron 守护进程运行；设置为0，Neuron 正常运行                                   |
-| NEURON_CONFIG_DIR              | Neuron 配置文件目录                                                                  |
-| NEURON_PLUGIN_DIR              | Neuron 插件文件目录                                                                  |
+| 配置名                                | 配置作用                                                     |
+|------------------------------------|----------------------------------------------------------|
+| NEURONEX_DISABLE_AUTH              | 设置为 1，NeuronEX 关闭 Token 鉴权认证；设置为0，NeuronEX 开启 Token 鉴权认证 |
+| NEURON_CONFIG_DIR                  | Neuron 配置文件目录                                            |
+| NEURON_PLUGIN_DIR                  | Neuron 插件文件目录                                            |
+| NEURONEX__SERVER__ADMIN__PASSWORD  | 修改 admin 用户默认密码                                          |
+| NEURONEX__SERVER__VIEWER__USERNAME | 新添加 viewer 用户的用户名                                        |
+| NEURONEX__SERVER__VIEWER__PASSWORD | 新添加 viewer 用户的密码                                         |
 
 ## 配置文件
 

@@ -926,7 +926,7 @@
               },
               "example": {
                 "name": "admin",
-                "pass": "0000"
+                "password": "0000"
               }
             }
           }
@@ -943,15 +943,16 @@
                   "1": {
                     "summary": "success",
                     "value": {
-                      "token": "eyJhbGciOiJ...."
+                      "token": "eyJhbGciOiJ....",
+                      "role": "Administrator"
                     }
                   }
                 }
               }
             }
           },
-          "500": {
-            "description": "Password does not match!",
+          "401": {
+            "description": "Username or Password incorrect!",
             "content": {
               "application/json": {
                 "schema": {
@@ -965,8 +966,8 @@
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-119719066-run"
       }
     },
-    "/api/password": {
-      "post": {
+    "/api/users/password/{name}": {
+      "put": {
         "summary": "Change password",
         "x-apifox-folder": "NeuronEX/server",
         "x-apifox-status": "released",
@@ -976,7 +977,18 @@
         "tags": [
           "server"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "username to be deleted",
+            "required": true,
+            "example": "test",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -984,13 +996,181 @@
                 "$ref": "#/components/schemas/PasswordChangeBody"
               },
               "example": {
-                "name": "admin",
-                "old_pass": "0000",
-                "new_pass": "1111"
+                "name": "test",
+                "old_password": "0000",
+                "new_password": "1111"
               }
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "500",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-119719067-run"
+      }
+    },
+    "/api/users": {
+      "post": {
+        "summary": "Creat New User",
+        "x-apifox-folder": "NeuronEX/server",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "operationId": "newUserHandler",
+        "tags": [
+          "server"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewUserRequestBody"
+              },
+              "example": {
+                "name": "test",
+                "password": "test",
+                "role": "Viewer",
+                "description": "create new user test and set him to viewer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "500",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-119719067-run"
+      }
+    },
+    "/api/users/role/{name}": {
+      "put": {
+        "summary": "Change role",
+        "x-apifox-folder": "NeuronEX/server",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "operationId": "roleChangeHandler",
+        "tags": [
+          "server"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "username to be deleted",
+            "required": true,
+            "example": "test",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRoleChangeBody"
+              },
+              "example": {
+                "name": "test",
+                "role": "Viewer",
+                "description": "change user test's role to viewer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "500",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-119719067-run"
+      }
+    },
+    "/api/users/{name}": {
+      "delete": {
+        "summary": "Delete User",
+        "x-apifox-folder": "NeuronEX/server",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "operationId": "deleteUserHandler",
+        "tags": [
+          "server"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "username to be deleted",
+            "required": true,
+            "example": "test",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "success",
@@ -4956,8 +5136,7 @@
               },
               "example": {
                 "name": "gconfig1",
-                "node": "modbus-node",
-                "interval": 10000
+                "node": "modbus-node"
               }
             }
           }
@@ -13891,16 +14070,22 @@
       "responseData": {
         "type": "object",
         "required": [
-          "token"
+          "token",
+          "role"
         ],
         "properties": {
           "token": {
             "type": "string",
             "x-go-name": "Token"
+          },
+          "role": {
+            "type": "string",
+            "x-go-name": "Role"
           }
         },
         "x-apifox-orders": [
-          "token"
+          "token",
+          "role"
         ],
         "x-apifox-folder": "Schemas"
       },
@@ -13924,21 +14109,21 @@
         "type": "object",
         "required": [
           "name",
-          "pass"
+          "password"
         ],
         "properties": {
           "name": {
             "type": "string",
             "x-go-name": "Username"
           },
-          "pass": {
+          "password": {
             "type": "string",
             "x-go-name": "Password"
           }
         },
         "x-apifox-orders": [
           "name",
-          "pass"
+          "password"
         ],
         "x-apifox-folder": "Schemas"
       },
@@ -14391,21 +14576,68 @@
         "type": "object",
         "required": [
           "name",
-          "old_pass",
-          "new_pass"
+          "old_password",
+          "new_password"
         ],
         "properties": {
           "name": {
             "type": "string",
             "x-go-name": "Username"
           },
-          "new_pass": {
+          "new_password": {
             "type": "string",
             "x-go-name": "NewPassword"
           },
-          "old_pass": {
+          "old_password": {
             "type": "string",
             "x-go-name": "OldPassword"
+          }
+        }
+      },
+      "NewUserRequestBody": {
+        "type": "object",
+        "required": [
+          "name",
+          "password",
+          "role"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-go-name": "Username"
+          },
+          "password": {
+            "type": "string",
+            "x-go-name": "Password"
+          },
+          "description": {
+            "type": "string",
+            "x-go-name": "UserDescription"
+          },
+          "role": {
+            "type": "string",
+            "x-go-name": "Role"
+          }
+        }
+      },
+      "UserRoleChangeBody": {
+        "type": "object",
+        "required": [
+          "name",
+          "role"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-go-name": "Username"
+          },
+          "description": {
+            "type": "string",
+            "x-go-name": "UserDescription"
+          },
+          "role": {
+            "type": "string",
+            "x-go-name": "Role"
           }
         }
       },

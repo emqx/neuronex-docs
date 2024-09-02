@@ -39,15 +39,47 @@ NeuronEX 支持在 Dashboard 上对相关功能进行配置修改。
 
 ## 单点登录配置
 
-NeuronEX 使用 OAuth2.0 协议实现单点登录功能，用户需先在 SSO 服务上配置 NeuronEX 的单点登录 URL 地址。例如，http://127.0.0.1:8085/web/common
+NeuronEX 使用 OAuth2.0 协议实现单点登录功能。
 
-NeuronEX 页面上需配置 SSO 服务的访问地址及相关参数。
+### 天翼物联
 
-![sso](./assets/sso.png)
+在天翼物联平台配置 NeuronEX 的单点登录 URL 地址，格式：[NeuronEX 访问地址]/web/common。例如，http://127.0.0.1:8085/web/common
+
+![AIoT](./assets/AIoT-1.png)
+
+天翼物联平台提供客户端标识（App Key）和客户端密钥（App Secret）给 NeuronEX 配置页面。
+
+在 NeuronEX 页面上需配置 SSO 服务的访问地址及相关参数。
+
+![AIoT](./assets/AIoT.png)
 
 :::tip 注意
 
-客户端标识和客户端密钥从 SSO 服务上查找，需正确填写。
+Scope、Grant Type、Request Method 和 Content Type 字段需要根据平台要求填写。
+
+:::
+
+### Azure
+
+在 Azure 平台上进入 Microsoft Entra ID -> App registrations 页面，找到相应的 App 填写 NeuronEX 的单点登录 URL 地址，格式同上。
+
+![azure](./assets/azure-1.png)
+
+Overview 页面获取客户端标识（client id ）给 NeuronEX 配置页面。
+
+Certificates & secrets 页面获取客户端密钥（client secret）给 NeuronEX 配置页面。
+
+Overview -> Endpoints 页面获取授权终端 URL 和 Token 中端 URL。
+
+![azure](./assets/azure-2.png)
+
+在 NeuronEX 页面上需配置 SSO 服务的访问地址及相关参数。
+
+![azure](./assets/azure.png)
+
+:::tip 注意
+
+Scope、Grant Type、Request Method 和 Content Type 字段需要根据平台要求填写。
 
 :::
 

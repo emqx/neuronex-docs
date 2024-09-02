@@ -629,6 +629,25 @@
         {
           "title": "管理插件模块",
           "path": "configuration/ecp_edge_plugin"
+        },
+        {
+          "title": "驱动开发 SDK 教程",
+          "path": "dev-guide/sdk-tutorial/sdk-tutorial",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "Modbus 插件开发示例",
+              "path": "dev-guide/sdk-tutorial/sdk-example/modbus-example"
+            },
+            {
+              "title": "MQTT 应用开发示例",
+              "path": "dev-guide/sdk-tutorial/sdk-example/mqtt-example"
+            },
+            {
+              "title": "开发指南",
+              "path": "dev-guide/dev-guide"
+            }
+          ]
         }
       ]
     },
@@ -1645,6 +1664,25 @@
         {
           "title": "Data Monitoring",
           "path": "admin/monitoring"
+        },
+        {
+          "title": "Driver SDK Tutorial",
+          "path": "dev-guide/sdk-tutorial/sdk-tutorial",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "Modbus Plugin Example",
+              "path": "dev-guide/sdk-tutorial/sdk-example/modbus-example"
+            },
+            {
+              "title": "MQTT Application Example",
+              "path": "dev-guide/sdk-tutorial/sdk-example/mqtt-example"
+            },
+            {
+              "title": "Development Guide",
+              "path": "dev-guide/dev-guide"
+            }
+          ]
         }
       ]
     },
@@ -2022,7 +2060,7 @@
       ]
     },
     {
-        "title": "Publishing History",
+        "title": "Release History",
         "path": "release_history/release_history"
     }
     ]

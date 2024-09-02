@@ -1,5 +1,24 @@
 # Release history
 
+## v3.3.2
+
+Release Date： 2024-09-02
+
+### Enhancements
+- Southbound device and northbound application pages support driver paging and total number display.
+- Source and rule action support custom source and sink types in portable plugins.
+- Delete offline cache data when delete MQTT node.
+- Optimize the disk usage of NeuronEX docker image.
+
+### Fixes
+- Fixed Mitsubishi 3E plugin reading incorrect value of bit tag.
+- Fixed Mitsubishi plugin filter unexpected reponse.
+- Fixed the problem of duplicate names in fields of rule action.
+- Fixed the front-end prompt error of Modbus TCP plugin Check Header parameter.
+- Fixed the problem that the prompt information of file source Columns parameter was not fully displayed.
+- Fixed the invalid source type filtering function on the source configuration key page.
+- Fixed the problem that the portable plugin customized source and configuration group page displayed incomplete information.
+
 ## v3.3.1
 
 Release Date： 2024-07-31

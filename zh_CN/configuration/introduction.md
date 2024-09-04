@@ -29,7 +29,7 @@ NeuronEX 帮助传统工业设备以异步方式传递数据消息，作为 Spar
 
 插件可以分为北向应用和南向驱动程序。北向插件通常用于连接到云平台或像处理引擎这样的外部应用程序。南向插件是实现特定协议以访问外部设备的通信驱动程序。为了实现协议格式转换，至少需要一个北向插件和一个南向插件分别用于数据传递和数据采集。
 
-所有插件模块都是基于 C 语言编写，并为希望二次开发的用户提供了 SDK 文件。具体的插件开发教程请参考 [SDK 教程](https://neugates.io/docs/zh/latest/dev-guide/sdk-tutorial/sdk-tutorial.html)。
+所有插件模块都是基于 C 语言编写，并为希望二次开发的用户提供了 SDK 文件。具体的插件开发教程请参考 [SDK 教程](../dev-guide/sdk-tutorial/sdk-tutorial.md)。
 
 ### [节点 (Node)](./south-devices/south-devices.md#添加南向设备)
 

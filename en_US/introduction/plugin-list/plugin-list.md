@@ -17,7 +17,7 @@ Plugin types include:
 
 On the plugin page, click the **Add Plugin** button in the upper-left corner to upload the plugin file.
 
-For specific plugin development tutorials, please refer to the [SDK Tutorial](https://neugates.io/docs/zh/latest/dev-guide/sdk-tutorial/sdk-tutorial.html).
+For specific plugin development tutorials, please refer to the [SDK Tutorial](../../dev-guide/sdk-tutorial/sdk-tutorial.md).
 
 ## Replace Existing Plugin Modules
 

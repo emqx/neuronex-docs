@@ -23,7 +23,7 @@
 
 ![plugin-options](./_assets/plugin_add.png)
 
-具体的插件开发教程请参考 [SDK 教程](https://neugates.io/docs/zh/latest/dev-guide/sdk-tutorial/sdk-tutorial.html)。
+具体的插件开发教程请参考 [SDK 教程](../dev-guide/sdk-tutorial/sdk-tutorial.md)。
 
 ## 替换已有插件模块
 

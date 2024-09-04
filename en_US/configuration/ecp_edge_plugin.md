@@ -23,7 +23,7 @@ On the plugin page, click the **Add plugin** button to upload the .so file and .
 
 ![plugin-options](./_assets/plugin_add.png)
 
-For specific plugin development tutorials, please refer to [SDK Tutorial](https://neugates.io/docs/zh/latest/dev-guide/sdk-tutorial/sdk-tutorial.html).
+For specific plugin development tutorials, please refer to [SDK Tutorial](../dev-guide/sdk-tutorial/sdk-tutorial.md).
 
 ## Update existing plugin
 

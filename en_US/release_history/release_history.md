@@ -18,6 +18,8 @@ Release Date： 2024-09-02
 - Fixed the problem that the prompt information of file source Columns parameter was not fully displayed.
 - Fixed the invalid source type filtering function on the source configuration key page.
 - Fixed the problem that the portable plugin customized source and configuration group page displayed incomplete information.
+- Fixed BatchOp metric: calculate time batch outputs
+- Fixed BatchOp metrics: do not calculate empty time batch outputs
 
 ## v3.3.1
 

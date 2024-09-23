@@ -66,11 +66,13 @@ NeuronEX 支持在启动过程中读取环境变量来配置启动参数，目�
 | 配置名                                | 配置作用                                                     |
 |------------------------------------|----------------------------------------------------------|
 | NEURONEX_DISABLE_AUTH              | 设置为 1，NeuronEX 关闭 Token 鉴权认证；设置为0，NeuronEX 开启 Token 鉴权认证 |
-| NEURON_CONFIG_DIR                  | Neuron 配置文件目录                                            |
-| NEURON_PLUGIN_DIR                  | Neuron 插件文件目录                                            |
 | NEURONEX__SERVER__ADMIN__PASSWORD  | 修改 admin 用户默认密码                                          |
 | NEURONEX__SERVER__VIEWER__USERNAME | 新添加 viewer 用户的用户名                                        |
 | NEURONEX__SERVER__VIEWER__PASSWORD | 新添加 viewer 用户的密码                                         |
+| NEURONEX__LOG__MODE                | 设置为 console, NeuronEX 会把日志打印到标准输出                        |
+| KUIPER__BASIC__CONSOLELOG          | 设置为 true, ekuiper 会把日志打印到标准输出                            |
+| NEURON__LOG__MODE                  | 设置为 console, Neuron 会把日志打印到标准输出                          |
+
 
 ## 配置文件
 
@@ -173,6 +175,12 @@ official:
 
 ::: tip
   正常情况下用户无需修改配置文件，使用默认配置即可。
+  用户可以通过环境覆盖配置。环境变量到配置yaml文件有一个映射。通过环境变量修改配置时，需要按照规定的格式设置环境变量，例如：
+  ``
+  NEURONEX__SERVER__DISABLEAUTH => server.disableAuth in etc/neuronex.yaml
+  NEURONEX__LOG__MODE => log.mode in etc/neuronex.yaml
+  ``
+  环境变量之间用“__”分隔，分隔后第一部分的内容匹配配置文件的文件名，其余内容匹配不同级别的配置项。
 :::
 
 ## JWT Token 认证公钥

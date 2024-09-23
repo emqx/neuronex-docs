@@ -85,6 +85,12 @@ In NeuronEX, each plugin corresponds to an implementation of a protocol. For exa
 
 * SUBSCRIBE = 0x04
 
+::: tip
+
+If the tag attribute is both READ and WRITE, the value is 01 + 02 = 03, and so on.
+
+:::
+
 ## Node
 
 ### Node type

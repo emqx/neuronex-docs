@@ -71,11 +71,12 @@ NeuronEX supports reading environment variables during the startup process to co
 | Configuration name                 | Configuration function                                                                                                                    |
 |------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | NEURONEX_DISABLE_AUTH              | Set to 1, NeuronEX turns off Token authentication and authentication; set to 0, NeuronEX turns on Token authentication and authentication |
-| NEURON_CONFIG_DIR                  | Neuron configuration file directory                                                                                                       |
-| NEURON_PLUGIN_DIR                  | Neuron plug-in file directory                                                                                                             |
 | NEURONEX__SERVER__ADMIN__PASSWORD  | Modify the default password of the admin user                                                                                             |
 | NEURONEX__SERVER__VIEWER__USERNAME | The username of the newly added viewer user                                                                                               |
 | NEURONEX__SERVER__VIEWER__PASSWORD | The password of the newly added viewer user                                                                                               |
+| NEURONEX__LOG__MODE                | set to console, neuronex will print log into the console                                                                                  |
+| KUIPER__BASIC__CONSOLELOG          | set to true, ekuiper will print log into the console                                                                                      |
+| NEURON__LOG__MODE                  | set to console, neuron will print log into the console                                                                                    |
 
 ## Configuration File
 
@@ -177,6 +178,12 @@ official:
 
 ::: tip
   Users do not need to modify the configuration file and can use the default configuration generally.
+  Users can overwrite the the configuration by environment.There is a mapping from environment variable to the configuration yaml file. When modifying configuration through environment variables, the environment variables need to be set according to the prescribed format, for example:
+  ``
+  NEURONEX__SERVER__DISABLEAUTH => server.disableAuth in etc/neuronex.yaml
+  NEURONEX__LOG__MODE => log.mode in etc/neuronex.yaml
+  ``
+The environment variables are separated by "__", the content of the first part after the separation matches the file name of the configuration file, and the remaining content matches the different levels of the configuration items.
 :::
 
 ## JWT Token Authentication 

@@ -3811,309 +3811,6 @@
         }
       }
     },
-    "/api/neuron/login": {
-      "post": {
-        "summary": "Login",
-        "x-apifox-folder": "Neuron/configuration",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "Login",
-        "tags": [
-          "configuration"
-        ],
-        "parameters": [
-          {
-            "name": "name",
-            "in": "query",
-            "description": "user  account name",
-            "required": false,
-            "example": "admin",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "pass",
-            "in": "query",
-            "description": "user  account password",
-            "required": false,
-            "example": "0000",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-token"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "success",
-                    "value": {
-                      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzcyODcxNjMsImlhdCI6MTYzNzIwMDc2MywiaXNzIjoiRU1RIFRlY2hub2xvZ2llcyBDby4sIEx0ZCBBbGwgcmlnaHRzIHJlc2VydmVkLiIsInBhc3MiOiIwMDAwIiwidXNlciI6ImFkbWluIn0.2EZzPC9djErrCeYNrK2av0smh-eKxDYeyu7cW4MyknI"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "401 token err",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "integer"
-                    }
-                  },
-                  "required": [
-                    "error"
-                  ],
-                  "x-apifox-orders": [
-                    "error"
-                  ]
-                },
-                "examples": {
-                  "1": {
-                    "summary": "missing token",
-                    "value": {
-                      "error": 1004
-                    }
-                  },
-                  "2": {
-                    "summary": "decoding token error",
-                    "value": {
-                      "error": 1005
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "403 token err",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "integer"
-                    }
-                  },
-                  "required": [
-                    "error"
-                  ],
-                  "x-apifox-orders": [
-                    "error"
-                  ]
-                },
-                "examples": {
-                  "1": {
-                    "summary": "expired token",
-                    "value": {
-                      "error": 1006
-                    }
-                  },
-                  "2": {
-                    "summary": "validate token error",
-                    "value": {
-                      "error": 1007
-                    }
-                  },
-                  "3": {
-                    "summary": "invalid token",
-                    "value": {
-                      "error": 1008
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-119930987-run"
-      }
-    },
-    "/api/neuron/password": {
-      "post": {
-        "summary": "Update password",
-        "x-apifox-folder": "Neuron/configuration",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "Update password",
-        "tags": [
-          "configuration"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "old_pass": {
-                    "type": "string"
-                  },
-                  "new_pass": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "name",
-                  "old_pass",
-                  "new_pass"
-                ],
-                "x-apifox-orders": [
-                  "name",
-                  "old_pass",
-                  "new_pass"
-                ]
-              },
-              "example": {
-                "name": "admin",
-                "old_pass": "01234",
-                "new_pass": "56789"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-0"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "success",
-                    "value": {
-                      "error": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "401 token err",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "integer"
-                    }
-                  },
-                  "required": [
-                    "error"
-                  ],
-                  "x-apifox-orders": [
-                    "error"
-                  ]
-                },
-                "examples": {
-                  "1": {
-                    "summary": "missing token",
-                    "value": {
-                      "error": 1004
-                    }
-                  },
-                  "2": {
-                    "summary": "decoding token error",
-                    "value": {
-                      "error": 1005
-                    }
-                  },
-                  "3": {
-                    "summary": "password length too short or too long",
-                    "value": {
-                      "error": 1012
-                    }
-                  },
-                  "4": {
-                    "summary": "duplicate password",
-                    "value": {
-                      "error": 1013
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "token err",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "expired token",
-                    "value": {
-                      "error": 1006
-                    }
-                  },
-                  "2": {
-                    "summary": "validate token error",
-                    "value": {
-                      "error": 1007
-                    }
-                  },
-                  "3": {
-                    "summary": "invalid token",
-                    "value": {
-                      "error": 1008
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-119956369-run"
-      }
-    },
-    "/api/neuron/ping": {
-      "post": {
-        "summary": "Ping",
-        "x-apifox-folder": "Neuron/configuration",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "Ping",
-        "tags": [
-          "configuration"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "null"
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-119980411-run"
-      }
-    },
     "/api/neuron/node": {
       "post": {
         "summary": "Add Node",
@@ -4295,7 +3992,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/neuron-error"
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "node name"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "x-apifox-orders": [
+                  "name",
+                  "node"
+                ]
               },
               "example": {
                 "name": "modbus-tcp-node"
@@ -4352,31 +4062,35 @@
         "tags": [
           "configuration"
         ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "title": "node name"
-                  }
-                },
-                "required": [
-                  "name"
-                ],
-                "x-apifox-orders": [
-                  "name"
-                ]
-              },
-              "example": {
-                "name": "modbus-tcp-node"
-              }
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Type of the node,type=1 means southbound node,type=2 means northbound node",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "plugin",
+            "in": "query",
+            "description": "Plugin type of the node",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "node",
+            "in": "query",
+            "description": "Name of the node",
+            "required": false,
+            "schema": {
+              "type": "string"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "success",
@@ -5017,7 +4731,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "name": {
+                  "group": {
                     "type": "string",
                     "description": "group name"
                   },
@@ -5031,13 +4745,13 @@
                   }
                 },
                 "x-apifox-orders": [
-                  "name",
+                  "group",
                   "node",
                   "interval"
                 ]
               },
               "example": {
-                "name": "gconfig1",
+                "group": "gconfig1",
                 "node": "modbus-node",
                 "interval": 10000
               }
@@ -5120,7 +4834,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "name": {
+                  "group": {
                     "type": "string",
                     "description": "group name"
                   },
@@ -5130,12 +4844,12 @@
                   }
                 },
                 "x-apifox-orders": [
-                  "name",
+                  "group",
                   "node"
                 ]
               },
               "example": {
-                "name": "gconfig1",
+                "group": "gconfig1",
                 "node": "modbus-node"
               }
             }
@@ -5462,11 +5176,6 @@
                           "type": "string",
                           "optional": true,
                           "description": "optional, description"
-                        },
-                        "value": {
-                          "type": "number",
-                          "optional": true,
-                          "description": "optional, when the attribute is static,the value field needs to be added."
                         }
                       },
                       "x-apifox-orders": [
@@ -5476,8 +5185,7 @@
                         "type",
                         "precision",
                         "decimal",
-                        "description",
-                        "value"
+                        "description"
                       ],
                       "required": [
                         "name",
@@ -5643,7 +5351,7 @@
         ],
         "parameters": [
           {
-            "name": "node.string",
+            "name": "node",
             "in": "query",
             "description": "",
             "required": true,
@@ -5867,10 +5575,6 @@
                         },
                         "decimal": {
                           "type": "integer"
-                        },
-                        "value": {
-                          "type": "integer",
-                          "description": "optional, when the attribute is static,the value field needs to be added."
                         }
                       },
                       "required": [
@@ -5889,8 +5593,7 @@
                         "address",
                         "description",
                         "precision",
-                        "decimal",
-                        "value"
+                        "decimal"
                       ]
                     }
                   }
@@ -6141,13 +5844,27 @@
                   "library": {
                     "type": "string",
                     "description": "plugin library name"
+                  },
+                  "schema_file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "plugin schema file"
+                  },
+                  "so_file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "plugin so file"
                   }
                 },
                 "required": [
-                  "library"
+                  "library",
+                  "schema_file",
+                  "so_file"
                 ],
                 "x-apifox-orders": [
-                  "library"
+                  "library",
+                  "schema_file",
+                  "so_file"
                 ]
               }
             }
@@ -6949,7 +6666,9 @@
                   }
                 },
                 "required": [
-                  "app"
+                  "app",
+                  "driver",
+                  "group"
                 ],
                 "x-apifox-orders": [
                   "app",
@@ -7548,256 +7267,6 @@
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120244016-run"
       }
     },
-    "/api/neuron/license": {
-      "post": {
-        "summary": "Upload License",
-        "x-apifox-folder": "Neuron/configuration",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "configuration"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "license": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "license"
-                ],
-                "x-apifox-orders": [
-                  "license"
-                ]
-              },
-              "example": {
-                "license": "-----BEGIN CERTIFICATE-----\nMIID2TCCAsGgAwIBAgIEATSJqjA....."
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "success",
-                    "value": {
-                      "error": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": " license invalid",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "license invalid",
-                    "value": {
-                      "error": 2401
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "internal error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "internal error",
-                    "value": {
-                      "error": 1001
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120246003-run"
-      },
-      "get": {
-        "summary": "Get License Info",
-        "x-apifox-folder": "Neuron/configuration",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "configuration"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "valid_until": {
-                      "type": "string"
-                    },
-                    "valid_since": {
-                      "type": "string"
-                    },
-                    "valid": {
-                      "type": "boolean"
-                    },
-                    "max_nodes": {
-                      "type": "integer"
-                    },
-                    "max_node_tags": {
-                      "type": "integer"
-                    },
-                    "used_nodes": {
-                      "type": "integer"
-                    },
-                    "used_tags": {
-                      "type": "integer"
-                    },
-                    "license_type": {
-                      "type": "string"
-                    },
-                    "error": {
-                      "type": "integer"
-                    },
-                    "enabled_plugins": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "hardware_token": {
-                      "type": "string"
-                    },
-                    "object": {
-                      "type": "string"
-                    },
-                    "email_address": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "valid_until",
-                    "valid_since",
-                    "valid",
-                    "max_nodes",
-                    "max_node_tags",
-                    "used_nodes",
-                    "used_tags",
-                    "license_type",
-                    "error",
-                    "enabled_plugins",
-                    "hardware_token",
-                    "object",
-                    "email_address"
-                  ],
-                  "x-apifox-orders": [
-                    "valid_until",
-                    "valid_since",
-                    "valid",
-                    "max_nodes",
-                    "max_node_tags",
-                    "used_nodes",
-                    "used_tags",
-                    "license_type",
-                    "error",
-                    "enabled_plugins",
-                    "hardware_token",
-                    "object",
-                    "email_address"
-                  ]
-                },
-                "examples": {
-                  "1": {
-                    "summary": "success",
-                    "value": {
-                      "valid_until": "2023-03-15 08:11:19",
-                      "valid_since": "2022-03-15 08:11:19",
-                      "valid": false,
-                      "max_nodes": 1,
-                      "max_node_tags": 1,
-                      "used_nodes": 12,
-                      "used_tags": 846,
-                      "license_type": "retail",
-                      "error": 0,
-                      "enabled_plugins": [
-                        "MODBUS TCP Advance",
-                        "OPC UA"
-                      ],
-                      "hardware_token": "I+kZidSifiyVSbz0/EgcM6AcefnlfR4IU19ZZUnTS18=",
-                      "object": "emq",
-                      "email_address": "emq@emqx.io"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": " license not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "license not found",
-                    "value": {
-                      "error": 2400
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "internal error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "internal error",
-                    "value": {
-                      "error": 1001
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120250382-run"
-      }
-    },
     "/api/neuron/logs": {
       "get": {
         "summary": "Download log files",
@@ -7891,12 +7360,22 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "node_name": {
-                    "type": "string"
+                  "node": {
+                    "type": "string",
+                    "description": "node name"
+                  },
+                  "level": {
+                    "type": "string",
+                    "description": "log level ,could be debug、info、notice、warn、error、fatal"
+                  },
+                  "core": {
+                    "type": "string",
+                    "description": "whether to switch the core log level.The core field is optional and defaults to true."
                   }
                 },
                 "required": [
-                  "node_name"
+                  "node_name",
+                  "level"
                 ],
                 "x-apifox-orders": [
                   "node_name"
@@ -7964,203 +7443,6 @@
         "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120270694-run"
       }
     },
-    "/api/neuron/file": {
-      "get": {
-        "summary": "Download File",
-        "x-apifox-folder": "Neuron/configuration",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "configuration"
-        ],
-        "parameters": [
-          {
-            "name": "file_path",
-            "in": "query",
-            "description": "absolute path of the file",
-            "required": true,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-0"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "success",
-                    "value": {
-                      "error": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Record does not exist",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "file not exist",
-                    "value": {
-                      "error": 1011
-                    }
-                  },
-                  "2": {
-                    "summary": "file open failure",
-                    "value": {
-                      "error": 4101
-                    }
-                  },
-                  "3": {
-                    "summary": "file read failure",
-                    "value": {
-                      "error": 4102
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120272126-run"
-      }
-    },
-    "/api/neuron/file/info": {
-      "get": {
-        "summary": "Get file list information",
-        "x-apifox-folder": "Neuron/configuration",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "",
-        "tags": [
-          "configuration"
-        ],
-        "parameters": [
-          {
-            "name": "dir_path",
-            "in": "query",
-            "description": "absolute path of the directory.",
-            "required": true,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "files": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": "string"
-                          },
-                          "size": {
-                            "type": "integer"
-                          },
-                          "ctime": {
-                            "type": "string"
-                          },
-                          "mtime": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "name",
-                          "size",
-                          "ctime",
-                          "mtime"
-                        ],
-                        "x-apifox-orders": [
-                          "name",
-                          "size",
-                          "ctime",
-                          "mtime"
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "files"
-                  ],
-                  "x-apifox-orders": [
-                    "files"
-                  ]
-                },
-                "examples": {
-                  "1": {
-                    "summary": "success",
-                    "value": {
-                      "files": [
-                        {
-                          "name": "neuron",
-                          "size": 4096,
-                          "ctime": "Wed Jan  4 02:38:12 2023",
-                          "mtime": "Mon Dec 26 09:48:42 2022"
-                        },
-                        {
-                          "name": "test.txt",
-                          "size": 13,
-                          "ctime": "Wed Jan  4 02:38:12 2023",
-                          "mtime": "Mon Dec 26 09:48:42 2022"
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Record does not exist",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/neuron-error"
-                },
-                "examples": {
-                  "1": {
-                    "summary": "file not exist",
-                    "value": {
-                      "error": 1011
-                    }
-                  },
-                  "2": {
-                    "summary": "file open failure",
-                    "value": {
-                      "error": 4101
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://apifox.com/web/project/3198643/apis/api-120273202-run"
-      }
-    },
     "/api/neuron/global/drivers": {
       "put": {
         "summary": "Put Drivers",
@@ -8183,6 +7465,26 @@
                   },
                   "plugin": {
                     "type": "string"
+                  },
+                  "params": {
+                    "type": "object",
+                    "properties": {
+                      "param1": {
+                        "type": "integer",
+                        "description": ""
+                      },
+                      "param2": {
+                        "type": "string",
+                        "description": ""
+                      },
+                      "param3": {
+                        "type": "bool",
+                        "description": ""
+                      },
+                      "param4": {
+                        "type": "integer",
+                        "description": ""
+                      }
                   },
                   "groups": {
                     "type": "array",
@@ -8247,11 +7549,13 @@
                 "required": [
                   "name",
                   "plugin",
+                  "params",
                   "groups"
                 ],
                 "x-apifox-orders": [
                   "name",
                   "plugin",
+                  "params",
                   "groups"
                 ]
               },
@@ -8821,7 +8125,8 @@
               },
               "example": {
                 "node": "modbus-tcp-1",
-                "group": "config_modbus_tcp_sample_2"
+                "group": "group1",
+                "sync": false
               }
             }
           }
@@ -14103,21 +13408,21 @@
         "type": "object",
         "required": [
           "name",
-          "pass"
+          "password"
         ],
         "properties": {
           "name": {
             "type": "string",
             "x-go-name": "Username"
           },
-          "pass": {
+          "password": {
             "type": "string",
             "x-go-name": "Password"
           }
         },
         "x-apifox-orders": [
           "name",
-          "pass"
+          "password"
         ],
         "x-apifox-folder": "Schemas"
       },

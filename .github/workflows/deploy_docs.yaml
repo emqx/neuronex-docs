@@ -10,6 +10,7 @@ on:
       - v*
     branches:
       - main
+      - ci
 
 jobs:
   deploy:

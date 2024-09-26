@@ -102,18 +102,12 @@ jobs:
     - name: build redoc
       run: |
         cd frontend
-        yarn global add redoc-cli
         LANGS=(zh en)
         for lang in "${LANGS[@]}"; do
-          redoc-cli bundle redoc/api-swagger-${lang}.json -t redoc/template.hbs \
+          npx @redocly/cli build-docs redoc/api-swagger-${lang}.json \
             --output docs/.vitepress/dist/${lang}/neuronex/${VERSION}/api/api-docs.html \
-            --options.theme.colors.primary.main=#00b173 \
-            --options.theme.typography.headings.fontFamily='Roboto, sans-serif' \
-            --options.hide-hostname --templateOptions.title "NeuronEX ${VERSION} API Documentation" \
-            --templateOptions.description "NeuronEX ${VERSION} API Documentation" \
-            --templateOptions.version "${VERSION}" \
-            --templateOptions.neuronex \
-            $(if [ "${lang}" == "zh" ]; then echo "--templateOptions.langZH \"zh\""; fi)
+            --theme.openapi.theme.colors.primary.main=#00b173 \
+            --theme.openapi.theme.typography.headings.fontFamily='Roboto, sans-serif'
         done
 
     - name: set aws credentials

@@ -103,7 +103,6 @@ jobs:
     - name: build redoc
       run: |
         cd frontend
-        yarn global add redoc-cli
         set -x
         echo ${VERSION}
         LANGS=(zh en)

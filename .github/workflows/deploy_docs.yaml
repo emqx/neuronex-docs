@@ -105,7 +105,7 @@ jobs:
         cd frontend
         yarn global add redoc-cli
         set -x
-        cat ${VERSION}
+        echo ${VERSION}
         LANGS=(zh en)
         for lang in "${LANGS[@]}"; do
           npx @redocly/cli build-docs redoc/api-swagger.json \

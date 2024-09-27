@@ -10,6 +10,7 @@ on:
       - v*
     branches:
       - main
+      - ci
 
 jobs:
   deploy:
@@ -102,10 +103,11 @@ jobs:
     - name: build redoc
       run: |
         cd frontend
-        npm i -g @redocly/cli@latest
+        set -x
+        echo ${VERSION}
         LANGS=(zh en)
         for lang in "${LANGS[@]}"; do
-          redocly build-docs redoc/api-swagger-${lang}.json \
+          npx @redocly/cli build-docs redoc/api-swagger.json \
             --output docs/.vitepress/dist/${lang}/neuronex/${VERSION}/api/api-docs.html \
             --theme.openapi.theme.colors.primary.main=#00b173 \
             --theme.openapi.theme.typography.headings.fontFamily='Roboto, sans-serif'

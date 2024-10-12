@@ -1,22 +1,32 @@
 # Configuration
 
-This page describes how to do resources and mode configuration.
+This page describes how to configure resources and modes for data processing functions, including four parts: `Connector`, `Source Configuration Groups`, `Schema`, and `Files Management`.
 
-## resource
 
-Resources include two parts: `source configuration keys` and `Sink Templates`.
+# Connector
 
-### Source configuration keys
+Sources and Sinks are used to interact with external systems, both of which involve actions to connect to external resources. The complexity of different connection types varies; for example, MQTT long connections require attention to connection status, and rules may encounter disconnections during operation, necessitating complex management such as automatic reconnection. In contrast, HTTP connections are stateless by default, making status management simpler. To unify the management of complex connection resources, reuse, automatic reconnection, and obtaining connection status, an internal connection pool component was added in NeuronEX version 3.4, along with support for a series of connection types:
 
-Each source will have its own configuration file, and users can configure it accordingly when creating streams/tables. You can view the added configuration, edit related operations, or delete the configuration group on the **Source Configuration keys** tab of **Data Processing** -> **Configuration** -> **Resource**. You can click the **Add Source configuration keys** button in the upper right corner to add it.
+- MQTT Connection
+- SQL Connection
 
-<img src="./_assets/config_source.png" alt="config_source" style="zoom:100%;" />
+Users can view added connectors on the connector page, edit related operations, or delete connectors. They can also click the **Create Connector** button in the upper right corner to add new ones. The connections created by users are entity connections that will automatically reconnect until the connection is successful.
 
-### Sink Templates
+### Connection Reuse
 
-The Sink template can be viewed on the **Sink Templates** tab of **Data Processing** -> **Configuration** -> **Resources**. To add the configuration, edit related operations, or delete the configuration group, you can also click the **Add Sink Template** button in the upper right corner to add it.
+The connection resources created by users can run independently, and multiple rules can reference the same connection resource, including both Source and Sink sharing the same connection resource.
 
-<img src="./_assets/config_sink.png" alt="config_sink" style="zoom:100%;" />
+::: tip
+
+NeuronEX has made compatibility changes to support exporting rules from older versions of NeuronEX and importing them on NeuronEX 3.4. The rules can still run normally. After that, you can add connectors and manually modify the Source and Sink configurations.
+
+:::
+
+## Source Configuration Key
+
+Each source will have its own configuration file, and users can configure it accordingly when creating streams/tables. You can view added configurations, edit related operations, or delete configuration groups in the **Data Processing** -> **Configuration** -> **Source Configuration ** tab. You can also click the **Add Source Configuration Key** button in the upper right corner to add new ones.
+
+![source_config_en](_assets/source_config_en.png)
 
 ## Schema
 
@@ -69,5 +79,32 @@ message HelloReply {
 string message = 1;
 }
 ```
-
 :::
+
+### Using Protobuf Schema in the Sink of Rules
+
+Taking the use of Protobuf to encode messages sent in the MQTT Sink of rules as an example, you can configure as follows on the MQTT Sink page:
+- Stream Format : protobuf
+- Schema Name : mybook
+- Schema Message : Book
+
+![schema_sink_en](_assets/schema_sink_en.png)
+
+You also need to upload the protobuf file in advance on the Schema page, and the file name must match the Schema Name and Schema Message on the MQTT Sink page.
+
+![schema_sink2_en](_assets/schema_sink2_en.png)
+
+## Files Management
+
+When adding files as data sources or through batch rules, you need to upload the prepared files to NeuronEX. The steps are as follows:
+
+Log in to NeuronEX, click **Data Processing** -> **Configuration** -> **Files Management**, and click the **Create File** button.
+
+NeuronEX currently supports two ways to upload configuration files: uploading files or providing file names and text content. If you choose **Custom File**, please provide both the file name in the file name field, such as `my.json`, and then upload or directly paste the file content in the file content field.
+
+After clicking **Submit**, the file will appear in the list on the **Files Management** page, with the name containing the file path and file name, such as:
+
+```
+/opt/neuronex/data/ekuiper/data/uploads/my.json
+```
+

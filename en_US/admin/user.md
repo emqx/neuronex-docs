@@ -25,7 +25,7 @@ Viewer can access all data and configuration information of NeuronEX, correspond
 NeuronEX comes with a login username and password of `admin/0000` after installation. The `admin` user defaults to the Administrator role, which cannot be deleted or modified, but can modify the password.
 In addition, you can use environment variables to modify the default password of the admin user and add a viewer user when starting for the first time.
 - NEURONEX__SERVER__ADMIN__PASSWORD='xxxxxx', xxxxxx is the new password for the admin user
-- NEURONEX__SERVER__VIEWER__USERNAME='xxxxxx', xxxxxx is the viewer username
+- NEURONEX__SERVER__VIEWER__USERNAME='user1', user1 is the viewer username
 - NEURONEX__SERVER__VIEWER__PASSWORD='xxxxxx', xxxxxx is the password of the viewer user
 
 After the admin user logs in to the system through the above settings, he can continue to modify the password of the above user.

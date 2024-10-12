@@ -28,7 +28,7 @@ The statistical fields of different northbound application nodes will be slightl
 
 ### Rule statistics
 
-Clicking on the status bar of the rule allows you to view the statistics of the rule.
+Clicking on `Data Statistics` of the rule allows you to view the statistics of the rule.
 
 ![north_statistics](./assets/rule_statistics1.png)
 

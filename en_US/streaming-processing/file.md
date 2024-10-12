@@ -14,6 +14,7 @@ Supported File types:
 - json: standard JSON array format file. If the file format is a line-delimited JSON string, it needs to be defined in the `lines` format
 - csv: supports comma-delimited csv files and also supports custom delimiters
 - lines: Line-delimited file. The decoding method for each line can be defined via the `format` parameter in the stream definition. For example, for a line-delimited JSON string file, the file type should be set to `lines` and the format should be set to `json`, indicating that a single line is formatted as JSON.
+- cime: A file format for power system models and data.
 
 Some files may have most of the data in a standard format, but have some metadata at the beginning and end of the file. Users can use the **ignoreStartLines` and `ignoreEndLines`) parameters to remove non-standard beginning and end non-standard parts in order to parse the above file types.
 

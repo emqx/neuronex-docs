@@ -3,7 +3,7 @@
 This page describes how to configure resources and modes for data processing functions, including four parts: `Connector`, `Source Configuration Groups`, `Schema`, and `Files Management`.
 
 
-# Connector
+## Connector
 
 Sources and Sinks are used to interact with external systems, both of which involve actions to connect to external resources. The complexity of different connection types varies; for example, MQTT long connections require attention to connection status, and rules may encounter disconnections during operation, necessitating complex management such as automatic reconnection. In contrast, HTTP connections are stateless by default, making status management simpler. To unify the management of complex connection resources, reuse, automatic reconnection, and obtaining connection status, an internal connection pool component was added in NeuronEX version 3.4, along with support for a series of connection types:
 

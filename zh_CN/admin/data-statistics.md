@@ -49,7 +49,7 @@
 
 ### 规则运行统计
 
-点击规则的状态栏，可查看规则运行统计信息。
+点击规则操作栏的 `数据统计` 按键，可查看规则运行统计信息。
 
 ![north_statistics](./assets/rule_statistics1.png)
 

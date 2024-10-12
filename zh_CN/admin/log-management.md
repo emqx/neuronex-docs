@@ -61,13 +61,13 @@ NeuronEX 支持在 Dashboard 页面一键下载所有日志文件的功能。登
 
 :::
 
-## 日志监控
+<!-- ## 日志监控
 NeuronEX 支持实时查看日志信息。登录 NeuronEX 后，点击页面左侧的 **管理** -> **日志**， 进入日志监控界面。
 ![如图所示](./assets/log_monitor_zh.png)
 
 ### 日志过滤
 支持对服务类型和日志级别进行过滤。服务类型支持 All、NeuronEX、数据处理引擎，日志级别支持 All、Debug、Info、Notice、Warn、Error、Fatal。
-![如图所示](./assets/log_monitor_filter_zh.png)
+![如图所示](./assets/log_monitor_filter_zh.png) -->
 
 ## 后台查看日志
 

@@ -142,6 +142,14 @@ When sending API requests to NeuronEX, the `tracestate: tracer=start` parameter 
 
 ![trace_postman](assets/trace_postman.png)
 
+After enabling the traces function, on the NeuronEX data monitoring page, click `write` to send data to the device, which will automatically record the tracing data for that API request.
+
+:::tip Note
+
+Other API operations performed on the NeuronEX Dashboard will not record tracing data.
+
+:::
+
 ### Downstream MQTT Control Command Tracing
 
 To implement downstream MQTT control command tracing, the following conditions must be met:

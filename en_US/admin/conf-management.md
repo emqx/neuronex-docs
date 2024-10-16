@@ -1,6 +1,6 @@
 # Configuration Management
 
-NeuronEX supports modifying Neuron's configuration parameters through `command line`, `environment variables`, and `configuration files`, which can provide a more flexible way of starting and running. If `command line`, `environment variables`, and `configuration files` are configured at the same time, the priority relationship between the three is: environment variable > command line > configuration file
+NeuronEX supports modifying Neuron's configuration parameters through `command line`, `environment variables`, and `configuration files`, which can provide a more flexible way of starting and running. If `command line`, `environment variables`, and `configuration files` are configured at the same time, the priority relationship between the three is: command line > environment variable > configuration file
 
 ## Command Line
 
@@ -10,33 +10,24 @@ The `run` command is used to run NeuronEX on the console.This command starts Neu
 
 ```shell
 -c, --config string   config file path (default "etc/neuronex.yaml")
--e, --disable_auth    select whether to enable authentication
--h, --help            help for run
--m, --manage          manage the lifecycle of eKuiper and Neuron (default true)
+-k, --disable_kuiper    select whether to disable ekuiper
 ```
 Eg:
 
 ```shell
-./bin/neuronex run -c etc/neuronex.yaml -m false -e false
+./bin/neuronex run -c etc/neuronex.yaml -k true
 ```
 
-This command starts NeuronEX as a process and displays its output in the terminal. The NeuronEX will not manage the lifecycle of Neuron and Ekuiper and will not turn on privilege authentication.
+This command starts NeuronEX as a process and displays its output in the terminal. The NeuronEX will not manage the lifecycle of Ekuiper.
 
 ### `start` command
 
 The `start` command is used to start NeuronEX in daemon mode.This command starts NeuronEX as a daemon and runs it in the background.
 
-```
--c, --config string   config file path (default "etc/neuronex.yaml")
--e, --disable_auth    select whether to enable authentication
--h, --help            help for run
--m, --manage          manage the lifecycle of eKuiper and Neuron (default true)
-```
-
 Eg:
 
 ```sh
-./bin/neuronex start -c etc/neuronex.yaml -m false -e false
+./bin/neuronex start 
 ```
 
 This command starts NeuronEX as a daemon and runs it in the background. The NeuronEX will not manage the lifecycle of Neuron and Ekuiper and will not turn on privilege authentication.
@@ -73,25 +64,51 @@ The `reset-password` command is used to change the default user's (admin) passwo
 ./bin/neuronex reset-password
 ```
 
-## Environment Variables
+## Environment Variable
 
 NeuronEX supports reading environment variables during the startup process to configure startup parameters. The currently supported environment variables are as follows:
 
-| Configuration name             | Configuration function                                                            |
-| ------------------------------ | --------------------------------------------------------------------------------- |
-| NEURONEX_DISABLE_AUTH          | Set to 1, NeuronEX turns off Token authentication and authentication; set to 0, NeuronEX turns on Token authentication and authentication   |
-| NEURON_DAEMON                  | Set to 1, the Neuron daemon runs; set to 0, Neuron runs normally                   |
-| NEURON_CONFIG_DIR              | Neuron configuration file directory                                                |
-| NEURON_PLUGIN_DIR              | Neuron plug-in file directory                                                      |
+| Configuration name                 | Configuration function                                                                                                                    |
+|------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| NEURONEX_DISABLE_AUTH              | Set to 1, NeuronEX turns off Token authentication and authentication; set to 0, NeuronEX turns on Token authentication and authentication |
+| NEURONEX__SERVER__ADMIN__PASSWORD  | Modify the default password of the admin user                                                                                             |
+| NEURONEX__SERVER__VIEWER__USERNAME | The username of the newly added viewer user                                                                                               |
+| NEURONEX__SERVER__VIEWER__PASSWORD | The password of the newly added viewer user                                                                                               |
+| NEURONEX__LOG__MODE                | set to console, neuronex will print log into the console                                                                                  |
+| KUIPER__BASIC__CONSOLELOG          | set to true, ekuiper will print log into the console                                                                                      |
+| NEURON__LOG__MODE                  | set to console, neuron will print log into the console                                                                                    |
+
+### Environment variables mapping to configuration file
+
+NeuronEX supports overwriting configuration file through environment variables. When modifying configuration through environment variables, environment variables need to be set in the specified format. The mapping relationship is as follows:
+
+```
+NEURONEX__SERVER__DISABLEAUTH => server.disableAuth in etc/neuronex.yaml
+NEURONEX__LOG__MODE => log.mode in etc/neuronex.yaml
+```
+
+Environment variables are separated by "__". The first part of the content matches the file name of the configuration file, and the rest of the content matches configuration items at different levels.
+
+
 ## Configuration File
 
-NeuronEX provides a YAML format file to configure personalized parameters related to NeuronEX.
+NeuronEX provides a YAML format file located at `/opt/neuronex/etc/neuronex.yaml` to configure personalized parameters related to NeuronEX.
 
 ### server
 
 The `server` section defines the port number of the NeuronEX server.
 
 - `port`: port number of the NeuronEX server, default value is 8085.
+- `disableAuth`: whether to disable TOKEN authentication.
+- `disableKuiper`: whether to disable eKuiper.
+- `tls`: 
+  - `certFile`: the certificate file location when enable TLS.
+  - `keyFile`: the key file location when enable TLS.
+- `admin`: administrator user
+  - `password`: administrator password
+- `viewer`: viewer user
+  - `username`: viewer username
+  - `password`: viewer password
 
 ### neuron
 
@@ -106,10 +123,12 @@ The `neuron` section defines the version number and reverse proxy configuration 
 
 The `ekuiper` section defines the version number and reverse proxy configuration of Ekuiper.
 
-- `version`: the version number of Ekuiper.
+- `version`: the version number of eKuiper.
 - `reverseProxies`: list of reverse proxy configurations for Ekuiper. Each reverse proxy configuration is the same as the `neuron.reverseProxies` configuration.
-  - `location`: Ekuiper's path.
+  - `location`: eKuiper's path.
   - `proxyPath`: path to Ekuiper's backend server.
+  - `location`: eKuiper's ws service.
+  - `proxyPath`: path to eKuiper's ws server.
 
 ### log
 
@@ -120,7 +139,6 @@ The `log` section defines the logging configuration of the NeuronEX server.
 - `file`: path to the log file.
 - `maxSize`: maximum size in megabytes of the log file before it gets rotated.
 - `maxBackups`:  the maximum number of old log files to retain.
-- `listenAddr`: log listener address for remote log collection.
 - `syslogForward`: log remote forwarding configuration.
   - `enable`: whether to enable log remote forwarding.
   - `priority`：options are emerg,alert,crit,err,warning,notice,info,debug now.
@@ -139,31 +157,38 @@ The `official` section defines ecosy license official server address information
 ```yaml
 server:
   port: 8085
+  disableAuth: false
+  disableKuiper: false
+  # tls:
+  #   certFile: "etc/certs/neuronex.crt"
+  #   keyFile: "etc/certs/neuronex.key"
+#  admin:
+#    password: "0000"
+#  viewer:
+#    username: "test"
+#    password: "0000"
 
 neuron:
-  version: 2.6.0
   reverseProxies:
     - location: /api/neuron
       proxyPath: http://127.0.0.1:7000/api/v2
 
 ekuiper:
-  version: 1.10.2
   reverseProxies:
     - location: /api/ekuiper
       proxyPath: http://127.0.0.1:9081
+    - location: /ws/ekuiper
+      proxyPath: ws://127.0.0.1:10081
 
 log:
   mode: file
-  level: info
+  level: error
   file: log/neuronex.log
-  # maximum size in megabytes of the log file before it gets rotated
-  maxSize: 50000
-  # MaxBackups is the maximum number of old log files to retain
-  maxBackups: 3
-  listenAddr: "localhost:10514"
-  syslogForward:
+  maxSize: 20  # maximum size in megabytes of the log file before it gets rotated
+  maxBackups: 5 # MaxBackups is the maximum number of old log files to retain
+  syslog:
     enable: false
-    # emerg/alert/crit/err/warning/notice/info/debug
+    # fatal/error/warning/notice/info/debug
     priority: "info"
     # now only support udp4
     network: "udp4"
@@ -172,12 +197,35 @@ log:
     tag: "neuronex"
 
 official:
-  url: https://license-test.mqttce.com
+  url: https://neuronex-licenses.emqx.com
 ```
 
-::: tip
-  Users do not need to modify the configuration file and can use the default configuration generally.
-:::
+## HTTPS Functionality Usage
+
+NeuronEX now supports HTTPS functionality, providing a more secure communication method. This feature allows users to access the dashboard and API through encrypted connections, enhancing the security and privacy of data transmission. NeuronEX supports both HTTP and HTTPS on the same port (8085).
+
+### Enable HTTPS Functionality
+
+Uncomment the following fields in the configuration file and place your certificate and private key in the corresponding directory.
+
+```yaml
+tls:
+  certFile: "etc/certs/neuronex.crt"
+  keyFile: "etc/certs/neuronex.key"
+```
+### Access Methods
+
+- Web Dashboard Access
+  - HTTP Access: http://your-server:8085
+  - HTTPS Access: https://your-server:8085
+- API Access
+  - HTTP Access: http://your-server:8085/api/endpoint
+  - HTTPS Access: https://your-server:8085/api/endpoint
+
+### Client Configuration
+
+- Method 1: If using a self-signed certificate, add the certificate file (neuronex.crt) to the client's trust store.
+- Method 2: Disable certificate verification on the client.
 
 ## JWT Token Authentication 
 

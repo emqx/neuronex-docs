@@ -143,9 +143,17 @@ Scope、Grant Type、Request Method 和 Content Type 字段需要根据平台要
 
 ### NeuronEX API 下行控制指令追踪
 
-需要在向 NeuronEX 发送 API 请求时， Header 中添加 `tracestate: tracer=start` 参数，NeuronEX 才会记录该条 API 请求的追踪数据。以 Postman 为例，如下图所示。
+方式一：在向 NeuronEX 发送 API 请求时， Header 中添加 `tracestate: tracer=start` 参数，NeuronEX 才会记录该条 API 请求的追踪数据。以 Postman 为例，如下图所示。
 
 ![trace_postman](assets/trace_postman.png)
+
+方式二：在开启链路追踪功能后，在 NeuronEX 数据监控页面，点击`write`写入数据到设备，会自动记录该条 API 请求的追踪数据。
+
+:::tip 注意
+
+在 NeuronEX Dashboard 上进行的其他非点位写入操作，不会记录追踪数据。
+
+:::
 
 ### MQTT 下行控制指令追踪
 
@@ -161,7 +169,7 @@ Scope、Grant Type、Request Method 和 Content Type 字段需要根据平台要
 
 - 第三方 MQTT 客户端支持 MQTT V5.0 协议，并且发送 MQTT 消息时，在自定义属性中添加如下属性：
     `traceparent: 00-cce3a024ca134a7cb4b41e048e8d98de-cef47eaa4ebc3fae-01` 
-    
+
     以 MQTTX 为例，如下图所示：
 
 ![trace_mqttx](assets/trace_mqttx.png)

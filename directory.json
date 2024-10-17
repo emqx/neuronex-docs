@@ -130,6 +130,16 @@
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-xinje-rtu/modbus-xinje-rtu.md"
             },
             {
+              "title": "HollySys Modbus TCP",
+              "path": "configuration/south-devices/modbus-hollysys-tcp/modbus-hollysys-tcp",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-hollysys-tcp/modbus-hollysys-tcp.md"
+            },
+            {
+              "title": "HollySys Modbus RTU",
+              "path": "configuration/south-devices/modbus-hollysys-rtu/modbus-hollysys-rtu",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-hollysys-rtu/modbus-hollysys-rtu.md"
+            },
+            {
               "title": "OPC UA",
               "path": "configuration/south-devices/opc-ua/overview",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/opc-ua/overview.md",
@@ -216,6 +226,11 @@
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/ethernet-ip/ethernet-ip.md"
             },
             {
+              "title": "Allen-Bradley 5000 EIP",
+              "path": "configuration/south-devices/ab-5000/ab-5000",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/ab-5000/ab-5000.md"
+            },
+            {
               "title": "Allen-Bradley ControlLogix 5500",
               "path": "configuration/south-devices/ab-5500/ab-5500",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/ab-5500/ab-5500.md"
@@ -224,6 +239,11 @@
               "title": "Allen-Bradley MicroLogix 1400",
               "path": "configuration/south-devices/ab-1400/ab-1400",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/ab-1400/ab-1400.md"
+            },
+            {
+              "title": "Allen-Bradley DF1",
+              "path": "configuration/south-devices/df1/df1",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/df1/df1.md"
             },
             {
               "title": "Mitsubishi 3E",
@@ -410,6 +430,11 @@
               "title": "DL/T 645-1997",
               "path": "configuration/south-devices/dlt645-1997/dlt645-1997",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/dlt645-1997/dlt645-1997.md"
+            },
+            {
+              "title": "DNP 3.0",
+              "path": "configuration/south-devices/dnp3/dnp3",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/dnp3/dnp3.md"
             },
             {
               "title": "BACnet/IP",
@@ -1163,6 +1188,16 @@
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-xinje-rtu/modbus-xinje-rtu.md"
             },
             {
+              "title": "HollySys Modbus TCP",
+              "path": "configuration/south-devices/modbus-hollysys-tcp/modbus-hollysys-tcp",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-hollysys-tcp/modbus-hollysys-tcp.md"
+            },
+            {
+              "title": "HollySys Modbus RTU",
+              "path": "configuration/south-devices/modbus-hollysys-rtu/modbus-hollysys-rtu",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-hollysys-rtu/modbus-hollysys-rtu.md"
+            },
+            {
               "title": "OPC UA",
               "path": "configuration/south-devices/opc-ua/overview",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/opc-ua/overview.md",
@@ -1249,6 +1284,11 @@
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/ethernet-ip/ethernet-ip.md"
             },
             {
+              "title": "Allen-Bradley 5000 EIP",
+              "path": "configuration/south-devices/ab-5000/ab-5000",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/ab-5000/ab-5000.md"
+            },
+            {
               "title": "Allen-Bradley ControlLogix 5500",
               "path": "configuration/south-devices/ab-5500/ab-5500",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/ab-5500/ab-5500.md"
@@ -1257,6 +1297,11 @@
               "title": "Allen-Bradley MicroLogix 1400",
               "path": "configuration/south-devices/ab-1400/ab-1400",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/ab-1400/ab-1400.md"
+            },
+            {
+              "title": "Allen-Bradley DF1",
+              "path": "configuration/south-devices/df1/df1",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/df1/df1.md"
             },
             {
               "title": "Mitsubishi 3E",
@@ -1433,6 +1478,11 @@
               "title": "DL/T645-1997",
               "path": "configuration/south-devices/dlt645-1997/dlt645-1997",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/dlt645-1997/dlt645-1997.md"
+            },
+            {
+              "title": "DNP 3.0",
+              "path": "configuration/south-devices/dnp3/dnp3",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/dnp3/dnp3.md"
             },
             {
               "title": "BACnet/IP",

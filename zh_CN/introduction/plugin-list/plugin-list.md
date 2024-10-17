@@ -52,12 +52,15 @@
 | Siemens FetchWrite | 以太网  | 用于带有网络扩展模块 CP443 的西门子 PLC 的访问 |
 | Allen-Bradley DF1          | 串口  |  - |
 | Allen-Bradley CIP EtherNet/IP                       | 以太网    |  CIP – 通用工业协议 |
+| Allen-Bradley 5000 EtherNet/IP                      | 以太网    |  支持 AB ControlLogix 55xx系列，以及CompactLogix 53xx系列 PLC |
 | Allen-Bradley ControlLogix 5500                              | 以太网   | - |
 | Allen-Bradley MicroLogix 1400                             | 以太网     | - |
 | Schneider PLC Modbus RTU                                     | 串口    | 通用Modbus RTU |
 | Schneider PLC Modbus TCP                                     | 以太网  |  通用Modbus TCP |
 | Inovance PLC Modbus TCP                             | 以太网  |  汇川PLC Modbus TCP |
 | XINJE PLC Modbus RTU                             | 串口  |  支持信捷 XC/XD/XL 系列 PLC |
+| HollySys PLC Modbus TCP                             | 以太网  |  支持HollySys LK/LE 系列 PLC |
+| HollySys PLC Modbus RTU                             | 串口  |  支持HollySys LK/LE 系列 PLC |
 | ABB COMLI                                        | 串口    |  与 ABB 的 PLC通讯 |
 | Omron Host Link                        | 串口    |   HostLink Cmode 方式通过串口网络与欧姆龙 PLC 进行通信。 |
 | Omron FINS on TCP                       | 以太网  |  通过 FINS TCP 协议与欧姆龙 PLC 进行通信。 |
@@ -86,6 +89,7 @@
 | IEC 60870-5-103     | 串口、以太网    | - |
 | IEC 60870-5-104     | 以太网    | - |
 | IEC 61850           | 以太网    | - |
+| DNP 3.0         | 以太网  |  - |
 
 ### 楼宇自动化
 

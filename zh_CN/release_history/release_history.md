@@ -1,5 +1,48 @@
 # 发版历史
 
+## v3.4.0
+
+发布日期: 2024-10-22
+
+### 增强
+
+- 新增南向驱动 DNP 3.0
+- 新增南向驱动 HollySys Modbus TCP
+- 新增南向驱动 HollySys Modbus RTU
+- 新增南向驱动 Allen-Bradley 5000 EtherNet/IP
+- 新增南向驱动 Allen-Bradley DF1
+- MQTT 驱动支持上报南向驱动状态到 MQTT 主题 
+- MQTT 驱动支持 MQTT 5.0 版本
+- Focas 驱动 PMC 读取优化
+- DLT645 驱动支持读取 05 地址区数据
+- ModbusTCP、Inovance Modbus TCP 驱动增加参数`是否开启报文头校验`
+- ModbusTCP、ModbusRTU 驱动支持设备降级
+- 南向驱动和北向应用页面，支持分页显示节点信息
+- 新增环境变量 NEURON_SUB_FILTER_ERROR 和配置参数sub_filter_error，可配置 `Subscribe` 属性的点位仅检测正常上报的值
+- 数据处理模块新增连接管理功能，支持配置 MQTT、SQL 连接器，连接器支持自动重连
+- File 数据源支持读取电力行业CIME文件
+- source/sink算子拆分
+- 增加规则统计指标
+- 规则停止后仍然可以查看规则运行指标
+- Portable插件增加状态和错误信息显示
+- 支持 NeuronEX 完整备份和恢复
+- UI 支持密码隐藏 
+- 支持启动 NeuronEX 时，可选择配置是否启动数据处理引擎
+- NeuronEX 支持 https API
+- 支持在配置文件`neuronex.yaml`中修改启动 admin 密码和 Viewer账号
+- 配置文件`neuronex.yaml`中的参数，支持映射为环境变量使用
+- 新增链路追踪功能，支持以下功能：
+  - API 及下行 MQTT 控制指令追踪
+  - 数据采集链路追踪
+  - 规则计算链路追踪
+- 支持通过环境变量将日志输出到 console
+
+
+### 修复
+- 修复 Panasonic Mewtocol 驱动，读取数据错误的问题
+- 修复 SQLServer 数据源中 Decimal 类型数据读取错误的问题
+- 调整docker安装包系统参数`net.unix.max_dgram_qlen` = 128
+
 ## v3.3.2
 
 发布日期: 2024-09-02

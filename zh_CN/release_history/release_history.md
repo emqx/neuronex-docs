@@ -43,6 +43,21 @@
 - 修复 SQLServer 数据源中 Decimal 类型数据读取错误的问题
 - 调整docker安装包系统参数`net.unix.max_dgram_qlen` = 128
 
+## v3.3.3
+
+发布日期: 2024-10-22
+
+### 增强
+
+- DLT645 驱动支持读取 05 地址区数据
+- SparkplugB 支持南向驱动断连的ddeath，和重新连接后的dbirth
+- SparkplugB 支持设备断电的ndeath
+
+### 修复
+
+- 修复 Panasonic Mewtocol 驱动，读取数据错误的问题
+- 修复读取sqlserver "Decimal" 数据类型错误的问题
+
 ## v3.3.2
 
 发布日期: 2024-09-02

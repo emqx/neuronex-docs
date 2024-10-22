@@ -43,6 +43,19 @@ Release Date: 2024-10-22
 - Fixed the issue of reading Decimal type data errors in SQLServer data sources
 - Adjusted Docker installation package system parameter `net.unix.max_dgram_qlen` = 128
 
+## v3.3.3
+
+Release Date: 2024-10-22
+
+### Enhancements
+- DLT645 driver supports reading data from address area 05
+- SparkplugB supports southbound driver disconnection ddeath, and reconnection after dbirth
+- SparkplugB supports ndeath for device power failure
+
+### Fixes
+- Fixed the issue of reading data errors in the Panasonic Mewtocol driver
+- Fixed the issue of reading Decimal type data errors in SQL source
+
 ## v3.3.2
 
 Release Date： 2024-09-02

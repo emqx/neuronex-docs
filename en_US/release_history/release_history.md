@@ -40,8 +40,15 @@ Release Date: 2024-10-22
 
 ### Fixes
 - Fixed the issue of reading data errors in the Panasonic Mewtocol driver
-- Fixed the issue of reading Decimal type data errors in SQLServer data sources
 - Adjusted Docker installation package system parameter `net.unix.max_dgram_qlen` = 128
+- Fix SQL source scan for some column type for different databases
+- Window accomodate time shift back
+- Fix metrics for batch operator
+- Fix csv format output to avoid e-notation for float
+- Operand nil in an operation always return nil (e.g. a + b, if a == nil, result is nil)
+- Fix random memory source failure when restarting rule
+- Fix log rotate count when logs rotate too much
+- Neuron connection remove size limit (may drop when payload is bigger than 1MB)
 
 ## v3.3.3
 

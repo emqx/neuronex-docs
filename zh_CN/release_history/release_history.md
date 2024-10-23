@@ -39,9 +39,17 @@
 
 
 ### 修复
+
 - 修复 Panasonic Mewtocol 驱动，读取数据错误的问题
-- 修复 SQLServer 数据源中 Decimal 类型数据读取错误的问题
 - 调整docker安装包系统参数`net.unix.max_dgram_qlen` = 128
+- 修复 SQL 源扫描表针对不同数据库的某些列类型错误
+- 窗口适应时间向后移位
+- 修复 batch 算子的指标信息
+- 修复 csv 格式输出以避免浮点数 e-notation
+- 操作中的操作数 nil 始终返回 nil（例如 a + b，如果 a == nil，结果为 nil）
+- 修复重新启动规则时随机内存源故障
+- 修复日志轮换过多时的日志轮换计数
+- Neuron 连接移除大小限制（当有效载荷大于 1MB 时可能会下降）
 
 ## v3.3.3
 

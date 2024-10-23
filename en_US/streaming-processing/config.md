@@ -12,6 +12,12 @@ Sources and Sinks are used to interact with external systems, both of which invo
 
 Users can view added connectors on the connector page, edit related operations, or delete connectors. They can also click the **Create Connector** button in the upper right corner to add new ones. The connections created by users are entity connections that will automatically reconnect until the connection is successful.
 
+::: tip 
+
+When modifying the connector configuration, all rules using the connector must be stopped before the modification.
+
+:::
+
 ### Connection Reuse
 
 The connection resources created by users can run independently, and multiple rules can reference the same connection resource, including both Source and Sink sharing the same connection resource.

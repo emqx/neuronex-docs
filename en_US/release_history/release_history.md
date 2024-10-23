@@ -1,5 +1,68 @@
 # Release history
 
+## v3.4.0
+
+Release Date: 2024-10-22
+
+### Enhancements
+
+- Added southbound driver DNP 3.0
+- Added southbound driver HollySys Modbus TCP
+- Added southbound driver HollySys Modbus RTU
+- Added southbound driver Allen-Bradley 5000 EtherNet/IP
+- Added southbound driver Allen-Bradley DF1
+- MQTT driver supports reporting southbound driver status to MQTT topics
+- MQTT driver supports MQTT 5.0 version
+- Focas driver PMC read optimization
+- DLT645 driver supports reading data from address area 05
+- ModbusTCP and Inovance Modbus TCP drivers added parameter `Check Header`
+- ModbusTCP and ModbusRTU drivers support device degradation
+- Southbound driver and northbound application pages support pagination display of node information
+- Added environment variable `NEURON_SUB_FILTER_ERROR` and configuration parameter `sub_filter_error`, which can configure `Subscribe` attributes to only detect normally reported values
+- Data processing module adds connection management function, supporting configuration of MQTT and SQL connectors, with automatic reconnection support
+- File source supports reading CIME files in the power industry
+- Split source/sink operators
+- Added rule statistics indicators
+- Rule running indicators can still be viewed after the rule is stopped
+- Portable plugin adds status and error information display
+- Supports complete backup and recovery of NeuronEX
+- UI supports password hiding
+- Supports choosing whether to start the data processing engine when starting NeuronEX
+- NeuronEX supports HTTPS API
+- Supports modifying the admin password and Viewer account in the configuration file `neuronex.yaml`
+- Parameters in the configuration file `neuronex.yaml` support mapping for use as environment variables
+- Added OpenTelemetry tracing function, supporting the following features:
+  - API and downstream MQTT control command tracing
+  - Data collection link tracing
+  - Rule calculation link tracing
+- Supports outputting logs to the console via environment variables
+
+
+### Fixes
+- Fixed the issue of reading data errors in the Panasonic Mewtocol driver
+- Adjusted Docker installation package system parameter `net.unix.max_dgram_qlen` = 128
+- Fix SQL source scan for some column type for different databases
+- Window accomodate time shift back
+- Fix metrics for batch operator
+- Fix csv format output to avoid e-notation for float
+- Operand nil in an operation always return nil (e.g. a + b, if a == nil, result is nil)
+- Fix random memory source failure when restarting rule
+- Fix log rotate count when logs rotate too much
+- Neuron connection remove size limit (may drop when payload is bigger than 1MB)
+
+## v3.3.3
+
+Release Date: 2024-10-22
+
+### Enhancements
+- DLT645 driver supports reading data from address area 05
+- SparkplugB supports southbound driver disconnection ddeath, and reconnection after dbirth
+- SparkplugB supports ndeath for device power failure
+
+### Fixes
+- Fixed the issue of reading data errors in the Panasonic Mewtocol driver
+- Fixed the issue of reading Decimal type data errors in SQL source
+
 ## v3.3.2
 
 Release Date： 2024-09-02

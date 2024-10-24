@@ -2,7 +2,7 @@
 
 ## v3.4.0
 
-Release Date: 2024-10-22
+Release Date: 2024-10-24
 
 ### Enhancements
 

@@ -36,6 +36,9 @@ Release Date: 2024-10-22
   - Data collection link tracing
   - Rule calculation link tracing
 - Supports outputting logs to the console via environment variables
+- The time-related configuration items of the data processing module now use the go duration string format
+- Add judgment conditions when deleting a Source, and the Source referenced by the rule cannot be deleted
+- SQL Source no longer supports reading null data
 
 
 ### Fixes

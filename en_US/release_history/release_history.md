@@ -1,5 +1,15 @@
 # Release history
 
+## v3.4.1
+
+Release Date: 2024-10-31
+
+### Fixes
+- Fix neuronStream buffer overflow error
+- Fix the error that the neuronStream data could not be obtained during rule debugging
+- Support parameter sendError in rule options
+- Fixed the error when ECP manage NeuronEX with https enabled
+
 ## v3.4.0
 
 Release Date: 2024-10-24

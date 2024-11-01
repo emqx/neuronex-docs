@@ -6,10 +6,10 @@
 
 ### 修复
 
-- 修复neuronStream buffer 溢出错误
-- 修复规则调试获取不到neuronStream数据的错误
-- 规则选项中支持参数sendError
-- 修复ECP代理纳管开启https接口的NeuronEX时的错误
+- 修复 neuronStream buffer 溢出错误
+- 修复规则调试获取不到 neuronStream 数据的错误
+- 规则选项中支持参数 sendError
+- 修复 ECP 代理纳管开启 https 接口的 NeuronEX 时的错误
 
 ## v3.4.0
 

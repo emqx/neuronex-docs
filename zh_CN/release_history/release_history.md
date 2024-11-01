@@ -1,5 +1,16 @@
 # 发版历史
 
+## v3.4.1
+
+发布日期: 2024-10-31
+
+### 修复
+
+- 修复neuronStream buffer 溢出错误
+- 修复规则调试获取不到neuronStream数据的错误
+- 规则选项中支持参数sendError
+- 修复ECP代理纳管开启https接口的NeuronEX时的错误
+
 ## v3.4.0
 
 发布日期: 2024-10-24

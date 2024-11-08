@@ -1020,6 +1020,18 @@
         ]
       },
       {
+        "title": "最佳实践",
+        "path": "best-practise/overview",
+        "url": "",
+        "collapsed": true,
+        "children": [
+          {
+            "title": "NeuronEX + 大语言模型 LLM - 实时监控预防工业火灾",
+            "path": "best-practise/llm-example"
+          }
+        ]
+      },
+      {
         "title": "性能测试",
         "path": "performance/performance",
         "url": "",

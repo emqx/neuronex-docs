@@ -121,3 +121,45 @@ HTTP Pull 源支持查询表。登录 NeuronEX，点击**数据处理** -> **源
 
 - **保留大小**：指定保留大小。
 
+## 示例
+
+本示例使用 HTTP Pull 源，读取 NeuronEX API 接口 `/api/neuron/node/state`，获取南向驱动状态信息，在这个过程中还会涉及到获取 NeuronEX Token 认证信息。
+
+在该示例中，使用的 NeuronEX 版本为 3.4.1。
+
+```shell
+docker run -d --name neuronex -p 8077:8085 --log-opt max-size=100m emqx/neuronex:3.4.1
+```
+
+### 创建流
+
+选择**流管理** -> **创建流**，在**创建流**页面选择 httppull 类型，进行如下配置：
+
+![http_ex_1_zh](_assets/http_ex_1_zh.png)
+
+在下图中 .token 为动态获取到的 NeuronEX Token 认证信息，获取方法见下下图。
+
+![http_ex_2_zh](_assets/http_ex_2_zh.png)
+
+下图中为获取到的 NeuronEX Token 配置方法。包括以下几个参数：
+
+- access
+  - url：http://192.168.71.22:8077/api/login  为 NeuronEX 登录地址
+  - body：{"name":"admin","password":"0000"}  为 NeuronEX 登录时所需的账号密码
+  - expire：令牌的过期时间，时间单位是3600秒
+
+![http_ex_3_zh](_assets/http_ex_3_zh.png)
+
+如何知晓 access 的返回结果，可以通过 F12 浏览器调试工具，在 Network 中找到 http://192.168.71.22:8077/api/login 的返回结果，在返回结果中可以看到 token 字段，这也是为什么在第二张图中的 Authorization 字段中填写 .token 的原因。 （也可以通过 Postman 工具进行测试）
+
+![alt text](_assets/http_ex_4.png)
+
+为什么在图二中需要配置 Authorization 字段，因为 NeuronEX 默认运行会自动开启鉴权，所以需要手动配置。可以在 F12 浏览器调试工具中，在每个 NeuronEX 的 API 请求中的 Headers 中，都可以找到 Authorization 字段。
+
+![http_ex_5_zh](_assets/http_ex_5.png)
+
+::: tip
+
+在本示例中使用的 NeuronEX 端口为 8077，如果您使用的是8085默认端口，请在所有配置中将端口替换为8085。
+
+:::

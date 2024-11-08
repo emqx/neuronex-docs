@@ -163,3 +163,10 @@ docker run -d --name neuronex -p 8077:8085 --log-opt max-size=100m emqx/neuronex
 在本示例中使用的 NeuronEX 端口为 8077，如果您使用的是8085默认端口，请在所有配置中将端口替换为8085。
 
 :::
+
+### 查看流结果
+
+选择**规则** -> **新建规则**，在**新建规则**页面，选择**流**，选择上一步创建的流 `http123`，开启规则调试，即可看到从 NeuronEX API 接口 `/api/neuron/node/state` 获取到的南向驱动状态信息。表示 http pull 源获取数据成功。
+
+![alt text](_assets/http_ex_6_zh.png)
+

@@ -120,3 +120,52 @@ HTTP pull sources support lookup tables. Log in to NeuronEX and click **Data Pro
 - **Table format**: supports json, binary, delimited, custom.
 
 - **Retain Size**: Specify the Retain size.
+
+## Example
+
+This example uses the HTTP Pull source to read the NeuronEX API interface `/api/neuron/node/state` to obtain the southbound driver status information. In this process, it will also involve obtaining the NeuronEX Token authentication information.
+
+In this example, the version of NeuronEX used is 3.4.1.
+
+```shell
+docker run -d --name neuronex -p 8077:8085 --log-opt max-size=100m emqx/neuronex:3.4.1
+```
+
+### Create Stream
+
+Select **Stream** -> **Create Stream**, and on the **Create Stream** page, choose the httppull type and configure as follows:
+
+![http_ex_1_en](_assets/http_ex_1_en.png)
+
+In the following image, `.token` is the dynamically obtained NeuronEX Token authentication information, and the method to obtain it is shown in the next image.
+
+![http_ex_2_en](_assets/http_ex_2_en.png)
+
+The following image shows how to configure the obtained NeuronEX Token, which includes the following parameters:
+
+- access
+  - url: http://192.168.71.22:8077/api/login  is the NeuronEX login address
+  - body: {"name":"admin","password":"0000"}  is the username and password required for NeuronEX login
+  - expire: the expiration time of the token, in seconds, which is 3600 seconds
+
+![http_ex_3_en](_assets/http_ex_3_en.png)
+
+To know the return result of access, you can use the F12 browser debugging tool to find the return result of http://192.168.71.22:8077/api/login in the Network tab, where you can see the token field. This is also why the Authorization field in the second image is filled with `.token`. (You can also test this using Postman.)
+
+![alt text](_assets/http_ex_4.png)
+
+The reason for configuring the Authorization field in the second image is that NeuronEX automatically enables authentication by default, so manual configuration is required. You can find the Authorization field in the Headers of each NeuronEX API request using the F12 browser debugging tool.
+
+![http_ex_5_en](_assets/http_ex_5.png)
+
+::: tip
+
+In this example, the NeuronEX port used is 8077. If you are using the default port 8085, please replace the port with 8085 in all configurations.
+
+:::
+
+### View stream results
+
+Select **Rules** -> **Create Rule**, on the **Create Rule** page, choose the stream `http123` created in the previous step, and enable rule debugging. You will be able to see the southbound driver status information obtained from the NeuronEX API interface `/api/neuron/node/state`, indicating that the http pull source has successfully retrieved data.
+
+![alt text](_assets/http_ex_6_en.png)

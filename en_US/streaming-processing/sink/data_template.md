@@ -267,12 +267,49 @@ In addition, the template is still applied to each record in the slice. Therefor
 
 ## AI-assisted generation
 
-NeuronEX's template syntax is the same as the Go language, so it is easy to generate data templates with AI assistance. For example, in the data traversal example above, we can use the following hints to assist in generating data templates:
+NeuronEX's template syntax is the same as the Go language, so it is easy to generate data templates with AI assistance. For example, We can use the following prompt to send to a large language model to assist in generating data templates:
 
-```text
-Use Golang  text/template  and sprig  lib to convert [{"device_id": 1, "description": "Current temperature is 36.25, it's high."}
-{"device_id": 2, "description": "Current temperature is 27, it's normal."}]  into {"device_id":"1",  "values": [  {"temperature": 10.5}, {"temperature": 20.3}, {"temperature": 30.3}]}
+```sh
+Use Golang's text/template and the sprig library to convert the data
+{
+    "timestamp": 1650006388943,
+    "node": "modbus",
+    "group": "grp",
+    "values": {
+        "tag1": 123,
+        "tag2": 234
+    }
+}
+into
+{
+  "timestamp": 1650006388943,
+  "node": "modbus",
+  "group": "grp",
+  "tags": [{
+        "name": "tag1",
+        "value": 123
+      },{
+        "name": "tag2",
+        "value": 234
+      }
+  ]
+}
 ```
+
+The resulting template is approximately as follows:
+
+```json
+{"timestamp": {{.timestamp}},"node": "{{ .node }}","group": "{{ .group }}","tags": [{{ range $key, $value := .values }}{{ if $key }},{ "name": "{{ $key }}", "value": {{ $value }} }{{ else }}{ "name": "{{ $key }}", "value": {{ $value }} }{{ end }}{{ end }}]}
+```
+Using the rule debugging feature, it was tested and found that the conversion works correctly:
+
+![alt text](_assets/date_tp_1.png)
+
+![alt text](_assets/date_tp_2.png)
+
+![alt text](_assets/date_tp_3.png)
+
+By sending the input and output templates to a large language model, even those unfamiliar with Golang template syntax can easily achieve data conversion.
 
 ## Summary
 

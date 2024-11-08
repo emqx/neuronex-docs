@@ -262,6 +262,54 @@ Golang 还内置提供了一些函数，用户可以参考[更多 Golang 内置�
   {"device_id": "1", "description": [ "fine" , "fine" , "high" ]}
 ```
 
+## 使用 AI 辅助生成
+
+eKuiper 的模板语法与 Go 语言相同，因此可以方便地通过 AI 辅助生成数据模版。我们可以使用如下提示词发送给大语言模型，来辅助生成数据模版：
+
+```sh
+使用 Golang 的 text/template 以及 sprig 库将数据
+{
+    "timestamp": 1650006388943,
+    "node": "modbus",
+    "group": "grp",
+    "values": {
+        "tag1": 123,
+        "tag2": 234
+    }
+}
+转换成
+{
+  "timestamp": 1650006388943,
+  "node": "modbus",
+  "group": "grp",
+  "tags": [{
+        "name": "tag1",
+        "value": 123
+      },{
+        "name": "tag2",
+        "value": 234
+      }
+  ]
+}
+
+```
+
+获取到的模板结果结果大致为：
+
+```json
+{"timestamp": {{.timestamp}},"node": "{{ .node }}","group": "{{ .group }}","tags": [{{ range $key, $value := .values }}{{ if $key }},{ "name": "{{ $key }}", "value": {{ $value }} }{{ else }}{ "name": "{{ $key }}", "value": {{ $value }} }{{ end }}{{ end }}]}
+```
+使用规则调试功能，测试发现转换正常：
+
+![alt text](_assets/date_tp_1.png)
+
+![alt text](_assets/date_tp_2.png)
+
+![alt text](_assets/date_tp_3.png)
+
+通过把输入和输出模板发送给大语言模型，即使不熟悉 Golang 模版语法，也可以方便地实现数据转换。
+
+
 ## 总结
 
 通过 NeuronEX 提供的数据模版功能可以实现对分析结果的二次处理，以满足不同的 sink 目标的需求。但由于 Golang 模版本身的限制，较难实现较复杂的数据转换。目前建议用户可以通过数据模版来实现一些较为简单的数据的转换；如果用户需要对数据进行比较复杂的处理，并且自己扩展了 sink 的情况下，可以在 sink 的实现中直接进行处理。

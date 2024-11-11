@@ -53,7 +53,7 @@ Release Date: 2024-10-24
 
 ### Fixes
 - Fixed the issue of reading data errors in the Panasonic Mewtocol driver
-- Adjusted Docker installation package system parameter `net.unix.max_dgram_qlen` = 128
+- Adjusted Docker installation package system parameter `net.unix.max_dgram_qlen` = 1024
 - Fix SQL source scan for some column type for different databases
 - Window accomodate time shift back
 - Fix metrics for batch operator

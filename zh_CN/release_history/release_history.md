@@ -54,7 +54,7 @@
 ### 修复
 
 - 修复 Panasonic Mewtocol 驱动，读取数据错误的问题
-- 调整docker安装包系统参数`net.unix.max_dgram_qlen` = 128
+- 调整docker安装包系统参数`net.unix.max_dgram_qlen` = 1024
 - 修复 SQL 源扫描表针对不同数据库的某些列类型错误
 - 窗口适应时间向后移位
 - 修复 batch 算子的指标信息

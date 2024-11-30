@@ -1,5 +1,39 @@
 # 发版历史
 
+## v3.4.2
+
+发布日期: 2024-12-03
+
+### 增强
+
+- OPCUA 驱动支持读取 BIT 类型
+- MQTT 驱动放开端口限制
+- Modbus RTU/TCP 驱动支持链路追踪
+- SRTP 驱动优化超时处理
+- OPCUA 支持数组点位读写
+- Siemens S7 驱动支持字符串数组读写
+- SparkplugB 支持南向驱动断连的ddeath，和重新连接后的dbirth
+- 点位列表页面显示分组名称
+- Kafka sink 支持压缩配置
+- Httppull source 支持配置 access header
+- Neuron 连接中间断开后不再连续发送错误。仅连接到断开发送一次，重连失败不发送，防止log/exception过多
+- Duration 相关配置启动时迁移，例如cacheTTL 数字自动迁移为 duration string
+- Conf 配置 key 验证，防止 XSS 攻击
+- Neuron Sink底层支持调用多点位写入API
+
+### 修复
+
+- 乘系数 Decimal 校验失败
+- OPCUA 驱动读取 Kepserver 出现间歇性的数据过期
+- MQTT上报tags-format格式数据时，误出现transferPrecision字段的错误
+- 修复String类型的点位配置乘系数的写入问题
+- SQL Source 支持读取 Null 字段 
+- 数据源页面英语翻译错误
+- 偶发连接状态获取锁问题，可能出现 NPE
+- 共享流配置失败后清除状态
+- 修复 Kafka sink，key/headers 动态模板属性不生效问题
+
+
 ## v3.4.1
 
 发布日期: 2024-10-31

@@ -1,5 +1,38 @@
 # Release history
 
+## v3.4.2
+
+Release Date: 2024-12-03
+
+### Enhancements
+
+- OPCUA driver supports reading BIT type
+- MQTT driver relaxes port restrictions
+- Modbus RTU/TCP driver supports tracing
+- SRTP driver optimizes timeout processing
+- OPCUA supports array type reading and writing
+- Siemens S7 driver supports string array reading and writing
+- SparkplugB supports ddeath after southbound driver disconnection and dbirth after reconnection
+- Tag list page displays group name
+- Kafka sink supports compression configuration
+- Httppull source supports configuration of access header
+- Neuron no longer sends errors continuously after the connection is disconnected. It only sends once when connected to disconnection, and does not send when reconnection fails to prevent excessive log/exception
+- Duration related configurations are migrated at startup, for example, cacheTTL numbers are automatically migrated to duration strings
+- Conf configures key verification to prevent XSS attacks
+- Neuron Sink supports calling multi-tag write API
+
+### Fixes
+
+- fixed decimal verification failed
+- OPCUA driver reads Kepserver and intermittent data expires
+- When MQTT reports data in tags-format, the transferPrecision field appears incorrectly
+- Fixed the writing problem of String type tag with decimal configuration
+- SQL Source supports reading Null fields
+- Data source page translation error
+- Occasional connection status lock acquisition problem, NPE may occur
+- Clear status after shared stream configuration fails
+- Fixed Kafka sink, key/headers dynamic template attribute ineffective problem
+
 ## v3.4.1
 
 Release Date: 2024-10-31

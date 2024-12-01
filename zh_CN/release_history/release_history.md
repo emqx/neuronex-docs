@@ -7,10 +7,10 @@
 ### 增强
 
 - OPCUA 驱动支持读取 BIT 类型
+- OPCUA 支持数组点位读写
 - MQTT 驱动放开端口限制
 - Modbus RTU/TCP 驱动支持链路追踪
 - SRTP 驱动优化超时处理
-- OPCUA 支持数组点位读写
 - Siemens S7 驱动支持字符串数组读写
 - SparkplugB 支持南向驱动断连的ddeath，和重新连接后的dbirth
 - 点位列表页面显示分组名称

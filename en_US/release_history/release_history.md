@@ -7,10 +7,10 @@ Release Date: 2024-12-03
 ### Enhancements
 
 - OPCUA driver supports reading BIT type
+- OPCUA supports array type reading and writing
 - MQTT driver relaxes port restrictions
 - Modbus RTU/TCP driver supports tracing
 - SRTP driver optimizes timeout processing
-- OPCUA supports array type reading and writing
 - Siemens S7 driver supports string array reading and writing
 - SparkplugB supports ddeath after southbound driver disconnection and dbirth after reconnection
 - Tag list page displays group name

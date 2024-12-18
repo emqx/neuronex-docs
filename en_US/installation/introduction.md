@@ -8,7 +8,7 @@ NeuronEX supports 32-bit/64-bit ARM and 64-bit X86 architectures on Linux-based 
 
 ## Download the installation package
 
-Neuron software packages can be downloaded from the [Website](https://www.emqx.com/en/try?product=neuronex). 
+Neuron software packages can be downloaded from the [Website](https://www.emqx.com/en/try?tab=self-managed). 
 
 ## The supported operating systems
 

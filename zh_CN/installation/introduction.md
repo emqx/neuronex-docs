@@ -7,7 +7,7 @@ NeuronEX 在基于 Linux 的操作系统上支持 32/64位 ARM 和 64位 X86 架
 
 ## 下载安装包
 
-NeuronEX 软件包可从 [官网](https://www.emqx.com/zh/try?product=neuronex) 下载。
+NeuronEX 软件包可从 [官网](https://www.emqx.com/zh/try?tab=self-managed) 下载。
 
 ## NeuronEX 支持的操作系统
 

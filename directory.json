@@ -1028,6 +1028,10 @@
           {
             "title": "NeuronEX + 大语言模型 LLM - 实时监控预防工业火灾",
             "path": "best-practise/llm-example"
+          },
+          {
+            "title": "NeuronEX + ECP 构建饮料生产数字化平台",
+            "path": "best-practise/smartfactory1"
           }
         ]
       },

@@ -1,5 +1,35 @@
 # 发版历史
 
+## v3.4.3
+
+发布日期: 2025-01-02
+
+### 增强
+
+- 优化 OPCUA 驱动错误码 10007-10027，表示点位质量为 bad 状态
+- Mitsubishi 3E 和 Mewtocol 驱动支持链路追踪功能
+
+### 修复
+
+- 修复导入点位超出license限制导致的超时错误
+- 修复 OPCUA 驱动 maxAge 参数设置较大，导致的个别 OPCUA Server 不刷新数据。
+- 修复 OPCUA 驱动 Array 类型点位写入空数组，报错点位类型不匹配的问题
+- 修复 Modbus 驱动响应重复的问题
+- 修复 Mewtocol 驱动点位合并错误
+- 修复安全扫描相关的漏洞问题
+- 修复 file sink ignoreEndline 较大时易导致读取混乱的问题 
+- 解决共享流停止一部分规则导致其余运行规则 buffer full 的问题
+- 解决 slidingWindow(ss, 5, 10) 触发获取前后数据时，往后计时器单位错误导致很难触发的问题
+- 删除 SQL source 热路径上的 log，防止高吞吐时 CPU 过高
+- 修复 sink cache 初始化问题，防止 disk cache 未正确加载
+- 配置关闭 log 后，不再输出控制台等任何的 log
+- TLS 证书初始化，配置 skip secure verify 仍然进行证书解析
+- 解决并行节点（编解码，加密等属性）错误处理问题，错误体现在 metrics 上并打印 log
+- 解决 REST sink 动态 headers 仅解析一次的问题
+- REST sink “No connection" 错误认定为可恢复错误（若配置重发会进入重发流程）
+- 调整sqlite版本，修复 arm v7 部署错误
+
+
 ## v3.4.2
 
 发布日期: 2024-12-03

@@ -1,5 +1,35 @@
 # Release history
 
+## v3.4.3
+
+Release Date: 2025-01-02
+
+### Enhancements
+
+- Refine OPCUA driver error code 10007-10027, indicating that the tag quality is in bad state
+- Mitsubishi 3E and Mewtocol drivers support trace function
+
+### Fixes
+
+- Fix the timeout error caused by importing tags exceeding the license limit
+- Fix the OPCUA driver maxAge parameter setting is too large, causing individual OPCUA Servers to not refresh data.
+- Fix the OPCUA driver Array type tag write empty array, reporting an error tag type mismatch
+- Fix the Modbus driver response duplication problem
+- Fix the Mewtocol driver tag merging error
+- Fix security scan related vulnerability issues
+- Fix the problem that file sink ignoreEndline is easy to cause confusion when it is large
+- Solve the problem that the shared stream stops some rules and causes the buffer of the remaining running rules to be full
+- Solve the problem that when slidingWindow(ss, 5, 10) triggers to obtain the previous and next data, the timer unit error makes it difficult to trigger
+- Delete the log on the SQL source hot path to prevent high CPU during high throughput
+- Fix the sink cache initialization problem to prevent the disk cache from being loaded incorrectly
+- After configuring to close the log, no console or other logs will be output
+- TLS certificate initialization, configure skip secure verify to still perform certificate parsing
+- Solve the error handling problem of parallel nodes (codec, encryption and other attributes), the error is reflected in metrics and prints logs
+- Solve the problem that REST sink dynamic headers are only parsed once
+- REST sink "No connection" error is identified as a recoverable error (if resend is configured, the resend process will be entered)
+- Adjust the sqlite version and fix the arm v7 deployment error
+
+
 ## v3.4.2
 
 Release Date: 2024-12-03

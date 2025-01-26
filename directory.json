@@ -1032,6 +1032,10 @@
           {
             "title": "NeuronEX + ECP 构建饮料生产数字化平台",
             "path": "best-practise/smartfactory1"
+          },
+          {
+            "title": "NeuronEX 主备模式最佳实践",
+            "path": "best-practise/master-backup"
           }
         ]
       },
@@ -2092,6 +2096,18 @@
             "path": "admin/user"
           }
         ]
+    },
+    {
+      "title": "Best Practices",
+      "path": "best-practise/overview",
+      "url": "",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "NeuronEX Master-Backup Mode",
+          "path": "best-practise/master-backup"
+        }
+      ]
     },
     {
       "title": "Performance Testing",

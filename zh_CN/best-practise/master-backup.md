@@ -323,7 +323,7 @@ sudo systemctl enable keepalived
 
     备节点收到主节点的 VRRP 通告，发现主节点的优先级高于自己的优先级。
 
-    备节点未配置 nopreempt，备节点主动降级为 `BACKUP`。
+    备节点配置 nopreempt，备节点主动降级为 `BACKUP`。
 
     备节点执行脚本 `backup.sh`，停止 NeuronEX 服务。
 

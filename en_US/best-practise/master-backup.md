@@ -316,7 +316,7 @@ After the above configuration steps, both the master and backup nodes have start
 
     The backup node receives the VRRP announcement from the master node and finds that the priority of the master node is higher than its own priority.
 
-    The backup node is not configured with nopreempt, so the backup node actively downgrades to the `BACKUP` state.
+    The backup node is configured with nopreempt, so the backup node actively downgrades to the `BACKUP` state.
 
     The backup node executes the `backup.sh` script to stop the NeuronEX service.
 

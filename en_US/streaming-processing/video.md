@@ -19,6 +19,8 @@ In the pop-up **Source**/**Create** page, enter the following configuration:
    - **Name**: Enter the configuration key name.
    - **Path**: Enter the video source URL path address.
    - **Interval**: The time interval (milliseconds) between sending requests.
+   - **Video Format**: Select the video format, the default is `image2`.
+   - **Video Codec**: Select the video codec, the default is `mjpeg`.
  
 - **Stream format**: supports json, binary, protobuf, delimited, custom. Select binary format.
 - **Shared**: Check to confirm whether to share the source.

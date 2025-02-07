@@ -23,4 +23,9 @@ When you apply for a trial license on our website, you must use the hardware ide
 
 ## Manage License
 
-After applying for a license, you can click Manage -> License to upload the license or manage the license file after logging in NeuronEX.
+After applying for a license, In the `Administration` -> `License` page, you can click `Upload License` to upload the license.  More detailed license management operations, please refer to [License Management](../../installation/license_setting.md).
+
+
+## Reset License
+
+In the `Administration` -> `License` page, click the `Reset License` button to reset to the NeuronEX default license containing 30 tags.

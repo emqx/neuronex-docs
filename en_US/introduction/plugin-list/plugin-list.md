@@ -63,6 +63,7 @@ For specific instructions on replacing and updating plugins, please contact the 
 | Omron FINS on UDP                     | Ethernet  | connect to Omron PLC with FINS UDP  |
 | Mitsubishi 1E           | Ethernet  |  connect to Mitsubishi A series、FX3U、FX3G、iQ-F series PLC |
 | Mitsubishi 3E           | Ethernet  |  connect to Mitsubishi Q series（MC）、iQ-F series（SLMP）and iQ-L series PLC |
+| Mitsubishi 4E           | Ethernet  |  connect to Mitsubishi iQ-F Series (SLMP), and iQ-R Series PLC |
 | Mitsubishi FX           | Serial port    |  connect to Mitsubishi FX0、FX2、FX3 series PLC |
 | Panasonic Mewtocol      | Ethernet    |  connect to Panasonic FP-XH、FP0H series PLC |
 | Beckhoff ADS            | Ethernet  |  connect to Beckhoff TwinCAT PLC |
@@ -99,9 +100,10 @@ For specific instructions on replacing and updating plugins, please contact the 
 
 | Protocol Name        |  <div style="width:100pt">Communication Interface</div>        | Remark      |
 | ------------- | ------- | ----- | 
-|  Fanuc Focas Ethernet  | Ethernet    |    connect to Fanuc 0i, 30i, 31i, 32i and 35i series CNC        |
+| Fanuc Focas Ethernet  | Ethernet    |    connect to Fanuc 0i, 30i, 31i, 32i and 35i series CNC        |
 | Mitsubishi CNC    | Ethernet    |     connect to M70、M80、M700、M800、E70 series CNC |
 | Heidenhain CNC    | Ethernet    |     connect to Heidenhain TNC640, iTNC530 and others through the LSV2 protocol |
+| KND CNC    | Ethernet    |     connect to KND K2000、K1000 C/Ci/F/Fi、K1000TTCi series CNC through the LSV2 protocol |
 
 ## Northbound Plugins
 

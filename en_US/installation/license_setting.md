@@ -1,4 +1,4 @@
-# License Policy
+# License Management
 
 NeuronEX comes with a trial license that provides 30 points (30 connections and 30 data tags) of free usage. This allows you to run commercial modules without installing an EMQ license. After exceeding the free usage limit, you must install a valid official EMQ license to use all of NeuronEX's features.
 

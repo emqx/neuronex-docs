@@ -67,6 +67,7 @@
 | Omron FINS on UDP                        | 以太网  | 通过 FINS UDP 协议与欧姆龙 PLC 进行通信。 |
 | Mitsubishi 1E           | 以太网  |  对接三菱 A 系列、FX3U、FX3G、iQ-F 系列 PLC |
 | Mitsubishi 3E           | 以太网  |  对接三菱 Q 系列（MC）、iQ-F 系列（SLMP）和 iQ-L 系列 PLC |
+| Mitsubishi 4E           | 以太网  |  对接三菱 iQ-F 系列（SLMP）和 IQ-R 系列 PLC |
 | Mitsubishi FX           | 串口    |  对接三菱FX0、FX2、FX3 等系列 PLC |
 | Panasonic Mewtocol      | 以太网    |  对接松下的 FP-XH、FP0H 系列 PLC |
 | Beckhoff ADS            | 以太网  |  对接倍福Beckhoff TwinCAT PLC |
@@ -104,7 +105,8 @@
 | ------------- | ------- | ----- | 
 |  Fanuc Focas Ethernet  | 以太网    |    连接Fanuc 0i, 30i, 31i, 32i and 35i系列CNC设备        |
 | Mitsubishi CNC    | 以太网    |   连接M70、M80、M700、M800、E70等系列CNC设备 |
-| 海德汉 CNC    | 以太网    |   通过 LSV2 协议访问海德汉 TNC640, iTNC530 等系列设备 |
+| HEIDENHAIN CNC    | 以太网    |   通过 LSV2 协议访问海德汉 TNC640, iTNC530 等系列设备 |
+| KND CNC    | 以太网    |   凯恩帝 CNC 驱动通过 HTTP 协议访问凯恩帝 K2000、K1000 C/Ci/F/Fi、K1000TTCi 系列的数控系统 |
 
 ### 其他
 

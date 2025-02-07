@@ -274,6 +274,11 @@
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/mitsubishi-1e/mitsubishi-1e.md"
             },
             {
+              "title": "Mitsubishi 4E",
+              "path": "configuration/south-devices/mitsubishi-4e/overview",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/mitsubishi-4e/overview.md"
+            },
+            {
               "title": "Siemens S7 ISO TCP",
               "path": "configuration/south-devices/siemens-s7/s7",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/siemens-s7/s7.md",
@@ -534,6 +539,11 @@
               "title": "HEIDENHAIN CNC",
               "path": "configuration/south-devices/heidenhain-cnc/heidenhain-cnc",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/heidenhain-cnc/heidenhain-cnc.md"
+            },
+            {
+              "title": "KND CNC",
+              "path": "configuration/south-devices/knd/knd",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/knd/knd.md"
             },
             {
               "title": "MTConnect",
@@ -849,6 +859,10 @@
             {
               "title": "自定义 JavaScript 函数",
               "path": "streaming-processing/js_func"
+            },
+            {
+              "title": "ONNX 插件使用",
+              "path": "streaming-processing/onnx"
             }
           ]
         },
@@ -1352,6 +1366,11 @@
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/mitsubishi-1e/mitsubishi-1e.md"
             },
             {
+              "title": "Mitsubishi 4E",
+              "path": "configuration/south-devices/mitsubishi-4e/overview",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/mitsubishi-4e/overview.md"
+            },
+            {
               "title": "Siemens S7 ISO TCP",
               "path": "configuration/south-devices/siemens-s7/s7",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/siemens-s7/s7.md",
@@ -1592,6 +1611,11 @@
               "title": "HEIDENHAIN CNC",
               "path": "configuration/south-devices/heidenhain-cnc/heidenhain-cnc",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/heidenhain-cnc/heidenhain-cnc.md"
+            },
+            {
+              "title": "KND CNC",
+              "path": "configuration/south-devices/knd/knd",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/knd/knd.md"
             },
             {
               "title": "MTConnect",
@@ -1928,6 +1952,10 @@
             {
               "title": "Custom JavaScript function",
               "path": "streaming-processing/js_func"
+            },
+            {
+              "title": "ONNX Plugin",
+              "path": "streaming-processing/onnx"
             }
           ]
         },

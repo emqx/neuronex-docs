@@ -85,6 +85,22 @@ NeuronEX 支持通过环境变量覆盖配置文件中的配置，当通过环�
 
 环境变量之间用“__”分隔，分隔后第一部分的内容匹配配置文件的文件名，其余内容匹配不同级别的配置项。
 
+NeuronEX 支持通过环境变量配置数据处理模块 eKuiper 的 yaml 配置文件，详细配置项请参考[eKuiper 配置](https://ekuiper.org/docs/zh/latest/configuration/global_configurations.html)。 eKuiper配置文件与环境变量映射关系和 NeuronEX 相同，如下：
+
+```
+KUIPER__BASIC__DEBUG => basic.debug in etc/kuiper.yaml
+MQTT_SOURCE__DEMO_CONF__QOS => demo_conf.qos in etc/mqtt_source.yaml
+EDGEX__DEFAULT__PORT => default.port in etc/sources/edgex.yaml
+CONNECTION__EDGEX__REDISMSGBUS__PORT => edgex.redismsgbus.port int etc/connections/connection.yaml
+```
+举例，如要调大调用外部算法函数的超时时间（默认为5s），可以设置如下环境变量`KUIPER__PORTABLE__RECVTIMEOUT => recvTimeout in etc/kuiper.yaml`：
+```
+# Docker 部署方式
+docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s neuronex/neuronex:latest
+
+```
+
+
 ## 配置文件
 
 NeuronEX 提供 YAML 格式文件，位于`/opt/neuronex/etc/neuronex.yaml`，用于配置与 NeuronEX 相关的参数。

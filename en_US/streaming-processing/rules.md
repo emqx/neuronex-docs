@@ -76,19 +76,25 @@ Click the **Options** section to continue configuring the current rule:
 
 | Option name        | Type & Default Value | Description                                                  |
 | ------------------ | -------------------- | ------------------------------------------------------------ |
-| concurrency        | int: 1               | A rule is processed by several phases of plans according to the sql statement. This option will specify how many instances will be run for each plan. If the value is bigger than 1, the order of the messages may not be retained. |
-| bufferLength       | int: 1024            | Specify how many messages can be buffered in memory for each plan. If the buffered messages exceed the limit, the plan will block message receiving until the buffered messages have been sent out so that the buffered size is less than the limit. A bigger value will accommodate more throughput but will also take up more memory footprint. |
-| debug              | bool: false          | Specify whether to enable the debug level for this rule. By default, it will inherit the Debug configuration parameters in the global configuration. |
-| sendMetaToSink     | bool:false           | Specify whether the meta data of an event will be sent to the sink. If true, the sink can get te meta data information. |
-| isEventTime        | boolean: false       | Whether to use event time or processing time as the timestamp for an event. If event time is used, the timestamp will be extracted from the payload. |
-| lateTolerance      | int64:0              | When working with event-time windowing, it can happen that elements arrive late. LateTolerance can specify by how much time(unit is millisecond) elements can be late before they are dropped. By default, the value is 0 which means late elements are dropped. |
-| qos                | int:0                | Specify the qos of the stream. The options are 0: At most once; 1: At least once and 2: Exactly once. If qos is bigger than 0, the checkpoint mechanism will be activated to save states periodically so that the rule can be resumed from errors. |
-| checkpointInterval | int:300000           | Specify the time interval in milliseconds to trigger a checkpoint. This is only effective when qos is bigger than 0. |
-| attempts        | int: 0          | Maximum number of retries. If set to 0, the rule will fail immediately without retrying. |
-| delay        | int: 1000          | Default retry interval in milliseconds. If the multiplier is not set, the retry interval will be fixed to this value. |
-| maxDelay        | int: 30000          | The maximum interval between retries, in milliseconds. This only takes effect if the multiplier is set so that the delay is increased for each retry. |
-| multiplier        | float: 2          | Multiplier for the retry interval. |
-| jitterFactor        | float: 0.1         | Adds or subtracts a random value coefficient to the delay to prevent multiple rules from being restarted at the same time. |
+| Concurrency        | int: 1               | A rule is processed by several phases of plans according to the sql statement. This option will specify how many instances will be run for each plan. If the value is bigger than 1, the order of the messages may not be retained. |
+| Buffer Length       | int: 1024            | Specify how many messages can be buffered in memory for each plan. If the buffered messages exceed the limit, the plan will block message receiving until the buffered messages have been sent out so that the buffered size is less than the limit. A bigger value will accommodate more throughput but will also take up more memory footprint. |
+| QoS                | int:0                | Specify the qos of the stream. The options are 0: At most once; 1: At least once and 2: Exactly once. If qos is bigger than 0, the checkpoint mechanism will be activated to save states periodically so that the rule can be resumed from errors. |
+| Check Point Interval | string:5m0s           | Specify the time interval in milliseconds to trigger a checkpoint. This is only effective when qos is bigger than 0. |
+| Cron | string:null |The periodic trigger strategy of the rule, which describes the period through the cron expression.|
+| Duration | string:null |The duration of the rule. The syntax is Go duration string, e.g. '1m' means 1 minute, '1h' means 1 hour. |
+| DEBUG              | bool: false          | Specify whether to enable the debug level for this rule. By default, it will inherit the Debug configuration parameters in the global configuration. |
+| Send Meta To Sink     | bool:false           | Specify whether the meta data of an event will be sent to the sink. If true, the sink can get te meta data information. |
+| Send Error To Sink     | bool:false           | Whether to send the error to sink. If true, any runtime error will be sent through the whole rule into sinks. Otherwise, the error will only be printed out in the log. |
+| Enable Incremental Calculation     | bool:false           | Enable incremental calculation when the rule contains both time window and aggregate functions that support incremental calculation. |
+| SendNilField | bool:false | Specify whether the rule outputs columns with a value of nil. |
+| LateTolerance      | string:0              | When working with event-time windowing, it can happen that elements arrive late. LateTolerance can specify by how much time(unit is millisecond) elements can be late before they are dropped. By default, the value is 0 which means late elements are dropped. |
+| Is Event Time        | boolean: false       | Whether to use event time or processing time as the timestamp for an event. If event time is used, the timestamp will be extracted from the payload. |
+| Attempts        | int: 0          | Maximum number of retries. If set to 0, the rule will fail immediately without retrying. |
+| Delay        | string: 5s          | Default retry interval in milliseconds. If the multiplier is not set, the retry interval will be fixed to this value. |
+| Max Delay        | string: 30s          | The maximum interval between retries, in milliseconds. This only takes effect if the multiplier is set so that the delay is increased for each retry. |
+| Multiplier        | float: 1          | Multiplier for the retry interval. |
+| Jitter Factor        | float: 0.1         | Adds or subtracts a random value coefficient to the delay to prevent multiple rules from being restarted at the same time. |
+
 
 
 :::tip Tips
@@ -135,3 +141,11 @@ When a rule is run in NeuronEX, we can understand the current rule running statu
 
 Multiple rules can form a processing pipeline by specifying sink/source union points. For example, the first rule produces results in an memory sink, and other rules subscribe to the topic in their memory sources. For more usage, please see the [Rule Pipeline](./rule_pipeline.md) chapter.
 
+## Incremental Computation
+
+When using data processing functions to perform aggregate calculations on data within a window, the default implementation method is to segment the continuous stream data into windows according to the window definition and cache it in memory. After the window ends, all data in the window is aggregated for calculation. One problem with this method is that when the data has not been aggregated for calculation, caching in memory can easily cause memory expansion and lead to OOM (Out of Memory) issues.
+For detailed information about incremental computation, please refer to [Incremental Computation](https://ekuiper.org/docs/en/latest/guide/rules/incremental.html)
+
+To enable incremental computation in rules, please enable it in the rule options.
+
+![alt text](_assets/incremental_calc.png)

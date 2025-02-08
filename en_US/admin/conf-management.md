@@ -89,6 +89,23 @@ NEURONEX__LOG__MODE => log.mode in etc/neuronex.yaml
 
 Environment variables are separated by "__". The first part of the content matches the file name of the configuration file, and the rest of the content matches configuration items at different levels.
 
+NeuronEX supports configuring the eKuiper yaml configuration file through environment variables. Get more information about [eKuiper global configurations](https://ekuiper.org/docs/en/latest/configuration/global_configurations.html).The mapping relationship is as follows:
+
+```
+KUIPER__BASIC__DEBUG => basic.debug in etc/kuiper.yaml
+MQTT_SOURCE__DEMO_CONF__QOS => demo_conf.qos in etc/mqtt_source.yaml
+EDGEX__DEFAULT__PORT => default.port in etc/sources/edgex.yaml
+CONNECTION__EDGEX__REDISMSGBUS__PORT => edgex.redismsgbus.port int etc/connections/connection.yaml
+```
+
+For example, if you want to increase the timeout for calling external algorithm functions (default 5s), you can set the following environment variable `KUIPER__PORTABLE__RECVTIMEOUT => recvTimeout in etc/kuiper.yaml`:
+
+```
+# Docker Deployment
+docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s neuronex/neuronex:latest
+
+```
+
 
 ## Configuration File
 

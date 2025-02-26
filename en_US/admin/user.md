@@ -31,6 +31,16 @@ In addition, you can use environment variables to modify the default password of
 After the admin user logs in to the system through the above settings, he can continue to modify the password of the above user.
 :::
 
+:::warning
+
+NeuronEX user management functionality is related to authentication functionality. If you need to use multi-user functionality, please ensure that the authentication function is not manually disabled (the authentication function is enabled by default):
+
+1. When deploying via installation package, ensure `NEURONEX_DISABLE_AUTH=1` environment variable is not set.
+2. When deploying via Docker, ensure `NEURONEX_DISABLE_AUTH=1` environment variable is not set.
+3. The `disableAuth` configuration item in the `/opt/neuronex/etc/neuronex.yaml` configuration file is not true.
+
+:::
+
 ## ECP User Management
 
 When users use ECP to remotely manage NeuronEX.

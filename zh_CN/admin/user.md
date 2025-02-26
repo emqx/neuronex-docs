@@ -21,7 +21,7 @@
 
     Viewer (查看者) 可以访问 NeuronEX 的所有数据和配置信息，对应 REST API 中的所有 `GET` 请求，但无权进行创建、修改和删除操作。
 
-:::tip  
+::: tip  
 NeuronEX 安装后自带的登录用户名及密码为`admin/0000`，`admin` 用户默认为 Administrator 角色，无法删除及修改角色，可以修改密码。
 另外可以通过环境变量的方式，在首次启动时修改 admin 用户默认密码以及增加一个 viewer 用户。  
 - NEURONEX__SERVER__ADMIN__PASSWORD='xxxxxx'， xxxxxx 为 admin 用户修改后的密码
@@ -29,6 +29,16 @@ NeuronEX 安装后自带的登录用户名及密码为`admin/0000`，`admin` 用
 - NEURONEX__SERVER__VIEWER__PASSWORD='xxxxxx'，xxxxxx 为 viewer 用户密码
 
 admin 用户通过以上设置登录系统后，可以继续修改上述用户的密码
+
+:::
+
+::: warning
+
+NeuronEX 用户管理功能与认证功能相关，如需使用多用户功能，请确保未手动关闭认证功能(默认配置下，认证功能是开启的)：
+
+1. 在安装包部署时，未设置 `NEURONEX_DISABLE_AUTH=1` 环境变量
+2. 在 Docker 部署时，未设置 `NEURONEX_DISABLE_AUTH=1` 环境变量
+3. 位于`/opt/neuronex/etc/neuronex.yaml`的配置文件中的配置项 `disableAuth` 未关闭 Token 认证。
 
 :::
 

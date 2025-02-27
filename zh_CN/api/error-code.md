@@ -204,11 +204,11 @@
 * 10798 EtherNet/IP 数据类型不匹配
 * 10799 EtherNet/IP 未注册 session
 
-## Profinet IO 错误码
+<!-- ## Profinet IO 错误码
 
 * 10800 Profinet IO 未识别
 * 10801 Profinet IO 未连接
 * 10802 Profinet IO 未准备好
 * 10803 Profinet IO 参数未准备好
 * 10804 Profinet IO 没有写入权限
-* 10805 Profinet IO 等待 HELLO 响应
+* 10805 Profinet IO 等待 HELLO 响应 -->

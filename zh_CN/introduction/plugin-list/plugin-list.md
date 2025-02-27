@@ -38,7 +38,6 @@
 | OPC UA                  | 以太网  |  - |
 | OPC DA                  | 以太网  |  - |
 | CIP Ethernet/IP         | 以太网  |  CIP –通用工业协议 |
-| Profinet IO             | 以太网  |  - |
 | SECS GEM HSMS         | 以太网  |  半导体行业协议 |
 
 

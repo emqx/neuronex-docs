@@ -38,7 +38,6 @@ For specific instructions on replacing and updating plugins, please contact the 
 | OPC UA                  | Ethernet  |  - |
 | OPC DA                  | Ethernet  |  - |
 | CIP Ethernet/IP         | Ethernet  | - |
-| Profinet IO             | Ethernet  |  - |
 | SECS GEM HSMS         | Ethernet  |  Semiconductor Industry Protocol |
 
 ### PLC Drivers

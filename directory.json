@@ -498,11 +498,6 @@
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/mitsubishi-fx/overview.md"
             },
             {
-              "title": "Profinet IO",
-              "path": "configuration/south-devices/profinet/profinet",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/profinet/profinet.md"
-            },
-            {
               "title": "SECS GEM HSMS",
               "path": "configuration/south-devices/secs-gem/secs-gem",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/secs-gem/secs-gem.md",
@@ -1578,11 +1573,6 @@
               "title": "Mitsubishi FX",
               "path": "configuration/south-devices/mitsubishi-fx/overview",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/mitsubishi-fx/overview.md"
-            },
-            {
-              "title": "Profinet IO",
-              "path": "configuration/south-devices/profinet/profinet",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/profinet/profinet.md"
             },
             {
               "title": "SECS GEM HSMS",

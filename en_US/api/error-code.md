@@ -204,11 +204,11 @@ This document describes the error codes that the data collection function will r
 * 10798    EtherNet/IP data type mismatch
 * 10799    EtherNet/IP is not registered session
 
-## Profinet IO error codes
+<!-- ## Profinet IO error codes
 
 * 10800    Profinet IO is not recognized
 * 10801    Profinet IO is not connected
 * 10802    Profinet IO is not ready
 * 10803    Profinet IO parameters are not ready
 * 10804    Profinet IO does not have write permission
-* 10805    Profinet IO is waiting for HELLO response
+* 10805    Profinet IO is waiting for HELLO response -->

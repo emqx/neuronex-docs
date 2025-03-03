@@ -1,5 +1,41 @@
 # Release history
 
+## v3.5.0
+
+Release Date: 2025-02-25
+
+### Enhancements
+
+- Added new southbound driver: KND CNC driver  
+- Added new southbound driver: Mitsubishi 4E  
+- MQTT driver supports customizable data upload formats 
+- MQTT driver supports a new data reporting format：ECP-format
+- MQTT driver supports parameter configuration for reporting tag error code  
+- IEC61850 driver updates:  
+  - Supports three reporting modes: general interrogation, scheduled interval reporting, and data change reporting  
+  - Supports CID file import (automatically generates tags for sp and sg type)  
+  - Adjusted data reporting format, with each tag including timestamp and quality fields  
+- Northbound application supports configuration of static tags  
+- OPC UA driver supports extended object type  
+- OPC UA driver supports BIT data type  
+- OPC UA driver optimizes tag browser functionality, allowing directly scanned OPC UA Server tags to be added to southbound group  
+- ModbusTCP driver supports configuration of primary and backup ModbusTCP Servers  
+- FINS TCP/UDP driver adds a parameter to configure the maximum number of bytes read at once  
+- Video data source adds video format and encoding configuration options  
+- Data processing functionality supports ONNX plugin integration  
+- SQL editor supports keyword suggestions  
+- MQTT Sink supports MQTT version 5 and includes tracing functionality  
+- File data source adds support for raw type data  
+- Rule functionality adds support for incremental window calculation  
+- Rule general configuration supports SendNilField configuration  
+- Timeout for external function calls in rules is configurable  
+- License page supports license reset
+
+### Fixes
+
+- Fix the display error of the CNC License on the license page.
+- Fix the abnormal export issue of the backup function.
+
 ## v3.4.3
 
 Release Date: 2025-01-02

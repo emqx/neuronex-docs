@@ -1035,6 +1035,10 @@
         "collapsed": true,
         "children": [
           {
+            "title": "NeuronEX 设备反控功能详解",
+            "path": "best-practise/device-control"
+          },
+          {
             "title": "NeuronEX + 大语言模型 LLM - 实时监控预防工业火灾",
             "path": "best-practise/llm-example"
           },

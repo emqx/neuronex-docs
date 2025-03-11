@@ -2126,6 +2126,10 @@
       "collapsed": true,
       "children": [
         {
+          "title": "NeuronEX Device Control",
+          "path": "best-practise/device-control"
+        },
+        {
           "title": "NeuronEX Master-Backup Mode",
           "path": "best-practise/master-backup"
         }

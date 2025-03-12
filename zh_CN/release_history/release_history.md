@@ -1,5 +1,28 @@
 # 发版历史
 
+发布日期: 2025-03-12
+
+## v3.4.4
+
+### 增强
+
+- FINS TCP/UDP 新增优化读大小
+- Modbus 驱动数据处理优化
+- SparkplugB 写点位适配核心新加入的is_value_in_range规则
+- 数据处理模块新增 sync cache 指标
+
+### 修复
+
+- 修复 CNC License显示异常
+- 修复 SparkplugB 节点启动后DBIRTH触发不正确的问题
+- 修复  SparkplugB NDEATH 和 DDEATH触发不正确的问题
+- 修复 DLT645 驱动crash问题
+- 修复 FINS TCP/UDP驱动crash问题
+- 修复 sink bufferLength 配置不生效
+- 修复 last_agg_hit_time() 单独在 having 里使用时未能有效更新值
+- 修复更改删除连接规则失败文本，明确指出有规则使用
+- 修复 sink omitEmpty 属性 send single 时，非nil但无数据不生效问题
+
 ## v3.5.0
 
 发布日期: 2025-02-25

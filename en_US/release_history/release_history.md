@@ -1,5 +1,28 @@
 # Release history
 
+## v3.4.4
+
+Release Date: 2025-03-12
+
+### Enhancements
+
+- FINS TCP/UDP optimized read size
+- Modbus driver data processing optimization
+- SparkplugB write tag adaption neuron core rule
+- Data processing module adds sync cache metrics
+
+### Fixes
+
+- Fix CNC License display abnormality
+- Fix SparkplugB node DBIRTH trigger incorrect issue after startup
+- Fix SparkplugB NDEATH and DDEATH trigger incorrect issue
+- Fix DLT645 driver crash issue
+- Fix FINS TCP/UDP driver crash issue
+- Fix sink bufferLength configuration not taking effect
+- Fix last_agg_hit_time() not updating value when used alone in having
+- Fix change deletion connection rule failure text, clearly indicate that there is a rule in use
+- Fix sink omitEmpty property not taking effect when send single, non-nil but no data
+
 ## v3.5.0
 
 Release Date: 2025-02-25

@@ -1039,6 +1039,10 @@
             "path": "best-practise/device-control"
           },
           {
+            "title": "OPCUA 点位发现功能",
+            "path": "best-practise/opcua-tag-browser"
+          },
+          {
             "title": "NeuronEX + 大语言模型 LLM - 实时监控预防工业火灾",
             "path": "best-practise/llm-example"
           },
@@ -2128,6 +2132,10 @@
         {
           "title": "NeuronEX Device Control",
           "path": "best-practise/device-control"
+        },
+        {
+          "title": "OPCUA Tag Browser",
+          "path": "best-practise/opcua-tag-browser"
         },
         {
           "title": "NeuronEX Master-Backup Mode",

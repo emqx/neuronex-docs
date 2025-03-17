@@ -24,6 +24,7 @@ OPC UA（OPC Unified Architecture） 是一种跨平台、服务导向的通信�
 
 ![opcua-add-device-zh](./_assets/opcua-add-device-2-zh.png)
 
+
 ## 点位发现功能
 
 准备工作完成后，让我们进入正题：通过点位发现功能来高效管理 OPC UA 设备的点位。

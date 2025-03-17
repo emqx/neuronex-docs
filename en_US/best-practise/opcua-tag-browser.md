@@ -22,7 +22,7 @@ Before using the tag discovery feature, we need to connect an OPC UA device.
 
 Once the device is added, return to the South Devices page. You will see the newly added opcua1 device and its connection status should be "Connected."
 
-![opcua-add-device-zh](./_assets/opcua-add-device-2-zh.png)
+![opcua-add-device-zh](./_assets/opcua-add-device-2-en.png)
 
 ## Tag Browser Feature
 

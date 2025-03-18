@@ -10,6 +10,8 @@ NeuronEX 支持以下操作系统，CentOS 7.0 及以上版本，Ubuntu 18.04 �
 - 使用 WSL 安装相应的 Linux 系统
 - 使用 Docker Desktop，以 Docker 的方式安装和运行 NeuronEX
 
+如果是 CentOS 7.0 并用 systemctl 来启动、停止服务，那么在 3.5.0 及以后发布的 RPM 包已不适用，用户需要下载 tar.gz 安装包，将其解压后运行 ./bin/neuronex install 命令，才能使用 systemctl 来启动、停止服务。在卸载软件时，需要运行 ./bin/neuronex uninstall 命令。
+
 ## 是否支持国产操作系统？
 
 NeuronEX 已适配 ARM64 架构的欧拉系统，NeuronEX RPM 安装包可直接安装使用。

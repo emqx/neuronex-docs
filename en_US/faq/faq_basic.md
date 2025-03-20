@@ -12,6 +12,8 @@ If it is a Windows operating system, the following installation methods are supp
 
 - Use Docker Desktop to install and run NeuronEX in Docker mode
 
+If it is CentOS 7.0 and systemctl is used to start and stop the service, the RPM packages released in 3.5.0 and later are no longer applicable. Users need to download the tar.gz installation package, decompress it and run the ./bin/neuronex install command to use systemctl to start and stop the service. When uninstalling the software, you need to run the ./bin/neuronex uninstall command.
+
 ## Does NeuronEX support Android system?
 
 Not supported.

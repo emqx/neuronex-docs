@@ -54,7 +54,7 @@ NeuronEX has no upper limitation on the number of tags. It depends on the alloca
 
 :::
 
-## Debian 软件包
+## Debian 
 
 | Download files                 | Architecture  |
 | ------------------------------ | ------------- |
@@ -63,7 +63,7 @@ NeuronEX has no upper limitation on the number of tags. It depends on the alloca
 | neuronex-x.y.z-linux-arm64.deb | ARM           |
 
 
-## Redhat 软件包管理工具
+## Redhat
 
 | Download files                 | Architecture  |
 | ------------------------------ | ------------- |

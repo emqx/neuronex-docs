@@ -1,5 +1,13 @@
 # Release history
 
+## v3.4.5
+
+Release Date: 2025-03-20
+
+### Fixes
+
+- Writing a float value like "121.0" through NeuronEX API to OPCUA Server fails, while values like 120.9 or 121.1 work correctly.
+
 ## v3.4.4
 
 Release Date: 2025-03-12

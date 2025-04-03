@@ -121,3 +121,9 @@ NeuronEX 支持将 RSTP 视频流中的图片帧进行采集，并进行分析�
 ## 是否支持AI、ML 集成分析？
 
 支持。NeuronEX 支持用户自定义函数扩展和 AI 算法集成，提供智能数据分析能力。
+
+## 在小型网关上 NeuronEX 启动后，数据采集配置可能丢失的问题？
+
+NeuronEX 核心通讯依赖 unix socket，在负载大的情况下，操作系统默认配置会导致数据包丢失，建议将操作系统配置项`net.unix.max_dgram_qlen`设置为1024。设置方法如下：
+
+在 **/etc/sysctl.conf** 文件中添加`net.unix.max_dgram_qlen = 1024`，然后执行命令 `sysctl -p`

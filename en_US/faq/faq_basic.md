@@ -119,3 +119,8 @@ Yes. NeuronEX supports collecting, analyzing, storing, and forwarding data in tx
 
 Yes. NeuronEX supports user-defined function extension and AI algorithm integration, providing intelligent data analysis capabilities.
 
+## After starting NeuronEX on a small gateway, the data collection configuration may be lost?
+
+NeuronEX core communication relies on unix socket. Under heavy load, the default configuration of the operating system will cause data packet loss. It is recommended to set the operating system configuration item `net.unix.max_dgram_qlen` to 1024. The setting method is as follows:
+
+Add `net.unix.max_dgram_qlen = 1024` in the **/etc/sysctl.conf** file, and then execute the command `sysctl -p`

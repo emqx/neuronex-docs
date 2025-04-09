@@ -12,9 +12,9 @@ NeuronEX 支持通过 Python 等语言编写扩展函数来弥补这一不足，
 
 ## 功能介绍
 
-在 NeuronEX 上使用 AI 生成 Python 插件功能，主要涉及以下几个步骤：安装包下载、配置 AI 模型、使用 AI 生成函数功能、以及在规则中测试和使用生成的插件。
+在 NeuronEX 上使用 AI 生成 Python 插件功能，主要涉及以下几个步骤：安装、配置 AI 模型、使用 AI 生成函数功能、以及在规则中测试和使用生成的插件。
 
-### 安装包下载
+### 安装
 
 NeuronEX 从 3.5.1 版本开始，提供了支持 AI 功能 Docker 镜像包 neuronex:3.x.x-ai。使用以下命令下载并运行 NeuronEX
 
@@ -55,9 +55,8 @@ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex
 在 AI 生成函数页面，您可以输入自然语言描述您想要生成的 Python 函数，以简单的数学运算为例，您可以输入：
 
 ```
-请生成一个 Python 函数，计算两个数a和b的和
+请生成一个 Python 函数，计算两个数a减b的结果
 ```
-
 
 为了提高大模型生成代码的准确性，您可以点击**添加输入参数**按钮，对输入的类型进行描述，如下：
 
@@ -147,6 +146,35 @@ FROM
 
 对话输入如下：
 
+```
+实现以下功能,将输入的 JSON 数据 (para1) 从原始格式转换为目标格式。
+## 原始输入格式
+{
+    "timestamp": 1650006388943,
+    "node": "modbus",
+    "group": "grp",
+    "values": {
+        "tag1": 123,
+        "tag2": 234
+    }
+}
+## 目标输出格式
+{
+  "timestamp": 1650006388943,
+  "node": "modbus",
+  "group": "grp",
+  "tags": [{
+        "name": "tag1",
+        "value": 123
+      },{
+        "name": "tag2",
+        "value": 234
+      }
+  ]
+}
+
+```
+
 ![alt text](_assets/llm-example1-1-zh.png)
 
 函数生成：
@@ -185,9 +213,26 @@ SPC(Statistical Process Control) 统计过程控制，是工业场景中常见�
 
 在模拟数据源中，我们设置了一个从1.1到1.5循环递增的数组。
 
+```json
+{"a":1.1}
+{"a":1.2}
+{"a":1.3}
+{"a":1.4}
+{"a":1.5}
+```
+
 <img src="./_assets/llm-example2-4-zh.png" alt="alt text" width="50%" />
 
 在 SQL 中我们使用了 HOPPINGWINDOW 窗口，窗口大小为5，步长为1，下图为输出结果。由于数组是单调递增的，当agg_spc函数收到输入[1.1,1.2,1.3,1.4,1.5]后，会输出告警信息{"alarm":"spc_error"}，否则输出收到的输入内容。
+
+```sql
+SELECT
+  agg_spc(a) as result
+FROM
+  neuronStream
+group by
+HOPPINGWINDOW(ss, 5, 1)
+```
 
 ![alt text](_assets/llm-example2-5-zh.png)
 

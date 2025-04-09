@@ -2144,6 +2144,10 @@
         {
           "title": "NeuronEX Master-Backup Mode",
           "path": "best-practise/master-backup"
+        },
+        {
+          "title": "AI-generated Python Plugin Guide",
+          "path": "best-practise/llm-portable-plugin"
         }
       ]
     },

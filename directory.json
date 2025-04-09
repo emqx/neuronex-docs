@@ -1053,6 +1053,10 @@
           {
             "title": "NeuronEX 主备模式最佳实践",
             "path": "best-practise/master-backup"
+          },
+          {
+            "title": "AI 生成 Python 插件最佳实践指南",
+            "path": "best-practise/llm-portable-plugin"
           }
         ]
       },

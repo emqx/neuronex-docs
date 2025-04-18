@@ -14,7 +14,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     if: github.repository_owner == 'emqx'
     steps:
     - name: clone docs
@@ -44,7 +44,7 @@ jobs:
     - name: use python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.8'
+        python-version: '3.10'
         architecture: 'x64'
 
     - name: install python dependencies

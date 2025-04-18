@@ -20,11 +20,18 @@ Using AI-generated Python plugin functionality in NeuronEX mainly involves the f
 
 ### Installation
 
-Starting from version 3.5.1, NeuronEX provides Docker image packages supporting AI functionality: neuronex:3.x.x-ai. Use the following commands to download and run NeuronEX:
+Starting from version 3.5.1, NeuronEX provides Docker image packages supporting AI functionality: neuronex:3.5.1-ai and neuronex:3.5.1-ai-amd64. The image packages have pre-installed the Python dependencies required for interacting with LLM models.
+
+Use the following commands to download and run NeuronEX:
 
 ```shell
+# Download x86 image and run container
 docker pull emqx/neuronex:3.5.1-ai
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.5.1-ai
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:3.5.1-ai
+
+# Download arm64 image and run container
+docker pull emqx/neuronex:3.5.1-ai-amd64
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:3.5.1-ai-amd64
 ```
 
 ### AI Model Configuration
@@ -76,7 +83,7 @@ On the algorithm integration list page, you can see the currently deployed funct
 ![alt text](_assets/llm-python5-en.png)
 
 ::: tip
-1. If you are not satisfied with the generated algorithm logic, you can input and adjust the natural language again to regenerate.
+1. Talking to AI cannot adjust the generated function code. If you are not satisfied with the generated function code, you can input and adjust the natural language again to regenerate it.
 2. If an AI-generated plugin has the same name as an existing plugin, the original plugin will be overwritten.
 3. If an AI-generated plugin has the same name as a built-in function, the built-in function takes precedence and the generated plugin becomes invalid.
 :::

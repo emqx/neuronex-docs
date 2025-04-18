@@ -1,5 +1,29 @@
 # 发版历史
 
+## v3.5.1
+
+发布日期：2025-04-18
+
+### 增强
+
+- 新增 AI 生成 Python 便捷插件功能（仅 Docker 镜像 `emqx/neuronex:3.5.1-ai` 和 `emqx/neuronex:3.5.1-ai-amd64` 支持），详细使用请参考[文档](https://docs.emqx.com/zh/neuronex/latest/best-practise/llm-portable-plugin.html )。
+- 数据处理引擎配置支持开启指标采集，并支持下载自定义日志指标文件，详细使用请参考[文档](https://docs.emqx.com/zh/neuronex/latest/admin/sys-configuration.html#开启指标采集)。
+- DLT645-2007 新增支持有符号整型数据类型
+- Mitsubishi 3E 扩展支持字符串长度到 256
+
+### 修复
+
+- 修复 OPCUA 驱动某些第三方 OPC Server 数据写入成功，但返回错误码的问题
+- 修复 OPCUA 驱动某些情况下，执行操作会卡死的问题
+- SparkplugB write tag 适配核心新加入的 is_value_in_range 系列规则
+- 修复 get_keyed_state 函数默认值未传时总是返回nil的问题
+- 修复规则重启后属性错误问题 
+- 修复 Kafka sink batch 为0时不发送问题
+- 修复规则手动关闭运行两次状态变更的问题
+- 修复 MQTT v5 动态属性不变化的问题 
+- 修复 Portable 插件出错时 Panic 问题
+
+
 ## v3.4.5
 
 发布日期：2025-03-20

@@ -1,5 +1,29 @@
 # Release history
 
+## v3.5.1
+
+Release Date: 2025-04-18
+
+### Enhancements
+
+- Added new feature: AI Generate Python Function(only supported by Docker image `emqx/neuronex:3.5.1-ai` and `emqx/neuronex:3.5.1-ai-amd64`), please refer to [Document](https://docs.emqx.com/en/neuronex/latest/best-practise/llm-portable-plugin.html) for details.
+- Data processing engine configuration supports enabling indicator collection and downloading  indicator logs, please refer to [Document](https://docs.emqx.com/en/neuronex/latest/admin/sys-configuration.html#enable-metrics-collection) for details.
+- DLT645-2007 Added support for signed integer data types
+- Mitsubishi 3E extended support for string length to 256
+
+### Fixes
+
+- Fixed OPCUA driver successfully writes data to some third-party OPC servers but returns an error code
+- Fixed OPCUA driver would get stuck when executing operations in some cases
+- SparkplugB write tag adapts to the newly added is_value_in_range series of rules in the core
+- Fixed the get_keyed_state function always returns nil when the default value is not passed
+- Fixed attribute error after rule restart
+- Fixed Kafka sink batch is not sent when it is 0
+- Fixed manually shutting down the rule to change the state twice
+- Fixed the MQTT v5 dynamic attribute does not change
+- Fixed the panic problem when the Portable plugin fails
+
+
 ## v3.4.5
 
 Release Date: 2025-03-20

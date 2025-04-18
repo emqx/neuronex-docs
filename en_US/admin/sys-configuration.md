@@ -3,6 +3,8 @@
 NeuronEX supports customization of relevant functions on the Dashboard.
 
 ## Data Processing Engine Configuration
+
+### Enable Data Processing Engine
 After logging into NeuronEX, click on **Administration** -> **System Configuration** on the left side to enter the system configuration page. You can manually enable or disable the data processing engine.
 
 ![start_ekuiper_en](assets/start_ekuiper_en.png)
@@ -12,6 +14,15 @@ After logging into NeuronEX, click on **Administration** -> **System Configurati
 Closing the data processing engine will render the data processing function unavailable, so please operation with caution!
 
 :::
+
+### Enable Metrics Collection
+
+When the metrics collection is enabled, the metrics of the data processing engine will be collected and stored in the local file directory.
+
+When the metrics collection is enabled, on the **Logs** -> **Log Management** page, click the **Download Data Processing Engine Logs** button to download the complete logs and metrics files. Click the **Download Custom Log Metrics File** button to select the logs or metrics files to download.
+
+![metrics_en](assets/metrics_en.png)
+
 
 ## SSO Configuration
 
@@ -168,3 +179,25 @@ To implement downstream MQTT control command tracing, the following conditions m
     For example, using MQTTX, as shown in the figure below:
 
 ![trace_mqttx](assets/trace_mqttx.png)
+
+## AI Model Configuration
+
+NeuronEX supports configuring AI models in the system configuration page, and using AI models to generate Python plugins.
+
+In the NeuronEX **System Configuration** -> **AI Model Configuration** page, add a LLM model, including the LLM model type, API Key, Endpoint address, and model name. Currently, NeuronEX supports the following models:
+
+| <div style="width:100pt">Model Vendor</div> | <div style="width:120pt">Endpoint Address</div> | <div style="width:120pt">Model Name</div> |
+| ------------------------------------------- | --------------------------------------------- | ---------------------------------------- |
+| DeepSeek | `https://api.deepseek.com` | `deepseek-chat` <br> `deepseek-reasoner` |
+| SiliconFlow | - | `Pro/deepseek-ai/DeepSeek-V3` <br> `Pro/deepseek-ai/DeepSeek-R1` |
+| OpenAI | `https://api.openai.com/v1` | `gpt-4o` |
+| Azure OpenAI | Obtain from Azure official website | `gpt-4o` |
+
+You can obtain API Keys from the official websites of these model vendors, add model configurations on the NeuronEX page, and enable them. Multiple large models can be configured on the page simultaneously, but only one model can be enabled for use.
+
+![alt text](_assets/llm-config-en.png)
+
+::: tip
+1. Please ensure that NeuronEX can connect to the internet normally and access the model's API.
+2. Small models or excessively outdated models will affect the quality of generated Python plugins. The models in the above table are recommended, and new models released by various vendors can also be used in the future.
+:::

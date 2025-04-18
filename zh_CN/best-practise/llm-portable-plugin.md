@@ -16,11 +16,18 @@ NeuronEX 支持通过 Python 等语言编写扩展函数来弥补这一不足，
 
 ### 安装
 
-NeuronEX 从 3.5.1 版本开始，提供了支持 AI 功能 Docker 镜像包 neuronex:3.x.x-ai。使用以下命令下载并运行 NeuronEX
+NeuronEX 从 3.5.1 版本开始，提供了支持 AI 功能 Docker 镜像包 neuronex:3.5.1-ai 和 neuronex:3.5.1-ai-amd64。该镜像包已预装了与 LLM 模型交互所需的 Python 依赖库。
+
+使用以下命令下载并运行 NeuronEX
 
 ```shell
+# 下载x86镜像，并运行容器
 docker pull emqx/neuronex:3.5.1-ai
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.5.1-ai
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:3.5.1-ai
+
+# 下载arm64镜像，并运行容器
+docker pull emqx/neuronex:3.5.1-ai-amd64
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:3.5.1-ai-amd64
 
 ```
 
@@ -75,7 +82,7 @@ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex
 ![alt text](_assets/llm-python5-zh.png)
 
 ::: tip
-1. 如果对生成的算法逻辑不满意，可再次输入并调整自然语言，重新生成。
+1. 和 AI 对话并不能调整生成的函数代码逻辑，如果对生成的插件函数不满意，可再次输入并调整自然语言，重新生成。
 2. 如果 AI 生成的便捷插件与已有便捷插件名称重名，则原便捷插件会被覆盖。
 3. 如果 AI 生成的便捷插件与内置函数名称重名，则内置函数优先级更高，生成插件无效。
 :::

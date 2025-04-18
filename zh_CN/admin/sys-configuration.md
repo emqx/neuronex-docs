@@ -3,6 +3,8 @@
 NeuronEX 支持在 Dashboard 上对相关功能进行配置修改。
 
 ## 数据处理引擎配置
+
+### 启动数据处理引擎
 登录 NeuronEX 后，点击页面左侧的 **管理** -> **系统配置**， 进入系统配置界面。可手动开启、关闭数据处理引擎。
 
 ![start_ekuiper_zh](assets/start_ekuiper_zh.png)
@@ -10,6 +12,21 @@ NeuronEX 支持在 Dashboard 上对相关功能进行配置修改。
 :::tip  注意
 
 关闭数据处理引擎，会造成数据处理功能不可用，请谨慎操作！
+
+:::
+
+### 开启指标采集
+
+开启指标采集后，数据处理引擎的运行指标（metrics）会被采集并存储到本地文件目录。
+
+当开启指标采集时，在**日志**->**日志管理**页面，点击**下载数据处理引擎日志**按钮，可以下载完整的日志及指标文件。点击**下载自定义日志指标文件**按钮，可以自行勾选需要下载的日志或指标文件。
+
+![metrics_zh](assets/metrics_zh.png)
+
+
+:::tip  注意
+
+开启指标采集功能后，如果规则处理的数据接入量较大，可能会导致指标文件过大，需要消耗较多的磁盘空间。
 
 :::
 
@@ -173,4 +190,28 @@ Scope、Grant Type、Request Method 和 Content Type 字段需要根据平台要
     以 MQTTX 为例，如下图所示：
 
 ![trace_mqttx](assets/trace_mqttx.png)
+
+## AI 模型配置
+
+NeuronEX 支持在系统配置页面配置 AI 模型，并使用 AI 模型生成 Python 插件。
+
+在 NeuronEX **系统配置** -> **AI 模型配置**页面，添加一个LLM模型配置信息，包括 LLM 模型的类型、API Key、Endpoint 地址以及模型名称。目前 NeuronEX 已支持以下厂商的模型：
+
+| <div style="width:100pt">模型厂商</div>                 | <div style="width:120pt">Endpoint地址</div> | <div style="width:120pt">模型名称</div> |
+| ------------------------------------------------------------ |  ------------ | -------------------------------- |
+| DeepSeek              | `https://api.deepseek.com`  | `deepseek-chat` <br> `deepseek-reasoner` |
+| SiliconFlow              | -    |  `Pro/deepseek-ai/DeepSeek-V3` <br> `Pro/deepseek-ai/DeepSeek-R1`|
+| OpenAI     | `https://api.openai.com/v1`  |  `gpt-4o` |
+| Azure OpenAI            | Azure官网获取  |  `gpt-4o` |
+
+您可通过以上模型厂商的官方网站获取 API Key，并在 NeuronEX 页面添加模型配置并启用。可在页面中同时配置多个大模型，但只能启用一个模型进行使用。
+
+
+![alt text](_assets/llm-config-zh.png)
+
+
+::: tip
+1. 请保证 NeuronEX 能正常联网，可访问大模型的 API。
+2. 小模型或者过于老旧的模型会影响生成 Python 插件的效果，上表中的模型为推荐使用模型，后续也可使用各厂商推出的新模型。
+:::
 

@@ -18,7 +18,9 @@ NeuronEX 已适配 ARM64 架构的欧拉系统，NeuronEX RPM 安装包可直接
 
 NeuronEX 已适配 ARM64 架构的麒麟系统，NeuronEX DEB 安装包可直接安装使用。
 
-统信、鸿蒙系统暂未适配，可能需要 NeuronEX 单独编译打包。
+NeuronEX 已适配统信系统，NeuronEX 安装包可直接安装使用。
+
+鸿蒙系统暂未适配，可能需要 NeuronEX 单独编译打包。
 
 ## 是否支持安卓系统？
 

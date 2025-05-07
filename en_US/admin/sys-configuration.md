@@ -131,9 +131,16 @@ The traces function is used to trace the detailed processing of data collection,
 ### Configuration Instructions
 - **Enable OpenTelemetry Tracing**: Enable the tracing function.
 - **OpenTelemetry Service Address**: Fill in the OpenTelemetry service address, and NeuronEX will send tracing data to this address. EMQX ECP integrates the OpenTelemetry service, and users can directly use the OpenTelemetry service address of EMQX ECP.
+
+::: tip
+
+The OpenTelemetry service address of EMQX ECP should use the [ip]:[port] format, such as `192.168.1.100:4318`, without the `http://` prefix.
+
+:::
+
 - **Service Name**: Fill in the service name. When NeuronEX reports tracing data, it will use this service name to distinguish the tracing data reported by different NeuronEX.
 - **Tracing API and Downstream MQTT Control Commands**: Enable tracing for API and downlink MQTT control commands. If using downlink MQTT control commands, the MQTT plugin's MQTT version must be set to 5.0 on the northbound application page.
-- **Tracing Data Collection Messages**: Enable tracing for data collection messages. Once enabled, NeuronEX will report all tracing data of southbound driver collection messages to the OpenTelemetry service. (Currently only supports FINS TCP and FINS UDP drivers)
+- **Tracing Data Collection Messages**: Enable tracing for data collection messages. Once enabled, NeuronEX will report all tracing data of southbound driver collection messages to the OpenTelemetry service. (Currently only supports FINS TCP、FINS UDP、Mitsubishi 3E、Mewtocol、Modbus RTU/TCP  drivers)
 - **Tracing Data Sampling Rate**: Fill in the tracking data sampling rate. Range: `0-1`.  1 indicates a 100% sampling rate for full tracing, while 0.1 indicates a 10% sampling rate for tracing. This parameter is only valid when `Tracing Data Collection Messages` is enabled.
 
 :::tip 

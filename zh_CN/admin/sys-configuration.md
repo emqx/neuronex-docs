@@ -135,11 +135,15 @@ Scope、Grant Type、Request Method 和 Content Type 字段需要根据平台要
 
 - **OpenTelemetry 服务地址** : 填写 OpenTelemetry 服务地址，NeuronEX 将追踪数据发送到该地址。 EMQX ECP 软件集成了 OpenTelemetry 服务，用户可直接使用 EMQX ECP 的 OpenTelemetry 服务地址。
 
+::: tip
+EMQX ECP 的 OpenTelemetry 服务地址请使用[ip]:[port]方式，例如`192.168.1.100:4318`，不要带有 `http://` 前缀。
+:::
+
 - **服务名称** : 填写服务名称，NeuronEX 上报追踪数据时，将使用该服务名称，用于区分不同 NeuronEX 上报的追踪数据。
 
 - **追踪 API 及下行 MQTT 控制指令** : 开启追踪 API 及下行 MQTT 控制指令。如使用下行 MQTT 控制指令，还需要在北向应用页面将 MQTT 插件的`MQTT版本`设置为`5.0`。
 
-- **追踪数据采集消息** : 开启追踪数据采集消息，开启后，NeuronEX 将所有南向驱动采集消息的追踪数据上报到 OpenTelemetry 服务。（目前仅支持 FINS TCP 和 FINS UDP 驱动）
+- **追踪数据采集消息** : 开启追踪数据采集消息，开启后，NeuronEX 将所有南向驱动采集消息的追踪数据上报到 OpenTelemetry 服务。（目前仅支持 FINS TCP、FINS UDP、Mitsubishi 3E、Mewtocol、 Modbus RTU/TCP  驱动）
 
 - **追踪数据采样率** : 填写追踪数据采样率。范围：0-1。1表示100%采样率全量追踪，0.1表示10%采样率追踪。仅在**开启追踪数据采集消息**时，该参数有效。
 
@@ -148,7 +152,6 @@ Scope、Grant Type、Request Method 和 Content Type 字段需要根据平台要
 开启链路追踪功能后，NeuronEX 会产生一定的性能开销，请根据实际需求开启。
 
 :::
-
 
 ![traces_zh](assets/traces_zh.png)
 

@@ -100,12 +100,15 @@
 
 ### 数控机床和机器人
 
-| 协议名称       |  <div style="width:60pt">接口类型</div>        | 备注      |
-| ------------- | ------- | ----- | 
-|  Fanuc Focas Ethernet  | 以太网    |    连接Fanuc 0i, 30i, 31i, 32i and 35i系列CNC设备        |
-| Mitsubishi CNC    | 以太网    |   连接M70、M80、M700、M800、E70等系列CNC设备 |
-| HEIDENHAIN CNC    | 以太网    |   通过 LSV2 协议访问海德汉 TNC640, iTNC530 等系列设备 |
-| KND CNC    | 以太网    |   凯恩帝 CNC 驱动通过 HTTP 协议访问凯恩帝 K2000、K1000 C/Ci/F/Fi、K1000TTCi 系列的数控系统 |
+| CNC 厂商       |  CNC型号      | <div style="width:60pt">接口类型</div>|  <div style="width:100pt">对应 NeuronEX 协议</div>      |    备注      |
+| ------------- | ------- | ----- | ----- |----- |
+| 发那科 FANUC      | Fanuc 0i, 30i, 31i, 32i and 35i      |以太网    | Fanuc Focas Ethernet      |   Fanuc 设备，串口方式，暂不支持采集     |
+| 西门子 Siemens    | 802D SL、 808   |以太网    |  Siemens MPI |           |
+| 西门子 Siemens    | 828D、840DSL   |以太网    | OPC UA |    CNC 软件版本 >= 4.5 SP3       |
+| 三菱 Mitsubishi    | M70、M80、M700、M800、E70    |以太网    |  Mitsubishi CNC |           |
+| 海德汉 HEIDENHAIN    | TNC640, iTNC530     |以太网    |  HEIDENHAIN CNC |           |
+| 凯恩帝 KND   | K2000、K1000 C/Ci/F/Fi、K1000TTCi    |以太网    |   KND CNC |         |
+| 广州数控    | GSK-980等    |以太网    |  ModbusTCP   |         |
 
 ### 其他
 

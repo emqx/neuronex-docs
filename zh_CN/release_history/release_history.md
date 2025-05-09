@@ -10,6 +10,7 @@
 - 数据处理引擎配置支持开启指标采集，并支持下载自定义日志指标文件，详细使用请参考[文档](https://docs.emqx.com/zh/neuronex/latest/admin/sys-configuration.html#开启指标采集)。
 - DLT645-2007 新增支持有符号整型数据类型
 - Mitsubishi 3E 扩展支持字符串长度到 256
+- Siemens S7 新增支持 WSTRING 数据类型
 
 ### 修复
 

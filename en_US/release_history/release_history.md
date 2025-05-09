@@ -10,6 +10,7 @@ Release Date: 2025-04-18
 - Data processing engine configuration supports enabling indicator collection and downloading  indicator logs, please refer to [Document](https://docs.emqx.com/en/neuronex/latest/admin/sys-configuration.html#enable-metrics-collection) for details.
 - DLT645-2007 Added support for signed integer data types
 - Mitsubishi 3E extended support for string length to 256
+- Siemens S7 driver supports WSTRING data type
 
 ### Fixes
 

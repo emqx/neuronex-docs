@@ -1,5 +1,31 @@
 # Release history
 
+## v3.5.2
+
+Release Date: 2025-05-22
+
+### Enhancements
+
+- The OPCUA driver supports the subscription mode, and a new configuration item is added: Update mode. By configuring the Subscribe mode, it supports obtaining server data through the OPCUA standard subscription interface. Through this mode, the server data can be obtained in real time.
+- SparkplugB application has a new configuration item: Group Path, which supports configuring whether the tag is spliced ​​with the collection group name.
+- SparkplugB application supports offline caching.
+- When there are many rules, optimize and reduce the memory usage when creating rules
+- Limit and optimize cache data of trace function
+
+### Fixes
+
+- Fix the problem of downloading the driver log when the driver node name is in Chinese
+- Fix the problem of no data caused by updating rule of the shared stream
+- Fix the problem of occasional update failure of the Portable plugin
+- Fix the problem of monitoring the write event of File Source and ignoring empty files
+- Fixed the problem that trace function reports an error after Dataprocessing node is manually closed
+- Fixed the problem that rule reports an error "cannot parse JSON" after trace function is enabled
+- Fixed the problem that Span splicing is wrong when northbound MQTT and DataProcessing are traced at the same time
+
+### Changes
+
+- The interface for downloading the driver log has been changed to /api/log/neuron?node=node_name
+
 ## v3.5.1
 
 Release Date: 2025-04-18

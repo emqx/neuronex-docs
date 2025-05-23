@@ -5,7 +5,7 @@
 根据不同版本及架构下载安装包，例如：
 
 ```bash
-$ wget https://www.emqx.com/zh/downloads/neuronex/3.3.0/neuronex-3.3.0-linux-amd64.deb
+$ wget https://www.emqx.com/zh/downloads/neuronex/3.5.0/neuronex-3.5.0-linux-amd64.deb
 ```
 
 ## 安装

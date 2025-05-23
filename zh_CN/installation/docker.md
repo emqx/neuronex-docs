@@ -28,7 +28,7 @@ $ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privilege
 
 ## Docker 容器 Python 运行环境
 
-NeuronEX提供两种类型的 Docker 安装包：
+NeuronEX提供四种类型的 Docker 安装包：
 - **neuronex:3.x.x**
 
 neuronex:3.x.x类型的安装包，集成了 Python 运行环境，如果您有 Python 算法的使用需求，请用这类镜像。
@@ -36,8 +36,8 @@ neuronex:3.x.x类型的安装包，集成了 Python 运行环境，如果您有 
 
 ```bash
 #run NeuronEX by neuronex:3.x.x
-docker pull emqx/neuronex:3.3.0
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.3.0
+docker pull emqx/neuronex:3.5.2
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.5.2
 ```
 
 - **neuronex:3.x.x-slim**
@@ -46,7 +46,26 @@ neuronex:3.x.x-slim类型的安装包，不集成 Python 运行环境,安装包�
 
 ```bash
 #run NeuronEX by neuronex:3.x.x-slim
-docker pull emqx/neuronex:3.3.0-slim
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.3.0-slim
+docker pull emqx/neuronex:3.5.2-slim
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.5.2-slim
 ```
 
+- **neuronex:3.x.x-ai**
+
+neuronex:3.x.x-ai类型的安装包，集成了 Python 运行环境，并且集成了运行大模型（LLM） 相关的 Python 依赖，如果您有结合 LLM 进行自然语言生成 Python 插件以及AI数据分析的需求，请使用这类镜像。该镜像支持 x86_64 架构的设备。
+
+```bash
+#run NeuronEX by neuronex:3.x.x-ai
+docker pull emqx/neuronex:3.5.2-ai
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.5.2-ai
+```
+
+- **neuronex:3.x.x-ai-arm64**
+
+neuronex:3.x.x-ai-arm64类型的安装包，集成了 Python 运行环境，并且集成了运行大模型（LLM） 相关的 Python 依赖，如果您有结合 LLM 进行自然语言生成 Python 插件以及AI数据分析的需求，请使用这类镜像。该镜像支持 arm64 架构的设备。
+
+```bash
+#run NeuronEX by neuronex:3.x.x-ai-arm64
+docker pull emqx/neuronex:3.5.2-ai-arm64
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.5.2-ai-arm64
+```

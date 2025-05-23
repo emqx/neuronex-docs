@@ -5,13 +5,13 @@
 Download the installation package according to different versions and architectures, for example:
 
 ```bash
-$ wget https://www.emqx.com/en/downloads/neuronex/3.3.0/neuronex-3.3.0-linux-amd64.tar.gz
+$ wget https://www.emqx.com/en/downloads/neuronex/3.5.0/neuronex-3.5.0-linux-amd64.tar.gz
 ```
 
 ## Install
 
 ```bash
-$ tar -zxvf neuronex-3.3.0-linux-amd64.tar.gz
+$ tar -zxvf neuronex-3.5.0-linux-amd64.tar.gz
 $ cd neuronex-3.3.0-linux-amd64
 ```
 

@@ -17,6 +17,9 @@
 | [文件](./file.md)           | 从文件中读取数据                           |
 | [Video](./video.md)         | 从视频流中查询数据                        |
 | [Simulator](./simulator.md)         | 生成模拟数据供测试                       | 
+| [CAN](./can.md)         | 从 CAN 总线读取数据                        |
+| [Kafka](./kafka.md)         | 从 Kafka 读取数据                        |
+| [WebSocket](./websocket.md)         | 从 WebSocket 读取数据                        |
 
 ## 创建流
 

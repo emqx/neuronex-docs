@@ -27,6 +27,8 @@
 | [Video](./video.md)         | 从视频流中查询数据                       | ✅   | ❌    |
 | [Simulator](./simulator.md)         | 生成模拟数据供测试                 | ✅    | ❌   | ❌    |
 | [Redis](./redis.md)         | 从 Redis 读取数据                      |  ❌   |  ✅   |
+| [CAN](./can.md)         | 从 CAN 总线读取数据                      |  ✅   |  ❌   |
+| [WebSocket](./websocket.md)         | 从 WebSocket 读取数据                      |  ✅   |  ❌   |
 
 ## 创建表
 

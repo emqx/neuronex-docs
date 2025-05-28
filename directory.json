@@ -752,6 +752,14 @@
             {
               "title": "CAN",
               "path": "streaming-processing/can"
+            },
+            {
+              "title": "Kafka",
+              "path": "streaming-processing/kafka"
+            },
+            {
+              "title": "WebSocket",
+              "path": "streaming-processing/websocket"
             }
           ]
         },
@@ -1853,6 +1861,14 @@
             {
               "title": "CAN",
               "path": "streaming-processing/can"
+            },
+            {
+              "title": "Kafka",
+              "path": "streaming-processing/kafka"
+            },
+            {
+              "title": "WebSocket",
+              "path": "streaming-processing/websocket"
             }
           ]
         },

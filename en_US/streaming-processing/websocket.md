@@ -1,6 +1,6 @@
 # Websocket Source Connector
 
-<span style="background:green;color:white;">stream source</span>
+<span style="background:green;color:white;">stream</span>
 
 eKuiper has built-in support for Websocket data sources. Through the Websocket data source connector, eKuiper can obtain data through websocket connection.
 

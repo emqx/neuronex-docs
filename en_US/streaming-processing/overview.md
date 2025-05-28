@@ -72,6 +72,8 @@ Currently NeuronEX has the following built-in data sources:
 - [Simulator](./simulator.md): built-in simulation data source for simulating data and debugging.
 - [Redis](./redis.md): Obtain data from Redis.
 - [CAN](./can.md): Read data from CAN bus.
+- [Kafka](./kafka.md): Read data from Kafka.
+- [WebSocket](./websocket.md): Read data from WebSocket.
 
 ### [Rule](./rules.md)
 

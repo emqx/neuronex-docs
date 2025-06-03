@@ -47,6 +47,10 @@
         {
           "title": "申请和安装许可证",
           "path": "installation/license_setting"
+        },
+        {
+          "title": "安装 AI 功能",
+          "path": "installation/ai"
         }
       ]
     },
@@ -1145,6 +1149,10 @@
         {
           "title": "Application and Installation License",
           "path": "installation/license_setting"
+        },
+        {
+          "title": "Install AI Function",
+          "path": "installation/ai"
         }
       ]
     },

@@ -1,5 +1,155 @@
 # 发版历史
 
+## v3.6.0
+
+发布日期：2025-06-09
+
+### 增强
+
+- **集成时序数据存储**
+
+  - 打包集成： NeuronEX 现已打包集成 Datalayers 时序数据库，支持 deb、rpm、zip、docker 等多种安装包形式。Datalayers 默认不随 NeuronEX 启动，用户可按需在系统配置中开启。
+
+  - 自动初始化： 首次开启 Datalayers 服务后，NeuronEX 会自动创建所需的 neuronex 数据库及对应数据类型的表 (neuron_int, neuron_float, neuron_bool, neuron_string)。
+
+  - 配置与管理： 用户可在系统配置页面配置开启或关闭 Datalayers 存储以及 TTL (数据保留时长) 及，并在系统信息页面查看其运行状态（运行中/已停止）、运行时长、存储空间占用等信息。
+
+  - DataStorage北向插件
+
+    - 支持 gRPC 批量写入数据至 Datalayers。
+
+    - 应用配置（如 IP、端口）可修改，可用于外置Datalayers存储模式。
+
+    - 数组类型的数采点位，以字符串方式进行存储。
+
+    - 对数据吞吐量较高情况时，提供数据缓存及丢弃机制。
+
+  - 数据统计与日志： 提供数据存储场景下的数据统计详情页，显示写入报错信息，并支持下载数据存储的日志。
+
+- [**数据查询与分析**](../datainsights/data_analysis.md)
+
+  - 统一入口： 全新的“数据分析”页面整合了数据浏览、SQL 查询和结果展示功能。
+
+  - 树形目录结构： 左侧以树形结构清晰展示已开启存储的驱动、采集组及点位信息，并显示点位在数据库中存储的数据类型 (Int, Float,Bool,String)。
+
+    - 支持刷新、点位名称搜索。
+
+    - 对数据点位默认提供 Query Column 、Query Period、Query Max 等SQL查询示例。
+
+    - 支持结合 LLM 进行 AI Query，通过自然语言输入查询需求，由 LLM 提供复杂的 SQL 查询结果。
+
+  - 智能 SQL 输入区
+
+    - 提供 SQL 关键字提示、语法高亮、行号显示。
+
+    - 支持单条 SQL 查询。
+
+    - 仅接收查询类 SQL，不支持 create、insert 、delete等操作。
+
+  - 结果展示区
+
+    - 每个 SQL 查询结果在该区域以表格 (Table) 或图表 (Chart) 形式展示。
+
+    - 表格 (Table) 显示： 默认展示查询结果。
+
+    - 图表 (Chart) 显示： 如果结果包含时间戳，支持图表展示数据。
+
+      - 支持折线图 (line)和柱状图 (bar)两种图表类型。
+
+      - 支持图表缩放、保存下载。
+
+- [**AI 数据分析助手**](../datainsights/data_analysis.md#5-ai-数据分析助手集成)
+
+  - UI 入口: 集成在“数据分析”页面的AI数据分析按钮，以及点位操作项中的AI Query。
+
+  - AI 交互框
+
+    - 默认页面: 提供引导性提示，告知用户 NeuronEX 按数据类型分表存储 (neuron_float, neuron_int, neuron_bool, neuron_string)，并建议用户提供点位名和数据类型。提供可点击的查询示例，快速开始分析。
+
+    - 点位 AI Query 查询: 从 UI 上下文自动获取点位名称和对应的数据表 (如 neuron_float, tag='tag1')，预填充到 AI 对话框中。
+
+  - AI 数据分析输出
+
+    - 主要目标是帮助用户进行复杂的数据分析时，生成正确的 SQL。
+
+    - 当 SQL 执行出错时，LLM 能够智能分析错误，并利用工具进行多轮迭代修正，直至生成可成功执行的 SQL 查询。
+
+    - 由于 LLM 上下文 Token 的限制，目前暂不会将所有 SQL 查询结果发送给 LLM，进行完整数据分析。
+
+  - 配置与管理
+
+    - 用户可在系统配置页面配置开启或关闭 AI Agent 服务，并在系统信息页面查看 AI Agent 运行状态（运行中/已停止）、运行时长等信息。
+
+    - 在系统配置->AI模型配置页面，需要配置并开启 AI 模型，以使用 AI 数据分析以及 AI 写插件功能。
+
+  - NeuronEX 3.6.0版本，在 Docker 镜像 emqx/neuronex:3.6.0-ai 和  emqx/neuronex:3.6.0-ai-arm64  版本中，默认集成了LLM运行所需的 Python依赖库，用户可直接使用该功能。当使用deb、rpm、zip或其他 Docker 镜像时，用户需要手动配置好Python依赖库后，方可使用 NeuronEX AI 功能。详细依赖库配置请参考[AI 功能环境配置指南](../admin/sys-configuration.md#ai-功能环境配置指南)。
+
+- [**仪表盘**](../datainsights/dashboards.md)
+
+  - 主页面: 列表展示已有仪表盘，支持搜索、分页、创建、编辑、复制、删除、进入等操作。
+
+  - 仪表盘内部
+
+    - 时间段选择器: 支持预设时间范围 (Last 1 minute, 1 hour, 1 day等) 和自定义时间段。
+
+    - 刷新机制: 支持手动刷新和设置自动刷新间隔 (例如 30s, 1m等)。
+
+    - 添加 Panel 
+
+      - 支持添加 Panel，可配置 Panel 名称、图表类型 (Line, Bar, Stat, Table)、语义类型/单位 (例如 °C，显示在图表上)。
+
+      - SQL 查询
+
+        - 每个 Panel 可包含一个或多个 Query。注意：Table类型只支持一个 Query。
+
+        - 支持启用/禁用“SQL 查询使用 $timeFilter 变量”。
+
+        - 启用时 : 用户 SQL 中必须包含 $timeFilter 字段，后端会将其替换为当前仪表盘选择的时间范围，实现高效查询。
+
+        - 禁用时：NeuronEX 会在当前用户输入SQL语句的基础上，自动拼接仪表盘时间范围，再执行 SQL 查询。
+
+        - 若启用 $timeFilter 但 SQL 中缺失，会报错提示。
+
+      - Alias By: 为每个 Query 的结果曲线指定别名显示。指定别名需要当前 SQL 查询结果中仅包含时间戳及一个值（value）列。
+
+      - 支持在一个 Panel 中添加多个 Query，每个 Query 对应图表中的一条曲线。
+
+    - Panel 配置
+
+      - 支持对 Panel进行编辑、复制、删除等操作。
+
+      - 支持在仪表盘上拖动 Panel 调整大小及位置。
+
+      - 支持曲线筛选（点击图例显示/隐藏对应曲线）。
+
+      - 仪表盘使用网格系统进行对齐。
+
+- [**NodeRED 集成**](../application/nodered.md)
+
+  - NeuronEX 3.6.0版本，在 Docker 镜像 `emqx/neuronex:3.6.0-ai` 和  `emqx/neuronex:3.6.0-ai-arm64` 版本中，默认集成了NodeRED v4.0.9，用户可按需在应用列表中开启 NodeRED 服务（默认为关闭）。
+
+  - 支持通过北向 Websocket 应用、数据处理模块 REST Sink 将数据推送到 NodeRED，进行数据处理。
+
+- Neuhub 软件 (原 NeuOPC 升级版): Neuhub 整合了多个依赖 Windows 环境进行转换采集的数采插件（包括 OPCDA、新代 CNC和三菱 CNC），并对 OPCDA 插件引入了 License 管理功能。
+
+- SparkplugB 应用新增支持静态点位。
+
+- 南向设备支持基于工作状态、连接状态对驱动节点进行筛选，支持基于工作状态、连接状态、延时对驱动节点进行排序。
+
+- 北向应用页面支持基于工作状态、连接状态对应用节点进行筛选，支持基于工作状态、连接状态对应用节点进行排序。
+
+- 北向应用添加订阅页面，支持输入关键字搜索南向驱动及采集组。
+
+- BACnet/IP 驱动支持点位扫描功能。
+
+- OPCUA 、DNP3 、Siemens S7驱动支持链路追踪功能。
+
+- 数据处理模块新增 Kafka Source
+
+- 数据处理模块新增 Web Socket Source
+
+
+
 ## v3.5.2
 
 发布日期：2025-05-22
@@ -51,37 +201,6 @@
 - 修复 Portable 插件出错时 Panic 问题
 
 
-## v3.4.5
-
-发布日期：2025-03-20
-
-### 修复
-
-- 修复通过 NeuronEX API 向 OPCUA Server 写入浮点数值（如 "121.0"）失败，而像 120.9 或 121.1 这样的值则可以正常写入。
-
-## v3.4.4
-
-发布日期: 2025-03-12
-
-### 增强
-
-- FINS TCP/UDP 新增优化读大小
-- Modbus 驱动数据处理优化
-- SparkplugB 写点位适配核心新加入的is_value_in_range规则
-- 数据处理模块新增 sync cache 指标
-
-### 修复
-
-- 修复 CNC License显示异常
-- 修复 SparkplugB 节点启动后DBIRTH触发不正确的问题
-- 修复  SparkplugB NDEATH 和 DDEATH触发不正确的问题
-- 修复 DLT645 驱动crash问题
-- 修复 FINS TCP/UDP驱动crash问题
-- 修复 sink bufferLength 配置不生效
-- 修复 last_agg_hit_time() 单独在 having 里使用时未能有效更新值
-- 修复更改删除连接规则失败文本，明确指出有规则使用
-- 修复 sink omitEmpty 属性 send single 时，非nil但无数据不生效问题
-
 ## v3.5.0
 
 发布日期: 2025-02-25
@@ -118,6 +237,37 @@
 
 - 修复许可证页面 CNC License 显示错误
 - 修复备份功能导出异常
+
+## v3.4.5
+
+发布日期：2025-03-20
+
+### 修复
+
+- 修复通过 NeuronEX API 向 OPCUA Server 写入浮点数值（如 "121.0"）失败，而像 120.9 或 121.1 这样的值则可以正常写入。
+
+## v3.4.4
+
+发布日期: 2025-03-12
+
+### 增强
+
+- FINS TCP/UDP 新增优化读大小
+- Modbus 驱动数据处理优化
+- SparkplugB 写点位适配核心新加入的is_value_in_range规则
+- 数据处理模块新增 sync cache 指标
+
+### 修复
+
+- 修复 CNC License显示异常
+- 修复 SparkplugB 节点启动后DBIRTH触发不正确的问题
+- 修复  SparkplugB NDEATH 和 DDEATH触发不正确的问题
+- 修复 DLT645 驱动crash问题
+- 修复 FINS TCP/UDP驱动crash问题
+- 修复 sink bufferLength 配置不生效
+- 修复 last_agg_hit_time() 单独在 having 里使用时未能有效更新值
+- 修复更改删除连接规则失败文本，明确指出有规则使用
+- 修复 sink omitEmpty 属性 send single 时，非nil但无数据不生效问题
 
 ## v3.4.3
 

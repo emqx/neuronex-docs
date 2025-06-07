@@ -13,7 +13,7 @@ In the pop-up **Source** / **Create** page, enter the following configuration:
 - **Stream Name**: Enter the stream name
 - **Is Structured Stream**: Unchecked
 - **Stream Type**: Select Kafka
-- **Configuration Group**: You can edit using the default configuration group, or click Add Configuration Group. In the pop-up dialog, configure as follows. After configuration, you can click **Test Connection** to test:
+- **Configuration Key**: You can edit using the default configuration group, or click Add Configuration Group. In the pop-up dialog, configure as follows. After configuration, you can click **Test Connection** to test:
 
   - **Name**: Enter the configuration group name
   - **Brokers**: Enter Kafka addresses, separated by ","

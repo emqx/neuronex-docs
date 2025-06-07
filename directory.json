@@ -557,6 +557,34 @@
                   "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/codesys3/demo.md"
                 }
               ]
+            },
+            {
+              "title": "NeuronHUB",
+              "path": "configuration/south-devices/neuhub/neuhub",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/neuhub/neuhub.md",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "OPC DA",
+                  "path": "configuration/south-devices/neuhub/opcda",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/neuhub/opcda.md"
+                },
+                {
+                  "title": " KEPServerEX OPCDA Server 连接示例",
+                  "path": "configuration/south-devices/neuhub/example/kepware-da",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/neuhub/example/kepware-da.md"
+                },
+                {
+                  "title": "SYNTEC CNC",
+                  "path": "configuration/south-devices/neuhub/syntec-cnc",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/neuhub/syntec-cnc.md"
+                },
+                {
+                  "title": "MITSUBISHI CNC",
+                  "path": "configuration/south-devices/neuhub/mitsubishi-cnc",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/neuhub/mitsubishi-cnc.md"
+                }
+              ]
             }
           ]
         },
@@ -645,6 +673,11 @@
               "title": "WebSocket 客户端",
               "path": "configuration/north-apps/websocket/websocket",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/websocket/websocket.md"
+            },
+            {
+              "title": "DataStorage 数据存储插件",
+              "path": "configuration/north-apps/DataStorage/DataStorage",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/DataStorage/DataStorage.md"
             }
           ]
         },
@@ -978,6 +1011,32 @@
       ]
       },
     {
+      "title": "数据探索",
+      "path": "datainsights/overview",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "数据分析",
+          "path": "datainsights/data_analysis"
+        },
+        {
+          "title": "仪表盘",
+          "path": "datainsights/dashboards"
+        }
+      ]
+    },
+    {
+      "title": "应用集成",
+      "path": "application/overview",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "NodeRED 集成",
+          "path": "application/nodered"
+        }
+      ]
+    },
+      {
         "title": "HTTP API",
         "path": "api/api",
         "collapsed": true,
@@ -1644,6 +1703,34 @@
                   "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/codesys3/demo.md"
                 }
               ]
+            },
+            {
+              "title": "NeuronHUB",
+              "path": "configuration/south-devices/neuhub/neuhub",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/neuhub/neuhub.md",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "OPC DA",
+                  "path": "configuration/south-devices/neuhub/opcda",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/neuhub/opcda.md"
+                },
+                {
+                  "title": "Example of KEPServerEX OPCDA Server Connection",
+                  "path": "configuration/south-devices/neuhub/example/kepware-da",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/neuhub/example/kepware-da.md"
+                },
+                {
+                  "title": "SYNTEC CNC",
+                  "path": "configuration/south-devices/neuhub/syntec-cnc",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/neuhub/syntec-cnc.md"
+                },
+                {
+                  "title": "MITSUBISHI CNC",
+                  "path": "configuration/south-devices/neuhub/mitsubishi-cnc",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/neuhub/mitsubishi-cnc.md"
+                }
+              ]
             }
           ]
         },
@@ -1751,9 +1838,9 @@
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/websocket/websocket.md"
             },
             {
-              "title": "Monitor",
-              "path": "configuration/north-apps/monitor/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/monitor/overview.md"
+              "title": "DataStorage",
+              "path": "configuration/north-apps/DataStorage/DataStorage",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/DataStorage/DataStorage.md"
             }
           ]
         },
@@ -2084,6 +2171,32 @@
           ]
         }
       ]
+      },
+      {
+        "title": "Data Insights",
+        "path": "datainsights/overview",
+        "collapsed": true,
+        "children": [
+          {
+            "title": "Data Analysis",
+            "path": "datainsights/data_analysis"
+          },
+          {
+            "title": "Dashboards",
+            "path": "datainsights/dashboards"
+          }
+        ]
+      },
+    {
+        "title": "Application",
+        "path": "application/overview",
+        "collapsed": true,
+        "children": [
+          {
+            "title": "NodeRED",
+            "path": "application/nodered"
+          }
+        ]
       },
     {
       "title": "HTTP API",

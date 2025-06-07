@@ -1,50 +1,46 @@
 # Websocket Source Connector
 
-<span style="background:green;color:white;">stream</span>
+<span style="background:green;color:white;">stream</span> <span style="background:green;color:white;">Scan table</span>
 
-eKuiper has built-in support for Websocket data sources. Through the Websocket data source connector, eKuiper can obtain data through websocket connection.
+The NeuronEX data processing module acquires data via the Websocket data source.
 
-When eKuiper uses the websocket data source, eKuiper will get the data from the websocket TextMessage and parse it in the form of json object data.
+## Create Stream
 
-## eKuiper serve as websocket client
+Log in to NeuronEX, click **Data Processing** -> **Sources**. In the **Stream Management** tab, click **Create Stream**.
 
-eKuiper can serve as a websocket client, initiate a websocket connection to the remote websocket server, and receive data on the websocket connection as a message source.
+In the pop-up **Source** / **Create** page, enter the following configuration:
 
-When you need eKuiper as a websocket client, you need to specify the server address of the websocket connection in the corresponding confKey, and declare the corresponding url in the dataSource of the stream, as follows:
+- **Stream Name**: Enter the stream name
+- **Is Structured Stream**: Unchecked
+- **Stream Type**: Select Websocket
+- **Configuration Key**: You can edit using the default configuration group, or click Add Configuration Group. In the pop-up dialog, configure as follows:
 
-```yaml
-default:
-  addr: 127.0.0.1:8080
-```
+  - **Name**: Enter the configuration group name
+  - **Websocket Address**: Enter the Websocket server address
+  - **Client Certificate**: Enter the path to the crt file for Websocket client SSL verification
+  - **Client Private Key**: Enter the path to the key file for Websocket client SSL verification
+  - **CA File**: Enter the path to the ca certificate file for Websocket client SSL verification
+  - **Skip Certificate Verification**: Whether to skip SSL verification
+- **Stream Format**: Supports json, binary, protobuf, delimited, custom
+- **Shared**: Check to confirm whether to share the source
 
-```sql
-CREATE STREAM demo'() with(CONF_KEY="default", datasource="/api/data", type="websocket")'
-```
+## As a Websocket Client
 
-At this time, eKuiper will act as a websocket client, establish a websocket connection to 127.0.0.1:8080/api/data, and use this connection to receive data as the message source.
+A Websocket data source can act as a Websocket client, initiating a Websocket connection to a remote Websocket server and receiving data over that connection as a message source.
 
-You can check the connectivity of the corresponding sink endpoint in advance through the API: [Connectivity Check](../../../api/restapi/connection.md#connectivity-check)
+When acting as a Websocket client, you need to specify the `Websocket Address`, for example: `127.0.0.1:8080`; and fill in the `Data Source` configuration item on the create data source page as follows: `/api/data`;
 
-## eKuiper serve as websocker server
+At this point, the Websocket data source will act as a Websocket client, establishing a Websocket connection to `127.0.0.1:8080/api/data` and receiving data over this connection as a message source.
 
-eKuiper can serve as a websocket server. At this time, the remote websocket client can actively initiate a websocket connection to eKuiper, and eKuiper will receive messages on the websocket connection as the message source.
+## As a Websocket Server
 
-When you need eKuiper as a websocket server, you need to specify that the websocket server address is empty in the corresponding confKey, and declare the corresponding url in the dataSource of the stream, as follows:
+A Websocket data source can also act as a Websocket server. In this case, a remote Websocket client can actively initiate a Websocket connection to NeuronEX, and NeuronEX will receive messages over that Websocket connection as a message source.
 
-```yaml
-default:
-  addr: ""
-```
+When acting as a Websocket server, the `Websocket Address` can be left blank, and the `Data Source` configuration item can be configured as follows: `/api/data`;
 
-```sql
-CREATE STREAM demo'() with(CONF_KEY="default", datasource="/api/data", type="websocket")'
-```
+At this point, NeuronEX will act as a Websocket server, using itself as the host, and waiting for Websocket connections to be established at the `/api/data` URL, receiving data over these connections as a message source.
 
-At this time, eKuiper will serve as the websocket server, use itself as the host, wait for the websocket connection to be established at the URL of /api/data, and use this connection to receive data as the message source.
-
-### Server Configuration
-
-To set up eKuiper as an Websocket endpoint, configure the server settings in `etc/sources/websocket.yaml`.
+The default Websocket port is 10081. To modify this port, you need to change it in the `source` section of the configuration file located at `/opt/neuronex/software/ekuiper/etc`:
 
 ```yaml
 source:
@@ -60,62 +56,9 @@ source:
 
 Users can specify the following properties:
 
-- `httpServerIp`: IP to bind the HTTP data server.
-- `httpServerPort`: Port to bind the HTTP data server.
-- `httpServerTls`: Configuration of the HTTP TLS.
+- `httpServerIp`: IP to bind the Websocket data server.
+- `httpServerPort`: Port to bind the Websocket data server.
+- `httpServerTls`: Configuration of the Websocket server's TLS.
 
 The global server initializes when any rule requiring an Websocket source is activated. It terminates once all associated rules are closed.
 
-## Create a Stream Source
-
-Once you've set up your streams with their respective configurations, you can integrate them with eKuiper rules to process and act on the incoming data.
-
-::: tip
-
-Websocket connector can function as a [stream source](../../streams/overview.md). This section illustrates the integration using the Websocket Source connector as a stream source example.
-
-:::
-
-You can define the Websocket source as the data source either by REST API or CLI tool.
-
-### Use REST API
-
-The REST API offers a programmatic way to interact with eKuiper, perfect for those looking to automate tasks or integrate eKuiper operations into other systems.
-
-Example:
-
-```sql
-CREATE STREAM websocketDemo() WITH (FORMAT="json", TYPE="websocket")
-```
-
-**Create with Custom Configuration**
-
-You can use the `endpoint` property corresponds to the `datasource` property in the stream creation statement.
-
-Example
-
-```sql
-CREATE STREAM websocketDemo() WITH (DATASOURCE="/api/data", FORMAT="json", TYPE="websocket")
-```
-
-In this example, we bind the source to `/api/data` endpoint. Thus, with the default server configuration, it will listen on `http://localhost:10081/api/data`.
-
-More details can be found at [Streams Management with REST API](../../../api/restapi/streams.md).
-
-### Use CLI
-
-For those who prefer a hands-on approach, the Command Line Interface (CLI) provides direct access to eKuiper's operations.
-
-1. Navigate to the eKuiper binary directory:
-
-   ```bash
-   cd path_to_eKuiper_directory/bin
-   ```
-
-2. Use the `create` command to create a rule, specifying the Websocket connector as its source, for example:
-
-   ```bash
-   bin/kuiper CREATE STREAM demo'() with(format="json", datasource="/api/data", type="websocket")'
-   ```
-  
-More details can be found at [Streams Management with CLI](../../../api/cli/streams.md).

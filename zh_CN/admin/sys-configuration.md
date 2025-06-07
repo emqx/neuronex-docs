@@ -30,6 +30,64 @@ NeuronEX 支持在 Dashboard 上对相关功能进行配置修改。
 
 :::
 
+## 数据存储配置
+
+NeuronEX v3.6.0 版本开始集成了 Datalayers 时序数据库，用于在边缘端持久化存储采集到的数据。您可以在此配置数据存储的相关参数。
+
+![data_storage_config_zh](assets/data_storage_config_zh.png) 
+
+*   **时序数据库 (Datalayers):**
+    *   **开关:** 通过此开关可以**开启或关闭**内置 Datalayers 服务的运行。
+        *   **开启:** NeuronEX 将启动集成的 Datalayers 服务，并将在北向 DataStorage 插件中订阅的南向驱动数据写入该数据库。这将允许您使用数据探索模块（数据分析、仪表盘）的功能。
+        *   **关闭:** Datalayers 服务将停止，数据将不再被存储到内置数据库中。已存储的数据在服务停止期间将无法访问。
+
+::: tip 注意
+开启 Datalayers 服务会占用一定的系统资源 (CPU, 内存, 磁盘)。请根据您的硬件配置和业务需求决定是否开启。Datalayers 默认不随 NeuronEX 启动。
+:::
+
+*   **数据存储 TTL (天):**
+    *   **输入框:** 用于设置数据在 Datalayers 中保留的时长 (Time To Live)，单位为“天”。例如，输入 `10` 表示数据将保留 10 天，超过 10 天的旧数据将被自动清理。
+    *   **+/- 按钮:** 用于方便地增加或减少 TTL 天数。
+    *   **最小值:** (请根据实际情况说明 TTL 的最小有效值，例如 1 天)
+
+
+*   **保存数据存储 TTL 配置:**
+    *   **按钮:** 当您修改了“数据存储 TTL (天)”的值后，需要点击此按钮来保存更改，使新的 TTL 设置生效。
+
+:::tip 注意
+* 首次开启 Datalayers 服务后，NeuronEX 会自动创建所需的 `neuronex` 数据库及对应数据类型的表 (`neuron_int`, `neuron_float`, `neuron_bool`, `neuron_string`)。
+
+* 合理配置 TTL 对于管理磁盘空间占用至关重要。请根据您的数据量、磁盘容量和历史数据查询需求来设定合适的 TTL 值。
+:::
+
+## AI Agent
+
+AI Agent 服务是 NeuronEX 中 [**AI 数据分析助手**](../datainsights/data_analysis.md)以及 [**AI 生成函数**](../best-practise/llm-portable-plugin.md)功能的核心组件，负责与配置的 AI 模型进行交互。
+
+*   **开启 AI Agent:**
+    *   **开关:** 通过此开关可以**开启或关闭** AI Agent 服务。
+        *   **开启:** AI Agent 服务将启动，允许用户在数据分析模块中使用 AI Query 功能。
+        *   **关闭:** AI Agent 服务将停止，AI 数据分析助手功能将不可用。
+    *   **依赖:** 要成功使用 AI Agent 服务，您还需要在“系统配置” -> [**AI 模型配置**](#ai-模型配置)选项卡中正确配置并启用至少一个 AI 模型。
+    *   **环境:** 使用 AI Agent 需要相应的 Python 运行环境及相关依赖库。在 Docker 镜像 (如 `emqx/neuronex:3.6.0-ai`和 `emqx/neuronex:3.6.0-ai-arm64`) 中，已预置了 Python 运行环境及相关依赖库，用户可直接使用该功能。如使用其他方式的 NeuronEX 安装包，请确保已按照 [AI 功能环境配置指南](#ai-功能环境配置指南) 正确配置了 Python 运行环境及相关依赖库。
+
+:::tip 注意
+* 关闭 AI Agent 服务将导致 **AI 数据分析** 功能和 **AI 生成函数**无法使用。请确保在需要时开启此服务，并已正确配置了 AI 模型。
+* 开启 AI Agent 服务会占用一定的系统资源 (CPU, 内存)。请根据您的硬件配置和业务需求决定是否开启。
+* 确保 NeuronEX 与配置的 AI 模型之间的网络畅通。
+:::
+
+### AI 功能环境配置指南
+
+1. 根据当前环境, 下载对应的安装包, 例如: neuronex-3.6.0-linux-amd64.deb
+2. 参考文档[安装 NeuronEX](../installation/introduction.md)
+3. 进入 AI 功能模块目录, systemd 托管的 NeuronEX 的 AI 功能默认目录是: /opt/neuronex/software/neuronex-ai
+4. NeuronEX 的 AI 功能采用 uv 作为项目管理工具, 如果没有 uv, 需要先安装, 具体参考: [Installing uv](https://docs.astral.sh/uv/getting-started/installation/)
+5. uv 安装成功后, 使用如下命令测试 AI 功能是否能正常启动: uv sync &&  cd src/apps_entry && uv run main.py
+6. 如果上面的命令出现如下提示, 则表示 AI 相关依赖库已安装成功:
+![neuronex ai hint](./assets/neuronex-ai-install.png)
+7. 如果所处环境无法正常安装 uv 和依赖库, 可以寻找可用的国内镜像库, 或者使用 NeuronEX 带 -ai 或者 -ai-arm64 后缀的容器镜像来部署 NeuronEX 服务, 镜像中已经有完整的 AI 功能. 
+
 ## 单点登录配置
 
 NeuronEX 使用 OAuth2.0 协议实现单点登录功能。

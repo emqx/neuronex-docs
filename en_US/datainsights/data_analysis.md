@@ -73,6 +73,8 @@ The "Data Analysis" page deeply integrates an AI data analysis assistant, design
 *   **Context Limitations:** The current version mainly uses AI to assist SQL generation and correction. Due to LLM token limits, only partial query results are sent to AI for analysis and confirmation.
 *   **Configuration and Dependencies:** Using this feature requires first enabling AI Agent service in system configuration, configuring AI models, and ensuring the runtime environment (especially when using non-AI specific Docker images) has correctly installed required Python dependency libraries. For details, please refer to [AI Feature Environment Configuration Guide](../admin/sys-configuration.md#ai-feature-environment-configuration-guide).
 
+![data_analysis_zh](_assets/data_analysis_AI_en.png) 
+
 ## Prerequisites
 
 *   NeuronEX has enabled and configured [Integrated Time Series Data Storage (Datalayers)](../admin/sys-configuration.md#data-storage-configuration).

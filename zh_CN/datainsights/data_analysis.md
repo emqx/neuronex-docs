@@ -73,6 +73,8 @@
 *   **上下文限制:** 当前版本主要利用 AI 辅助 SQL 生成与修正，由于LLM Token上限的限制，只会将部分查询结果发送给 AI 进行分析确认。
 *   **配置与依赖:** 使用此功能需要先在系统配置中开启 AI Agent 服务、配置 AI 模型，并确保运行环境（特别是使用非 AI 特定 Docker 镜像时）已正确安装所需的 Python 依赖库。详情请参考 [AI 功能环境配置指南](../admin/sys-configuration.md#ai-功能环境配置指南)。
 
+![data_analysis_zh](_assets/data_analysis_AI_zh.png) 
+
 ## 使用前提
 
 *   NeuronEX 已启用并配置了 [集成时序数据存储 (Datalayers)](../admin/sys-configuration.md#数据存储配置)。

@@ -261,9 +261,9 @@ NeuronEX 支持在系统配置页面配置 AI 模型，并使用 AI 模型生成
 | <div style="width:100pt">模型厂商</div>                 | <div style="width:120pt">Endpoint地址</div> | <div style="width:120pt">模型名称</div> |
 | ------------------------------------------------------------ |  ------------ | -------------------------------- |
 | DeepSeek              | `https://api.deepseek.com`  | `deepseek-chat` <br> `deepseek-reasoner` |
-| SiliconFlow              | -    |  `Pro/deepseek-ai/DeepSeek-V3` <br> `Pro/deepseek-ai/DeepSeek-R1`|
-| OpenAI     | `https://api.openai.com/v1`  |  `gpt-4o` |
-| Azure OpenAI            | Azure官网获取  |  `gpt-4o` |
+| SiliconFlow              | -    |  `Pro/deepseek-ai/DeepSeek-V3` <br> `deepseek-ai/DeepSeek-V3`|
+| OpenAI     | `https://api.openai.com/v1`  |  `gpt-4o` <br> `o1-mini` <br>  `o3-mini`|
+| Azure OpenAI            | Azure官网获取  | `gpt-4o` <br> `gpt-4.1` <br> `o1` <br> `o3-mini` <br> `gpt-4.5-preview` <br> `gpt-4.1-mini` <br> `o4-mini` |
 
 您可通过以上模型厂商的官方网站获取 API Key，并在 NeuronEX 页面添加模型配置并启用。可在页面中同时配置多个大模型，但只能启用一个模型进行使用。
 

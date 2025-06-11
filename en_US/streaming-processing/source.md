@@ -26,6 +26,8 @@ Currently NeuronEX has the following built-in data source types and the loading 
 | [Simulator](./simulator.md)         | Generate simulated data for testing                       | ✅    | ✅   | ❌    |
 | [Redis](./redis.md)         | Read data from Redis                     | ❌    | ❌   |  ✅   |
 | [CAN](./can.md)         | Read data from CAN bus                      | ✅    | ✅   | ❌  |
+| [Kafka](./kafka.md)         | Read data from Kafka                      | ✅    | ❌   | ❌  |
+| [WebSocket](./websocket.md)         | Read data from WebSocket                      | ✅    | ✅   | ❌  |
 
 ## Define and run
 

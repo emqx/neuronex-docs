@@ -26,6 +26,8 @@
 | [Simulator](./simulator.md)         | 生成模拟数据供测试                       | ✅    | ✅   | ❌    |
 | [Redis](./redis.md)         | 从 Redis 读取数据                      | ❌    | ❌   |  ✅   |
 | [CAN](./can.md)         | 从 CAN 总线读取数据                      | ✅    | ✅   |  ❌   |
+| [Kafka](./kafka.md)         | 从 Kafka 读取数据                      | ✅    | ❌   |  ❌   |
+| [WebSocket](./websocket.md)         | 从 WebSocket 读取数据                      | ✅    | ✅   |  ❌   |
 
 ## 定义和运行
 

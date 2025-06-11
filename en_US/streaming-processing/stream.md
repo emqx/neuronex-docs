@@ -16,6 +16,10 @@ Currently, the following stream types are supported built-in:
 | [SQL](./sql.md)         | Query data from the database                       |
 | [File](./file.md)           | Read data from a file                            |
 | [Video](./video.md)         | Query data from video stream                        |
+| [Simulator](./simulator.md)         | Read data from simulator                      |
+| [CAN](./can.md)         | Read data from CAN bus                      |
+| [Kafka](./kafka.md)         | Read data from Kafka                      |
+| [WebSocket](./websocket.md)         | Read data from WebSocket                      |
 
 ## Create stream
 

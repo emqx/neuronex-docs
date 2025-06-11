@@ -25,7 +25,10 @@ With a streaming data source, any new data is appended to the current stream for
 | [SQL](./sql.md)         | Query data from the database                            | ✅      | ✅|
 | [File](./file.md)           | Read data from a file                            | ✅    | ❌    |
 | [Video](./video.md)         | Query data from video stream                      | ✅   | ❌    |
+| [Simulator](./simulator.md)         | Read data from simulator                      | ✅   | ❌    |
 | [Redis](./redis.md)         | Read data from Redis                     |  ❌   |  ✅   |
+| [CAN](./can.md)         | Read data from CAN bus                      |  ✅   |  ❌   |
+| [WebSocket](./websocket.md)         | Read data from WebSocket                      |  ✅   |  ❌   |
 
 ## Create table
 

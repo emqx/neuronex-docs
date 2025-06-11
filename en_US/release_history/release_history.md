@@ -1,5 +1,153 @@
 # Release history
 
+## v3.6.0
+
+Release Date: 2025-06-11
+
+### Enhancements
+
+- **Integrated Time Series Data Storage**
+
+  - Package Integration: NeuronEX now includes packaged integration of Datalayers time series database, supporting multiple installation package formats including deb, rpm, zip, docker, etc. Datalayers does not start with NeuronEX by default; users can enable it as needed in system configuration.
+
+  - Automatic Initialization: After enabling the Datalayers service for the first time, NeuronEX will automatically create the required neuronex database and corresponding data type tables (neuron_int, neuron_float, neuron_bool, neuron_string).
+
+  - Configuration and Management: Users can configure enabling or disabling Datalayers storage and TTL (data retention period) on the system configuration page, and view its running status (Running/Stopped), runtime duration, storage space usage, and other information on the system information page.
+
+  - DataStorage Northbound Plugin
+
+    - Supports gRPC batch writing of data to Datalayers.
+
+    - Application configuration (such as IP, port) can be modified and used for external Datalayers storage mode.
+
+    - Array type data collection tags are stored as strings.
+
+    - Provides data caching and discarding mechanisms for high data throughput scenarios.
+
+  - Data Statistics and Logs: Provides data statistics detail page for data storage scenarios, displays write error information, and supports downloading data storage logs.
+
+- [**Data Query and Analysis**](../datainsights/data_analysis.md)
+
+  - Unified Entry: The new "Data Analysis" page integrates data browsing, SQL query, and result display functions.
+
+  - Tree Directory Structure: The left side displays drivers, collection groups, and tag information with storage enabled in a clear tree structure, showing the data types (Int, Float, Bool, String) stored in the database for each tag.
+
+    - Supports refresh and tag name search.
+
+    - Provides SQL query examples such as Query Column, Query Period, Query Max for data tag by default.
+
+    - Supports AI Query combined with LLM, allowing users to input query requirements in natural language and receive complex SQL query results from LLM.
+
+  - Smart SQL Input Area
+
+    - Provides SQL keyword hints, syntax highlighting, and line number display.
+
+    - Supports single SQL query execution.
+
+    - Only accepts query-type SQL, does not support create, insert, delete, and other operations.
+
+  - Result Display Area
+
+    - Each SQL query result is displayed in this area in table or chart format.
+
+    - Table Display: Shows query results by default.
+
+    - Chart Display: If results contain timestamps, supports chart display of data.
+
+      - Supports two chart types: line chart and bar chart.
+
+      - Supports chart zooming, downloading.
+
+- [**AI Data Analysis Assistant**](../datainsights/data_analysis.md#5-ai-data-analysis-assistant-integration)
+
+  - UI Entry: Integrated in the AI data analysis button on the "Data Analysis" page, as well as AI Query in tag operation items.
+
+  - AI Interaction Box
+
+    - Default Page: Provides guidance prompts, informing users that NeuronEX stores data by data type in separate tables (neuron_float, neuron_int, neuron_bool, neuron_string), and suggests users provide tag names and data types. Provides clickable query examples to quickly start analysis.
+
+    - Tag AI Query: Automatically obtains tag names and corresponding data tables (such as neuron_float, tag='tag1') from UI context and pre-fills them into the AI dialog box.
+
+  - AI Data Analysis Output
+
+    - Main goal is to help users generate correct SQL for complex data analysis.
+
+    - When SQL execution fails, LLM can intelligently analyze errors and use tools for multi-round iterative correction until generating successfully executable SQL queries.
+
+    - Due to LLM context token limitations, currently does not send all SQL query results to LLM for complete data analysis.
+
+  - Configuration and Management
+
+    - Users can configure enabling or disabling AI Agent service on the system configuration page, and view AI Agent running status (Running/Stopped), runtime duration, and other information on the system information page.
+
+    - On the System Configuration -> AI Model Configuration page, users need to configure and enable AI models to use AI data analysis and AI plugin writing functions.
+
+  - In NeuronEX 3.6.0, the Docker images emqx/neuronex:3.6.0-ai and emqx/neuronex:3.6.0-ai-arm64 include Python dependency libraries required for LLM operation by default, allowing users to use this feature directly. When using deb, rpm, zip, or other Docker images, users need to manually configure Python dependency libraries before using NeuronEX AI features. For detailed dependency library configuration, please refer to [AI Feature Environment Configuration Guide](../admin/sys-configuration.md#ai-feature-environment-configuration-guide).
+
+- [**Dashboard**](../datainsights/dashboards.md)
+
+  - Main Page: Lists existing dashboards, supports search, pagination, create, edit, copy, delete, enter, and other operations.
+
+  - Inside Dashboard
+
+    - Time Range Selector: Supports preset time ranges (Last 1 minute, 1 hour, 1 day, etc.) and custom time periods.
+
+    - Refresh Mechanism: Supports manual refresh and setting automatic refresh intervals (e.g., 30s, 1m, etc.).
+
+    - Add Panel
+
+      - Supports adding panels, configurable panel name, chart type (Line, Bar, Stat, Table), semantic type/unit (e.g., °C, displayed on chart).
+
+      - SQL Query
+
+        - Each panel can contain one or more queries. Note: Table type only supports one query.
+
+        - Supports enabling/disabling "SQL query uses $timeFilter variable".
+
+        - When enabled: User SQL must include $timeFilter field, backend will replace it with current dashboard selected time range for efficient querying.
+
+        - When disabled: NeuronEX will automatically append dashboard time range to current user input SQL statement before executing SQL query.
+
+        - If $timeFilter is enabled but missing in SQL, error prompt will be displayed.
+
+      - Alias By: Specify alias display for each query result curve. Specifying alias requires current SQL query result to contain only timestamp and one value column.
+
+      - Supports adding multiple queries in one panel, each query corresponds to one curve in the chart.
+
+    - Panel Configuration
+
+      - Supports editing, copying, deleting panels.
+
+      - Supports dragging panels on dashboard to adjust size and position.
+
+      - Supports curve filtering (click legend to show/hide corresponding curves).
+
+      - Dashboard uses grid system for alignment.
+
+- [**Node-RED Integration**](../application/nodered.md)
+
+  - In NeuronEX 3.6.0, the Docker images `emqx/neuronex:3.6.0-ai` and `emqx/neuronex:3.6.0-ai-arm64` include Node-RED v4.0.9 by default. Users can enable Node-RED service as needed in the application list (disabled by default).
+
+  - Supports pushing data to Node-RED through northbound `Websocket` applications and data processing module `REST Sink` for data processing.
+
+- Neuhub Software (upgraded version of NeuOPC): Neuhub integrates multiple data collection plugins that depend on Windows environment for conversion collection (including OPCDA, Syntec CNC, and Mitsubishi CNC), and introduces License management functionality for OPCDA plugin.
+
+- SparkplugB application adds support for static tags.
+
+- Southbound devices support filtering driver nodes based on Status and Connection Status, and sorting driver nodes based on Status, Connection Status, and Delay Time.
+
+- Northbound application page supports filtering application nodes based on Status and Connection Status, and sorting application nodes based on Status and Connection Status.
+
+- Northbound application add subscription page supports inputting keywords to search southbound drivers and collection groups.
+
+- BACnet/IP driver supports tag scanning functionality.
+
+- OPCUA, DNP3, Siemens S7 drivers support tracing functionality.
+
+- Data processing module adds Kafka Source.
+
+- Data processing module adds WebSocket Source.
+
 ## v3.5.2
 
 Release Date: 2025-05-22

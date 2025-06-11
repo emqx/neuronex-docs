@@ -253,8 +253,8 @@ In the NeuronEX **System Configuration** -> **AI Model Configuration** page, add
 | ------------------------------------------- | --------------------------------------------- | ---------------------------------------- |
 | DeepSeek | `https://api.deepseek.com` | `deepseek-chat` <br> `deepseek-reasoner` |
 | SiliconFlow | - | `Pro/deepseek-ai/DeepSeek-V3` <br> `deepseek-ai/DeepSeek-V3` |
-| OpenAI | `https://api.openai.com/v1` | `gpt-4o` <br> `o1-mini` <br>  `o3-mini` |
-| Azure OpenAI | Obtain from Azure official website | `gpt-4o` <br> `gpt-4.1` <br> `o1` <br> `o3-mini` <br> `gpt-4.5-preview` <br> `gpt-4.1-mini` <br> `o4-mini` |
+| OpenAI | `https://api.openai.com/v1` | `gpt-4o` <br> `gpt-4.1` <br> `o1` <br> `o3-mini` <br> `gpt-4.5-preview` <br> `gpt-4.1-mini` <br> `o4-mini` |
+| Azure OpenAI | Obtain from Azure official website | `gpt-4o` <br> `o1-mini` <br>  `o3-mini` |
 
 You can obtain API Keys from the official websites of these model vendors, add model configurations on the NeuronEX page, and enable them. Multiple large models can be configured on the page simultaneously, but only one model can be enabled for use.
 

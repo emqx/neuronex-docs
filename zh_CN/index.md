@@ -1,10 +1,12 @@
 # 产品概览
 
-NeuronEX 是一款功能强大的工业边缘网关软件，提供一站式的设备数据连接、边缘智能分析、数据存储与可视化服务。
+NeuronEX 是一款功能强大的工业边缘网关软件，专为工业领域的数字化转型而设计。它部署在制造、能源、楼宇等工业现场，其核心任务是打通物理世界与数字世界的连接，实现：
 
-它主要部署在工业现场，高效实现工业设备通信及总线协议采集（支持 100+ 种协议）、工业系统数据集成、边缘端数据过滤与流式计算分析、AI/ML 算法集成与 AI 数据分析，以及与各类工业互联网平台的无缝对接。
+- **海量设备连接与数据接入：** 通过丰富的协议支持，统一采集 PLC、CNC、机器人、仪器仪表等OT设备及各类工业系统的数据。
+- **边缘智能处理与分析：** 在靠近数据源的边缘端，进行实时的数据过滤、清洗、聚合、计算与 AI 智能分析，将原始数据转化为有价值的信息。
+- **多系统无缝集成与联动：** 将处理后的数据高效、安全地对接到工业互联网平台、云服务及企业应用（如 MES、SCADA）中，实现数据的流动与业务的协同。
 
-NeuronEX 旨在为复杂的工业场景提供低延迟的数据接入管理、持久化存储、强大的智能分析及直观的可视化看板，帮助用户快速洞悉业务趋势，提升运营效率和可持续性。
+NeuronEX 打破了 OT 与 IT 之间的技术壁垒，为工业场景提供了从数据采集、处理、分析到集成的端到-端解决方案，是企业构建稳定、高效、智能的边缘数据基础设施的核心组件。
 
 ## 产品优势
 
@@ -21,8 +23,9 @@ NeuronEX 旨在为复杂的工业场景提供低延迟的数据接入管理、�
     NeuronEX具有轻量化、低内存占用，支持多种CPU架构部署，并且支持 Docker、Kubernetes容器化部署。
 
 - 完整的数据分析能力
-
-    内置强大的流式计算引擎（160+ 函数）和集成的时序数据库 (Datalayers)，支持数据抽取、转换、过滤、聚合等操作。提供图形化的 SQL 查询界面，方便用户对存储的边缘数据进行深度分析与探索。
+    - 实时分析： 内置强大的流式计算引擎，提供超过 160 个函数，支持对实时数据流进行抽取、转换、过滤和聚合。
+    - 历史洞察： 全新的「数据探索」功能，以内置时序数据库 (Datalayers) 作为坚实的数据基石，通过统一的数据分析界面和智能 SQL 编辑器，让用户能够轻松查询和探索存储在边缘的历史数据。
+    - 可视化监控： 新增的可视化「仪表盘」功能，允许用户通过简单的拖拽配置，将关键的实时和历史数据以图表形式直观展示，打造定制化的边缘监控中心。
 
 - AI/ML分析
 
@@ -39,7 +42,7 @@ NeuronEX 旨在为复杂的工业场景提供低延迟的数据接入管理、�
 | 数据采集                           | NeuronEX 支持超百种工业协议的一站式设备连接、数据采集、设备反控、MQTT 协议转换及南向数采监控，赋予工业设备关键的互联互通能力。| [创建南向驱动](./configuration/south-devices/south-devices.md)<br /><br />[连接南向设备](./configuration/south-devices/south-devices.md) <br /><br />[南向数采监控](./admin/monitoring.md)|
 | 数据上报                           | 完成设备数据的采集后，NeuronEX 支持用户通过北向应用将数据转发到云平台或外部处理引擎 | [创建北向应用](./configuration/north-apps/north-apps.md)<br /><br />[订阅南向数据](./configuration/subscription.md) |
 | 边缘数据处理                         | NeuronEX 集成了强大的边缘流式数据处理引擎，提供低延迟的数据清洗、转换、计算和分析能力，结合 AI/ML 算法，可以实现智能决策与控制，并优化云边通讯负载。 | [数据源](./streaming-processing/source.md)<br /><br />[规则](./streaming-processing/rules.md)<br /><br />[Sink 连接](./streaming-processing/sink/sink.md)<br /><br />[扩展功能](./streaming-processing/extension.md) |
-| 数据存储与查询                         |  NeuronEX 集成 Datalayers 时序数据库，支持边缘数据的持久化存储。提供图形化的 SQL 查询界面，方便用户对历史数据进行即时分析和探索。 | [数据存储配置](./streaming-processing/source.md)<br /><br />[数据分析与SQL查询](./streaming-processing/rules.md)|
-| AI 数据分析助手                         |  通过自然语言与 AI 助手交互，自动生成 SQL 查询语句。AI 能够理解用户意图，并基于数据库 Schema 和执行反馈进行智能调整和修正，简化数据分析过程。 | [AI 数据分析](./streaming-processing/source.md)|
-| 可视化仪表盘                         |  提供可定制的可视化仪表盘功能。用户可以轻松创建和配置图表 (折线图、柱状图、表格、统计值等)，将存储的或实时的数据以直观的方式展示出来，支持动态时间范围和自动刷新。 | [仪表盘管理](./streaming-processing/source.md)<br /><br />[创建与配置面板](./streaming-processing/rules.md)|
-| 系统管理与运维                           | NeuronEX 提供一站式的运维与管理平台，您可通过 Web 页面进行系统配置、日志下载、查看系统信息、License 管理等操作。 | [日志管理](./admin/log-management.md)<br /><br />[数据统计](./admin/data-statistics.md)<br /><br />[配置管理](./admin/conf-management.md) |
+| 数据存储与查询                         |  NeuronEX 集成 Datalayers 时序数据库，支持边缘数据的持久化存储。提供图形化的 SQL 查询界面，方便用户对历史数据进行即时分析和探索。 | [数据存储配置](./admin/sys-configuration.md#数据存储配置)<br /><br />[数据分析与SQL查询](./datainsights/data_analysis.md)|
+| AI 数据分析助手                         |  通过自然语言与 AI 助手交互，自动生成 SQL 查询语句。AI 能够理解用户意图，并基于数据库 Schema 和执行反馈进行智能调整和修正，简化数据分析过程。 | [AI 数据分析](./datainsights/data_analysis.md#5-ai-数据分析助手集成)|
+| 可视化仪表盘                         |  提供可定制的可视化仪表盘功能。用户可以轻松创建和配置图表 (折线图、柱状图、表格、统计值等)，将存储的或实时的数据以直观的方式展示出来，支持动态时间范围和自动刷新。 | [仪表盘管理](./datainsights/dashboards.md#1-仪表盘主页面管理)<br /><br />[创建与配置面板](./datainsights/dashboards.md#23-panel-管理与布局)|
+| 系统管理与运维                           | NeuronEX 提供一站式的运维与管理平台，您可通过 Web 页面进行系统配置、日志下载、查看系统信息、License 管理等操作。 | [日志管理](./admin/log-management.md)<br /><br />[数据统计](./admin/data-statistics.md)<br /><br />[系统配置](./admin/sys-configuration.md) |

@@ -37,30 +37,29 @@ NeuronEX also possesses the capability to flexibly acquire various types of data
 
 ## Data Processing and Analysis Module
 
-NeuronEX provides low-latency data processing and analysis, facilitating rapid data transfer across multiple systems. Leveraging AI/ML algorithms enables intelligent decision-making and control. Edge-side analysis involves preprocessing and edge computing, reducing the load on cloud-edge communication and backend storage pressure.
+The core value of NeuronEX lies in its powerful edge data processing and analysis capabilities, which transform raw, chaotic data into standardized, valuable insights.
 
-Capabilities of NeuronEX's Data Processing and Analysis Module include:
-
-- Data Standardization
-
-  NeuronEX supports standardization of data from various types of industrial devices, including data type conversion, unit conversion, and format conversion, meeting the standardization needs in industrial scenarios.
-
-- Data Filtering and Cleaning
-
-  NeuronEX has built-in functions for data extraction, transformation, filtering, sorting, grouping, aggregation, and connection. With over 160 built-in functions, it covers mathematical operations, string processing, aggregation, and hash operations, meeting diverse data filtering and cleaning requirements.
-
-- Real-time Data Stream Processing
-
-  NeuronEX offers the capability for real-time, low-latency processing of data streams. It supports real-time interaction and collaborative processing of data across multiple systems in industrial scenarios, achieving seamless interconnectivity and intelligent decision-making.
-
-- AI/ML Algorithm Integration
-
-  NeuronEX supports user-defined function extensions and AI algorithm integration, providing intelligent data analysis capabilities.
+- **Data Standardization and Cleansing**: With over 160 built-in [functions](../streaming-processing/sqls/functions/overview.md), it supports operations like data type conversion, unit standardization, format restructuring, filtering, sorting, and aggregation to meet various data preprocessing needs.
+- **Real-time Stream Processing**: A powerful stream processing engine enables millisecond-level real-time handling of data streams, satisfying low-latency scenarios such as real-time data collaboration between multiple systems and closed-loop control.
+- **AI/ML Algorithm Integration**: Supports user integration of [custom functions](../streaming-processing/extension.md) and [AI/ML algorithm models](../streaming-processing/portable_python.md) written in Python, C/C++, etc., for low-latency intelligent inference at the edge. The revolutionary "AI Data Analysis Assistant" introduced in version 3.6.0 allows users to generate SQL queries using natural language and can intelligently iterate and correct them, significantly lowering the barrier to data analysis.
+- **Data Insights and Visualization**:
+  - **Built-in Time-Series Storage**: Features a built-in Datalayers time-series database, providing out-of-the-box edge data persistence.
+  - **Interactive Data Analysis**: Offers a unified [data analysis interface](../datainsights/data_analysis.md) where users can deeply query and explore stored historical data using a smart SQL editor or the AI assistant.
+  - **Customizable Dashboards**: The [all-new "Dashboard" feature](../datainsights/dashboards.md) allows users to intuitively display key data in chart form through simple drag-and-drop configuration, creating customized edge monitoring centers.
 
 ## Data Forwarding and Storage Module
 
-NeuronEX supports data forwarding to cloud platforms or external systems, enabling data transmission through MQTT, SparkplugB, HTTP, Websocket, and supports data storage in databases.
+NeuronEX acts as a powerful bridge connecting the edge to the cloud and on-premises systems, offering flexible options for data forwarding and storage.
+
+- **Data Forwarding**: Supports seamless data handoff to public cloud IoT platforms, private clouds, or on-premises data centers via standard protocols like MQTT, SparkplugB, HTTP, and WebSocket. Furthermore, the integrated [Node-RED](../application/nodered.md) allows for the easy creation of complex forwarding and automation workflows.
+- **Data Storage**: In addition to the built-in Datalayers database, NeuronEX also supports writing data to various external databases and message queues, such as MySQL, InfluxDB, and Kafka, to meet diverse data persistence requirements.
 
 ## System Management Module
 
-NeuronEX's System Management Module includes functionalities such as system configuration, authentication, logs, monitoring, and alerts. For guidance on using NeuronEX's System Management Module, refer to the [Operations Guide](../admin/introduction.md).
+NeuronEX provides a complete and user-friendly set of system management functions to ensure its stable, secure, and reliable operation in industrial environments.
+
+- **System Configuration**: Offers a clean Web UI for convenient configuration management of all modules, including drivers, data processing rules, and northbound applications.
+- **Security and Authentication**: Supports username/password-based access control and TLS/SSL encrypted transmission to guarantee system and data security.
+- **Logging and Monitoring**: Provides detailed operational logs, performance metrics, and status monitoring, including real-time status monitoring of core components like data storage and AI services, to facilitate user operations and troubleshooting.
+
+For guidance on using NeuronEX's System Management Module, refer to the [Operations Guide](../admin/introduction.md).

@@ -103,6 +103,8 @@ For specific instructions on replacing and updating plugins, please contact the 
 | Mitsubishi CNC    | Ethernet    |     connect to M70、M80、M700、M800、E70 series CNC |
 | Heidenhain CNC    | Ethernet    |     connect to Heidenhain TNC640, iTNC530 and others through the LSV2 protocol |
 | KND CNC    | Ethernet    |     connect to KND K2000、K1000 C/Ci/F/Fi、K1000TTCi series CNC through the LSV2 protocol |
+| GSK CNC | Ethernet    |     connect to GSK CNC system |
+| SYNTEC CNC | Ethernet    |     connect to SYNTEC CNC system |
 
 ## Northbound Plugins
 
@@ -114,7 +116,7 @@ For specific instructions on replacing and updating plugins, please contact the 
 | Azure IOT                   | connect to Azure IoT Hub  | 
 | AWS IOT                   | connect to AWS IoT Core  | 
 | Websocket              | -  | 
-| eKuiper               | push data to data processing module  |
-
+| DataProcessing               | push data to data processing module  |
+| DataStorage              | push data to data storage module  |
 
 

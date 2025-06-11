@@ -105,10 +105,11 @@
 | 发那科 FANUC      | Fanuc 0i, 30i, 31i, 32i and 35i      |以太网    | Fanuc Focas Ethernet      |   Fanuc 设备，串口方式，暂不支持采集     |
 | 西门子 Siemens    | 802D SL、 808   |以太网    |  Siemens MPI |           |
 | 西门子 Siemens    | 828D、840DSL   |以太网    | OPC UA |    CNC 软件版本 >= 4.5 SP3       |
-| 三菱 Mitsubishi    | M70、M80、M700、M800、E70    |以太网    |  Mitsubishi CNC |           |
+| 三菱 Mitsubishi    | M70、M80、M700、M800、E70    |以太网    |  NeuronHUB |           |
 | 海德汉 HEIDENHAIN    | TNC640, iTNC530     |以太网    |  HEIDENHAIN CNC |           |
 | 凯恩帝 KND   | K2000、K1000 C/Ci/F/Fi、K1000TTCi    |以太网    |   KND CNC |         |
 | 广州数控    | GSK-980等    |以太网    |  ModbusTCP   |         |
+| 新代 SYNTEC  | 新代 CNC 设备    |以太网    | NeuronHUB |         |
 
 ### 其他
 
@@ -133,5 +134,6 @@
 
 | 协议名称                                 | 备注              | 
 | --------------------------------------- | --------------   |
-| eKuiper Stream Processing               | 对接数据处理模块  |
+| DataProcessing               | 对接数据处理模块  |
+| DataStorage              | 对接数据存储模块  |
 

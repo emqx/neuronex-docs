@@ -12,7 +12,7 @@ NeuronEX 软件包可从 [官网](https://www.emqx.com/zh/try?tab=self-managed) 
 ## NeuronEX 支持的操作系统
 
 NeuronEX 支持以下操作系统：
-- CentOS 8.0 及以上版本，Ubuntu 18.04 及以上版本，其他基于 Linux 内核的操作系统
+- CentOS 9.0 及以上版本，Ubuntu 20.04 及以上版本，Debian 11 及以上版本。
 
 :::tip 提示
 如果是 Windows 操作系统，支持以下几种安装方式:

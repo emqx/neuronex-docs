@@ -130,7 +130,7 @@
 
   - 支持通过北向 Websocket 应用、数据处理模块 REST Sink 将数据推送到 NodeRED，进行数据处理。
 
-- Neuhub 软件 (原 NeuOPC 升级版): Neuhub 整合了多个依赖 Windows 环境进行转换采集的数采插件（包括 OPCDA、新代 CNC和三菱 CNC），并对 OPCDA 插件引入了 License 管理功能。
+- NeuronHUB 软件 (原 NeuOPC 升级版): NeuronHUB 整合了多个依赖 Windows 环境进行转换采集的数采插件（包括 OPCDA、新代 CNC和三菱 CNC），并对 OPCDA 插件引入了 License 管理功能。
 
 - SparkplugB 应用新增支持静态点位。
 
@@ -148,7 +148,20 @@
 
 - 数据处理模块新增 Web Socket Source
 
+## v3.5.3
 
+发布日期：2025-06-24
+
+### 增强
+
+- Modbus TCP/RTU 驱动 Double/Int64/Uint64 数据类型支持配置完整字节序
+- Allen-Bradley 5000 EtherNet/IP 驱动适配其他 AB PLC 型号的单点读服务
+- 将 Monitor 进程日志打印到 NeuronEX 日志文件
+
+### 修复
+
+- 修复多个北向驱动同时订阅一个南向驱动时异常退出的问题
+- 修复 Neuron 进程退出时，NeuronEX 未正常退出的问题
 
 ## v3.5.2
 

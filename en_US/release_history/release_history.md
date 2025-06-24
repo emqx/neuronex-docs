@@ -130,7 +130,7 @@ Release Date: 2025-06-11
 
   - Supports pushing data to Node-RED through northbound `Websocket` applications and data processing module `REST Sink` for data processing.
 
-- Neuhub Software (upgraded version of NeuOPC): Neuhub integrates multiple data collection plugins that depend on Windows environment for conversion collection (including OPCDA, Syntec CNC, and Mitsubishi CNC), and introduces License management functionality for OPCDA plugin.
+- NeuronHUB Software (upgraded version of NeuOPC): NeuronHUB integrates multiple data collection plugins that depend on Windows environment for conversion collection (including OPCDA, Syntec CNC, and Mitsubishi CNC), and introduces License management functionality for OPCDA plugin.
 
 - SparkplugB application adds support for static tags.
 
@@ -147,6 +147,21 @@ Release Date: 2025-06-11
 - Data processing module adds Kafka Source.
 
 - Data processing module adds WebSocket Source.
+
+## v3.5.3
+
+Release Date: 2025-06-24
+
+### Enhancements
+
+- Modbus TCP/RTU driver Double/Int64/Uint64 data types support full byte order configuration
+- Allen-Bradley 5000 EtherNet/IP driver adapts to single-tag read services of other AB PLC models
+- Print Monitor process logs to NeuronEX log files
+
+### Fixes
+
+- Fixed the problem of abnormal exit when multiple northbound drivers subscribe to a southbound driver at the same time
+- Fixed the problem that NeuronEX did not exit normally when the Neuron process exited
 
 ## v3.5.2
 

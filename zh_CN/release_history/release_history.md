@@ -148,6 +148,10 @@
 
 - 数据处理模块新增 Web Socket Source
 
+### 变更
+
+- 从 NeuronEX v3.6.0 开始，SparkplugB 插件只在 NBIRTH 和 DBIRTH 消息中设置 metric 的 name 属性，在后续的 NDATA、DDATA、NCMD 和 DCMD 消息中不会再携带 name 属性，只使用 alias 标识 metric，这可能会影响现有的系统和集成。
+
 ## v3.5.3
 
 发布日期：2025-06-24

@@ -148,6 +148,11 @@ Release Date: 2025-06-11
 
 - Data processing module adds WebSocket Source.
 
+### Changes
+
+- From NeuronEX v3.6.0, SparkplugB plugin only sets the `name` attribute of metric in `NBIRTH` and `DBIRTH` messages, and does not carry the `name` attribute in subsequent `NDATA`, `DDATA`, `NCMD`, and `DCMD` messages, only using `alias` to identify metrics, which may affect existing systems and integrations.
+
+
 ## v3.5.3
 
 Release Date: 2025-06-24

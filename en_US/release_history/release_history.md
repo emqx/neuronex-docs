@@ -152,6 +152,46 @@ Release Date: 2025-06-11
 
 - From NeuronEX v3.6.0, SparkplugB plugin only sets the `name` attribute of metric in `NBIRTH` and `DBIRTH` messages, and does not carry the `name` attribute in subsequent `NDATA`, `DDATA`, `NCMD`, and `DCMD` messages, only using `alias` to identify metrics, which may affect existing systems and integrations.
 
+## v3.5.4
+
+Release Date: 2025-07-16
+
+### Enhancements
+
+- **Northbound Subscription**:
+
+  - Added support for **selecting all** and **deselecting all** collection groups.
+
+  - When filtering collection groups by a keyword, "select all" will now only select the filtered collection groups.
+
+- **Southbound Driver Page**:
+
+  - Supports retaining selected drivers from previous pages after pagination.
+
+  - When some drivers are already selected and then filtered by plugin type or keyword, the filtered-out drivers will remain selected.
+
+  - Exporting the driver JSON configuration will include all selected drivers, even those filtered out.
+
+  - Similar to the **Southbound Driver page**, the Southbound Device **Group List** page and the **Tag List** page have also been optimized with the same "retain selection after pagination" and "maintain selection after filtering" features.
+
+- **Data Collection Module (Neuron Core Code) Optimization**:
+
+  - Optimized the Neuron core code in the data collection module to **improve collection performance** and **optimize memory usage** when a single collection group has a large number of data points.
+
+### Fixes
+
+- Fixed an issue where the lag function's default value did not take effect when using four parameters.
+- Fixed an issue where rules using the lag function reported errors when QoS was configured.
+- Fixed an issue where the source end of a shared stream did not participate in checkpointing when QoS (Quality of Service) was configured for shared stream checkpoints.
+- Fixed an error that occurred when sending special data in shared streams with multiple rules.
+- Fixed an issue where random empty data might appear when there are two shared stream rules and one of them selects more data.
+- Fixed a random state exception issue that might occur after shared stream rule updates, which is more easily triggered when two shared stream rules are updated simultaneously.
+- Fixed a rule state management issue where attempting to start a rule that was already stopping would cause the rule to enter an infinite loop.
+- Fixed an issue where specific time formats failed to parse.
+- Fixed an issue where running rules could not receive data after a Portable source plugin hot update.
+- Fixed issues with the display and calculation of incremental window metrics.
+- Fixed an issue where portable plugins could not start due to a missing pynng.so file.
+
 
 ## v3.5.3
 

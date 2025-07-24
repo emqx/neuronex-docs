@@ -130,7 +130,7 @@ Overview -> Endpoints 页面获取授权终端 URL 和 Token 中端 URL。
 
 :::tip 注意
 
-Scope、Grant Type、Request Method 和 Content Type 字段需要根据平台要求填写。
+授权范围（Scope）、授权方式（Grant Type）、请求方法（Request Method）和内容类型（Content Type）字段需要根据平台要求填写。
 
 :::
 

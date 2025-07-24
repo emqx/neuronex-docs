@@ -1128,6 +1128,10 @@
           {
             "title": "AI 生成 Python 插件最佳实践指南",
             "path": "best-practise/llm-portable-plugin"
+          },
+          {
+            "title": "NeuronEX 最佳实践：集成 MySQL 数据到您的 IIoT 平台",
+            "path": "best-practise/sql-data"
           }
         ]
       },
@@ -2285,6 +2289,10 @@
         {
           "title": "AI-generated Python Plugin Guide",
           "path": "best-practise/llm-portable-plugin"
+        },
+        {
+          "title": "Integrate MySQL data into your IIoT platform",
+          "path": "best-practise/sql-data"
         }
       ]
     },

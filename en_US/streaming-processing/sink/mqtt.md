@@ -2,7 +2,7 @@
 
 
 This sink is used to publish output messages to the MQTT server.
-If you want to use the MQTT Sink connector, click **Data Processing** -> **Rules** -> **Create Rule**, in the **Action** area, click **Add**, **Sink ** Select **MQTT**.
+If you want to use the MQTT Sink connector, click **Data Processing** -> **Rules** -> **Create Rule**, in the **Action** area, click **Add**, **Sink** Select **MQTT**.
 
 ## Sink configuration
 

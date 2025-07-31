@@ -1,5 +1,29 @@
 # Release history
 
+## v3.6.1
+
+Release Date: 2025-07-31
+
+### Enhancements
+
+- Added support for AWS S3 as a file rolling action (file hook).
+- Rules now support binding tags. The rule page allows filtering rules by searching for tags.
+- The `emqx/neuronex:3.6.1-ai` image supports both x86 and arm64 system architectures, so there is no need to use `emqx/neuronex:3.6.1-ai-arm64` separately for ARM architecture systems.
+- Optimized the UI for AI data analytics features.
+- For custom streams created by portable plugins, the type name will now be displayed (previously shown as blank).
+- When installing a portable plugin, its configuration file is now synchronized to the `/opt/neuronex/data/` directory.
+- Added a timeout mechanism when stopping rules. When stopping a rule containing a portable plugin, if the plugin fails to shut down gracefully within the specified time, the rule will be forcefully terminated to prevent the system from hanging.
+- Improved the data processing module to properly report error messages from the Datalayers database when SQL execution fails.
+- Optimized certain name descriptions in the UI.
+
+### Fixes
+
+- Fixed an issue where the Northbound Websocket plugin was consuming excessive CPU.
+- Fixed an issue where NeuronEX did not exit properly after the Neuron process terminated.
+- Fixed an issue that occurred when setting the TTL immediately after enabling the data storage feature on the system configuration page.
+- Fixed support for rule QoS in the SQL Source.
+
+
 ## v3.6.0
 
 Release Date: 2025-06-11

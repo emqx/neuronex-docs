@@ -6,7 +6,7 @@
 
 ### 增强
 
-- 新增支持 AWS S3 Sink
+- 在 File Sink 中新增支持文件滚动到 AWS S3 。
 - 规则支持绑定标签，规则页面支持通过搜索标签，进行规则过滤。
 - `emqx/neuronex:3.6.1-ai` 镜像支持x86和arm64两种系统架构，arm架构系统无需单独使用`emqx/neuronex:3.6.1-ai-arm64`镜像。
 - 对 AI 数据分析功能的 UI 进行了优化。

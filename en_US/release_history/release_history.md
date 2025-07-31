@@ -6,7 +6,7 @@ Release Date: 2025-07-31
 
 ### Enhancements
 
-- Added support for AWS S3 Sink.
+- Added support for AWS S3 as a file rolling action (file hook).
 - Rules now support binding tags. The rule page allows filtering rules by searching for tags.
 - The `emqx/neuronex:3.6.1-ai` image supports both x86 and arm64 system architectures, so there is no need to use `emqx/neuronex:3.6.1-ai-arm64` separately for ARM architecture systems.
 - Optimized the UI for AI data analytics features.

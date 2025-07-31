@@ -874,10 +874,6 @@
                 {
                   "title": "Image",
                   "path": "streaming-processing/sink/image"
-                },
-                {
-                  "title": "AWS S3",
-                  "path": "streaming-processing/sink/aws-s3"
                 }
               ]
             }
@@ -2045,10 +2041,6 @@
                 {
                   "title": "Image",
                   "path": "streaming-processing/sink/image"
-                },
-                {
-                  "title": "AWS S3",
-                  "path": "streaming-processing/sink/aws-s3"
                 }
               ]
             }

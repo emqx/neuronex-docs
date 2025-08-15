@@ -8,7 +8,7 @@ Date and time functions are used to perform operations on date and time type dat
 now(fsp)
 ```
 
-Returns the current time in the `YYYY-MM-DD HH:mm:ss` format. If the `fsp` parameter is provided to specify fractional seconds precision from 0 to 6, the returned value includes the corresponding fraction of seconds.
+Returns the current time in the `YYYY-MM-dd HH:mm:ss` format. If the `fsp` parameter is provided to specify fractional seconds precision from 0 to 6, the returned value includes the corresponding fraction of seconds.
 
 ## CURRENT_TIMESTAMP
 

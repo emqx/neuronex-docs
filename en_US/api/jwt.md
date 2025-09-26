@@ -1,6 +1,6 @@
 # Custom JWT
 
-To call APIs in NeuronEX, you need to first call the login interface to generate a JWT, and then call other interfaces to validate the JWT. The default JWT expires after one hour, and you can generate your own JWT to customize the expiration time.
+To call APIs in NeuronEX, you need to first call the login interface to generate a JWT, and then call other interfaces to validate the JWT. The default JWT expires after 24 hour, and you can generate your own JWT to customize the expiration time.
 
 When a user requests a RESTful API, please enter the **Token** in the http request header in the following format:
 
@@ -15,7 +15,7 @@ If the **Token** is correct, NeuronEX will return the result; otherwise, it will
 
 JWT is an open standard (RFC 7519) for securely transmitting information. The JWT structure consists of three parts: header (Header), payload (Payload), and signature (Signature).
 
-NeuronEX first checks the subdirectories  **etc** of the NeuronEX installation directory to see if the **iss** field contains a corresponding .pem or .pub file. Then, it checks the fields inside the file for validation. The JWT structure required in NeuronEX is as follows:
+NeuronEX first checks the subdirectories  **etc** of the NeuronEX installation directory to see if the **iss** field contains a corresponding public key file. Then, it checks the fields inside the file for validation. The JWT structure required in NeuronEX is as follows:
 
 ```json
 header
@@ -29,7 +29,7 @@ payload
     "iss": "username",
     "iat": "1679622798",
     "exp": "1679626398",
-    "aud": "neuron",
+    "aud": "neuronex",
     "bodyEncode": "0"
 }
 ```
@@ -41,10 +41,10 @@ payload
 
 ### Payload
 
-* Issuer (iss): Define it yourself according to your needs, but make sure it is consistent with the name of the public key file generated. For example, if iss is neuron, you need to generate the neuron.pem public key file.
+* Issuer (iss): Define it yourself according to your needs, but make sure it is consistent with the name of the public key file generated. For example, if iss is neuron.pem, you need to generate the neuron.pem public key file.
 * Issued at (iat): Issue time
 * Expiration time (exp): Issue expiration time
-* Audience (aud): NeuronEX, cannot be modified
+* Audience (aud): neuronex, cannot be modified
 
 ## Generate public and private keys
 

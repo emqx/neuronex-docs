@@ -36,8 +36,8 @@ neuronex:3.x.x类型的安装包，集成了 Python 运行环境，如果您有 
 
 ```bash
 #run NeuronEX by neuronex:3.x.x
-docker pull emqx/neuronex:3.5.2
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.5.2
+docker pull emqx/neuronex:3.6.0
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.6.0
 ```
 
 - **neuronex:3.x.x-slim**
@@ -46,8 +46,8 @@ neuronex:3.x.x-slim类型的安装包，不集成 Python 运行环境,安装包�
 
 ```bash
 #run NeuronEX by neuronex:3.x.x-slim
-docker pull emqx/neuronex:3.5.2-slim
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.5.2-slim
+docker pull emqx/neuronex:3.6.0-slim
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.6.0-slim
 ```
 
 - **neuronex:3.x.x-ai**
@@ -56,8 +56,8 @@ neuronex:3.x.x-ai类型的安装包，集成了 Python 运行环境，并且集�
 
 ```bash
 #run NeuronEX by neuronex:3.x.x-ai
-docker pull emqx/neuronex:3.5.2-ai
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.5.2-ai
+docker pull emqx/neuronex:3.6.0-ai
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.6.0-ai
 ```
 
 - **neuronex:3.x.x-ai-arm64**
@@ -66,6 +66,6 @@ neuronex:3.x.x-ai-arm64类型的安装包，集成了 Python 运行环境，并�
 
 ```bash
 #run NeuronEX by neuronex:3.x.x-ai-arm64
-docker pull emqx/neuronex:3.5.2-ai-arm64
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.5.2-ai-arm64
+docker pull emqx/neuronex:3.6.0-ai-arm64
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.6.0-ai-arm64
 ```

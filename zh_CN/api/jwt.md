@@ -1,6 +1,6 @@
 # 自定义 JWT
 
-在 NeuronEX 中调用 API 时，需先调用登录接口生成 JWT，再调用其他接口进行 JWT 验证。默认生成的 JWT 过期时间为一小时，可以自行生成 JWT，自定义过期时间。
+在 NeuronEX 中调用 API 时，需先调用登录接口生成 JWT，再调用其他接口进行 JWT 验证。默认生成的 JWT 过期时间为 24 小时，可以自行生成 JWT，自定义过期时间。
 
 当用户请求 RESTful API 时，请在 http 请求头中按以下格式输入 **Token**：
 
@@ -15,7 +15,7 @@ Authorization: Bearer
 
 JWT 是一种用于安全传输信息的开放标准（RFC 7519）。JWT 结构包含三个部分，分别是头部（Header）、载荷（Payload）和签名（Signature）。
 
-NeuronEX 先根据 **iss** 字段查找 NeuronEX 安装目录下的子目录 **etc** 是否包含该名称对应的 .pem 或 .pub 文件，再根据里面的字段进行校验。NeuronEX 中所需要的 JWT 结构如下：
+NeuronEX 先根据 **iss** 字段查找 NeuronEX 安装目录下的子目录 **etc** 是否包含该名称对应的公钥文件，再根据里面的字段进行校验。NeuronEX 中所需要的 JWT 结构如下：
 
 ```json
 header
@@ -29,7 +29,7 @@ payload
     "iss": "username",
     "iat": "1679622798",
     "exp": "1679626398",
-    "aud": "neuron",
+    "aud": "neuronex",
     "bodyEncode": "0"
 }
 ```
@@ -41,10 +41,10 @@ payload
 
 ### 载荷
 
-* 签发者（iss）：根据需求自己定义，但要确保与生成的公钥文件名称一致。例如，iss 为 neuron，则需要生成 neuron.pem 的公钥文件。
+* 签发者（iss）：根据需求自己定义，但要确保与生成的公钥文件名称一致。例如，iss 为 neuron.pem，则需要生成 neuron.pem 的公钥文件。
 * 签发时间（iat）：签发时间
 * 过期时间（exp）：签发过期时间
-* 受众（aud）：NeuronEX，不能修改
+* 受众（aud）：neuronex，不能修改
 
 ## 生成公私钥
 

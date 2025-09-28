@@ -36,8 +36,8 @@ The installation package of type neuronex:3.x.x integrates the Python runtime en
 
 ```bash
 #run NeuronEX by neuronex:3.x.x
-docker pull emqx/neuronex:3.5.2
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.5.2
+docker pull emqx/neuronex:3.6.0
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.6.0
 ```
 
 - **neuronex:3.x.x-slim**
@@ -46,8 +46,8 @@ The installation package of type neuronex:3.x.x-slim does not integrate the Pyth
 
 ```bash
 #run NeuronEX by neuronex:3.x.x-slim
-docker pull emqx/neuronex:3.5.2-slim
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.5.2-slim
+docker pull emqx/neuronex:3.6.0-slim
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.6.0-slim
 ```
 
 - **neuronex:3.x.x-ai**
@@ -58,8 +58,8 @@ This image supports x86_64 architecture devices.
 
 ```bash
 #run NeuronEX by neuronex:3.x.x-ai
-docker pull emqx/neuronex:3.5.2-ai
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.5.2-ai
+docker pull emqx/neuronex:3.6.0-ai
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.6.0-ai
 ```
 
 - **neuronex:3.x.x-ai-arm64**   
@@ -70,6 +70,6 @@ This image supports arm64 architecture devices.
 
 ```bash
 #run NeuronEX by neuronex:3.x.x-ai-arm64
-docker pull emqx/neuronex:3.5.2-ai-arm64
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.5.2-ai-arm64
+docker pull emqx/neuronex:3.6.0-ai-arm64
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.6.0-ai-arm64
 ```

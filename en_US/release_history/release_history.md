@@ -1,5 +1,24 @@
 # Release history
 
+## v3.6.2
+
+Release Date: 2025-09-26
+
+### Enhancements
+
+- **Adjusted glibc version requirement for NeuronEX**: Supports the following operating systems: CentOS 8.0 and above, Ubuntu 20.04 and above, Debian 11 and above. (This is a new support for CentOS 8.0 compared to version 3.6.1).
+- **OPC UA Driver**: Supports the collection of complex nested extend object and extend object array types.
+
+- **Agent Management Functionality**: Uses MQTT channel as the management channel to report NeuronEX status information.
+
+- **Optimized Rule Tags Functionality**: The interaction logic for adding and modifying tags has been simplified.
+
+- **The requireAck configuration item** is added to the Sink to introduce a synchronous Ack mechanism for the Python Sink plugin.
+
+### Fixes
+
+- **AI Data Analysis Function**: Resolved an issue where the AI data analysis function would hang during the "Parse User Intention" step.
+
 ## v3.6.1
 
 Release Date: 2025-07-31

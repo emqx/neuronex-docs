@@ -14,7 +14,7 @@ Neuron software packages can be downloaded from the [Website](https://www.emqx.c
 
 The NeuronEX supports the following operating systems:
 
-- CentOS 9.0 and above, Ubuntu 20.04 and above, Debian 11 and above.
+- CentOS 8.0 and above, Ubuntu 20.04 and above, Debian 11 and above.
 
 :::tip
 For Windows operating systems, the following installation methods are supported:

@@ -24,7 +24,7 @@ GLIBC 需要 2.31 以上版本。
 执行如下指令启动 NeuronEX：
 
 ```bash
-$ ./bin/neuronex run
+$ ./bin/neuronex start
 ```
 
 更多启动参数请参考 [配置管理](../admin/conf-management.md)。

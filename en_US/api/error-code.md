@@ -212,3 +212,126 @@ This document describes the error codes that the data collection function will r
 * 10803    Profinet IO parameters are not ready
 * 10804    Profinet IO does not have write permission
 * 10805    Profinet IO is waiting for HELLO response -->
+
+## License error codes (Extended)
+
+* 13000    Invalid license file
+* 13001    Please upload the license file
+* 13002    License file read failed
+* 13003    License has expired
+* 13004    License write failed
+* 13005    License exceeds activation validity period
+* 13006    The license has expired and cannot perform the current operation
+* 13007    License error
+* 13008    Allocated tag count is less than in use
+* 13009    Neuron detected clock abnormality
+* 13010    Neuron invalid license module
+* 13011    Neuron internal error
+* 13012    Breaking away from ECP management beyond its validity period, modification, addition, or operation is not allowed
+* 13013    Not virtual license, not removable
+* 13014    License not exist
+* 13015    Virtual license delete failed
+* 13016    Hardware identification mismatch
+* 13017    Prohibit uploading license due to NeuronEX being activated by ECP's floating license
+* 13018    Prohibit activating license due to NeuronEX being activated by ECP's floating license
+* 13019    The current license does not support stream processing engines function
+* 13020    Registration code error
+* 13021    The hardware is already registered
+* 13022    Fail to register
+* 13023    Exceeded the maximum number of registered devices
+* 13024    Ecosy license network connection not working
+* 13025    Ecosy license tag is insufficient
+* 13026    Ecosy license request fail
+* 13027    License does not enable plugin
+* 13028    Reset license failed, please confirm that tag usage is less than 30 tags
+* 13029    Reset trial license failed
+
+## Edge service template error codes
+
+* 17000    Export of edge service template failed
+* 17001    Unsupported Edge Service version
+* 17002    Unsupported Edge Service Type
+* 17003    Failed to distribute the edge service template
+* 17004    Failed to distribute the edge service template
+* 17005    Failed to distribute the edge service template, tag insufficient
+* 17006    Tag attribute not supported
+* 17007    Tag type not supported
+* 17008    Tag address format invalid
+* 17009    Tag name too long
+* 17010    Tag address too long
+* 17011    Tag description too long
+* 17012    Tag precision invalid
+* 17013    Node name too long
+* 17014    Group parameter invalid
+* 17015    Group name too long
+* 17016    Library failed to open
+* 17017    Plugin name too long
+* 17018    Plugin does not support requested operation
+* 17019    Library not found
+* 17020    Plugin not found
+* 17021    Tag name conflict
+* 17022    Library does not allow instance creation
+* 17023    Server is busy
+
+## Alert and monitoring configuration error codes
+
+* 18000    Alert config missing parameters
+* 18001    Metric config missing parameters
+* 18002    Webhook url invalid
+* 18003    Rule id invalid
+* 18004    Configuration alert config failed
+* 18005    Configuration metric config failed
+* 18006    Configuration liveness config failed
+* 18007    Configuration syslog config failed
+* 18008    Configuration credentials config failed
+* 18009    Syslog config missing parameters
+* 18010    Metric id invalid
+
+## SSO configuration error codes
+
+* 19000    Add ssoConfiguration failed
+* 19001    Update ssoConfiguration failed
+* 19002    Configuration name not found in the query
+* 19003    Delete ssoConfiguration failed
+* 19004    Configuration already exists
+* 19005    Get access_token failed
+* 19006    Get user information failed
+
+## Server internal error codes
+
+* 20000    Server internal error
+* 20001    Data acquisition function service error
+* 20002    Neuron code error
+* 20003    Data flow processing function service error
+* 20004    Neuron load not ready
+* 20005    Datalayers load not ready
+
+## Request parameter error codes
+
+* 20100    Request body invalid
+* 20101    Parameter error
+* 20102    Exec time out
+* 20103    JSON format error
+* 20104    Loglevel not support
+* 20105    The directory does not exist or is empty
+* 20106    The file is not valid for data restore
+* 20107    The Neuron CID request is not valid
+* 20108    The Datalayers Query SQL is not valid
+* 20109    The Datalayers Query SQL execute fail
+* 20110    Name already exist
+* 20111    ID not exist
+* 20112    Timefilter not exist
+* 20113    Timefilter should not exist
+* 20114    More than one ai model enable
+* 20115    THE SQL should be Query SQL
+* 20116    Datalayers authentication failed
+
+## User authentication error codes
+
+* 20200    Invalid username or password
+* 20201    Username not correct
+* 20202    Password not correct
+* 20203    Missing token
+* 20204    Token not correct
+* 20205    No access rights
+* 20206    Username already exist

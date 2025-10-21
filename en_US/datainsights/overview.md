@@ -1,6 +1,6 @@
 # Data Insights
 
-The Data Insights module in NeuronEX is your core tool for understanding industrial historical data and discovering its value. It integrates powerful data querying, interactive analysis, and customizable visualization dashboard features, helping you easily understand equipment behavior, optimize production processes, and make smarter decisions based on data.
+The Data Insights module in EMQX Neuron (formerly NeuronEX) is your core tool for understanding industrial historical data and discovering its value. It integrates powerful data querying, interactive analysis, and customizable visualization dashboard features, helping you easily understand equipment behavior, optimize production processes, and make smarter decisions based on data.
 
 Whether you need to delve deep into the root causes of specific events or wish to continuously monitor Key Performance Indicators (KPIs), the Data Insights module provides robust support.
 
@@ -30,13 +30,13 @@ The Data Insights module primarily consists of the following two core functional
 
 ## Getting Started
 
-Starting from NeuronEX v3.6.0, the **Datalayers time-series database is integrated by packaging**. This means various installation package forms, such as `deb`, `rpm`, `zip`, `docker`, etc., have the Datalayers time-series database built-in.
+Starting from EMQX Neuron v3.6.0, the **Datalayers time-series database is integrated by packaging**. This means various installation package forms, such as `deb`, `rpm`, `zip`, `docker`, etc., have the Datalayers time-series database built-in.
 
 To start using the Data Insights module:
 
-1.  Ensure you have enabled [Time-Series Data Storage](../admin/sys-configuration.md#data-storage-configuration) in NeuronEX. Datalayers does not start with NeuronEX by default. You need to enable this service as needed in NeuronEX's system configuration.
+1.  Ensure you have enabled [Time-Series Data Storage](../admin/sys-configuration.md#data-storage-configuration) in EMQX Neuron. Datalayers does not start with EMQX Neuron by default. You need to enable this service as needed in EMQX Neuron's system configuration.
 2.  Enable the northbound DataStorage plugin and add subscriptions for the southbound data tags you want to store to this plugin.
 3.  Explore the [**Data Analysis**](./data_analysis.md) page to browse data tags, write SQL queries, or use the AI Data Analysis features.
 4.  Learn how to create and configure your first **[Dashboards](./dashboards.md)** to monitor the metrics you care about most.
 
-Unleash the true potential of your industrial data with NeuronEX's Data Insights module!
+Unleash the true potential of your industrial data with EMQX Neuron's Data Insights module!

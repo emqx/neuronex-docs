@@ -1,26 +1,26 @@
-# data collection
+# Data Collection
 
-This section mainly introduces how to add southbound devices in NeuronEX, bidirectional communication with the devices, and connect them to external applications such as cloud platforms or data processing module.
+This section mainly introduces how to add southbound devices in EMQX Neuron (formerly NeuronEX), bidirectional communication with the devices, and connect them to external applications such as cloud platforms or data processing module.
 
 ## Capabilities of data collection
 
 ### Multi-device connection
-NeuronEX provides a variety of plugin modules, such as Modbus, OPC UA, EtherNet/IP, IEC104, BACnet, Siemens, Mitsubishi, etc. Some of these plugins are widely used in discrete manufacturing, building automation, CNC machine tools, robots, electricity, and various PLC communications.
+EMQX Neuron provides a variety of plugin modules, such as Modbus, OPC UA, EtherNet/IP, IEC104, BACnet, Siemens, Mitsubishi, etc. Some of these plugins are widely used in discrete manufacturing, building automation, CNC machine tools, robots, electricity, and various PLC communications.
 
 ### Low latency collection and control
-NeuronEX is a real-time asynchronous processing server that makes full use of low-latency network methods at the edge to achieve 100 millisecond high-speed data collection.
+EMQX Neuron is a real-time asynchronous processing server that makes full use of low-latency network methods at the edge to achieve 100 millisecond high-speed data collection.
 
 ### Large-scale concurrency
-NeuronEX can connect to different industrial devices simultaneously. Thanks to the decoupled modular architecture design, each connection can be run independently. The number of concurrent connections depends on hardware resources.
+EMQX Neuron can connect to different industrial devices simultaneously. Thanks to the decoupled modular architecture design, each connection can be run independently. The number of concurrent connections depends on hardware resources.
 
 ### Flexible deployment
-The NeuronEX has a very low memory footprint, less than 100M of memory at startup, and is suitable for running on low-configuration architecture devices, such as X86, ARM and RISC-V. NeuronEX also supports Docker containerized deployment, as well as running in a Kubernetes environment.
+EMQX Neuron has a very low memory footprint, less than 100M of memory at startup, and is suitable for running on low-configuration architecture devices, such as X86, ARM and RISC-V. EMQX Neuron also supports Docker containerized deployment, as well as running in a Kubernetes environment.
 
 ### Better integration
-NeuronEX supports seamless integration with IIoT platforms, public cloud platforms, and third-party applications. NeuronEX can connect to private cloud, EMQX Cloud, AWS, Microsoft Azure or local servers through various methods such as MQTT, SparkPlugB, API, etc., and seamlessly flow real-time industrial data directly to industrial applications, such as MES, ERP, big data, analysis software, to realize various complex data processing and storage scenarios.
+EMQX Neuron supports seamless integration with IIoT platforms, public cloud platforms, and third-party applications. EMQX Neuron can connect to private cloud, EMQX Cloud, AWS, Microsoft Azure or local servers through various methods such as MQTT, SparkPlugB, API, etc., and seamlessly flow real-time industrial data directly to industrial applications, such as MES, ERP, big data, analysis software, to realize various complex data processing and storage scenarios.
 
 ### Unified data operations
-NeuronEX helps traditional industrial devices deliver data messages asynchronously as edge nodes specified in the SparkplugB standard. SparkPlugB is an open, unified, interoperable industrial data exchange standard for data exchange between industrial information systems such as ERP, MES, SCADA and history via the MQTT broker.
+EMQX Neuron helps traditional industrial devices deliver data messages asynchronously as edge nodes specified in the SparkplugB standard. SparkPlugB is an open, unified, interoperable industrial data exchange standard for data exchange between industrial information systems such as ERP, MES, SCADA and history via the MQTT broker.
 
 
 ## Key concepts
@@ -33,7 +33,7 @@ All plugin modules are written based on C language, and SDK files are provided f
 
 ### [Node](./groups-tags/groups-tags.md)
 
-In NeuronEX, nodes are instantiations of plugins. In a single NeuronEX instance, multiple nodes containing various plugins can be created for mutual communication. NeuronEX's core framework is responsible for managing message routing between these nodes. NeuronEX has powerful performance and supports the simultaneous operation of hundreds of nodes.
+In EMQX Neuron, nodes are instantiations of plugins. In a single EMQX Neuron instance, multiple nodes containing various plugins can be created for mutual communication. EMQX Neuron's core framework is responsible for managing message routing between these nodes. EMQX Neuron has powerful performance and supports the simultaneous operation of hundreds of nodes.
 
 ### [Data Tag (Data Point)](./groups-tags/groups-tags.md)
 
@@ -47,13 +47,13 @@ Data tags will be assigned to groups. Each group has an independent polling freq
 
 ## Configuration process
 
-The following is the workflow of how to set up NeuronEX to convert various industrial protocols and then complete data transmission and collection.
+The following is the workflow of how to set up EMQX Neuron to convert various industrial protocols and then complete data transmission and collection.
 
-1. [View all available plugins](../introduction/plugin-list/plugin-list.md): The data collection and transmission functions of NeuronEX can be realized using various protocol plugins.
+1. [View all available plugins](../introduction/plugin-list/plugin-list.md): The data collection and transmission functions of EMQX Neuron can be realized using various protocol plugins.
 
-2. [Create southbound driver](./south-devices/south-devices.md): According to the protocol type of the device, select the southbound plugin driver on NeuronEX and create a node. Configure the parameters of the driver to establish a communication connection between NeuronEX and the device.
+2. [Create southbound driver](./south-devices/south-devices.md): According to the protocol type of the device, select the southbound plugin driver on EMQX Neuron and create a node. Configure the parameters of the driver to establish a communication connection between EMQX Neuron and the device.
 
-3. [Establish communication between device and NeuronEX](./groups-tags/groups-tags.md): First add groups and tags for the southbound driver. Once the group and tags are created, the real-time value of the tags can be obtained from data monitoring. To facilitate user operations, NeuronEX supports related configuration information through offline Excel files [batch import] (./import-export/import-export.md).
+3. [Establish communication between device and EMQX Neuron](./groups-tags/groups-tags.md): First add groups and tags for the southbound driver. Once the group and tags are created, the real-time value of the tags can be obtained from data monitoring. To facilitate user operations, EMQX Neuron supports related configuration information through offline Excel files [batch import] (./import-export/import-export.md).
 
     :::tip
 

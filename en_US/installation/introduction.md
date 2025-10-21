@@ -1,6 +1,6 @@
-# Install NeuronEX
+# Install EMQX Neuron
 
-NeuronEX supports 32-bit/64-bit ARM and 64-bit X86 architectures on Linux-based operating systems. It provides the following installation package formats:
+EMQX Neuron (formerly NeuronEX) supports 32-bit/64-bit ARM and 64-bit X86 architectures on Linux-based operating systems. It provides the following installation package formats:
 
 - tar package: Suitable for all Linux operating systems.
 - Debian package (.deb) format: Used for Debian and Ubuntu Linux-based operating systems.
@@ -12,7 +12,7 @@ Neuron software packages can be downloaded from the [Website](https://www.emqx.c
 
 ## The supported operating systems
 
-The NeuronEX supports the following operating systems:
+EMQX Neuron supports the following operating systems:
 
 - CentOS 8.0 and above, Ubuntu 20.04 and above, Debian 11 and above.
 
@@ -21,14 +21,14 @@ For Windows operating systems, the following installation methods are supported:
 
 - Install the corresponding Linux system using Virtual Box.
 - Install the corresponding Linux system using WSL (Windows Subsystem for Linux).
-- Use Docker Desktop to install and run NeuronEX in a Dockerized environment.
+- Use Docker Desktop to install and run EMQX Neuron in a Dockerized environment.
 :::
 
 ## Hardware Requirements
 
-NeuronEX supports running on x86, ARM and other hardware architectures as well as container deployment, such as Kubernetes, KubeEdge, etc. It can be deployed on various hardware in industrial settings, including **industrial control machines**, **gateway devices**, and **servers**. On devices with limited hardware resources, it can also achieve data collection of 100 ms. On servers with sufficient hardware resources,  NeuronEX can fully utilize multi-core CPUs to simultaneously perform high-frequency data collection and control tag writing for tens of thousands of data tags.
+EMQX Neuron supports running on x86, ARM and other hardware architectures as well as container deployment, such as Kubernetes, KubeEdge, etc. It can be deployed on various hardware in industrial settings, including **industrial control machines**, **gateway devices**, and **servers**. On devices with limited hardware resources, it can also achieve data collection of 100 ms. On servers with sufficient hardware resources, EMQX Neuron can fully utilize multi-core CPUs to simultaneously perform high-frequency data collection and control tag writing for tens of thousands of data tags.
 
-**The following table lists the hardware conditions required for the minimum demand of NeuronEX at different number of tags.（Processing and storing collected data, as well as using AI features, will consume additional system resources.）**
+**The following table lists the hardware conditions required for the minimum demand of EMQX Neuron at different number of tags.（Processing and storing collected data, as well as using AI features, will consume additional system resources.）**
 
 |Tag Limits             | Minimum Memory Recommendation| Hardware Architecture  | Remarks                             |
 | :-------------------- | :---------  | :-------------------------------------- | :---------------------------------- |
@@ -38,7 +38,7 @@ NeuronEX supports running on x86, ARM and other hardware architectures as well a
 | More than 10,000 tags | 1G memory   | 64-bit x86 architectures                | Powerful Industrial PC, Server, etc |
 
 :::tip
-NeuronEX has no upper limitation on the number of tags. It depends on the allocated CPU and memory resources. The following figures are the results of Neuron performance test for your reference and these benchmark results are still not the upper limits. A more powerful server can be used for more tags.
+EMQX Neuron has no upper limitation on the number of tags. It depends on the allocated CPU and memory resources. The following figures are the results of Neuron performance test for your reference and these benchmark results are still not the upper limits. A more powerful server can be used for more tags.
 
 |Platform                         | Intel(R) Xeon(R) Gold 6266C@3.00GHz<br>|
 | :-------------------- | :---------  |

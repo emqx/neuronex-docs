@@ -21,7 +21,7 @@ GLIBC requires version 2.31 or above.
 
 ## Run
 
-The following command can be executed to start NeuronEX:
+The following command can be executed to start EMQX Neuron:
 
 ```bash
 $ ./bin/neuronex start

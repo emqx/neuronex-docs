@@ -1,3 +1,3 @@
 # Best Practices
 
-This chapter introduces the best practices of NeuronEX, including application cases of NeuronEX in various industries and scenarios.
+This chapter introduces the best practices of EMQX Neuron (formerly NeuronEX), including application cases of EMQX Neuron in various industries and scenarios.

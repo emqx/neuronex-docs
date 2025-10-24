@@ -1,12 +1,12 @@
 # Quick Start
 
-This tutorial starts with the download and installation, taking the Modbus TCP driver protocol as an example, and quickly starts using NeuronEX to collect analog device data, directly uploading the data to the EMQX MQTT public cloud service, and simply using the data stream processing function.
+This tutorial starts with the download and installation, taking the Modbus TCP driver protocol as an example, and quickly starts using EMQX Neuron (formerly NeuronEX) to collect analog device data, directly uploading the data to the EMQX MQTT public cloud service, and simply using the data stream processing function.
 
 ![start](./_assets/start.png)
 
-## NeuronEX Installation
+## EMQX Neuron Installation
 
-NeuronEX provides a variety of installation methods. Users can view detailed installation methods in [Installation](../installation/introduction.md). This example uses docker to start experiencing NeuronEX as quickly as possible.
+EMQX Neuron provides a variety of installation methods. Users can view detailed installation methods in [Installation](../installation/introduction.md). This example uses docker to start experiencing EMQX Neuron as quickly as possible.
 
 - Get Docker image
 
@@ -29,15 +29,15 @@ After installation, run Modbus TCP slave EX. Set the simulator point value and s
 ![modbus-simulator](./_assets/modbus-simulator.png)
 
 :::tip
-It is necessary to ensure that NeuronEX and the simulator are running in the same local network.
+It is necessary to ensure that EMQX Neuron and the simulator are running in the same local network.
 
-Try to turn off the firewall of Windows, otherwise NeuronEX may not be able to connect to the simulator.
+Try to turn off the firewall of Windows, otherwise EMQX Neuron may not be able to connect to the simulator.
 
 :::
 
-## Login to NeuronEX
+## Login to EMQX Neuron
 
-Open a web browser and enter the gateway address and port number running NeuronEX to enter the login page. The default port number is 8085. For example, http://127.0.0.1:8085
+Open a web browser and enter the gateway address and port number running EMQX Neuron to enter the login page. The default port number is 8085. For example, http://127.0.0.1:8085
 
 Use the initial username and password to log in to the management console page (initial username: `admin`, initial password: `0000`). The login page is as shown in the figure below.
 
@@ -47,7 +47,7 @@ Use the initial username and password to log in to the management console page (
 
 ### Create southbound device
 
-The southbound device is used to establish a connection between NeuronEX and the device, and get device data points. In this example, NeuronEX's Modbus TCP plugin is used to obtain data in the Modbus simulator.
+The southbound device is used to establish a connection between EMQX Neuron and the device, and get device data points. In this example, EMQX Neuron's Modbus TCP plugin is used to obtain data in the Modbus simulator.
 
 Select `South Devices` in `Data Collection` menu to enter the southbound device management page, click `Add Device` to add a new device, as shown in the figure below.
 
@@ -57,7 +57,7 @@ Select `South Devices` in `Data Collection` menu to enter the southbound device 
 
 ### Configure Southbound Driver
 
-Configure the parameters NeuronEX needs to establish a connection with the device.
+Configure the parameters EMQX Neuron needs to establish a connection with the device.
 
 - Name: fill in the device name, such as Modbus TCP;
 - Plugin: Select the Modbus TCP plugin from the drop-down box;
@@ -68,7 +68,7 @@ Configure the parameters NeuronEX needs to establish a connection with the devic
 ![south-setting](./_assets/south-setting.png)
 
 
-After the driver creation is completed, the connection status of the driver will be disconnected. To update the connection status, NeuronEX needs to continue with the creation of [data points configuration](#create-data-point), which will trigger NeuronEX to send read requests to the device.
+After the driver creation is completed, the connection status of the driver will be disconnected. To update the connection status, EMQX Neuron needs to continue with the creation of [data points configuration](#create-data-point), which will trigger EMQX Neuron to send read requests to the device.
 
 ![south-status](./_assets/south-status.png)
 
@@ -109,12 +109,12 @@ Point address resolution: 1 represents the point site number set in the Modbus s
 For detailed instructions on how to use the driver address, please refer to [Creating a southbound driver](../configuration/south-devices/south-devices.md).
 :::
 
-After creating the data points, NeuronEX automatically establishes communication with the device. The `modbus-tcp` node changes to the **Running** status and the **Connected** connection status.
+After creating the data points, EMQX Neuron automatically establishes communication with the device. The `modbus-tcp` node changes to the **Running** status and the **Connected** connection status.
 
 If after waiting for a few seconds, the connection status is still **Disconnected**, please do the following to find out the reason:
 
 - Please confirm that the IP address and port number are set correctly during device configuration, and the firewall is turned off.
-- Execute the following command in the NeuronEX operating environment terminal to confirm whether the NeuronEX operating environment can access the corresponding IP and port:
+- Execute the following command in the EMQX Neuron operating environment terminal to confirm whether the EMQX Neuron operating environment can access the corresponding IP and port:
 
 ```
 $ telnet <IP of the PC running the Modbus simulator> 502
@@ -136,7 +136,7 @@ Data monitoring displays values in groups:
 
 ### Create northbound application node
 
-Northbound application nodes are used for data interaction between NeuronEX and various northbound applications. Taking the MQTT plug-in as an example, a new MQTT node is added.
+Northbound application nodes are used for data interaction between EMQX Neuron and various northbound applications. Taking the MQTT plug-in as an example, a new MQTT node is added.
 
 Select `North Apps` in `Data Collection` menu and click `Add Application` to add a new application, as shown in the figure below.
 
@@ -148,7 +148,7 @@ Select `North Apps` in `Data Collection` menu and click `Add Application` to add
 
 ### Configure northbound application nodes
 
-Configure the parameters required for NeuronEX to establish a connection with the northbound application.
+Configure the parameters required for EMQX Neuron to establish a connection with the northbound application.
 
 After the northbound node is successfully created, it will automatically jump to the `Application Configuration` page, as shown in the figure below.
 
@@ -173,24 +173,24 @@ Click `Add Subscription` button to add a new subscription, as shown in the figur
 
 ## View data on MQTT client
 
-Use the MQTT client to view the uploaded data. For example, use the MQTT client tool [MQTTX](https://www.emqx.com/zh/products/mqttx) to connect to the public EMQX broker to view the data uploaded by NeuronEX to the MQTT Broker, as follows As shown below.
+Use the MQTT client to view the uploaded data. For example, use the MQTT client tool [MQTTX](https://www.emqx.com/zh/products/mqttx) to connect to the public EMQX broker to view the data uploaded by EMQX Neuron to the MQTT Broker, as follows As shown below.
 
 ![mqttx](./_assets/mqttx.png)
 
-After the subscription is successful, you can see that MQTTX can always receive the data collected and reported by NeuronEX.
+After the subscription is successful, you can see that MQTTX can always receive the data collected and reported by EMQX Neuron.
 
 - Open MQTTX to add a new connection, correctly fill in the name, Host (broker.emqx.io) and Port (default 1883) to complete the connection;
-- Add a new subscription, and the Topic must be consistent with the subscription topic of the NeuronEX northbound application.
+- Add a new subscription, and the Topic must be consistent with the subscription topic of the EMQX Neuron northbound application.
 
 ## Data processing
 
-NeuronEX provides data processing functions, which can perform data extraction, transformation, filtering, sorting, grouping, aggregation, connection and other functions  after data collection. Through powerful streaming computing and analysis capabilities, it can realize data standardization, analysis and monitoring, and Real-time alarm. Please refer to the [Data Processing](../streaming-processing/overview.md) section for more details.
+EMQX Neuron provides data processing functions, which can perform data extraction, transformation, filtering, sorting, grouping, aggregation, connection and other functions  after data collection. Through powerful streaming computing and analysis capabilities, it can realize data standardization, analysis and monitoring, and Real-time alarm. Please refer to the [Data Processing](../streaming-processing/overview.md) section for more details.
 
-This example will introduce how to add one to the the value collected by NeuronEX and then send the result to the dynamic topic of MQTT broker in the cloud.
+This example will introduce how to add one to the the value collected by EMQX Neuron and then send the result to the dynamic topic of MQTT broker in the cloud.
 
 ### Northbound application DataProcessing node
 
-On the **Data Collection** -> **Northbound Application** page, NeuronEX has been configured with `DataProcessing` node by default. Users only need to subscribe to the **group** of **Southbound Driver** through this application, and then the data points collected by Southbound driver will be sent to the `neuronStream` stream on the **Data Processing** -> **Sources** page.
+On the **Data Collection** -> **Northbound Application** page, EMQX Neuron has been configured with `DataProcessing` node by default. Users only need to subscribe to the **group** of **Southbound Driver** through this application, and then the data points collected by Southbound driver will be sent to the `neuronStream` stream on the **Data Processing** -> **Sources** page.
 
 Click `Add Subscription` button to add a new subscription on **DataProcessing** App, as shown in the figure below.
 ![ekuiper_sub1](./_assets/ekuiper_sub1.png)

@@ -1,6 +1,6 @@
 # Performance Testing
 
-This chapter mainly provides the performance test in various functions such as data collection and data processing. During the test, the software operation stability, data processing success rate, CPU, memory, network IO status, etc. are continuously monitored to help users reasonably evaluate system resources when using NeuronEX, and ultimately ensure that NeuronEX can run smoothly and efficiently.
+This chapter mainly provides the performance test in various functions such as data collection and data processing. During the test, the software operation stability, data processing success rate, CPU, memory, network IO status, etc. are continuously monitored to help users reasonably evaluate system resources when using EMQX Neuron (formerly NeuronEX), and ultimately ensure that EMQX Neuron can run smoothly and efficiently.
 
 For specific performance tests, please check the following pages:
 

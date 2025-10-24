@@ -2,7 +2,7 @@
 
 Data collection plugins can be categorized into southbound driver plugins and northbound application plugins. Southbound plugins are communication drivers that implement specific protocols to access external devices. Northbound plugins are typically used to connect to cloud platforms or data stream processing modules. To achieve protocol format conversion, at least one southbound plugin and one northbound plugin are required for data transmission and collection, respectively.
 
-After logging into NeuronEX, you can click on **Data Collection** -> **Plugin** to view the system's plugin list. You can also click the Add Plugin button in the upper-left corner to install custom plugins.
+After logging into EMQX Neuron, you can click on **Data Collection** -> **Plugin** to view the system's plugin list. You can also click the Add Plugin button in the upper-left corner to install custom plugins.
 
 ## View Available Plugin Modules
 

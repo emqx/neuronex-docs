@@ -1,8 +1,8 @@
 # License Policy
 
-NeuronEX provides a free quota of 30 data tags upon default installation. You can utilize these commercial modules without installing an EMQ license. For details, refer to the **Enabled Plugins** section below. Additionally, the data processing module in NeuronEX, which is also available after default installation, is only for testing purposes. Any rules created will automatically stop running after 60 minutes.
+EMQX Neuron (formerly NeuronEX) provides a free quota of 30 data tags upon default installation. You can utilize these commercial modules without installing an EMQ license. For details, refer to the **Enabled Plugins** section below. Additionally, the data processing module in EMQX Neuron, which is also available after default installation, is only for testing purposes. Any rules created will automatically stop running after 60 minutes.
 
-To exceed the free quota of data tags or fully utilize the data processing functionality, it is necessary to install a valid trial or commercial license of NeuronEX. NeuronEX software can be downloaded directly from the [download](https://www.emqx.com/en/try?product=neuronex) page of EMQ official website.
+To exceed the free quota of data tags or fully utilize the data processing functionality, it is necessary to install a valid trial or commercial license of EMQX Neuron. EMQX Neuron software can be downloaded directly from the [download](https://www.emqx.com/en/try?product=neuronex) page of EMQ official website.
 
 ![license-policy](../_assets/license-policy-en1.png)
 
@@ -28,4 +28,4 @@ After applying for a license, In the `Administration` -> `License` page, you can
 
 ## Reset License
 
-In the `Administration` -> `License` page, click the `Reset License` button to reset to the NeuronEX default license containing 30 tags.
+In the `Administration` -> `License` page, click the `Reset License` button to reset to the EMQX Neuron default license containing 30 tags.

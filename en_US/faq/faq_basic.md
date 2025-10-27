@@ -103,7 +103,7 @@ Overwrite the `data` folder in the original EMQX Neuron `/opt/neuronex/` directo
 
 ## Does EMQX Neuron support video?
 
-EMQX Neuron supports collecting, analyzing, storing, and forwarding picture frames in RSTP video streams.
+EMQX Neuron supports collecting, analyzing, storing, and forwarding picture frames in RTSP video streams.
 
 ## Does EMQX Neuron support obtaining database data?
 

@@ -682,6 +682,19 @@
               "title": "DataStorage 数据存储插件",
               "path": "configuration/north-apps/DataStorage/DataStorage",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/DataStorage/DataStorage.md"
+            },
+            {
+              "title": "OPCUA Server 插件",
+              "path": "configuration/north-apps/opcua-server/overview",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/opcua-server/overview.md",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "UaExpert 连接示例",
+                  "path": "configuration/north-apps/opcua-server/uaexpert",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/opcua-server/uaexpert.md"
+                }
+              ]
             }
           ]
         },
@@ -1853,6 +1866,19 @@
               "title": "DataStorage",
               "path": "configuration/north-apps/DataStorage/DataStorage",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/DataStorage/DataStorage.md"
+            },
+            {
+              "title": "OPCUA Server ",
+              "path": "configuration/north-apps/opcua-server/overview",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/opcua-server/overview.md",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Connect to OPC UA Server using UaExpert",
+                  "path": "configuration/north-apps/opcua-server/uaexpert",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/opcua-server/uaexpert.md"
+                }
+              ]
             }
           ]
         },

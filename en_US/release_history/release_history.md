@@ -1,5 +1,69 @@
 # Release history
 
+## v3.7.0
+
+Release Date: 2025-10-29
+
+### Enhancements
+
+- New Northbound OPC UA Server Plugin
+
+  - This plugin supports mapping southbound collected data tags to the OPC UA address space and offers flexible security policy configuration, username/password authentication, and comprehensive certificate management capabilities.
+
+- Driver Capability Enhancements
+
+  - Beckhoff ADS Driver: Now supports bulk creation of data points by importing TPY files, simplifying the configuration process.
+
+  - CNC Driver: Added a feature to import a built-in data tag table, helping users quickly configure and start data collection for CNC equipment.
+
+  - SparkplugB Driver: Supports two data reporting formats: Tag and Alias.
+
+- Northbound Application Subscription
+
+  - Optimized the interaction for Northbound applications subscribing to Southbound groups. Subscribed groups are now clearly identified, preventing duplicate subscriptions.
+
+- Multi-Source Data Access
+
+  - Httppull Source: Supports a status feature similar to the SQL Source.
+
+  - MQTT Source: Supports subscribing to multiple Topics using a comma-separated list (e.g., topic1,topic2).
+
+- Plugin and File Downloads
+
+  - Extensions -> Portable Plugins page: Added support for downloading portable plugins.
+
+  - Configuration -> Files Management page: Added support for file download.
+
+- Dashboard Features
+
+  - Import and Export: New dashboard import and export functionality. Users can export the entire dashboard configuration (including all Panels and queries) as a JSON file, facilitating migration, backup, and sharing between different NeuronEX instances.
+
+  - New Chart Types: To meet diverse monitoring needs, three new chart types have been added to the dashboard:
+
+    - Gauge: For a direct, single-value representation of an instant metric.
+
+    - Stat (Statistical Trend Graph): For displaying the latest value of a single metric along with its concise trend.
+
+    - Pie: For showing the proportion and distribution of different categories of data.
+
+  - Table Merging Function: Table type Panels now support adding multiple SQL queries and displaying the combined results in a single table for easy cross-data source comparison and analysis.
+
+- AI Operations Assistant
+
+  - A new AI Q&A Assistant has been added, integrated with the NeuronEX operation and maintenance knowledge base. It provides expert guidance and answers on product configuration, feature usage, and troubleshooting through natural language interaction, helping users quickly identify problems, obtain solutions, and improve O&M efficiency.
+
+- Logging System Optimization
+
+  - Added a global log level configuration for Neuron, defaulting to Notice to reduce overall log output volume.
+
+  - Individual Southbound drivers still retain the ability to set an independent log level. This setting will override the global configuration, allowing users to perform fine-grained diagnostics on specific drivers without affecting the system's overall log output.
+
+- Others
+
+  - Optimized the content display style on the System Info page.
+
+  - Upgraded the built-in Datalayers version to 2.3.11.
+
 ## v3.6.2
 
 Release Date: 2025-09-26

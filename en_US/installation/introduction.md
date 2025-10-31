@@ -54,6 +54,13 @@ EMQX Neuron has no upper limitation on the number of tags. It depends on the all
 
 :::
 
+:::tip
+Provided the hardware performance is sufficient, it is recommended that the total number of data tags collected should not exceed **100,000**, and the recommended configuration should not exceed **100 southbound drivers**. 
+
+If the number of data tags or southbound drivers exceeds the above recommended configuration, multiple EMQX Neuron instances can be deployed to meet the requirements.
+
+:::
+
 ## Debian 
 
 | Download files                 | Architecture  |

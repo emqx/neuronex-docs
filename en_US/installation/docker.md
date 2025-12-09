@@ -28,7 +28,7 @@ For more startup parameters, please refer to the [Configuration Management](../a
 
 ## Docker Container Python Runtime Environment
 
-EMQX Neuron provides four types of Docker installation packages:
+EMQX Neuron provides three types of Docker installation packages:
 
 - **neuronex:3.x.x**
 
@@ -62,14 +62,3 @@ docker pull emqx/neuronex:3.6.0-ai
 docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.6.0-ai
 ```
 
-- **neuronex:3.x.x-ai-arm64**   
-
-The installation package of type neuronex:3.x.x-ai-arm64 integrates the Python runtime environment and the Python dependencies for running large language models (LLM). If you have a need to use Python plugins for natural language generation and AI data analysis, please use this type of image.
-
-This image supports arm64 architecture devices.
-
-```bash
-#run EMQX Neuron by neuronex:3.x.x-ai-arm64
-docker pull emqx/neuronex:3.6.0-ai-arm64
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.6.0-ai-arm64
-```

@@ -1,5 +1,29 @@
 # Release history
 
+## v3.6.3
+
+Release Date: 2025-12-9
+
+### Enhancements
+
+- Enhanced **BACnet BBMD** functionality
+
+- Upgraded **OPC UA** Tag browser function, with support for automatic filtering of incompatible data tag types
+
+- **IEC 61850** driver has added support for `unicodestring255` data type
+
+- **Sparkplug B** driver: Supported two data reporting formats, namely **Tag** and **Alias**
+
+- **Siemens S7 ISO on TCP for S7-300/400** driver: Added support for the `Char Array` data type
+
+### Fixes
+
+- Fixed the occasional crash issue of the **ADS** protocol caused by NNG bugs
+
+- Fixed the issue where no data could be received after the driver disconnected in the **OPC UA** driver's subscription mode
+
+- Fix the issue where error messages are not reported properly when values are incorrect in the OPCUA driver subscription mode. If you need to disable this error reporting, you can set the environment variable `NEURON_SUB_FILTER_ERROR = 1`
+
 ## v3.7.0
 
 Release Date: 2025-10-29

@@ -1,5 +1,39 @@
 # Release history
 
+## v3.7.1
+
+Release Date: 2025-12-24
+
+### Enhancements
+
+- Enhanced **BACnet BBMD** functionality
+
+- Optimized **OPC UA** tag browser feature: Added a caching mechanism for scenarios where the **OPC UA Server** hosts a large number of data points, enabling efficient data loading
+
+- Upgraded **OPC UA** tag browser feature to support automatic filtering of incompatible data point types
+
+- **IEC 61850** driver now adds support for the `unicodestring255` data type
+
+- **S7 300/400** driver now adds support for the `char array` data type
+
+- Optimized **NeuronEX** installation and configuration: Adjusted the default value of the operating system parameter `net.unix.max_dgram_qlen` to 1024, improving system performance in scenarios with high device connection volumes (This feature applies only to the installation package deployment method. For **NeuronEX** deployed in container mode, this parameter can be modified manually on the host machine)
+
+- Optimized rule operation interaction: Added a **Loading** state to operation buttons when a rule is in stopped status, preventing repeated consecutive operations
+
+### Fixes
+
+- Fixed the occasional crash issue caused by the **NNG Bug** in the **ADS** protocol
+
+- Fixed the issue where no data could be received after the driver disconnected in the **OPC UA** driver subscription mode
+
+- Fixed **Docker** image security vulnerabilities: Upgraded the base image of the **NeuronEX** image `neuronex:3.7.1` from `python:3.13.2-slim` to `python:3.13.9-slim` to address security scanning vulnerabilities caused by built-in libraries of the base image; upgraded the **Golang** standard library used by **NeuronEX** from `1.23.3` to `1.23.8`
+
+- Fixed the issue where no results were output in the rule testing feature
+
+- Fixed the issues related to `access token` and `refresh token` in **OAuth** authentication of the **REST sink** configuration items
+
+- Changed the built-in default **JWT** key pair to be dynamically generated each time **NeuronEX** starts, which is used to generate `token` after successful login with username and password. Meanwhile, upgraded the **JWT Golang** library used by the project from `v3.2` to `v5`
+
 ## v3.6.3
 
 Release Date: 2025-12-9

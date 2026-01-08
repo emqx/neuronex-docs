@@ -1,5 +1,29 @@
 # Release history
 
+## v3.5.5
+
+Release Date: 2026-01-07
+
+### Enhancements
+
+- **OPC UA** driver now adds support for complex nested `struct` types
+
+- Enhanced **BACnet BBMD** functionality
+
+- Upgraded **OPC UA** tag browser feature to support automatic filtering of incompatible data point types
+
+- **IEC 61850** driver now adds support for the `mmstring` data type
+
+- **S7 300/400** driver now adds support for the `char array` data type
+
+### Fixes
+
+- Fixed the issue where no data could be received after the driver disconnected in the **OPC UA** driver subscription mode
+
+- Fixed the crash issue caused by modifying `group name` in **OPC UA** nodes
+
+- Fixed the abnormal leakage issue of connection file descriptor (`connection fd`)
+
 ## v3.7.1
 
 Release Date: 2025-12-24

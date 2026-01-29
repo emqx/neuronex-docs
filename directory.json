@@ -1119,6 +1119,10 @@
         "collapsed": true,
         "children": [
           {
+            "title": "如何在 10 分钟内将任意 PLC 连接到 MQTT",
+            "path": "best-practise/plc-to-mqtt"
+          },
+          {
             "title": "NeuronEX 设备反控功能详解",
             "path": "best-practise/device-control"
           },
@@ -2300,6 +2304,10 @@
       "url": "",
       "collapsed": true,
       "children": [
+        {
+          "title": "How to Connect Any PLC to MQTT in 10 Minutes",
+          "path": "best-practise/plc-to-mqtt"
+        },
         {
           "title": "NeuronEX Device Control",
           "path": "best-practise/device-control"

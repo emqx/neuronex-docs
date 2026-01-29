@@ -17,7 +17,7 @@ If you want to save the settings as a template, you can also click **Add Sink Te
 - **URL**: The URL of the data collection module connected to the NeuronEX instance, the default is `tcp://127.0.0.1:7081`
 - **Node name**: The node name sent to the southbound driver of the data collection module. The value can be a dynamic parameter template. This option must be configured when the `original string` configuration item is `False`.
 - **Group name**: The group name sent to the southbound driver of the data collection module. The value can be a dynamic parameter template. This option must be configured when the `original string` configuration item is `False`.
-- **Tags**: The specific tag name sent to the southbound driver of the data collection module. The label should be the field name after rule processing.
+- **Tags**: The specific tag name sent to the southbound driver of the data collection module. The label should be the field name after rule processing. **Note: When sending multiple tags at once, all tags (case-sensitive) must exist in the southbound driver. If any tag does not exist or the name is incorrect, all tags will fail to send.**
 - **Raw**: When this configuration item is `False`, data is written through `node name`, `group name` and `label field`. When this configuration item is `True`, data is written through `data template`.
 - **Omit if content is empty**: Default is False.
 - **Send single**: Default is True.

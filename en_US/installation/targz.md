@@ -2,29 +2,30 @@
 
 ## Download
 
-Download the installation package according to different versions and architectures, for example:
+Download the installation package for different versions and CPU architectures from the [EMQ website](https://www.emqx.com/en/downloads-and-install/neuronex?os=Linux), for example:
 
 ```bash
-$ wget https://www.emqx.com/en/downloads/neuronex/3.5.0/neuronex-3.5.0-linux-amd64.tar.gz
+$ wget https://www.emqx.com/en/downloads/neuronex/3.7.0/neuronex-3.7.0-linux-amd64.tar.gz
 ```
 
 ## Install
 
 ```bash
-$ tar -zxvf neuronex-3.5.0-linux-amd64.tar.gz
-$ cd neuronex-3.3.0-linux-amd64
+$ tar -zxvf neuronex-3.7.0-linux-amd64.tar.gz
+$ cd neuronex-3.7.0-linux-amd64
 ```
 
-::: tip 
+:::: tip
 GLIBC requires version 2.31 or above.
-:::
+::::
 
-## Run
+## Start
 
-The following command can be executed to start EMQX Neuron:
+Run the following command to start NeuronEX:
 
 ```bash
 $ ./bin/neuronex start
 ```
 
 For more startup parameters, please refer to the [Configuration Management](../admin/conf-management.md).
+

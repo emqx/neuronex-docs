@@ -67,13 +67,13 @@ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex
 <!--
 - **neuronex:3.x.x-ai-arm64**
 
-The `neuronex:3.x.x-ai-arm64` image includes the Python runtime environment and the Python dependencies for large language models (LLM). If you need natural-language generation of Python plugins and AI data analysis, please use this type.
+The installation package of type neuronex:3.x.x-ai-arm64 integrates the Python runtime environment and the Python dependencies for running large language models (LLM). If you have a need to use Python plugins for natural language generation and AI data analysis, please use this type of image.
 
 This image supports arm64 architecture devices.
 
 ```bash
-# run NeuronEX by neuronex:3.x.x-ai-arm64
-docker pull emqx/neuronex:3.7.1-ai-arm64
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.7.1-ai-arm64
+#run EMQX Neuron by neuronex:3.x.x-ai-arm64
+docker pull emqx/neuronex:3.6.0-ai-arm64
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.6.0-ai-arm64
 ```
 -->

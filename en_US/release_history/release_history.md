@@ -44,6 +44,8 @@ Release Date: 2025-12-24
 
 - Optimized rule operation interaction: Added a **Loading** state to operation buttons when a rule is in stopped status, preventing repeated consecutive operations
 
+- The certificates uploaded in the configuration items support the deletion operation.
+
 ### Fixes
 
 - Fixed the occasional crash issue caused by the **NNG Bug** in the **ADS** protocol

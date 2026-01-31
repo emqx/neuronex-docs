@@ -44,3 +44,33 @@ $ sudo dpkg -r neuronex
 ```bash
 $ sudo dpkg -P neuronex
 ```
+
+## 升级
+
+关闭当前 NeuronEX 服务：
+
+```bash
+$ sudo systemctl stop neuronex
+```
+
+卸载当前 NeuronEX：
+
+```bash
+$ sudo dpkg -r neuronex
+```
+
+下载新的 NeuronEX 安装包：
+
+```bash
+$ sudo dpkg -i neuronex-3.x.x-linux-amd64.deb
+```
+
+运行后，新版本的 NeuronEX 将保留之前的配置。
+
+```bash
+$ sudo systemctl start neuronex
+```
+
+::: tip
+也可以手动复制并保存老版本NeuronEX `/opt/neuronex/data/` 目录下的文件，并导入到新版本 NeuronEX 的相同目录下，可恢复配置。
+:::

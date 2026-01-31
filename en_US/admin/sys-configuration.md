@@ -253,6 +253,7 @@ In the NeuronEX **System Configuration** -> **AI Model Configuration** page, add
 | ------------------------------------------- | --------------------------------------------- | ---------------------------------------- |
 | DeepSeek | `https://api.deepseek.com` | `deepseek-chat` <br> `deepseek-reasoner` |
 | SiliconFlow | - | `Pro/deepseek-ai/DeepSeek-V3` <br> `deepseek-ai/DeepSeek-V3` |
+| Qwen  | `https://dashscope.aliyuncs.com/compatible-mode/v1` | `qwen-plus`  <br>   `qwen3-max` |
 | OpenAI | `https://api.openai.com/v1` | `gpt-4o` <br> `gpt-4.1` <br> `o1` <br> `o3-mini` <br> `gpt-4.5-preview` <br> `gpt-4.1-mini` <br> `o4-mini` |
 | Azure OpenAI | Obtain from Azure official website | `gpt-4o` <br> `o1-mini` <br>  `o3-mini` |
 

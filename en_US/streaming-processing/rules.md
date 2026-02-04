@@ -149,3 +149,18 @@ For detailed information about incremental computation, please refer to [Increme
 To enable incremental computation in rules, please enable it in the rule options.
 
 ![alt text](_assets/incremental_calc.png)
+
+## AI-powered Rule Writing
+
+NeuronEX 3.8.0 deeply integrates AI capabilities into the data processing workflow, significantly lowering the technical barrier for industrial data analysis.
+
+AI Q&A Integration in Rule Creation Page
+When creating data processing rules, the AI assistant has deeply integrated the eKuiper knowledge base, supporting natural language queries for SQL rule writing and data stream processing questions. Users can directly ask various questions, and the AI will generate corresponding SQL code. For example:
+
+- I want to detect the abnormal situation where a device's temperature (temp) exceeds 100 degrees for 3 consecutive times. How can I achieve this by combining window and filtering rules?
+
+- How to map the device status codes (StatusCode) 0, 1, and 2 to the output strings "stopped", "running", and "fault" respectively?
+
+- The temperature sensor readings are fluctuating. I want to keep 2 decimal places. How to handle this?
+
+![alt text](_assets/ai_rule_write.png)

@@ -563,6 +563,11 @@
               ]
             },
             {
+              "title": "SNMP",
+              "path": "configuration/south-devices/snmp/snmp",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/snmp/snmp.md"
+            },
+            {
               "title": "NeuronHUB",
               "path": "configuration/south-devices/neuhub/neuhub",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/neuhub/neuhub.md",
@@ -587,6 +592,16 @@
                   "title": "MITSUBISHI CNC",
                   "path": "configuration/south-devices/neuhub/mitsubishi-cnc",
                   "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/neuhub/mitsubishi-cnc.md"
+                },
+                {
+                  "title": "OPC AE",
+                  "path": "configuration/south-devices/neuhub/opcae",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/neuhub/opcae.md"
+                },
+                {
+                  "title": "GE Historian",
+                  "path": "configuration/south-devices/neuhub/ge-historian",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/neuhub/ge-historian.md"
                 }
               ]
             }
@@ -728,6 +743,10 @@
               "path": "dev-guide/dev-guide"
             }
           ]
+        },
+        {
+          "title": "Modbus TCP Server 模拟器",
+          "path": "configuration/modbus-simulator"
         }
       ]
     },
@@ -1734,6 +1753,11 @@
               ]
             },
             {
+              "title": "SNMP",
+              "path": "configuration/south-devices/snmp/snmp",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/snmp/snmp.md"
+            },
+            {
               "title": "NeuronHUB",
               "path": "configuration/south-devices/neuhub/neuhub",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/neuhub/neuhub.md",
@@ -1758,6 +1782,16 @@
                   "title": "MITSUBISHI CNC",
                   "path": "configuration/south-devices/neuhub/mitsubishi-cnc",
                   "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/neuhub/mitsubishi-cnc.md"
+                },
+                {
+                  "title": "OPC AE",
+                  "path": "configuration/south-devices/neuhub/opcae",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/neuhub/opcae.md"
+                },
+                {
+                  "title": "GE Historian",
+                  "path": "configuration/south-devices/neuhub/ge-historian",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/neuhub/ge-historian.md"
                 }
               ]
             }
@@ -1916,6 +1950,10 @@
               "path": "dev-guide/dev-guide"
             }
           ]
+        },
+        {
+          "title": "Modbus TCP Server Simulator",
+          "path": "configuration/modbus-simulator"
         }
       ]
     },

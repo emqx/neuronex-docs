@@ -1,5 +1,68 @@
 # Release history
 
+## v3.8.0
+
+Release Date: 2026-02-07
+
+### Enhancements
+
+- **New SNMP Driver**: Monitors and manages the status and performance of network devices such as routers, switches, and servers via the SNMP protocol. Currently, the SNMP plugin supports SNMP v2c.
+    
+- **New Ge Historian Driver**: Accesses GE Historian servers running on Windows through NeuronHUB. GE Historian is an industrial historical database used for storing and retrieving industrial process data.
+    
+- **New OPC AE Driver**: Accesses OPC AE (Alarms and Events) servers running on Windows through NeuronHUB, supporting Simple, Conditional, and Tracking event types. OPC AE is primarily used to retrieve alarm and event information from equipment.
+    
+- **OPC UA Driver Enhancements**:
+    
+    - **Data Type Extension**: Added support for the `String Array` data type.
+        
+    - **Browsing Performance Optimization**: Adjusted the layout of the OPC UA tag browsing page and expanded the display of namespace nodes. Added a selection counter for tags and increased the maximum limit for exporting or adding tags to collection groups to 10,000.
+        
+- **Modbus Driver Enhancement**: Added mandatory validation for the Modbus address range (0–65535) during tag configuration to ensure accuracy.
+    
+- **Modbus TCP Simulator**: Includes a built-in Modbus TCP simulator, allowing users to perform development and testing without physical hardware.
+    
+- **CODESYS V3 Driver Enhancement**: The Codesys protocol now supports Chinese tags.
+    
+- **MQTT Driver Enhancement**: Offline data caching will be cleared when the northbound MQTT driver node is deleted or the offline data caching function is disabled.
+    
+- **Data Collection Function Enhancements**:
+    
+    - **Northbound Application Import/Export**: Supports one-click import and export of northbound application configurations.
+        
+    - **Tag Management System**: Both southbound drivers and northbound applications now support `Tags`, enabling device searching and querying based on these tags.
+        
+    - **Southbound Driver Cross-page Filtering**: Supports cross-page filtering when sorting southbound drivers by `Status` or `Connection Status`.
+        
+    - **Northbound Subscription Pop-up**: Added scrollbar support for the subscription pop-up window to better handle scenarios with a large number of southbound nodes.
+        
+    - **Tag Write Logging**: When performing tag write operations via MQTT or HTTP API, the logs now include the execution status (`Success`/`Failure`) and specific error details. Successful operations are logged as `INFO`, while failures are logged as `ERROR`.
+        
+- **Rule Debugging**: The backend communication protocol for the rule testing feature has been optimized from **WebSocket** to **SSE**.
+    
+- **AI Q&A Integration in Rule Creation**: The AI assistant is now deeply integrated with the eKuiper knowledge base, supporting natural language inquiries regarding SQL rule writing and data stream processing.
+    
+- **RBAC Enhancements**: Refined permission controls for the `Viewer` role across Data Analysis, Dashboard, and Application pages.
+    
+- **Built-in AI Features**: Added support for **Qwen** Large Language Models.
+    
+- **Built-in Database**: Updated the built-in time-series database **Datalayers** to version 2.3.16.
+    
+- **UI Style Adjustments**: The layout and UI style of Dashboard have been adjusted and optimized, and the page logo has been updated to **EMQX Neuron**.
+    
+
+### Fixes
+
+- Fixed an issue in the InfluxDB V1 Sink where tag fields were not written successfully.
+    
+- Fixed an issue where the device and group appeared empty when navigating from the southbound collection group page to the Data Monitoring page.
+    
+- Fixed the `exit status 1: Conversion failed!` error in Video Source.
+    
+- Fix the duplicate scanning tag issue of WinCC OPCUA/DA Server
+    
+- Fix the abnormal crash issue of the SparkPlugB driver
+
 ## v3.5.5
 
 Release Date: 2026-01-07

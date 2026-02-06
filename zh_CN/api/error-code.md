@@ -195,10 +195,11 @@
 
 ## EtherNet/IP 错误码
 
-- 10701 - 10744 EtherNet/IP 错误
-- 10797 EtherNet/IP 没有 CIP 连接
-- 10798 EtherNet/IP 数据类型不匹配
-- 10799 EtherNet/IP 未注册 session
+* 10701 - 10744 EtherNet/IP 错误
+* 10704 点位地址错误
+* 10797 EtherNet/IP 没有 CIP 连接
+* 10798 EtherNet/IP 数据类型不匹配
+* 10799 EtherNet/IP 未注册 session
 
 
 

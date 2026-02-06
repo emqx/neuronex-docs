@@ -195,10 +195,11 @@ This document describes the error codes that the data collection function will r
 
 ## EtherNet/IP error codes
 
-- 10701    10744 EtherNet/IP error
-- 10797    EtherNet/IP has no CIP connection
-- 10798    EtherNet/IP data type mismatch
-- 10799    EtherNet/IP is not registered session
+* 10701    10744 EtherNet/IP error
+* 10704    Incorrect tag address
+* 10797    EtherNet/IP has no CIP connection
+* 10798    EtherNet/IP data type mismatch
+* 10799    EtherNet/IP is not registered session
 
 
 

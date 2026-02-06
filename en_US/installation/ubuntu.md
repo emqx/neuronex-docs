@@ -44,3 +44,34 @@ $ sudo dpkg -r neuronex
 ```bash
 $ sudo dpkg -P neuronex
 ```
+
+## Upgrade
+
+Stop the current NeuronEX service:
+
+```bash
+$ sudo systemctl stop neuronex
+```
+
+Uninstall the current NeuronEX:
+
+```bash
+$ sudo dpkg -r neuronex
+```
+
+Download the new NeuronEX installation package and install it:
+
+```bash
+$ sudo dpkg -i neuronex-3.x.x-linux-amd64.deb
+```
+
+After running the above commands, the new version of NeuronEX will retain the previous configurations.
+Start the new NeuronEX service:
+
+```bash
+$ sudo systemctl start neuronex
+```
+
+::: tip
+Alternatively, you can manually copy and back up the files in the `/opt/neuronex/data/` directory of the old NeuronEX version, then import these files into the same directory of the new NeuronEX version to restore the configurations.
+:::

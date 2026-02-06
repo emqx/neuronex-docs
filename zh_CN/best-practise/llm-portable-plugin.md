@@ -33,15 +33,7 @@ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=
 
 ### AI 模型配置
 
-在使用 AI 生成 Python 插件功能之前，您需要先在 NeuronEX **系统配置** -> **AI 模型配置**页面，添加一个LLM模型配置信息，包括 LLM 模型的类型、API Key、Endpoint 地址以及模型名称。目前 NeuronEX 已支持以下厂商的模型：
-
-| <div style="width:100pt">模型厂商</div>                 | <div style="width:120pt">Endpoint地址</div> | <div style="width:120pt">模型名称</div> |
-| ------------------------------------------------------------ |  ------------ | -------------------------------- |
-| DeepSeek              | `https://api.deepseek.com`  | `deepseek-chat` <br> `deepseek-reasoner` |
-| SiliconFlow              | -    |  `Pro/deepseek-ai/DeepSeek-V3` <br> `deepseek-ai/DeepSeek-V3`|
-| OpenAI     | `https://api.openai.com/v1`  |  `gpt-4o` <br> `gpt-4.1` <br> `o1` <br> `o3-mini` <br> `gpt-4.5-preview` <br> `gpt-4.1-mini` <br> `o4-mini` |
-| Azure OpenAI            | Azure官网获取  | `gpt-4o` <br> `o1-mini` <br>  `o3-mini`  |
-o4-mini |
+在使用 AI 生成 Python 插件功能之前，您需要先在 NeuronEX **系统配置** -> **AI 模型配置**页面，添加一个LLM模型配置信息，包括 LLM 模型的类型、API Key、Endpoint 地址以及模型名称。目前 NeuronEX 已支持厂商的模型请查阅[AI 模型配置](../admin/sys-configuration.md#ai-模型配置)页面。
 
 您可通过以上模型厂商的官方网站获取 API Key，并在 NeuronEX 页面添加模型配置并启用。可在页面中同时配置多个大模型，但只能启用一个模型进行使用。
 

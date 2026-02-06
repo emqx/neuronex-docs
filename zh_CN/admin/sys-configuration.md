@@ -262,6 +262,7 @@ NeuronEX 支持在系统配置页面配置 AI 模型，并使用 AI 模型生成
 | ------------------------------------------------------------ |  ------------ | -------------------------------- |
 | DeepSeek              | `https://api.deepseek.com`  | `deepseek-chat` <br> `deepseek-reasoner` |
 | SiliconFlow              | -    |  `Pro/deepseek-ai/DeepSeek-V3` <br> `deepseek-ai/DeepSeek-V3`|
+| Qwen  | `https://dashscope.aliyuncs.com/compatible-mode/v1` | `qwen-plus`  <br>   `qwen3-max` |
 | OpenAI     | `https://api.openai.com/v1`  |  `gpt-4o` <br> `gpt-4.1` <br> `o1` <br> `o3-mini` <br> `gpt-4.5-preview` <br> `gpt-4.1-mini` <br> `o4-mini`|
 | Azure OpenAI            | Azure官网获取  | `gpt-4o` <br> `o1-mini` <br>  `o3-mini` |
 

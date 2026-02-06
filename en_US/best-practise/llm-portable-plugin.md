@@ -36,14 +36,7 @@ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=
 
 ### AI Model Configuration
 
-Before using the AI-generated Python plugin feature, you need to add LLM model configuration information on the NeuronEX **System Configuration** -> **AI Model Configuration** page, including the LLM model type, API Key, Endpoint address, and model name. Currently, NeuronEX supports models from the following vendors:
-
-| <div style="width:100pt">Model Vendor</div> | <div style="width:120pt">Endpoint Address</div> | <div style="width:120pt">Model Name</div> |
-| ------------------------------------------- | --------------------------------------------- | ---------------------------------------- |
-| DeepSeek | `https://api.deepseek.com` | `deepseek-chat` <br> `deepseek-reasoner` |
-| SiliconFlow | - | `Pro/deepseek-ai/DeepSeek-V3` <br> `deepseek-ai/DeepSeek-V3` |
-| OpenAI | `https://api.openai.com/v1` |  `gpt-4o` <br> `gpt-4.1` <br> `o1` <br> `o3-mini` <br> `gpt-4.5-preview` <br> `gpt-4.1-mini` <br> `o4-mini` |
-| Azure OpenAI | Obtain from Azure official website | `gpt-4o` <br> `o1-mini` <br>  `o3-mini` |
+Before using the AI-generated Python plugin feature, you need to add LLM model configuration information on the NeuronEX **System Configuration** -> **AI Model Configuration** page, including the LLM model type, API Key, Endpoint address, and model name. For the list of models supported by NeuronEX, please refer to the [AI Model Configuration](../admin/sys-configuration.md#ai-model-configuration) page.
 
 You can obtain API Keys from the official websites of these model vendors, add model configurations on the NeuronEX page, and enable them. Multiple large models can be configured on the page simultaneously, but only one model can be enabled for use.
 

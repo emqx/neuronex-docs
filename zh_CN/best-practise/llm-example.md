@@ -33,7 +33,7 @@ NeuronEX 会将大型语言模型分析得出的异常数据结果推送至 EMQX
 - 可通过 Docker 命令快速创建一个 NeuronEX 服务，访问地址为 localhost:8085
 
 ```shell
-docker run -d --name neuronex -p 8085:8085 emqx/neuronex:3.4.1
+docker run -d --name neuronex -p 8085:8085 emqx/neuronex:3.8.0
 ```
 
 - 可通过 Docker 命令快速创建一个 EMQX 服务，访问地址为 localhost:18083 。

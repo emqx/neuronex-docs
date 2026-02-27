@@ -28,6 +28,10 @@ Database connection address reference:
 | oracle     | oracle://username:password@127.0.0.1:1521/testdb               |
 | sqlite     | sqlite:/tmp/test.db                             |
 
+::: tip 
+   Some PG servers (especially those that are not configured with SSL) will directly reject the request to "try to SSL connect", and throw an error of `pq: SSL is not enabled on the server`. At this time, the PostgreSQL database connection address needs to add the `sslmode=disable` parameter. That is, `postgres://username:password@127.0.0.1:5432/testdb?sslmode=disable`
+:::
+
 ## Sample 
 
 The following is an example of writing device data collected by the data collection module into a MySQL database.

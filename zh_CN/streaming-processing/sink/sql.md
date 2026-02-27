@@ -29,6 +29,11 @@
 | oracle     | oracle://username:password@127.0.0.1:1521/testdb               |
 | sqlite     | sqlite:/tmp/test.db                             |
 
+::: tip 注意
+  部分 PG 服务端（尤其是未配置 SSL 时）会直接拒绝“尝试 SSL 连接”的请求，从而抛出 `pq: SSL is not enabled on the server` 错误。此时 PostgreSQL 数据库连接地址需要添加 `sslmode=disable` 参数。即，`postgres://username:password@127.0.0.1:5432/testdb?sslmode=disable`
+
+:::
+
 ## 示例
 
 下面是一个将数采模块采集到的设备数据写入 MySQL 数据库的示例

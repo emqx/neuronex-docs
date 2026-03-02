@@ -16,7 +16,7 @@ Release Date: 2026-02-07
     
     - **Data Type Extension**: Added support for the `String Array` data type.
         
-    - **Browsing Performance Optimization**: Adjusted the layout of the OPC UA tag browsing page and expanded the display of namespace nodes. Added a selection counter for tags and increased the maximum limit for exporting or adding tags to collection groups to 10,000.
+    - **Browsing Performance Optimization**: Adjusted the layout of the OPC UA tag browsing page and expanded the display of namespace nodes. Added a selection counter for tags.The upper limit for exporting tags has been changed to 10,000 tags, and the upper limit for adding tags to the collection group has been changed to 1,000 tags.
         
 - **Modbus Driver Enhancement**: Added mandatory validation for the Modbus address range (0–65535) during tag configuration to ensure accuracy.
     

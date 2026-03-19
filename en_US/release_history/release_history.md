@@ -1,5 +1,31 @@
 # Release history
 
+## v3.6.4
+
+Release Date: 2026-03-19
+
+### Enhancements
+
+- **Tag Write Logging**: When performing tag write operations via MQTT or HTTP API, the logs now include the execution status (`Success`/`Failure`) and specific error details. Successful operations are logged as `INFO`, while failures are logged as `ERROR`.
+
+- **MQTT Driver Enhancement**: Offline data caching will be cleared when the northbound MQTT driver node is deleted or the offline data caching function is disabled.
+
+- **Allen-Bradley 5000 EtherNet/IP Driver**: Added support for writing Struct String data type for CompactLogix 53xx series.
+
+- **IEC61850-5-101 Driver**: Added support for data types with CP24 and configurable parameter length.
+
+### Fixes
+
+- Fixed the detection logic for invalid tag reading when the OPC UA Update Mode is set to Read or Subscribe, and added automatic reconnection to the OPC UA Server and tag reading.
+
+- Fixed the issue of duplicate Node entries in the OPC UA Tag Browser function.
+
+- Fixed the OPC UA Tag Browser function to only filter out Method nodes.
+
+- Fixed the issue where the OPC UA Subscription Task Timestamp overflowed, causing the task update to fail.
+
+- Integrated the latest version of the MQTT SDK, optimized the blocking issue of the QoS 2 message mechanism, and fixed the disconnection from the MQTT Broker caused by large message transmission (excessive tags in a single collection group).
+
 ## v3.8.0
 
 Release Date: 2026-02-07

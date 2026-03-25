@@ -45,6 +45,10 @@
           "path": "installation/docker"
         },
         {
+          "title": "卸载 NeuronEX",
+          "path": "installation/uninstall"
+        },
+        {
           "title": "申请和安装许可证",
           "path": "installation/license_setting"
         },
@@ -1252,6 +1256,10 @@
         {
           "title": "Docker",
           "path": "installation/docker"
+        },
+        {
+          "title": "Uninstall NeuronEX",
+          "path": "installation/uninstall"
         },
         {
           "title": "Application and Installation License",

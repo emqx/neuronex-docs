@@ -100,3 +100,15 @@ If the number of data tags or southbound drivers exceeds the above recommended c
 - y is the minor release number: the change in this number introduces some new features. Upgrading to a minor release would ensure backward compatibility.
 
 - z is the maintenance release number: this new release number only contains patches, bug fixes, etc.
+
+## One-click Installation Script
+
+If you want to automatically install EMQX Neuron (download the correct package based on your system environment and architecture, and verify it when checksum files are available), you can use the one-click installation script:
+
+```bash
+curl -sL emqx.sh/neuron | bash -
+```
+
+![c7e453ae-7fc9-4eb2-9869-ede677cc3530](_assets/oneclick-install.png)
+
+The script automatically selects the installation method based on your runtime environment (commonly `tar.gz`, `.deb`, `.rpm`, or `Docker`) and performs SHA256 checksum verification when the checksum file is provided. For the `tar.gz` installation, it installs to the default directory `/opt/neuronex` and creates a `neuronex` symlink under `/usr/local/bin` to make it easy to start with `neuronex start`.

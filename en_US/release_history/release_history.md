@@ -1,5 +1,43 @@
 # Release history
 
+## v3.7.2
+
+Release Date: 2026-03-27
+
+### Enhancements
+
+- **Tag Write Logging**: When performing tag write operations via MQTT or HTTP API, the logs now include the execution status (Success/Failure) and specific error details. Successful operations are logged as INFO, while failures are logged as ERROR.
+
+- **MQTT Driver Enhancement**: Offline data caching will be cleared when the northbound MQTT driver node is deleted or the offline data caching function is disabled.
+
+- **Allen-Bradley 5000 EtherNet/IP Driver**: Added support for writing Struct String data type for CompactLogix 53xx series.
+
+- **IEC61850-5-101 Driver**: Added support for data types with CP24 and configurable parameter length.
+
+- **SECS GEM Driver**: Increased the maximum supported nesting level of List structures from 4 to 10.
+
+- **Optimized interaction for Add Tags**: The tag name column now supports drag-and-drop resizing to better display long tag names.
+
+- **REST Sink**：Support access headers for REST sink outputs.
+
+- **Backup & Restore**: Versions 3.7.2 and later support importing exported backup file after renaming.(Versions 3.7.1 and earlier do not support importing backup files after renaming.)
+
+### Fixes
+
+- Fixed the detection logic for invalid tag reading when the OPC UA Update Mode is set to Read or Subscribe, and added automatic reconnection to the OPC UA Server and tag reading.
+
+- Fixed the issue of duplicate Node entries in the OPC UA Tag Browser function.
+
+- Fixed the OPC UA Tag Browser function to only filter out Method nodes.
+
+- Integrated the latest version of the MQTT SDK, optimized the blocking issue of the QoS 2 message mechanism, and fixed the disconnection from the MQTT Broker caused by large message transmission (excessive tags in a single collection group).
+
+- Fixed a crash issue in the Sparkplug B driver caused by triggering rebirth.
+
+- Fixed the problem where users with the Viewer role could not access the Data Monitoring page.
+
+- Fixed incorrect permission issues for users with the Viewer role on pages such as Data Analysis and Dashboard.
+
 ## v3.6.4
 
 Release Date: 2026-03-19

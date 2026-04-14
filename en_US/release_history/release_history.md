@@ -1,4 +1,28 @@
 # Release history
+## v3.8.1
+
+Release Date: 2026-04-14
+
+### Enhancements
+
+- Optimized tag addition interaction: The tag address column now supports drag-and-drop resizing when adding tags; a pop-up reminder has been added if leaving the page without saving after adding tags.
+
+- Optimized data monitoring interaction: On the data monitoring page, selecting a group now supports jumping to the tag list page of the corresponding group.
+
+- Backend error code adaptation: Completed adaptation of EMQX Neuron to backend error codes.
+
+- OPC UA Tag Browser Optimization: Use segmented loading to reduce data loading time.
+
+- Updated deletion confirmation dialog: The unique identifier of the object to be deleted is now displayed in the deletion prompt text.
+
+- Changed Datalayers plugin to asynchronous connection.
+
+### Fixes
+
+- Fixed the issue of disconnection on the NodeRed Flow page.
+
+- Resolved issues related to the HTTP Push data source in EMQX Neuron 3.8.0.
+
 
 ## v3.7.2
 

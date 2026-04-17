@@ -20,6 +20,10 @@
 
 ### **修复**
 
+- Siemens S7 驱动增加超时重连机制，修复连接失败的问题。
+
+- 修复 Allen-Bradley MicroLogix 1400 驱动使用导致的 Neuron Crash。
+
 - 修复 NodeRed Flow页面连接断开的问题。
 
 - 修复 NeuronEX 3.8.0 版本 HTTP Push 数据源的相关问题。

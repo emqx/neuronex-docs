@@ -19,6 +19,10 @@ Release Date: 2026-04-14
 
 ### Fixes
 
+- Added timeout-based reconnection mechanism for the Siemens S7 driver to resolve connection failure issues.
+
+- Fixed a Neuron crash caused by the Allen‑Bradley MicroLogix 1400 driver.
+
 - Fixed the issue of disconnection on the NodeRed Flow page.
 
 - Resolved issues related to the HTTP Push data source in EMQX Neuron 3.8.0.

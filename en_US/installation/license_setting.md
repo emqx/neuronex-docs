@@ -41,3 +41,10 @@ You can view the detailed information of a license, regardless of how it was ins
 | Tags Usage         | The maximum value of data tags that can be created in EMQX Neuron, as well as the number of data tags that are in use. |
 | Enabled    Plugins | The plugins that are authorized for EMQX Neuron. Each commercial plugin module can be independently authorized in the EMQ license. |
 
+## Hardware Token
+
+The license of EMQX Neuron provides two types of hardware binding and hardware unbinding. You can see the hardware Token of the current running EMQX Neuron on the license page. When the license of EMQX Neuron is a hardware binding type, the license only supports the effective on the NeuronEX with the same hardware Token.
+
+:::tip
+In the case of NeuronEX installed in Docker containers, the hardware Token is empty and cannot be hardware bound.
+:::

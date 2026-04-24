@@ -1,4 +1,19 @@
 # Release history
+
+## v3.6.5
+
+Release Date: 2026-04-24
+
+### Enhancements
+
+- **Observability**: Added observability capabilities to shared connections in the data processing module.
+- **Logging**: Added connection pool logs for better troubleshooting.
+  
+### Fixes
+
+- Fixed a difficult-to-reproduce race condition where sub-topologies or rules using shared connections could hang during specific connection error scenarios.
+
+
 ## v3.8.1
 
 Release Date: 2026-04-14

@@ -12,6 +12,8 @@ Release Date: 2026-04-24
 ### Fixes
 
 - Fixed a difficult-to-reproduce race condition where sub-topologies or rules using shared connections could hang during specific connection error scenarios.
+- Fixed Kafka Sink Transport Resource Leak: Resolved an issue where the Kafka sink's underlying transport goroutines (specifically the discover goroutine) were not being terminated when a rule was stopped. This was caused by the kafka-go writer not automatically closing external transport connections. Kafka Sink now explicitly calls CloseIdleConnections() to ensure all resources are properly freed.
+
 
 
 ## v3.8.1

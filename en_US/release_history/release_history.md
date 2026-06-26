@@ -1,5 +1,43 @@
 # Release history
 
+## v3.9.1
+
+Release Date: 2026-06-26
+
+### Enhancements
+
+- **UI layout**: Overall layout optimization for NeuronEX UI; the content area automatically adapts to fill the entire window.
+
+- **OPC UA driver**: Added **DateTime** type support; completed error code adaptation.
+
+- **OPC UA driver documentation**: Added and improved descriptions of security policies **Sign** / **Sign&Encrypt**.
+
+- **Modbus TCP/RTU driver**: Added support for standard function code **0x16** for holding register batch writes.
+
+- **Southbound driver collection**: Minimum sampling interval optimized from **100ms** to **30ms**. Custom high-frequency collection configuration is available; excessively high frequency may cause acquisition errors depending on device protocols and tag count. Contact EMQ for professional tuning solutions for high-frequency scenarios.
+
+- **MQTT plugin**: Unified Topic prefix rule; removed the leading slash `/` from Topics.
+
+- **Tag configuration**: Removed the maximum limit of **1000** for the tag bias attribute.
+
+- **Tag test**: Optimized prompt text display.
+
+- **Add Tags page optimization**: When configuration errors occur while adding tags, highlight faulty tags and display error reasons; removed pop-up display for tag description information; tag description column supports drag resizing with darker dividing line color.
+
+### Fixes
+
+- Fixed abnormal connection issue of the northbound MQTT plugin; improved exception log output.
+
+- Fixed missing padding **0** for odd-length String data in the **Allen-Bradley 5000 EtherNet/IP** driver.
+
+- Fixed failure to display alarm information in the **Fanuc Focas Ethernet** driver.
+
+- Fixed abnormal UI display when adding subscriptions in the northbound **Kafka** plugin.
+
+- Fixed submission error when editing a renamed tag.
+
+- Fixed front-end error prompts not carrying index information returned by the API when adding tags.
+
 ## v3.9.0
 
 Release Date: 2026-05-20

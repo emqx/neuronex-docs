@@ -1,5 +1,33 @@
 # Release history
 
+## v3.8.2
+
+Release Date: 2026-07-17
+
+### Enhancements
+
+- **Modbus TCP/RTU driver**: Added support for writing holding register bits using function code **0x16**.
+
+### Fixes
+
+- Fixed **OPC UA Server** crash in Neuron when configuring a large number of nodes.
+
+- **MQTT/SparkplugB**: CA configuration is now mandatory when TLS is enabled, preventing connections that do not actually use TLS despite TLS being enabled.
+
+- Fixed issue where **ADS driver** device read failures could cause CPU usage to reach **100%**.
+
+- Fixed memory anomalies in multiple modules, including stack overflow, value out-of-bounds, and memory information leakage.
+
+- Fixed issues in the **RBAC** feature.
+
+- Fixed sensitive information exposure in logs.
+
+- Fixed issue where the **Node-RED** page could not be opened.
+
+- Standardized **Okta SSO** front-end parameters; extended back-end timeout.
+
+- Reduced the maximum process monitoring restart count from **3** to **2**.
+
 ## v3.9.1
 
 Release Date: 2026-06-26

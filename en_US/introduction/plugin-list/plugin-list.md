@@ -95,16 +95,21 @@ For specific instructions on replacing and updating plugins, please contact the 
 | BACnet IP      | Ethernet  | -        | 
 | KNXnet IP      | Ethernet  | -        | 
 
-### CNC
+### CNC and Robots
 
-| Protocol Name        |  <div style="width:100pt">Communication Interface</div>        | Remark      |
-| ------------- | ------- | ----- | 
-| Fanuc Focas Ethernet  | Ethernet    |    connect to Fanuc 0i, 30i, 31i, 32i and 35i series CNC        |
-| Mitsubishi CNC    | Ethernet    |     connect to M70、M80、M700、M800、E70 series CNC |
-| Heidenhain CNC    | Ethernet    |     connect to Heidenhain TNC640, iTNC530 and others through the LSV2 protocol |
-| KND CNC    | Ethernet    |     connect to KND K2000、K1000 C/Ci/F/Fi、K1000TTCi series CNC through the LSV2 protocol |
-| GSK CNC | Ethernet    |     connect to GSK CNC system |
-| SYNTEC CNC | Ethernet    |     connect to SYNTEC CNC system |
+| CNC Vendor | CNC Model | <div style="width:60pt">Interface</div> | <div style="width:100pt">NeuronEX Protocol</div> | Remark |
+| ------------- | ------- | ----- | ----- |----- |
+| FANUC | Fanuc 0i, 30i, 31i, 32i and 35i | Ethernet | Fanuc Focas Ethernet | Serial interface for Fanuc devices is not supported yet |
+| Siemens | 802D SL, 808 | Ethernet | Siemens MPI | |
+| Siemens | 828D, 840DSL | Ethernet | OPC UA | CNC software version >= 4.5 SP3 |
+| Mitsubishi | M70, M80, M700, M800, E70 | Ethernet | NeuronHUB | |
+| HEIDENHAIN | TNC640, iTNC530 | Ethernet | HEIDENHAIN CNC | |
+| KND | K2000, K1000 C/Ci/F/Fi, K1000TTCi | Ethernet | KND CNC | |
+| GSK | GSK-980 and others | Ethernet | ModbusTCP | |
+| SYNTEC | SYNTEC CNC devices | Ethernet | NeuronHUB | |
+| DMG MORI | DMG MORI devices | Ethernet | MTconnect | Devices that support the MTconnect protocol |
+| Brother | Brother CNC devices | Ethernet | Brother CNC | |
+| Mazak | Mazak CNC devices | Ethernet | Mazak CNC | |
 
 ## Northbound Plugins
 

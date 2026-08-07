@@ -110,6 +110,9 @@
 | 凯恩帝 KND   | K2000、K1000 C/Ci/F/Fi、K1000TTCi    |以太网    |   KND CNC |         |
 | 广州数控    | GSK-980等    |以太网    |  ModbusTCP   |         |
 | 新代 SYNTEC  | 新代 CNC 设备    |以太网    | NeuronHUB |         |
+| 德玛吉森精机 DMG MORI | DMG MORI 设备    |以太网    | MTconnect | 支持 MTconnect 协议的设备        |
+|兄弟 Brother | Brother CNC 设备    |以太网    | Brother CNC |        |
+|马扎克 Mazak | Mazak CNC 设备    |以太网    | Mazak CNC |         |
 
 ### 其他
 

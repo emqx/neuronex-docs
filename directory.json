@@ -521,9 +521,43 @@
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/knd/knd.md"
             },
             {
+              "title": "Brother CNC",
+              "path": "configuration/south-devices/brother-cnc/brother-cnc",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/brother-cnc/brother-cnc.md",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "设备端配置",
+                  "path": "configuration/south-devices/brother-cnc/brother-cnc-setup",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/brother-cnc/brother-cnc-setup.md"
+                }
+              ]
+            },
+            {
+              "title": "Mazak CNC",
+              "path": "configuration/south-devices/mazak-udp/mazak-udp",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/mazak-udp/mazak-udp.md",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "设备端配置",
+                  "path": "configuration/south-devices/mazak-udp/mazak-setup",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/mazak-udp/mazak-setup.md"
+                }
+              ]
+            },
+            {
               "title": "MTConnect",
               "path": "configuration/south-devices/mtconnect/mtconnect",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/mtconnect/mtconnect.md"
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/mtconnect/mtconnect.md",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "接入 DMG MORI 设备",
+                  "path": "configuration/south-devices/mtconnect/dmg-mori",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/mtconnect/dmg-mori.md"
+                }
+              ]
             },
             {
               "title": "CODESYS V3",
@@ -1717,9 +1751,43 @@
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/knd/knd.md"
             },
             {
+              "title": "Brother CNC",
+              "path": "configuration/south-devices/brother-cnc/brother-cnc",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/brother-cnc/brother-cnc.md",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Device-Side Configuration",
+                  "path": "configuration/south-devices/brother-cnc/brother-cnc-setup",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/brother-cnc/brother-cnc-setup.md"
+                }
+              ]
+            },  
+            {
+              "title": "Mazak CNC",
+              "path": "configuration/south-devices/mazak-udp/mazak-udp",
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/mazak-udp/mazak-udp.md",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Device-Side Configuration",
+                  "path": "configuration/south-devices/mazak-udp/mazak-setup",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/mazak-udp/mazak-setup.md"
+                }
+              ]
+            },
+            {
               "title": "MTConnect",
               "path": "configuration/south-devices/mtconnect/mtconnect",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/mtconnect/mtconnect.md"
+              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/mtconnect/mtconnect.md",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Connect to DMG MORI",
+                  "path": "configuration/south-devices/mtconnect/dmg-mori",
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/mtconnect/dmg-mori.md"
+                }
+              ]
             },
             {
               "title": "CODESYS V3",

@@ -29,7 +29,7 @@ For specific instructions on replacing and updating plugins, please contact the 
 
 ### Global Standards
 
-| <div style="width:120pt">Protocol Name</div>                 | <div style="width:100pt">Communication Interface</div> | <div style="width:80pt">Remark</div> |
+| <div style="width:120pt">Protocol Name</div>               | <div style="width:100pt">Communication Interface</div> | <div style="width:80pt">Remark</div> |
 | ------------------------------------------------------------ |  ------------ | -------------------------------- |
 | Modbus TCP              | Ethernet  |  - |
 | Modbus RTU              | Serial port    |  - |

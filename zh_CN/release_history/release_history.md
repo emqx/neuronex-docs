@@ -1,5 +1,41 @@
 # 发版历史
 
+## v3.9.2
+
+发布日期：2026-08-14
+
+### **增强**
+
+- **BACnet BBMD 扫描**：在系统配置下新增 BACnet BBMD 扫描功能，可发现 BACnet 设备与点位，支持一步创建带分组点位的南向驱动，或将选中点位添加至已有分组。
+
+  - 发现设备并浏览点位（设备 / 地址空间 / 属性）
+
+  - 将发现的设备点位快速完成南向驱动、分组及点位的创建
+
+  - 将扫描得到的点位添加至现有驱动分组
+
+- **数据处理模块**：新增支持对规则中的单个 Sink 进行开启/关闭操作。当用户临时不需要规则的某个 Sink 时，可将该 Sink 关闭，避免删除后再重建。默认为启用（不设置时相当于 `"enable": true`）。所有 Sink 均被禁用时返回错误。
+
+- **NeuronHub v1.1.0**：重新优化软件前端 UI；**OPCDA 驱动**新增支持点位浏览功能。
+
+### **修复**
+
+- **REST Sink 的 OAuth 模板处理**：修复了 header 模板分类问题，OAuth 与规则输出模板现在可独立处理。每个 header 被分类为静态、仅 OAuth 或仅规则输出三种类型，混合 OAuth 和规则输出占位符的单一 header 会在 provisioning 时被拒绝。OAuth header 模板被限制为简单占位符（`{{.access_token}}`、`{{.refresh_token}}`、`{{.token_type}}`、`{{.id_token}}`、`{{.expires_in}}`），并合并了并发的 token 刷新请求（含失败重试）。HTTP lookup source 现在在连接时即获取初始 token；REST sink resend 时保留完整配置。
+
+  - 影响范围：使用 OAuth access token 的 REST sink、HTTP pull source 和共享 HTTP lookup source。此前依赖任意 token 响应字段作为 REST header 模板的配置，需改用上述五种受支持的 OAuth 字段名。
+
+- **dataTemplate 与批处理组合问题**：修复了同时使用 `batchSize` 和 `dataTemplate` 的 sink 在运行时出现 `unknown data type: *xsql.RawTuple` 错误的问题。批处理现在会为 JSON（添加逗号和外层数组）、delimited（添加换行）和 URL-encoded（添加 `&`）输出保留格式化的帧结构。
+
+  - 使用说明：批处理模式下 `dataTemplate` 描述的是单个批次元素而非整个批次，模板作者需确保输出与所配置的格式兼容。
+
+- **SQL Sink 动态字段名注入**：当未配置 `fields` 时，SQL sink 现在会拒绝可能改变所生成 SQL 语句的不受信任的动态字段名（仅允许 `[A-Za-z_][A-Za-z0-9_]*` 格式）。受影响的行返回错误，不会被写入数据库。显式配置的 `table`、`fields`、`keyField` 标识符不受影响。
+
+  - 影响范围：直接以结果 map 键作为列名的 SQL sink（INSERT、UPDATE、DELETE 均适用）。
+
+- **Neuron Socket 处理**：修复了 socket 关闭后 neuron source 未停止其接收循环的问题。此前将 `mangos.ErrClosed` 当作可恢复错误，等待 1 秒后重试已关闭的 socket；现在检测到 `ErrClosed` 后立即退出接收循环。
+
+  - 影响范围：仅影响拓扑关闭/清理时的 goroutine 退出速度，不影响运行时断连重连行为。
+
 ## v3.8.2
 
 发布日期：2026-07-17

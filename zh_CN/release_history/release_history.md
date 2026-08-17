@@ -20,7 +20,7 @@
 
 ### **修复**
 
-- **REST Sink 的 OAuth 模板处理**：修复了 header 模板分类问题，OAuth 与规则输出模板现在可独立处理。每个 header 被分类为静态、仅 OAuth 或仅规则输出三种类型，混合 OAuth 和规则输出占位符的单一 header 会在 provisioning 时被拒绝。OAuth header 模板被限制为简单占位符（`{{.access_token}}`、`{{.refresh_token}}`、`{{.token_type}}`、`{{.id_token}}`、`{{.expires_in}}`），并合并了并发的 token 刷新请求（含失败重试）。HTTP lookup source 现在在连接时即获取初始 token；REST sink resend 时保留完整配置。
+- **REST Sink 的 OAuth 模板处理**：修复了 header 模板分类问题，OAuth 与规则输出模板现在可独立处理。每个 header 被分类为静态、仅 OAuth 或仅规则输出三种类型，混合 OAuth 和规则输出占位符的单一 header 会在 provisioning 时被拒绝。OAuth header 模板被限制为五个简单占位符（`.access_token`、`.refresh_token`、`.token_type`、`.id_token`、`.expires_in`，需使用双花括号包裹）。并合并了并发的 token 刷新请求（含失败重试）。HTTP lookup source 现在在连接时即获取初始 token；REST sink resend 时保留完整配置。
 
   - 影响范围：使用 OAuth access token 的 REST sink、HTTP pull source 和共享 HTTP lookup source。此前依赖任意 token 响应字段作为 REST header 模板的配置，需改用上述五种受支持的 OAuth 字段名。
 

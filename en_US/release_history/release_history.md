@@ -1,5 +1,43 @@
 # Release history
 
+## v3.9.2
+
+Release Date: 2026-08-14
+
+### Enhancements
+
+- **BACnet BBMD scan**: A new BACnet BBMD scan feature is added under **System Configuration**. It can discover BACnet devices and points, and supports one-step creation of southbound drivers with grouped points, or adding selected points to existing groups.
+
+  - Discover devices and browse tags (Devices / Address Spaces / Properties)
+
+  - Quickly create southbound drivers, groups, and tags from discovered device tags
+
+  - Add scanned tags to existing driver groups
+
+- **Data processing module**: Added support for enabling or disabling individual Sinks within rules. When a certain Sink of a rule is temporarily unnecessary, users can disable it instead of deleting and recreating it. Enabled by default (equivalent to `"enable": true` if not configured). An error is returned when all Sinks are disabled.
+
+- **NeuronHub v1.1.0**: Re-optimized frontend UI; the **OPCDA driver** adds support for tag browsing.
+
+### Fixes
+
+- **REST Sink OAuth template handling**: Fixed header template classification so OAuth and rule-output templates are handled independently. Each header is classified as static, OAuth-only, or rule-output-only; a single header mixing both kinds is rejected during provisioning. OAuth header templates are restricted to the five simple placeholders (`{{.access_token}}`, `{{.refresh_token}}`, `{{.token_type}}`, `{{.id_token}}`, `{{.expires_in}}`). Concurrent token refreshes (including failed attempts) are coalesced. HTTP lookup sources now acquire an initial token during connection; REST sink resend preserves the complete sink configuration.
+
+  - Affected scope: REST sinks, HTTP pull sources, and shared HTTP lookup sources using OAuth access tokens. Configurations that previously relied on arbitrary token-response fields in REST headers must use one of the five documented OAuth field names.
+
+- **Sink batching with dataTemplate**: Fixed sinks using both `batchSize` and `dataTemplate`, which previously failed at runtime with `unknown data type: *xsql.RawTuple`. Batching now preserves format-specific framing for JSON (comma + outer array), delimited (newlines), and URL-encoded (`&`) output.
+
+  - Usage note: In batch mode, `dataTemplate` describes one batch element rather than the completed batch. Template authors remain responsible for producing output compatible with the configured format.
+
+- **SQL Sink dynamic field name injection**: When `fields` is not configured, the SQL sink now rejects untrusted dynamic field names that could alter the generated SQL statement (only `[A-Za-z_][A-Za-z0-9_]*` is accepted). The affected row returns an error without writing to the database. Explicitly configured `table`, `fields`, and `keyField` identifiers remain unchanged.
+
+  - Affected scope: SQL sinks (INSERT, UPDATE, DELETE) where result-map keys are used directly as column names.
+
+- **Neuron Socket handling**: Fixed the Neuron source receive goroutine not exiting when its local NNG socket is closed. `mangos.ErrClosed` was previously treated as a recoverable error, waiting 1 second before retrying the already-closed socket; it now exits immediately on `ErrClosed`.
+
+  - Affected scope: Topology shutdown/cleanup only. Active-rule reconnect behavior during runtime disconnection is unchanged.
+
+
+
 ## v3.8.2
 
 Release Date: 2026-07-17

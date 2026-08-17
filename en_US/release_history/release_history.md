@@ -20,7 +20,7 @@ Release Date: 2026-08-14
 
 ### Fixes
 
-- **REST Sink OAuth template handling**: Fixed header template classification so OAuth and rule-output templates are handled independently. Each header is classified as static, OAuth-only, or rule-output-only; a single header mixing both kinds is rejected during provisioning. OAuth header templates are restricted to the five simple placeholders (`{{.access_token}}`, `{{.refresh_token}}`, `{{.token_type}}`, `{{.id_token}}`, `{{.expires_in}}`). Concurrent token refreshes (including failed attempts) are coalesced. HTTP lookup sources now acquire an initial token during connection; REST sink resend preserves the complete sink configuration.
+- **REST Sink OAuth template handling**: Fixed header template classification so OAuth and rule-output templates are handled independently. Each header is classified as static, OAuth-only, or rule-output-only; a single header mixing both kinds is rejected during provisioning. OAuth header templates are restricted to the five simple placeholders (`.access_token`, `.refresh_token`, `.token_type`, `.id_token`, `.expires_in`, each wrapped in double curly braces). Concurrent token refreshes (including failed attempts) are coalesced. HTTP lookup sources now acquire an initial token during connection; REST sink resend preserves the complete sink configuration.
 
   - Affected scope: REST sinks, HTTP pull sources, and shared HTTP lookup sources using OAuth access tokens. Configurations that previously relied on arbitrary token-response fields in REST headers must use one of the five documented OAuth field names.
 

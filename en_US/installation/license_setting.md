@@ -43,8 +43,8 @@ You can view the detailed information of a license, regardless of how it was ins
 
 ## Hardware Token
 
-The license of EMQX Neuron provides two types of hardware binding and hardware unbinding. You can see the hardware Token of the current running EMQX Neuron on the license page. When the license of EMQX Neuron is a hardware binding type, the license only supports the effective on the NeuronEX with the same hardware Token.
+The license of EMQX Neuron provides two types of hardware binding and hardware unbinding. You can see the hardware Token of the current running EMQX Neuron on the license page. When the license of EMQX Neuron is a hardware binding type, the license only supports the effective on the EMQX Neuron with the same hardware Token.
 
 :::tip
-In the case of NeuronEX installed in Docker containers, the hardware Token is empty and cannot be hardware bound.
+In the case of EMQX Neuron installed in Docker containers, the hardware Token is empty and cannot be hardware bound.
 :::

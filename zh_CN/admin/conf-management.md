@@ -1,15 +1,15 @@
 # 配置管理
 
-NeuronEX 支持通过`命令行`、`环境变量`、`配置文件`的方式，对 NeuronEX 的配置参数进行修改，可以提供更加灵活的启动和运行方式。
+EMQX Neuron 支持通过`命令行`、`环境变量`、`配置文件`的方式，对 EMQX Neuron 的配置参数进行修改，可以提供更加灵活的启动和运行方式。
 如果同时配置了`命令行`、`环境变量`、`配置文件`，三者的优先级关系为：命令行 > 环境变量 > 配置文件 
 
 ## 命令行
 
-NeuronEX 的命令行位于 `/bin/neuronex`，它提供了以下的常用选项：
+EMQX Neuron 的命令行位于 `/bin/neuronex`，它提供了以下的常用选项：
 
 ### `run` 命令
 
-`run`  命令用于在控制台上运行 NeuronEX。该命令将 NeuronEX 作为一个进程启动，并在终端中显示其输出。
+`run`  命令用于在控制台上运行 EMQX Neuron。该命令将 EMQX Neuron 作为一个进程启动，并在终端中显示其输出。
 
 ```shell
 -c, --config 配置文件路径, 默认为 "etc/neuronex.yaml"
@@ -21,15 +21,15 @@ NeuronEX 的命令行位于 `/bin/neuronex`，它提供了以下的常用选项�
 ./bin/neuronex run -c etc/neuronex.yaml -k true
 ```
 
-该命令将 NeuronEX 作为进程启动，并在终端中显示其输出, NeuronEX 不会启动 eKuiper
+该命令将 EMQX Neuron 作为进程启动，并在终端中显示其输出, EMQX Neuron 不会启动 eKuiper
 
 ### `start` 命令
 
-`start ` 命令用于在守护进程模式下启动 NeuronEX，该命令将 NeuronEX 作为守护进程启动并在后台运行。
+`start ` 命令用于在守护进程模式下启动 EMQX Neuron，该命令将 EMQX Neuron 作为守护进程启动并在后台运行。
 
 ### `stop` 命令
 
-`stop` 命令用于停止运行 NeuronEX。该命令将杀死 NeuronEX 进程。
+`stop` 命令用于停止运行 EMQX Neuron。该命令将杀死 EMQX Neuron 进程。
 
 ```sh
 ./bin/neuronex stop
@@ -37,7 +37,7 @@ NeuronEX 的命令行位于 `/bin/neuronex`，它提供了以下的常用选项�
 
 ### `install` 命令
 
-`install` 命令用于在 /etc/systemd/system path 中注册 NeuronEX 服务配置文件。
+`install` 命令用于在 /etc/systemd/system path 中注册 EMQX Neuron 服务配置文件。
 
 ```sh
 ./bin/neuronex install
@@ -45,7 +45,7 @@ NeuronEX 的命令行位于 `/bin/neuronex`，它提供了以下的常用选项�
 
 ### `uninstall` 命令
 
-`uninstall` 命令用于在 /etc/systemd/system path 中取消注册 NeuronEX 服务配置文件。
+`uninstall` 命令用于在 /etc/systemd/system path 中取消注册 EMQX Neuron 服务配置文件。
 
 ```sh
 ./bin/neuronex uninstall
@@ -61,22 +61,22 @@ NeuronEX 的命令行位于 `/bin/neuronex`，它提供了以下的常用选项�
 
 ## 环境变量
 
-NeuronEX 支持在启动过程中读取环境变量来配置启动参数，目前支持的环境变量如下:
+EMQX Neuron 支持在启动过程中读取环境变量来配置启动参数，目前支持的环境变量如下:
 
 | 配置名                                | 配置作用                                                     |
 |------------------------------------|----------------------------------------------------------|
-| NEURONEX_DISABLE_AUTH              | 设置为 1，NeuronEX 关闭 Token 鉴权认证；设置为0，NeuronEX 开启 Token 鉴权认证 |
+| NEURONEX_DISABLE_AUTH              | 设置为 1，EMQX Neuron 关闭 Token 鉴权认证；设置为0，EMQX Neuron 开启 Token 鉴权认证 |
 | NEURONEX__SERVER__ADMIN__PASSWORD  | 修改 admin 用户默认密码                                          |
 | NEURONEX__SERVER__VIEWER__USERNAME | 新添加 viewer 用户的用户名                                        |
 | NEURONEX__SERVER__VIEWER__PASSWORD | 新添加 viewer 用户的密码                                         |
-| NEURONEX__LOG__MODE                | 设置为 console, NeuronEX 会把日志打印到标准输出                        |
+| NEURONEX__LOG__MODE                | 设置为 console, EMQX Neuron 会把日志打印到标准输出                        |
 | KUIPER__BASIC__CONSOLELOG          | 设置为 true, ekuiper 会把日志打印到标准输出                            |
 | NEURON__LOG__MODE                  | 设置为 console, Neuron 会把日志打印到标准输出                          |
 
 
 ### 环境变量映射为配置文件
 
-NeuronEX 支持通过环境变量覆盖配置文件中的配置，当通过环境变量修改配置时，环境变量需要按照规定的格式设置。映射关系如下：
+EMQX Neuron 支持通过环境变量覆盖配置文件中的配置，当通过环境变量修改配置时，环境变量需要按照规定的格式设置。映射关系如下：
 
   ```
   NEURONEX__SERVER__DISABLEAUTH => server.disableAuth in etc/neuronex.yaml
@@ -85,7 +85,7 @@ NeuronEX 支持通过环境变量覆盖配置文件中的配置，当通过环�
 
 环境变量之间用“__”分隔，分隔后第一部分的内容匹配配置文件的文件名，其余内容匹配不同级别的配置项。
 
-NeuronEX 支持通过环境变量配置数据处理模块 eKuiper 的 yaml 配置文件，详细配置项请参考[eKuiper 配置](https://ekuiper.org/docs/zh/latest/configuration/global_configurations.html)。 eKuiper配置文件与环境变量映射关系和 NeuronEX 相同，如下：
+EMQX Neuron 支持通过环境变量配置数据处理模块 eKuiper 的 yaml 配置文件，详细配置项请参考[eKuiper 配置](https://ekuiper.org/docs/zh/latest/configuration/global_configurations.html)。 eKuiper配置文件与环境变量映射关系和 EMQX Neuron 相同，如下：
 
 ```
 KUIPER__BASIC__DEBUG => basic.debug in etc/kuiper.yaml
@@ -103,15 +103,15 @@ docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s 
 
 ## 配置文件
 
-NeuronEX 提供 YAML 格式文件，位于`/opt/neuronex/etc/neuronex.yaml`，用于配置与 NeuronEX 相关的参数。
+EMQX Neuron 提供 YAML 格式文件，位于`/opt/neuronex/etc/neuronex.yaml`，用于配置与 EMQX Neuron 相关的参数。
 
 ### server
 
-` server`  部分定义了 NeuronEX 服务器的端口号。
+` server`  部分定义了 EMQX Neuron 服务器的端口号。
 
-- ` port`：NeuronEX 服务器的端口号，默认值为 8085。
-- ` disableAuth`：NeuronEX 是否关闭 Token 认证。
-- ` disableKuiper`：NeuronEX 是否停用 eKuiper
+- ` port`：EMQX Neuron 服务器的端口号，默认值为 8085。
+- ` disableAuth`：EMQX Neuron 是否关闭 Token 认证。
+- ` disableKuiper`：EMQX Neuron 是否停用 eKuiper
 - `tls`: 开启 TLS 认证
   - `certFile`: 开启 TLS 认证后，证书文件位置
   - `keyFile`: 开启 TLS 认证后，密钥文件位置
@@ -143,7 +143,7 @@ NeuronEX 提供 YAML 格式文件，位于`/opt/neuronex/etc/neuronex.yaml`，�
 
 ### log
 
-日志 "部分定义了 NeuronEX 服务器的日志配置。
+日志 "部分定义了 EMQX Neuron 服务器的日志配置。
 
 - ` mode` ：日志输出模式，选项为 console（输出到控制台）和 file（输出到文件）。
 - ` level`：日志级别，选项包括 debug,info,warn,error ,fatal。
@@ -213,7 +213,7 @@ official:
 
 ## HTTPS 功能使用
 
-NeuronEX现已支持HTTPS功能，提供了更安全的通信方式。此功能允许用户通过加密连接访问dashboard和API，增强了数据传输的安全性和隐私保护。NeuronEX 使用相同的端口（8085）同时支持HTTP和HTTPS。
+EMQX Neuron现已支持HTTPS功能，提供了更安全的通信方式。此功能允许用户通过加密连接访问dashboard和API，增强了数据传输的安全性和隐私保护。EMQX Neuron 使用相同的端口（8085）同时支持HTTP和HTTPS。
 
 ### 开启 HTTPS 功能
 
@@ -239,15 +239,15 @@ tls:
 
 ## JWT Token 认证公钥
 
-默认情况下 NeuronEX 对外暴露的 REST API 需要 JWT Token 认证， NeuronEX 支持用户将认证公钥放置在 NeuronEX 安装目录下的 etc 文件夹下，以实现 JWT Token 认证。
+默认情况下 EMQX Neuron 对外暴露的 REST API 需要 JWT Token 认证， EMQX Neuron 支持用户将认证公钥放置在 EMQX Neuron 安装目录下的 etc 文件夹下，以实现 JWT Token 认证。
 
-如果 NeuronEX 采用 Docker 部署的方式，则需要将本地目录映射进容器内 NeuronEX 的 etc 目录。注意首次映射时本地目录不能为空, 必须具有 neuronex.yaml 配置文件以及公钥文件。
+如果 EMQX Neuron 采用 Docker 部署的方式，则需要将本地目录映射进容器内 EMQX Neuron 的 etc 目录。注意首次映射时本地目录不能为空, 必须具有 neuronex.yaml 配置文件以及公钥文件。
 
-在 NeuronEX 软件升级或者迁移时，需要考虑到 etc 目录的备份和恢复。
+在 EMQX Neuron 软件升级或者迁移时，需要考虑到 etc 目录的备份和恢复。
 
 ## Dump文件
 
-NeuronEX 默认安装启动后，发生 Crash 不生成 dump 文件。如需 dump 文件进行故障排查。需要生成dump文件的话，需要执行以下命令后开启dump文件存储。
+EMQX Neuron 默认安装启动后，发生 Crash 不生成 dump 文件。如需 dump 文件进行故障排查。需要生成dump文件的话，需要执行以下命令后开启dump文件存储。
 
 ```shell
 #!/bin/sh

@@ -1,6 +1,6 @@
 # Functions
 
-NeuronEX has many built-in functions for performing calculations on data.
+EMQX Neuron has many built-in functions for performing calculations on data.
 
 - [Aggregate Functions](./aggregate_functions.md)
 - [Math Functions](./mathematical_functions.md)

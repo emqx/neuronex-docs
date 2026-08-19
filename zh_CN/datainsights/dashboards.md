@@ -1,6 +1,6 @@
 # 仪表盘 (Dashboards)
 
-仪表盘是 NeuronEX 数据探索模块中用于集中展示和监控关键数据的可视化工具。它允许您创建高度可定制的视图，将来自存储到时序数据库 Datalayers 中的数据，以直观的图表、统计值或表格形式呈现，帮助您实时掌握生产运营状态、追踪核心 KPI 并快速响应异常情况。
+仪表盘是 EMQX Neuron 数据探索模块中用于集中展示和监控关键数据的可视化工具。它允许您创建高度可定制的视图，将来自存储到时序数据库 Datalayers 中的数据，以直观的图表、统计值或表格形式呈现，帮助您实时掌握生产运营状态、追踪核心 KPI 并快速响应异常情况。
 
 ## 主要功能特性
 
@@ -77,8 +77,8 @@ Panel 是仪表盘上显示单个图表、统计值或表格的基本单元。
     *   **底部选项:**
         *   **SQL 查询使用 $timeFilter 变量 (SQL Query Use $timeFilter variable):**
             *   **启用/禁用开关:** 控制是否在 SQL 查询中启用 `$timeFilter` 变量。
-            *   **启用时:** 用户的 SQL 语句中 **必须包含** `$timeFilter` (例如 `WHERE $timeFilter` 或 `AND $timeFilter`)。NeuronEX 会将其替换为基于仪表盘全局时间或该 Panel 预览时间选择器所选定的时间范围条件。
-            *   **禁用时:** NeuronEX 会自动在用户 SQL 的基础上拼接时间范围条件。
+            *   **启用时:** 用户的 SQL 语句中 **必须包含** `$timeFilter` (例如 `WHERE $timeFilter` 或 `AND $timeFilter`)。EMQX Neuron 会将其替换为基于仪表盘全局时间或该 Panel 预览时间选择器所选定的时间范围条件。
+            *   **禁用时:** EMQX Neuron 会自动在用户 SQL 的基础上拼接时间范围条件。
     *   **对话框顶部控制:**
         *   该对话框内也可能包含独立的时间范围选择器和执行查询/刷新按钮，用于在确认添加 Panel 前，针对当前配置的 Query 进行数据预览和测试。
     *   **对话框操作按钮 (Dialog Action Buttons):**
@@ -97,8 +97,8 @@ Panel 是仪表盘上显示单个图表、统计值或表格的基本单元。
 
 ## 使用前提
 
-*   NeuronEX 已启用并配置了 [集成时序数据存储 (Datalayers)](../admin/sys-configuration.md#数据存储配置)。
+*   EMQX Neuron 已启用并配置了 [集成时序数据存储 (Datalayers)](../admin/sys-configuration.md#数据存储配置)。
 *   至少有一个南向驱动的点位数据已被订阅到北向 DataStorage 插件，并且数据已成功写入 Datalayers。
 *   为了获得最佳体验，建议对需要展示的数据点位预先进行分析，明确其数据类型和常见的查询需求。
 
-通过 NeuronEX 的仪表盘功能，您可以将复杂的数据转化为直观的洞察，赋能您的日常运营和决策制定。
+通过 EMQX Neuron 的仪表盘功能，您可以将复杂的数据转化为直观的洞察，赋能您的日常运营和决策制定。

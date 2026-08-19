@@ -29,7 +29,7 @@ Select data with a temperature greater than 50 degrees from the `demo_stream` da
 
 ## Precautions
 
-If NeuronEX and kafka are deployed in the same container network through docker compose, the brokers address can be configured in NeuronEX through the kafka host name.
+If EMQX Neuron and kafka are deployed in the same container network through docker compose, the brokers address can be configured in EMQX Neuron through the kafka host name.
 
 But kafka needs special attention. `` KAFKA_CFG_ADVERTISED_LISTENERS `` needs to be configured as the host IP address, as shown below
 

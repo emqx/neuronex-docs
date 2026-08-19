@@ -1,6 +1,6 @@
 # EMQX Neuron AI Function Installation Package Installation Guide
 
-1. Download the corresponding installation package according to the current environment. For example: neuronex-3.6.0-beta.3-linux-amd64.deb.
+1. Download the corresponding installation package according to the current environment. For example: neuronex-3.9.2-linux-amd64.deb
 2. Install EMQX Neuron (formerly NeuronEX) with reference to the documentation: [install EMQX Neuron](./introduction.md)
 3. Enter the AI function module directory. The default directory for the AI function of EMQX Neuron managed by systemd is: /opt/neuronex/software/neuronex-ai.
 4. The AI function of EMQX Neuron uses uv as the project management tool. If uv is not installed, it needs to be installed first. For details, refer to: [Installing uv](https://docs.astral.sh/uv/getting-started/installation/)

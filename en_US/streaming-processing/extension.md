@@ -1,11 +1,11 @@
 # extension
 
-NeuronEX allows users to customize extensions to support more functions. Users can write extension plugins through the portable plugin system, or call existing external REST services.
+EMQX Neuron allows users to customize extensions to support more functions. Users can write extension plugins through the portable plugin system, or call existing external REST services.
 
 
 ## Portable plugin extension
 
-You can further expand the functionality of NeuronEX by installing portable plugins. Customized **data sources**, **custom functions** and **actions (Sink)** in rules can be implemented through convenient plugins.
+You can further expand the functionality of EMQX Neuron by installing portable plugins. Customized **data sources**, **custom functions** and **actions (Sink)** in rules can be implemented through convenient plugins.
 
 Click **Data Processing** -> **Extensions**, on the **Portable Plugins** tab, click **Create Portable Plugins**. In the pop-up window, make the following settings:
 
@@ -107,7 +107,7 @@ Portable plugin extensions currently support plugin extensions via the **Python*
 
 ## External algorithm function 
 
-The external algorithm function, also called the external service, refers to mapping an existing external HTTP service to a SQL function of NeuronEX. When using external service in rules, the data from source will be passed to the external service, and the calculation result of the external service will be returned to NeuronEX for output.
+The external algorithm function, also called the external service, refers to mapping an existing external HTTP service to a SQL function of EMQX Neuron. When using external service in rules, the data from source will be passed to the external service, and the calculation result of the external service will be returned to EMQX Neuron for output.
 
 To use an external service, just follow these 2 steps:
 - [Create an external service](#create-an-external-service)

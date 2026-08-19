@@ -4,13 +4,13 @@
 
 OPC UA（OPC Unified Architecture） 是一种跨平台、服务导向的通信协议，广泛应用于工业自动化和工业物联网（IIoT）。它为工业设备和系统之间的互操作性提供了一个标准化的框架。作为工业通信领域的核心技术，OPC UA 具有高安全性、灵活性和扩展性，特别适合工业 4.0 和 IIoT 应用场景，正逐步成为工业设备互操作的通用标准。
 
-本文将介绍如何通过 NeuronEX 的点位发现功能，帮助用户更高效地管理 OPC UA 设备点位。
+本文将介绍如何通过 EMQX Neuron 的点位发现功能，帮助用户更高效地管理 OPC UA 设备点位。
 
 ## 准备工作
 
 在开始使用点位发现功能之前，我们需要先接入一个 OPC UA 设备。
 
-1. 登录到 NeuronEX 控制台，进入「数据采集」->「南向设备」页面。
+1. 登录到 EMQX Neuron 控制台，进入「数据采集」->「南向设备」页面。
 
 2. 点击「添加设备」按钮，进入到添加设备页面。
 
@@ -37,7 +37,7 @@ OPC UA（OPC Unified Architecture） 是一种跨平台、服务导向的通信�
 
 2. 进入「设备配置」页面后，点击最右侧的「点位发现」标签页。
 
-3. 在「点位发现」页面中，点击「扫描」按扭进行点位发现扫描。NeuronEX 将自动扫描 OPCUA 服务器地址空间中的点位信息。
+3. 在「点位发现」页面中，点击「扫描」按扭进行点位发现扫描。EMQX Neuron 将自动扫描 OPCUA 服务器地址空间中的点位信息。
 
 ![opcua-add-device-zh](./_assets/opcua-browser2-zh.png)
 
@@ -79,10 +79,10 @@ OPC UA（OPC Unified Architecture） 是一种跨平台、服务导向的通信�
 
 ![opcua-add-device-zh](./_assets/opcua-browser9-zh.png)
 
-2. 导出后一个 excel 文件将下载到您的本地计算机。该文件将包含所选六个点位的相关信息，您可以在本地编辑和保存点表信息，还可以将更新后的点表导入到 NeuronEX 中使用。
+2. 导出后一个 excel 文件将下载到您的本地计算机。该文件将包含所选六个点位的相关信息，您可以在本地编辑和保存点表信息，还可以将更新后的点表导入到 EMQX Neuron 中使用。
 
 ![opcua-add-device-zh](./_assets/opcua-browser10-zh.png)
 
 ## 总结
 
-基于 NeuronEX 的点位发现功能，用户可以高效地管理 OPC UA 设备的点位，实现 OPC UA 设备的快速集成和应用。
+基于 EMQX Neuron 的点位发现功能，用户可以高效地管理 OPC UA 设备的点位，实现 OPC UA 设备的快速集成和应用。

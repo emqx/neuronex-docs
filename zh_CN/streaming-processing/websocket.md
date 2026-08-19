@@ -2,11 +2,11 @@
 
 <span style="background:green;color:white;">流</span> <span style="background:green;color:white;">扫描表</span>
 
-NeuronEX 数据处理模块通过 Websocket 数据源获取数据。
+EMQX Neuron 数据处理模块通过 Websocket 数据源获取数据。
 
 ## 创建流
 
-登录 NeuronEX，点击**数据处理** -> **源管理**。在**流管理**页签，点击**创建流**。
+登录 EMQX Neuron，点击**数据处理** -> **源管理**。在**流管理**页签，点击**创建流**。
 
 在弹出的**源管理** / **创建**页面，进入如下配置：
 
@@ -17,7 +17,7 @@ NeuronEX 数据处理模块通过 Websocket 数据源获取数据。
 - **配置组**：可编辑使用默认配置组，或点击添加配置组，在弹出的对话框中进行如下设置，设置完成后，可点击**测试连接**进行测试：
 
   - **名称**：输入配置组名称。
-  - **Websocket 地址**：Websocket 服务端地址，将会向该地址申请 Websocket 请求。如果未填写，则 NeuronEX 将作为 Websocket 服务端 。
+  - **Websocket 地址**：Websocket 服务端地址，将会向该地址申请 Websocket 请求。如果未填写，则 EMQX Neuron 将作为 Websocket 服务端 。
   - **客户端证书**：输入客户端 ssl 验证的 crt 文件路径。
   - **客户端私钥**：输入客户端 ssl 验证的 key 文件路径。
   - **CA 证书**：输入客户端 ssl 验证的 ca 证书文件路径。
@@ -37,11 +37,11 @@ Websocket 数据源可以作为 Websocket 客户端，向远端的 Websocket 服
 
 ## 作为 Websocket 服务端
 
-Websocket 数据源还可以作为 Websocket 服务端，此时远端的 websocket 客户端可以主动向 NeuronEX 发起 Websocket 连接，NeuronEX 会在该 Websocket 连接上接收消息作为消息源。
+Websocket 数据源还可以作为 Websocket 服务端，此时远端的 websocket 客户端可以主动向 EMQX Neuron 发起 Websocket 连接，EMQX Neuron 会在该 Websocket 连接上接收消息作为消息源。
 
 当作为 Websocket 服务端时 `Websocket 地址`可以留空，并在创建数据源页面的`数据源`配置项配置如下:/api/data；
 
-此时，NeuronEX 将作为 Websocket 的服务端，以自身为 host,并在 /api/data 的 url 处等待 Websocket 连接建立，并以该连接接收数据作为消息源。
+此时，EMQX Neuron 将作为 Websocket 的服务端，以自身为 host,并在 /api/data 的 url 处等待 Websocket 连接建立，并以该连接接收数据作为消息源。
 
 Websocket 默认端口为 10081,若要修改该端口，需要在配置文件`/opt/neuronex/software/ekuiper/etc` 中的 `source` 部分进行修改：
 

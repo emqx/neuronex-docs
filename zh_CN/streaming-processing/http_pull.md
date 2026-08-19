@@ -2,11 +2,11 @@
 
 <span style="background:green;color:white;">流</span>        <span style="background:green;color:white">扫描表</span>
 
-NeuronEX 数据处理模块通过 `HTTP Pull` 类型的数据源，可以从 HTTP 服务器获取数据，该类型可以作为流、扫描表的数据源。
+EMQX Neuron 数据处理模块通过 `HTTP Pull` 类型的数据源，可以从 HTTP 服务器获取数据，该类型可以作为流、扫描表的数据源。
 
 ## 创建流
 
-登录 NeuronEX，点击**数据处理** -> **源管理**。在**流管理**页签，点击**创建流**。
+登录 EMQX Neuron，点击**数据处理** -> **源管理**。在**流管理**页签，点击**创建流**。
 
 在弹出的**源管理** / **创建**页面，进入如下配置：
 
@@ -42,7 +42,7 @@ NeuronEX 数据处理模块通过 `HTTP Pull` 类型的数据源，可以从 HTT
 
   - **HTTP 标头**： 需要与 HTTP 请求一起发送的 HTTP 请求标头。
 
-  - **响应类型**： 响应类型,可以是 `code` 或者 `body`，如果是 `code`，那么 NeuronEX 会检查 HTTP 响应码来判断响应状态。如果是 `body`，那么 NeuronEX 会检查 HTTP 响应正文，要求其为 JSON 格式，并且检查 code 字段的值。默认为 `code`。
+  - **响应类型**： 响应类型,可以是 `code` 或者 `body`，如果是 `code`，那么 EMQX Neuron 会检查 HTTP 响应码来判断响应状态。如果是 `body`，那么 EMQX Neuron 会检查 HTTP 响应正文，要求其为 JSON 格式，并且检查 code 字段的值。默认为 `code`。
 
   - **oAuth**： 配置 OAuth 验证流程。
 
@@ -108,7 +108,7 @@ default:
 
 ## 创建扫描表
 
-HTTP Pull 源支持查询表。登录 NeuronEX，点击**数据处理** -> **源管理**。在**扫描表**页签，点击**创建扫描表**。
+HTTP Pull 源支持查询表。登录 EMQX Neuron，点击**数据处理** -> **源管理**。在**扫描表**页签，点击**创建扫描表**。
 
 - **表名称**：输入表名称
 - **是否为带结构的表**：勾选确认是否为带结构的表，如为带结构的表，则需进一步添加表字段
@@ -123,9 +123,9 @@ HTTP Pull 源支持查询表。登录 NeuronEX，点击**数据处理** -> **源
 
 ## 示例
 
-本示例使用 HTTP Pull 源，读取 NeuronEX API 接口 `/api/neuron/node/state`，获取南向驱动状态信息，在这个过程中还会涉及到获取 NeuronEX Token 认证信息。
+本示例使用 HTTP Pull 源，读取 EMQX Neuron API 接口 `/api/neuron/node/state`，获取南向驱动状态信息，在这个过程中还会涉及到获取 EMQX Neuron Token 认证信息。
 
-在该示例中，使用的 NeuronEX 版本为 3.4.1。
+在该示例中，使用的 EMQX Neuron 版本为 3.4.1。
 
 ```shell
 docker run -d --name neuronex -p 8077:8085 --log-opt max-size=100m emqx/neuronex:3.4.1
@@ -137,15 +137,15 @@ docker run -d --name neuronex -p 8077:8085 --log-opt max-size=100m emqx/neuronex
 
 ![http_ex_1_zh](_assets/http_ex_1_zh.png)
 
-在下图中 .token 为动态获取到的 NeuronEX Token 认证信息，获取方法见下下图。
+在下图中 .token 为动态获取到的 EMQX Neuron Token 认证信息，获取方法见下下图。
 
 ![http_ex_2_zh](_assets/http_ex_2_zh.png)
 
-下图中为获取到的 NeuronEX Token 配置方法。包括以下几个参数：
+下图中为获取到的 EMQX Neuron Token 配置方法。包括以下几个参数：
 
 - access
-  - url：http://192.168.71.22:8077/api/login  为 NeuronEX 登录地址
-  - body：{"name":"admin","password":"0000"}  为 NeuronEX 登录时所需的账号密码
+  - url：http://192.168.71.22:8077/api/login  为 EMQX Neuron 登录地址
+  - body：{"name":"admin","password":"0000"}  为 EMQX Neuron 登录时所需的账号密码
   - expire：令牌的过期时间，时间单位是3600秒
 
 ![http_ex_3_zh](_assets/http_ex_3_zh.png)
@@ -154,19 +154,19 @@ docker run -d --name neuronex -p 8077:8085 --log-opt max-size=100m emqx/neuronex
 
 ![alt text](_assets/http_ex_4.png)
 
-为什么在图二中需要配置 Authorization 字段，因为 NeuronEX 默认运行会自动开启鉴权，所以需要手动配置。可以在 F12 浏览器调试工具中，在每个 NeuronEX 的 API 请求中的 Headers 中，都可以找到 Authorization 字段。
+为什么在图二中需要配置 Authorization 字段，因为 EMQX Neuron 默认运行会自动开启鉴权，所以需要手动配置。可以在 F12 浏览器调试工具中，在每个 EMQX Neuron 的 API 请求中的 Headers 中，都可以找到 Authorization 字段。
 
 ![http_ex_5_zh](_assets/http_ex_5.png)
 
 ::: tip
 
-在本示例中使用的 NeuronEX 端口为 8077，如果您使用的是8085默认端口，请在所有配置中将端口替换为8085。
+在本示例中使用的 EMQX Neuron 端口为 8077，如果您使用的是8085默认端口，请在所有配置中将端口替换为8085。
 
 :::
 
 ### 查看流结果
 
-选择**规则** -> **新建规则**，在**新建规则**页面，选择**流**，选择上一步创建的流 `http123`，开启规则调试，即可看到从 NeuronEX API 接口 `/api/neuron/node/state` 获取到的南向驱动状态信息。表示 http pull 源获取数据成功。
+选择**规则** -> **新建规则**，在**新建规则**页面，选择**流**，选择上一步创建的流 `http123`，开启规则调试，即可看到从 EMQX Neuron API 接口 `/api/neuron/node/state` 获取到的南向驱动状态信息。表示 http pull 源获取数据成功。
 
 ![alt text](_assets/http_ex_6_zh.png)
 

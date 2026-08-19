@@ -2,7 +2,7 @@
 
 ## 测试目的
 
-在 NeuronEX Modbus TCP 驱动连接设备进行大规模数据采集及数据下发场景下，对 NeuronEX 的资源使用情况进行验证，持续监控包括：CPU，内存，网络 IO 及数据下发延迟等。
+在 EMQX Neuron Modbus TCP 驱动连接设备进行大规模数据采集及数据下发场景下，对 EMQX Neuron 的资源使用情况进行验证，持续监控包括：CPU，内存，网络 IO 及数据下发延迟等。
 
 ## 测试架构
 
@@ -12,13 +12,13 @@
 
 - **PeakHMI Modbus TCP simulator** 是一款用于模拟 Modbus TCP 通信的工具，它允许用户在没有实际硬件的情况下测试和开发基于 Modbus TCP 协议的应用程序。Modbus TCP 是一种常用的工业通信协议，广泛应用于自动化和控制系统中，用于在设备之间传输数据。
 
-- 部署 NeuronEX 的Linux机器硬件资源：
+- 部署 EMQX Neuron 的Linux机器硬件资源：
 
-| NeuronEX 版本     | 操作系统 | CPU       | 内存     |  CPU 型号   |
+| EMQX Neuron 版本     | 操作系统 | CPU       | 内存     |  CPU 型号   |
 | ---------------- | ------- | ---------| ------ |------ |
-| NeuronEX 3.2.1      | Debian GNU/Linux 12      | 4核   | 30Gi | Intel(R) Xeon(R) Platinum 8269CY CPU T 3.10GHz                    |
+| EMQX Neuron 3.2.1      | Debian GNU/Linux 12      | 4核   | 30Gi | Intel(R) Xeon(R) Platinum 8269CY CPU T 3.10GHz                    |
 
-- 通过 Prometheus 监控 Linux 机器上 NeuronEX 软件的 CPU、内存、网络 IO 等资源的使用情况。
+- 通过 Prometheus 监控 Linux 机器上 EMQX Neuron 软件的 CPU、内存、网络 IO 等资源的使用情况。
 
 ## 测试场景
 
@@ -26,33 +26,33 @@
 
 - 场景一
 
-NeuronEX 配置 1 个 Modbus TCP 驱动，该驱动包含 10 个采集组，每个采集组 1 秒 采集 1000个 Float 类型数据，共计 1 万数据点位
+EMQX Neuron 配置 1 个 Modbus TCP 驱动，该驱动包含 10 个采集组，每个采集组 1 秒 采集 1000个 Float 类型数据，共计 1 万数据点位
 
 - 场景二
 
-NeuronEX 配置 5 个 Modbus TCP 驱动，每个驱动包含 10 个采集组，每个采集组 1 秒 采集 1000个 Float 类型数据，共计 5 万数据点位
+EMQX Neuron 配置 5 个 Modbus TCP 驱动，每个驱动包含 10 个采集组，每个采集组 1 秒 采集 1000个 Float 类型数据，共计 5 万数据点位
 
 - 场景三
 
-NeuronEX 配置 10 个 Modbus TCP 驱动，每个驱动包含 10 个采集组，每个采集组 1 秒 采集 1000个 Float 类型数据，共计 10 万数据点位
+EMQX Neuron 配置 10 个 Modbus TCP 驱动，每个驱动包含 10 个采集组，每个采集组 1 秒 采集 1000个 Float 类型数据，共计 10 万数据点位
 
 - 场景四
 
-NeuronEX 配置 1 个 Modbus TCP 驱动，每个驱动包含 1 个采集组，每个采集组 100 毫秒采集 1000个 Float 类型数据，共计 1 千数据点位
+EMQX Neuron 配置 1 个 Modbus TCP 驱动，每个驱动包含 1 个采集组，每个采集组 100 毫秒采集 1000个 Float 类型数据，共计 1 千数据点位
 
 - 场景五
 
-NeuronEX 配置 5 个 Modbus TCP 驱动，每个驱动包含 1 个采集组，每个采集组 100 毫秒采集 1000个 Float 类型数据，共计 5 千数据点位
+EMQX Neuron 配置 5 个 Modbus TCP 驱动，每个驱动包含 1 个采集组，每个采集组 100 毫秒采集 1000个 Float 类型数据，共计 5 千数据点位
 
 - 场景六
 
-NeuronEX 配置 10 个 Modbus TCP 驱动，每个驱动包含 1 个采集组，每个采集组 100 毫秒采集 1000个 Float 类型数据，共计 1 万数据点位
+EMQX Neuron 配置 10 个 Modbus TCP 驱动，每个驱动包含 1 个采集组，每个采集组 100 毫秒采集 1000个 Float 类型数据，共计 1 万数据点位
 
 ### 数据下发场景
 
 - 场景七
 
-在 NeuronEX 配置 10 个 Modbus TCP 驱动，每个驱动包含 10 个采集组，每个采集组 1 秒 采集 1000个 Float 类型数据，共计 10 万数据点位的情况下，下发100个数据点位。
+在 EMQX Neuron 配置 10 个 Modbus TCP 驱动，每个驱动包含 10 个采集组，每个采集组 1 秒 采集 1000个 Float 类型数据，共计 10 万数据点位的情况下，下发100个数据点位。
 
 
 ## 结果概述
@@ -73,12 +73,12 @@ NeuronEX 配置 10 个 Modbus TCP 驱动，每个驱动包含 1 个采集组，�
 
 | 场景 | 下发方式 | 下发点位数 | 测试次数 | 最小响应时间 | 最大响应时间 | 平均响应时间 |
 | ---------------- | ------- | --------- | ------ |------ |------ |------ |
-| 在 NeuronEX 配置 10 个 Modbus TCP 驱动，每个驱动包含 10 个采集组，每个采集组 1 秒 采集 1000个 Float 类型数据，共计 10 万数据点位在正常采集的情况下。 | API 下发 | 100个 | 100次 | 85ms | 778ms | 523ms |
+| 在 EMQX Neuron 配置 10 个 Modbus TCP 驱动，每个驱动包含 10 个采集组，每个采集组 1 秒 采集 1000个 Float 类型数据，共计 10 万数据点位在正常采集的情况下。 | API 下发 | 100个 | 100次 | 85ms | 778ms | 523ms |
 
 ::: tip 注意
 
-- 本测试使用的是模拟器设备，并且采集的数据点位地址均为连续地址段，所以 NeuronEX 与真实设备进行数据采集时，系统资源使用会高于本测试结果。
-- 如使用 NeuronEX 数据处理功能，进行数据清洗过滤，边缘计算、算法集成，会额外消耗CPU和内存。
+- 本测试使用的是模拟器设备，并且采集的数据点位地址均为连续地址段，所以 EMQX Neuron 与真实设备进行数据采集时，系统资源使用会高于本测试结果。
+- 如使用 EMQX Neuron 数据处理功能，进行数据清洗过滤，边缘计算、算法集成，会额外消耗CPU和内存。
 
 :::
 
@@ -86,7 +86,7 @@ NeuronEX 配置 10 个 Modbus TCP 驱动，每个驱动包含 1 个采集组，�
 
 ### 场景一
 
-NeuronEX 配置 1 个 Modbus TCP 驱动，该驱动包含 10 个采集组，每个采集组 1 秒 采集 1000个 Float 类型数据，共计 1 万数据点位
+EMQX Neuron 配置 1 个 Modbus TCP 驱动，该驱动包含 10 个采集组，每个采集组 1 秒 采集 1000个 Float 类型数据，共计 1 万数据点位
 
 - 内存使用：199MB
 
@@ -104,7 +104,7 @@ NeuronEX 配置 1 个 Modbus TCP 驱动，该驱动包含 10 个采集组，每�
 
 ### 场景二
 
-NeuronEX 配置 5 个 Modbus TCP 驱动，每个驱动包含 10 个采集组，每个采集组 1 秒 采集 1000个 Float 类型数据，共计 5 万数据点位
+EMQX Neuron 配置 5 个 Modbus TCP 驱动，每个驱动包含 10 个采集组，每个采集组 1 秒 采集 1000个 Float 类型数据，共计 5 万数据点位
 
 - 内存使用：327MB
 
@@ -122,7 +122,7 @@ NeuronEX 配置 5 个 Modbus TCP 驱动，每个驱动包含 10 个采集组，�
 
 ### 场景三
 
-NeuronEX 配置 10 个 Modbus TCP 驱动，每个驱动包含 10 个采集组，每个采集组 1 秒 采集 1000个 Float 类型数据，共计 10 万数据点位
+EMQX Neuron 配置 10 个 Modbus TCP 驱动，每个驱动包含 10 个采集组，每个采集组 1 秒 采集 1000个 Float 类型数据，共计 10 万数据点位
 
 - 内存使用：497MB
 
@@ -140,7 +140,7 @@ NeuronEX 配置 10 个 Modbus TCP 驱动，每个驱动包含 10 个采集组，
 
 ### 场景四
 
-NeuronEX 配置 1 个 Modbus TCP 驱动，每个驱动包含 1 个采集组，每个采集组 100 毫秒采集 1000个 Float 类型数据，共计 1 千数据点位
+EMQX Neuron 配置 1 个 Modbus TCP 驱动，每个驱动包含 1 个采集组，每个采集组 100 毫秒采集 1000个 Float 类型数据，共计 1 千数据点位
 
 - 内存使用：128MB
 
@@ -158,7 +158,7 @@ NeuronEX 配置 1 个 Modbus TCP 驱动，每个驱动包含 1 个采集组，�
 
 ### 场景五
 
-NeuronEX 配置 5 个 Modbus TCP 驱动，每个驱动包含 1 个采集组，每个采集组 100 毫秒采集 1000个 Float 类型数据，共计 5 千数据点位
+EMQX Neuron 配置 5 个 Modbus TCP 驱动，每个驱动包含 1 个采集组，每个采集组 100 毫秒采集 1000个 Float 类型数据，共计 5 千数据点位
 
 - 内存使用：165MB
 
@@ -176,7 +176,7 @@ NeuronEX 配置 5 个 Modbus TCP 驱动，每个驱动包含 1 个采集组，�
 
 ### 场景六
 
-NeuronEX 配置 10 个 Modbus TCP 驱动，每个驱动包含 1 个采集组，每个采集组 100 毫秒采集 1000个 Float 类型数据，共计 1 万数据点位
+EMQX Neuron 配置 10 个 Modbus TCP 驱动，每个驱动包含 1 个采集组，每个采集组 100 毫秒采集 1000个 Float 类型数据，共计 1 万数据点位
 
 - 内存使用：189MB
 

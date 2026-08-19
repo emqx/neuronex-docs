@@ -31,7 +31,7 @@
 
 ## 注意事项
 
-如果通过 docker compose 将 NeuronEX 与 kafka 部署在同一容器网络中，可在 NeuronEX 中通过 kafka 主机名配置 brokers 地址。
+如果通过 docker compose 将 EMQX Neuron 与 kafka 部署在同一容器网络中，可在 EMQX Neuron 中通过 kafka 主机名配置 brokers 地址。
 但是 kafka 需要特别注意 `` KAFKA_CFG_ADVERTISED_LISTENERS `` 需要配置为主机 IP 地址, 如下所示
 
 ```yaml

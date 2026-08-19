@@ -2,7 +2,7 @@
 
 ## 南向驱动采集监控仪表盘
 
-点击 NeuronEX 侧边栏的**数据监控**，选择南向设备和组名称，查看点位数值。
+点击 EMQX Neuron 侧边栏的**数据监控**，选择南向设备和组名称，查看点位数值。
 
 ![data-monitoring](./_assets/data-monitoring.png)
 
@@ -13,9 +13,9 @@
 
 ## 反控设备
 
-NeuronEX 提供通过南向驱动向设备下发指令控制的能力。通过以下各种途径可以向设备发出指令:
+EMQX Neuron 提供通过南向驱动向设备下发指令控制的能力。通过以下各种途径可以向设备发出指令:
 
-- NeuronEX 的[数据处理模块](../streaming-processing/sink/neuron.md)
+- EMQX Neuron 的[数据处理模块](../streaming-processing/sink/neuron.md)
 - 其他第三方应用程序
 - 工业互联网平台
 - 云平台应用
@@ -23,7 +23,7 @@ NeuronEX 提供通过南向驱动向设备下发指令控制的能力。通过�
 向设备发送命令有三种方式：
 - 用户可以在[仪表板监控屏幕](#监控仪表盘数据写入)上发出命令。
 - 通过 [RESTful APIs](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html#tag/rw) 传递命令。
-- 通过 NeuronEX 的 [MQTT 数据下行通道](../configuration/north-apps/mqtt/api.md)。任何外部系统，如基于云的平台，都可以将指令数据发布到指定的 MQTT 主题，NeuronEX 接收到指令数据并发送到设备。
+- 通过 EMQX Neuron 的 [MQTT 数据下行通道](../configuration/north-apps/mqtt/api.md)。任何外部系统，如基于云的平台，都可以将指令数据发布到指定的 MQTT 主题，EMQX Neuron 接收到指令数据并发送到设备。
 
 ### Dashboard 数据写入
 

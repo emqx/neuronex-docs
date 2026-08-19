@@ -1,6 +1,6 @@
 # Table
 
-Tables are a method of retaining a relatively large amount of state. NeuronEX currently supports two types of tables: `Scan Table` and `Lookup Table`. Both types of tables are suitable for streaming batch synthesis calculations.
+Tables are a method of retaining a relatively large amount of state. EMQX Neuron currently supports two types of tables: `Scan Table` and `Lookup Table`. Both types of tables are suitable for streaming batch synthesis calculations.
 
 - Scan Table
 
@@ -17,11 +17,11 @@ With a streaming data source, any new data is appended to the current stream for
 
 | Table type                        | Description                                    | Scan Table | Lookup Table |
 | --------------------------- | ----------------------------------  | ------ | ------ |
-| [Neuron](./neuron.md)       | Read data from NeuronEX's data collection module           | ✅      |❌    |
+| [Neuron](./neuron.md)       | Read data from EMQX Neuron's data collection module           | ✅      |❌    |
 | [MQTT](./mqtt.md)           | Read data from MQTT topic                         | ✅    | ❌    |
 | [HTTP pull](./http_pull.md) | Pull data from HTTP server                       | ✅    | ❌    |
-| [HTTP push](./http_push.md) | Push data to NeuronEX via HTTP        | ✅   | ❌     |
-| [Memory](./memory.md)         | Read data from the NeuronEX memory to form a rule pipeline   | ✅      | ✅     |
+| [HTTP push](./http_push.md) | Push data to EMQX Neuron via HTTP        | ✅   | ❌     |
+| [Memory](./memory.md)         | Read data from the EMQX Neuron memory to form a rule pipeline   | ✅      | ✅     |
 | [SQL](./sql.md)         | Query data from the database                            | ✅      | ✅|
 | [File](./file.md)           | Read data from a file                            | ✅    | ❌    |
 | [Video](./video.md)         | Query data from video stream                      | ✅   | ❌    |
@@ -32,7 +32,7 @@ With a streaming data source, any new data is appended to the current stream for
 
 ## Create table
 
-On the NeuronEX page, click **Data Processing** -> **Sources**, on the **Scan Table**/**Lookup Table** tab, click **Create Scan Table/Create Lookup Table** button to create the table.
+On the EMQX Neuron page, click **Data Processing** -> **Sources**, on the **Scan Table**/**Lookup Table** tab, click **Create Scan Table/Create Lookup Table** button to create the table.
 
 The data type and attributes of the table are consistent with the stream. For details, please refer to the [Stream Management](./stream.md) page.
 

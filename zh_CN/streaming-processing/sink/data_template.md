@@ -1,16 +1,16 @@
 # 数据模板
 
-用户通过 NeuronEX 进行数据分析处理后，使用各种 动作 (Sink) 可以往不同的系统发送数据分析结果。针对同样的分析结果，不同的 动作 (Sink) 需要的格式可能未必一样。
+用户通过 EMQX Neuron 进行数据分析处理后，使用各种 动作 (Sink) 可以往不同的系统发送数据分析结果。针对同样的分析结果，不同的 动作 (Sink) 需要的格式可能未必一样。
 
 比如，在某场景中，当发现某设备温度过高的时候，需要向云端某 REST 服务发送一个请求，同时在本地需要通过 MQTT 协议往设备发送一个控制命令，这两者需要的数据格式可能并不一样，因此，需要对来自于分析的结果进行「二次处理」后，才可以往不同的目标发送针对数据。本文将介绍如何利用 Sink 中的`数据模版 (Data  Template)` 来实现对分析结果的「二次处理」。
 
-登录 NeuronEX，点击**数据处理** -> **规则**。在**规则**页签，点击**新建规则** -> **添加动作** ，选择一个具体的动作(Sink)后，可使用数据模板功能。
+登录 EMQX Neuron，点击**数据处理** -> **规则**。在**规则**页签，点击**新建规则** -> **添加动作** ，选择一个具体的动作(Sink)后，可使用数据模板功能。
 
 <img src="../_assets/data_template1.png" alt="data_template1" style="zoom:100%;" />
 
 ## Golang 模版介绍
 
-Golang  模版将一段逻辑应用到数据上，然后按照用户指定的逻辑对数据进行格式化输出。NeuronEX 使用了 [Golang template（模版）](https://golang.org/pkg/text/template/)对分析结果实现「二次处理」，请参考以下来自于 Golang 的官方介绍。
+Golang  模版将一段逻辑应用到数据上，然后按照用户指定的逻辑对数据进行格式化输出。EMQX Neuron 使用了 [Golang template（模版）](https://golang.org/pkg/text/template/)对分析结果实现「二次处理」，请参考以下来自于 Golang 的官方介绍。
 
 > 模版是通过将其应用到一个数据结构上来执行的。模版中的注释 (Annotations) 指的是数据结构中的元素（典型的为结构体中的一个字段，或者 map 中的一个 key），注释用于控制执行、并获取用于显示的值。模版的执行会迭代数据结构并设置游标，通过符号「.」 来表示，在执行过程中指向数据结构中的当前位置。
 >
@@ -84,9 +84,9 @@ Golang  模版将一段逻辑应用到数据上，然后按照用户指定的逻
 
 1. Go 语言内置[模板函数](https://golang.org/pkg/text/template/#hdr-Functions)。
 2. 来自 [sprig library](http://masterminds.github.io/sprig/) 的丰富的扩展函数集。
-3. NeuronEX 扩展的函数。
+3. EMQX Neuron 扩展的函数。
 
-<!--NeuronEX 扩展了几个可以在模版中使用的函数：-->
+<!--EMQX Neuron 扩展了几个可以在模版中使用的函数：-->
 
 <!--(deprecated)`json para1`: `json` 函数用于将 map 内容转换为 JSON 字符串。本函数已弃用，建议使用 sprig 扩展的 `toJson` 函数。-->
 
@@ -111,7 +111,7 @@ Golang 模版提供了一些[内置的动作](https://golang.org/pkg/text/templa
 {{range pipeline}} T1 {{else}} T0 {{end}}
 ```
 
-动作是用 <code v-pre> `{{}}`</code> 界定的，在 NeuronEX 的数据模版使用过程中，由于输出一般也是 JSON 格式， 而 JSON 格式是用 `{}` 来界定，因此读者在不太熟悉使用的时候，在使用  NeuronEX 的数据模版的功能会觉得比较难以理解。比如以下的例子中，
+动作是用 <code v-pre> `{{}}`</code> 界定的，在 EMQX Neuron 的数据模版使用过程中，由于输出一般也是 JSON 格式， 而 JSON 格式是用 `{}` 来界定，因此读者在不太熟悉使用的时候，在使用  EMQX Neuron 的数据模版的功能会觉得比较难以理解。比如以下的例子中，
 
 ```
 {{if pipeline}} {"field1": true} {{else}}  {"field1": false} {{end}}
@@ -122,9 +122,9 @@ Golang 模版提供了一些[内置的动作](https://golang.org/pkg/text/templa
 - 如果满足了条件 pipeline，则输出 JSON 字符串 `{"field1": true}`
 - 否则输出 JSON 字符串 `{"field1": false}`
 
-## NeuronEX sink 数据格式
+## EMQX Neuron sink 数据格式
 
-Golang 的模版可以作用于各种数据结构，比如 map、切片 (slice)，通道等，而 NeuronEX 的 sink 中的数据模版得到的数据类型是固定的，是一个包含了 Golang `map` 切片的数据类型，如下所示。
+Golang 的模版可以作用于各种数据结构，比如 map、切片 (slice)，通道等，而 EMQX Neuron 的 sink 中的数据模版得到的数据类型是固定的，是一个包含了 Golang `map` 切片的数据类型，如下所示。
 
 ```go
 []map[string]interface{}
@@ -151,8 +151,8 @@ Golang 的模版可以作用于各种数据结构，比如 map、切片 (slice)�
  "dataTemplate": "{{toJson .}}"
 ```
 
-- 将 `sendSingle` 设置为 `true`后，NeuronEX 把传递给 sink 的 `[]map[string]interface{}` 数据类型进行遍历处理，对于遍历过程中的每一条数据都会应用用户指定的数据模版
-- `toJson` 是 NeuronEX 提供的函数，可以将传入的参数转化为 JSON 字符串输出，对于遍历到的每一条数据，将 map 中的内容转换为 JSON 字符串
+- 将 `sendSingle` 设置为 `true`后，EMQX Neuron 把传递给 sink 的 `[]map[string]interface{}` 数据类型进行遍历处理，对于遍历过程中的每一条数据都会应用用户指定的数据模版
+- `toJson` 是 EMQX Neuron 提供的函数，可以将传入的参数转化为 JSON 字符串输出，对于遍历到的每一条数据，将 map 中的内容转换为 JSON 字符串
 
 Golang 还内置提供了一些函数，用户可以参考[更多 Golang 内置提供的函数](https://golang.org/pkg/text/template/#hdr-Functions)来获取更多函数信息。
 
@@ -172,7 +172,7 @@ Golang 还内置提供了一些函数，用户可以参考[更多 Golang 内置�
 ```
 
 ::: v-pre
-在上述的数据模版中，使用了 `{{if pipeline}} T1 {{else if pipeline}} T0 {{end}}` 的内置动作，看上去比较复杂，稍微调整一下，去掉转义并加入缩进后排版如下（注意：在生成 NeuronEX 规则的时候，不能传入以下优化后排版的规则）。
+在上述的数据模版中，使用了 `{{if pipeline}} T1 {{else if pipeline}} T0 {{end}}` 的内置动作，看上去比较复杂，稍微调整一下，去掉转义并加入缩进后排版如下（注意：在生成 EMQX Neuron 规则的时候，不能传入以下优化后排版的规则）。
 :::
 
 ```
@@ -236,7 +236,7 @@ Golang 还内置提供了一些函数，用户可以参考[更多 Golang 内置�
 :::
 
 ::: v-pre
-- `{{range $index, $ele := .values}} {{if le .temperature 25.0}}\"fine\"{{else if gt .temperature 25.0}}\"high\"{{end}} {{if eq $loopsize $index}}]{{else}},{{end}}{{end}}` ，这一段模版看起来比较复杂，但是如果把它调整一下，去掉转义并加入缩进后排版如下，看起来可能会更加清晰（注意：在生成 NeuronEX 规则的时候，不能传入以下优化后排版的规则）。
+- `{{range $index, $ele := .values}} {{if le .temperature 25.0}}\"fine\"{{else if gt .temperature 25.0}}\"high\"{{end}} {{if eq $loopsize $index}}]{{else}},{{end}}{{end}}` ，这一段模版看起来比较复杂，但是如果把它调整一下，去掉转义并加入缩进后排版如下，看起来可能会更加清晰（注意：在生成 EMQX Neuron 规则的时候，不能传入以下优化后排版的规则）。
 :::
 
 ```
@@ -261,6 +261,88 @@ Golang 还内置提供了一些函数，用户可以参考[更多 Golang 内置�
 ```json
   {"device_id": "1", "description": [ "fine" , "fine" , "high" ]}
 ```
+
+## `sendSingle`、批量、`dataTemplate` 与 `format` 的关系
+
+这些属性分别控制 sink 处理过程中的不同阶段：
+
+| 属性 | 职责 |
+|------|------|
+| `sendSingle` | 控制 `dataTemplate` 的输入粒度。值为 `false` 时，模板接收当前的映射数组；值为 `true` 时，eKuiper 遍历数组并对每个映射分别执行一次模板。 |
+| `dataTemplate` | 转换 `sendSingle` 选出的每个输入。在批量模式下，模板应描述一个批次元素，而不是完整批次。模板输出被视为已经编码的数据，不会再次编码。用户需要负责保证输出符合 `format`。 |
+| `format` | 控制普通数据的编码方式；启用批量处理后，还控制如何将多个转换结果组织为一个批次。JSON Writer 会添加逗号和外层数组，Delimited Writer 会添加换行符，URL-encoded Writer 会在模板结果之间添加 `&`。 |
+| `batchSize` / `lingerInterval` | 控制何时将转换后的元素发送到 sink。批量处理不会把累计完成的批次暴露给 `dataTemplate`，也不会改变模板输入。 |
+
+实际处理顺序为：
+
+```text
+输入数组
+  -> sendSingle 保留数组或逐条遍历映射
+  -> dataTemplate 转换每个选中的输入
+  -> format Writer 组织转换结果
+  -> batchSize 或 lingerInterval 触发发送
+```
+
+> **启用批量处理时，`dataTemplate` 必须描述一个批次元素。** 模板不应生成批次的外层数组、元素之间的分隔符或批次边界。对于逐条处理的模板，应设置 `sendSingle=true`，使模板每次接收一个映射。批次触发发送时，由格式 Writer 组合这些转换后的元素。
+
+### 示例：逐条转换后发送一个 JSON 批次
+
+假设输入包含以下两条记录：
+
+```json
+[{"id":1,"temperature":20},{"id":2,"temperature":30}]
+```
+
+使用 `sendSingle=true` 让模板逐条执行，并使用 `format=json` 将转换后的 JSON 值组织为一个数组：
+
+```json
+{
+  "batchSize": 100,
+  "sendSingle": true,
+  "format": "json",
+  "dataTemplate": "{\"deviceId\":{{.id}},\"value\":{{.temperature}}}"
+}
+```
+
+两次模板执行分别产生：
+
+```json
+{"deviceId":1,"value":20}
+{"deviceId":2,"value":30}
+```
+
+JSON Batch Writer 不会再次编码这些值，只添加逗号和外层数组。当批次触发发送时，sink 收到一条消息：
+
+```json
+[{"deviceId":1,"value":20},{"deviceId":2,"value":30}]
+```
+
+### 错误预期：把模板输入当成累计完成的批次
+
+设置 `sendSingle=false` 时，模板接收的是当前输入数组，而不是 `batchSize` 或 `lingerInterval` 已累计的所有记录。例如：
+
+```json
+{
+  "batchSize": 100,
+  "sendSingle": false,
+  "format": "json",
+  "dataTemplate": "{{toJson .}}"
+}
+```
+
+如果两次模板执行分别返回 `[1,2]` 和 `[3,4]`，Writer 会把每个结果视为一个批次元素，不会将它们合并为 `[1,2,3,4]`，因此最终结果是嵌套数组：
+
+```json
+[[1,2],[3,4]]
+```
+
+Batch Writer 不会展开模板输出。当 `format=json` 时，每次模板执行都必须产生一个合法的 JSON 值。eKuiper 会将模板输出视为配置格式的数据；格式错误或不兼容属于模板配置错误。如需逐条转换后再组成批次，应设置 `sendSingle=true`，并按单条记录编写模板。
+
+> **重要提示：** 同时使用批量处理与 `dataTemplate` 时，`format` 只负责选择 Writer 及其批量结构，不会解析或校验模板产生的已编码数据。因此，设置 `format=json` 并不能保证最终消息一定是合法 JSON。模板作者必须保证每次输出都符合配置格式，并且能够按照该格式的批量结构组合。
+
+### 示例：不使用数据模板
+
+省略 `dataTemplate` 时，选出的结构化数据尚未编码，Writer 使用 `format` 编码每个数据项并构造批次。因此，在这种情况下，`format` 同时控制编码和批量结构。
 
 ## 使用 AI 辅助生成
 
@@ -312,5 +394,5 @@ eKuiper 的模板语法与 Go 语言相同，因此可以方便地通过 AI 辅�
 
 ## 总结
 
-通过 NeuronEX 提供的数据模版功能可以实现对分析结果的二次处理，以满足不同的 sink 目标的需求。但由于 Golang 模版本身的限制，较难实现较复杂的数据转换。目前建议用户可以通过数据模版来实现一些较为简单的数据的转换；如果用户需要对数据进行比较复杂的处理，并且自己扩展了 sink 的情况下，可以在 sink 的实现中直接进行处理。
+通过 EMQX Neuron 提供的数据模版功能可以实现对分析结果的二次处理，以满足不同的 sink 目标的需求。但由于 Golang 模版本身的限制，较难实现较复杂的数据转换。目前建议用户可以通过数据模版来实现一些较为简单的数据的转换；如果用户需要对数据进行比较复杂的处理，并且自己扩展了 sink 的情况下，可以在 sink 的实现中直接进行处理。
 

@@ -1,12 +1,12 @@
-# 卸载 NeuronEX
+# 卸载 EMQX Neuron
 
-NeuronEX 支持多种安装方式，不同安装方式对应不同的卸载方法。建议卸载前先停止 NeuronEX 服务。
+EMQX Neuron 支持多种安装方式，不同安装方式对应不同的卸载方法。建议卸载前先停止 EMQX Neuron 服务。
 
 ## 使用 .tar.gz 包安装
 
 ### 仅解压运行（未注册 systemd 服务）
 
-如果你只是解压后通过 `./bin/neuronex start` 运行 NeuronEX，则卸载本质是删除解压目录。
+如果你只是解压后通过 `./bin/neuronex start` 运行 EMQX Neuron，则卸载本质是删除解压目录。
 
 ```bash
 # 停止（如果是从解压目录启动的）
@@ -18,7 +18,7 @@ rm -rf ./neuronex-<x.y.z>-linux-<arch>
 
 ### 已注册 systemd 服务
 
-如果你执行过 `./bin/neuronex install` 将 NeuronEX 注册为 systemd 服务，请在删除目录前先取消注册：
+如果你执行过 `./bin/neuronex install` 将 EMQX Neuron 注册为 systemd 服务，请在删除目录前先取消注册：
 
 ```bash
 # 取消 systemd 服务注册
@@ -59,7 +59,7 @@ sudo dpkg -P neuronex
 sudo systemctl stop neuronex || true
 ```
 
-卸载 NeuronEX：
+卸载 EMQX Neuron：
 
 ```bash
 sudo rpm -e neuronex
@@ -75,7 +75,7 @@ sudo yum remove -y neuronex
 
 ## 使用 Docker 部署
 
-卸载 Docker 方式的 NeuronEX，一般包括“停止容器、删除容器”，必要时再删除镜像。
+卸载 Docker 方式的 EMQX Neuron，一般包括“停止容器、删除容器”，必要时再删除镜像。
 
 ```bash
 # 停止容器

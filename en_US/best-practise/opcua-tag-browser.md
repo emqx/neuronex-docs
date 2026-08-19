@@ -1,16 +1,16 @@
-# Effectively Managing OPC UA Server Tags with NeuronEX Tag Browser Feature
+# Effectively Managing OPC UA Server Tags with EMQX Neuron Tag Browser Feature
 
 ## Introduction
 
 OPC UA (OPC Unified Architecture) is a cross-platform, service-oriented communication protocol widely used in industrial automation and the Industrial Internet of Things (IIoT). It provides a standardized framework for interoperability between industrial devices and systems. As a core technology in industrial communication, OPC UA offers high security, flexibility, and scalability, making it particularly suitable for Industry 4.0 and IIoT applications. It is gradually becoming the universal standard for industrial device interoperability.
 
-This article will introduce how NeuronEX's tag browser feature can help users manage OPC UA device tags more efficiently.
+This article will introduce how EMQX Neuron's tag browser feature can help users manage OPC UA device tags more efficiently.
 
 ## Preparation
 
 Before using the tag discovery feature, we need to connect an OPC UA device.
 
-1. Log in to the NeuronEX console and navigate to the "Data Collection" -> "South Devices" page.
+1. Log in to the EMQX Neuron console and navigate to the "Data Collection" -> "South Devices" page.
 
 2. Click the "Add Device" button to go to the device addition page.
 
@@ -36,7 +36,7 @@ With the preparation complete, let's dive into the main topic: using the tag bro
 
 2. On the device configuration page, switch to the "Tag Browser" tab on the far right.
 
-3. In the "Tag Browser" tab, click the "Scan" button. NeuronEX will automatically scan the OPC UA server's address space for tag information.
+3. In the "Tag Browser" tab, click the "Scan" button. EMQX Neuron will automatically scan the OPC UA server's address space for tag information.
 
 ![opcua-add-device-zh](./_assets/opcua-browser2-en.png)
 
@@ -80,10 +80,10 @@ To export selected tags as a tag table:
 
 ![opcua-add-device-zh](./_assets/opcua-browser9-en.png)
 
-3. An Excel file will be downloaded to your local machine. The file will contain the relevant information of the six selected tags. After exporting the tag table, you can locally edit and save the tag information. This allows for further customization and organization of the tags according to your specific requirements. Once the edits are complete, you can import the updated tag table back into NeuronEX for use.
+3. An Excel file will be downloaded to your local machine. The file will contain the relevant information of the six selected tags. After exporting the tag table, you can locally edit and save the tag information. This allows for further customization and organization of the tags according to your specific requirements. Once the edits are complete, you can import the updated tag table back into EMQX Neuron for use.
 
 ![opcua-add-device-zh](./_assets/opcua-browser10-en.png)
 
 ## Conclusion
 
-We have now fully introduced NeuronEX's tag browser feature. With this feature, users can efficiently manage OPC UA server tags, enabling rapid integration of OPC UA devices.
+We have now fully introduced EMQX Neuron's tag browser feature. With this feature, users can efficiently manage OPC UA server tags, enabling rapid integration of OPC UA devices.

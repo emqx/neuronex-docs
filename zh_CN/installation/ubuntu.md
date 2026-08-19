@@ -5,7 +5,7 @@
 从 [EMQ 官网](https://www.emqx.com/zh/downloads-and-install/neuronex?os=Linux)下载不同版本及架构的安装包，例如：
 
 ```bash
-$ wget https://www.emqx.com/zh/downloads/neuronex/3.7.0/neuronex-3.7.0-linux-amd64.deb
+$ wget https://www.emqx.com/zh/downloads/neuronex/3.9.2/neuronex-3.9.2-linux-amd64.deb
 ```
 
 ## 安装
@@ -13,7 +13,7 @@ $ wget https://www.emqx.com/zh/downloads/neuronex/3.7.0/neuronex-3.7.0-linux-amd
 根据不同版本及架构安装，例如：
 
 ```bash
-$ sudo dpkg -i neuronex-3.7.0-linux-amd64.deb
+$ sudo dpkg -i neuronex-3.9.2-linux-amd64.deb
 ```
 
 ## 运行
@@ -47,30 +47,30 @@ $ sudo dpkg -P neuronex
 
 ## 升级
 
-关闭当前 NeuronEX 服务：
+关闭当前 EMQX Neuron 服务：
 
 ```bash
 $ sudo systemctl stop neuronex
 ```
 
-卸载当前 NeuronEX：
+卸载当前 EMQX Neuron：
 
 ```bash
 $ sudo dpkg -r neuronex
 ```
 
-下载新的 NeuronEX 安装包：
+下载新的 EMQX Neuron 安装包：
 
 ```bash
 $ sudo dpkg -i neuronex-3.x.x-linux-amd64.deb
 ```
 
-运行后，新版本的 NeuronEX 将保留之前的配置。
+运行后，新版本的 EMQX Neuron 将保留之前的配置。
 
 ```bash
 $ sudo systemctl start neuronex
 ```
 
 ::: tip
-也可以手动复制并保存老版本NeuronEX `/opt/neuronex/data/` 目录下的文件，并导入到新版本 NeuronEX 的相同目录下，可恢复配置。
+也可以手动复制并保存老版本EMQX Neuron `/opt/neuronex/data/` 目录下的文件，并导入到新版本 EMQX Neuron 的相同目录下，可恢复配置。
 :::

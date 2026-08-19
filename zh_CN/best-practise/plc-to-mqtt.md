@@ -105,7 +105,7 @@ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=
 
 ### 步骤 2：添加南向设备（数据源）
 
-**南向设备**是 **NeuronEX** 与 **PLC** 之间的连接。
+**南向设备**是 **EMQX Neuron** 与 **PLC** 之间的连接。
 
 1. 进入「**数据采集**」→「**南向设备**」
 

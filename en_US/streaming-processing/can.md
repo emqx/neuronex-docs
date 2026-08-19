@@ -2,11 +2,11 @@
 
 <span style="background:green;color:white;">Stream</span> <span style="background:green;color:white">Scan Table</span>
 
-The NeuronEX data processing module can receive data from the CAN bus and parse the raw data into structured data. The CAN type can be used as the data source of streams and scan tables.
+The EMQX Neuron data processing module can receive data from the CAN bus and parse the raw data into structured data. The CAN type can be used as the data source of streams and scan tables.
 
 ## Create stream
 
-Log in to NeuronEX and click **Data Processing** -> **Sources**. On the **Stream** tab, click **Create Stream**.
+Log in to EMQX Neuron and click **Data Processing** -> **Sources**. On the **Stream** tab, click **Create Stream**.
 
 On the **Create Stream** page that pops up, enter the following configuration:
 
@@ -20,6 +20,6 @@ On the **Create Stream** page that pops up, enter the following configuration:
 - **Shared**: Check to confirm whether to share the source.
 - **Schema File Path**: The path where the dbc file is located. The dbc file is a file that describes the data structure of the CAN bus.
 
-Taking the following figure as an example, NeuronEX receives data through the network card can0 and parses the CAN data into structured json data based on the .dbc file in the `/home/dbc` directory.
+Taking the following figure as an example, EMQX Neuron receives data through the network card can0 and parses the CAN data into structured json data based on the .dbc file in the `/home/dbc` directory.
 
 ![alt text](_assets/can_info_en.png)

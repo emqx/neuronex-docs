@@ -97,7 +97,7 @@ For specific instructions on replacing and updating plugins, please contact the 
 
 ### CNC and Robots
 
-| CNC Vendor | CNC Model | <div style="width:60pt">Interface</div> | <div style="width:100pt">NeuronEX Protocol</div> | Remark |
+| CNC Vendor | CNC Model | <div style="width:60pt">Interface</div> | <div style="width:100pt">EMQX Neuron Protocol</div> | Remark |
 | ------------- | ------- | ----- | ----- |----- |
 | FANUC | Fanuc 0i, 30i, 31i, 32i and 35i | Ethernet | Fanuc Focas Ethernet | Serial interface for Fanuc devices is not supported yet |
 | Siemens | 802D SL, 808 | Ethernet | Siemens MPI | |

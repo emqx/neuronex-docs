@@ -30,8 +30,8 @@ If you want to save the settings as a template, you can also click **Add Sink Te
 - **Skip certification verification**: Defaults to False. If set to True, certificate verification will be skipped, otherwise certificate verification will be performed.
 - **Print HTTP response**: Control whether response information is printed to the console. If set to true, the response is printed; if set to false, printing is skipped.
 - **Response type**: `code` or `body`
-   - If set to `code`, NeuronEX will use the HTTP response code to determine the response status.
-   - If set to `body`, NeuronEX will check the HTTP response body (should be in JSON format) and the value of the code field in it.
+   - If set to `code`, EMQX Neuron will use the HTTP response code to determine the response status.
+   - If set to `body`, EMQX Neuron will check the HTTP response body (should be in JSON format) and the value of the code field in it.
 
 - **oAuth**: Configure the OAuth verification process
    - access

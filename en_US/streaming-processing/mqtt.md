@@ -3,11 +3,11 @@
 <span style="background:green;color:white;">Stream</span>        <span style="background:green;color:white">Scan table</span>
 
 
-NeuronEX data processing module can receive data from MQTT Broker through `MQTT` type data source and process and analyze it through rules.
+EMQX Neuron data processing module can receive data from MQTT Broker through `MQTT` type data source and process and analyze it through rules.
 
 ## Create stream
 
-Log in to NeuronEX and click **Data Processing** -> **Sources**. On the **Stream** tab, click **Create Stream**.
+Log in to EMQX Neuron and click **Data Processing** -> **Sources**. On the **Stream** tab, click **Create Stream**.
 
 In the pop-up **Sources**/**Create** page, enter the following configuration:
 
@@ -37,7 +37,7 @@ In the pop-up **Sources**/**Create** page, enter the following configuration:
 
 ## Create scan table
 
-MQTT sources support lookup table. Log in to NeuronEX and click **Data Processing** -> **Source**. On the **Scan Table** tab, click **Create Scan Table**.
+MQTT sources support lookup table. Log in to EMQX Neuron and click **Data Processing** -> **Source**. On the **Scan Table** tab, click **Create Scan Table**.
 
 - **Table Name**: Enter the table name
 - **Whether the schema stream**: Check to confirm whether it is a structured stream. If it is a structured stream, you need to add further stream fields. It can be unchecked by default.

@@ -24,11 +24,11 @@ Typical application scenarios:
 
 ### Starting the Simulator
 
-In the NeuronEX Management -> System Configuration page, select the `Built-in Modbus TCP Server Simulator` tab, and click the `Start Simulator` button to start the simulator. After the simulator starts, you still need to configure tags information. Please refer to [Adding Tags in the Simulator](#adding-tags-in-the-simulator).
+In the EMQX Neuron Management -> System Configuration page, select the `Built-in Modbus TCP Server Simulator` tab, and click the `Start Simulator` button to start the simulator. After the simulator starts, you still need to configure tags information. Please refer to [Adding Tags in the Simulator](#adding-tags-in-the-simulator).
 
 ::: tip
 
-After NeuronEX is installed and started by default, the built-in Modbus TCP Server simulator is in a stopped state and does not consume any system resources. It needs to be started manually.
+After EMQX Neuron is installed and started by default, the built-in Modbus TCP Server simulator is in a stopped state and does not consume any system resources. It needs to be started manually.
 
 :::
 
@@ -52,7 +52,7 @@ The downloaded configuration file already contains the driver and tags informati
 
 The simulator's default port is `502`, which generally does not need to be modified. Port modification is not currently supported in the interface. Port adjustment is done through the system configuration file.
 
-Modify the simulator's running port by changing the `port` parameter of `modbus_simulator` in the `/opt/neuronex/software/neuron/config/neuron.json` file. After modification, NeuronEX needs to be restarted for the changes to take effect.
+Modify the simulator's running port by changing the `port` parameter of `modbus_simulator` in the `/opt/neuronex/software/neuron/config/neuron.json` file. After modification, EMQX Neuron needs to be restarted for the changes to take effect.
 
 ```json
 {

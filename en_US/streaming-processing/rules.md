@@ -1,21 +1,21 @@
 # rule
 
-All calculation logic is handled through **Rules** in NeuronEX. The rules take the data source as input, define the calculation logic through **SQL**, and output the results to **Sink (Action)**. Once a rule definition is submitted, it will continue to run. It will continuously obtain data from the source, perform calculations based on SQL logic, and trigger **Sink (Action)** in real time based on the results.
+All calculation logic is handled through **Rules** in EMQX Neuron. The rules take the data source as input, define the calculation logic through **SQL**, and output the results to **Sink (Action)**. Once a rule definition is submitted, it will continue to run. It will continuously obtain data from the source, perform calculations based on SQL logic, and trigger **Sink (Action)** in real time based on the results.
 
-NeuronEX supports running multiple rules simultaneously. These rules run in the same memory space and share the same hardware resources. Multiple parallel rules are separated at run time, and an error in one rule will not affect other rules.
+EMQX Neuron supports running multiple rules simultaneously. These rules run in the same memory space and share the same hardware resources. Multiple parallel rules are separated at run time, and an error in one rule will not affect other rules.
 
 ::: tip
 
-NeuronEX rules that at least one data source in SQL should be of type `Stream`. For information on how to create a stream, please refer to [Stream](./stream.md).
+EMQX Neuron rules that at least one data source in SQL should be of type `Stream`. For information on how to create a stream, please refer to [Stream](./stream.md).
 
 :::
 
 
 ## Create rules
 
-In the NeuronEX dashboard, click **Data Processing** -> **Rules**. Click the **Create Rule** button:
+In the EMQX Neuron dashboard, click **Data Processing** -> **Rules**. Click the **Create Rule** button:
 
-- Rule ID: Enter the rule ID, which must be unique within the same NeuronEX instance.
+- Rule ID: Enter the rule ID, which must be unique within the same EMQX Neuron instance.
 
 - Name: Enter the rule name
 
@@ -37,7 +37,7 @@ In the NeuronEX dashboard, click **Data Processing** -> **Rules**. Click the **C
 
 Rules `sql` define the streams or tables to be processed and how to process them. The rule SQL is and sends the processing results to one or more actions (Sink). You can use built-in functions and operators in rules `sql`, or you can use custom functions and algorithms.
 
-The simplest rule SQL is `SELECT * FROM neuronStream`. This rule will get all the data from the `neuronStream` data stream. NeuronEX provides a wealth of operators and functions. For more usage, please see the [SQL](./sqls/overview.md) chapter.
+The simplest rule SQL is `SELECT * FROM neuronStream`. This rule will get all the data from the `neuronStream` data stream. EMQX Neuron provides a wealth of operators and functions. For more usage, please see the [SQL](./sqls/overview.md) chapter.
 
 Click the **SQL Examples** button to view commonly used SQL examples, where you can get SQL statements, application scenarios, input message examples, and processing results.
 
@@ -109,7 +109,7 @@ After completing the settings, click **Save Rule** to complete the creation of t
 
 When creating rules, rule test allows you to view the output results of rules after SQL processing in real-time, ensuring that SQL syntax, built-in functions, and data templates meet the expected output results.
 
-Additionally, NeuronEX supports debugging rules with simulated data sources, where you can replace the original data source in the SQL editor with a custom simulated data source, providing a more flexible way to simulate data sources.
+Additionally, EMQX Neuron supports debugging rules with simulated data sources, where you can replace the original data source in the SQL editor with a custom simulated data source, providing a more flexible way to simulate data sources.
 
 For more details, please refer to [Rule Test](./rule_test.md).
 
@@ -118,7 +118,7 @@ For more details, please refer to [Rule Test](./rule_test.md).
 
 ## Import and export rules
 
-In the NeuronEX dashboard, click **Data Processing** -> **Rules**. Click the **Import Rules** button. In the pop-up window, you can choose:
+In the EMQX Neuron dashboard, click **Data Processing** -> **Rules**. Click the **Import Rules** button. In the pop-up window, you can choose:
 
 - Paste file content directly
 - Import file contents by uploading files
@@ -131,11 +131,11 @@ When importing rules, if there are rules with the same ID, the original rules wi
 
 :::
 
-In the NeuronEX dashboard, click **Data Processing** -> **Rules**, click the **Export Rules** button, and the JSON file of the current rules will be exported.
+In the EMQX Neuron dashboard, click **Data Processing** -> **Rules**, click the **Export Rules** button, and the JSON file of the current rules will be exported.
 
 ## [Rule Status](./rule_status.md)
 
-When a rule is run in NeuronEX, we can understand the current rule running status through the rule indicators. See [Rule Status](./rule_status.md) for details.
+When a rule is run in EMQX Neuron, we can understand the current rule running status through the rule indicators. See [Rule Status](./rule_status.md) for details.
 
 ## [Rule Pipeline](./rule_pipeline.md)
 
@@ -152,7 +152,7 @@ To enable incremental computation in rules, please enable it in the rule options
 
 ## AI-powered Rule Writing
 
-NeuronEX 3.8.0 deeply integrates AI capabilities into the data processing workflow, significantly lowering the technical barrier for industrial data analysis.
+EMQX Neuron 3.8.0 deeply integrates AI capabilities into the data processing workflow, significantly lowering the technical barrier for industrial data analysis.
 
 AI Q&A Integration in Rule Creation Page
 When creating data processing rules, the AI assistant has deeply integrated the eKuiper knowledge base, supporting natural language queries for SQL rule writing and data stream processing questions. Users can directly ask various questions, and the AI will generate corresponding SQL code. For example:

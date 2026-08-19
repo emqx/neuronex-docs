@@ -4,11 +4,11 @@
 <span style="background:green;color:white;padding:1px;margin:2px">扫描表</span>
 <span style="background:green;color:white;padding:1px;margin:2px">查询表</span>
 
-NeuronEX 数据处理模块通过 `SQL` 类型的数据源，支持对接`sqlserver`、`postgres`、`mysql`、`sqlite3`和`oracle`等数据库，可以定期查询数据库以获取数据流。
+EMQX Neuron 数据处理模块通过 `SQL` 类型的数据源，支持对接`sqlserver`、`postgres`、`mysql`、`sqlite3`和`oracle`等数据库，可以定期查询数据库以获取数据流。
 
 ## 创建流
 
-登录 NeuronEX，点击**数据处理** -> **源管理**。在**流管理**页签，点击**创建流**。
+登录 EMQX Neuron，点击**数据处理** -> **源管理**。在**流管理**页签，点击**创建流**。
 
 在弹出的**源管理** / **创建**页面，进入如下配置：
 

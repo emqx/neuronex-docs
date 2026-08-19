@@ -1,6 +1,6 @@
 # Dashboards
 
-Dashboards are the visualization tool within NeuronEX's Data Insights module, used for centrally displaying and monitoring key data. They allow you to create highly customizable views, presenting data stored in the time-series database in intuitive charts, statistical values, or tables. This helps you grasp real-time production and operational status, track core KPIs, and respond quickly to anomalies.
+Dashboards are the visualization tool within EMQX Neuron's Data Insights module, used for centrally displaying and monitoring key data. They allow you to create highly customizable views, presenting data stored in the time-series database in intuitive charts, statistical values, or tables. This helps you grasp real-time production and operational status, track core KPIs, and respond quickly to anomalies.
 
 ## Key Features
 
@@ -76,8 +76,8 @@ After clicking the `Add Panel` button in the dashboard view, an "Add Panel" dial
     *   **Bottom Options:**
         *   **SQL Query Use $timeFilter variable:**
             *   **Enable/Disable Switch:** Controls whether to enable the `$timeFilter` variable in the SQL query.
-            *   **When enabled:** The user's SQL statement **must include** `$timeFilter` (e.g., `WHERE $timeFilter` or `AND $timeFilter`). NeuronEX will replace it with time range conditions based on the dashboard's global time selection or the Panel's preview time selector.
-            *   **When disabled:** NeuronEX will automatically append time range conditions to the user's SQL.
+            *   **When enabled:** The user's SQL statement **must include** `$timeFilter` (e.g., `WHERE $timeFilter` or `AND $timeFilter`). EMQX Neuron will replace it with time range conditions based on the dashboard's global time selection or the Panel's preview time selector.
+            *   **When disabled:** EMQX Neuron will automatically append time range conditions to the user's SQL.
     *   **Dialog Top Control :**
         *   This dialog may also contain an independent time range selector, used to preview and test data for the current configuration before confirming the addition of a Panel.
     *   **Dialog Action Buttons:**
@@ -97,8 +97,8 @@ After clicking the `Add Panel` button in the dashboard view, an "Add Panel" dial
 
 ## Prerequisites
 
-- NeuronEX is enabled and configured with Integrated [Time-Series Data Storage](../admin/sys-configuration.md#data-storage-configuration).
+- EMQX Neuron is enabled and configured with Integrated [Time-Series Data Storage](../admin/sys-configuration.md#data-storage-configuration).
 - At least one southbound driver's data tags has been subscribed to the northbound DataStorage plugin, and the data has been successfully written to TSDB.
 - For the best experience, it is recommended to analyze the data tags you intend to display beforehand to clarify their data types and common query requirements.
 
-NeuronEX's dashboard functionality allows you to transform complex data into intuitive insights, empowering your daily operations and decision-making.
+EMQX Neuron's dashboard functionality allows you to transform complex data into intuitive insights, empowering your daily operations and decision-making.

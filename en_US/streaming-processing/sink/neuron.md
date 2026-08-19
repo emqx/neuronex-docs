@@ -1,7 +1,7 @@
 
 # Neuron Sink
 
-This action is used to send the results to the data collection module of the NeuronEX instance to achieve device control.
+This action is used to send the results to the data collection module of the EMQX Neuron instance to achieve device control.
 
 If you want to use the Neuron Sink connector, click **Data Processing** -> **Rules** -> **Create Rule**, in the **Action** area, click **Add**, **Sink** Select **Neuron**.
 
@@ -14,7 +14,7 @@ If you want to save the settings as a template, you can also click **Add Sink Te
 :::
 
 - **Name**: Enter a name
-- **URL**: The URL of the data collection module connected to the NeuronEX instance, the default is `tcp://127.0.0.1:7081`
+- **URL**: The URL of the data collection module connected to the EMQX Neuron instance, the default is `tcp://127.0.0.1:7081`
 - **Node name**: The node name sent to the southbound driver of the data collection module. The value can be a dynamic parameter template. This option must be configured when the `original string` configuration item is `False`.
 - **Group name**: The group name sent to the southbound driver of the data collection module. The value can be a dynamic parameter template. This option must be configured when the `original string` configuration item is `False`.
 - **Tags**: The specific tag name sent to the southbound driver of the data collection module. The label should be the field name after rule processing. **Note: When sending multiple tags at once, all tags (case-sensitive) must exist in the southbound driver. If any tag does not exist or the name is incorrect, all tags will fail to send.**
@@ -46,7 +46,7 @@ Send two tags tag1 and tag2 to node1 node group1 group.
 <img src="../_assets/sink_neuron.png" alt="sink_neuron" style="zoom:100%;" />
 
 :::tip note
-In the NeuronEX data collection module, the node1 node group1 group and two data tags named tag1 and tag2 must exist before it can be successfully distributed.
+In the EMQX Neuron data collection module, the node1 node group1 group and two data tags named tag1 and tag2 must exist before it can be successfully distributed.
 :::
 
 ### Use dynamic templates to send to dynamic nodes
@@ -56,7 +56,7 @@ Use dynamic template to send two tags tag1 and tag2 to node5 node group5 group.
 <img src="../_assets/sink_neuron2.png" alt="sink_neuron2" style="zoom:100%;" />
 
 :::tip note
-In the NeuronEX data collection module, the node5 node group5 group and two data tags named tag1 and tag2 must exist before the distribution can be successful.
+In the EMQX Neuron data collection module, the node5 node group5 group and two data tags named tag1 and tag2 must exist before the distribution can be successful.
 :::
 
 

@@ -1,26 +1,26 @@
 # 数据采集
 
-本节主要介绍如何在 NeuronEX 中添加南向设备、与设备之间的双向通讯，并通过北向插件将其连接到云平台或处理引擎等外部应用。
+本节主要介绍如何在 EMQX Neuron 中添加南向设备、与设备之间的双向通讯，并通过北向插件将其连接到云平台或处理引擎等外部应用。
 
 ## 数据采集的核心能力
 
 ### 多设备连接
-NeuronEX 提供多种插件模块，例如 Modbus，OPC UA，EtherNet/IP，IEC104，BACnet，Siemens，Mitsubishi 等。这些插件某块被广泛应用于离散制造业、楼宇自动化、数控机床、机器人、电力以及各种 PLC 通信中。
+EMQX Neuron 提供多种插件模块，例如 Modbus，OPC UA，EtherNet/IP，IEC104，BACnet，Siemens，Mitsubishi 等。这些插件某块被广泛应用于离散制造业、楼宇自动化、数控机床、机器人、电力以及各种 PLC 通信中。
 
 ### 低延迟采集与控制
-NeuronEX 是一个实时异步处理的服务器，充分利用边缘的低延迟网络方法实现 100 毫秒高速采集及数据分发。
+EMQX Neuron 是一个实时异步处理的服务器，充分利用边缘的低延迟网络方法实现 100 毫秒高速采集及数据分发。
 
 ### 大规模并发
-NeuronEX 可以同时与不同的工业设备建立连接。得益于解耦的模块化架构设计，可以单独运行每个连接。并发连接的数量取决于硬件资源。
+EMQX Neuron 可以同时与不同的工业设备建立连接。得益于解耦的模块化架构设计，可以单独运行每个连接。并发连接的数量取决于硬件资源。
 
 ### 灵活部署
-NeuronEX 具有非常低的内存占用，启动时内存占用不到 100M，适合在低配置架构设备上运行，如 X86、ARM 和 RISC-V 等。NeuronEX 还支持 Docker 容器化部署，以及在 Kubernetes 环境中运行。
+EMQX Neuron 具有非常低的内存占用，启动时内存占用不到 100M，适合在低配置架构设备上运行，如 X86、ARM 和 RISC-V 等。EMQX Neuron 还支持 Docker 容器化部署，以及在 Kubernetes 环境中运行。
 
 ### 更好的集成
-NeuronEX 支持与工业互联网平台、公有云平台、第三方应用的无缝集成。 NeuronEX 可以通过 MQTT、SparkPlugB、API等各种方式连接私有云、EMQX Cloud、AWS、Microsoft Azure 或本地服务器，将实时工业数据直接无缝地流向工业应用，如 MES、ERP、大数据、分析软件等等，实现各类复杂的数据处理和存储场景。
+EMQX Neuron 支持与工业互联网平台、公有云平台、第三方应用的无缝集成。 EMQX Neuron 可以通过 MQTT、SparkPlugB、API等各种方式连接私有云、EMQX Cloud、AWS、Microsoft Azure 或本地服务器，将实时工业数据直接无缝地流向工业应用，如 MES、ERP、大数据、分析软件等等，实现各类复杂的数据处理和存储场景。
 
 ### 统一的数据化操作
-NeuronEX 帮助传统工业设备以异步方式传递数据消息，作为 SparkplugB 标准中指定的边缘节点。SparkPlugB 是一种开放、统一、互操作的工业数据交换标准，通过 MQTT 代理在工业信息系统（如 ERP、MES、SCADA 和历史记录）之间进行数据交换。
+EMQX Neuron 帮助传统工业设备以异步方式传递数据消息，作为 SparkplugB 标准中指定的边缘节点。SparkPlugB 是一种开放、统一、互操作的工业数据交换标准，通过 MQTT 代理在工业信息系统（如 ERP、MES、SCADA 和历史记录）之间进行数据交换。
 
 
 ## 关键概念
@@ -33,7 +33,7 @@ NeuronEX 帮助传统工业设备以异步方式传递数据消息，作为 Spar
 
 ### [节点 (Node)](./south-devices/south-devices.md#添加南向设备)
 
-在 NeuronEX中节点是插件的实例化，在单个NeuronEX运行实例中，可以创建包含各类插件的多个节点，用于相互通信。NeuronEX的核心框架负责管理这些节点之间的消息路由。NeuronEX具备强大的性能，支持上百节点的同时工作运行。
+在 EMQX Neuron中节点是插件的实例化，在单个EMQX Neuron运行实例中，可以创建包含各类插件的多个节点，用于相互通信。EMQX Neuron的核心框架负责管理这些节点之间的消息路由。EMQX Neuron具备强大的性能，支持上百节点的同时工作运行。
 
 ### [数据点位 (Tag)](./south-devices/south-devices.md#在组中添加数据点)
 
@@ -46,13 +46,13 @@ NeuronEX 帮助传统工业设备以异步方式传递数据消息，作为 Spar
 
 ## 配置流程
 
-以下为如何通过设置 NeuronEX 进行各种工业协议转换、进而完成数据传递和采集的工作流程。
+以下为如何通过设置 EMQX Neuron 进行各种工业协议转换、进而完成数据传递和采集的工作流程。
 
-1. [查看所有可用插件](../introduction/plugin-list/plugin-list.md)：使用各种协议插件可以实现 NeuronEX 的数据采集和传递功能。
+1. [查看所有可用插件](../introduction/plugin-list/plugin-list.md)：使用各种协议插件可以实现 EMQX Neuron 的数据采集和传递功能。
 
-2. [创建南向驱动](./south-devices/south-devices.md)：根据设备的协议类型，在NeuronEX上选择南向插件驱动并创建节点。对驱动进行参数配置，来建立NeuronEX与设备之间的通讯连接。
+2. [创建南向驱动](./south-devices/south-devices.md)：根据设备的协议类型，在EMQX Neuron上选择南向插件驱动并创建节点。对驱动进行参数配置，来建立EMQX Neuron与设备之间的通讯连接。
 
-3. [建立设备与 NeuronEX 之间的通信](./south-devices/south-devices.md#创建南向驱动)：首先为南向驱动程序添加组和点位。创建好组和点位，即可从数据监控中获取点位的实时值。为方便用户操作，NeuronEX 支持通过离线 Excel 文件[批量导入](./south-devices/south-devices.md#批量点位配置)相关配置信息。
+3. [建立设备与 EMQX Neuron 之间的通信](./south-devices/south-devices.md#创建南向驱动)：首先为南向驱动程序添加组和点位。创建好组和点位，即可从数据监控中获取点位的实时值。为方便用户操作，EMQX Neuron 支持通过离线 Excel 文件[批量导入](./south-devices/south-devices.md#批量点位配置)相关配置信息。
 
    :::tip
 

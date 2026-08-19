@@ -2,11 +2,11 @@
 
 <span style="background:green;color:white;padding:1px;margin:2px">Stream</span>
 
-The NeuronEX data processing module retrieves data from Kafka through the Kafka message source.
+The EMQX Neuron data processing module retrieves data from Kafka through the Kafka message source.
 
 ## Create Stream
 
-Log in to NeuronEX, click **Data Processing** -> **Sources**. In the **Stream Management** tab, click **Create Stream**.
+Log in to EMQX Neuron, click **Data Processing** -> **Sources**. In the **Stream Management** tab, click **Create Stream**.
 
 In the pop-up **Source** / **Create** page, enter the following configuration:
 

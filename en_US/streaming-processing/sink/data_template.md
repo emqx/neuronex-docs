@@ -1,16 +1,16 @@
 # Data template
 
-After users perform data analysis and processing through NeuronEX, they can use various actions (Sink) to send data analysis results to different systems. For the same analysis results, different actions (Sink) may not necessarily require the same format.
+After users perform data analysis and processing through EMQX Neuron, they can use various actions (Sink) to send data analysis results to different systems. For the same analysis results, different actions (Sink) may not necessarily require the same format.
 
 For example, in a certain scenario, when it is found that the temperature of a device is too high, a request needs to be sent to a REST service in the cloud, and a control command needs to be sent to the device locally through the MQTT protocol. The data formats required for the two may not be the same. They are different. Therefore, the results from the analysis need to be "secondary processed" before targeted data can be sent to different targets. This article will introduce how to use the `Data Template` in Sink to implement "secondary processing" of analysis results.
 
-Log in to NeuronEX and click **Data Processing** -> **Rules**. On the **Rules** tab, click **Create Rule** -> **Add Action** and select a specific action (Sink) to use the data template function.
+Log in to EMQX Neuron and click **Data Processing** -> **Rules**. On the **Rules** tab, click **Create Rule** -> **Add Action** and select a specific action (Sink) to use the data template function.
 
 <img src="../_assets/data_template1.png" alt="data_template1" style="zoom:100%;" />
 
 ## Golang template introduction
 
-The Golang template applies a piece of logic to the data, and then formats and outputs the data according to the logic specified by the user. The common usage scenario of the Golang template is in web development. For example, after converting and controlling a data structure in Golang, it is converted to HTML tags and output to the browser. NeuronEX uses [Golang template](https://golang.org/pkg/text/template/) to implement "secondary processing" of the analysis results. Please refer to the following introduction from Golang.
+The Golang template applies a piece of logic to the data, and then formats and outputs the data according to the logic specified by the user. The common usage scenario of the Golang template is in web development. For example, after converting and controlling a data structure in Golang, it is converted to HTML tags and output to the browser. EMQX Neuron uses [Golang template](https://golang.org/pkg/text/template/) to implement "secondary processing" of the analysis results. Please refer to the following introduction from Golang.
 
 > Templates are executed by applying them to a data structure. Annotations in the template refer to elements of the data structure (typically a field of a struct or a key in a map) to control execution and derive values to be displayed. Execution of the template walks the structure and sets the cursor, represented by a period '.' and called "dot", to the value at the current location in the structure as execution proceeds.
 >
@@ -82,11 +82,11 @@ Actions could be customized to support different kinds of outputs, see [extensio
 
 ## Functions supported in template
 
-With the help of template functions, users can do a lot of transformation including formation, simple mathematics, encoding etc. The supported functions in NeuronEX template includes:
+With the help of template functions, users can do a lot of transformation including formation, simple mathematics, encoding etc. The supported functions in EMQX Neuron template includes:
 
 1. Go built-in [template functions](https://golang.org/pkg/text/template/#hdr-Functions).
 2. An abundant extended function set from [sprig library](http://masterminds.github.io/sprig/).
-3. NeuronEX extended functions.
+3. EMQX Neuron extended functions.
 
 
 ## Actions
@@ -105,9 +105,9 @@ The Golang  template provides some [built-in actions](https://golang.org/pkg/tex
 {{range pipeline}} T1 {{else}} T0 {{end}}
 ```
 
-Readers can see that actions are delimited by <code v-pre>{{}}</code>. During the use of NeuronEX data templates, the
+Readers can see that actions are delimited by <code v-pre>{{}}</code>. During the use of EMQX Neuron data templates, the
 output is generally in JSON format, and the JSON format is delimited by `{}`. Therefore, if the readers are not familiar
-with it, they will find it difficult to understand the functions of NeuronEX's data templates. For example, in the
+with it, they will find it difficult to understand the functions of EMQX Neuron's data templates. For example, in the
 following example,
 
 ```text
@@ -119,9 +119,9 @@ The meaning of the above expression is as follows (please note the delimiter of 
 - If the condition pipeline is met, the JSON string `{"field1": true}` is output
 - Otherwise, the JSON string `{"field1": false}` is output
 
-## NeuronEX sink data format
+## EMQX Neuron sink data format
 
-The Golang template can be applied to various data structures, such as maps, slices, channels, etc., and the data type obtained by the data template in NeuronEX's sink is fixed, which is a data type that contains Golang `map` slices. It is shown as follows.
+The Golang template can be applied to various data structures, such as maps, slices, channels, etc., and the data type obtained by the data template in EMQX Neuron's sink is fixed, which is a data type that contains Golang `map` slices. It is shown as follows.
 
 ```go
 []map[string]interface{}
@@ -148,8 +148,8 @@ When sending to the sink, each piece of data is sent separately. First, you need
  "dataTemplate": "{{toJson .}}"
 ```
 
-- After setting `sendSingle` to `true`, NeuronEX traverses the `[]map[string]interface{}` data type that has been passed to the sink. For each data in the traversal process, the user-specified data template will be applied.
-- `toJson` is a function provided by NeuronEX (users can refer to [Template Functions in NeuronEX](#functions-supported-in-template) for more information of NeuronEX extensions), which can convert incoming parameters into JSON string output. For each piece of traversed data, the content in the map is converted to a JSON string
+- After setting `sendSingle` to `true`, EMQX Neuron traverses the `[]map[string]interface{}` data type that has been passed to the sink. For each data in the traversal process, the user-specified data template will be applied.
+- `toJson` is a function provided by EMQX Neuron (users can refer to [Template Functions in EMQX Neuron](#functions-supported-in-template) for more information of EMQX Neuron extensions), which can convert incoming parameters into JSON string output. For each piece of traversed data, the content in the map is converted to a JSON string
 
 Golang also provides some built-in functions. Users can refer to [More Golang Built-in Functions](https://golang.org/pkg/text/template/#hdr-Functions) for more function information.
 
@@ -171,7 +171,7 @@ Assuming that the target sink still needs JSON data, the content of the data tem
 ::: v-pre
 In the above data template, the built-in actions of <code v-pre>{{if pipeline}} T1 {{else if pipeline}} T0
 {{end}}</code> are used, which looks more complicated. We can do a little adjustment, remove the escape and add
-abbreviation. The typesetting afterwards is as follows (note: when generating NeuronEX rules, the following optimized
+abbreviation. The typesetting afterwards is as follows (note: when generating EMQX Neuron rules, the following optimized
 typesetting rules cannot be passed in).
 :::
 
@@ -229,7 +229,7 @@ The data template is relatively complicated, which is explained below:
 
 ::: v-pre
 
-- `{{$len := len .values}} {{$loopsize := add $len -1}}`, this section executes two expressions. For the first one, `len` function gets the length of `values` in the data. For the second one, `add` decrements its value by 1 and assigns it to the variable `loopsize`. At present, since the operation of directly decrementing the value by 1 is not supported by  the Golang expression, `add` is a function extended by NeuronEX to achieve this function.
+- `{{$len := len .values}} {{$loopsize := add $len -1}}`, this section executes two expressions. For the first one, `len` function gets the length of `values` in the data. For the second one, `add` decrements its value by 1 and assigns it to the variable `loopsize`. At present, since the operation of directly decrementing the value by 1 is not supported by  the Golang expression, `add` is a function extended by EMQX Neuron to achieve this function.
 :::
 
 ::: v-pre
@@ -239,7 +239,7 @@ The data template is relatively complicated, which is explained below:
 
 ::: v-pre
 
-- `{{range $index, $ele := .values}} {{if le .temperature 25.0}}\"fine\"{{else if gt .temperature 25.0}}\"high\"{{end}} {{if eq $loopsize $index}}]{{else}},{{end}}{{end}}` ,this section of the template looks relatively complicated. However, if we adjust it, remove the escape and add indentation, the  typesetting is as follows which may be clearer (note: when generating the NeuronEX rules, the following optimized typesetting rules cannot be passed in).
+- `{{range $index, $ele := .values}} {{if le .temperature 25.0}}\"fine\"{{else if gt .temperature 25.0}}\"high\"{{end}} {{if eq $loopsize $index}}]{{else}},{{end}}{{end}}` ,this section of the template looks relatively complicated. However, if we adjust it, remove the escape and add indentation, the  typesetting is as follows which may be clearer (note: when generating the EMQX Neuron rules, the following optimized typesetting rules cannot be passed in).
 :::
 
   ```text
@@ -265,9 +265,106 @@ In addition, the template is still applied to each record in the slice. Therefor
   {"device_id": "1", "description": [ "fine" , "fine" , "high" ]}
 ```
 
+## Relationship between `sendSingle`, batching, `dataTemplate`, and `format`
+
+These properties control different stages of sink processing:
+
+| Property | Responsibility |
+|----------|----------------|
+| `sendSingle` | Controls the input granularity of `dataTemplate`. When `false`, the template receives the current array of maps. When `true`, eKuiper iterates the array and invokes the template once for each map. |
+| `dataTemplate` | Transforms each input selected by `sendSingle`. In batch mode, write the template for one batch element, not for the completed batch. Its output is considered already encoded and is not encoded again. The user is responsible for producing data that conforms to `format`. |
+| `format` | Controls normal data encoding and, when batching is enabled, how transformed results are framed into one batch. The JSON writer adds commas and an outer array, the delimited writer adds newlines, and the URL-encoded writer adds `&` between template results. |
+| `batchSize` / `lingerInterval` | Controls when transformed elements are flushed to the sink. Batching does not expose the accumulated batch to `dataTemplate` and does not change its input. |
+
+The effective processing order is:
+
+```text
+input array
+  -> sendSingle keeps the array or iterates its maps
+  -> dataTemplate transforms each selected input
+  -> format writer frames transformed results
+  -> batchSize or lingerInterval triggers a flush
+```
+
+> **When batching is enabled, `dataTemplate` must describe one batch element.** It must not generate the outer batch
+> array, separators between elements, or any batch boundary. For record-oriented templates, use `sendSingle=true` so
+> that the template receives one map at a time. The format writer combines the transformed elements when the batch is
+> flushed.
+
+### Example: transform each record and send one JSON batch
+
+Given these two records:
+
+```json
+[{"id":1,"temperature":20},{"id":2,"temperature":30}]
+```
+
+Use `sendSingle=true` to invoke the template once per record and `format=json` to frame the transformed JSON values as
+one array:
+
+```json
+{
+  "batchSize": 100,
+  "sendSingle": true,
+  "format": "json",
+  "dataTemplate": "{\"deviceId\":{{.id}},\"value\":{{.temperature}}}"
+}
+```
+
+The two template invocations produce:
+
+```json
+{"deviceId":1,"value":20}
+{"deviceId":2,"value":30}
+```
+
+The JSON batch writer does not encode these values again. It adds the comma and outer array, producing one sink message
+when the batch is flushed:
+
+```json
+[{"deviceId":1,"value":20},{"deviceId":2,"value":30}]
+```
+
+### Incorrect expectation: treating the template input as the completed batch
+
+With `sendSingle=false`, the template receives the current input array, not the records accumulated by `batchSize` or
+`lingerInterval`. For example:
+
+```json
+{
+  "batchSize": 100,
+  "sendSingle": false,
+  "format": "json",
+  "dataTemplate": "{{toJson .}}"
+}
+```
+
+If one invocation returns `[1,2]` and another returns `[3,4]`, the writer treats each result as one batch element. It
+does not merge them into `[1,2,3,4]`; the final result is a nested array:
+
+```json
+[[1,2],[3,4]]
+```
+
+The batch writer does not flatten template output. When `format=json`, every template invocation must produce one valid
+JSON value. eKuiper treats template output as belonging to the configured format; malformed or incompatible output is a
+template configuration error. To transform individual records for a batch, use `sendSingle=true` and write the template
+for one record.
+
+> **Important:** When batching is combined with `dataTemplate`, `format` only selects the writer and its batch framing.
+> It does not parse or validate the pre-encoded template output. Consequently, setting `format=json` cannot guarantee
+> that the final message is valid JSON. The template author must ensure that every output is valid for the configured
+> format and can be combined using that format's batch framing.
+
+### Example: no data template
+
+If `dataTemplate` is omitted, the selected structured data is not pre-encoded. The writer uses `format` to encode each
+item and to construct the batch. Thus, `format` controls both encoding and batch framing in this case.
+
+
 ## AI-assisted generation
 
-NeuronEX's template syntax is the same as the Go language, so it is easy to generate data templates with AI assistance. For example, We can use the following prompt to send to a large language model to assist in generating data templates:
+EMQX Neuron's template syntax is the same as the Go language, so it is easy to generate data templates with AI assistance. For example, We can use the following prompt to send to a large language model to assist in generating data templates:
 
 ```sh
 Use Golang's text/template and the sprig library to convert the data
@@ -313,5 +410,5 @@ By sending the input and output templates to a large language model, even those 
 
 ## Summary
 
-The data template function provided by NeuronEX can realize the secondary processing of the analysis results to meet the needs of different sink targets. However, readers can also see that due to the limitations of the Golang template, it is awkward to implement more complex data conversion. We hope that the Golang template function can be made more powerful and flexible in the future, which can support more complex requirements. At present, it is recommended that users can implement some simpler data conversion through data templates. If the user needs to perform more complicated processing on the data and extends the sink by himself, it can be directly processed in the sink implementation.
+The data template function provided by EMQX Neuron can realize the secondary processing of the analysis results to meet the needs of different sink targets. However, readers can also see that due to the limitations of the Golang template, it is awkward to implement more complex data conversion. We hope that the Golang template function can be made more powerful and flexible in the future, which can support more complex requirements. At present, it is recommended that users can implement some simpler data conversion through data templates. If the user needs to perform more complicated processing on the data and extends the sink by himself, it can be directly processed in the sink implementation.
 

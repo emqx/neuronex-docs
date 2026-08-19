@@ -3,7 +3,7 @@
 <span style="background:green;color:white;">Stream</span>        <span style="background:green;color:white">Scan table</span>
 
 
-The NeuronEX data processing module can receive data from files through the `File` type data source. The File type can be used as a data source for streams and scan tables, and supports monitoring files or folders. When the monitored object is a folder, NeuronEX will read files in alphabetical order of file names.
+The EMQX Neuron data processing module can receive data from files through the `File` type data source. The File type can be used as a data source for streams and scan tables, and supports monitoring files or folders. When the monitored object is a folder, EMQX Neuron will read files in alphabetical order of file names.
 
 ::: tip
 If the monitored location is a folder, the file types in the folder must be the same.
@@ -22,7 +22,7 @@ Some files may have most of the data in a standard format, but have some metadat
 
 ## Create stream
 
-Log in to NeuronEX and click **Data Processing** -> **Source**. On the **Stream** tab, click **Create Stream**.
+Log in to EMQX Neuron and click **Data Processing** -> **Source**. On the **Stream** tab, click **Create Stream**.
 
 In the pop-up **Source Magement**/**Create** page, enter the following configuration:
 
@@ -48,7 +48,7 @@ In the pop-up **Source Magement**/**Create** page, enter the following configura
 
 ## Create scan table
 
-File sources support scanning tables. Log in to NeuronEX and click **Data Processing** -> **Source**. On the **Scan Table** tab, click **Create Scan Table**.
+File sources support scanning tables. Log in to EMQX Neuron and click **Data Processing** -> **Source**. On the **Scan Table** tab, click **Create Scan Table**.
 
 - **Table Name**: Enter the table name
 - **Whether the schema stream**: Check to confirm whether it is a structured table. If it is a structured table, you need to add further table fields. It can be unchecked by default.

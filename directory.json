@@ -1,7 +1,7 @@
 {
   "cn": [
     {
-      "title": "产品概览",
+      "title": "介绍",
       "path": "./",
       "collapsed": true,
       "children": [
@@ -45,7 +45,7 @@
           "path": "installation/docker"
         },
         {
-          "title": "卸载 NeuronEX",
+          "title": "卸载",
           "path": "installation/uninstall"
         },
         {
@@ -114,7 +114,7 @@
               "path": "configuration/south-devices/modbus-ascii/modbus-ascii",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-ascii/modbus-ascii.md"
             },
-              {
+            {
               "title": "Inovance Modbus TCP",
               "path": "configuration/south-devices/modbus-hc-tcp/modbus-hc-tcp",
               "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-hc-tcp/modbus-hc-tcp.md",
@@ -123,7 +123,7 @@
                 {
                   "title": "Easy521 连接示例",
                   "path": "configuration/south-devices/modbus-hc-tcp/example/autoshop/autoshop-modbus",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-hc-tcp/example/autoshop/autoshop-modbus.md" 
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-hc-tcp/example/autoshop/autoshop-modbus.md"
                 },
                 {
                   "title": "常见问题",
@@ -296,7 +296,8 @@
                   "title": "Siemens S7300 PLC 连接示例",
                   "path": "configuration/south-devices/siemens-mpi/s7300",
                   "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/siemens-mpi/s7300.md"
-                }]
+                }
+              ]
             },
             {
               "title": "Siemens S5 FetchWrite",
@@ -954,7 +955,7 @@
           "title": "算法集成",
           "path": "streaming-processing/extension",
           "collapsed": true,
-          "children":[
+          "children": [
             {
               "title": "Python 便携插件示例",
               "path": "streaming-processing/portable_python"
@@ -1080,7 +1081,7 @@
           ]
         }
       ]
-      },
+    },
     {
       "title": "数据探索",
       "path": "datainsights/overview",
@@ -1107,145 +1108,145 @@
         }
       ]
     },
-      {
-        "title": "HTTP API",
-        "path": "api/api",
-        "collapsed": true,
-        "children": [
-          {
-            "title": "JWT身份验证",
-            "path": "api/jwt"
-          },
-          {
-            "title": "数据采集功能数据类型描述",
-            "path": "api/data-type"
-          },
-          {
-            "title": "数据采集功能错误代码描述",
-            "path": "api/error-code"
-          },
-          {
-            "title": "API文档",
-            "path": "https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html"
-          }
-        ]
-      },
     {
-        "title": "运维指南",
-        "path": "admin/introduction",
-        "url": "",
-        "collapsed": true,
-        "children": [
-          {
-            "title": "运行监控",
-            "path": "admin/data-statistics"
-          },
-          {
-            "title": "配置管理",
-            "path": "admin/conf-management"
-          },
-          {
-            "title": "日志管理",
-            "path": "admin/log-management"
-          },
-          {
-            "title": "监控告警管理",
-            "path": "admin/alert-monitor-management"
-           },
-          {
-            "title": "系统配置",
-            "path": "admin/sys-configuration"
-          },
-          {
-            "title": "持久化目录管理",
-            "path": "admin/data-persistence"
-          },
-          {
-            "title": "用户管理",
-            "path": "admin/user"
-          }
-        ]
-      },
-      {
-        "title": "最佳实践",
-        "path": "best-practise/overview",
-        "url": "",
-        "collapsed": true,
-        "children": [
-          {
-            "title": "如何在 10 分钟内将任意 PLC 连接到 MQTT",
-            "path": "best-practise/plc-to-mqtt"
-          },
-          {
-            "title": "NeuronEX 设备反控功能详解",
-            "path": "best-practise/device-control"
-          },
-          {
-            "title": "OPCUA 点位发现功能",
-            "path": "best-practise/opcua-tag-browser"
-          },
-          {
-            "title": "NeuronEX + 大语言模型 LLM - 实时监控预防工业火灾",
-            "path": "best-practise/llm-example"
-          },
-          {
-            "title": "NeuronEX + ECP 构建饮料生产数字化平台",
-            "path": "best-practise/smartfactory1"
-          },
-          {
-            "title": "NeuronEX 主备模式最佳实践",
-            "path": "best-practise/master-backup"
-          },
-          {
-            "title": "AI 生成 Python 插件最佳实践指南",
-            "path": "best-practise/llm-portable-plugin"
-          },
-          {
-            "title": "NeuronEX 最佳实践：集成 MySQL 数据到您的 IIoT 平台",
-            "path": "best-practise/sql-data"
-          }
-        ]
-      },
-      {
-        "title": "性能测试",
-        "path": "performance/performance",
-        "url": "",
-        "collapsed": true,
-        "children": [
-          {
-            "title": "Modbus TCP 驱动性能测试",
-            "path": "performance/modbustcp"
-          },
-          {
-            "title": "OPCUA 驱动性能测试",
-            "path": "performance/opcua"
-          },
-          {
-            "title": "Siemens S7 驱动性能测试",
-            "path": "performance/siemens-s7"
-          }
-        ]
-      },
-      {
-        "title": "FAQ 常见问题解答",
-        "path": "faq/faq",
-        "url": "",
-        "collapsed": true,
-        "children": [
-          {
-            "title": "常见问题解答",
-            "path": "faq/faq_basic"
-          }
-        ]
-      },
-      {
-        "title": "发版历史",
-        "path": "release_history/release_history"
-      }
-    ],
+      "title": "HTTP API",
+      "path": "api/api",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "JWT身份验证",
+          "path": "api/jwt"
+        },
+        {
+          "title": "数据采集功能数据类型描述",
+          "path": "api/data-type"
+        },
+        {
+          "title": "数据采集功能错误代码描述",
+          "path": "api/error-code"
+        },
+        {
+          "title": "API文档",
+          "path": "https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html"
+        }
+      ]
+    },
+    {
+      "title": "运维指南",
+      "path": "admin/introduction",
+      "url": "",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "运行监控",
+          "path": "admin/data-statistics"
+        },
+        {
+          "title": "配置管理",
+          "path": "admin/conf-management"
+        },
+        {
+          "title": "日志管理",
+          "path": "admin/log-management"
+        },
+        {
+          "title": "监控告警管理",
+          "path": "admin/alert-monitor-management"
+        },
+        {
+          "title": "系统配置",
+          "path": "admin/sys-configuration"
+        },
+        {
+          "title": "持久化目录管理",
+          "path": "admin/data-persistence"
+        },
+        {
+          "title": "用户管理",
+          "path": "admin/user"
+        }
+      ]
+    },
+    {
+      "title": "最佳实践",
+      "path": "best-practise/overview",
+      "url": "",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "如何在 10 分钟内将任意 PLC 连接到 MQTT",
+          "path": "best-practise/plc-to-mqtt"
+        },
+        {
+          "title": "设备反控功能详解",
+          "path": "best-practise/device-control"
+        },
+        {
+          "title": "OPCUA 点位发现功能",
+          "path": "best-practise/opcua-tag-browser"
+        },
+        {
+          "title": "大语言模型 LLM - 实时监控预防工业火灾",
+          "path": "best-practise/llm-example"
+        },
+        {
+          "title": "ECP 构建饮料生产数字化平台",
+          "path": "best-practise/smartfactory1"
+        },
+        {
+          "title": "主备模式最佳实践",
+          "path": "best-practise/master-backup"
+        },
+        {
+          "title": "AI 生成 Python 插件最佳实践指南",
+          "path": "best-practise/llm-portable-plugin"
+        },
+        {
+          "title": "最佳实践：集成 MySQL 数据到您的 IIoT 平台",
+          "path": "best-practise/sql-data"
+        }
+      ]
+    },
+    {
+      "title": "性能测试",
+      "path": "performance/performance",
+      "url": "",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "Modbus TCP 驱动性能测试",
+          "path": "performance/modbustcp"
+        },
+        {
+          "title": "OPCUA 驱动性能测试",
+          "path": "performance/opcua"
+        },
+        {
+          "title": "Siemens S7 驱动性能测试",
+          "path": "performance/siemens-s7"
+        }
+      ]
+    },
+    {
+      "title": "FAQ 常见问题解答",
+      "path": "faq/faq",
+      "url": "",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "常见问题解答",
+          "path": "faq/faq_basic"
+        }
+      ]
+    },
+    {
+      "title": "发版历史",
+      "path": "release_history/release_history"
+    }
+  ],
   "en": [
     {
-      "title": "Product Overview",
+      "title": "Introduction",
       "path": "./",
       "collapsed": true,
       "children": [
@@ -1273,15 +1274,15 @@
       "collapsed": true,
       "children": [
         {
-          "title": "Installation with .tar.gz Package",
+          "title": "tar.gz Package",
           "path": "installation/targz"
         },
         {
-          "title": "Installation with rpm Package",
+          "title": "rpm Package",
           "path": "installation/centos"
         },
         {
-          "title": "Installation with deb Package",
+          "title": "deb Package",
           "path": "installation/ubuntu"
         },
         {
@@ -1289,11 +1290,11 @@
           "path": "installation/docker"
         },
         {
-          "title": "Uninstall NeuronEX",
+          "title": "Uninstall",
           "path": "installation/uninstall"
         },
         {
-          "title": "Application and Installation License",
+          "title": "License Management",
           "path": "installation/license_setting"
         },
         {
@@ -1368,7 +1369,7 @@
                 {
                   "title": "Connect to Easy521",
                   "path": "configuration/south-devices/modbus-hc-tcp/example/autoshop/autoshop-modbus",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-hc-tcp/example/autoshop/autoshop-modbus.md" 
+                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-hc-tcp/example/autoshop/autoshop-modbus.md"
                 },
                 {
                   "title": "FAQ",
@@ -1541,7 +1542,8 @@
                   "title": "Siemens S7-300 PLC Connection Example",
                   "path": "configuration/south-devices/siemens-mpi/s7300",
                   "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/siemens-mpi/s7300.md"
-                }]
+                }
+              ]
             },
             {
               "title": "Siemens S5 FetchWrite",
@@ -1762,7 +1764,7 @@
                   "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/brother-cnc/brother-cnc-setup.md"
                 }
               ]
-            },  
+            },
             {
               "title": "Mazak CNC",
               "path": "configuration/south-devices/mazak-udp/mazak-udp",
@@ -2200,7 +2202,7 @@
         {
           "title": "Extensions",
           "path": "streaming-processing/extension",
-          "children":[
+          "children": [
             {
               "title": "Python portable plugin example",
               "path": "streaming-processing/portable_python"
@@ -2326,33 +2328,33 @@
           ]
         }
       ]
-      },
-      {
-        "title": "Data Insights",
-        "path": "datainsights/overview",
-        "collapsed": true,
-        "children": [
-          {
-            "title": "Data Analysis",
-            "path": "datainsights/data_analysis"
-          },
-          {
-            "title": "Dashboards",
-            "path": "datainsights/dashboards"
-          }
-        ]
-      },
+    },
     {
-        "title": "Application",
-        "path": "application/overview",
-        "collapsed": true,
-        "children": [
-          {
-            "title": "NodeRED",
-            "path": "application/nodered"
-          }
-        ]
-      },
+      "title": "Data Insights",
+      "path": "datainsights/overview",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "Data Analysis",
+          "path": "datainsights/data_analysis"
+        },
+        {
+          "title": "Dashboards",
+          "path": "datainsights/dashboards"
+        }
+      ]
+    },
+    {
+      "title": "Application",
+      "path": "application/overview",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "NodeRED",
+          "path": "application/nodered"
+        }
+      ]
+    },
     {
       "title": "HTTP API",
       "path": "api/api",
@@ -2377,39 +2379,39 @@
       ]
     },
     {
-        "title": "Operations Guide",
-        "path": "admin/introduction",
-        "collapsed": true,
-        "children": [
-          {
-            "title": "Operation Monitoring",
-            "path": "admin/data-statistics"
-          },
-          {
-            "title": "Configuration Management",
-            "path": "admin/conf-management"
-          },
-          {
-            "title": "Log Management",
-            "path": "admin/log-management"
-          },
-          {
-            "title": "Monitor and Alert Management",
-            "path": "admin/alert-monitor-management"
-          },
-          {
-            "title": "System Configuration",
-            "path": "admin/sys-configuration"
-          },
-          {
-            "title": "Persistence Data Management",
-            "path": "admin/data-persistence"
-          },
-          {
-            "title": "User",
-            "path": "admin/user"
-          }
-        ]
+      "title": "Operations Guide",
+      "path": "admin/introduction",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "Operation Monitoring",
+          "path": "admin/data-statistics"
+        },
+        {
+          "title": "Configuration Management",
+          "path": "admin/conf-management"
+        },
+        {
+          "title": "Log Management",
+          "path": "admin/log-management"
+        },
+        {
+          "title": "Monitor and Alert Management",
+          "path": "admin/alert-monitor-management"
+        },
+        {
+          "title": "System Configuration",
+          "path": "admin/sys-configuration"
+        },
+        {
+          "title": "Persistence Data Management",
+          "path": "admin/data-persistence"
+        },
+        {
+          "title": "User",
+          "path": "admin/user"
+        }
+      ]
     },
     {
       "title": "Best Practices",
@@ -2422,7 +2424,7 @@
           "path": "best-practise/plc-to-mqtt"
         },
         {
-          "title": "NeuronEX Device Control",
+          "title": "Device Control",
           "path": "best-practise/device-control"
         },
         {
@@ -2430,7 +2432,7 @@
           "path": "best-practise/opcua-tag-browser"
         },
         {
-          "title": "NeuronEX Master-Backup Mode",
+          "title": "Master-Backup Mode",
           "path": "best-practise/master-backup"
         },
         {
@@ -2457,7 +2459,7 @@
           "title": "OPCUA Driver",
           "path": "performance/opcua"
         },
-        { 
+        {
           "title": "Siemens S7 Driver",
           "path": "performance/siemens-s7"
         }
@@ -2476,8 +2478,8 @@
       ]
     },
     {
-        "title": "Release History",
-        "path": "release_history/release_history"
+      "title": "Release History",
+      "path": "release_history/release_history"
     }
-    ]
-  }
+  ]
+}

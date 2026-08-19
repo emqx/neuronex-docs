@@ -5,24 +5,24 @@
 Get the latest Docker image from the [EMQ website](https://www.emqx.com/en/downloads-and-install/neuronex?os=Docker), for example:
 
 ```bash
-## pull NeuronEX
-$ docker pull emqx/neuronex:3.7.1
+## pull EMQX Neuron
+$ docker pull emqx/neuronex:3.9.2
 ```
 
 ::::tip
-For more NeuronEX Docker images, please visit [Docker Hub](https://hub.docker.com/r/emqx/neuronex/tags).
+For more EMQX Neuron Docker images, please visit [Docker Hub](https://hub.docker.com/r/emqx/neuronex/tags).
 ::::
 
 ## Start
 
 ```bash
-## run NeuronEX
-$ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:3.7.1
+## run EMQX Neuron
+$ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:3.9.2
 ```
 
 - `-p 8085:8085`: Port mapping for accessing the Web UI and HTTP API.
 - `--env NEURONEX_DISABLE_AUTH=1`: Optional. Disable authentication.
-- `--restart=always`: Optional. Automatically restart the NeuronEX container when the Docker process restarts.
+- `--restart=always`: Optional. Automatically restart the EMQX Neuron container when the Docker process restarts.
 - `--privileged=true`: Optional. Grant the container higher privileges to access host resources (**recommended**).
 - `-v /host/path:/container/path`: Optional. Mount a host directory into the container. For example, `/host/dir:/opt/neuronex/data`.
 - `--device /dev/ttyUSB0:/dev/ttyS0`: Optional. Map a serial port into Docker. `/dev/ttyUSB0` is the serial device on Linux; `/dev/ttyS0` is the device inside Docker.
@@ -32,16 +32,16 @@ For more startup parameters, please refer to the [Configuration Management](../a
 
 ## Docker Container Python Runtime Environment
 
-NeuronEX provides three types of Docker images:
+EMQX Neuron provides three types of Docker images:
 
 - **neuronex:3.x.x**
 
 The `neuronex:3.x.x` image includes the Python runtime environment. If you need Python algorithm plugins, please use this type.
 
 ```bash
-# run NeuronEX by neuronex:3.x.x
-docker pull emqx/neuronex:3.7.1
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.7.1
+# run EMQX Neuron by neuronex:3.x.x
+docker pull emqx/neuronex:3.9.2
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.9.2
 ```
 
 - **neuronex:3.x.x-slim**
@@ -49,9 +49,9 @@ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex
 The `neuronex:3.x.x-slim` image does **not** include the Python runtime environment. It is smaller. If you do not use Python-related algorithm plugins, please use this type.
 
 ```bash
-# run NeuronEX by neuronex:3.x.x-slim
-docker pull emqx/neuronex:3.7.1-slim
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.7.1-slim
+# run EMQX Neuron by neuronex:3.x.x-slim
+docker pull emqx/neuronex:3.9.2-slim
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.9.2-slim
 ```
 
 - **neuronex:3.x.x-ai**
@@ -59,9 +59,9 @@ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex
 The `neuronex:3.x.x-ai` image includes the Python runtime environment and the Python dependencies for large language models (LLM). If you need natural-language generation of Python plugins and AI data analysis, please use this type.
 
 ```bash
-# run NeuronEX by neuronex:3.x.x-ai
-docker pull emqx/neuronex:3.7.1-ai
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.7.1-ai
+# run EMQX Neuron by neuronex:3.x.x-ai
+docker pull emqx/neuronex:3.9.2-ai
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.9.2-ai
 ```
 
 <!--

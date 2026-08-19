@@ -2,7 +2,7 @@
 
 ## 编译插件
 
-在 NeuronEX 项目主目录运行如下命令：
+在 EMQX Neuron 项目主目录运行如下命令：
 
 ```shell
 go build -trimpath --buildmode=plugin -o plugins/sinks/Tdengine@v1.0.0.so extensions/sinks/tdengine/tdengine.go

@@ -26,7 +26,7 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=9876)
 ```
 
-## NeuronEX 中创建一个外部服务
+## EMQX Neuron 中创建一个外部服务
 
 点击**数据处理** -> **算法集成**，在**外部服务**页签，点击**添加外部服务**。
 
@@ -37,7 +37,7 @@ if __name__ == '__main__':
 ![alt text](_assets/ex_service_create_zh.png)
 
 :::tip
-  确保 NeuronEX 的网络和 Python 外部服务的网络连通。
+  确保 EMQX Neuron 的网络和 Python 外部服务的网络连通。
 :::
 
 ## 在规则中使用外部服务

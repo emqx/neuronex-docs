@@ -1,13 +1,13 @@
 # Sink
 
-In NeuronEX, Sink (Action) are used to write data to external systems.
+In EMQX Neuron, Sink (Action) are used to write data to external systems.
 
 ## Sink Type
 
-Users can directly use NeuronEX's built-in sink. The list of sink types is as follows:
+Users can directly use EMQX Neuron's built-in sink. The list of sink types is as follows:
 
 - [MQTT](./mqtt.md): Output to external MQTT service.
-- [Neuron](./neuron.md): Output to the data collection module of NeuronEX.
+- [Neuron](./neuron.md): Output to the data collection module of EMQX Neuron.
 - [REST](./rest.md): Output to external HTTP server.
 - [Memory](./memory.md): Output to the memory topic to form a rule pipeline.
 - [Log](./log.md): Write log, usually only used for debugging.
@@ -106,7 +106,7 @@ You can click to expand the **Advanced** section for more customized settings.
 
 ## Data cache
 
-Actions in NeuronEX provide caching functionality to stage data in the event of a sending error and automatically resend the cached data after the error is recovered. The cache of actions can be divided into two levels of storage: memory and disk. The user can configure the number of memory caches. After exceeding the upper limit, the new cache will be stored offline in the disk, achieving greater cache capacity by simultaneously utilizing memory and disk space; in addition, the action will continue to detect the fault recovery status and support Resend without restarting the rule.
+Actions in EMQX Neuron provide caching functionality to stage data in the event of a sending error and automatically resend the cached data after the error is recovered. The cache of actions can be divided into two levels of storage: memory and disk. The user can configure the number of memory caches. After exceeding the upper limit, the new cache will be stored offline in the disk, achieving greater cache capacity by simultaneously utilizing memory and disk space; in addition, the action will continue to detect the fault recovery status and support Resend without restarting the rule.
 
 
 - **Error detection**: After a send failure, the sink should identify recoverable failures (network, etc.) by returning a specific error type, which will return a failed ack and trigger caching. After successful transmission, or in the case of unrecoverable errors, a successful ack will be sent to delete the cache.
@@ -120,7 +120,7 @@ Action (Sink) cache configuration has two levels. Define the default behavior fo
 - enableCache: Whether to enable sink cache.
 - memoryCacheThreshold: The number of messages to be cached in memory. For performance reasons, the oldest cached information is stored in memory so that it can be resent immediately upon recovery from a failure. The data here will be lost due to power outages and other failures.
 - maxDiskCache: The maximum amount of information cached on disk. Disk cache is first in, first out. If the disk cache is full, the oldest page of information will be loaded into the memory cache, replacing the old memory cache.
-- bufferPageSize: Buffer page is the unit of batch reading/writing to disk to prevent frequent IO. If the page is not full and NeuronEX crashes due to a hardware or software error, the last page not written to disk will be lost.
+- bufferPageSize: Buffer page is the unit of batch reading/writing to disk to prevent frequent IO. If the page is not full and EMQX Neuron crashes due to a hardware or software error, the last page not written to disk will be lost.
 - resendInterval: The time interval for resending information after fault recovery to prevent information storms.
 - cleanCacheAtStop: Whether to clean all caches when the rule is stopped to prevent large resends of expired messages when the rule is restarted. If not set to true, the memory cache will be stored to disk once the rule is stopped. Otherwise, memory and disk rules will be cleaned up.
 
@@ -148,7 +148,7 @@ In the example configuration of the following rules, the log sink has no cache-r
 
 ## Update action (Sink)
 
-By default, Sink appends data to external systems. Some systems, such as memory, support updating or deleting data. Similar to lookup sources, only a few sinks are updateable. The `updateble` Sink must support inserts, updates and deletes. NeuronEX’s built-in `updateble` type sinks include:
+By default, Sink appends data to external systems. Some systems, such as memory, support updating or deleting data. Similar to lookup sources, only a few sinks are updateable. The `updateble` Sink must support inserts, updates and deletes. EMQX Neuron’s built-in `updateble` type sinks include:
 
 - [Memory](./memory.md)
 - [SQL](./sql.md)

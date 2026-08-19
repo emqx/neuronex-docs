@@ -1,12 +1,12 @@
 # Configuration Management
 
-NeuronEX supports modifying Neuron's configuration parameters through `command line`, `environment variables`, and `configuration files`, which can provide a more flexible way of starting and running. If `command line`, `environment variables`, and `configuration files` are configured at the same time, the priority relationship between the three is: command line > environment variable > configuration file
+EMQX Neuron supports modifying Neuron's configuration parameters through `command line`, `environment variables`, and `configuration files`, which can provide a more flexible way of starting and running. If `command line`, `environment variables`, and `configuration files` are configured at the same time, the priority relationship between the three is: command line > environment variable > configuration file
 
 ## Command Line
 
 ### `run` command
 
-The `run` command is used to run NeuronEX on the console.This command starts NeuronEX as a process and displays its output in the terminal.
+The `run` command is used to run EMQX Neuron on the console.This command starts EMQX Neuron as a process and displays its output in the terminal.
 
 ```shell
 -c, --config string   config file path (default "etc/neuronex.yaml")
@@ -18,11 +18,11 @@ Eg:
 ./bin/neuronex run -c etc/neuronex.yaml -k true
 ```
 
-This command starts NeuronEX as a process and displays its output in the terminal. The NeuronEX will not manage the lifecycle of Ekuiper.
+This command starts EMQX Neuron as a process and displays its output in the terminal. The EMQX Neuron will not manage the lifecycle of Ekuiper.
 
 ### `start` command
 
-The `start` command is used to start NeuronEX in daemon mode.This command starts NeuronEX as a daemon and runs it in the background.
+The `start` command is used to start EMQX Neuron in daemon mode.This command starts EMQX Neuron as a daemon and runs it in the background.
 
 Eg:
 
@@ -30,11 +30,11 @@ Eg:
 ./bin/neuronex start 
 ```
 
-This command starts NeuronEX as a daemon and runs it in the background. The NeuronEX will not manage the lifecycle of Neuron and Ekuiper and will not turn on privilege authentication.
+This command starts EMQX Neuron as a daemon and runs it in the background. The EMQX Neuron will not manage the lifecycle of Neuron and Ekuiper and will not turn on privilege authentication.
 
 ### `stop` command
 
-The `stop` command is used to stop running NeuronEX. This command will kill the NeuronEX process.
+The `stop` command is used to stop running EMQX Neuron. This command will kill the EMQX Neuron process.
 
 ```sh
 ./bin/neuronex stop
@@ -42,7 +42,7 @@ The `stop` command is used to stop running NeuronEX. This command will kill the 
 
 ### `install` command
 
-The ` install` command is used to register the NeuronEX service configuration file in /etc/systemd/system path.
+The ` install` command is used to register the EMQX Neuron service configuration file in /etc/systemd/system path.
 
 ```sh
 ./bin/neuronex install
@@ -50,7 +50,7 @@ The ` install` command is used to register the NeuronEX service configuration fi
 
 ### `uninstall` command
 
-The ` uninstall` command is used to unregister the NeuronEX service configuration file in the /etc/systemd/system path.
+The ` uninstall` command is used to unregister the EMQX Neuron service configuration file in the /etc/systemd/system path.
 
 ```sh
 ./bin/neuronex uninstall
@@ -66,11 +66,11 @@ The `reset-password` command is used to change the default user's (admin) passwo
 
 ## Environment Variable
 
-NeuronEX supports reading environment variables during the startup process to configure startup parameters. The currently supported environment variables are as follows:
+EMQX Neuron supports reading environment variables during the startup process to configure startup parameters. The currently supported environment variables are as follows:
 
 | Configuration name                 | Configuration function                                                                                                                    |
 |------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| NEURONEX_DISABLE_AUTH              | Set to 1, NeuronEX turns off Token authentication and authentication; set to 0, NeuronEX turns on Token authentication and authentication |
+| NEURONEX_DISABLE_AUTH              | Set to 1, EMQX Neuron turns off Token authentication and authentication; set to 0, EMQX Neuron turns on Token authentication and authentication |
 | NEURONEX__SERVER__ADMIN__PASSWORD  | Modify the default password of the admin user                                                                                             |
 | NEURONEX__SERVER__VIEWER__USERNAME | The username of the newly added viewer user                                                                                               |
 | NEURONEX__SERVER__VIEWER__PASSWORD | The password of the newly added viewer user                                                                                               |
@@ -80,7 +80,7 @@ NeuronEX supports reading environment variables during the startup process to co
 
 ### Environment variables mapping to configuration file
 
-NeuronEX supports overwriting configuration file through environment variables. When modifying configuration through environment variables, environment variables need to be set in the specified format. The mapping relationship is as follows:
+EMQX Neuron supports overwriting configuration file through environment variables. When modifying configuration through environment variables, environment variables need to be set in the specified format. The mapping relationship is as follows:
 
 ```
 NEURONEX__SERVER__DISABLEAUTH => server.disableAuth in etc/neuronex.yaml
@@ -89,7 +89,7 @@ NEURONEX__LOG__MODE => log.mode in etc/neuronex.yaml
 
 Environment variables are separated by "__". The first part of the content matches the file name of the configuration file, and the rest of the content matches configuration items at different levels.
 
-NeuronEX supports configuring the eKuiper yaml configuration file through environment variables. Get more information about [eKuiper global configurations](https://ekuiper.org/docs/en/latest/configuration/global_configurations.html).The mapping relationship is as follows:
+EMQX Neuron supports configuring the eKuiper yaml configuration file through environment variables. Get more information about [eKuiper global configurations](https://ekuiper.org/docs/en/latest/configuration/global_configurations.html).The mapping relationship is as follows:
 
 ```
 KUIPER__BASIC__DEBUG => basic.debug in etc/kuiper.yaml
@@ -109,13 +109,13 @@ docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s 
 
 ## Configuration File
 
-NeuronEX provides a YAML format file located at `/opt/neuronex/etc/neuronex.yaml` to configure personalized parameters related to NeuronEX.
+EMQX Neuron provides a YAML format file located at `/opt/neuronex/etc/neuronex.yaml` to configure personalized parameters related to EMQX Neuron.
 
 ### server
 
-The `server` section defines the port number of the NeuronEX server.
+The `server` section defines the port number of the EMQX Neuron server.
 
-- `port`: port number of the NeuronEX server, default value is 8085.
+- `port`: port number of the EMQX Neuron server, default value is 8085.
 - `disableAuth`: whether to disable TOKEN authentication.
 - `disableKuiper`: whether to disable eKuiper.
 - `tls`: 
@@ -149,7 +149,7 @@ The `ekuiper` section defines the version number and reverse proxy configuration
 
 ### log
 
-The `log` section defines the logging configuration of the NeuronEX server.
+The `log` section defines the logging configuration of the EMQX Neuron server.
 
 - `mode`: log output mode, options are `console` (output to console) and `file` (output to file).
 - `level`: log level, options are `debug`, `info`, `warn`, `error` and `fatal`.
@@ -219,7 +219,7 @@ official:
 
 ## HTTPS Functionality Usage
 
-NeuronEX now supports HTTPS functionality, providing a more secure communication method. This feature allows users to access the dashboard and API through encrypted connections, enhancing the security and privacy of data transmission. NeuronEX supports both HTTP and HTTPS on the same port (8085).
+EMQX Neuron now supports HTTPS functionality, providing a more secure communication method. This feature allows users to access the dashboard and API through encrypted connections, enhancing the security and privacy of data transmission. EMQX Neuron supports both HTTP and HTTPS on the same port (8085).
 
 ### Enable HTTPS Functionality
 
@@ -246,15 +246,15 @@ tls:
 
 ## JWT Token Authentication 
 
-By default, the REST API exposed by NeuronEX requires JWT Token authentication. NeuronEX supports users to place the authentication public key in the etc folder in the NeuronEX installation directory to achieve JWT Token authentication.
+By default, the REST API exposed by EMQX Neuron requires JWT Token authentication. EMQX Neuron supports users to place the authentication public key in the etc folder in the EMQX Neuron installation directory to achieve JWT Token authentication.
 
-If NeuronEX is deployed using Docker, you need to map the local directory to the etc directory of NeuronEX in the container. Note that the local directory cannot be empty when mapping for the first time, and must have a `neuronex.yaml` configuration file and a public key file.
+If EMQX Neuron is deployed using Docker, you need to map the local directory to the etc directory of EMQX Neuron in the container. Note that the local directory cannot be empty when mapping for the first time, and must have a `neuronex.yaml` configuration file and a public key file.
 
-When upgrading or migrating NeuronEX software, you need to consider the backup and recovery of the etc directory.
+When upgrading or migrating EMQX Neuron software, you need to consider the backup and recovery of the etc directory.
 
 ## Dump File
 
-By default, NeuronEX does not generate dump files upon crashing after installation and startup. If dump files are required for troubleshooting purposes, you need to execute the following command to enable dump file storage.
+By default, EMQX Neuron does not generate dump files upon crashing after installation and startup. If dump files are required for troubleshooting purposes, you need to execute the following command to enable dump file storage.
 
 ```shell
 #!/bin/sh

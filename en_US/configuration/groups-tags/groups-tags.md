@@ -1,6 +1,6 @@
 # Connecting Southbound Device
 
- Data tags will be assigned to groups. Each group has an independent polling frequency to read data from the device. To establish communication between the device and NeuronEX, first add the group and data tags for the southbound driver. Once the group and data tags are created, the real-time value of the tags can be obtained from data monitoring.
+ Data tags will be assigned to groups. Each group has an independent polling frequency to read data from the device. To establish communication between the device and EMQX Neuron, first add the group and data tags for the southbound driver. Once the group and data tags are created, the real-time value of the tags can be obtained from data monitoring.
 
 ## Create a group in the device node
 
@@ -47,11 +47,11 @@ The tag precision is configured when the tag type is `float` or `double`. The ac
 
 - Starting from the second decimal place, if two consecutive `00` or `99` appear, rounding will be performed, for example, `1.02990` will display `1.03`, and `1.80012` will display `1.8`.
 
-- If the precision is set for the point, NeuronEX will not perform rounding.
+- If the precision is set for the point, EMQX Neuron will not perform rounding.
 
 ## Test the connection
 
-After the tag creation is completed, the status of the device is **Running**, and the connection status should be **Connected**. If the connection status is still **Not Connected** at this time, please first execute the following command on the NeuronEX running environment to confirm whether the NeuronEX running environment can access the corresponding IP and port:
+After the tag creation is completed, the status of the device is **Running**, and the connection status should be **Connected**. If the connection status is still **Not Connected** at this time, please first execute the following command on the EMQX Neuron running environment to confirm whether the EMQX Neuron running environment can access the corresponding IP and port:
 
 ```bash
 $ telnet <IP of the PC running the Modbus simulator> 502

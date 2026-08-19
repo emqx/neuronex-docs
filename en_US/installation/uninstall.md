@@ -1,12 +1,12 @@
-# Uninstall NeuronEX
+# Uninstall EMQX Neuron
 
-NeuronEX supports multiple installation methods. The uninstall steps depend on how you installed it. It is recommended to stop NeuronEX before uninstalling.
+EMQX Neuron supports multiple installation methods. The uninstall steps depend on how you installed it. It is recommended to stop EMQX Neuron before uninstalling.
 
 ## Uninstall the .tar.gz installation
 
 ### Only extracted and running (no systemd service registration)
 
-If you only extracted the package and ran NeuronEX via `./bin/neuronex start`, uninstalling mainly means deleting the extracted directory.
+If you only extracted the package and ran EMQX Neuron via `./bin/neuronex start`, uninstalling mainly means deleting the extracted directory.
 
 ```bash
 # Stop (if started from the extracted directory)
@@ -18,7 +18,7 @@ rm -rf ./neuronex-<x.y.z>-linux-<arch>
 
 ### systemd services have been registered
 
-If you executed `./bin/neuronex install` to register NeuronEX as a systemd service, cancel the registration before deleting the directory:
+If you executed `./bin/neuronex install` to register EMQX Neuron as a systemd service, cancel the registration before deleting the directory:
 
 ```bash
 # Unregister systemd service
@@ -59,7 +59,7 @@ Stop the service first (if installed as a systemd service):
 sudo systemctl stop neuronex || true
 ```
 
-Uninstall NeuronEX:
+Uninstall EMQX Neuron:
 
 ```bash
 sudo rpm -e neuronex

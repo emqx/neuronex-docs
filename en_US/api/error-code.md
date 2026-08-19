@@ -222,8 +222,8 @@ This document describes the error codes that the data collection function will r
 - 13014    License not exist
 - 13015    Virtual license delete failed
 - 13016    Hardware identification mismatch
-- 13017    Prohibit uploading license due to NeuronEX being activated by ECP's floating license
-- 13018    Prohibit activating license due to NeuronEX being activated by ECP's floating license
+- 13017    Prohibit uploading license due to EMQX Neuron being activated by ECP's floating license
+- 13018    Prohibit activating license due to EMQX Neuron being activated by ECP's floating license
 - 13019    The current license does not support stream processing engines function
 - 13020    Registration code error
 - 13021    The hardware is already registered

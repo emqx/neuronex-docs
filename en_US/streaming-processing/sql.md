@@ -4,11 +4,11 @@
 <span style="background:green;color:white;padding:1px;margin:2px">Scan table</span>
 <span style="background:green;color:white;padding:1px;margin:2px">Lookup table</span>
 
-The NeuronEX data processing module supports docking with databases such as `sqlserver`, `postgres`, `mysql`, `sqlite` and `oracle` through `SQL` type data sources, and can query the database regularly to obtain data streams.
+The EMQX Neuron data processing module supports docking with databases such as `sqlserver`, `postgres`, `mysql`, `sqlite` and `oracle` through `SQL` type data sources, and can query the database regularly to obtain data streams.
 
 ## Create stream
 
-Log in to NeuronEX and click **Data Processing** -> **Source**. On the **Stream Management** tab, click **Create Stream**.
+Log in to EMQX Neuron and click **Data Processing** -> **Source**. On the **Stream Management** tab, click **Create Stream**.
 
 In the pop-up **Source**/**Create** page, enter the following configuration:
 

@@ -2,7 +2,7 @@
 
 ## Status statistics
 
-You can view the operation monitoring of nodes and rules to gain insight into the operational status of NeuronEX.
+You can view the operation monitoring of nodes and rules to gain insight into the operational status of EMQX Neuron.
 
 ### Southbound driver node statistics
 
@@ -39,7 +39,7 @@ After clicking, the displayed content is as follows:
 
 ## Metrics statistics
 
-NeuronEX supports the metrics statistics function based on the Prometheus data model, which is used to monitor the running status of **drivers** and **rules**. The basic principle of Prometheus is to periodically capture the status of monitored components through the HTTP protocol. Any component can be accessed for monitoring as long as it provides the corresponding HTTP interface. NeuronEX provides the corresponding interface and can smoothly access Prometheus for monitoring.
+EMQX Neuron supports the metrics statistics function based on the Prometheus data model, which is used to monitor the running status of **drivers** and **rules**. The basic principle of Prometheus is to periodically capture the status of monitored components through the HTTP protocol. Any component can be accessed for monitoring as long as it provides the corresponding HTTP interface. EMQX Neuron provides the corresponding interface and can smoothly access Prometheus for monitoring.
 
 - metrics statistics of data collection module
 

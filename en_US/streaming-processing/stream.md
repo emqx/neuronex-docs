@@ -1,6 +1,6 @@
 # Stream management
 
-Streaming is the main mode of operation for data source access in NeuronEX. Users can define how to connect to external resources by selecting the data source type and configuration parameters. Whenever data flows into the data stream, calculations in the rules will be triggered.
+Streaming is the main mode of operation for data source access in EMQX Neuron. Users can define how to connect to external resources by selecting the data source type and configuration parameters. Whenever data flows into the data stream, calculations in the rules will be triggered.
 
 ## Stream type
 
@@ -8,11 +8,11 @@ Currently, the following stream types are supported built-in:
 
 | stream type                        | description                                       |
 | --------------------------- | ------------------------------------------ |
-| [Neuron](./neuron.md)       | Read data from NeuronEX's data collection module                |
+| [Neuron](./neuron.md)       | Read data from EMQX Neuron's data collection module                |
 | [MQTT](./mqtt.md)           | Read data from MQTT topic                        |
 | [HTTP pull](./http_pull.md) | Pull data from HTTP server                  |
-| [HTTP push](./http_push.md) | Push data to NeuronEX via HTTP           |
-| [Memory](./memory.md)         | Read data from the NeuronEX memory to form a rule pipeline|
+| [HTTP push](./http_push.md) | Push data to EMQX Neuron via HTTP           |
+| [Memory](./memory.md)         | Read data from the EMQX Neuron memory to form a rule pipeline|
 | [SQL](./sql.md)         | Query data from the database                       |
 | [File](./file.md)           | Read data from a file                            |
 | [Video](./video.md)         | Query data from video stream                        |
@@ -23,7 +23,7 @@ Currently, the following stream types are supported built-in:
 
 ## Create stream
 
-On the NeuronEX page, click **Data Processing** -> **Sources**. On the stream management page, click the **Create Stream** button to create a stream.
+On the EMQX Neuron page, click **Data Processing** -> **Sources**. On the stream management page, click the **Create Stream** button to create a stream.
 
 ![stream](./_assets/stream.png)
 
@@ -31,7 +31,7 @@ On the NeuronEX page, click **Data Processing** -> **Sources**. On the stream ma
 
 - **Whether the schema stream**
 
-   NeuronEX supports structured/unstructured streams, with the default being unstructured. That is, when **Sources** -> **Create Stream**, the `Whether the schema stream` option is not checked. Please refer to [data structure](#data-structure) for detailed description.
+   EMQX Neuron supports structured/unstructured streams, with the default being unstructured. That is, when **Sources** -> **Create Stream**, the `Whether the schema stream` option is not checked. Please refer to [data structure](#data-structure) for detailed description.
    - unstructured streams
 
    Schemaless, users do not need to define any form of schema, mainly used for weakly structured data flow, or when the data structure changes frequently.
@@ -46,7 +46,7 @@ On the NeuronEX page, click **Data Processing** -> **Sources**. On the stream ma
 
 - **Stream Type**
 
-   NeuronEX supports multiple stream types. For details, please refer to [Streaming Data Source](#stream-type).
+   EMQX Neuron supports multiple stream types. For details, please refer to [Streaming Data Source](#stream-type).
 
 - **data source**
 
@@ -93,9 +93,9 @@ In some scenarios, users need different rules to handle the exact same data flow
 
 ### data structure
 
-When you create a data source, you can define the data structure of the data source. When NeuronEX runs, it performs data validation and type conversion based on the defined structure. Data structure validation is not enabled by default. If you want to enable it, you can check the "Whether the schema stream" field when creating a data source and fill in the field information.
+When you create a data source, you can define the data structure of the data source. When EMQX Neuron runs, it performs data validation and type conversion based on the defined structure. Data structure validation is not enabled by default. If you want to enable it, you can check the "Whether the schema stream" field when creating a data source and fill in the field information.
 
-Currently NeuronEX supports the following field types:
+Currently EMQX Neuron supports the following field types:
 
    | #    | data type | description                                                    |
    | ---- | -------- | ------------------------------------------------------------ |

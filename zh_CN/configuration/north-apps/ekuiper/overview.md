@@ -1,8 +1,8 @@
 # eKuiper
 
-eKuiper插件用于将 NeuronEX 数采模块的数据发送到数据处理模块。
+eKuiper插件用于将 EMQX Neuron 数采模块的数据发送到数据处理模块。
 
-在 NeuronEX 的**北向应用** 页面已经默认配置的 **eKuiper** 类型的节点 `DataProcessing`，并做好了参数配置。用户只需要将南向驱动数据添加订阅到`DataProcessing`节点即可。
+在 EMQX Neuron 的**北向应用** 页面已经默认配置的 **eKuiper** 类型的节点 `DataProcessing`，并做好了参数配置。用户只需要将南向驱动数据添加订阅到`DataProcessing`节点即可。
 
 <img src="./assets/dataprocessing1.png" alt="dataprocessing" style="zoom:50%;" />
 

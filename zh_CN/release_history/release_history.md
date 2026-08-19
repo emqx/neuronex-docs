@@ -70,7 +70,7 @@
 
 ### **增强**
 
-- **UI 布局**：整体优化 NeuronEX UI 页面布局，内容区域自适应铺满整个窗口。
+- **UI 布局**：整体优化 EMQX Neuron UI 页面布局，内容区域自适应铺满整个窗口。
 
 - **OPC UA 驱动**：新增 **DateTime** 类型支持；完善错误码适配。
 
@@ -131,7 +131,7 @@
 
 - 修复由 NanoSDK 引起的北向 MQTT 插件数据上报问题。
 
-- 修复取消 ECP 管理导致 NeuronEX 许可证被移除后，界面展示异常的问题。
+- 修复取消 ECP 管理导致 EMQX Neuron 许可证被移除后，界面展示异常的问题。
 
 - **修复：Okta SSO 认证失败问题** ，在 OIDC 授权请求中补充了 Okta 要求的 `state` 和 `nonce` 参数，解决认证报错问题。
 
@@ -165,7 +165,7 @@
 
 - **数据监控交互优化**：数据监控页面，选择分组后支持跳转到对应分组的点位列表页面。
 
-- **后端错误码适配**：完成 NeuronEX 对后端错误码的适配。
+- **后端错误码适配**：完成 EMQX Neuron 对后端错误码的适配。
 
 - **OPC UA 点位发现优化**：采用分段加载，缩短数据加载耗时。
 
@@ -181,7 +181,7 @@
 
 - 修复 NodeRed Flow页面连接断开的问题。
 
-- 修复 NeuronEX 3.8.0 版本 HTTP Push 数据源的相关问题。
+- 修复 EMQX Neuron 3.8.0 版本 HTTP Push 数据源的相关问题。
 
 ## v3.7.2
 
@@ -352,7 +352,7 @@
 
 - **S7 300/400** 驱动新增支持 `char array` 数据类型
 
-- 优化 **NeuronEX** 安装配置：默认将操作系统参数 `net.unix.max_dgram_qlen` 调整为 1024，提升高设备接入量场景下的系统性能（该功能只针对安装包部署方式，容器方式部署的 **NeuronEX**，可在宿主机手动修改该参数）
+- 优化 **EMQX Neuron** 安装配置：默认将操作系统参数 `net.unix.max_dgram_qlen` 调整为 1024，提升高设备接入量场景下的系统性能（该功能只针对安装包部署方式，容器方式部署的 **EMQX Neuron**，可在宿主机手动修改该参数）
 
 - 优化规则操作交互：规则处于停止状态时，操作按钮新增 **Loading** 状态，避免重复连续操作
 
@@ -364,13 +364,13 @@
 
 - 修复 **OPCUA** 驱动订阅模式下，驱动断连后无法收到数据的问题
 
-- 修复 **Docker** 镜像安全漏洞：将 **NeuronEX** 镜像 `neuronex:3.7.1` 的基础镜像从 `python:3.13.2-slim` 升级至 `python:3.13.9-slim`，解决基础镜像内置库引发的安全扫描漏洞；将 **NeuronEX** 的 **Golang** 标准库从 `1.23.3` 升级到 `1.23.8`
+- 修复 **Docker** 镜像安全漏洞：将 **EMQX Neuron** 镜像 `neuronex:3.7.1` 的基础镜像从 `python:3.13.2-slim` 升级至 `python:3.13.9-slim`，解决基础镜像内置库引发的安全扫描漏洞；将 **EMQX Neuron** 的 **Golang** 标准库从 `1.23.3` 升级到 `1.23.8`
 
 - 修复规则调试功能，无结果输出的问题
 
 - 修复 **REST sink** 配置项中 **OAuth** 认证时，`access token` 和 `refresh token` 的问题
 
-- 内置默认 **JWT** 的密钥对改为了每次 **NeuronEX** 启动时动态生成，这个在使用用户名和密码登录成功后用于生成 `token` 有使用。同时项目使用的 **JWT Golang** 库从 `v3.2` 升级到 `v5`
+- 内置默认 **JWT** 的密钥对改为了每次 **EMQX Neuron** 启动时动态生成，这个在使用用户名和密码登录成功后用于生成 `token` 有使用。同时项目使用的 **JWT Golang** 库从 `v3.2` 升级到 `v5`
 
 ## v3.6.3
 
@@ -430,7 +430,7 @@
 
 - 仪表盘功能
 
-    - 导入与导出: 新增仪表盘导入导出功能。用户可将整个仪表盘的配置（包含所有 Panel 和查询）导出为 JSON 文件，方便在不同 NeuronEX 实例间进行迁移、备份和共享。
+    - 导入与导出: 新增仪表盘导入导出功能。用户可将整个仪表盘的配置（包含所有 Panel 和查询）导出为 JSON 文件，方便在不同 EMQX Neuron 实例间进行迁移、备份和共享。
 
     - 新增图表类型: 为满足多样化的监控需求，仪表盘新增了三种图表类型：
 
@@ -444,7 +444,7 @@
 
 - AI 运维助手 
 
-    - 新增 AI 问答助手，内置 NeuronEX 运维知识库。它能够通过自然语言交互，为用户提供关于产品配置、功能使用和故障排查的专业指导和解答，帮助用户快速定位问题、获取解决方案，提升运维效率。
+    - 新增 AI 问答助手，内置 EMQX Neuron 运维知识库。它能够通过自然语言交互，为用户提供关于产品配置、功能使用和故障排查的专业指导和解答，帮助用户快速定位问题、获取解决方案，提升运维效率。
 
 - 日志系统优化
 
@@ -464,9 +464,9 @@
 
 ### 增强
 
-- 调整 NeuronEX 所需的glic版本，支持以下操作系统：CentOS 8.0 及以上版本，Ubuntu 20.04 及以上版本，Debian 11 及以上版本。（对比 3.6.1 新增支持 CentOS 8.0）。
+- 调整 EMQX Neuron 所需的glic版本，支持以下操作系统：CentOS 8.0 及以上版本，Ubuntu 20.04 及以上版本，Debian 11 及以上版本。（对比 3.6.1 新增支持 CentOS 8.0）。
 - OPC UA 驱动支持复杂嵌套 extend object和extend object数组类型的采集。
-- 代理纳管功能，使用 MQTT 通道作为管理通道，上报 NeuronEX 状态信息。
+- 代理纳管功能，使用 MQTT 通道作为管理通道，上报 EMQX Neuron 状态信息。
 - 优化规则标签功能，添加修改标签的交互逻辑更加简单。
 - Sink 动作前端增加 requireAck 配置项，为 Python Sink 插件引入同步 Ack 机制。
 
@@ -493,7 +493,7 @@
 ### 修复
 
 - 修复了北向 Websocket 插件 cpu 占用异常的问题。
-- 修复了数采引擎 Neuron 进程退出后，NeuronEX未正常退出的问题。
+- 修复了数采引擎 Neuron 进程退出后，EMQX Neuron未正常退出的问题。
 - 修复了系统配置页面开启数据存储功能后，立即设置TTL报错的问题。
 - 修复了 SQL Source 对规则 QoS 的支持。
 
@@ -505,9 +505,9 @@
 
 - **集成时序数据存储**
 
-  - 打包集成： NeuronEX 现已打包集成 Datalayers 时序数据库，支持 deb、rpm、zip、docker 等多种安装包形式。Datalayers 默认不随 NeuronEX 启动，用户可按需在系统配置中开启。
+  - 打包集成： EMQX Neuron 现已打包集成 Datalayers 时序数据库，支持 deb、rpm、zip、docker 等多种安装包形式。Datalayers 默认不随 EMQX Neuron 启动，用户可按需在系统配置中开启。
 
-  - 自动初始化： 首次开启 Datalayers 服务后，NeuronEX 会自动创建所需的 neuronex 数据库及对应数据类型的表 (neuron_int, neuron_float, neuron_bool, neuron_string)。
+  - 自动初始化： 首次开启 Datalayers 服务后，EMQX Neuron 会自动创建所需的 neuronex 数据库及对应数据类型的表 (neuron_int, neuron_float, neuron_bool, neuron_string)。
 
   - 配置与管理： 用户可在系统配置页面配置开启或关闭 Datalayers 存储以及 TTL (数据保留时长) 及，并在系统信息页面查看其运行状态（运行中/已停止）、运行时长、存储空间占用等信息。
 
@@ -561,7 +561,7 @@
 
   - AI 交互框
 
-    - 默认页面: 提供引导性提示，告知用户 NeuronEX 按数据类型分表存储 (neuron_float, neuron_int, neuron_bool, neuron_string)，并建议用户提供点位名和数据类型。提供可点击的查询示例，快速开始分析。
+    - 默认页面: 提供引导性提示，告知用户 EMQX Neuron 按数据类型分表存储 (neuron_float, neuron_int, neuron_bool, neuron_string)，并建议用户提供点位名和数据类型。提供可点击的查询示例，快速开始分析。
 
     - 点位 AI Query 查询: 从 UI 上下文自动获取点位名称和对应的数据表 (如 neuron_float, tag='tag1')，预填充到 AI 对话框中。
 
@@ -579,7 +579,7 @@
 
     - 在系统配置->AI模型配置页面，需要配置并开启 AI 模型，以使用 AI 数据分析以及 AI 写插件功能。
 
-  - NeuronEX 3.6.0版本，在 Docker 镜像 emqx/neuronex:3.6.0-ai 和  emqx/neuronex:3.6.0-ai-arm64  版本中，默认集成了LLM运行所需的 Python依赖库，用户可直接使用该功能。当使用deb、rpm、zip或其他 Docker 镜像时，用户需要手动配置好Python依赖库后，方可使用 NeuronEX AI 功能。详细依赖库配置请参考[AI 功能环境配置指南](../admin/sys-configuration.md#ai-功能环境配置指南)。
+  - EMQX Neuron 3.6.0版本，在 Docker 镜像 emqx/neuronex:3.6.0-ai 和  emqx/neuronex:3.6.0-ai-arm64  版本中，默认集成了LLM运行所需的 Python依赖库，用户可直接使用该功能。当使用deb、rpm、zip或其他 Docker 镜像时，用户需要手动配置好Python依赖库后，方可使用 EMQX Neuron AI 功能。详细依赖库配置请参考[AI 功能环境配置指南](../admin/sys-configuration.md#ai-功能环境配置指南)。
 
 - [**仪表盘**](../datainsights/dashboards.md)
 
@@ -603,7 +603,7 @@
 
         - 启用时 : 用户 SQL 中必须包含 $timeFilter 字段，后端会将其替换为当前仪表盘选择的时间范围，实现高效查询。
 
-        - 禁用时：NeuronEX 会在当前用户输入SQL语句的基础上，自动拼接仪表盘时间范围，再执行 SQL 查询。
+        - 禁用时：EMQX Neuron 会在当前用户输入SQL语句的基础上，自动拼接仪表盘时间范围，再执行 SQL 查询。
 
         - 若启用 $timeFilter 但 SQL 中缺失，会报错提示。
 
@@ -623,7 +623,7 @@
 
 - [**NodeRED 集成**](../application/nodered.md)
 
-  - NeuronEX 3.6.0版本，在 Docker 镜像 `emqx/neuronex:3.6.0-ai` 和  `emqx/neuronex:3.6.0-ai-arm64` 版本中，默认集成了NodeRED v4.0.9，用户可按需在应用列表中开启 NodeRED 服务（默认为关闭）。
+  - EMQX Neuron 3.6.0版本，在 Docker 镜像 `emqx/neuronex:3.6.0-ai` 和  `emqx/neuronex:3.6.0-ai-arm64` 版本中，默认集成了NodeRED v4.0.9，用户可按需在应用列表中开启 NodeRED 服务（默认为关闭）。
 
   - 支持通过北向 Websocket 应用、数据处理模块 REST Sink 将数据推送到 NodeRED，进行数据处理。
 
@@ -647,7 +647,7 @@
 
 ### 变更
 
-- 从 NeuronEX v3.6.0 开始，SparkplugB 插件只在 NBIRTH 和 DBIRTH 消息中设置 metric 的 name 属性，在后续的 NDATA、DDATA、NCMD 和 DCMD 消息中不会再携带 name 属性，只使用 alias 标识 metric，这可能会影响现有的系统和集成。
+- 从 EMQX Neuron v3.6.0 开始，SparkplugB 插件只在 NBIRTH 和 DBIRTH 消息中设置 metric 的 name 属性，在后续的 NDATA、DDATA、NCMD 和 DCMD 消息中不会再携带 name 属性，只使用 alias 标识 metric，这可能会影响现有的系统和集成。
 
 ## v3.5.4
 
@@ -701,12 +701,12 @@
 
 - Modbus TCP/RTU 驱动 Double/Int64/Uint64 数据类型支持配置完整字节序
 - Allen-Bradley 5000 EtherNet/IP 驱动适配其他 AB PLC 型号的单点读服务
-- 将 Monitor 进程日志打印到 NeuronEX 日志文件
+- 将 Monitor 进程日志打印到 EMQX Neuron 日志文件
 
 ### 修复
 
 - 修复多个北向驱动同时订阅一个南向驱动时异常退出的问题
-- 修复 Neuron 进程退出时，NeuronEX 未正常退出的问题
+- 修复 Neuron 进程退出时，EMQX Neuron 未正常退出的问题
 
 ## v3.5.2
 
@@ -802,7 +802,7 @@
 
 ### 修复
 
-- 修复通过 NeuronEX API 向 OPCUA Server 写入浮点数值（如 "121.0"）失败，而像 120.9 或 121.1 这样的值则可以正常写入。
+- 修复通过 EMQX Neuron API 向 OPCUA Server 写入浮点数值（如 "121.0"）失败，而像 120.9 或 121.1 这样的值则可以正常写入。
 
 ## v3.4.4
 
@@ -900,7 +900,7 @@
 - 修复 neuronStream buffer 溢出错误
 - 修复规则调试获取不到 neuronStream 数据的错误
 - 规则选项中支持参数 sendError
-- 修复 ECP 代理纳管开启 https 接口的 NeuronEX 时的错误
+- 修复 ECP 代理纳管开启 https 接口的 EMQX Neuron 时的错误
 
 ## v3.4.0
 
@@ -927,10 +927,10 @@
 - 增加规则统计指标
 - 规则停止后仍然可以查看规则运行指标
 - Portable插件增加状态和错误信息显示
-- 支持 NeuronEX 完整备份和恢复
+- 支持 EMQX Neuron 完整备份和恢复
 - UI 支持密码隐藏 
-- 支持启动 NeuronEX 时，可选择配置是否启动数据处理引擎
-- NeuronEX 支持 https API
+- 支持启动 EMQX Neuron 时，可选择配置是否启动数据处理引擎
+- EMQX Neuron 支持 https API
 - 支持在配置文件`neuronex.yaml`中修改启动 admin 密码和 Viewer账号
 - 配置文件`neuronex.yaml`中的参数，支持映射为环境变量使用
 - 新增链路追踪功能，支持以下功能：
@@ -978,7 +978,7 @@
 - 南向设备及北向应用页面，支持驱动分页和总数显示。
 - 源管理和规则动作支持便携插件中自定义的 source 和 sink 类型。
 - 删除 MQTT 节点时删除离线缓存数据。
-- 优化 NeuronEX Docker image的磁盘使用量。
+- 优化 EMQX Neuron Docker image的磁盘使用量。
 
 ### 修复
 - 修复三菱 3E 插件读取位标签值不正确的问题。
@@ -998,14 +998,14 @@
 ### 增强
 - Focas 驱动 PMC 读取优化
 - 数据监控分页功能优化
-- 第一次登录 NeuronEX，以浏览器语言作为默认语言
+- 第一次登录 EMQX Neuron，以浏览器语言作为默认语言
 - 点位 `subscribe` 属性，核心缓存数据将正常数据和错误码分开存储，正常数据发生变化时才触发`subscribe`上报数据。
 - 优化数采模块核心部分日志
 - Action 公共配置项增加 dataField 和 Field 字段
 - File source 支持 cime 文件类型
 
 ### 修复
-- NeuronEX 启动后 Dataprocessing 节点通讯报错
+- EMQX Neuron 启动后 Dataprocessing 节点通讯报错
 - 南向驱动导入 API ，导入点位超出 License 限制引起的错误
 - 北向应用含有中文时，下载日志文件出现乱码
 - Action 页面下拉多选输入框样式错乱
@@ -1054,7 +1054,7 @@
 - 支持自定义隐藏左侧和顶部菜单栏
 
 ### 修复
-- 修复NeuronEX Log Level设为debug后，ekuiper日志无限增长
+- 修复EMQX Neuron Log Level设为debug后，ekuiper日志无限增长
 - 修复南向驱动中文名称命名，导致导出配置报错
 - 修复添加多个点位时，点位描述全部变为最后一次编辑的内容
 - 修复南向驱动节点统计信息不准确的问题
@@ -1105,7 +1105,7 @@
 - 调整规则状态统计信息的操作位置
 - 南向驱动数据统计页，采集错误信息时间戳显示为本地时间
 - 移除试用License的时钟校验
-- NeuronEX server 优化 100-continue 响应
+- EMQX Neuron server 优化 100-continue 响应
 - MQTT sink 密码隐藏不显示
 
 ### 修复
@@ -1117,7 +1117,7 @@
 - 修复OPCUA 驱动bool量，写入false会失败的问题
 - 修复OPCUA 驱动，内存增长问题
 - 修复reset-password 重置密码功能不能使用
-- 修复 ECP 纳管-代理的 NeuronEX 无法使用日志监控功能
+- 修复 ECP 纳管-代理的 EMQX Neuron 无法使用日志监控功能
 
 
 ## v3.2.0
@@ -1199,7 +1199,7 @@
 - 修复了多个 Operator 算子时的规则异常问题。
 - 修复了 syslog 日志正文验证问题。
 - 修复了设置日志级别时 eKuiper 探活检查的问题。
-- 修复了除重新启动 NeuronEX 外，向 ECP 发送探活信息无效的问题。
+- 修复了除重新启动 EMQX Neuron 外，向 ECP 发送探活信息无效的问题。
 
 
 ## v3.1.0
@@ -1246,9 +1246,9 @@
 
 - 支持命令行重置登录密码
 
-- 优化 NeuronEX 存储目录
+- 优化 EMQX Neuron 存储目录
 
-- NeuronEX 日志、指标数据、告警支持与 ECP 对接
+- EMQX Neuron 日志、指标数据、告警支持与 ECP 对接
 
 
 ## v3.0.1

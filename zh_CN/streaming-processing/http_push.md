@@ -3,22 +3,22 @@
 <span style="background:green;color:white;">流</span>        <span style="background:green;color:white">扫描表</span>
 
 
-NeuronEX 数据处理模块通过 `HTTP Push` 类型的数据源，可以在内部启动一个 HTTP 服务器，默认地址为`http://0.0.0.0:10081`，接收来自 HTTP 客户端的消息，在所有规则中都可以共用这个 `HTTP Push`数据源。该类型可以作为流、扫描表的数据源。
+EMQX Neuron 数据处理模块通过 `HTTP Push` 类型的数据源，可以在内部启动一个 HTTP 服务器，默认地址为`http://0.0.0.0:10081`，接收来自 HTTP 客户端的消息，在所有规则中都可以共用这个 `HTTP Push`数据源。该类型可以作为流、扫描表的数据源。
 
 :::tip 提示
 当有任何使用 `HTTP Push` 源的规则启动后， HTTP 服务器才会启动运行，10081端口开启。当所有使用 httppush 源的规则都关闭后， HTTP 服务器会关闭运行，10081端口关闭。
 :::
 
-如果使用 Docker 部署 NeuronEX，需要在 `docker run` 命令中添加 `-p 10081:10081` 参数，将容器内的 10081 端口映射到宿主机的 10081 端口后，才可正常使用  `HTTP Push`源 。
+如果使用 Docker 部署 EMQX Neuron，需要在 `docker run` 命令中添加 `-p 10081:10081` 参数，将容器内的 10081 端口映射到宿主机的 10081 端口后，才可正常使用  `HTTP Push`源 。
 
 ```bash
-## run NeuronEX
+## run EMQX Neuron
 $ docker run -d --name neuronex -p 8085:8085 -p 10081:10081 --log-opt max-size=100m emqx/neuronex:latest
 ```
 
 ## 创建流
 
-登录 NeuronEX，点击**数据处理** -> **源管理**。在**流管理**页签，点击**创建流**。
+登录 EMQX Neuron，点击**数据处理** -> **源管理**。在**流管理**页签，点击**创建流**。
 
 在弹出的**源管理** / **创建**页面，进入如下配置：
 
@@ -39,7 +39,7 @@ $ docker run -d --name neuronex -p 8085:8085 -p 10081:10081 --log-opt max-size=1
 
 ## 创建扫描表
 
-HTTP Push 源支持查询表。登录 NeuronEX，点击**数据处理** -> **源管理**。在**扫描表**页签，点击**创建扫描表**。
+HTTP Push 源支持查询表。登录 EMQX Neuron，点击**数据处理** -> **源管理**。在**扫描表**页签，点击**创建扫描表**。
 
 - **表名称**：输入表名称
 - **是否为带结构的表**：勾选确认是否为带结构的表，如为带结构的表，则需进一步添加表字段。可默认不勾选。

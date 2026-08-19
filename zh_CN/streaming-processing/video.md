@@ -3,11 +3,11 @@
 <span style="background:green;color:white;padding:1px;margin:2px">流</span>
 <span style="background:green;color:white;padding:1px;margin:2px">扫描表</span>
 
-NeuronEX 数据处理模块通过 `Video` 类型的数据源，可以接收来自视频流的图片。
+EMQX Neuron 数据处理模块通过 `Video` 类型的数据源，可以接收来自视频流的图片。
 
 ## 创建流
 
-登录 NeuronEX，点击**数据处理** -> **源管理**。在**流管理**页签，点击**创建流**。
+登录 EMQX Neuron，点击**数据处理** -> **源管理**。在**流管理**页签，点击**创建流**。
 
 在弹出的**源管理** / **创建**页面，进入如下配置：
 

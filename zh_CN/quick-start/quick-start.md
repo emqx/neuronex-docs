@@ -1,12 +1,12 @@
 # 快速开始
 
-本教程从下载安装开始，以 Modbus TCP 驱动协议为例，快速开始使用 NeuronEX 采集模拟设备数据，并将数据直接上传到 EMQX MQTT 公有云服务，以及数据处理功能的简单使用。
+本教程从下载安装开始，以 Modbus TCP 驱动协议为例，快速开始使用 EMQX Neuron 采集模拟设备数据，并将数据直接上传到 EMQX MQTT 公有云服务，以及数据处理功能的简单使用。
 
 ![start](./_assets/start.png)
 
-## 安装 NeuronEX
+## 安装 EMQX Neuron
 
-NeuronEX 提供多种安装方式，用户可在 [安装](../installation/introduction.md) 中查看详细的安装方式。本实例采用容器化部署的方式，以便于最快开始体验 NeuronEX。
+EMQX Neuron 提供多种安装方式，用户可在 [安装](../installation/introduction.md) 中查看详细的安装方式。本实例采用容器化部署的方式，以便于最快开始体验 EMQX Neuron。
 
 获取 Docker 镜像
 
@@ -29,15 +29,15 @@ $ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuron
 ![modbus-simulator](./_assets/modbus-simulator.png)
 
 :::tip 
-须保证 NeuronEX 与模拟器运行在同一局域网内。
+须保证 EMQX Neuron 与模拟器运行在同一局域网内。
 
-Windows 中尽量关闭防火墙，否则可能会导致 NeuronEX 连接不上模拟器。 
+Windows 中尽量关闭防火墙，否则可能会导致 EMQX Neuron 连接不上模拟器。 
 
 :::
 
-## 登录 NeuronEX
+## 登录 EMQX Neuron
 
-打开 Web 浏览器，输入运行 NeuronEX 的网关地址和端口号，即可进入到登录界面，默认端口号为 8085。例如，http://127.0.0.1:8085
+打开 Web 浏览器，输入运行 EMQX Neuron 的网关地址和端口号，即可进入到登录界面，默认端口号为 8085。例如，http://127.0.0.1:8085
 
 使用初始用户名与密码登录进入管理控制台页面（初始用户名：admin，初始密码：0000），登录界面如下图所示。
 
@@ -47,7 +47,7 @@ Windows 中尽量关闭防火墙，否则可能会导致 NeuronEX 连接不上�
 
 ### 创建南向设备
 
-南向设备节点用于 NeuronEX 与设备建立连接，以及设备数据采集点位的创建及配置。在本例中使用NeuronEX 的 Modbus TCP插件，获取 Modbus 模拟器中的数据。
+南向设备节点用于 EMQX Neuron 与设备建立连接，以及设备数据采集点位的创建及配置。在本例中使用EMQX Neuron 的 Modbus TCP插件，获取 Modbus 模拟器中的数据。
 
 在 `数据采集` 菜单中选择 `南向设备` 进入南向设备管理界面，单击 `添加设备` 新增设备，如下图所示。
 
@@ -55,7 +55,7 @@ Windows 中尽量关闭防火墙，否则可能会导致 NeuronEX 连接不上�
 
 ### 配置南向设备
 
-配置 NeuronEX 与设备建立 Modbus 通讯所需的参数。
+配置 EMQX Neuron 与设备建立 Modbus 通讯所需的参数。
 
 - 名称：填写设备名称，例如 modbus-tcp；
 - 插件：下拉框选择 Modbus TCP 的插件；
@@ -70,7 +70,7 @@ Windows 中尽量关闭防火墙，否则可能会导致 NeuronEX 连接不上�
 
 ![south-setting](./_assets/south-setting.png)
 
-驱动创建完成后， 驱动的连接状态为断开，需要继续完成[创建采集点位](#创建采集点位)配置后，NeuronEX才会向设备发送读请求，更新连接状态。
+驱动创建完成后， 驱动的连接状态为断开，需要继续完成[创建采集点位](#创建采集点位)配置后，EMQX Neuron才会向设备发送读请求，更新连接状态。
 
 ![south-status](./_assets/south-status.png)
 
@@ -109,12 +109,12 @@ Windows 中尽量关闭防火墙，否则可能会导致 NeuronEX 连接不上�
 详细的驱动地址使用说明请参阅 [创建南向驱动](../configuration/south-devices/south-devices.md)。 
 :::
 
-创建采集的设备点位后，NeuronEX 自动与设备建立通信。南向设备节点进入 **运行中** 的工作状态，**已连接** 的连接状态。
+创建采集的设备点位后，EMQX Neuron 自动与设备建立通信。南向设备节点进入 **运行中** 的工作状态，**已连接** 的连接状态。
 
 如果等待几秒后，连接状态仍然处于 **断开连接**，请进行以下操作查找原因：
 
 - 请确认在设备配置时 IP 地址 和端口号设置正确，并且防火墙处于关闭状态。
-- 在 NeuronEX 运行环境终端执行以下指令，以确认 NeuronEX 运行环境能否访问到到对应的 IP 及端口：
+- 在 EMQX Neuron 运行环境终端执行以下指令，以确认 EMQX Neuron 运行环境能否访问到到对应的 IP 及端口：
 
 ```
 $ telnet <运行 Modbus 模拟器 PC 端的 IP> 502
@@ -136,7 +136,7 @@ $ telnet <运行 Modbus 模拟器 PC 端的 IP> 502
 
 ### 创建北向应用节点
 
-北向应用节点用于 NeuronEX 与多种北向应用进行数据交互，以 MQTT 插件为例，新增一个 MQTT 节点。
+北向应用节点用于 EMQX Neuron 与多种北向应用进行数据交互，以 MQTT 插件为例，新增一个 MQTT 节点。
 
 在 `数据采集` 菜单中选择 `北向应用`，单击 `添加应用` 新增应用，如下图所示。
 
@@ -148,7 +148,7 @@ $ telnet <运行 Modbus 模拟器 PC 端的 IP> 502
 
 ### 配置北向应用节点
 
-配置 NeuronEX 与北向应用建立连接所需的参数。
+配置 EMQX Neuron 与北向应用建立连接所需的参数。
 
 北向节点创建成功后自动跳转到 `应用配置` 界面，如下图所示。
 
@@ -174,24 +174,24 @@ $ telnet <运行 Modbus 模拟器 PC 端的 IP> 502
 
 ## 在 MQTT 客户端查看数据
 
-使用 MQTT 客户端查看上传的数据，示例使用 MQTT 客户端工具 [MQTTX](https://www.emqx.com/zh/products/mqttx) 连接公共的 EMQX 代理查看 NeuronEX 上传到 MQTT Broker 的数据，如下图所示。
+使用 MQTT 客户端查看上传的数据，示例使用 MQTT 客户端工具 [MQTTX](https://www.emqx.com/zh/products/mqttx) 连接公共的 EMQX 代理查看 EMQX Neuron 上传到 MQTT Broker 的数据，如下图所示。
 
 ![mqttx](./_assets/mqttx.png)
 
-订阅成功之后可以看到 MQTTX 可以一直接收到 NeuronEX 采集并上报过来的数据。
+订阅成功之后可以看到 MQTTX 可以一直接收到 EMQX Neuron 采集并上报过来的数据。
 
 - 打开 MQTTX 添加新的连接，正确填写名称、Host（broker.emqx.io） 和 Port（默认 1883）完成连接;
-- 添加新的订阅，Topic 要与 NeuronEX 端北向应用的订阅主题保持一致。
+- 添加新的订阅，Topic 要与 EMQX Neuron 端北向应用的订阅主题保持一致。
 
 ## 数据处理
 
-NeuronEX 提供了强大的边缘数据处理功能，可以对数据点进行数据抽取、转换、过滤、排序、分组、聚合、连接等功能，通过强大的流式计算分析能力，实现数据过滤清洗、数据标准化、分析监测及实时报警。详细请查阅[数据处理功能](../streaming-processing/overview.md)章节。
+EMQX Neuron 提供了强大的边缘数据处理功能，可以对数据点进行数据抽取、转换、过滤、排序、分组、聚合、连接等功能，通过强大的流式计算分析能力，实现数据过滤清洗、数据标准化、分析监测及实时报警。详细请查阅[数据处理功能](../streaming-processing/overview.md)章节。
 
-本示例将介绍如何将 NeuronEX 采集到的数值进行 +1 操作后将结果发送到云端 MQTT 的动态主题中。
+本示例将介绍如何将 EMQX Neuron 采集到的数值进行 +1 操作后将结果发送到云端 MQTT 的动态主题中。
 
 ### 数据处理北向应用节点
 
-在**数据采集** ->  **北向应用**页面，NeuronEX默认已经配置一个 DataProcessing 的北向应用，用户只需通过该应用订阅**南向驱动**的**数据组**即可，然后NeuronEX采集到的数据点就会发送到数据处理模块的 `neuronStream` 数据流中。
+在**数据采集** ->  **北向应用**页面，EMQX Neuron默认已经配置一个 DataProcessing 的北向应用，用户只需通过该应用订阅**南向驱动**的**数据组**即可，然后EMQX Neuron采集到的数据点就会发送到数据处理模块的 `neuronStream` 数据流中。
 
 
 ### 新建规则

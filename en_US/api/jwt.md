@@ -1,6 +1,6 @@
 # Custom JWT
 
-To call APIs in NeuronEX, you need to first call the login interface to generate a JWT, and then call other interfaces to validate the JWT. The default JWT expires after 24 hour, and you can generate your own JWT to customize the expiration time.
+To call APIs in EMQX Neuron, you need to first call the login interface to generate a JWT, and then call other interfaces to validate the JWT. The default JWT expires after 24 hour, and you can generate your own JWT to customize the expiration time.
 
 When a user requests a RESTful API, please enter the **Token** in the http request header in the following format:
 
@@ -9,13 +9,13 @@ Authorization: Bearer
 							XXXXXXXXXXXXXXX
 ```
 
-If the **Token** is correct, NeuronEX will return the result; otherwise, it will return the `401` code.
+If the **Token** is correct, EMQX Neuron will return the result; otherwise, it will return the `401` code.
 
 ## What is JWT?
 
 JWT is an open standard (RFC 7519) for securely transmitting information. The JWT structure consists of three parts: header (Header), payload (Payload), and signature (Signature).
 
-NeuronEX first checks the subdirectories  **etc** of the NeuronEX installation directory to see if the **iss** field contains a corresponding public key file. Then, it checks the fields inside the file for validation. The JWT structure required in NeuronEX is as follows:
+EMQX Neuron first checks the subdirectories  **etc** of the EMQX Neuron installation directory to see if the **iss** field contains a corresponding public key file. Then, it checks the fields inside the file for validation. The JWT structure required in EMQX Neuron is as follows:
 
 ```json
 header
@@ -48,7 +48,7 @@ payload
 
 ## Generate public and private keys
 
-Before signing the JWT, you need to generate a pair of public and private keys, and put the generated public key public.pem in the subdirectories of the NeuronEX installation directory **etc**. NeuronEX automatically loads files in **etc** and decodes them using the public key.
+Before signing the JWT, you need to generate a pair of public and private keys, and put the generated public key public.pem in the subdirectories of the EMQX Neuron installation directory **etc**. EMQX Neuron automatically loads files in **etc** and decodes them using the public key.
 
 :::tip
 The default installation path for Docker and deb/rpm packages is `/opt/neuronex`.

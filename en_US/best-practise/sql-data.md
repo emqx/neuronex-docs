@@ -1,4 +1,4 @@
-# NeuronEX Best Practice: Integrating MySQL Data into Your IIoT Platform
+# EMQX Neuron Best Practice: Integrating MySQL Data into Your IIoT Platform
 
 In the wave of industrial digitalization, the convergence of IT and OT has become an irreversible trend. While equipment data from the factory floor (OT data) is crucial, its full value is often unlocked only when combined with data from enterprise IT systems. These IT systems, such as Manufacturing Execution Systems (MES), Warehouse Management Systems (WMS), or Enterprise Resource Planning (ERP), typically use SQL databases (like MySQL) to store key business data, including production work orders, material information, quality standards, and personnel schedules.
 
@@ -8,15 +8,15 @@ Correlating this SQL data with real-time equipment data provides richer context,
 *   **Production Efficiency Analysis**: Accurately calculate OEE by combining work order schedules with actual equipment output.
 *   **Predictive Maintenance**: Optimize maintenance schedules based on equipment maintenance records from ERP and real-time operational conditions.
 
-NeuronEX, as an industrial edge gateway software, not only supports over 100 industrial protocols but can also collect data from various IT systems, including databases (like MES/WMS/ERP), Enterprise Service Bus (ESB), and RESTful APIs.
+EMQX Neuron, as an industrial edge gateway software, not only supports over 100 industrial protocols but can also collect data from various IT systems, including databases (like MES/WMS/ERP), Enterprise Service Bus (ESB), and RESTful APIs.
 
-This article will detail how to use **NeuronEX** as a powerful edge data bridge to efficiently and reliably pull data from a MySQL database, process it, and seamlessly forward it to the **EMQX Platform**, thus breaking down the data silos between IT and OT.
+This article will detail how to use **EMQX Neuron** as a powerful edge data bridge to efficiently and reliably pull data from a MySQL database, process it, and seamlessly forward it to the **EMQX Platform**, thus breaking down the data silos between IT and OT.
 
 ## Prerequisites
 
 Before you begin, ensure you have the following environment set up. You can quickly deploy these services on your computer to follow along with this article by installing [Docker Desktop](https://www.docker.com/products/docker-desktop/).
 
-1.  **NeuronEX**:
+1.  **EMQX Neuron**:
 
 ```shell
 docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:3.6.0
@@ -38,7 +38,7 @@ MQTTX is a cross-platform MQTT 5.0 client used for testing and verifying data se
 We will complete the entire data link configuration through these core steps:
 
 1.  **Create Data in MySQL**: Create a data table in MySQL and insert some data.
-2.  **Fetch Data from MySQL in NeuronEX**: Create a data stream in NeuronEX to connect to and periodically query the MySQL database.
+2.  **Fetch Data from MySQL in EMQX Neuron**: Create a data stream in EMQX Neuron to connect to and periodically query the MySQL database.
 3.  **Implement Incremental Query via Auto-Increment ID Field**: Select and process the data obtained from MySQL.
 4.  **Implement Incremental Query via Timestamp Field**: Send the processed data to EMQX via the MQTT protocol.
 5.  **Configure MQTT Sink to Forward Data to EMQX**: Send the processed data to EMQX via the MQTT protocol.
@@ -92,14 +92,14 @@ SELECT * FROM DeviceData;
 
 ![mysql](./_assets/mysql0.png)
 
-### Step 2: Fetch Data from MySQL in NeuronEX
+### Step 2: Fetch Data from MySQL in EMQX Neuron
 
-First, on the **Data Processing -> Configuration** page in NeuronEX, create a connector. Select the MySQL connector and fill in the following information:
+First, on the **Data Processing -> Configuration** page in EMQX Neuron, create a connector. Select the MySQL connector and fill in the following information:
 
 - **Database Address**: `mysql://root:123456@192.168.1.43:3306/testdb?parseTime=true`. This connects to the local MySQL database named `testdb` with username `root` and password `123456`.
 
 ::: tip
-Since NeuronEX and MySQL are deployed in separate containers, you cannot access the MySQL database using `localhost`. You must use an IP address.
+Since EMQX Neuron and MySQL are deployed in separate containers, you cannot access the MySQL database using `localhost`. You must use an IP address.
 You need to replace `192.168.1.43` with your computer's actual IP address.
 :::
 
@@ -110,7 +110,7 @@ Once the connector is created successfully, the connection status will be `Conne
 
 ![mysql](./_assets/mysql3-en.png)
 
-Next, we will create a data source using this connector. On the **Data Processing -> Sources** page in NeuronEX, click **Create Stream**, select the SQL source type, and fill in the following information:
+Next, we will create a data source using this connector. On the **Data Processing -> Sources** page in EMQX Neuron, click **Create Stream**, select the SQL source type, and fill in the following information:
 
 - Stream Name: `mysql_stream`, or any name you choose.
 - Source Configuration Group
@@ -140,7 +140,7 @@ FROM
 
 ### Step 3: Implement Incremental Query via Auto-Increment ID Field
 
-In our MySQL table, the `id` field is auto-incrementing, so we can use it to perform incremental queries. This means NeuronEX will start each query from where the last one ended, achieving incremental data fetching.
+In our MySQL table, the `id` field is auto-incrementing, so we can use it to perform incremental queries. This means EMQX Neuron will start each query from where the last one ended, achieving incremental data fetching.
 
 We will use the previously created `mysql-connector`. On the **Data Processing -> Sources** page, click **Create Stream**, select the SQL source type, and fill in the following:
 
@@ -163,7 +163,7 @@ We will use the previously created `mysql-connector`. On the **Data Processing -
 
 ![mysql](./_assets/stream2-1-en.png)
 
-With this configuration, go to the **Data Processing -> Rules** page, create a new rule, and enter the following SQL. When you debug, you'll see the fetched data. **You will notice that if no new data is written to the `DeviceData` table, NeuronEX will not pull any duplicate data.**
+With this configuration, go to the **Data Processing -> Rules** page, create a new rule, and enter the following SQL. When you debug, you'll see the fetched data. **You will notice that if no new data is written to the `DeviceData` table, EMQX Neuron will not pull any duplicate data.**
 
 ```
 SELECT
@@ -174,21 +174,21 @@ FROM
 
 ![mysql](./_assets/rule2-1-en.png)
 
-Now, insert a new record into the `DeviceData` table. NeuronEX will automatically fetch this new data and update the index value.
+Now, insert a new record into the `DeviceData` table. EMQX Neuron will automatically fetch this new data and update the index value.
 
 ```sql
 INSERT INTO DeviceData (Time, DeviceName, Current, Voltage) VALUES ('2025-07-23 09:00:15', 'moter_A', 150, 220);
 ```
 
-In the rule testing, you will see that NeuronEX has fetched this new record (without stopping the rule testing).
+In the rule testing, you will see that EMQX Neuron has fetched this new record (without stopping the rule testing).
 
 ![mysql](./_assets/rule2-2-en.png)
 
 Through these steps, we've implemented incremental querying using an auto-incrementing `id`.
 
-By combining `Index Field`, `Index Field Type`, and `Index Init Value`, NeuronEX efficiently performs incremental polling. It remembers the maximum `id` from the last query and only pulls new data with a larger `id` in the next query, significantly reducing database load and network overhead.
+By combining `Index Field`, `Index Field Type`, and `Index Init Value`, EMQX Neuron efficiently performs incremental polling. It remembers the maximum `id` from the last query and only pulls new data with a larger `id` in the next query, significantly reducing database load and network overhead.
 
-**In practical applications, you can combine this data pulling with NeuronEX's powerful stream processing functions for more complex data cleaning, format conversion, or aggregation.**
+**In practical applications, you can combine this data pulling with EMQX Neuron's powerful stream processing functions for more complex data cleaning, format conversion, or aggregation.**
 
 ### Step 4: Implement Incremental Query via Timestamp Field
 
@@ -216,7 +216,7 @@ Again, using the `mysql-connector`, go to **Data Processing -> Sources**, click 
 
 ![mysql](./_assets/stream3-1-en.png)
 
-With this setup, create a new rule and debug it. **Again, you will notice that NeuronEX does not pull duplicate data if there are no new entries in the `DeviceData` table.**
+With this setup, create a new rule and debug it. **Again, you will notice that EMQX Neuron does not pull duplicate data if there are no new entries in the `DeviceData` table.**
 
 ```
 SELECT
@@ -233,7 +233,7 @@ Now, insert a new record with a timestamp of `2025-07-23 09:00:20`.
 INSERT INTO DeviceData (Time, DeviceName, Current, Voltage) VALUES ('2025-07-23 09:00:20', 'moter_B', 333, 555);
 ```
 
-The rule testing will show that NeuronEX has fetched this new record.
+The rule testing will show that EMQX Neuron has fetched this new record.
 
 ![mysql](./_assets/rule3-2-en.png)
 
@@ -283,7 +283,7 @@ You will now see the data arriving in the MQTTX client.
 
 ### Step 6: Configure Stream QoS and Checkpoint Interval for Automatic Recovery
 
-On the rule's page, by configuring the `Stream QoS` and `Checkpoint Interval` in the rule options, we can save the state of the `Index Field` for incremental data pulling. This ensures that if the rule is manually stopped or the NeuronEX service stops unexpectedly, the rule can automatically recover and continue pulling data from the last recorded index value.
+On the rule's page, by configuring the `Stream QoS` and `Checkpoint Interval` in the rule options, we can save the state of the `Index Field` for incremental data pulling. This ensures that if the rule is manually stopped or the EMQX Neuron service stops unexpectedly, the rule can automatically recover and continue pulling data from the last recorded index value.
 
 - **Stream QoS**: Must be set to `1` or `2`.
 - **Checkpoint Interval**: Defaults to 5m0s, meaning a checkpoint is saved every 5 minutes. Adjust this value according to your needs.
@@ -292,9 +292,9 @@ On the rule's page, by configuring the `Stream QoS` and `Checkpoint Interval` in
 
 ## Conclusion
 
-By following these steps, we have successfully built a real-time data bridge from a MySQL database to the EMQX Platform using NeuronEX. This solution is not only efficient and reliable but also fully utilizes NeuronEX's incremental query capabilities, minimizing the impact on the source database.
+By following these steps, we have successfully built a real-time data bridge from a MySQL database to the EMQX Platform using EMQX Neuron. This solution is not only efficient and reliable but also fully utilizes EMQX Neuron's incremental query capabilities, minimizing the impact on the source database.
 
-The ability to merge IT business data with real-time OT data at the edge or in the cloud is a key piece of infrastructure for achieving smart manufacturing and driving data-driven decisions. As a hub connecting everything, NeuronEX is helping more and more manufacturing enterprises break down data silos and unlock the true potential of their industrial data.
+The ability to merge IT business data with real-time OT data at the edge or in the cloud is a key piece of infrastructure for achieving smart manufacturing and driving data-driven decisions. As a hub connecting everything, EMQX Neuron is helping more and more manufacturing enterprises break down data silos and unlock the true potential of their industrial data.
 
 
 

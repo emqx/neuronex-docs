@@ -5,7 +5,7 @@ The following is the introduction and packaging process of the pysam plugin exam
 
 ## Deployment requirements
 To use the Python portable plugin, Python3 environment is required.
-- Required if you install NeuronEX through the installation package
+- Required if you install EMQX Neuron through the installation package
   
    1. Manually install the python 3.x environment.
    2. Install the `ekuiper` and `pynng` libraries through pip
@@ -13,7 +13,7 @@ To use the Python portable plugin, Python3 environment is required.
    pip install ekuiper pynng
    ```
 
-- If you install NeuronEX through docker, please use the NeuronEX image of type [neuronex:3.x.x](../installation/docker.md#docker-container-python-runtime-environment), which is already included Python3 environment, as well as some related function libraries.
+- If you install EMQX Neuron through docker, please use the EMQX Neuron image of type [neuronex:3.x.x](../installation/docker.md#docker-container-python-runtime-environment), which is already included Python3 environment, as well as some related function libraries.
 
 ## Overall introduction of pysam plugin
 
@@ -62,7 +62,7 @@ This `pysam.py` file name does not need to have the same name as the plugin's me
 }
 ```
 :::tip Tips
-The `pysam.json` file is the metadata file of the plugin. The file name `pysam` must be the same as the **Data Processing** -> **Extension** -> **Portable plugin** tab on the NeuronEX Dashboard, click **The `plugin name` filled in when creating a portable plugin** is the same.
+The `pysam.json` file is the metadata file of the plugin. The file name `pysam` must be the same as the **Data Processing** -> **Extension** -> **Portable plugin** tab on the EMQX Neuron Dashboard, click **The `plugin name` filled in when creating a portable plugin** is the same.
 :::
 
 
@@ -121,7 +121,7 @@ After the plugin is installed, the detailed information of the plugin will be di
 <img src="./_assets/pysam_uishow.png" alt="pysam" style="zoom:100%;" />
 
 ::: tip tip
-After installing the plugin, NeuronEX does not need to be restarted to use the plugin function normally.
+After installing the plugin, EMQX Neuron does not need to be restarted to use the plugin function normally.
 :::
 
 ## plugin usage example

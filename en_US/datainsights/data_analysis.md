@@ -1,6 +1,6 @@
 # Data Analysis
 
-Data Analysis is the core interactive interface of NeuronEX's data insights module, providing you with a complete workflow from browsing data sources, building queries to analyzing results.
+Data Analysis is the core interactive interface of EMQX Neuron's data insights module, providing you with a complete workflow from browsing data sources, building queries to analyzing results.
 
 ## Key Features
 
@@ -65,7 +65,7 @@ The "Data Analysis" page deeply integrates an AI data analysis assistant, design
     *   Through the `AI Data Analysis` button in the upper right corner of the page, clicking opens the AI interaction dialog.
     *   As mentioned earlier, the data tag operation items also provide a quick entry for `AI Query`.
 *   **AI Interaction Box:**
-    *   **Default Page Guidance:** When opening the AI dialog from the main entry, it provides guiding prompts, informing users that NeuronEX stores data by type in separate tables (`neuron_float`, `neuron_int`, `neuron_bool`, `neuron_string`), and suggests users provide data tag names and data types when asking questions. It also provides clickable query examples to help users get started quickly.
+    *   **Default Page Guidance:** When opening the AI dialog from the main entry, it provides guiding prompts, informing users that EMQX Neuron stores data by type in separate tables (`neuron_float`, `neuron_int`, `neuron_bool`, `neuron_string`), and suggests users provide data tag names and data types when asking questions. It also provides clickable query examples to help users get started quickly.
     *   **Data Tag Context Pre-filling:** When entering from the data tag "AI Query" entry, the data tag name and corresponding data table (e.g., `neuron_float`, `tag='tag1'`) are automatically pre-filled into the dialog or passed as context.
 *   **AI Core Capabilities:**
     *   **Natural Language to SQL:** Converts users' natural language query requirements into correct SQL statements.
@@ -77,7 +77,7 @@ The "Data Analysis" page deeply integrates an AI data analysis assistant, design
 
 ## Prerequisites
 
-*   NeuronEX has enabled and configured [Integrated Time Series Data Storage (Datalayers)](../admin/sys-configuration.md#data-storage-configuration).
+*   EMQX Neuron has enabled and configured [Integrated Time Series Data Storage (Datalayers)](../admin/sys-configuration.md#data-storage-configuration).
 *   At least one southbound driver's data tags have been subscribed to the northbound DataStorage plugin.
 *   If you need to use the AI Query function, please ensure AI-related services and models are correctly configured.
 

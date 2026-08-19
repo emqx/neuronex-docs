@@ -1,10 +1,10 @@
 # Node-RED Integration
 
-NeuronEX integrates Node-RED, a popular open-source visual programming tool that uses a flow-based development approach. This integration allows users to leverage Node-RED's rich node library to perform complex data processing on data collected and managed by NeuronEX, and build custom workflows.
+EMQX Neuron integrates Node-RED, a popular open-source visual programming tool that uses a flow-based development approach. This integration allows users to leverage Node-RED's rich node library to perform complex data processing on data collected and managed by EMQX Neuron, and build custom workflows.
 
 ## Availability
 
-Starting from NeuronEX version 3.6.0, **Node-RED v4.0.9** is integrated by default in the following Docker images:
+Starting from EMQX Neuron version 3.6.0, **Node-RED v4.0.9** is integrated by default in the following Docker images:
 
 *   `emqx/neuronex:3.6.0-ai`
 *   `emqx/neuronex:3.6.0-ai-arm64`
@@ -13,7 +13,7 @@ For other installation packages (such as deb, rpm, zip) or other Docker images, 
 
 ## Enabling and Accessing Node-RED
 
-By default, the Node-RED service is **disabled**. You can enable and access it through NeuronEX's **Application List**.
+By default, the Node-RED service is **disabled**. You can enable and access it through EMQX Neuron's **Application List**.
 
 1.  Navigate to **Application** -> **Application List** from the left menu.
 2.  You will see the `node-red` application in the list, along with its **Version** (Node-RED v4.0.9) and current **Work Status**.
@@ -28,11 +28,11 @@ By default, the Node-RED service is **disabled**. You can enable and access it t
 
 ## Sending Data to Node-RED
 
-NeuronEX supports pushing data to your Node-RED flows for further processing through the following methods:
+EMQX Neuron supports pushing data to your Node-RED flows for further processing through the following methods:
 
 *   **Northbound Websocket Application:**
-    You can configure a Websocket application in NeuronEX to send data. Then in Node-RED, you can use the `websocket in` node to connect to this Websocket endpoint from NeuronEX to receive data.
+    You can configure a Websocket application in EMQX Neuron to send data. Then in Node-RED, you can use the `websocket in` node to connect to this Websocket endpoint from EMQX Neuron to receive data.
 *   **Data Processing Module REST Sink:**
-    Utilize the REST Sink in NeuronEX's data processing module. Configure the REST Sink to POST data to HTTP endpoints you create in Node-RED using the `http in` node.
+    Utilize the REST Sink in EMQX Neuron's data processing module. Configure the REST Sink to POST data to HTTP endpoints you create in Node-RED using the `http in` node.
 
-This integration enhances NeuronEX's capabilities by allowing users to intuitively design data manipulation, transformation, or integration logic in the familiar Node-RED environment.
+This integration enhances EMQX Neuron's capabilities by allowing users to intuitively design data manipulation, transformation, or integration logic in the familiar Node-RED environment.

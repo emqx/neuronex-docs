@@ -2,13 +2,13 @@
 
 ONNX 是一种针对机器学习所设计的开放式的文件格式，用于存储训练好的模型。它使得不同的人工智能框架可以采用相同格式存储模型数据并交互。
 
-通过集成 NeuronEX 和 ONNX，用户只需要上传预先构建的 ONNX 模型， 即可在规则中使用该模型来分析流中的数据。 在本教程中，我们将演示如何通过 NeuronEX 快速调用已预先训练好的 ONNX 模型。
+通过集成 EMQX Neuron 和 ONNX，用户只需要上传预先构建的 ONNX 模型， 即可在规则中使用该模型来分析流中的数据。 在本教程中，我们将演示如何通过 EMQX Neuron 快速调用已预先训练好的 ONNX 模型。
 
  
 
 ## 环境准备​
 
-- NeuronEX 官方 Docker 镜像
+- EMQX Neuron 官方 Docker 镜像
     ```shell
     docker pull emqx/neuronex:3.5.0
     ```
@@ -23,7 +23,7 @@ ONNX 是一种针对机器学习所设计的开放式的文件格式，用于存
 
 - 模型上传
 
-    请自行下载上述模型到本地，然后通过 NeuronEX 的文件上传功能，将上述模型上传到 NeuronEX。如图所示， 点击 `数据处理`-> `配置` → `文件管理`  即可上传文件。
+    请自行下载上述模型到本地，然后通过 EMQX Neuron 的文件上传功能，将上述模型上传到 EMQX Neuron。如图所示， 点击 `数据处理`-> `配置` → `文件管理`  即可上传文件。
 
     ![alt text](_assets/onnx-upload.png)
 
@@ -59,13 +59,13 @@ ONNX 是一种针对机器学习所设计的开放式的文件格式，用于存
 
 ## 其他
 
-本例中，官方发布的 NeuronEX Docker 镜像自带 ONNX 相关的依赖库。如果用户通过deb/rpm 或二进制形式部署 NeuronEX，则需要参考如下步骤手动构建 ONNX依赖环境。
+本例中，官方发布的 EMQX Neuron Docker 镜像自带 ONNX 相关的依赖库。如果用户通过deb/rpm 或二进制形式部署 EMQX Neuron，则需要参考如下步骤手动构建 ONNX依赖环境。
 
 1. 下载 [ONNX 依赖](https://github.com/lf-edge/ekuiper/tree/master/extensions/functions/onnx/lib)。
 
 ::: tip
-为了方便，可以将所有 .so 文件都下载下来，NeuronEX 会自动选择合适的 .so 文件。
+为了方便，可以将所有 .so 文件都下载下来，EMQX Neuron 会自动选择合适的 .so 文件。
 :::
 
-2.在运行 NeuronEX 的机器上新建目录`/usr/local/onnx/lib/`，然后将上述 .so 文件拷贝到目录中。 
+2.在运行 EMQX Neuron 的机器上新建目录`/usr/local/onnx/lib/`，然后将上述 .so 文件拷贝到目录中。 
 

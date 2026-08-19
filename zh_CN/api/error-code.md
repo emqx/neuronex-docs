@@ -222,8 +222,8 @@
 - 13014    license 不存在
 - 13015    虚拟 license 删除失败
 - 13016    硬件标识不匹配
-- 13017    由于 NeuronEX 被 ECP 浮动 license 激活，禁止上传 license
-- 13018    由于 NeuronEX 被 ECP 浮动 license 激活，禁止激活 license
+- 13017    由于 EMQX Neuron 被 ECP 浮动 license 激活，禁止上传 license
+- 13018    由于 EMQX Neuron 被 ECP 浮动 license 激活，禁止激活 license
 - 13019    当前 license 不支持流处理引擎功能
 - 13020    注册码错误
 - 13021    该硬件已注册

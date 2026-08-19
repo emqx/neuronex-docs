@@ -23,8 +23,8 @@
 - **跳过证书验证**：默认为 False。如设置为 True，将跳过证书认证，否则进行证书验证。
 - **打印 HTTP 响应**：控制是否将响应信息打印到控制台中。 如设为 true，则打印响应；如设为 false，则跳过打印。
 - **响应类型**：`code` 或者 `body`
-  - 如设为 `code`，NeuronEX 将通过 HTTP 响应码来判断响应状态。
-  - 如设为 `body`，NeuronEX 将检查 HTTP 响应正文（应为 JSON 格式）以及其中 code 字段的值。
+  - 如设为 `code`，EMQX Neuron 将通过 HTTP 响应码来判断响应状态。
+  - 如设为 `body`，EMQX Neuron 将检查 HTTP 响应正文（应为 JSON 格式）以及其中 code 字段的值。
 
 - **oAuth**： 配置 OAuth 验证流程
   - access

@@ -1,6 +1,6 @@
 # 表
 
-表是保留较为大量的状态的方法，NeuronEX 目前支持`扫描表(Scan Table)`、`查询表(Lookup Table)`两种类型的表。这两种类型的表都适用于流式批量综合计算。
+表是保留较为大量的状态的方法，EMQX Neuron 目前支持`扫描表(Scan Table)`、`查询表(Lookup Table)`两种类型的表。这两种类型的表都适用于流式批量综合计算。
 
 - 扫描表（Scan Table）
 
@@ -17,11 +17,11 @@
 
 | 名称                        | 描述                                    | 扫描表 | 查询表 |
 | --------------------------- | ----------------------------------  | ------ | ------ |
-| [Neuron](./neuron.md)       | 从 NeuronEX 数采模块读取数据             | ✅      |❌    |
+| [Neuron](./neuron.md)       | 从 EMQX Neuron 数采模块读取数据             | ✅      |❌    |
 | [MQTT](./mqtt.md)           | 从 MQTT 主题读取数据                         | ✅    | ❌    |
 | [HTTP pull](./http_pull.md) | 从 HTTP 服务器中拉取数据                      | ✅    | ❌    |
-| [HTTP push](./http_push.md) | 通过 HTTP 客户端推送数据到 NeuronEX        | ✅   | ❌     |
-| [内存](./memory.md)         | 从 NeuronEX 内存主题读取数据以形成规则流水线   | ✅      | ✅     |
+| [HTTP push](./http_push.md) | 通过 HTTP 客户端推送数据到 EMQX Neuron        | ✅   | ❌     |
+| [内存](./memory.md)         | 从 EMQX Neuron 内存主题读取数据以形成规则流水线   | ✅      | ✅     |
 | [SQL](./sql.md)         | 从数据库中查询数据                          | ✅      | ✅|
 | [文件](./file.md)           | 从文件中读取数据                             | ✅    | ❌    |
 | [Video](./video.md)         | 从视频流中查询数据                       | ✅   | ❌    |
@@ -32,7 +32,7 @@
 
 ## 创建表
 
-在 NeuronEX 页面，点击**数据处理** -> **源管理**，在**扫描表**/**查询表**页签，点击**创建扫描表/创建查询表**按钮即可进行表的创建。
+在 EMQX Neuron 页面，点击**数据处理** -> **源管理**，在**扫描表**/**查询表**页签，点击**创建扫描表/创建查询表**按钮即可进行表的创建。
 
 <img src="./_assets/tables.png" alt="tables" style="zoom:40%;" />
 

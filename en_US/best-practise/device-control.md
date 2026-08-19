@@ -1,27 +1,27 @@
-# NeuronEX Device Control Best Practices
+# EMQX Neuron Device Control Best Practices
 
 ## Overview
 
-NeuronEX, as a powerful industrial edge datahub software, not only efficiently collects device data but also provides multiple flexible methods for device control capabilities to meet the requirements of different industrial scenarios.
+EMQX Neuron, as a powerful industrial edge datahub software, not only efficiently collects device data but also provides multiple flexible methods for device control capabilities to meet the requirements of different industrial scenarios.
 
-This article will detail the various device control functions supported by NeuronEX, helping you better utilize these features to optimize industrial production processes and enhance automation levels.
+This article will detail the various device control functions supported by EMQX Neuron, helping you better utilize these features to optimize industrial production processes and enhance automation levels.
 
 ## What is Device Control
 
-Device control refers to the process of sending commands to downstream automation devices to control device behavior or modify device parameters. NeuronEX provides multiple control methods to meet the needs of different application scenarios:
+Device control refers to the process of sending commands to downstream automation devices to control device behavior or modify device parameters. EMQX Neuron provides multiple control methods to meet the needs of different application scenarios:
 
 - **Dashboard Control**: Human control through an intuitive user interface
 - **MQTT Control**: Sending control commands to devices via MQTT protocol
-- **Data Processing Module Control**: Implementing intelligent control using NeuronEX's data processing engine
+- **Data Processing Module Control**: Implementing intelligent control using EMQX Neuron's data processing engine
 - **API Control**: Programmatic control through RESTful API interfaces
 
 ::: tip
-During device control, device tags must have writable attributes, otherwise writing will fail. Writable attributes include tags configured in NeuronEX that must have the write property, and the tags must also support writing on the device side.
+During device control, device tags must have writable attributes, otherwise writing will fail. Writable attributes include tags configured in EMQX Neuron that must have the write property, and the tags must also support writing on the device side.
 :::
 
 ## Dashboard Control
 
-Dashboard control is the most intuitive human-machine interaction method, suitable for operations personnel performing daily operations and temporary debugging. Access the NeuronEX Web interface, go to **Data Collection** -> **Data Monitoring** page, select the appropriate southbound device and group name, find tags with write attributes, click the Write button at the end, enter a new value in the popup dialog, and click "Submit" to complete device control.
+Dashboard control is the most intuitive human-machine interaction method, suitable for operations personnel performing daily operations and temporary debugging. Access the EMQX Neuron Web interface, go to **Data Collection** -> **Data Monitoring** page, select the appropriate southbound device and group name, find tags with write attributes, click the Write button at the end, enter a new value in the popup dialog, and click "Submit" to complete device control.
 
 ![dashboard-control-en](./_assets/dashboard-control-en.png)
 
@@ -29,25 +29,25 @@ Dashboard control is the most intuitive human-machine interaction method, suitab
 
 ### Feature Introduction
 
-MQTT control allows any client program supporting the MQTT protocol to send command data to the corresponding topic on an MQTT Broker. The NeuronEX northbound MQTT plugin subscribes to this topic to receive data and sends control commands to the southbound driver node to implement device control. 
+MQTT control allows any client program supporting the MQTT protocol to send command data to the corresponding topic on an MQTT Broker. The EMQX Neuron northbound MQTT plugin subscribes to this topic to receive data and sends control commands to the southbound driver node to implement device control. 
 
 This method is particularly suitable when using EMQX to build a UNS(Unifed Name Space) in industrial scenarios.
 
 ![mqtt-control-arch](./_assets/mqtt-control-arch.png)
 
-To use this method, you need to configure the northbound MQTT plugin in NeuronEX and set the **Write Request Topic** and **Write Response Topic**. At the same time, you need to configure the southbound driver node and set the tags to readable and writable status. The following example provides detailed instructions using EMQX and MQTTX (as an MQTT client).
+To use this method, you need to configure the northbound MQTT plugin in EMQX Neuron and set the **Write Request Topic** and **Write Response Topic**. At the same time, you need to configure the southbound driver node and set the tags to readable and writable status. The following example provides detailed instructions using EMQX and MQTTX (as an MQTT client).
 
 ### Complete MQTT Example
 
 **1) Configure southbound driver**
 
-Configure the ModbusTCP southbound driver **modbus1** in NeuronEX, with group name **group1**, and add three data points **tag1**, **tag2**, **tag3** (supporting read and write). The modbus1 driver reads data from a Modbus simulator. For detailed information about this step, please refer to [Connecting Southbound Drivers](../quick-start/quick-start.md).
+Configure the ModbusTCP southbound driver **modbus1** in EMQX Neuron, with group name **group1**, and add three data points **tag1**, **tag2**, **tag3** (supporting read and write). The modbus1 driver reads data from a Modbus simulator. For detailed information about this step, please refer to [Connecting Southbound Drivers](../quick-start/quick-start.md).
 
 ![mqtt-control-1-en](./_assets/mqtt-control-1-en.png)
 
 **2) Configure northbound MQTT plugin**
 
-Create a new northbound MQTT plugin in NeuronEX. In the plugin configuration, you can use the default **Write Request Topic** `/neuron/HgihrB/write/req` and **Write Response Topic** `/neuron/HgihrB/write/resp` to receive MQTT control commands, as shown below. In this example, we use EMQ's public MQTT server `broker.emqx.io` as the MQTT Broker.
+Create a new northbound MQTT plugin in EMQX Neuron. In the plugin configuration, you can use the default **Write Request Topic** `/neuron/HgihrB/write/req` and **Write Response Topic** `/neuron/HgihrB/write/resp` to receive MQTT control commands, as shown below. In this example, we use EMQ's public MQTT server `broker.emqx.io` as the MQTT Broker.
 
 ![mqtt-control-2-en](./_assets/mqtt-control-2-en.png)
 
@@ -61,8 +61,8 @@ Add a new connection in MQTTX to connect to the public MQTT server `broker.emqx.
 
 ![mqtt-control-3](./_assets/mqtt-control-3.png)
 
-Referring to the NeuronEX MQTT data control format, we understand that the JSON message format for controlling a single data tag is as follows, where:
-- **uuid** is a unique identifier generated by NeuronEX, used to match response data when receiving control responses
+Referring to the EMQX Neuron MQTT data control format, we understand that the JSON message format for controlling a single data tag is as follows, where:
+- **uuid** is a unique identifier generated by EMQX Neuron, used to match response data when receiving control responses
 - **node** is the southbound driver node name, in this example it's `modbus1`
 - **group** is the southbound driver group name, in this example it's `group1`
 - **tag** is the southbound driver tag name, in this example it's `tag1`
@@ -78,7 +78,7 @@ Referring to the NeuronEX MQTT data control format, we understand that the JSON 
 }
 ```
 
-For information about the NeuronEX MQTT data control format, multi-tag writing, or to understand the control response format, please refer to [MQTT Upstream and Downstream Data Format](https://docs.emqx.com/en/neuronex/latest/configuration/north-apps/mqtt/api.html#write-tag).
+For information about the EMQX Neuron MQTT data control format, multi-tag writing, or to understand the control response format, please refer to [MQTT Upstream and Downstream Data Format](https://docs.emqx.com/en/neuronex/latest/configuration/north-apps/mqtt/api.html#write-tag).
 
 In MQTTX, enter the above JSON message and configure the send topic as `/neuron/HgihrB/write/req`. Click the send button to send the control command to the MQTT Broker.
 
@@ -88,7 +88,7 @@ To check if the control was executed successfully, you can use MQTTX's **+ New S
 
 **5) View Control Results**
 
-On the **Data Collection** -> **Data Monitoring** page in NeuronEX, you can see that the value of tag1 has been updated to 1234, indicating that the control of tag1 in the southbound driver modbus1 through the MQTT client MQTTX was successful.
+On the **Data Collection** -> **Data Monitoring** page in EMQX Neuron, you can see that the value of tag1 has been updated to 1234, indicating that the control of tag1 in the southbound driver modbus1 through the MQTT client MQTTX was successful.
 
 ![mqtt-control-5-en](./_assets/mqtt-control-5-en.png)
 
@@ -102,9 +102,9 @@ If you also need to report southbound driver data to the MQTT Broker through the
 
 ### Feature Introduction
 
-NeuronEX's data processing module provides powerful data analysis and processing capabilities that can automatically trigger device control based on business logic, implementing automated control and closed-loop feedback.
+EMQX Neuron's data processing module provides powerful data analysis and processing capabilities that can automatically trigger device control based on business logic, implementing automated control and closed-loop feedback.
 
-In this example, we will use the value of tag1 collected by the NeuronEX southbound driver node modbus1 to automatically control and write to tag2 of the southbound driver node modbus1.
+In this example, we will use the value of tag1 collected by the EMQX Neuron southbound driver node modbus1 to automatically control and write to tag2 of the southbound driver node modbus1.
 
 ### Example
 
@@ -153,23 +153,23 @@ Through data processing module control, more complex control logic can be implem
 
 ### Feature Introduction
 
-NeuronEX provides comprehensive RESTful API interfaces that allow third-party applications to implement device control through the HTTP protocol. This method offers high flexibility and is suitable for integration with other systems.
+EMQX Neuron provides comprehensive RESTful API interfaces that allow third-party applications to implement device control through the HTTP protocol. This method offers high flexibility and is suitable for integration with other systems.
 
-By calling NeuronEX's RESTful API, you can read and write device tags data. For detailed API documentation, please refer to the [NeuronEX API Documentation](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html).
+By calling EMQX Neuron's RESTful API, you can read and write device tags data. For detailed API documentation, please refer to the [EMQX Neuron API Documentation](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html).
 
 ### POSTMAN Control Example
 
-POSTMAN is a commonly used API testing tool that can implement device control by calling NeuronEX's RESTful API.
+POSTMAN is a commonly used API testing tool that can implement device control by calling EMQX Neuron's RESTful API.
 
-**1) Obtain NeuronEX Token**
+**1) Obtain EMQX Neuron Token**
 
-In POSTMAN, select the POST method, call the `localhost:8085/api/login` interface, set the request body to JSON format, enter the username and password, and click the send button to obtain the NeuronEX Token.
+In POSTMAN, select the POST method, call the `localhost:8085/api/login` interface, set the request body to JSON format, enter the username and password, and click the send button to obtain the EMQX Neuron Token.
 
 ![postman-control-1](./_assets/postman-control-1.png)
 
 **2) Call the control interface to write data**
 
-In POSTMAN, select the POST method, call the `localhost:8085/api/neuron/write` interface, set the request header to `Authorization` with the value `Bearer ${Token}`, set the request body to JSON format, enter the control JSON message body, and click the send button to implement device control. For detailed information about the `/api/neuron/write` interface, please refer to the [NeuronEX API Documentation](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html#tag/rw/paths/~1api~1neuron~1write/post).
+In POSTMAN, select the POST method, call the `localhost:8085/api/neuron/write` interface, set the request header to `Authorization` with the value `Bearer ${Token}`, set the request body to JSON format, enter the control JSON message body, and click the send button to implement device control. For detailed information about the `/api/neuron/write` interface, please refer to the [EMQX Neuron API Documentation](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html#tag/rw/paths/~1api~1neuron~1write/post).
 
 ```json
 {
@@ -184,12 +184,12 @@ In POSTMAN, select the POST method, call the `localhost:8085/api/neuron/write` i
 
 **3) View control results**
 
-On the **Data Collection** -> **Data Monitoring** page in NeuronEX, you can see that the value of **tag2** has been updated to `12`, indicating that the control of **tag2** in the southbound driver **modbus1** through the API was successful.
+On the **Data Collection** -> **Data Monitoring** page in EMQX Neuron, you can see that the value of **tag2** has been updated to `12`, indicating that the control of **tag2** in the southbound driver **modbus1** through the API was successful.
 
 ![postman-control-3-en](./_assets/postman-control-3-en.png)
 
 ## Summary
 
-The multiple control functions provided by NeuronEX offer powerful support for intelligent control of industrial devices. Whether it's manual operation, remote control, or automated control, all can be implemented through NeuronEX. The flexible combination of these functions can greatly enhance the intelligence level and operational efficiency of industrial production.
+The multiple control functions provided by EMQX Neuron offer powerful support for intelligent control of industrial devices. Whether it's manual operation, remote control, or automated control, all can be implemented through EMQX Neuron. The flexible combination of these functions can greatly enhance the intelligence level and operational efficiency of industrial production.
 
-Through the four control methods introduced in this article, users can choose the most suitable control solution based on their actual needs and implement comprehensive device management and control from edge to cloud through NeuronEX.
+Through the four control methods introduced in this article, users can choose the most suitable control solution based on their actual needs and implement comprehensive device management and control from edge to cloud through EMQX Neuron.

@@ -1,6 +1,6 @@
 # 自定义 JavaScript 函数
 
-NeuronEX 支持在 Dashboard 上创建自定义 JavaScript 函数。通过创建 JavaScript 函数并在规则中使用，可以快速的实现数据的逻辑计算和格式转换。
+EMQX Neuron 支持在 Dashboard 上创建自定义 JavaScript 函数。通过创建 JavaScript 函数并在规则中使用，可以快速的实现数据的逻辑计算和格式转换。
 
 ## 创建自定义 JavaScript 函数
 

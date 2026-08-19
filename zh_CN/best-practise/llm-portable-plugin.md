@@ -2,23 +2,23 @@
 
 ## 文档目的
 
-本指南旨在帮助 NeuronEX 用户，特别是运维人员或自动化工程师，有效地利用 NeuronEX 集成的 AI 能力(结合 LLM 模型)生成 Python 函数插件，以应对 NeuronEX SQL 难以处理的复杂边缘数据处理逻辑。遵循这些最佳实践，可以确保生成的代码功能正确、性能良好、易于维护，并充分发挥 NeuronEX 在工业边缘计算场景中的潜力。
+本指南旨在帮助 EMQX Neuron 用户，特别是运维人员或自动化工程师，有效地利用 EMQX Neuron 集成的 AI 能力(结合 LLM 模型)生成 Python 函数插件，以应对 EMQX Neuron SQL 难以处理的复杂边缘数据处理逻辑。遵循这些最佳实践，可以确保生成的代码功能正确、性能良好、易于维护，并充分发挥 EMQX Neuron 在工业边缘计算场景中的潜力。
 
 ## 背景
 
-NeuronEX 提供了强大的流式 SQL 处理能力，可以满足大部分工业数据在边缘端的清洗、转换、聚合和告警需求。然而，面对如状态维持判断（如连续递增检测）、复杂格式转换、特定业务逻辑计算等场景时，SQL 的表达能力受限。
+EMQX Neuron 提供了强大的流式 SQL 处理能力，可以满足大部分工业数据在边缘端的清洗、转换、聚合和告警需求。然而，面对如状态维持判断（如连续递增检测）、复杂格式转换、特定业务逻辑计算等场景时，SQL 的表达能力受限。
 
-NeuronEX 支持通过 Python 等语言编写扩展函数来弥补这一不足，但这传统上需要用户具备编程技能并处理开发、调试、部署等流程。通过集成 DeepSeek LLM，NeuronEX 实现了 “**自然语言描述** -> **AI 生成 Python 代码** -> **自动部署** -> **SQL 调用**” 的简化流程，极大地降低了开发门槛，提高了响应速度。
+EMQX Neuron 支持通过 Python 等语言编写扩展函数来弥补这一不足，但这传统上需要用户具备编程技能并处理开发、调试、部署等流程。通过集成 DeepSeek LLM，EMQX Neuron 实现了 “**自然语言描述** -> **AI 生成 Python 代码** -> **自动部署** -> **SQL 调用**” 的简化流程，极大地降低了开发门槛，提高了响应速度。
 
 ## 功能介绍
 
-在 NeuronEX 上使用 AI 生成 Python 插件功能，主要涉及以下几个步骤：安装、配置 AI 模型、使用 AI 生成函数功能、以及在规则中测试和使用生成的插件。
+在 EMQX Neuron 上使用 AI 生成 Python 插件功能，主要涉及以下几个步骤：安装、配置 AI 模型、使用 AI 生成函数功能、以及在规则中测试和使用生成的插件。
 
 ### 安装
 
-NeuronEX 从 3.5.1 版本开始，提供了支持 AI 功能 Docker 镜像包 neuronex:3.5.1-ai 和 neuronex:3.5.1-ai-amd64。该镜像包已预装了与 LLM 模型交互所需的 Python 依赖库。
+EMQX Neuron 从 3.5.1 版本开始，提供了支持 AI 功能 Docker 镜像包 neuronex:3.5.1-ai 和 neuronex:3.5.1-ai-amd64。该镜像包已预装了与 LLM 模型交互所需的 Python 依赖库。
 
-使用以下命令下载并运行 NeuronEX
+使用以下命令下载并运行 EMQX Neuron
 
 ```shell
 # 下载x86镜像，并运行容器
@@ -33,22 +33,22 @@ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=
 
 ### AI 模型配置
 
-在使用 AI 生成 Python 插件功能之前，您需要先在 NeuronEX **系统配置** -> **AI 模型配置**页面，添加一个LLM模型配置信息，包括 LLM 模型的类型、API Key、Endpoint 地址以及模型名称。目前 NeuronEX 已支持厂商的模型请查阅[AI 模型配置](../admin/sys-configuration.md#ai-模型配置)页面。
+在使用 AI 生成 Python 插件功能之前，您需要先在 EMQX Neuron **系统配置** -> **AI 模型配置**页面，添加一个LLM模型配置信息，包括 LLM 模型的类型、API Key、Endpoint 地址以及模型名称。目前 EMQX Neuron 已支持厂商的模型请查阅[AI 模型配置](../admin/sys-configuration.md#ai-模型配置)页面。
 
-您可通过以上模型厂商的官方网站获取 API Key，并在 NeuronEX 页面添加模型配置并启用。可在页面中同时配置多个大模型，但只能启用一个模型进行使用。
+您可通过以上模型厂商的官方网站获取 API Key，并在 EMQX Neuron 页面添加模型配置并启用。可在页面中同时配置多个大模型，但只能启用一个模型进行使用。
 
 
 ![alt text](_assets/llm-config-zh.png)
 
 ::: tip
-1. 请保证 NeuronEX 能正常联网，可访问大模型的 API。
+1. 请保证 EMQX Neuron 能正常联网，可访问大模型的 API。
 2. 小模型或者过于老旧的模型会影响生成 Python 插件的效果，上表中的模型为推荐使用模型，后续也可使用各厂商推出的新模型。
 :::
 
 
 ### AI 生成 Python 插件
 
-配置好 LLM 模型后，在 NeuronEX **数据处理** -> **算法集成**页面，点击**AI生成函数**，进入AI生成函数页面：
+配置好 LLM 模型后，在 EMQX Neuron **数据处理** -> **算法集成**页面，点击**AI生成函数**，进入AI生成函数页面：
 
 ![alt text](_assets/llm-python1-zh.png)
 
@@ -66,7 +66,7 @@ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=
 
 ![alt text](_assets/llm-python3-zh.png)
 
-点击上图的**部署函数**按钮，生成的 Python 代码会自动部署到 NeuronEX 中，弹框提示部署成功。如果您对生成的代码有疑问，也可以在 AI 对话框中进行提问。
+点击上图的**部署函数**按钮，生成的 Python 代码会自动部署到 EMQX Neuron 中，弹框提示部署成功。如果您对生成的代码有疑问，也可以在 AI 对话框中进行提问。
 
 ![alt text](_assets/llm-python4-zh.png)
 
@@ -261,4 +261,4 @@ SPC(Statistical Process Control) 统计过程控制，是工业场景中常见�
 
 ## 总结
 
-通过以上示例，我们可以看到，AI 生成 Python 插件功能，可以快速生成满足特定需求的 Python 函数，并自动部署到 NeuronEX 中，方便在规则中调用。您可以参考以上示例，结合实际业务需求，生成对应的 Python 函数。
+通过以上示例，我们可以看到，AI 生成 Python 插件功能，可以快速生成满足特定需求的 Python 函数，并自动部署到 EMQX Neuron 中，方便在规则中调用。您可以参考以上示例，结合实际业务需求，生成对应的 Python 函数。

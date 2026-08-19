@@ -24,11 +24,11 @@
 
 ### 启动模拟器
 
-在 NeuronEX 管理 -> 系统配置 页面中，选择 `内置 Modbus TCP Server 模拟器` 选项卡，点击 `启动模拟器` 按钮，即可启动模拟器。模拟器启动后，仍需要配置点位信息，请参考[添加模拟器中的点位](#添加模拟器中的点位)。
+在 EMQX Neuron 管理 -> 系统配置 页面中，选择 `内置 Modbus TCP Server 模拟器` 选项卡，点击 `启动模拟器` 按钮，即可启动模拟器。模拟器启动后，仍需要配置点位信息，请参考[添加模拟器中的点位](#添加模拟器中的点位)。
 
 ::: tip
 
-NeuronEX 默认安装启动后，内置 Modbus TCP Server 模拟器是关闭状态，不会占用任何系统资源，需要手动启动。
+EMQX Neuron 默认安装启动后，内置 Modbus TCP Server 模拟器是关闭状态，不会占用任何系统资源，需要手动启动。
 
 :::
 
@@ -52,7 +52,7 @@ NeuronEX 默认安装启动后，内置 Modbus TCP Server 模拟器是关闭状�
 
 模拟器运行端口默认为`502`，一般情况下无需修改。端口暂不支持界面修改，调整端口通过系统配置文件设置。
 
-通过修改 `/opt/neuronex/software/neuron/config/neuron.json` 文件中的 modbus_simulator 的`port`参数，修改模拟器运行端口。修改后需要重启 NeuronEX 生效。
+通过修改 `/opt/neuronex/software/neuron/config/neuron.json` 文件中的 modbus_simulator 的`port`参数，修改模拟器运行端口。修改后需要重启 EMQX Neuron 生效。
 
 ```json
 {

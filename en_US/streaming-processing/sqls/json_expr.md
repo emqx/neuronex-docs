@@ -180,7 +180,7 @@ SELECT followers->Group1[:1]->first FROM demo
 
 ## Json Path functions
 
-NeuronEX provides a list of functions to allow executing json path over struct or array columns or values. The functions
+EMQX Neuron provides a list of functions to allow executing json path over struct or array columns or values. The functions
 are:
 
 ```sql
@@ -192,7 +192,7 @@ json_path_query_first(col, jsonpath)
 Please refer to [json functions](./functions/json_functions.md) for detail.
 
 All these functions share the same parameter signatures, among which the second parameter is a jsonpath string. The
-jsonpath grammar used by NeuronEX is based on [JsonPath](https://goessner.net/articles/JsonPath/).
+jsonpath grammar used by EMQX Neuron is based on [JsonPath](https://goessner.net/articles/JsonPath/).
 
 The basic grammar of those expressions is to use the keys part of the JSON objects combined with some elements:
 

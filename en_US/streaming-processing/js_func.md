@@ -1,6 +1,6 @@
 # Custom JavaScript Function
 
-NeuronEX supports creating custom JavaScript functions on the Dashboard. By creating JavaScript functions and using them in rules, you can quickly implement logical calculations and format conversions of data.
+EMQX Neuron supports creating custom JavaScript functions on the Dashboard. By creating JavaScript functions and using them in rules, you can quickly implement logical calculations and format conversions of data.
 
 ## Create a custom JavaScript function
 

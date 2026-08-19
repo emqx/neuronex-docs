@@ -1,1 +1,1 @@
-# NeuronEX Product Description
+# EMQX Neuron Product Description

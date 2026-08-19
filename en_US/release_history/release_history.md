@@ -72,7 +72,7 @@ Release Date: 2026-06-26
 
 ### Enhancements
 
-- **UI layout**: Overall layout optimization for NeuronEX UI; the content area automatically adapts to fill the entire window.
+- **UI layout**: Overall layout optimization for EMQX Neuron UI; the content area automatically adapts to fill the entire window.
 
 - **OPC UA driver**: Added **DateTime** type support; completed error code adaptation.
 
@@ -132,7 +132,7 @@ Release Date: 2026-05-20
 
 - Fixed northbound MQTT plugin data reporting issues caused by **NanoSDK**.
 
-- Fixed abnormal UI display after NeuronEX license removal when **ECP** management is cancelled.
+- Fixed abnormal UI display after EMQX Neuron license removal when **ECP** management is cancelled.
 
 - Fixed Okta SSO authentication failure. Added mandatory `state` and `nonce` parameters to the OIDC authorization request to comply with Okta’s requirements.
 
@@ -355,7 +355,7 @@ Release Date: 2025-12-24
 
 - **S7 300/400** driver now adds support for the `char array` data type
 
-- Optimized **NeuronEX** installation and configuration: Adjusted the default value of the operating system parameter `net.unix.max_dgram_qlen` to 1024, improving system performance in scenarios with high device connection volumes (This feature applies only to the installation package deployment method. For **NeuronEX** deployed in container mode, this parameter can be modified manually on the host machine)
+- Optimized **EMQX Neuron** installation and configuration: Adjusted the default value of the operating system parameter `net.unix.max_dgram_qlen` to 1024, improving system performance in scenarios with high device connection volumes (This feature applies only to the installation package deployment method. For **EMQX Neuron** deployed in container mode, this parameter can be modified manually on the host machine)
 
 - Optimized rule operation interaction: Added a **Loading** state to operation buttons when a rule is in stopped status, preventing repeated consecutive operations
 
@@ -367,13 +367,13 @@ Release Date: 2025-12-24
 
 - Fixed the issue where no data could be received after the driver disconnected in the **OPC UA** driver subscription mode
 
-- Fixed **Docker** image security vulnerabilities: Upgraded the base image of the **NeuronEX** image `neuronex:3.7.1` from `python:3.13.2-slim` to `python:3.13.9-slim` to address security scanning vulnerabilities caused by built-in libraries of the base image; upgraded the **Golang** standard library used by **NeuronEX** from `1.23.3` to `1.23.8`
+- Fixed **Docker** image security vulnerabilities: Upgraded the base image of the **EMQX Neuron** image `neuronex:3.7.1` from `python:3.13.2-slim` to `python:3.13.9-slim` to address security scanning vulnerabilities caused by built-in libraries of the base image; upgraded the **Golang** standard library used by **EMQX Neuron** from `1.23.3` to `1.23.8`
 
 - Fixed the issue where no results were output in the rule testing feature
 
 - Fixed the issues related to `access token` and `refresh token` in **OAuth** authentication of the **REST sink** configuration items
 
-- Changed the built-in default **JWT** key pair to be dynamically generated each time **NeuronEX** starts, which is used to generate `token` after successful login with username and password. Meanwhile, upgraded the **JWT Golang** library used by the project from `v3.2` to `v5`
+- Changed the built-in default **JWT** key pair to be dynamically generated each time **EMQX Neuron** starts, which is used to generate `token` after successful login with username and password. Meanwhile, upgraded the **JWT Golang** library used by the project from `v3.2` to `v5`
 
 ## v3.6.3
 
@@ -435,7 +435,7 @@ Release Date: 2025-10-29
 
 - Dashboard Features
 
-  - Import and Export: New dashboard import and export functionality. Users can export the entire dashboard configuration (including all Panels and queries) as a JSON file, facilitating migration, backup, and sharing between different NeuronEX instances.
+  - Import and Export: New dashboard import and export functionality. Users can export the entire dashboard configuration (including all Panels and queries) as a JSON file, facilitating migration, backup, and sharing between different EMQX Neuron instances.
 
   - New Chart Types: To meet diverse monitoring needs, three new chart types have been added to the dashboard:
 
@@ -449,7 +449,7 @@ Release Date: 2025-10-29
 
 - AI Operations Assistant
 
-  - A new AI Q&A Assistant has been added, integrated with the NeuronEX operation and maintenance knowledge base. It provides expert guidance and answers on product configuration, feature usage, and troubleshooting through natural language interaction, helping users quickly identify problems, obtain solutions, and improve O&M efficiency.
+  - A new AI Q&A Assistant has been added, integrated with the EMQX Neuron operation and maintenance knowledge base. It provides expert guidance and answers on product configuration, feature usage, and troubleshooting through natural language interaction, helping users quickly identify problems, obtain solutions, and improve O&M efficiency.
 
 - Logging System Optimization
 
@@ -469,10 +469,10 @@ Release Date: 2025-09-26
 
 ### Enhancements
 
-- **Adjusted glibc version requirement for NeuronEX**: Supports the following operating systems: CentOS 8.0 and above, Ubuntu 20.04 and above, Debian 11 and above. (This is a new support for CentOS 8.0 compared to version 3.6.1).
+- **Adjusted glibc version requirement for EMQX Neuron**: Supports the following operating systems: CentOS 8.0 and above, Ubuntu 20.04 and above, Debian 11 and above. (This is a new support for CentOS 8.0 compared to version 3.6.1).
 - **OPC UA Driver**: Supports the collection of complex nested extend object and extend object array types.
 
-- **Agent Management Functionality**: Uses MQTT channel as the management channel to report NeuronEX status information.
+- **Agent Management Functionality**: Uses MQTT channel as the management channel to report EMQX Neuron status information.
 
 - **Optimized Rule Tags Functionality**: The interaction logic for adding and modifying tags has been simplified.
 
@@ -501,7 +501,7 @@ Release Date: 2025-07-31
 ### Fixes
 
 - Fixed an issue where the Northbound Websocket plugin was consuming excessive CPU.
-- Fixed an issue where NeuronEX did not exit properly after the Neuron process terminated.
+- Fixed an issue where EMQX Neuron did not exit properly after the Neuron process terminated.
 - Fixed an issue that occurred when setting the TTL immediately after enabling the data storage feature on the system configuration page.
 - Fixed support for rule QoS in the SQL Source.
 
@@ -514,9 +514,9 @@ Release Date: 2025-06-11
 
 - **Integrated Time Series Data Storage**
 
-  - Package Integration: NeuronEX now includes packaged integration of Datalayers time series database, supporting multiple installation package formats including deb, rpm, zip, docker, etc. Datalayers does not start with NeuronEX by default; users can enable it as needed in system configuration.
+  - Package Integration: EMQX Neuron now includes packaged integration of Datalayers time series database, supporting multiple installation package formats including deb, rpm, zip, docker, etc. Datalayers does not start with EMQX Neuron by default; users can enable it as needed in system configuration.
 
-  - Automatic Initialization: After enabling the Datalayers service for the first time, NeuronEX will automatically create the required neuronex database and corresponding data type tables (neuron_int, neuron_float, neuron_bool, neuron_string).
+  - Automatic Initialization: After enabling the Datalayers service for the first time, EMQX Neuron will automatically create the required neuronex database and corresponding data type tables (neuron_int, neuron_float, neuron_bool, neuron_string).
 
   - Configuration and Management: Users can configure enabling or disabling Datalayers storage and TTL (data retention period) on the system configuration page, and view its running status (Running/Stopped), runtime duration, storage space usage, and other information on the system information page.
 
@@ -570,7 +570,7 @@ Release Date: 2025-06-11
 
   - AI Interaction Box
 
-    - Default Page: Provides guidance prompts, informing users that NeuronEX stores data by data type in separate tables (neuron_float, neuron_int, neuron_bool, neuron_string), and suggests users provide tag names and data types. Provides clickable query examples to quickly start analysis.
+    - Default Page: Provides guidance prompts, informing users that EMQX Neuron stores data by data type in separate tables (neuron_float, neuron_int, neuron_bool, neuron_string), and suggests users provide tag names and data types. Provides clickable query examples to quickly start analysis.
 
     - Tag AI Query: Automatically obtains tag names and corresponding data tables (such as neuron_float, tag='tag1') from UI context and pre-fills them into the AI dialog box.
 
@@ -588,7 +588,7 @@ Release Date: 2025-06-11
 
     - On the System Configuration -> AI Model Configuration page, users need to configure and enable AI models to use AI data analysis and AI plugin writing functions.
 
-  - In NeuronEX 3.6.0, the Docker images emqx/neuronex:3.6.0-ai and emqx/neuronex:3.6.0-ai-arm64 include Python dependency libraries required for LLM operation by default, allowing users to use this feature directly. When using deb, rpm, zip, or other Docker images, users need to manually configure Python dependency libraries before using NeuronEX AI features. For detailed dependency library configuration, please refer to [AI Feature Environment Configuration Guide](../admin/sys-configuration.md#ai-feature-environment-configuration-guide).
+  - In EMQX Neuron 3.6.0, the Docker images emqx/neuronex:3.6.0-ai and emqx/neuronex:3.6.0-ai-arm64 include Python dependency libraries required for LLM operation by default, allowing users to use this feature directly. When using deb, rpm, zip, or other Docker images, users need to manually configure Python dependency libraries before using EMQX Neuron AI features. For detailed dependency library configuration, please refer to [AI Feature Environment Configuration Guide](../admin/sys-configuration.md#ai-feature-environment-configuration-guide).
 
 - [**Dashboard**](../datainsights/dashboards.md)
 
@@ -612,7 +612,7 @@ Release Date: 2025-06-11
 
         - When enabled: User SQL must include $timeFilter field, backend will replace it with current dashboard selected time range for efficient querying.
 
-        - When disabled: NeuronEX will automatically append dashboard time range to current user input SQL statement before executing SQL query.
+        - When disabled: EMQX Neuron will automatically append dashboard time range to current user input SQL statement before executing SQL query.
 
         - If $timeFilter is enabled but missing in SQL, error prompt will be displayed.
 
@@ -632,7 +632,7 @@ Release Date: 2025-06-11
 
 - [**Node-RED Integration**](../application/nodered.md)
 
-  - In NeuronEX 3.6.0, the Docker images `emqx/neuronex:3.6.0-ai` and `emqx/neuronex:3.6.0-ai-arm64` include Node-RED v4.0.9 by default. Users can enable Node-RED service as needed in the application list (disabled by default).
+  - In EMQX Neuron 3.6.0, the Docker images `emqx/neuronex:3.6.0-ai` and `emqx/neuronex:3.6.0-ai-arm64` include Node-RED v4.0.9 by default. Users can enable Node-RED service as needed in the application list (disabled by default).
 
   - Supports pushing data to Node-RED through northbound `Websocket` applications and data processing module `REST Sink` for data processing.
 
@@ -656,7 +656,7 @@ Release Date: 2025-06-11
 
 ### Changes
 
-- From NeuronEX v3.6.0, SparkplugB plugin only sets the `name` attribute of metric in `NBIRTH` and `DBIRTH` messages, and does not carry the `name` attribute in subsequent `NDATA`, `DDATA`, `NCMD`, and `DCMD` messages, only using `alias` to identify metrics, which may affect existing systems and integrations.
+- From EMQX Neuron v3.6.0, SparkplugB plugin only sets the `name` attribute of metric in `NBIRTH` and `DBIRTH` messages, and does not carry the `name` attribute in subsequent `NDATA`, `DDATA`, `NCMD`, and `DCMD` messages, only using `alias` to identify metrics, which may affect existing systems and integrations.
 
 ## v3.5.4
 
@@ -707,12 +707,12 @@ Release Date: 2025-06-24
 
 - Modbus TCP/RTU driver Double/Int64/Uint64 data types support full byte order configuration
 - Allen-Bradley 5000 EtherNet/IP driver adapts to single-tag read services of other AB PLC models
-- Print Monitor process logs to NeuronEX log files
+- Print Monitor process logs to EMQX Neuron log files
 
 ### Fixes
 
 - Fixed the problem of abnormal exit when multiple northbound drivers subscribe to a southbound driver at the same time
-- Fixed the problem that NeuronEX did not exit normally when the Neuron process exited
+- Fixed the problem that EMQX Neuron did not exit normally when the Neuron process exited
 
 ## v3.5.2
 
@@ -771,7 +771,7 @@ Release Date: 2025-03-20
 
 ### Fixes
 
-- Writing a float value like "121.0" through NeuronEX API to OPCUA Server fails, while values like 120.9 or 121.1 work correctly.
+- Writing a float value like "121.0" through EMQX Neuron API to OPCUA Server fails, while values like 120.9 or 121.1 work correctly.
 
 ## v3.4.4
 
@@ -903,7 +903,7 @@ Release Date: 2024-10-31
 - Fix neuronStream buffer overflow error
 - Fix the error that the neuronStream data could not be obtained during rule debugging
 - Support parameter sendError in rule options
-- Fixed the error when ECP manage NeuronEX with https enabled
+- Fixed the error when ECP manage EMQX Neuron with https enabled
 
 ## v3.4.0
 
@@ -930,10 +930,10 @@ Release Date: 2024-10-24
 - Added rule statistics indicators
 - Rule running indicators can still be viewed after the rule is stopped
 - Portable plugin adds status and error information display
-- Supports complete backup and recovery of NeuronEX
+- Supports complete backup and recovery of EMQX Neuron
 - UI supports password hiding
-- Supports choosing whether to start the data processing engine when starting NeuronEX
-- NeuronEX supports HTTPS API
+- Supports choosing whether to start the data processing engine when starting EMQX Neuron
+- EMQX Neuron supports HTTPS API
 - Supports modifying the admin password and Viewer account in the configuration file `neuronex.yaml`
 - Parameters in the configuration file `neuronex.yaml` support mapping for use as environment variables
 - Added OpenTelemetry tracing function, supporting the following features:
@@ -979,7 +979,7 @@ Release Date： 2024-09-02
 - Southbound device and northbound application pages support driver paging and total number display.
 - Source and rule action support custom source and sink types in portable plugins.
 - Delete offline cache data when delete MQTT node.
-- Optimize the disk usage of NeuronEX docker image.
+- Optimize the disk usage of EMQX Neuron docker image.
 
 ### Fixes
 - Fixed Mitsubishi 3E plugin reading incorrect value of bit tag.
@@ -1002,11 +1002,11 @@ Release Date： 2024-07-31
 - Optimize data collection core module log
 - Add dataField and Field fields to action property configuration items
 - File source supports cime file type
-- When logging into NeuronEX for the first time, the browser language is used as the default language
+- When logging into EMQX Neuron for the first time, the browser language is used as the default language
 - Tag subscribe attribute, triggers subscribe to report data only when normal data changes.
 
 ### Fixes
-- Dataprocessing node communication error after NeuronEX starts
+- Dataprocessing node communication error after EMQX Neuron starts
 - Southbound driver imports API, and the error caused by importing points exceeding the license limit
 - When northbound application contains Chinese, garbled characters appear in the downloaded log file
 - The style of the drop-down multi-select input box on the action page is messy
@@ -1057,7 +1057,7 @@ Release Date： 2024-06-24
 
 ### Fixes
 
-- Fix the growth of ekuiper log after NeuronEX Log Level is set to debug
+- Fix the growth of ekuiper log after EMQX Neuron Log Level is set to debug
 - Fix the names of southbound drivers, resulting in configuration export errors
 - Fix the tag descriptions that all become the last edited content when adding multiple tags
 - Fix the problem of inaccurate statistics of southbound driver nodes
@@ -1108,7 +1108,7 @@ Release Date： 2024-04-26
 - Adjust the operation position of rule status statistics
 - On the southbound driver data statistics page, the timestamp of the collection error information is displayed as local time.
 - Remove clock check for trial license
-- NeuronEX server optimizes 100-continue response
+- EMQX Neuron server optimizes 100-continue response
 - MQTT sink password is hidden and not displayed
 
 ### Fixes
@@ -1120,7 +1120,7 @@ Release Date： 2024-04-26
 - Fixed the issue where OPCUA driver bool value would fail when writing false.
 - Fixed OPCUA driver, memory growth problem.
 - Fixed cli reset password function.
-- Fixed ECP managed NeuronEX by agent being unable to use the log monitoring function
+- Fixed ECP managed EMQX Neuron by agent being unable to use the log monitoring function
 
 
 ## v3.2.0
@@ -1205,7 +1205,7 @@ Release Date： 2024-01-12
 - Fixed rule exception for multiple operators.
 - Fixed syslog body validation.
 - Fixed eKuiper liveness check when setting log level.
-- Fixed liveness report to ECP not working except reboot NeuronEX.
+- Fixed liveness report to ECP not working except reboot EMQX Neuron.
 
 
 
@@ -1240,7 +1240,7 @@ Release Date： 2023-12-22
 
 - Optimize the configuration process between data collection and data processing modules
 
-- NeuronEX logs, metrics, alarms support docking with ECP
+- EMQX Neuron logs, metrics, alarms support docking with ECP
 
 - Add log monitoring 
 
@@ -1254,7 +1254,7 @@ Release Date： 2023-12-22
 
 - Support for command line to reset login password
 
-- Optimize NeuronEX storage directory
+- Optimize EMQX Neuron storage directory
 
 
 ## v3.0.1

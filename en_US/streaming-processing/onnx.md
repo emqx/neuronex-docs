@@ -2,13 +2,13 @@
 
 ONNX is an open format designed for machine learning that stores trained models. It allows different AI frameworks to store model data in the same format and interact with each other.
 
-By integrating NeuronEX and ONNX, users only need to upload pre-built ONNX models, and then use the model to analyze data in the rule. In this tutorial, we will demonstrate how to quickly call a pre-trained ONNX model using NeuronEX.
+By integrating EMQX Neuron and ONNX, users only need to upload pre-built ONNX models, and then use the model to analyze data in the rule. In this tutorial, we will demonstrate how to quickly call a pre-trained ONNX model using EMQX Neuron.
 
  
 
 ## Prerequisites
 
-- NeuronEX Official Docker Image
+- EMQX Neuron Official Docker Image
     ```shell
     docker pull emqx/neuronex:3.5.0
     ```
@@ -23,7 +23,7 @@ By integrating NeuronEX and ONNX, users only need to upload pre-built ONNX model
 
 - Model Upload
 
-    Please download the above model to your local machine, then upload it to NeuronEX using the file upload function of NeuronEX. Click `Data Processing` -> `Configuration` -> `File Management` to upload the file.
+    Please download the above model to your local machine, then upload it to EMQX Neuron using the file upload function of EMQX Neuron. Click `Data Processing` -> `Configuration` -> `File Management` to upload the file.
 
     ![alt text](_assets/onnx-upload.png)
 
@@ -58,13 +58,13 @@ The processing results are as follows:
 
 ## Others
 
-In this example, the official NeuronEX Docker image includes the ONNX dependency library. If you deploy NeuronEX using deb/rpm or binary form, you need to refer to the following steps to manually build the ONNX dependency environment.
+In this example, the official EMQX Neuron Docker image includes the ONNX dependency library. If you deploy EMQX Neuron using deb/rpm or binary form, you need to refer to the following steps to manually build the ONNX dependency environment.
 
 1. Download [ONNX dependencies](https://github.com/lf-edge/ekuiper/tree/master/extensions/functions/onnx/lib).
 
 ::: tip
-For convenience, you can download all .so files. NeuronEX will automatically select the appropriate .so file.
+For convenience, you can download all .so files. EMQX Neuron will automatically select the appropriate .so file.
 :::
 
-2. Create a directory `/usr/local/onnx/lib/` on the machine where NeuronEX is running, and then copy the above .so files to the directory. 
+2. Create a directory `/usr/local/onnx/lib/` on the machine where EMQX Neuron is running, and then copy the above .so files to the directory. 
 

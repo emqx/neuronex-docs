@@ -1,10 +1,10 @@
-# NeuronEX 主备模式最佳实践
+# EMQX Neuron 主备模式最佳实践
 
 ## 概述
 
-NeuronEX 是一款工业边缘网关软件，提供工业设备数据采集和边缘智能分析服务。在某些业务场景下，需要保证 NeuronEX 服务的持续性和稳定性，通过主备模式部署两套 NeuronEX，可以实现服务的高可用性。
+EMQX Neuron 是一款工业边缘网关软件，提供工业设备数据采集和边缘智能分析服务。在某些业务场景下，需要保证 EMQX Neuron 服务的持续性和稳定性，通过主备模式部署两套 EMQX Neuron，可以实现服务的高可用性。
 
-该方案通过在两台服务器上部署 NeuronEX，通过 Keepalived 实现主备节点的自动切换。支持主节点 NeuronEX 软件故障不工作、或者主节点服务器故障等场景下，备节点自动接管服务，保证 NeuronEX 服务不中断，主节点恢复后，自动切换到主节点 NeuronEX 运行。
+该方案通过在两台服务器上部署 EMQX Neuron，通过 Keepalived 实现主备节点的自动切换。支持主节点 EMQX Neuron 软件故障不工作、或者主节点服务器故障等场景下，备节点自动接管服务，保证 EMQX Neuron 服务不中断，主节点恢复后，自动切换到主节点 EMQX Neuron 运行。
 
 ## 环境准备
 
@@ -14,42 +14,42 @@ NeuronEX 是一款工业边缘网关软件，提供工业设备数据采集和�
 
 - 软件要求
   - 操作系统：Ubuntu >=18.04 或 CentOS >=7
-  - NeuronEX 安装包（支持 deb、rpm、Docker）
+  - EMQX Neuron 安装包（支持 deb、rpm、Docker）
   - Keepalived 软件
 
 - 网络要求
   - 主节点和备节点之间的内网互通
-  - 确保安全组或防火墙允许 VRRP 协议和 NeuronEX 服务端口的流量
+  - 确保安全组或防火墙允许 VRRP 协议和 EMQX Neuron 服务端口的流量
 
 本示例使用华为云 2 台 Ubuntu 22.04 操作系统的 x86_64 架构虚拟机，主机内网 IP 地址为`10.0.0.127`，备机内网 IP 地址为`10.0.0.223`，主机与备机 IP 绑定的网卡均为 `eth0`。
 
 
-## 安装与配置 NeuronEX
+## 安装与配置 EMQX Neuron
 
-### 安装 NeuronEX
-在主节点和备节点上安装 NeuronEX,本示例使用 NeuronEX 3.4.3 版本的 x86_64 架构 deb 包。如需其他安装包，请访问 [NeuronEX 下载页面](https://www.emqx.com/zh/downloads-and-install/neuronex)。
+### 安装 EMQX Neuron
+在主节点和备节点上安装 EMQX Neuron,本示例使用 EMQX Neuron 3.4.3 版本的 x86_64 架构 deb 包。如需其他安装包，请访问 [EMQX Neuron 下载页面](https://www.emqx.com/zh/downloads-and-install/neuronex)。
 
 ```shell
-# 下载 NeuronEX 安装包
+# 下载 EMQX Neuron 安装包
 wget https://www.emqx.com/zh/downloads/neuronex/3.4.3/neuronex-3.4.3-linux-amd64.deb
 
-# 安装 NeuronEX
+# 安装 EMQX Neuron
 sudo dpkg -i neuronex-3.4.3-linux-amd64.deb
 
-# 启动 NeuronEX
+# 启动 EMQX Neuron
 sudo systemctl start neuronex
 
 # 设置为开机自启动
 sudo systemctl enable neuronex
 ```
 
-### 配置 NeuronEX
+### 配置 EMQX Neuron
 
-访问主节点 NeuronEX Dashboard 页面，配置 NeuronEX 数采服务，可配置一个 Modbus TCP 南向驱动，可正常采集数据，用来后续验证主备切换功能。
+访问主节点 EMQX Neuron Dashboard 页面，配置 EMQX Neuron 数采服务，可配置一个 Modbus TCP 南向驱动，可正常采集数据，用来后续验证主备切换功能。
 
-访问备节点 NeuronEX Dashboard 页面，可手动配置与主节点相同的数采服务，用来验证主备切换功能。 或者也可以将主节点的配置 `/opt/neuronex/data/` 拷贝到备节点相同目录下覆盖原有配置。
+访问备节点 EMQX Neuron Dashboard 页面，可手动配置与主节点相同的数采服务，用来验证主备切换功能。 或者也可以将主节点的配置 `/opt/neuronex/data/` 拷贝到备节点相同目录下覆盖原有配置。
 
-通过以上配置，主节点和备节点均可以正常采集数据，并且功能一致。此时通过以下命令将备节点的 NeuronEX 服务停止，表示主节点运行，备节点停止的初始状态。
+通过以上配置，主节点和备节点均可以正常采集数据，并且功能一致。此时通过以下命令将备节点的 EMQX Neuron 服务停止，表示主节点运行，备节点停止的初始状态。
 
 ```shell
 sudo systemctl stop neuronex
@@ -263,15 +263,15 @@ sudo systemctl enable keepalived
 
 ## 主备切换逻辑说明
 
-经过以上配置步骤，目前主节点和备节点均已启动 Keepalived 服务，并且主节点为 `MASTER` 状态，备节点为 `BACKUP` 状态。主节点 NeuronEX 服务正常运行，备节点 NeuronEX 服务停止。当以下情况发生时：
+经过以上配置步骤，目前主节点和备节点均已启动 Keepalived 服务，并且主节点为 `MASTER` 状态，备节点为 `BACKUP` 状态。主节点 EMQX Neuron 服务正常运行，备节点 EMQX Neuron 服务停止。当以下情况发生时：
 
-1. **主节点 NeuronEX 服务故障**
+1. **主节点 EMQX Neuron 服务故障**
 
   - 故障检测：
 
-    Keepalived 通过 vrrp_script 定期执行 `check_alive.sh` 脚本，检测 NeuronEX 服务的状态。
+    Keepalived 通过 vrrp_script 定期执行 `check_alive.sh` 脚本，检测 EMQX Neuron 服务的状态。
 
-    如果 `check_alive.sh` 脚本检测到 NeuronEX 服务失败，返回失败状态。
+    如果 `check_alive.sh` 脚本检测到 EMQX Neuron 服务失败，返回失败状态。
 
     Keepalived 根据 interval 和 fall 参数，在指定时间内（本例中为 15 秒）确认服务故障。
 
@@ -279,7 +279,7 @@ sudo systemctl enable keepalived
 
     Keepalived 降低主节点的优先级。
 
-    Keepalived 执行脚本 `fault.sh`，停止主节点 NeuronEX 服务。
+    Keepalived 执行脚本 `fault.sh`，停止主节点 EMQX Neuron 服务。
 
     主节点发送 VRRP 通告，通告自己的新优先级。
 
@@ -289,14 +289,14 @@ sudo systemctl enable keepalived
 
     备节点切换为 `MASTER` 状态。
 
-    备节点执行脚本 `master.sh`，启动 NeuronEX 服务，接管主节点的工作负载。
+    备节点执行脚本 `master.sh`，启动 EMQX Neuron 服务，接管主节点的工作负载。
 
 
 2. **主节点服务器故障**
 
   - 故障检测：
 
-    主节点服务器完全宕机，Keepalived 和 NeuronEX 都停止运行。
+    主节点服务器完全宕机，Keepalived 和 EMQX Neuron 都停止运行。
 
     主节点无法发送 VRRP 通告，备节点无法收到主节点的状态信息。
 
@@ -306,14 +306,14 @@ sudo systemctl enable keepalived
 
     备节点自动切换为 `MASTER` 状态。
 
-    备节点执行脚本 `master.sh`，启动 NeuronEX 服务，接管主节点的工作负载。
+    备节点执行脚本 `master.sh`，启动 EMQX Neuron 服务，接管主节点的工作负载。
 
 
 3. **主节点恢复**
 
   - 服务恢复：
 
-    主节点的 NeuronEX 服务恢复后，`check_alive.sh` 脚本检测到 NeuronEX 正常运行，返回成功状态。
+    主节点的 EMQX Neuron 服务恢复后，`check_alive.sh` 脚本检测到 EMQX Neuron 正常运行，返回成功状态。
 
     Keepalived 恢复主节点的优先级。
 
@@ -325,95 +325,95 @@ sudo systemctl enable keepalived
 
     备节点配置 nopreempt，备节点主动降级为 `BACKUP`。
 
-    备节点执行脚本 `backup.sh`，停止 NeuronEX 服务。
+    备节点执行脚本 `backup.sh`，停止 EMQX Neuron 服务。
 
     主节点重新成为 `MASTER`，接管工作负载。
 
 ::: tip 
 
-由于在主节点 Keepalived 配置中，设置了抢占模式，所以主节点恢复后，会自动切换为 `MASTER` 状态，并启动 NeuronEX 服务，接管主节点的工作负载。
+由于在主节点 Keepalived 配置中，设置了抢占模式，所以主节点恢复后，会自动切换为 `MASTER` 状态，并启动 EMQX Neuron 服务，接管主节点的工作负载。
 
 :::
 
 
 ## 测试与验证
 
-### 模拟主节点 NeuronEX 服务故障
+### 模拟主节点 EMQX Neuron 服务故障
 
-1. 通过以下命令停止主节点 NeuronEX 服务：
+1. 通过以下命令停止主节点 EMQX Neuron 服务：
 
     ```shell
     sudo systemctl stop neuronex
     ```
 
-2. 通过以下命令查看主节点和备节点的 NeuronEX 状态：
+2. 通过以下命令查看主节点和备节点的 EMQX Neuron 状态：
 
     ```shell
     sudo systemctl status neuronex
     ```
 
-3. 访问从节点 NeuronEX Dashboard 页面，从节点 NeuronEX 服务正常运行，南向驱动正常采集数据。访问主节点 NeuronEX Dashboard 页面，主节点 NeuronEX 服务停止。
+3. 访问从节点 EMQX Neuron Dashboard 页面，从节点 EMQX Neuron 服务正常运行，南向驱动正常采集数据。访问主节点 EMQX Neuron Dashboard 页面，主节点 EMQX Neuron 服务停止。
 
-    - 从节点 NeuronEX 服务正常运行
+    - 从节点 EMQX Neuron 服务正常运行
 ![alt text](_assets/backup_run.png)
 
-    - 主节点 NeuronEX 服务停止
+    - 主节点 EMQX Neuron 服务停止
 ![alt text](_assets/master_down.png)
 
 ### 模拟主节点服务器故障
 
-1. 将主节点服务器关机，通过以下命令查看备节点的 NeuronEX 状态：
+1. 将主节点服务器关机，通过以下命令查看备节点的 EMQX Neuron 状态：
 
     ```shell
     sudo systemctl status neuronex
     ```
 
-2. 访问从节点 NeuronEX Dashboard 页面，从节点 NeuronEX 服务正常运行，南向驱动正常采集数据。访问主节点 NeuronEX Dashboard 页面，主节点 NeuronEX 服务停止。
+2. 访问从节点 EMQX Neuron Dashboard 页面，从节点 EMQX Neuron 服务正常运行，南向驱动正常采集数据。访问主节点 EMQX Neuron Dashboard 页面，主节点 EMQX Neuron 服务停止。
 
 
 ### 主节点恢复
 
-1. 将主节点服务器开机，由于前序步骤中我们已经设置了 Keepalived 和 NeuronEX 开机自启动，所以主节点会自动启动 Keepalived 和 NeuronEX 服务。通过以下命令查看主节点的 NeuronEX 状态：
+1. 将主节点服务器开机，由于前序步骤中我们已经设置了 Keepalived 和 EMQX Neuron 开机自启动，所以主节点会自动启动 Keepalived 和 EMQX Neuron 服务。通过以下命令查看主节点的 EMQX Neuron 状态：
 
     ```shell
     sudo systemctl status neuronex
     ```
 
-2. 访问主节点 NeuronEX Dashboard 页面，主节点 NeuronEX 服务正常运行。
+2. 访问主节点 EMQX Neuron Dashboard 页面，主节点 EMQX Neuron 服务正常运行。
 
-3. 访问从节点 NeuronEX Dashboard 页面，从节点 NeuronEX 服务已停止。
+3. 访问从节点 EMQX Neuron Dashboard 页面，从节点 EMQX Neuron 服务已停止。
 
 
 ## 其他说明
 
 ### 部署方式
 
-主备模式也支持 NeuronEX Docker 部署模式。
+主备模式也支持 EMQX Neuron Docker 部署模式。
 
-在本例中 NeuronEX 通过 systemd 方式部署，因此在相应脚本启动停止 NeuronEX 为 systemctl 命令形式。如果 NeuronEX 部署方法为 Docker ，那么在脚本中启动停止 NeuronEX 方式为 docker 命令形式。需要将 master.sh 、 backup.sh 、 fault.sh 脚本中的 systemctl 命令替换为 docker 命令。如 `docker start neuronex`，`docker stop neuronex`。
+在本例中 EMQX Neuron 通过 systemd 方式部署，因此在相应脚本启动停止 EMQX Neuron 为 systemctl 命令形式。如果 EMQX Neuron 部署方法为 Docker ，那么在脚本中启动停止 EMQX Neuron 方式为 docker 命令形式。需要将 master.sh 、 backup.sh 、 fault.sh 脚本中的 systemctl 命令替换为 docker 命令。如 `docker start neuronex`，`docker stop neuronex`。
 
 ### 配置文件同步
 
-该示例的主备模式不支持主备 NeuronEX 之间配置文件的自动同步，如果需要主备 NeuronEX 之间配置文件一致，需要手动同步配置文件。
+该示例的主备模式不支持主备 EMQX Neuron 之间配置文件的自动同步，如果需要主备 EMQX Neuron 之间配置文件一致，需要手动同步配置文件。
 
-如果在主节点 NeuronEX 运行了一段时间以后，主节点 NeuronEX 的配置文件发生了变化，同时也不希望同时开启主备两个 NeuronEX 服务（会造成采集数据的重复），那么可以在保持备节点 NeuronEX 服务停止的状态下，手动同步配置文件：
+如果在主节点 EMQX Neuron 运行了一段时间以后，主节点 EMQX Neuron 的配置文件发生了变化，同时也不希望同时开启主备两个 EMQX Neuron 服务（会造成采集数据的重复），那么可以在保持备节点 EMQX Neuron 服务停止的状态下，手动同步配置文件：
 
 - 安装包方式：
 
-    将主节点 NeuronEX 的配置文件 `/opt/neuronex/data/` 复制到备节点的相同目录下。
+    将主节点 EMQX Neuron 的配置文件 `/opt/neuronex/data/` 复制到备节点的相同目录下。
 
 - Docker 方式：
 
-    将主节点 NeuronEX 的配置文件 `/opt/neuronex/data/` 复制到docker容器挂载到主机的目录下。
+    将主节点 EMQX Neuron 的配置文件 `/opt/neuronex/data/` 复制到docker容器挂载到主机的目录下。
 
 
 ### 数据丢失与重复问题
 
-如果要构建 NeuronEX 的完整高可用功能，完整高可用指任意单个 NeuronEX 节点失效，都不会丢失或重复采集数据，需要配置三节点 NeuronEX 服务，通过分布式数据库及集群模式，实现数据的高可用，该种方式需要极高成本，并且需要现场设备端及网络均能支持高可用，才能完整有效。而在实际工厂场景下，往往无法满足该条件，也即 PLC不支持主备或者现场网络不支持主备，仍存在单点故障，达不到全数据链路的高可用性。
+如果要构建 EMQX Neuron 的完整高可用功能，完整高可用指任意单个 EMQX Neuron 节点失效，都不会丢失或重复采集数据，需要配置三节点 EMQX Neuron 服务，通过分布式数据库及集群模式，实现数据的高可用，该种方式需要极高成本，并且需要现场设备端及网络均能支持高可用，才能完整有效。而在实际工厂场景下，往往无法满足该条件，也即 PLC不支持主备或者现场网络不支持主备，仍存在单点故障，达不到全数据链路的高可用性。
 
 当前示例的高可用方案，仍存在少量的数据丢失或重复的问题。
 
-关于数据丢失问题，在主节点上的 NeuronEX 出现故障时，keepalived 需要一定的时间才会检测到，其中检测间隔与失败次数可配置，如下所示：
+关于数据丢失问题，在主节点上的 EMQX Neuron 出现故障时，keepalived 需要一定的时间才会检测到，其中检测间隔与失败次数可配置，如下所示：
 
 ```shell
 
@@ -424,9 +424,9 @@ vrrp_script check_ex_alived {
 }
 ```
 
-当前配置为检测间隔为 5 秒，检测失败 3 次才触发主备切换。因此在这段时间内，`MASTER` 和 `BACKUP` 上的 NeuronEX 都不在运行状态，会短时间内数据丢失。
+当前配置为检测间隔为 5 秒，检测失败 3 次才触发主备切换。因此在这段时间内，`MASTER` 和 `BACKUP` 上的 EMQX Neuron 都不在运行状态，会短时间内数据丢失。
 
-另外，关于数据重复问题，在主节点故障恢复后，备节点检测到主节点恢复后才会停止自身的 NeuronEX, 因此会有短暂的时间两个节点上的 NeuronEX 都在运行状态，会造成短时间采集的数据重复。
+另外，关于数据重复问题，在主节点故障恢复后，备节点检测到主节点恢复后才会停止自身的 EMQX Neuron, 因此会有短暂的时间两个节点上的 EMQX Neuron 都在运行状态，会造成短时间采集的数据重复。
 
 ## 常见问题处理
 

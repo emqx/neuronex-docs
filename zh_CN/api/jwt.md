@@ -1,6 +1,6 @@
 # 自定义 JWT
 
-在 NeuronEX 中调用 API 时，需先调用登录接口生成 JWT，再调用其他接口进行 JWT 验证。默认生成的 JWT 过期时间为 24 小时，可以自行生成 JWT，自定义过期时间。
+在 EMQX Neuron 中调用 API 时，需先调用登录接口生成 JWT，再调用其他接口进行 JWT 验证。默认生成的 JWT 过期时间为 24 小时，可以自行生成 JWT，自定义过期时间。
 
 当用户请求 RESTful API 时，请在 http 请求头中按以下格式输入 **Token**：
 
@@ -9,13 +9,13 @@ Authorization: Bearer
 							XXXXXXXXXXXXXXX
 ```
 
-如果 **Token** 正确，NeuronEX 将响应结果； 否则，它将返回`401`代码。
+如果 **Token** 正确，EMQX Neuron 将响应结果； 否则，它将返回`401`代码。
 
 ## 什么是 JWT？
 
 JWT 是一种用于安全传输信息的开放标准（RFC 7519）。JWT 结构包含三个部分，分别是头部（Header）、载荷（Payload）和签名（Signature）。
 
-NeuronEX 先根据 **iss** 字段查找 NeuronEX 安装目录下的子目录 **etc** 是否包含该名称对应的公钥文件，再根据里面的字段进行校验。NeuronEX 中所需要的 JWT 结构如下：
+EMQX Neuron 先根据 **iss** 字段查找 EMQX Neuron 安装目录下的子目录 **etc** 是否包含该名称对应的公钥文件，再根据里面的字段进行校验。EMQX Neuron 中所需要的 JWT 结构如下：
 
 ```json
 header
@@ -48,7 +48,7 @@ payload
 
 ## 生成公私钥
 
-签发 JWT 前需要生成一对公私钥，并把生成的公钥 public.pem 放在 NeuronEX 安装目录下的子目录 **etc** 中。NeuronEX 自动加载 **etc** 中的文件，根据公钥解码。
+签发 JWT 前需要生成一对公私钥，并把生成的公钥 public.pem 放在 EMQX Neuron 安装目录下的子目录 **etc** 中。EMQX Neuron 自动加载 **etc** 中的文件，根据公钥解码。
 
 :::tip
 Docker 以及 deb/rpm 安装包的默认安装路径为 `/opt/neuronex`。

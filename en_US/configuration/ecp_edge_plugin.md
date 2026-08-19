@@ -2,9 +2,9 @@
 
 Plugins can be divided into northbound applications and southbound drivers. Northbound plugins are typically used to connect to cloud platforms or external applications like processing engines. Southbound plugins are communication drivers that implement specific protocols to access external devices. In order to implement protocol format conversion, at least one northbound plugin and one southbound plugin are required for data transmission and data collection respectively.
 
-After logging in to NeuronEX, you can click **Data Collection** -> **Plugin** to view the system's plugin list. You can also click the **Add Plugin** button in the upper left corner to install a custom plugin.
+After logging in to EMQX Neuron, you can click **Data Collection** -> **Plugin** to view the system's plugin list. You can also click the **Add Plugin** button in the upper left corner to install a custom plugin.
 
-You can visit the [plugin list page](../introduction/plugin-list/plugin-list.md) to get the complete list of plugins supported by NeuronEX.
+You can visit the [plugin list page](../introduction/plugin-list/plugin-list.md) to get the complete list of plugins supported by EMQX Neuron.
 
 ## View available plugins
 

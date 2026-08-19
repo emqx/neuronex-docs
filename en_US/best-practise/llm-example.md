@@ -1,22 +1,22 @@
-# NeuronEX + 大语言模型 LLM - 实时监控预防工业火灾
+# EMQX Neuron + 大语言模型 LLM - 实时监控预防工业火灾
 
-火灾是工业场景中的重大安全隐患之一，火灾的预防和及时响应对于保障生产和人员安全至关重要。本文将探讨如何利用先进的工业边缘软件 NeuronEX 和大型语言模型（Large language model, LLM），构建一个实时、高效、智能的火灾监控系统，以提高工业场景的安全性和火灾响应速度。
+火灾是工业场景中的重大安全隐患之一，火灾的预防和及时响应对于保障生产和人员安全至关重要。本文将探讨如何利用先进的工业边缘软件 EMQX Neuron 和大型语言模型（Large language model, LLM），构建一个实时、高效、智能的火灾监控系统，以提高工业场景的安全性和火灾响应速度。
 
-NeuronEX 是一款专为工业领域设计的设备数据采集和边缘智能分析软件，它支持工业协议采集及各类数据接入、边端数据过滤分析以及 AI 算法集成。大语言模型（LLM）是一种基于机器学习技术的人工智能（AI）模型，可理解和生成人类语言，还具备处理和解释图像、视频、音频等多种数据类型的多模态能力。
+EMQX Neuron 是一款专为工业领域设计的设备数据采集和边缘智能分析软件，它支持工业协议采集及各类数据接入、边端数据过滤分析以及 AI 算法集成。大语言模型（LLM）是一种基于机器学习技术的人工智能（AI）模型，可理解和生成人类语言，还具备处理和解释图像、视频、音频等多种数据类型的多模态能力。
 
-本文将介绍如何结合 NeuronEX 和大语言模型（LLM）的能力，实现工业现场的火灾安全监控。
+本文将介绍如何结合 EMQX Neuron 和大语言模型（LLM）的能力，实现工业现场的火灾安全监控。
 
-## NeuronEX + LLM 整体架构介绍
+## EMQX Neuron + LLM 整体架构介绍
 
 ![alt text](_assets/llm-arch.png)
 
 - 现场数据接入
 
-在本例中，我们采用 Base64 格式的图片数据接入 NeuronEX 的 MQTT 数据源。实际生产中 NeuronEX 也可以接入 RSTP 视频数据，为了简化示例，本例采用了更为简单的 MQTT 方式来接收图片数据。
+在本例中，我们采用 Base64 格式的图片数据接入 EMQX Neuron 的 MQTT 数据源。实际生产中 EMQX Neuron 也可以接入 RSTP 视频数据，为了简化示例，本例采用了更为简单的 MQTT 方式来接收图片数据。
 
-- NeuronEX 集成 Python 算法函数
+- EMQX Neuron 集成 Python 算法函数
 
-在 NeuronEX 中，我们编写了 Python 算法函数，该函数能够调用外部多模态大语言模型服务。这些函数将接收到的图片数据发送到大语言模型，利用模型自身的分析能力进行处理，并将结果反馈回 NeuronEX。
+在 EMQX Neuron 中，我们编写了 Python 算法函数，该函数能够调用外部多模态大语言模型服务。这些函数将接收到的图片数据发送到大语言模型，利用模型自身的分析能力进行处理，并将结果反馈回 EMQX Neuron。
 
 - 大语言模型
 
@@ -24,13 +24,13 @@ NeuronEX 是一款专为工业领域设计的设备数据采集和边缘智能�
 
 - 告警推送及告警信息查看
 
-NeuronEX 会将大型语言模型分析得出的异常数据结果推送至 EMQX 平台。用户可以通过客户端工具 MQTTX 直观地查看这些告警信息。
+EMQX Neuron 会将大型语言模型分析得出的异常数据结果推送至 EMQX 平台。用户可以通过客户端工具 MQTTX 直观地查看这些告警信息。
 
 ## 详细配置步骤介绍
 
 ### 准备环境
 
-- 可通过 Docker 命令快速创建一个 NeuronEX 服务，访问地址为 localhost:8085
+- 可通过 Docker 命令快速创建一个 EMQX Neuron 服务，访问地址为 localhost:8085
 
 ```shell
 docker run -d --name neuronex -p 8085:8085 emqx/neuronex:3.4.1
@@ -42,7 +42,7 @@ docker run -d --name neuronex -p 8085:8085 emqx/neuronex:3.4.1
 docker run -d --name emqx-enterprise -p 1883:1883 -p 18083:18083 emqx/emqx-enterprise:5.8.0
 ```
 
-由于 NeuronEX 和 EMQX 分属于不同的容器，在本例中，NeuronEX 需要通过作者电脑的 IP 地址 192.168.71.62 来访问到 EMQX。
+由于 EMQX Neuron 和 EMQX 分属于不同的容器，在本例中，EMQX Neuron 需要通过作者电脑的 IP 地址 192.168.71.62 来访问到 EMQX。
 
 - 注册零一万物平台，获取 API Key
 
@@ -54,17 +54,17 @@ docker run -d --name emqx-enterprise -p 1883:1883 -p 18083:18083 emqx/emqx-enter
 
 MQTTX 下载地址：https://mqttx.app/zh/downloads 
 
-### NeuronEX 接收模拟图片数据
+### EMQX Neuron 接收模拟图片数据
 
-- NeuronEX 添加 MQTT 数据源
-在 NeuronEX Dashboard 上添加一个 MQTT 数据源 `mqtt_source`，Broker 地址配置为 `tcp://192.168.71.62:1883`，MQTT 主题为 `input` 。
+- EMQX Neuron 添加 MQTT 数据源
+在 EMQX Neuron Dashboard 上添加一个 MQTT 数据源 `mqtt_source`，Broker 地址配置为 `tcp://192.168.71.62:1883`，MQTT 主题为 `input` 。
 
 ![alt text](_assets/llm-source1.png)
 ![alt text](_assets/llm-source2.png)
 
-### NeuronEX 集成 Python 算法函数
+### EMQX Neuron 集成 Python 算法函数
 
-NeuronEX 提供了一套集成 Python 算法函数的 SDK 和[示例文档](../streaming-processing/portable_python.md)。
+EMQX Neuron 提供了一套集成 Python 算法函数的 SDK 和[示例文档](../streaming-processing/portable_python.md)。
 
 基于此框架， 用户可以在 Python 代码中添加调用 LLM 服务、编写提示词 Prompt、接收 LLM 的返回结果。以下为部分示例代码。
 
@@ -121,24 +121,24 @@ SYSTEM_PROMPT = '''
 ```
 - 添加 requirements 文件
 
-由于本例中使用了 OpenAI Python 函数库，NeuronEX 默认的 docker 镜像中未包含该函数库。需要在 requirements.txt 文件中添加以下内容：
+由于本例中使用了 OpenAI Python 函数库，EMQX Neuron 默认的 docker 镜像中未包含该函数库。需要在 requirements.txt 文件中添加以下内容：
 
 ```shell
 openai>=1.30.5
 ```
-- 将编写好的 Python 插件 myfunc.zip 导入到 NeuronEX
+- 将编写好的 Python 插件 myfunc.zip 导入到 EMQX Neuron
 
 ![alt text](_assets/llm-extension1.png)
 
 ![alt text](_assets/llm-extension2.png)
 
-考虑到国内的网络问题，有可能 OpenAI 库会安装失败。此时可进入 NeuronEX 容器内，手动执行以下命令进行安装：
+考虑到国内的网络问题，有可能 OpenAI 库会安装失败。此时可进入 EMQX Neuron 容器内，手动执行以下命令进行安装：
 
 ```shell
 pip install openai -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
-### NeuronEX 中编写规则计算
+### EMQX Neuron 中编写规则计算
 
 - 新建规则，并编写规则 SQL 语句
 
@@ -151,7 +151,7 @@ WHERE
   result.is_fire = True
 ```
 
-规则中的 `fire_detect` 为上一步中导入到 NeuronEX 的 Python 自定义函数，该 SQL 语句表示，接收每一条 mqtt_source 数据源发过来的数据，调用 `fire_detect` 函数处理 mqtt_source 数据源中的 pic 字段，并将函数处理结果中 `is_fire` 字段为 `True` 的结果发送到 EMQX 。mqtt_source 数据源的数据结构，参考后续步骤[Demo测试->发送模拟图片数据](#发送模拟图片数据) 。
+规则中的 `fire_detect` 为上一步中导入到 EMQX Neuron 的 Python 自定义函数，该 SQL 语句表示，接收每一条 mqtt_source 数据源发过来的数据，调用 `fire_detect` 函数处理 mqtt_source 数据源中的 pic 字段，并将函数处理结果中 `is_fire` 字段为 `True` 的结果发送到 EMQX 。mqtt_source 数据源的数据结构，参考后续步骤[Demo测试->发送模拟图片数据](#发送模拟图片数据) 。
 
 判断大模型返回的结果 `result`，只发送发现火情的结果。
 
@@ -218,5 +218,5 @@ client.disconnect()
 
 ## 总结
 
-在本文中，我们探讨了如何将 NeuronEX 软件与大型语言模型（LLM）相结合，实现对现场火灾安全的智能监控。
-通过 NeuronEX 与大型语言模型（LLM）的结合，我们不仅展示了 AI 及大语言模型在工业领域的强大应用潜力，还为工业企业提供了一种新的智能监控和运维方式。未来，随着技术的不断进步，我们有理由相信，工业领域的数字化转型将更加深入，AI 智能体将在工业监控和运维中扮演更加重要的角色。
+在本文中，我们探讨了如何将 EMQX Neuron 软件与大型语言模型（LLM）相结合，实现对现场火灾安全的智能监控。
+通过 EMQX Neuron 与大型语言模型（LLM）的结合，我们不仅展示了 AI 及大语言模型在工业领域的强大应用潜力，还为工业企业提供了一种新的智能监控和运维方式。未来，随着技术的不断进步，我们有理由相信，工业领域的数字化转型将更加深入，AI 智能体将在工业监控和运维中扮演更加重要的角色。

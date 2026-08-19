@@ -2,27 +2,27 @@
 
 ## Document Purpose
 
-This guide aims to help NeuronEX users, especially operations personnel or automation engineers, effectively utilize NeuronEX's integrated AI capabilities (combined with LLM models) to generate Python function plugins for complex edge data processing that is difficult to handle with NeuronEX SQL. 
+This guide aims to help EMQX Neuron users, especially operations personnel or automation engineers, effectively utilize EMQX Neuron's integrated AI capabilities (combined with LLM models) to generate Python function plugins for complex edge data processing that is difficult to handle with EMQX Neuron SQL. 
 
-Following these best practices ensures that generated code is functionally correct, performs well, is easy to maintain, and fully leverages NeuronEX's potential in industrial edge computing scenarios.
+Following these best practices ensures that generated code is functionally correct, performs well, is easy to maintain, and fully leverages EMQX Neuron's potential in industrial edge computing scenarios.
 
 ## Background
 
-NeuronEX provides powerful streaming SQL processing capabilities that can meet most industrial data cleaning, transformation, aggregation, and alerting requirements at the edge. 
+EMQX Neuron provides powerful streaming SQL processing capabilities that can meet most industrial data cleaning, transformation, aggregation, and alerting requirements at the edge. 
 
 However, when facing scenarios such as state maintenance judgments (such as continuous increment detection), complex format conversions, or specific business logic calculations, SQL's expressive capabilities are limited.
 
-NeuronEX supports writing extension functions in languages like Python to address this limitation, but traditionally this requires users to have programming skills and handle development, debugging, and deployment processes. By integrating LLM, NeuronEX has implemented a simplified workflow of "**natural language description** -> **AI-generated Python code** -> **automatic deployment** -> **SQL calling**", greatly reducing the development barrier and improving response time.
+EMQX Neuron supports writing extension functions in languages like Python to address this limitation, but traditionally this requires users to have programming skills and handle development, debugging, and deployment processes. By integrating LLM, EMQX Neuron has implemented a simplified workflow of "**natural language description** -> **AI-generated Python code** -> **automatic deployment** -> **SQL calling**", greatly reducing the development barrier and improving response time.
 
 ## Feature Introduction
 
-Using AI-generated Python plugin functionality in NeuronEX mainly involves the following steps: installation, configuring AI models, using the AI function generation feature, and testing and using generated plugins in rules.
+Using AI-generated Python plugin functionality in EMQX Neuron mainly involves the following steps: installation, configuring AI models, using the AI function generation feature, and testing and using generated plugins in rules.
 
 ### Installation
 
-Starting from version 3.5.1, NeuronEX provides Docker image packages supporting AI functionality: neuronex:3.5.1-ai and neuronex:3.5.1-ai-amd64. The image packages have pre-installed the Python dependencies required for interacting with LLM models.
+Starting from version 3.5.1, EMQX Neuron provides Docker image packages supporting AI functionality: neuronex:3.5.1-ai and neuronex:3.5.1-ai-amd64. The image packages have pre-installed the Python dependencies required for interacting with LLM models.
 
-Use the following commands to download and run NeuronEX:
+Use the following commands to download and run EMQX Neuron:
 
 ```shell
 # Download x86 image and run container
@@ -36,20 +36,20 @@ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=
 
 ### AI Model Configuration
 
-Before using the AI-generated Python plugin feature, you need to add LLM model configuration information on the NeuronEX **System Configuration** -> **AI Model Configuration** page, including the LLM model type, API Key, Endpoint address, and model name. For the list of models supported by NeuronEX, please refer to the [AI Model Configuration](../admin/sys-configuration.md#ai-model-configuration) page.
+Before using the AI-generated Python plugin feature, you need to add LLM model configuration information on the EMQX Neuron **System Configuration** -> **AI Model Configuration** page, including the LLM model type, API Key, Endpoint address, and model name. For the list of models supported by EMQX Neuron, please refer to the [AI Model Configuration](../admin/sys-configuration.md#ai-model-configuration) page.
 
-You can obtain API Keys from the official websites of these model vendors, add model configurations on the NeuronEX page, and enable them. Multiple large models can be configured on the page simultaneously, but only one model can be enabled for use.
+You can obtain API Keys from the official websites of these model vendors, add model configurations on the EMQX Neuron page, and enable them. Multiple large models can be configured on the page simultaneously, but only one model can be enabled for use.
 
 ![alt text](_assets/llm-config-en.png)
 
 ::: tip
-1. Please ensure that NeuronEX can connect to the internet normally and access the model's API.
+1. Please ensure that EMQX Neuron can connect to the internet normally and access the model's API.
 2. Small models or excessively outdated models will affect the quality of generated Python plugins. The models in the above table are recommended, and new models released by various vendors can also be used in the future.
 :::
 
 ### AI-Generated Python Plugins
 
-After configuring the LLM model, go to the NeuronEX **Data Processing** -> **Extensions** page, click **AI Generate Function** to enter the AI function generation page:
+After configuring the LLM model, go to the EMQX Neuron **Data Processing** -> **Extensions** page, click **AI Generate Function** to enter the AI function generation page:
 
 ![alt text](_assets/llm-python1-en.png)
 
@@ -67,7 +67,7 @@ Click the **Generate Function** button, and the large model will generate Python
 
 ![alt text](_assets/llm-python3-en.png)
 
-Click the **Deploy Function** button in the above image, and the generated Python code will be automatically deployed to NeuronEX, with a popup indicating successful deployment. If you have questions about the generated code, you can ask in the AI dialog box.
+Click the **Deploy Function** button in the above image, and the generated Python code will be automatically deployed to EMQX Neuron, with a popup indicating successful deployment. If you have questions about the generated code, you can ask in the AI dialog box.
 
 ![alt text](_assets/llm-python4-en.png)
 
@@ -299,6 +299,6 @@ HOPPINGWINDOW(ss, 10, 5)
 
 ## Summary
 
-Through the above examples, we can see that the AI-generated Python plugin feature can quickly generate Python functions that meet specific requirements and automatically deploy them to NeuronEX for easy calling in rules. 
+Through the above examples, we can see that the AI-generated Python plugin feature can quickly generate Python functions that meet specific requirements and automatically deploy them to EMQX Neuron for easy calling in rules. 
 
 You can refer to the above examples and combine them with actual business requirements to generate corresponding Python functions.

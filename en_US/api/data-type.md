@@ -4,14 +4,14 @@
 
 ### Node
 
-In NeuronEX, each node can connect to a device or a northbound application.
+In EMQX Neuron, each node can connect to a device or a northbound application.
 
 * In the device node, you can add and manage device tags.
 * In the northbound node, you can select the data groups that you need to subscribe to.
 
 ### Group
 
-You can create multiple data groups under each node to categorize tags. For example, if a device is connected to multiple temperature sensors and multiple humidity sensors, you can create two data groups, temperature and humidity to categorize the collected tags. NeuronEX uploads the collected data to the northbound application by group.
+You can create multiple data groups under each node to categorize tags. For example, if a device is connected to multiple temperature sensors and multiple humidity sensors, you can create two data groups, temperature and humidity to categorize the collected tags. EMQX Neuron uploads the collected data to the northbound application by group.
 
 ### Tag
 
@@ -19,7 +19,7 @@ You can create multiple collection tags under each group. For example, if a temp
 
 ### Plugin
 
-In NeuronEX, each plugin corresponds to an implementation of a protocol. For example, one Modbus TCP protocol corresponds to one plugin, and the MQTT protocol corresponds to one plugin.
+In EMQX Neuron, each plugin corresponds to an implementation of a protocol. For example, one Modbus TCP protocol corresponds to one plugin, and the MQTT protocol corresponds to one plugin.
 
 ## Data types
 

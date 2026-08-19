@@ -1,11 +1,11 @@
 
 # Query language elements
 
-NeuronEX provides a variety of elements for building queries. They are summarized below.
+EMQX Neuron provides a variety of elements for building queries. They are summarized below.
 
 | Element               | Summary                                                                                                                                                                                                                                       |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [SELECT](#select)     | SELECT is used to retrieve rows from input streams and enables the selection of one or many columns from one or many input streams in NeuronEX.                                                                                                |
+| [SELECT](#select)     | SELECT is used to retrieve rows from input streams and enables the selection of one or many columns from one or many input streams in EMQX Neuron.                                                                                                |
 | [FROM](#from)         | FROM specifies the input stream. The FROM clause is always required for any SELECT statement.                                                                                                                                                 |
 | [JOIN](#join)         | JOIN is used to combine records from two or more input streams. JOIN includes LEFT, RIGHT, FULL & CROSS. Join can apply to multiple streams join or stream/table join. To join multiple streams, it must run within a [window](./windows.md). |
 | [WHERE](#where)       | WHERE specifies the search condition for the rows returned by the query.                                                                                                                                                                      |
@@ -16,7 +16,7 @@ NeuronEX provides a variety of elements for building queries. They are summarize
 
 ## SELECT
 
-Retrieves rows from input streams and enables the selection of one or many columns from one or many input streams in NeuronEX.
+Retrieves rows from input streams and enables the selection of one or many columns from one or many input streams in EMQX Neuron.
 
 ### Syntax
 
@@ -398,7 +398,7 @@ GROUP BY <group by spec>
 
 **<window_type>**
 
-Specifies any NeuronEX supported Windowing, see [windows](windows.md) for more info.
+Specifies any EMQX Neuron supported Windowing, see [windows](windows.md) for more info.
 
 **< column_expression >**
 
@@ -548,4 +548,4 @@ FROM tbl
 
 ## Use reserved keywords or special characters
 
-If you'd like to use reserved keywords or special characters in rule SQL or streams management, please refer to [NeuronEX lexical elements](lexical_elements.md).
+If you'd like to use reserved keywords or special characters in rule SQL or streams management, please refer to [EMQX Neuron lexical elements](lexical_elements.md).

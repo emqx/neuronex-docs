@@ -2,11 +2,11 @@
 
 <span style="background:green;color:white;">Stream</span>        <span style="background:green;color:white">Scan table</span>
 
-The NeuronEX data processing module can obtain data from the HTTP server through the `HTTP Pull` type of data source, which can be used as a data source for streams and scan tables.
+The EMQX Neuron data processing module can obtain data from the HTTP server through the `HTTP Pull` type of data source, which can be used as a data source for streams and scan tables.
 
 ## Create stream
 
-Log in to NeuronEX and click **Data Processing** -> **Source**. On the **Stream** tab, click **Create Stream**.
+Log in to EMQX Neuron and click **Data Processing** -> **Source**. On the **Stream** tab, click **Create Stream**.
 
 In the pop-up **Source**/**Create** page, enter the following configuration:
 
@@ -42,7 +42,7 @@ In the pop-up **Source**/**Create** page, enter the following configuration:
 
    - **HTTP Headers**: HTTP request headers that need to be sent with the HTTP request.
 
-   - **Response type**: Response type, which can be `code` or `body`. If it is `code`, NeuronEX will check the HTTP response code to determine the response status. If `body` is used, NeuronEX checks the HTTP response body, requires it to be in JSON format, and checks the value of the code field. Defaults to `code`.
+   - **Response type**: Response type, which can be `code` or `body`. If it is `code`, EMQX Neuron will check the HTTP response code to determine the response status. If `body` is used, EMQX Neuron checks the HTTP response body, requires it to be in JSON format, and checks the value of the code field. Defaults to `code`.
 
    - **oAuth**: Configure the OAuth verification process. 
 
@@ -108,7 +108,7 @@ default:
 
 ## Create scan table
 
-HTTP pull sources support lookup tables. Log in to NeuronEX and click **Data Processing** -> **Source**. On the **Scan Table** tab, click **Create Scan Table**.
+HTTP pull sources support lookup tables. Log in to EMQX Neuron and click **Data Processing** -> **Source**. On the **Scan Table** tab, click **Create Scan Table**.
 
 - **Table Name**: Enter the table name
 - **Whether the schema stream**: Check to confirm whether it is a structured table. If it is a structured table, you need to add further table fields.
@@ -123,9 +123,9 @@ HTTP pull sources support lookup tables. Log in to NeuronEX and click **Data Pro
 
 ## Example
 
-This example uses the HTTP Pull source to read the NeuronEX API interface `/api/neuron/node/state` to obtain the southbound driver status information. In this process, it will also involve obtaining the NeuronEX Token authentication information.
+This example uses the HTTP Pull source to read the EMQX Neuron API interface `/api/neuron/node/state` to obtain the southbound driver status information. In this process, it will also involve obtaining the EMQX Neuron Token authentication information.
 
-In this example, the version of NeuronEX used is 3.4.1.
+In this example, the version of EMQX Neuron used is 3.4.1.
 
 ```shell
 docker run -d --name neuronex -p 8077:8085 --log-opt max-size=100m emqx/neuronex:3.4.1
@@ -137,15 +137,15 @@ Select **Stream** -> **Create Stream**, and on the **Create Stream** page, choos
 
 ![http_ex_1_en](_assets/http_ex_1_en.png)
 
-In the following image, `.token` is the dynamically obtained NeuronEX Token authentication information, and the method to obtain it is shown in the next image.
+In the following image, `.token` is the dynamically obtained EMQX Neuron Token authentication information, and the method to obtain it is shown in the next image.
 
 ![http_ex_2_en](_assets/http_ex_2_en.png)
 
-The following image shows how to configure the obtained NeuronEX Token, which includes the following parameters:
+The following image shows how to configure the obtained EMQX Neuron Token, which includes the following parameters:
 
 - access
-  - url: http://192.168.71.22:8077/api/login  is the NeuronEX login address
-  - body: {"name":"admin","password":"0000"}  is the username and password required for NeuronEX login
+  - url: http://192.168.71.22:8077/api/login  is the EMQX Neuron login address
+  - body: {"name":"admin","password":"0000"}  is the username and password required for EMQX Neuron login
   - expire: the expiration time of the token, in seconds, which is 3600 seconds
 
 ![http_ex_3_en](_assets/http_ex_3_en.png)
@@ -154,18 +154,18 @@ To know the return result of access, you can use the F12 browser debugging tool 
 
 ![alt text](_assets/http_ex_4.png)
 
-The reason for configuring the Authorization field in the second image is that NeuronEX automatically enables authentication by default, so manual configuration is required. You can find the Authorization field in the Headers of each NeuronEX API request using the F12 browser debugging tool.
+The reason for configuring the Authorization field in the second image is that EMQX Neuron automatically enables authentication by default, so manual configuration is required. You can find the Authorization field in the Headers of each EMQX Neuron API request using the F12 browser debugging tool.
 
 ![http_ex_5_en](_assets/http_ex_5.png)
 
 ::: tip
 
-In this example, the NeuronEX port used is 8077. If you are using the default port 8085, please replace the port with 8085 in all configurations.
+In this example, the EMQX Neuron port used is 8077. If you are using the default port 8085, please replace the port with 8085 in all configurations.
 
 :::
 
 ### View stream results
 
-Select **Rules** -> **Create Rule**, on the **Create Rule** page, choose the stream `http123` created in the previous step, and enable rule debugging. You will be able to see the southbound driver status information obtained from the NeuronEX API interface `/api/neuron/node/state`, indicating that the http pull source has successfully retrieved data.
+Select **Rules** -> **Create Rule**, on the **Create Rule** page, choose the stream `http123` created in the previous step, and enable rule debugging. You will be able to see the southbound driver status information obtained from the EMQX Neuron API interface `/api/neuron/node/state`, indicating that the http pull source has successfully retrieved data.
 
 ![alt text](_assets/http_ex_6_en.png)

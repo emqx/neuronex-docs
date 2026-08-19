@@ -3,11 +3,11 @@
 <span style="background:green;color:white;padding:1px;margin:2px">Stream</span>
 <span style="background:green;color:white;padding:1px;margin:2px">Scan table</span>
 
-The NeuronEX data processing module can generate simulation data through the `Simulator` type of data source and provide a test data source when creating or updating rules.
+The EMQX Neuron data processing module can generate simulation data through the `Simulator` type of data source and provide a test data source when creating or updating rules.
 
 ## Create stream
 
-Log in to NeuronEX and click **Data Processing** -> **Source**. On the **Stream Management** tab, click **Create Stream**.
+Log in to EMQX Neuron and click **Data Processing** -> **Source**. On the **Stream Management** tab, click **Create Stream**.
 
 In the pop-up **Source**/**Create** page, enter the following configuration:
 

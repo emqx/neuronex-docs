@@ -4,7 +4,7 @@
 
 ## 部署要求
 使用Python 便携插件，需要有 Python3 环境。
-- 如果您通过安装包的方式安装 NeuronEX ，则需要
+- 如果您通过安装包的方式安装 EMQX Neuron ，则需要
   
   1. 手动安装 python 3.x 环境。
   2. 通过 pip 安装`ekuiper`和`pynng`库
@@ -12,7 +12,7 @@
   pip install ekuiper pynng
   ```
 
-- 如果您通过 docker 的方式安装 NeuronEX ，请使用 [neuronex:3.x.x](../installation/docker.md#docker-容器-python-运行环境) 类型的 NeuronEX 镜像，该镜像已经包含了 Python3 环境，以及一些相关的函数库。
+- 如果您通过 docker 的方式安装 EMQX Neuron ，请使用 [neuronex:3.x.x](../installation/docker.md#docker-容器-python-运行环境) 类型的 EMQX Neuron 镜像，该镜像已经包含了 Python3 环境，以及一些相关的函数库。
 
 ## pysam插件整体介绍
 
@@ -61,7 +61,7 @@ pysam插件的目录内包含如下文件：
 }
 ```
 :::tip 提示
-`pysam.json`文件是插件的元数据文件,文件名称`pysam`必须与 NeuronEX Dashboard上**数据处理** -> **扩展** -> **便携插件**页签上，点击**创建便携插件**时填入的`插件名称`相同。
+`pysam.json`文件是插件的元数据文件,文件名称`pysam`必须与 EMQX Neuron Dashboard上**数据处理** -> **扩展** -> **便携插件**页签上，点击**创建便携插件**时填入的`插件名称`相同。
 :::
 
 
@@ -120,7 +120,7 @@ zip -r pysam.zip ./*
 <img src="./_assets/pysam_uishow.png" alt="pysam" style="zoom:100%;" />
 
 ::: tip 提示
-在安装完插件后，NeuronEX不需要重启，即可正常使用插件功能。
+在安装完插件后，EMQX Neuron不需要重启，即可正常使用插件功能。
 :::
 
 ## 插件使用示例

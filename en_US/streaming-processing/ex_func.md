@@ -28,7 +28,7 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=9876)
 ```
 
-## Create an external service in NeuronEX
+## Create an external service in EMQX Neuron
 
 Click **Data Processing** -> **Extensions**, on the **External Service** tab, click **Add External Service**.
 
@@ -39,7 +39,7 @@ Click **Data Processing** -> **Extensions**, on the **External Service** tab, cl
 ![alt text](_assets/ex_service_create_en.png)
 
 :::tip
-  Ensure that NeuronEX’s network and the Python external service’s network are connected.
+  Ensure that EMQX Neuron’s network and the Python external service’s network are connected.
 :::
 
 ## Using external service in rules

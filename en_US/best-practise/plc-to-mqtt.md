@@ -105,7 +105,7 @@ Access <http://localhost:8085> and log in with default credentials: Username: `a
 
 ### Step 2: Add Southbound Device (Data Source)
 
-**Southbound devices** are connections between **NeuronEX** and **PLCs**.
+**Southbound devices** are connections between **EMQX Neuron** and **PLCs**.
 
 1. Go to "**Data Collection**" → "**Southbound Devices**"
 

@@ -1,5 +1,27 @@
 # Release history
 
+## v3.9.3
+
+Release Date: 2026-08-26
+
+### Enhancements
+
+- Added a Mazak CNC driver that collects real-time operating data from Mazak CNC machines through passive UDP listening.
+
+- Added a Brother CNC driver that accesses Brother machining centers through the Brother NC Communication Device Protocol and collects operating data such as machine coordinates, spindle, tools, alarms, part counts, program numbers, PLC soft elements, and tool compensation.
+
+- Enhanced the security capabilities of the northbound OPCUA Server driver by removing the built-in fixed certificate and supporting dynamic certificate generation, improving service security and flexibility.
+
+- Expanded the OPCUA driver’s data type adaptation capabilities to support parsing and ingestion of DateTime and Localized Text array data types.
+
+- Optimized the Allen-Bradley 5000 EtherNet/IP driver:
+
+  - Added batch tag-writing support, allowing multiple tags to be written simultaneously through the API or neuron Sink.
+
+  - Optimized the batch tag-reading logic so that errors when reading an individual tag have as little impact as possible on the collection results of other valid tags.
+
+- Improved static tag data adaptation for the northbound MQTT driver. Previously, only String data was supported; support has now been expanded to common data types including Float, Bool, and Int.
+
 ## v3.9.2
 
 Release Date: 2026-08-14

@@ -8001,7 +8001,7 @@
 			"get": {
 				"summary": "Describe an udf",
 				"deprecated": false,
-				"description": "The API is used to find out the plugin which defines the UDF. [APIs to handle function plugin with multiple functions](doc-3173101)",
+				"description": "The API is used to find out the plugin which defines the UDF. APIs to handle function plugin with multiple functions",
 				"tags": ["plugins"],
 				"parameters": [{
 					"name": "name",
@@ -8051,7 +8051,7 @@
 			"get": {
 				"summary": "Register functions",
 				"deprecated": false,
-				"description": "The API aims to register all exported functions in an auto loaded function plugin or when the exported functions are changed. If the plugin was loaded by CLI create command or REST create API with functions property specified, then this is not needed. The register API will persist the functions list in the kv. Unless the exported functions are changed, users only need to register it once.\n[APIs to handle function plugin with multiple functions](doc-3173101)",
+				"description": "The API aims to register all exported functions in an auto loaded function plugin or when the exported functions are changed. If the plugin was loaded by CLI create command or REST create API with functions property specified, then this is not needed. The register API will persist the functions list in the kv. Unless the exported functions are changed, users only need to register it once.\nAPIs to handle function plugin with multiple functions",
 				"tags": ["plugins"],
 				"parameters": [{
 					"name": "plugin_name",

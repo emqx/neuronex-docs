@@ -14,6 +14,10 @@ EMQX Neuron 允许用户自定义算法集成，以支持更多功能。 用户�
 
 完成上述设置后，点击**提交**完成插件的创建。新建插件将出现在该页面的插件列表中，您可以在此查看或者删除插件。
 
+:::tip 提示
+Python 便携插件依赖 Python 3 与 eKuiper Python SDK。**请使用标准 Docker 镜像 `emqx/neuronex:x.y.z`。** `*-slim` 镜像以及未自行安装 Python 的二进制包无法完成插件进程握手。详见 [部署要求](portable_python.md#部署要求) 和 [Docker 容器 Python 运行环境](../installation/docker.md#docker-容器-python-运行环境)。
+:::
+
 ## 便携插件开发
 
 开发插件包括子模块和主程序两部分, Python SDK 提供了 python 语言的源，目标和函数 API。

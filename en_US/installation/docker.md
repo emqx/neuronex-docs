@@ -34,9 +34,9 @@ For more startup parameters, please refer to the [Configuration Management](../a
 
 EMQX Neuron provides three types of Docker images:
 
-- **neuronex:3.x.x**
+- **neuronex:3.x.x** (standard image)
 
-The `neuronex:3.x.x` image includes the Python runtime environment. If you need Python algorithm plugins, please use this type.
+The `neuronex:3.x.x` standard image includes the Python runtime and the eKuiper Python SDK (`ekuiper`, `pynng`). **Use this image to install and run eKuiper Python portable plugins, including AI-generated function plugins.** The `*-extend` image is based on the standard image and includes the same runtime.
 
 ```bash
 # run EMQX Neuron by neuronex:3.x.x
@@ -46,7 +46,11 @@ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex
 
 - **neuronex:3.x.x-slim**
 
-The `neuronex:3.x.x-slim` image does **not** include the Python runtime environment. It is smaller. If you do not use Python-related algorithm plugins, please use this type.
+The `neuronex:3.x.x-slim` image does **not** include the Python runtime. It is smaller. **It does not support** eKuiper Python portable plugins: plugin install cannot start a Python process for handshake. Use this image only if you do not need Python algorithm plugins.
+
+::: tip
+To use **Data Processing → Extensions → Portable Plugins**, or to deploy **AI-generated functions** to eKuiper, use the standard image `emqx/neuronex:x.y.z`. Do not use `*-slim`. Binary packages (tar/deb/rpm) also omit Python by default; install Python 3 and run `pip install ekuiper pynng`. See [Python portable plugin example](../streaming-processing/portable_python.md#deployment-requirements).
+:::
 
 ```bash
 # run EMQX Neuron by neuronex:3.x.x-slim

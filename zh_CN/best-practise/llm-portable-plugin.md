@@ -16,19 +16,19 @@ EMQX Neuron 支持通过 Python 等语言编写扩展函数来弥补这一不足
 
 ### 安装
 
-EMQX Neuron 从 3.5.1 版本开始，提供了支持 AI 功能 Docker 镜像包 neuronex:3.5.1-ai 和 neuronex:3.5.1-ai-amd64。该镜像包已预装了与 LLM 模型交互所需的 Python 依赖库。
+AI 生成的函数会作为 eKuiper **Python 便携插件**安装并运行，因此运行环境必须包含 Python 3 与 eKuiper Python SDK（`ekuiper`、`pynng`）。
 
-使用以下命令下载并运行 EMQX Neuron
+:::tip 提示
+**请使用标准 Docker 镜像 `emqx/neuronex:x.y.z`（或 `*-extend`）。** `*-slim` 不含 Python，部署插件时进程握手会失败。二进制安装包需自行安装 Python 3 并执行 `pip install ekuiper pynng`。镜像类型说明见 [Docker 容器 Python 运行环境](../installation/docker.md#docker-容器-python-运行环境)。
+:::
+
+EMQX Neuron 从 3.5.1 版本开始，也曾提供带 LLM 依赖的 Docker 镜像 `neuronex:3.5.1-ai` 和 `neuronex:3.5.1-ai-amd64`。当前版本在标准镜像中即可生成并部署 Python 便携插件。
+
+使用以下命令下载并运行标准镜像：
 
 ```shell
-# 下载x86镜像，并运行容器
-docker pull emqx/neuronex:3.5.1-ai
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:3.5.1-ai
-
-# 下载arm64镜像，并运行容器
-docker pull emqx/neuronex:3.5.1-ai-amd64
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:3.5.1-ai-amd64
-
+docker pull emqx/neuronex:3.9.2
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:3.9.2
 ```
 
 ### AI 模型配置

@@ -20,13 +20,13 @@ Not supported.
 
 EMQX Neuron supports Docker deployment. EMQX Neuron provides two types of Docker installation packages:
 
-- neuronex:3.x.x
+- neuronex:3.x.x (standard image)
     
-    The `neuronex:3.x.x` type installation package integrates the Python runtime environment. If you need to use Python algorithm plugins, please use this type of image.
+    The `neuronex:3.x.x` standard image includes the Python runtime and the eKuiper Python SDK. Use this image to install and run eKuiper Python portable plugins (including AI-generated functions).
 
 - neuronex:3.x.x-slim
     
-    The `neuronex:3.x.x-slim` type installation package does not integrate the Python runtime environment. The installation package size is smaller. If you do not use Python-related algorithm plugins, please use this type of image.
+    The `neuronex:3.x.x-slim` image does not include the Python runtime. It is smaller and **does not support** Python portable plugins. Use it only if you do not need Python algorithm plugins.
 
 ## Does EMQX Neuron support Kubernetes, KubeEdge, and K3S deployment?
 

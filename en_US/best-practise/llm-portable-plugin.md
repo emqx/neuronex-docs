@@ -20,18 +20,19 @@ Using AI-generated Python plugin functionality in EMQX Neuron mainly involves th
 
 ### Installation
 
-Starting from version 3.5.1, EMQX Neuron provides Docker image packages supporting AI functionality: neuronex:3.5.1-ai and neuronex:3.5.1-ai-amd64. The image packages have pre-installed the Python dependencies required for interacting with LLM models.
+AI-generated functions are installed and run as eKuiper **Python portable plugins**, so the runtime must include Python 3 and the eKuiper Python SDK (`ekuiper`, `pynng`).
 
-Use the following commands to download and run EMQX Neuron:
+::: tip
+**Use the standard Docker image `emqx/neuronex:x.y.z` (or `*-extend`).** `*-slim` does not include Python; plugin deploy will fail at process handshake. For binary packages, install Python 3 and run `pip install ekuiper pynng`. See [Docker Container Python Runtime Environment](../installation/docker.md#docker-container-python-runtime-environment).
+:::
+
+Starting from version 3.5.1, EMQX Neuron also provided Docker images with LLM dependencies: `neuronex:3.5.1-ai` and `neuronex:3.5.1-ai-amd64`. Current versions can generate and deploy Python portable plugins on the standard image.
+
+Use the following commands to download and run the standard image:
 
 ```shell
-# Download x86 image and run container
-docker pull emqx/neuronex:3.5.1-ai
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:3.5.1-ai
-
-# Download arm64 image and run container
-docker pull emqx/neuronex:3.5.1-ai-amd64
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:3.5.1-ai-amd64
+docker pull emqx/neuronex:3.9.2
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:3.9.2
 ```
 
 ### AI Model Configuration

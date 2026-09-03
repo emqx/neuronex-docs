@@ -1,6 +1,15 @@
 # Data Collection
 
-This section mainly introduces how to add southbound devices in EMQX Neuron (formerly NeuronEX), bidirectional communication with the devices, and connect them to external applications such as cloud platforms or data processing module.
+Start here to see which protocols are supported, then add a southbound driver, configure tags, and monitor values. Northbound reporting is covered in [Data Forwarding](./north-apps/north-apps.md).
+
+Read this section in sidebar order:
+
+1. [List of Data Collection Plugins](../introduction/plugin-list/plugin-list.md): which protocols you can connect
+2. [Create a Southbound Driver](./south-devices/south-devices.md): create the node, groups, and tags
+3. [Southbound Drivers](./south-devices/catalog.md): parameters and examples per protocol
+4. [Data Monitoring](../admin/monitoring.md): confirm tags are collecting
+5. [Managing Plugins](./ecp_edge_plugin.md): install or replace custom plugins
+
 
 ## Capabilities of data collection
 
@@ -60,7 +69,7 @@ The following is the workflow of how to set up EMQX Neuron to convert various in
     Repeat steps 2 and 3 until all necessary drives, groups, and tags have been created.
     :::
 
-4. [Create a northbound application and subscribe to a southbound device](./north-apps/north-apps.md): Select the required northbound plugin to realize data transmission. Each northbound plugin can only connect to one destination, such as stream processing module, EMQX message middleware, industrial Internet platform, etc. After creating the northbound device, you need to subscribe to the group. In this step, there is no need to set up groups and tags. Northbound nodes can subscribe to any group created in southbound nodes. After the subscription is established, the data of the corresponding group will be continuously published to the northbound node according to the frequency of the group.
+4. To send data to MQTT, the cloud, or a processing engine, go to [Data Forwarding](./north-apps/north-apps.md): create a northbound application and subscribe to southbound groups. Each northbound plugin connects to one destination. After the subscription is established, group data is published to the northbound node at the collection frequency.
 
 The overall process is shown in the figure below:
 

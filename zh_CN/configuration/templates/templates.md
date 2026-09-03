@@ -15,7 +15,7 @@ EMQX Neuron 模板功能只支持南向插件。
 
 ### 添加模板
 
-点击**配置 -> 模板管理 -> 添加模板**打开**添加模板**对话框。
+点击**数据采集 -> 模板管理 -> 添加模板**打开**添加模板**对话框。
 
   ![Add template dialog](./assets/template_add_dialog.png)
 
@@ -54,7 +54,7 @@ EMQX Neuron 模板功能只支持南向插件。
 
 ## 基于模版新增设备
 
-点击**配置 -> 南向设备 -> 添加设备**打开**新增设备**对话框。
+点击**数据采集 -> 南向设备 -> 添加设备**打开**新增设备**对话框。
 
   ![Template instantiation](./assets/template_add_device.png)
 

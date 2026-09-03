@@ -1,5 +1,13 @@
 # Create northbound applications
 
+After southbound tags are collecting, use a northbound application to send data to MQTT, the cloud, or a processing engine.
+
+Read in this order:
+
+1. This page: create the northbound node
+2. [Subscribe to Southbound Data](../subscription.md): attach southbound groups to the application
+3. [Northbound Applications](./catalog.md): MQTT, Sparkplug B, Kafka, and other parameters and examples
+
 Plugins can be divided into northbound applications and southbound drivers. Northbound plugins are usually used to connect to cloud platforms or external applications.
 
 This section mainly introduces how to create northbound applications in EMQX Neuron.Currently EMQX Neuron mainly supports the following northbound plugins:

@@ -65,6 +65,10 @@
           "collapsed": true,
           "children": [
             {
+              "title": "组与点位",
+              "path": "configuration/groups-tags/groups-tags"
+            },
+            {
               "title": "基于模板配置",
               "path": "configuration/templates/templates"
             },
@@ -590,7 +594,7 @@
     },
     {
       "title": "数据转发",
-      "path": "configuration/north-apps/north-apps",
+      "path": "application/overview",
       "collapsed": true,
       "children": [
         {
@@ -897,6 +901,14 @@
             {
               "title": "窗口",
               "path": "streaming-processing/sqls/windows"
+            },
+            {
+              "title": "流语句",
+              "path": "streaming-processing/sqls/streams"
+            },
+            {
+              "title": "表语句",
+              "path": "streaming-processing/sqls/tables"
             }
           ]
         },
@@ -959,6 +971,14 @@
                 {
                   "title": "Image",
                   "path": "streaming-processing/sink/image"
+                },
+                {
+                  "title": "Redis",
+                  "path": "streaming-processing/sink/redis"
+                },
+                {
+                  "title": "AWS S3",
+                  "path": "streaming-processing/sink/aws-s3"
                 }
               ]
             }
@@ -976,6 +996,10 @@
             {
               "title": "外部算法函数示例",
               "path": "streaming-processing/ex_func"
+            },
+            {
+              "title": "外部服务配置",
+              "path": "streaming-processing/external_func"
             },
             {
               "title": "自定义 JavaScript 函数",
@@ -1068,6 +1092,10 @@
             {
               "title": "错误代码",
               "path": "api/error-code"
+            },
+            {
+              "title": "插件设置",
+              "path": "api/plugin-setting"
             },
             {
               "title": "API文档",
@@ -1291,7 +1319,7 @@
                     },
                     {
                       "title": "FAQ",
-                      "path": "configuration/south-devices/modbus-rtu/faq/faq"
+                      "path": "configuration/south-devices/modbus-rtu/faq"
                     }
                   ]
                 },
@@ -1306,7 +1334,7 @@
                     },
                     {
                       "title": "FAQ",
-                      "path": "configuration/south-devices/modbus-tcp/faq/faq"
+                      "path": "configuration/south-devices/modbus-tcp/faq"
                     }
                   ]
                 },
@@ -1434,8 +1462,12 @@
                   "collapsed": true,
                   "children": [
                     {
-                      "title": "Connect to NX1P",
-                      "path": "configuration/south-devices/omron-fins/example/nx1p/nx1p"
+                      "title": "Connect to CP2E",
+                      "path": "configuration/south-devices/omron-fins/example/cp2e/cp2e"
+                    },
+                    {
+                      "title": "FAQ",
+                      "path": "configuration/south-devices/omron-fins/faq"
                     }
                   ]
                 },
@@ -1449,6 +1481,10 @@
                       "path": "configuration/south-devices/omron-fins/example/nx1p/nx1p"
                     }
                   ]
+                },
+                {
+                  "title": "Hostlink Cmode",
+                  "path": "configuration/south-devices/hostlink/hostlink-cmode"
                 },
                 {
                   "title": "Beckhoff ADS",
@@ -1502,10 +1538,6 @@
                       "path": "configuration/south-devices/codesys3/demo"
                     }
                   ]
-                },
-                {
-                  "title": "Hostlink Cmode",
-                  "path": "configuration/south-devices/hostlink/hostlink-cmode"
                 }
               ]
             },
@@ -1691,7 +1723,7 @@
                   "children": [
                     {
                       "title": "Connect to Yabe",
-                      "path": "configuration/south-devices/bacnet-ip/example/yabe/yabe"
+                      "path": "configuration/south-devices/bacnet-ip/example/yabe"
                     }
                   ]
                 },
@@ -1779,7 +1811,7 @@
     },
     {
       "title": "Data Forwarding",
-      "path": "configuration/north-apps/north-apps",
+      "path": "application/overview",
       "collapsed": true,
       "children": [
         {
@@ -2086,6 +2118,14 @@
             {
               "title": "Windowing",
               "path": "streaming-processing/sqls/windows"
+            },
+            {
+              "title": "Stream Statements",
+              "path": "streaming-processing/sqls/streams"
+            },
+            {
+              "title": "Table Statements",
+              "path": "streaming-processing/sqls/tables"
             }
           ]
         },
@@ -2148,6 +2188,14 @@
                 {
                   "title": "Image",
                   "path": "streaming-processing/sink/image"
+                },
+                {
+                  "title": "Redis",
+                  "path": "streaming-processing/sink/redis"
+                },
+                {
+                  "title": "AWS S3",
+                  "path": "streaming-processing/sink/aws-s3"
                 }
               ]
             }
@@ -2164,6 +2212,10 @@
             {
               "title": "External algorithm function example",
               "path": "streaming-processing/ex_func"
+            },
+            {
+              "title": "External service configuration",
+              "path": "streaming-processing/external_func"
             },
             {
               "title": "Custom JavaScript function",
@@ -2258,6 +2310,10 @@
               "path": "api/error-code"
             },
             {
+              "title": "Plugin Configuration",
+              "path": "api/plugin-setting"
+            },
+            {
               "title": "API Documentation",
               "path": "https://docs.emqx.com/en/neuronex/latest/api/api-docs.html"
             }
@@ -2349,6 +2405,14 @@
           "title": "Integration and Industry",
           "collapsed": true,
           "children": [
+            {
+              "title": "LLM fire monitoring",
+              "path": "best-practise/llm-example"
+            },
+            {
+              "title": "Beverage production digital platform",
+              "path": "best-practise/smartfactory1"
+            },
             {
               "title": "Integrate MySQL data into your IIoT platform",
               "path": "best-practise/sql-data"

@@ -1,33 +1,30 @@
 # Managing plugins
 
-Plugins can be divided into northbound applications and southbound drivers. Northbound plugins are typically used to connect to cloud platforms or external applications like processing engines. Southbound plugins are communication drivers that implement specific protocols to access external devices. In order to implement protocol format conversion, at least one northbound plugin and one southbound plugin are required for data transmission and data collection respectively.
-
-After logging in to EMQX Neuron, you can click **Data Collection** -> **Plugin** to view the system's plugin list. You can also click the **Add Plugin** button in the upper left corner to install a custom plugin.
-
-You can visit the [plugin list page](../introduction/plugin-list/plugin-list.md) to get the complete list of plugins supported by EMQX Neuron.
+After you log in, open **Data Collection** -> **Plugin** to see installed plugins. For the full protocol list, see [List of Data Collection Plugins](../introduction/plugin-list/plugin-list.md). For custom development, see the [SDK Tutorial](../dev-guide/sdk-tutorial/sdk-tutorial.md).
 
 ## View available plugins
 
-The plugin management page displays all available plugins and detailed information, including plugin name, associated node type, and description information, as shown in the figure below. You can select plugins for northbound applications or southbound devices from the drop-down box.
+The plugin page lists name, type, category, version, and description. Use the drop-down to filter northbound applications or southbound devices.
 
 ![plugin-options](./_assets/plugin_options.png)
 
-Plugin types include the following three modes:
+Plugin types:
 
-* System: cannot be deleted, comes with the software
-* Custom: can be deleted, developed by the user or customized
+* **System**: shipped with the product, cannot be deleted, can be replaced.
+* **Custom**: user or custom-developed, can be deleted or replaced.
 
-## Add new plugin
+## Add a plugin
 
-On the plugin page, click the **Add plugin** button to upload the .so file and .json file of the plugin.
+Click **Add Plugin** in the upper left and upload the local `.so` and `.json` files.
 
 ![plugin-options](./_assets/plugin_add.png)
 
-For specific plugin development tutorials, please refer to [SDK Tutorial](../dev-guide/sdk-tutorial/sdk-tutorial.md).
+## Replace a plugin
 
-## Update existing plugin
+On a plugin card, click **Replace** and upload the new `.so` and `.json`. To replace an official plugin, contact the EMQ business team.
 
-On the plugin page, click the **Update plugin** button on each plugin to upload the .so file and .json file of the plugin.
+## CNC file upload
 
+Southbound CNC drivers can send files to the device.
 
-For specific plugin replacement and updates, please contact the EMQ business team.
+![cnc_file](_assets/cnc_file.png)

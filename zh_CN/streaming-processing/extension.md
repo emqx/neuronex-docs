@@ -136,7 +136,7 @@ if __name__ == '__main__':
 
 ### 外部算法函数示例
 
-请查阅[外部算法函数示例](./ex_func.md)。
+请查阅[外部算法函数示例](./ex_func.md)。用 JSON / protobuf 把已有 gRPC 或 REST 服务映射为 SQL 函数，见 [外部服务配置](./external_func.md)。
 
 
 <!-- ## 外部函数扩展

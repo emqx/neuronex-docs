@@ -1,29 +1,8 @@
 # Data collection plugin list
 
-Data collection plugins can be categorized into southbound driver plugins and northbound application plugins. Southbound plugins are communication drivers that implement specific protocols to access external devices. Northbound plugins are typically used to connect to cloud platforms or data stream processing modules. To achieve protocol format conversion, at least one southbound plugin and one northbound plugin are required for data transmission and collection, respectively.
+Southbound plugins collect device data by protocol. Northbound plugins send data to a cloud platform or processing engine. You need at least one of each for protocol conversion.
 
-After logging into EMQX Neuron, you can click on **Data Collection** -> **Plugin** to view the system's plugin list. You can also click the Add Plugin button in the upper-left corner to install custom plugins.
-
-## View Available Plugin Modules
-
-The plugin management page displays all available pluggable modules and detailed information, including the plugin name, associated node type, and description. As shown in the figure below, you can select plugins for northbound applications or southbound devices from the drop-down menu.
-
-Plugin types include:
-
-* System: Non-removable, comes with the software.
-* Custom: Removable, developed by users or custom developers.
-
-## Add New Pluggable Modules
-
-On the plugin page, click the **Add Plugin** button in the upper-left corner to upload the plugin file.
-
-For specific plugin development tutorials, please refer to the [SDK Tutorial](../../dev-guide/sdk-tutorial/sdk-tutorial.md).
-
-## Replace Existing Plugin Modules
-
-On the plugin page, click the **Replace** button on each plugin card to upload the local plugin file.
-
-For specific instructions on replacing and updating plugins, please contact the EMQ business team.
+To install or replace a custom plugin, see [Managing plugins](../../configuration/ecp_edge_plugin.md). For custom development, see the [SDK Tutorial](../../dev-guide/sdk-tutorial/sdk-tutorial.md).
 
 ## Southbound Plugin List
 
@@ -50,12 +29,15 @@ For specific instructions on replacing and updating plugins, please contact the 
 | Siemens S5 FetchWrite | Ethernet  | connect to Siemens PLCs with network expansion module CP443 |
 | Allen-Bradley DF1          | Serial port  |  - |
 | Allen-Bradley CIP EtherNet/IP                       | Ethernet    |  - |
+| Allen-Bradley 5000 EtherNet/IP                      | Ethernet    |  AB ControlLogix 55xx and CompactLogix 53xx |
 | Allen-Bradley ControlLogix 5500                              | Ethernet   | - |
 | Allen-Bradley MicroLogix 1400                             | Ethernet     | - |
 | Schneider PLC Modbus RTU                                     | Serial port    | - |
 | Schneider PLC Modbus TCP                                     | Ethernet  |  - |
 | Inovance PLC Modbus TCP                             | Ethernet  |  connect to Inovance PLC |
-| XINJE PLC Modbus RTU                 | Serial port  |  connect to XINJEXC/XD/XL series PLC |
+| XINJE PLC Modbus RTU                 | Serial port  |  connect to XINJE XC/XD/XL series PLC |
+| HollySys PLC Modbus TCP                             | Ethernet  |  HollySys LK/LE series PLC |
+| HollySys PLC Modbus RTU                             | Serial port  |  HollySys LK/LE series PLC |
 | ABB COMLI                                        | Serial port    |  connect to ABB PLC |
 | Omron Host Link                      | Serial port    |   connect to Omron PLC with HostLink Cmode |
 | Omron FINS on TCP         | Ethernet  |  connect to Omron PLC with FINS TCP |
@@ -87,6 +69,7 @@ For specific instructions on replacing and updating plugins, please contact the 
 | IEC 60870-5-103     | Ethernet/Serial port    | - |
 | IEC 60870-5-104     | Ethernet    | - |
 | IEC 61850           | Ethernet    | - |
+| DNP 3.0         | Ethernet  |  - |
 
 ### Building Automation
 
@@ -110,6 +93,12 @@ For specific instructions on replacing and updating plugins, please contact the 
 | DMG MORI | DMG MORI devices | Ethernet | MTconnect | Devices that support the MTconnect protocol |
 | Brother | Brother CNC devices | Ethernet | Brother CNC | |
 | Mazak | Mazak CNC devices | Ethernet | Mazak CNC | |
+
+### Other
+
+| Protocol Name | <div style="width:100pt">Communication Interface</div> | Remark |
+| ------------- | ------- | ----- |
+| HJ212-2017 | Ethernet / serial | Devices that support the HJ212-2017 environmental protocol |
 
 ## Northbound Plugins
 

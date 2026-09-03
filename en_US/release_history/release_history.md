@@ -554,7 +554,7 @@ Release Date: 2025-06-11
 
   - Data Statistics and Logs: Provides data statistics detail page for data storage scenarios, displays write error information, and supports downloading data storage logs.
 
-- [**Data Query and Analysis**](../datainsights/data_analysis.md)
+- **Data Query and Analysis** (this page has been removed)
 
   - Unified Entry: The new "Data Analysis" page integrates data browsing, SQL query, and result display functions.
 
@@ -586,7 +586,7 @@ Release Date: 2025-06-11
 
       - Supports chart zooming, downloading.
 
-- [**AI Data Analysis Assistant**](../datainsights/data_analysis.md#5-ai-data-analysis-assistant-integration)
+- **AI Data Analysis Assistant** (this page has been removed)
 
   - UI Entry: Integrated in the AI data analysis button on the "Data Analysis" page, as well as AI Query in tag operation items.
 
@@ -610,9 +610,9 @@ Release Date: 2025-06-11
 
     - On the System Configuration -> AI Model Configuration page, users need to configure and enable AI models to use AI data analysis and AI plugin writing functions.
 
-  - In EMQX Neuron 3.6.0, the Docker images emqx/neuronex:3.6.0-ai and emqx/neuronex:3.6.0-ai-arm64 include Python dependency libraries required for LLM operation by default, allowing users to use this feature directly. When using deb, rpm, zip, or other Docker images, users need to manually configure Python dependency libraries before using EMQX Neuron AI features. For detailed dependency library configuration, please refer to [AI Feature Environment Configuration Guide](../admin/sys-configuration.md#ai-feature-environment-configuration-guide).
+  - In EMQX Neuron 3.6.0, the Docker images emqx/neuronex:3.6.0-ai and emqx/neuronex:3.6.0-ai-arm64 include Python dependency libraries required for LLM operation by default, allowing users to use this feature directly. When using deb, rpm, zip, or other Docker images, users need to manually configure Python dependency libraries before using EMQX Neuron AI features. Current versions use the standard image; see [AI-generated Python Plugin](../best-practise/llm-portable-plugin.md).
 
-- [**Dashboard**](../datainsights/dashboards.md)
+- **Dashboard** (this page has been removed)
 
   - Main Page: Lists existing dashboards, supports search, pagination, create, edit, copy, delete, enter, and other operations.
 
@@ -652,7 +652,7 @@ Release Date: 2025-06-11
 
       - Dashboard uses grid system for alignment.
 
-- [**Node-RED Integration**](../application/nodered.md)
+- **Node-RED Integration** (this page has been removed)
 
   - In EMQX Neuron 3.6.0, the Docker images `emqx/neuronex:3.6.0-ai` and `emqx/neuronex:3.6.0-ai-arm64` include Node-RED v4.0.9 by default. Users can enable Node-RED service as needed in the application list (disabled by default).
 

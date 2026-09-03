@@ -28,6 +28,7 @@ Browse southbound drivers by protocol family. For the generic setup steps, see [
 - [Siemens S5 FetchWrite](siemens-fetchwrite/fetchwrite.md)
 - [Omron FINS TCP](omron-fins/omron-fins.md)
 - [Omron FINS UDP](omron-fins/omron-fins-udp.md)
+- [Hostlink Cmode](hostlink/hostlink-cmode.md)
 - [Beckhoff ADS](ads/ads.md)
 - [ABB COMLI](comli/comli.md)
 - [Panasonic Mewtocol](panasonic-mewtocol/overview.md)
@@ -35,7 +36,6 @@ Browse southbound drivers by protocol family. For the generic setup steps, see [
 - [KUKA Ethernet KRL TCP](kuka/kuka.md)
 - [GE SRTP](srtp/srtp.md)
 - [CODESYS V3](codesys3/codesys3.md)
-- [Hostlink Cmode](hostlink/hostlink-cmode.md)
 
 ## OPC
 
@@ -54,12 +54,12 @@ Browse southbound drivers by protocol family. For the generic setup steps, see [
 
 ## CNC
 
+- [Focas CNC](fanuc-focas/fanuc-focas.md)
 - [HEIDENHAIN CNC](heidenhain-cnc/heidenhain-cnc.md)
 - [KND CNC](knd/knd.md)
 - [Brother CNC](brother-cnc/brother-cnc.md)
 - [Mazak CNC](mazak-udp/mazak-udp.md)
 - [MTConnect](mtconnect/mtconnect.md)
-- [Focas CNC](fanuc-focas/fanuc-focas.md)
 
 ## Building and Environment
 

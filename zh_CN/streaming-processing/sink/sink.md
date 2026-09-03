@@ -18,7 +18,8 @@
 - [Nop](./nop.md)：不输出，用于性能测试。
 - [Kafka](./kafka.md)：输出到 Kafka 。
 - [Image sink](./image.md)：输出到图片文件。
-<!-- - [Redis](./redis.md): 写入 Redis。 -->
+- [Redis](./redis.md)：写入 Redis。
+- [AWS S3](./aws-s3.md)：写入 AWS S3 存储桶。
 <!-- - [Image sink](./image.md)： 写入一个图像文件。仅用于处理二进制结果。 -->
 <!-- - [ZeroMQ sink](./zmq.md)：输出到 Zero MQ 。 -->
 

@@ -8,5 +8,7 @@ EMQX Neuron 数据处理模块提供了一种类似于 SQL 的查询语言，用
 - [JSON 表达式](json_expr.md)
 - [内置函数](./functions/overview.md)
 - [窗口](windows.md)
+- [流语句](streams.md)
+- [表语句](tables.md)
 
 

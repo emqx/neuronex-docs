@@ -545,7 +545,7 @@
 
   - 数据统计与日志： 提供数据存储场景下的数据统计详情页，显示写入报错信息，并支持下载数据存储的日志。
 
-- [**数据查询与分析**](../datainsights/data_analysis.md)
+- **数据查询与分析**（该页已下线）
 
   - 统一入口： 全新的“数据分析”页面整合了数据浏览、SQL 查询和结果展示功能。
 
@@ -577,7 +577,7 @@
 
       - 支持图表缩放、保存下载。
 
-- [**AI 数据分析助手**](../datainsights/data_analysis.md#5-ai-数据分析助手集成)
+- **AI 数据分析助手**（该页已下线）
 
   - UI 入口: 集成在“数据分析”页面的AI数据分析按钮，以及点位操作项中的AI Query。
 
@@ -601,9 +601,9 @@
 
     - 在系统配置->AI模型配置页面，需要配置并开启 AI 模型，以使用 AI 数据分析以及 AI 写插件功能。
 
-  - EMQX Neuron 3.6.0版本，在 Docker 镜像 emqx/neuronex:3.6.0-ai 和  emqx/neuronex:3.6.0-ai-arm64  版本中，默认集成了LLM运行所需的 Python依赖库，用户可直接使用该功能。当使用deb、rpm、zip或其他 Docker 镜像时，用户需要手动配置好Python依赖库后，方可使用 EMQX Neuron AI 功能。详细依赖库配置请参考[AI 功能环境配置指南](../admin/sys-configuration.md#ai-功能环境配置指南)。
+  - EMQX Neuron 3.6.0版本，在 Docker 镜像 emqx/neuronex:3.6.0-ai 和  emqx/neuronex:3.6.0-ai-arm64  版本中，默认集成了LLM运行所需的 Python依赖库，用户可直接使用该功能。当使用deb、rpm、zip或其他 Docker 镜像时，用户需要手动配置好Python依赖库后，方可使用 EMQX Neuron AI 功能。当前版本请使用标准镜像，见 [AI 生成 Python 插件](../best-practise/llm-portable-plugin.md)。
 
-- [**仪表盘**](../datainsights/dashboards.md)
+- **仪表盘**（该页已下线）
 
   - 主页面: 列表展示已有仪表盘，支持搜索、分页、创建、编辑、复制、删除、进入等操作。
 
@@ -643,7 +643,7 @@
 
       - 仪表盘使用网格系统进行对齐。
 
-- [**NodeRED 集成**](../application/nodered.md)
+- **NodeRED 集成**（该页已下线）
 
   - EMQX Neuron 3.6.0版本，在 Docker 镜像 `emqx/neuronex:3.6.0-ai` 和  `emqx/neuronex:3.6.0-ai-arm64` 版本中，默认集成了NodeRED v4.0.9，用户可按需在应用列表中开启 NodeRED 服务（默认为关闭）。
 

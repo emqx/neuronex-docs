@@ -47,10 +47,6 @@
         {
           "title": "申请和安装许可证",
           "path": "installation/license_setting"
-        },
-        {
-          "title": "安装 AI 功能",
-          "path": "installation/ai"
         }
       ]
     },
@@ -998,21 +994,6 @@
       ]
     },
     {
-      "title": "数据探索",
-      "path": "datainsights/overview",
-      "collapsed": true,
-      "children": [
-        {
-          "title": "数据分析",
-          "path": "datainsights/data_analysis"
-        },
-        {
-          "title": "仪表盘",
-          "path": "datainsights/dashboards"
-        }
-      ]
-    },
-    {
       "title": "运维",
       "path": "admin/introduction",
       "collapsed": true,
@@ -1189,10 +1170,6 @@
               "path": "best-practise/smartfactory1"
             },
             {
-              "title": "NodeRED 集成",
-              "path": "application/nodered"
-            },
-            {
               "title": "最佳实践：集成 MySQL 数据到您的 IIoT 平台",
               "path": "best-practise/sql-data"
             }
@@ -1259,10 +1236,6 @@
         {
           "title": "License Management",
           "path": "installation/license_setting"
-        },
-        {
-          "title": "Install AI Function",
-          "path": "installation/ai"
         }
       ]
     },
@@ -2209,21 +2182,6 @@
       ]
     },
     {
-      "title": "Data Insights",
-      "path": "datainsights/overview",
-      "collapsed": true,
-      "children": [
-        {
-          "title": "Data Analysis",
-          "path": "datainsights/data_analysis"
-        },
-        {
-          "title": "Dashboards",
-          "path": "datainsights/dashboards"
-        }
-      ]
-    },
-    {
       "title": "Operations",
       "path": "admin/introduction",
       "collapsed": true,
@@ -2391,10 +2349,6 @@
           "title": "Integration and Industry",
           "collapsed": true,
           "children": [
-            {
-              "title": "NodeRED",
-              "path": "application/nodered"
-            },
             {
               "title": "Integrate MySQL data into your IIoT platform",
               "path": "best-practise/sql-data"

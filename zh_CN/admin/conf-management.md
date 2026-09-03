@@ -151,12 +151,6 @@ EMQX Neuron 提供 YAML 格式文件，位于`/opt/neuronex/etc/neuronex.yaml`�
 - `maxSize`：日志文件轮换前的最大容量（以 MB 为单位）。
 - `maxAge`： 根据文件名中编码的时间戳保留旧日志文件的最长天数。
 - `maxBackups`： 保留的旧日志文件的最大数量。
-- `syslogForward`：日志远程转发配置。
-  - `enable`：是否启用日志远程转发。
-  - `priority`：选项包括 emerg,alert,crit,err,warning,notice,info,debug。
-  - `network`：现在只支持 udp4
-  - `remoteAddr`: 记录远程转发地址。
-  - `tag`：记录远程转发标签。
 
 ### official
 
@@ -197,15 +191,6 @@ log:
   file: log/neuronex.log
   maxSize: 20  # maximum size in megabytes of the log file before it gets rotated
   maxBackups: 5 # MaxBackups is the maximum number of old log files to retain
-  syslog:
-    enable: false
-    # fatal/error/warning/notice/info/debug
-    priority: "info"
-    # now only support udp4
-    network: "udp4"
-    remoteAddr: ""
-    # syslog protocol tag field, used for syslog server to identify which neuronex client send the syslog message
-    tag: "neuronex"
 
 official:
   url: https://neuronex-licenses.emqx.com

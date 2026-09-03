@@ -32,7 +32,7 @@ $ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privilege
 
 ## Docker 容器 Python 运行环境
 
-EMQX Neuron提供 3 种类型的 Docker 安装包：
+EMQX Neuron 提供 2 种类型的 Docker 安装包：
 - **neuronex:3.x.x**（标准镜像）
 
 neuronex:3.x.x 标准镜像集成了 Python 运行环境，以及 eKuiper Python SDK（`ekuiper`、`pynng`）。**安装和运行 eKuiper Python 便携插件（含 AI 生成函数插件）必须使用这类镜像。** `*-extend` 镜像基于标准镜像，同样包含该运行时。
@@ -57,23 +57,3 @@ neuronex:3.x.x-slim 类型的安装包不集成 Python 运行环境，体积更�
 docker pull emqx/neuronex:3.9.2-slim
 docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.9.2-slim
 ```
-
-- **neuronex:3.x.x-ai**
-
-neuronex:3.x.x-ai类型的安装包，集成了 Python 运行环境，并且集成了运行大模型（LLM） 相关的 Python 依赖，如果您有结合 LLM 进行自然语言生成 Python 插件以及AI数据分析的需求，请使用这类镜像。
-
-```bash
-#run EMQX Neuron by neuronex:3.x.x-ai
-docker pull emqx/neuronex:3.9.2-ai
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.9.2-ai
-```
-
-<!-- - **neuronex:3.x.x-ai-arm64**
-
-neuronex:3.x.x-ai-arm64类型的安装包，集成了 Python 运行环境，并且集成了运行大模型（LLM） 相关的 Python 依赖，如果您有结合 LLM 进行自然语言生成 Python 插件以及AI数据分析的需求，请使用这类镜像。该镜像支持 arm64 架构的设备。
-
-```bash
-#run EMQX Neuron by neuronex:3.x.x-ai-arm64
-docker pull emqx/neuronex:3.6.0-ai-arm64
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.6.0-ai-arm64
-``` -->

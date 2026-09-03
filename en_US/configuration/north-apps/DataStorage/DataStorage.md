@@ -1,6 +1,6 @@
 # DataStorage
 
-DataStorage northbound plugin writes data to [Datalayers](https://docs.datalayers.cn/datalayers/latest/) using [Arrow Flight SQL](https://arrow.apache.org/docs/format/FlightSql.html#arrow-flight-sql). It extends EMQX Neuron's capability to store time-series data.
+DataStorage northbound plugin writes data to an external [Datalayers](https://docs.datalayers.cn/datalayers/latest/) time-series database using [Arrow Flight SQL](https://arrow.apache.org/docs/format/FlightSql.html#arrow-flight-sql). EMQX Neuron **no longer bundles** a Datalayers process. Deploy Datalayers yourself and fill in the server address on the node.
 
 Upon startup, EMQX Neuron creates a singleton *DataStorage* node automatically. Users cannot manually create or delete this node.
 

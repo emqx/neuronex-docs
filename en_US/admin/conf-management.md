@@ -156,12 +156,6 @@ The `log` section defines the logging configuration of the EMQX Neuron server.
 - `file`: path to the log file.
 - `maxSize`: maximum size in megabytes of the log file before it gets rotated.
 - `maxBackups`:  the maximum number of old log files to retain.
-- `syslogForward`: log remote forwarding configuration.
-  - `enable`: whether to enable log remote forwarding.
-  - `priority`：options are emerg,alert,crit,err,warning,notice,info,debug now.
-  - `network`: now only support udp4
-  - `remoteAddr`: log remote forwarding address.
-  - `tag`: log remote forwarding tag.
 
 ### official
 
@@ -203,15 +197,6 @@ log:
   file: log/neuronex.log
   maxSize: 20  # maximum size in megabytes of the log file before it gets rotated
   maxBackups: 5 # MaxBackups is the maximum number of old log files to retain
-  syslog:
-    enable: false
-    # fatal/error/warning/notice/info/debug
-    priority: "info"
-    # now only support udp4
-    network: "udp4"
-    remoteAddr: ""
-    # syslog protocol tag field, used for syslog server to identify which neuronex client send the syslog message
-    tag: "neuronex"
 
 official:
   url: https://neuronex-licenses.emqx.com

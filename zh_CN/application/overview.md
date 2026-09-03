@@ -1,15 +1,8 @@
 # 应用集成
 
-EMQX Neuron 的应用集成模块旨在扩展平台的核心功能，通过与第三方服务和工具的无缝对接，为您的工业物联网解决方案提供更强大的灵活性和可扩展性。它允许您将 EMQX Neuron 采集和处理的数据轻松地与其他系统连接，实现更复杂的数据处理、自定义应用逻辑和更广泛的生态系统集成。
+将 EMQX Neuron 采集和处理后的数据对接到云平台、消息队列、数据库等外部系统，主要通过：
 
-无论您是希望利用现有的开源工具进行高级数据流编排，还是需要将 EMQX Neuron 数据接入到特定的企业应用中，应用集成模块都能提供便捷的途径。
+- [北向应用](../configuration/north-apps/north-apps.md)：MQTT、Sparkplug B、Kafka、WebSocket 等
+- [数据处理 Sink](../streaming-processing/sink/sink.md)：将规则结果写入外部系统
 
-## 核心功能组件
-
-应用集成模块目前主要包含以下核心功能组件：
-
-*   **[Node-RED 集成](./nodered.md):**
-    *   EMQX Neuron 默认在特定 Docker 镜像版本中集成了业界流行的开源可视化编程工具 Node-RED (v4.0.9)。
-    *   用户可以直接在 EMQX Neuron 的“应用列表”中启用 Node-RED 服务，并通过其图形化界面创建和管理数据处理流程。
-    *   支持通过 EMQX Neuron 的北向 Websocket 应用或数据处理模块的 REST Sink 将数据点位或处理结果实时推送到 Node-RED。
-    *   允许用户利用 Node-RED 庞大的节点库（nodes）进行复杂的数据转换、逻辑判断、与其他服务的集成（如数据库、消息队列、API 调用等）以及构建自定义仪表盘或告警通知。
+如需用自然语言生成 Python 扩展函数，见 [AI 生成 Python 插件最佳实践指南](../best-practise/llm-portable-plugin.md)。

@@ -1,6 +1,6 @@
 # DataStorage
 
-DataStorage 北向插件使用 [Arrow Flight SQL](https://arrow.apache.org/docs/format/FlightSql.html#arrow-flight-sql) 写入数据到 [Datalayers](https://docs.datalayers.cn/datalayers/latest/) 时序数据库，它为 EMQX Neuron 增加了时序数据的存储能力。
+DataStorage 北向插件使用 [Arrow Flight SQL](https://arrow.apache.org/docs/format/FlightSql.html#arrow-flight-sql) 写入数据到外部 [Datalayers](https://docs.datalayers.cn/datalayers/latest/) 时序数据库。EMQX Neuron **不再内置** Datalayers 进程，请自行部署 Datalayers 并在节点中填写服务器地址。
 
 EMQX Neuron 会在启动时创建一个 *DataStorage* 单例节点，用户不能直接使用该插件创建或删除节点。
 您可以在**北向应用**页签中看到 *DataStorage* 节点。

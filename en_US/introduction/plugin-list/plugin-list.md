@@ -131,6 +131,6 @@ For specific instructions on replacing and updating plugins, please contact the 
 | Protocol Name                                  | Remark              |
 | --------------------------------------- | ------------------- |
 | DataProcessing               | Integration with data processing module   |
-| DataStorage              | Integration with data storage module   |
+| DataStorage              | Integration with external Datalayers   |
 
 

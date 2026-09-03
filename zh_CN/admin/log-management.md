@@ -42,25 +42,6 @@ EMQX Neuron 支持在 Dashboard 页面一键下载所有日志文件的功能。
 
 :::
 
-### 日志上传
-
-  EMQX Neuron还支持将日志通过 SYSLOG 协议发送到 ECP 的 SYSLOG 服务器中，满足用户长期保存日志需求。
-
-![如图所示](./assets/log_manage_zh.png)
-
-以下参数均为只读，由 ECP 端配置：
-* 开启/关闭日志上传 
-* Syslog 服务地址 
-* Syslog 日志标签 
-* 网络协议类型 
-* 上传日志等级 
-
-:::tip  注意
-
-此配置会持久化并且优先级高于[配置文件](./conf-management.md#log) syslogForward 部分。
-
-:::
-
 <!-- ## 日志监控
 EMQX Neuron 支持实时查看日志信息。登录 EMQX Neuron 后，点击页面左侧的 **管理** -> **日志**， 进入日志监控界面。
 ![如图所示](./assets/log_monitor_zh.png)

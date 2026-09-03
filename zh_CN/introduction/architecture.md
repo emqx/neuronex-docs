@@ -28,18 +28,14 @@ EMQX Neuron 的核心价值在于其强大的边缘数据处理与分析能力�
 
 - **数据标准化与清洗**： 内置超过 160+ 各类[函数](../streaming-processing/sqls/functions/overview.md)，支持对数据进行类型转换、单位统一、格式重构、过滤、排序、聚合等操作，满足各种数据预处理需求。
 - **实时流式计算**： 强大的流式计算引擎能够对数据流进行毫秒级的实时处理，满足多系统数据实时协同、闭环控制等低延迟场景。
-- **AI/ML 算法集成**： 支持用户集成 Python、C/C++ 等语言编写的[自定义函数](../streaming-processing/extension.md)和 [AI/ML 算法模型](../streaming-processing/portable_python.md)，在边缘端进行低延迟的智能推理。3.6.0 版本引入了「AI 数据分析助手」，允许用户通过自然语言生成 SQL 查询，并能智能迭代修正，极大地降低了数据分析门槛。
-- **数据探索与可视化**：
-  - **内置时序存储**： 内置 Datalayers 时序数据库，提供开箱即用的边缘数据持久化能力。
-  - **交互式数据分析**： 提供统一的[数据分析界面](../datainsights/data_analysis.md)，用户可通过智能 SQL 编辑器或 AI 助手，对存储的历史数据进行深度查询与探索。
-  - **自定义仪表盘**： 全新的[「仪表盘」功能](../datainsights/dashboards.md)，允许用户通过简单的拖拽配置，将关键数据以图表形式直观展示，打造定制化的边缘监控中心。
+- **AI/ML 算法集成**： 支持用户集成 Python、C/C++ 等语言编写的[自定义函数](../streaming-processing/extension.md)和 [AI/ML 算法模型](../streaming-processing/portable_python.md)，在边缘端进行低延迟的智能推理。也可通过[自然语言生成 Python 便携插件](../best-practise/llm-portable-plugin.md)，降低扩展开发门槛。
 
 ## 数据转发存储模块
 
 EMQX Neuron 是连接边缘与云/端的强大桥梁，提供灵活的数据转发与存储选项。
 
-- **数据转发**： 支持通过 MQTT、SparkplugB、HTTP、WebSocket 等标准协议，将处理后的数据无缝对接到公有云物联网平台、私有云或本地数据中心。此外，通过集成的 [Node-RED](../application/nodered.md)，可以轻松构建复杂的转发和自动化工作流。
-- **数据存储**： 除了内置的 Datalayers 数据库，EMQX Neuron 也支持将数据写入到 MySQL、InfluxDB、Kafka 等多种外部数据库及消息队列中，满足不同的数据落地需求。
+- **数据转发**： 支持通过 MQTT、SparkplugB、HTTP、WebSocket 等标准协议，将处理后的数据无缝对接到公有云物联网平台、私有云或本地数据中心。
+- **数据存储**： EMQX Neuron 支持将数据写入到 MySQL、InfluxDB、Kafka、Datalayers 等多种外部数据库及消息队列中，满足不同的数据落地需求。
 
 
 
@@ -49,6 +45,6 @@ EMQX Neuron 提供了一套完整、易用的系统管理功能，确保其在�
 
 - **系统配置**： 提供简洁的 Web UI，方便用户对驱动、数据处理规则、北向应用等所有模块进行配置管理。
 - **安全认证**： 支持基于用户名/密码的访问控制及 TLS/SSL 加密传输，保障系统和数据安全。
-- **日志与监控**： 提供详尽的运行日志、性能指标和状态监控，包括对数据存储、AI 服务等核心组件的实时状态监控， 方便用户进行运维和故障诊断。
+- **日志与监控**： 提供详尽的运行日志、性能指标和状态监控，方便用户进行运维和故障诊断。
 
 如何使用EMQX Neuron 系统管理模块，请参考 [运维指南](../admin/introduction.md)。

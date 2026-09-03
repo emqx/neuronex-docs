@@ -41,18 +41,14 @@ The core value of EMQX Neuron lies in its powerful edge data processing and anal
 
 - **Data Standardization and Cleansing**: With over 160 built-in [functions](../streaming-processing/sqls/functions/overview.md), it supports operations like data type conversion, unit standardization, format restructuring, filtering, sorting, and aggregation to meet various data preprocessing needs.
 - **Real-time Stream Processing**: A powerful stream processing engine enables millisecond-level real-time handling of data streams, satisfying low-latency scenarios such as real-time data collaboration between multiple systems and closed-loop control.
-- **AI/ML Algorithm Integration**: Supports user integration of [custom functions](../streaming-processing/extension.md) and [AI/ML algorithm models](../streaming-processing/portable_python.md) written in Python, C/C++, etc., for low-latency intelligent inference at the edge. The revolutionary "AI Data Analysis Assistant" introduced in version 3.6.0 allows users to generate SQL queries using natural language and can intelligently iterate and correct them, significantly lowering the barrier to data analysis.
-- **Data Insights and Visualization**:
-  - **Built-in Time-Series Storage**: Features a built-in Datalayers time-series database, providing out-of-the-box edge data persistence.
-  - **Interactive Data Analysis**: Offers a unified [data analysis interface](../datainsights/data_analysis.md) where users can deeply query and explore stored historical data using a smart SQL editor or the AI assistant.
-  - **Customizable Dashboards**: The [all-new "Dashboard" feature](../datainsights/dashboards.md) allows users to intuitively display key data in chart form through simple drag-and-drop configuration, creating customized edge monitoring centers.
+- **AI/ML Algorithm Integration**: Supports user integration of [custom functions](../streaming-processing/extension.md) and [AI/ML algorithm models](../streaming-processing/portable_python.md) written in Python, C/C++, etc., for low-latency intelligent inference at the edge. You can also [generate Python portable plugins from natural language](../best-practise/llm-portable-plugin.md) to lower the barrier to writing extensions.
 
 ## Data Forwarding and Storage Module
 
 EMQX Neuron acts as a powerful bridge connecting the edge to the cloud and on-premises systems, offering flexible options for data forwarding and storage.
 
-- **Data Forwarding**: Supports seamless data handoff to public cloud IoT platforms, private clouds, or on-premises data centers via standard protocols like MQTT, SparkplugB, HTTP, and WebSocket. Furthermore, the integrated [Node-RED](../application/nodered.md) allows for the easy creation of complex forwarding and automation workflows.
-- **Data Storage**: In addition to the built-in Datalayers database, EMQX Neuron also supports writing data to various external databases and message queues, such as MySQL, InfluxDB, and Kafka, to meet diverse data persistence requirements.
+- **Data Forwarding**: Supports seamless data handoff to public cloud IoT platforms, private clouds, or on-premises data centers via standard protocols like MQTT, SparkplugB, HTTP, and WebSocket.
+- **Data Storage**: EMQX Neuron supports writing data to various external databases and message queues, such as MySQL, InfluxDB, Kafka, and Datalayers, to meet diverse data persistence requirements.
 
 ## System Management Module
 
@@ -60,6 +56,6 @@ EMQX Neuron provides a complete and user-friendly set of system management funct
 
 - **System Configuration**: Offers a clean Web UI for convenient configuration management of all modules, including drivers, data processing rules, and northbound applications.
 - **Security and Authentication**: Supports username/password-based access control and TLS/SSL encrypted transmission to guarantee system and data security.
-- **Logging and Monitoring**: Provides detailed operational logs, performance metrics, and status monitoring, including real-time status monitoring of core components like data storage and AI services, to facilitate user operations and troubleshooting.
+- **Logging and Monitoring**: Provides detailed operational logs, performance metrics, and status monitoring to facilitate user operations and troubleshooting.
 
 For guidance on using EMQX Neuron's System Management Module, refer to the [Operations Guide](../admin/introduction.md).

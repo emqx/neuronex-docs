@@ -13,8 +13,6 @@ CREATE STREAM
     WITH ( property_name = expression [, ...] );
 ```
 
-详细的流语法和属性，请查看[流](../guide/streams/overview.md)。
-
 示例:
 
 ```SQL

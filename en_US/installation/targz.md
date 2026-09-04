@@ -27,5 +27,5 @@ Run the following command to start EMQX Neuron:
 $ ./bin/neuronex start
 ```
 
-For more startup parameters, please refer to the [Configuration Management](../admin/conf-management.md).
+For more startup parameters, please refer to [Startup Parameters and Configuration Files](../admin/conf-management.md).
 

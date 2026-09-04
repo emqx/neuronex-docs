@@ -28,7 +28,7 @@ $ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privilege
 - `--device /dev/ttyUSB0:/dev/ttyS0`: Optional. Map a serial port into Docker. `/dev/ttyUSB0` is the serial device on Linux; `/dev/ttyS0` is the device inside Docker.
 - `--log-opt`: Optional. Limit Docker stdout size, for example `--log-opt max-size=100m`.
 
-For more startup parameters, please refer to the [Configuration Management](../admin/conf-management.md).
+For more startup parameters, please refer to [Startup Parameters and Configuration Files](../admin/conf-management.md).
 
 ## Docker Container Python Runtime Environment
 

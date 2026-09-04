@@ -27,4 +27,4 @@ GLIBC 需要 2.31 以上版本。
 $ ./bin/neuronex start
 ```
 
-更多启动参数请参考 [配置管理](../admin/conf-management.md)。
+更多启动参数请参考 [启动参数与配置文件](../admin/conf-management.md)。

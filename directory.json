@@ -47,6 +47,10 @@
         {
           "title": "申请和安装许可证",
           "path": "installation/license_setting"
+        },
+        {
+          "title": "主备模式",
+          "path": "best-practise/master-backup"
         }
       ]
     },
@@ -1023,32 +1027,28 @@
           "path": "admin/data-statistics"
         },
         {
-          "title": "配置管理",
-          "path": "admin/conf-management"
+          "title": "监控告警管理",
+          "path": "admin/alert-monitor-management"
         },
         {
           "title": "日志管理",
           "path": "admin/log-management"
         },
         {
-          "title": "监控告警管理",
-          "path": "admin/alert-monitor-management"
-        },
-        {
           "title": "系统配置",
           "path": "admin/sys-configuration"
         },
         {
-          "title": "持久化目录管理",
+          "title": "启动参数与配置文件",
+          "path": "admin/conf-management"
+        },
+        {
+          "title": "数据目录与持久化",
           "path": "admin/data-persistence"
         },
         {
           "title": "用户管理",
           "path": "admin/user"
-        },
-        {
-          "title": "主备模式",
-          "path": "best-practise/master-backup"
         }
       ]
     },
@@ -1072,10 +1072,6 @@
             {
               "title": "OPCUA 点位发现功能",
               "path": "best-practise/opcua-tag-browser"
-            },
-            {
-              "title": "Modbus TCP Server 模拟器",
-              "path": "configuration/modbus-simulator"
             },
             {
               "title": "驱动转换工具",
@@ -1117,6 +1113,25 @@
           "collapsed": true,
           "children": [
             {
+              "title": "驱动开发 SDK 教程",
+              "path": "dev-guide/sdk-tutorial/sdk-tutorial",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Modbus 插件开发示例",
+                  "path": "dev-guide/sdk-tutorial/sdk-example/modbus-example"
+                },
+                {
+                  "title": "MQTT 应用开发示例",
+                  "path": "dev-guide/sdk-tutorial/sdk-example/mqtt-example"
+                },
+                {
+                  "title": "开发指南",
+                  "path": "dev-guide/dev-guide"
+                }
+              ]
+            },
+            {
               "title": "AI 生成 Python 插件最佳实践指南",
               "path": "best-practise/llm-portable-plugin"
             }
@@ -1125,33 +1140,22 @@
       ]
     },
     {
-      "title": "开发者",
-      "path": "dev-guide/overview",
+      "title": "参考与支持",
+      "path": "reference/overview",
       "collapsed": true,
       "children": [
-        {
-          "title": "驱动开发 SDK 教程",
-          "path": "dev-guide/sdk-tutorial/sdk-tutorial",
-          "collapsed": true,
-          "children": [
-            {
-              "title": "Modbus 插件开发示例",
-              "path": "dev-guide/sdk-tutorial/sdk-example/modbus-example"
-            },
-            {
-              "title": "MQTT 应用开发示例",
-              "path": "dev-guide/sdk-tutorial/sdk-example/mqtt-example"
-            }
-          ]
-        },
         {
           "title": "HTTP API",
           "path": "api/api",
           "collapsed": true,
           "children": [
             {
-              "title": "JWT身份验证",
+              "title": "JWT 身份验证",
               "path": "api/jwt"
+            },
+            {
+              "title": "插件设置",
+              "path": "api/plugin-setting"
             },
             {
               "title": "数据类型",
@@ -1162,26 +1166,11 @@
               "path": "api/error-code"
             },
             {
-              "title": "插件设置",
-              "path": "api/plugin-setting"
-            },
-            {
-              "title": "API文档",
+              "title": "API 文档 (外链)",
               "path": "https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html"
             }
           ]
         },
-        {
-          "title": "开发指南",
-          "path": "dev-guide/dev-guide"
-        }
-      ]
-    },
-    {
-      "title": "参考",
-      "path": "reference/overview",
-      "collapsed": true,
-      "children": [
         {
           "title": "性能测试",
           "path": "performance/performance",
@@ -1202,7 +1191,7 @@
           ]
         },
         {
-          "title": "FAQ 常见问题解答",
+          "title": "FAQ",
           "path": "faq/faq_basic"
         },
         {
@@ -1260,6 +1249,10 @@
         {
           "title": "License Management",
           "path": "installation/license_setting"
+        },
+        {
+          "title": "Master-Backup Mode",
+          "path": "best-practise/master-backup"
         }
       ]
     },
@@ -2235,32 +2228,28 @@
           "path": "admin/data-statistics"
         },
         {
-          "title": "Configuration Management",
-          "path": "admin/conf-management"
+          "title": "Monitoring and Alert Management",
+          "path": "admin/alert-monitor-management"
         },
         {
           "title": "Log Management",
           "path": "admin/log-management"
         },
         {
-          "title": "Monitor and Alert Management",
-          "path": "admin/alert-monitor-management"
-        },
-        {
           "title": "System Configuration",
           "path": "admin/sys-configuration"
         },
         {
-          "title": "Persistence Data Management",
+          "title": "Startup Parameters and Configuration Files",
+          "path": "admin/conf-management"
+        },
+        {
+          "title": "Data Directory and Persistence",
           "path": "admin/data-persistence"
         },
         {
-          "title": "User",
+          "title": "User Management",
           "path": "admin/user"
-        },
-        {
-          "title": "Master-Backup Mode",
-          "path": "best-practise/master-backup"
         }
       ]
     },
@@ -2284,10 +2273,6 @@
             {
               "title": "OPCUA Tag Browser",
               "path": "best-practise/opcua-tag-browser"
-            },
-            {
-              "title": "Modbus TCP Server Simulator",
-              "path": "configuration/modbus-simulator"
             },
             {
               "title": "Driver Migration Tool",
@@ -2325,9 +2310,28 @@
           ]
         },
         {
-          "title": "Extending EMQX Neuron",
+          "title": "Development and Extension",
           "collapsed": true,
           "children": [
+            {
+              "title": "Driver SDK Tutorial",
+              "path": "dev-guide/sdk-tutorial/sdk-tutorial",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Modbus Plugin Example",
+                  "path": "dev-guide/sdk-tutorial/sdk-example/modbus-example"
+                },
+                {
+                  "title": "MQTT Application Example",
+                  "path": "dev-guide/sdk-tutorial/sdk-example/mqtt-example"
+                },
+                {
+                  "title": "Development Guide",
+                  "path": "dev-guide/dev-guide"
+                }
+              ]
+            },
             {
               "title": "AI-generated Python Plugin Guide",
               "path": "best-practise/llm-portable-plugin"
@@ -2337,25 +2341,10 @@
       ]
     },
     {
-      "title": "Developer",
-      "path": "dev-guide/overview",
+      "title": "Reference and Support",
+      "path": "reference/overview",
       "collapsed": true,
       "children": [
-        {
-          "title": "Driver SDK Tutorial",
-          "path": "dev-guide/sdk-tutorial/sdk-tutorial",
-          "collapsed": true,
-          "children": [
-            {
-              "title": "Modbus Plugin Example",
-              "path": "dev-guide/sdk-tutorial/sdk-example/modbus-example"
-            },
-            {
-              "title": "MQTT Application Example",
-              "path": "dev-guide/sdk-tutorial/sdk-example/mqtt-example"
-            }
-          ]
-        },
         {
           "title": "HTTP API",
           "path": "api/api",
@@ -2366,6 +2355,10 @@
               "path": "api/jwt"
             },
             {
+              "title": "Plugin Configuration",
+              "path": "api/plugin-setting"
+            },
+            {
               "title": "Data Types",
               "path": "api/data-type"
             },
@@ -2374,26 +2367,11 @@
               "path": "api/error-code"
             },
             {
-              "title": "Plugin Configuration",
-              "path": "api/plugin-setting"
-            },
-            {
-              "title": "API Documentation",
+              "title": "API Documentation (external)",
               "path": "https://docs.emqx.com/en/neuronex/latest/api/api-docs.html"
             }
           ]
         },
-        {
-          "title": "Development Guide",
-          "path": "dev-guide/dev-guide"
-        }
-      ]
-    },
-    {
-      "title": "Reference",
-      "path": "reference/overview",
-      "collapsed": true,
-      "children": [
         {
           "title": "Performance Testing",
           "path": "performance/performance",

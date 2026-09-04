@@ -1,4 +1,4 @@
-# Configuration Management
+# Startup Parameters and Configuration Files
 
 EMQX Neuron supports modifying Neuron's configuration parameters through `command line`, `environment variables`, and `configuration files`, which can provide a more flexible way of starting and running. If `command line`, `environment variables`, and `configuration files` are configured at the same time, the priority relationship between the three is: command line > environment variable > configuration file
 

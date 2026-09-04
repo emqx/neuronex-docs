@@ -28,7 +28,7 @@ $ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privilege
 * --device /dev/ttyUSB0:/dev/ttyS0：可选参数，用于映射串口到 docker。/dev/ttyUSB0 是 Linux 下串口设备；/dev/ttyS0 是 Docker 下串口设备。
 * --log-opt：可选参数，限制 docker 标准输出(stdout)的大小（例如，--log-opt max-size=100m）。
 
-更多启动参数请参考 [配置管理](../admin/conf-management.md)。
+更多启动参数请参考 [启动参数与配置文件](../admin/conf-management.md)。
 
 ## Docker 容器 Python 运行环境
 

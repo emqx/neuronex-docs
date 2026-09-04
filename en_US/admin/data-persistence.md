@@ -1,4 +1,4 @@
-# Data Persistence
+# Data Directory and Persistence
 
 EMQX Neuron put all persistence data into its `data` directory, users can easily upgrade EMQX Neuron without losing configuration with the help of this directory.
 

@@ -24,11 +24,12 @@ $ systemctl status neuron
 
 Please see the following pages for specific management functions:
 
-* [Configuration Management](./conf-management.md)
-* [Log Management](./log-management.md)
 * [Operation Monitoring](./data-statistics.md)
-* [Configuration Management](./conf-management.md)
-* [Monitor and Alert Management](alert-monitor-management.md)
+* [Monitoring and Alert Management](./alert-monitor-management.md)
+* [Log Management](./log-management.md)
 * [System Configuration](./sys-configuration.md)
-* [Persistence Data Management](data-persistence.md)
-* [User](./user.md)
+* [Startup Parameters and Configuration Files](./conf-management.md)
+* [Data Directory and Persistence](./data-persistence.md)
+* [User Management](./user.md)
+
+High availability is under [Installation / Master-Backup Mode](../best-practise/master-backup.md).

@@ -45,12 +45,12 @@
           "path": "installation/uninstall"
         },
         {
-          "title": "申请和安装许可证",
-          "path": "installation/license_setting"
-        },
-        {
           "title": "主备模式",
           "path": "best-practise/master-backup"
+        },
+        {
+          "title": "申请和安装许可证",
+          "path": "installation/license_setting"
         }
       ]
     },
@@ -1247,12 +1247,12 @@
           "path": "installation/uninstall"
         },
         {
-          "title": "License Management",
-          "path": "installation/license_setting"
-        },
-        {
           "title": "Master-Backup Mode",
           "path": "best-practise/master-backup"
+        },
+        {
+          "title": "License Management",
+          "path": "installation/license_setting"
         }
       ]
     },

@@ -66,7 +66,7 @@ EMQX Neuron 安装后，默认提供了一个默认的访问地址：`http://loc
 
 ## 软件支持采集哪些驱动？
 
-请参考[数采插件列表](../introduction/plugin-list/plugin-list.md)
+请参考侧边栏 [南向驱动协议](../introduction/plugin-list/plugin-list.md)。
 
 ## 数据采集最低采集周期是多少？
 

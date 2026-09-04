@@ -1,18 +1,16 @@
 # Data Collection
 
-Start here to see which protocols are supported, then add a southbound driver, configure tags, and monitor values. Northbound reporting is covered in [Data Forwarding](./north-apps/north-apps.md).
+Install or confirm plugins first, then add a southbound driver, configure tags, and monitor values. Northbound reporting is covered in [Data Forwarding](./north-apps/north-apps.md). Per-protocol parameters and examples are in [Southbound Drivers](../introduction/plugin-list/plugin-list.md).
 
 Read this section in sidebar order:
 
-1. [List of Data Collection Plugins](../introduction/plugin-list/plugin-list.md): which protocols you can connect
+1. [Managing Plugins](./ecp_edge_plugin.md): install or replace custom plugins
 2. [Create a Southbound Driver](./south-devices/south-devices.md): create the node, groups, and tags
-3. Open a protocol family in the sidebar (Modbus, PLC, OPC, and so on) for parameters and examples
-4. [Data Monitoring](../admin/monitoring.md): confirm tags are collecting
-5. [Managing Plugins](./ecp_edge_plugin.md): install or replace custom plugins
+3. [Data Monitoring](../admin/monitoring.md): confirm tags are collecting
 
 ## Key concepts
 
-### [Plugin](../introduction/plugin-list/plugin-list.md)
+### Plugin
 
 Plugins are southbound drivers or northbound applications. Southbound plugins collect device data; northbound plugins send data to a cloud platform or processing engine. You need at least one of each for protocol conversion. For custom development, see the [SDK Tutorial](../dev-guide/sdk-tutorial/sdk-tutorial.md).
 
@@ -26,7 +24,7 @@ A tag describes a device address, read/write attributes, and metadata such as pr
 
 ## Configuration process
 
-1. [View available plugins](../introduction/plugin-list/plugin-list.md).
+1. [Managing plugins](./ecp_edge_plugin.md): confirm the protocol plugin is installed.
 2. [Create a southbound driver](./south-devices/south-devices.md): pick the plugin for the device protocol, create a node, and set connection parameters.
 3. [Configure groups and tags](./groups-tags/groups-tags.md). You can also [import tags in batch](./import-export/import-export.md) from Excel.
 

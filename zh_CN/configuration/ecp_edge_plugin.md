@@ -1,6 +1,6 @@
 # 管理插件模块
 
-登录 EMQX Neuron 后，点击 **数据采集** -> **插件**，查看已安装插件。完整协议清单见 [数采插件列表](../introduction/plugin-list/plugin-list.md)。二次开发见 [SDK 教程](../dev-guide/sdk-tutorial/sdk-tutorial.md)。
+登录 EMQX Neuron 后，点击 **数据采集** -> **插件**，查看已安装插件。二次开发见 [SDK 教程](../dev-guide/sdk-tutorial/sdk-tutorial.md)。
 
 ## 查看可用插件
 

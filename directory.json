@@ -56,8 +56,8 @@
       "collapsed": true,
       "children": [
         {
-          "title": "数采插件列表",
-          "path": "introduction/plugin-list/plugin-list"
+          "title": "管理插件模块",
+          "path": "configuration/ecp_edge_plugin"
         },
         {
           "title": "添加南向驱动",
@@ -78,6 +78,17 @@
             }
           ]
         },
+        {
+          "title": "数据监控",
+          "path": "admin/monitoring"
+        }
+      ]
+    },
+    {
+      "title": "南向驱动协议",
+      "path": "introduction/plugin-list/plugin-list",
+      "collapsed": true,
+      "children": [
         {
           "title": "Modbus 系列",
           "collapsed": true,
@@ -574,14 +585,6 @@
               ]
             }
           ]
-        },
-        {
-          "title": "数据监控",
-          "path": "admin/monitoring"
-        },
-        {
-          "title": "管理插件模块",
-          "path": "configuration/ecp_edge_plugin"
         }
       ]
     },
@@ -1050,6 +1053,78 @@
       ]
     },
     {
+      "title": "教程与案例",
+      "path": "best-practise/overview",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "入门与数采",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "如何在 10 分钟内将任意 PLC 连接到 MQTT",
+              "path": "best-practise/plc-to-mqtt"
+            },
+            {
+              "title": "设备反控功能详解",
+              "path": "best-practise/device-control"
+            },
+            {
+              "title": "OPCUA 点位发现功能",
+              "path": "best-practise/opcua-tag-browser"
+            },
+            {
+              "title": "Modbus TCP Server 模拟器",
+              "path": "configuration/modbus-simulator"
+            },
+            {
+              "title": "驱动转换工具",
+              "path": "configuration/driver-migration-tool",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Kepware 到 Neuron 迁移指南",
+                  "path": "configuration/driver-migration-tool/kepware-to-neuron"
+                },
+                {
+                  "title": "Litmus Edge 到 Neuron 迁移指南",
+                  "path": "configuration/driver-migration-tool/litmus-edge-to-neuron"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "集成与行业",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "大语言模型 LLM - 实时监控预防工业火灾",
+              "path": "best-practise/llm-example"
+            },
+            {
+              "title": "ECP 构建饮料生产数字化平台",
+              "path": "best-practise/smartfactory1"
+            },
+            {
+              "title": "最佳实践：集成 MySQL 数据到您的 IIoT 平台",
+              "path": "best-practise/sql-data"
+            }
+          ]
+        },
+        {
+          "title": "开发扩展",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "AI 生成 Python 插件最佳实践指南",
+              "path": "best-practise/llm-portable-plugin"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "开发者",
       "path": "dev-guide/overview",
       "collapsed": true,
@@ -1135,78 +1210,6 @@
           "path": "release_history/release_history"
         }
       ]
-    },
-    {
-      "title": "教程与案例",
-      "path": "best-practise/overview",
-      "collapsed": true,
-      "children": [
-        {
-          "title": "入门与数采",
-          "collapsed": true,
-          "children": [
-            {
-              "title": "如何在 10 分钟内将任意 PLC 连接到 MQTT",
-              "path": "best-practise/plc-to-mqtt"
-            },
-            {
-              "title": "设备反控功能详解",
-              "path": "best-practise/device-control"
-            },
-            {
-              "title": "OPCUA 点位发现功能",
-              "path": "best-practise/opcua-tag-browser"
-            },
-            {
-              "title": "Modbus TCP Server 模拟器",
-              "path": "configuration/modbus-simulator"
-            },
-            {
-              "title": "驱动转换工具",
-              "path": "configuration/driver-migration-tool",
-              "collapsed": true,
-              "children": [
-                {
-                  "title": "Kepware 到 Neuron 迁移指南",
-                  "path": "configuration/driver-migration-tool/kepware-to-neuron"
-                },
-                {
-                  "title": "Litmus Edge 到 Neuron 迁移指南",
-                  "path": "configuration/driver-migration-tool/litmus-edge-to-neuron"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "title": "集成与行业",
-          "collapsed": true,
-          "children": [
-            {
-              "title": "大语言模型 LLM - 实时监控预防工业火灾",
-              "path": "best-practise/llm-example"
-            },
-            {
-              "title": "ECP 构建饮料生产数字化平台",
-              "path": "best-practise/smartfactory1"
-            },
-            {
-              "title": "最佳实践：集成 MySQL 数据到您的 IIoT 平台",
-              "path": "best-practise/sql-data"
-            }
-          ]
-        },
-        {
-          "title": "开发扩展",
-          "collapsed": true,
-          "children": [
-            {
-              "title": "AI 生成 Python 插件最佳实践指南",
-              "path": "best-practise/llm-portable-plugin"
-            }
-          ]
-        }
-      ]
     }
   ],
   "en": [
@@ -1266,8 +1269,8 @@
       "collapsed": true,
       "children": [
         {
-          "title": "List of Data Collection Plugins",
-          "path": "introduction/plugin-list/plugin-list"
+          "title": "Managing Plugins",
+          "path": "configuration/ecp_edge_plugin"
         },
         {
           "title": "Create a Southbound Driver",
@@ -1288,6 +1291,17 @@
             }
           ]
         },
+        {
+          "title": "Data Monitoring",
+          "path": "admin/monitoring"
+        }
+      ]
+    },
+    {
+      "title": "Southbound Drivers",
+      "path": "introduction/plugin-list/plugin-list",
+      "collapsed": true,
+      "children": [
         {
           "title": "Modbus",
           "collapsed": true,
@@ -1784,14 +1798,6 @@
               ]
             }
           ]
-        },
-        {
-          "title": "Data Monitoring",
-          "path": "admin/monitoring"
-        },
-        {
-          "title": "Managing Plugins",
-          "path": "configuration/ecp_edge_plugin"
         }
       ]
     },
@@ -2259,6 +2265,78 @@
       ]
     },
     {
+      "title": "Tutorials and Best Practices",
+      "path": "best-practise/overview",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "Getting Started and Collection",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "How to Connect Any PLC to MQTT in 10 Minutes",
+              "path": "best-practise/plc-to-mqtt"
+            },
+            {
+              "title": "Device Control",
+              "path": "best-practise/device-control"
+            },
+            {
+              "title": "OPCUA Tag Browser",
+              "path": "best-practise/opcua-tag-browser"
+            },
+            {
+              "title": "Modbus TCP Server Simulator",
+              "path": "configuration/modbus-simulator"
+            },
+            {
+              "title": "Driver Migration Tool",
+              "path": "configuration/driver-migration-tool",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Kepware to Neuron Migration Guide",
+                  "path": "configuration/driver-migration-tool/kepware-to-neuron"
+                },
+                {
+                  "title": "Litmus Edge to Neuron Migration Guide",
+                  "path": "configuration/driver-migration-tool/litmus-edge-to-neuron"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Integration and Industry",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "LLM fire monitoring",
+              "path": "best-practise/llm-example"
+            },
+            {
+              "title": "Beverage production digital platform",
+              "path": "best-practise/smartfactory1"
+            },
+            {
+              "title": "Integrate MySQL data into your IIoT platform",
+              "path": "best-practise/sql-data"
+            }
+          ]
+        },
+        {
+          "title": "Extending EMQX Neuron",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "AI-generated Python Plugin Guide",
+              "path": "best-practise/llm-portable-plugin"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "Developer",
       "path": "dev-guide/overview",
       "collapsed": true,
@@ -2342,78 +2420,6 @@
         {
           "title": "Release History",
           "path": "release_history/release_history"
-        }
-      ]
-    },
-    {
-      "title": "Tutorials and Best Practices",
-      "path": "best-practise/overview",
-      "collapsed": true,
-      "children": [
-        {
-          "title": "Getting Started and Collection",
-          "collapsed": true,
-          "children": [
-            {
-              "title": "How to Connect Any PLC to MQTT in 10 Minutes",
-              "path": "best-practise/plc-to-mqtt"
-            },
-            {
-              "title": "Device Control",
-              "path": "best-practise/device-control"
-            },
-            {
-              "title": "OPCUA Tag Browser",
-              "path": "best-practise/opcua-tag-browser"
-            },
-            {
-              "title": "Modbus TCP Server Simulator",
-              "path": "configuration/modbus-simulator"
-            },
-            {
-              "title": "Driver Migration Tool",
-              "path": "configuration/driver-migration-tool",
-              "collapsed": true,
-              "children": [
-                {
-                  "title": "Kepware to Neuron Migration Guide",
-                  "path": "configuration/driver-migration-tool/kepware-to-neuron"
-                },
-                {
-                  "title": "Litmus Edge to Neuron Migration Guide",
-                  "path": "configuration/driver-migration-tool/litmus-edge-to-neuron"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "title": "Integration and Industry",
-          "collapsed": true,
-          "children": [
-            {
-              "title": "LLM fire monitoring",
-              "path": "best-practise/llm-example"
-            },
-            {
-              "title": "Beverage production digital platform",
-              "path": "best-practise/smartfactory1"
-            },
-            {
-              "title": "Integrate MySQL data into your IIoT platform",
-              "path": "best-practise/sql-data"
-            }
-          ]
-        },
-        {
-          "title": "Extending EMQX Neuron",
-          "collapsed": true,
-          "children": [
-            {
-              "title": "AI-generated Python Plugin Guide",
-              "path": "best-practise/llm-portable-plugin"
-            }
-          ]
         }
       ]
     }

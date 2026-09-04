@@ -1,6 +1,6 @@
 # 北向应用协议
 
-将采集到的数据转发到云平台、消息中间件或处理引擎。通用步骤见 [创建北向应用](./north-apps.md)。完整北向插件清单见 [数采插件列表](../../introduction/plugin-list/plugin-list.md)。
+将采集到的数据转发到云平台、消息中间件或处理引擎。通用步骤见 [创建北向应用](./north-apps.md)。完整北向插件清单见 [南向驱动协议](../../introduction/plugin-list/plugin-list.md) 页的北向列表。
 
 - [MQTT 插件](mqtt/overview.md)
 - [AWS IoT](aws-iot/overview.md)

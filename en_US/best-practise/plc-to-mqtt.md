@@ -40,7 +40,7 @@ EMQX Neuron is an industrial edge gateway software designed specifically for ind
 
    - Modbus TCP/RTU, OPC UA, Siemens S7, Ethernet/IP, BACnet, IEC 60870-5-104, DNP3...
 
-   - Complete protocol list: [Data Collection Plugin List](../introduction/plugin-list/plugin-list.md)
+   - Complete protocol list: [Southbound Drivers](../introduction/plugin-list/plugin-list.md)
 
 2. **Flexible & Lightweight Deployment**
 

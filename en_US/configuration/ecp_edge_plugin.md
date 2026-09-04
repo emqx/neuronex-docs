@@ -1,6 +1,6 @@
 # Managing plugins
 
-After you log in, open **Data Collection** -> **Plugin** to see installed plugins. For the full protocol list, see [List of Data Collection Plugins](../introduction/plugin-list/plugin-list.md). For custom development, see the [SDK Tutorial](../dev-guide/sdk-tutorial/sdk-tutorial.md).
+After you log in, open **Data Collection** -> **Plugin** to see installed plugins. For custom development, see the [SDK Tutorial](../dev-guide/sdk-tutorial/sdk-tutorial.md).
 
 ## View available plugins
 

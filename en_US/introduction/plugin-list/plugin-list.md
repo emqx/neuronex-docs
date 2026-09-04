@@ -1,8 +1,8 @@
-# Data collection plugin list
+# Southbound Drivers
 
 Southbound plugins collect device data by protocol. Northbound plugins send data to a cloud platform or processing engine. You need at least one of each for protocol conversion.
 
-To install or replace a custom plugin, see [Managing plugins](../../configuration/ecp_edge_plugin.md). For custom development, see the [SDK Tutorial](../../dev-guide/sdk-tutorial/sdk-tutorial.md).
+For the generic setup steps, see [Create a Southbound Driver](../../configuration/south-devices/south-devices.md). To install or replace a custom plugin, see [Managing plugins](../../configuration/ecp_edge_plugin.md). For custom development, see the [SDK Tutorial](../../dev-guide/sdk-tutorial/sdk-tutorial.md).
 
 ## Southbound Plugin List
 

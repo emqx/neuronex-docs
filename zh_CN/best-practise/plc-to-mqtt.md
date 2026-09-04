@@ -39,7 +39,7 @@
 
    - **Modbus TCP/RTU**、**OPC UA**、**Siemens S7**、**Ethernet/IP**、**BACnet**、**IEC 60870-5-104**、**DNP3**...
 
-   - 完整协议列表：[数采插件列表](../introduction/plugin-list/plugin-list.md)
+   - 完整协议列表：[南向驱动协议](../introduction/plugin-list/plugin-list.md)
 
 2. **灵活&轻量的部署**
 

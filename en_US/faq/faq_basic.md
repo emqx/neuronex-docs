@@ -59,7 +59,7 @@ The default login username and password are: `admin/0000`.
 
 ## Which drivers does the software support for data collection?
 
-Please refer to [Data Collection Plugin List](../introduction/plugin-list/plugin-list.md)
+Please refer to [Southbound Drivers](../introduction/plugin-list/plugin-list.md).
 
 ## What is the minimum collection interval for data collection?
 

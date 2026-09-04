@@ -79,504 +79,497 @@
           ]
         },
         {
-          "title": "南向驱动协议",
-          "path": "configuration/south-devices/catalog",
+          "title": "Modbus 系列",
           "collapsed": true,
           "children": [
             {
-              "title": "Modbus 系列",
+              "title": "Modbus RTU",
+              "path": "configuration/south-devices/modbus-rtu/modbus-rtu",
               "collapsed": true,
               "children": [
                 {
-                  "title": "Modbus RTU",
-                  "path": "configuration/south-devices/modbus-rtu/modbus-rtu",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "连接 DTU",
-                      "path": "configuration/south-devices/modbus-rtu/example/dtu/dtu-connection"
-                    },
-                    {
-                      "title": "连接 Modbus Slave 模拟器",
-                      "path": "configuration/south-devices/modbus-rtu/example/modbus-slave/modbus-slave"
-                    },
-                    {
-                      "title": "常见问题",
-                      "path": "configuration/south-devices/modbus-rtu/faq"
-                    }
-                  ]
+                  "title": "连接 DTU",
+                  "path": "configuration/south-devices/modbus-rtu/example/dtu/dtu-connection"
                 },
                 {
-                  "title": "Modbus TCP",
-                  "path": "configuration/south-devices/modbus-tcp/modbus-tcp",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "连接 Modbus Slave 模拟器",
-                      "path": "configuration/south-devices/modbus-tcp/example/modbus-slave/modbus-slave"
-                    },
-                    {
-                      "title": "常见问题",
-                      "path": "configuration/south-devices/modbus-tcp/faq"
-                    }
-                  ]
+                  "title": "连接 Modbus Slave 模拟器",
+                  "path": "configuration/south-devices/modbus-rtu/example/modbus-slave/modbus-slave"
                 },
                 {
-                  "title": "Modbus ASCII",
-                  "path": "configuration/south-devices/modbus-ascii/modbus-ascii"
+                  "title": "常见问题",
+                  "path": "configuration/south-devices/modbus-rtu/faq"
                 }
               ]
             },
             {
-              "title": "PLC 与运动控制",
+              "title": "Modbus TCP",
+              "path": "configuration/south-devices/modbus-tcp/modbus-tcp",
               "collapsed": true,
               "children": [
                 {
-                  "title": "Inovance Modbus TCP",
-                  "path": "configuration/south-devices/modbus-hc-tcp/modbus-hc-tcp",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Easy521 连接示例",
-                      "path": "configuration/south-devices/modbus-hc-tcp/example/autoshop/autoshop-modbus"
-                    },
-                    {
-                      "title": "常见问题",
-                      "path": "configuration/south-devices/modbus-hc-tcp/faq/faq"
-                    }
-                  ]
+                  "title": "连接 Modbus Slave 模拟器",
+                  "path": "configuration/south-devices/modbus-tcp/example/modbus-slave/modbus-slave"
                 },
                 {
-                  "title": "XINJE Modbus RTU",
-                  "path": "configuration/south-devices/modbus-xinje-rtu/modbus-xinje-rtu"
-                },
-                {
-                  "title": "HollySys Modbus TCP",
-                  "path": "configuration/south-devices/modbus-hollysys-tcp/modbus-hollysys-tcp"
-                },
-                {
-                  "title": "HollySys Modbus RTU",
-                  "path": "configuration/south-devices/modbus-hollysys-rtu/modbus-hollysys-rtu"
-                },
-                {
-                  "title": "EtherNet/IP(CIP)",
-                  "path": "configuration/south-devices/ethernet-ip/ethernet-ip"
-                },
-                {
-                  "title": "Allen-Bradley 5000 EIP",
-                  "path": "configuration/south-devices/ab-5000/ab-5000"
-                },
-                {
-                  "title": "Allen-Bradley ControlLogix 5500",
-                  "path": "configuration/south-devices/ab-5500/ab-5500"
-                },
-                {
-                  "title": "Allen-Bradley MicroLogix 1400",
-                  "path": "configuration/south-devices/ab-1400/ab-1400"
-                },
-                {
-                  "title": "Allen-Bradley DF1",
-                  "path": "configuration/south-devices/df1/df1"
-                },
-                {
-                  "title": "Mitsubishi 3E",
-                  "path": "configuration/south-devices/mitsubishi-3e/overview",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "FX5U 连接示例",
-                      "path": "configuration/south-devices/mitsubishi-3e/fx5u"
-                    },
-                    {
-                      "title": "Q03UDE 连接示例",
-                      "path": "configuration/south-devices/mitsubishi-3e/q03ude"
-                    },
-                    {
-                      "title": "常见问题",
-                      "path": "configuration/south-devices/mitsubishi-3e/faq"
-                    }
-                  ]
-                },
-                {
-                  "title": "Mitsubishi 1E",
-                  "path": "configuration/south-devices/mitsubishi-1e/mitsubishi-1e"
-                },
-                {
-                  "title": "Mitsubishi 4E",
-                  "path": "configuration/south-devices/mitsubishi-4e/overview"
-                },
-                {
-                  "title": "Siemens S7 ISO TCP",
-                  "path": "configuration/south-devices/siemens-s7/s7",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "配置 S7-1200/1500",
-                      "path": "configuration/south-devices/siemens-s7/plc/siemens-s7-1200-1500"
-                    },
-                    {
-                      "title": "S7-1200 连接示例",
-                      "path": "configuration/south-devices/siemens-s7/example/s71200/s71200"
-                    },
-                    {
-                      "title": "常见问题",
-                      "path": "configuration/south-devices/siemens-s7/faq/faq"
-                    }
-                  ]
-                },
-                {
-                  "title": "Siemens MPI",
-                  "path": "configuration/south-devices/siemens-mpi/mpi",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Siemens S7300 PLC 连接示例",
-                      "path": "configuration/south-devices/siemens-mpi/s7300"
-                    }
-                  ]
-                },
-                {
-                  "title": "Siemens S5 FetchWrite",
-                  "path": "configuration/south-devices/siemens-fetchwrite/fetchwrite"
-                },
-                {
-                  "title": "Omron FINS TCP",
-                  "path": "configuration/south-devices/omron-fins/omron-fins",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "CP2E 连接示例",
-                      "path": "configuration/south-devices/omron-fins/example/cp2e/cp2e"
-                    },
-                    {
-                      "title": "常见问题",
-                      "path": "configuration/south-devices/omron-fins/faq"
-                    }
-                  ]
-                },
-                {
-                  "title": "Omron FINS UDP",
-                  "path": "configuration/south-devices/omron-fins/omron-fins-udp",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "NX1P 连接示例",
-                      "path": "configuration/south-devices/omron-fins/example/nx1p/nx1p"
-                    }
-                  ]
-                },
-                {
-                  "title": "Hostlink Cmode",
-                  "path": "configuration/south-devices/hostlink/hostlink-cmode"
-                },
-                {
-                  "title": "Beckhoff ADS",
-                  "path": "configuration/south-devices/ads/ads",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "使用 Beckhoff ADS 协议采集 PLC 数据",
-                      "path": "configuration/south-devices/ads/plc-ads/ads"
-                    }
-                  ]
-                },
-                {
-                  "title": "ABB COMLI",
-                  "path": "configuration/south-devices/comli/comli"
-                },
-                {
-                  "title": "Panasonic Mewtocol",
-                  "path": "configuration/south-devices/panasonic-mewtocol/overview",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "FP-XH C30T 连接示例",
-                      "path": "configuration/south-devices/panasonic-mewtocol/fp-xh-c30t"
-                    },
-                    {
-                      "title": "常见问题",
-                      "path": "configuration/south-devices/panasonic-mewtocol/faq"
-                    }
-                  ]
-                },
-                {
-                  "title": "Mitsubishi FX",
-                  "path": "configuration/south-devices/mitsubishi-fx/overview"
-                },
-                {
-                  "title": "KUKA Ethernet KRL TCP",
-                  "path": "configuration/south-devices/kuka/kuka"
-                },
-                {
-                  "title": "GE SRTP",
-                  "path": "configuration/south-devices/srtp/srtp"
-                },
-                {
-                  "title": "CODESYS V3",
-                  "path": "configuration/south-devices/codesys3/codesys3",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "连接 CODESYS V3 PLC 模拟器",
-                      "path": "configuration/south-devices/codesys3/demo"
-                    }
-                  ]
+                  "title": "常见问题",
+                  "path": "configuration/south-devices/modbus-tcp/faq"
                 }
               ]
             },
             {
-              "title": "OPC",
+              "title": "Modbus ASCII",
+              "path": "configuration/south-devices/modbus-ascii/modbus-ascii"
+            }
+          ]
+        },
+        {
+          "title": "PLC 与运动控制",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "Inovance Modbus TCP",
+              "path": "configuration/south-devices/modbus-hc-tcp/modbus-hc-tcp",
               "collapsed": true,
               "children": [
                 {
-                  "title": "OPC UA",
-                  "path": "configuration/south-devices/opc-ua/overview",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "浏览 OPC UA 地址空间",
-                      "path": "configuration/south-devices/opc-ua/browse"
-                    },
-                    {
-                      "title": "连接策略",
-                      "path": "configuration/south-devices/opc-ua/policy"
-                    },
-                    {
-                      "title": "配置 UaExpert",
-                      "path": "configuration/south-devices/opc-ua/uaexpert"
-                    },
-                    {
-                      "title": "连接 Siemens S7-1200",
-                      "path": "configuration/south-devices/opc-ua/s71200"
-                    },
-                    {
-                      "title": "连接 KEPServerEX",
-                      "path": "configuration/south-devices/opc-ua/kepserverex"
-                    },
-                    {
-                      "title": "连接 Industrial Gateway OPC Server",
-                      "path": "configuration/south-devices/opc-ua/igs"
-                    },
-                    {
-                      "title": "连接 Ignition",
-                      "path": "configuration/south-devices/opc-ua/ignition"
-                    },
-                    {
-                      "title": "连接 Prosys Simulation Server",
-                      "path": "configuration/south-devices/opc-ua/prosys"
-                    },
-                    {
-                      "title": "条件和报警",
-                      "path": "configuration/south-devices/opc-ua/conditions"
-                    },
-                    {
-                      "title": "常见问题",
-                      "path": "configuration/south-devices/opc-ua/faq"
-                    }
-                  ]
+                  "title": "Easy521 连接示例",
+                  "path": "configuration/south-devices/modbus-hc-tcp/example/autoshop/autoshop-modbus"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "configuration/south-devices/modbus-hc-tcp/faq/faq"
                 }
               ]
             },
             {
-              "title": "电力与能源",
+              "title": "XINJE Modbus RTU",
+              "path": "configuration/south-devices/modbus-xinje-rtu/modbus-xinje-rtu"
+            },
+            {
+              "title": "HollySys Modbus TCP",
+              "path": "configuration/south-devices/modbus-hollysys-tcp/modbus-hollysys-tcp"
+            },
+            {
+              "title": "HollySys Modbus RTU",
+              "path": "configuration/south-devices/modbus-hollysys-rtu/modbus-hollysys-rtu"
+            },
+            {
+              "title": "EtherNet/IP(CIP)",
+              "path": "configuration/south-devices/ethernet-ip/ethernet-ip"
+            },
+            {
+              "title": "Allen-Bradley 5000 EIP",
+              "path": "configuration/south-devices/ab-5000/ab-5000"
+            },
+            {
+              "title": "Allen-Bradley ControlLogix 5500",
+              "path": "configuration/south-devices/ab-5500/ab-5500"
+            },
+            {
+              "title": "Allen-Bradley MicroLogix 1400",
+              "path": "configuration/south-devices/ab-1400/ab-1400"
+            },
+            {
+              "title": "Allen-Bradley DF1",
+              "path": "configuration/south-devices/df1/df1"
+            },
+            {
+              "title": "Mitsubishi 3E",
+              "path": "configuration/south-devices/mitsubishi-3e/overview",
               "collapsed": true,
               "children": [
                 {
-                  "title": "IEC60870-5-101",
-                  "path": "configuration/south-devices/iec-101/iec-101"
+                  "title": "FX5U 连接示例",
+                  "path": "configuration/south-devices/mitsubishi-3e/fx5u"
                 },
                 {
-                  "title": "IEC60870-5-102",
-                  "path": "configuration/south-devices/iec-102/iec-102"
+                  "title": "Q03UDE 连接示例",
+                  "path": "configuration/south-devices/mitsubishi-3e/q03ude"
                 },
                 {
-                  "title": "IEC60870-5-103",
-                  "path": "configuration/south-devices/iec-103/iec-103"
-                },
-                {
-                  "title": "IEC60870-5-104",
-                  "path": "configuration/south-devices/iec-104/iec-104",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "IEC60870-5-104 Server 连接示例",
-                      "path": "configuration/south-devices/iec-104/example/server-simulator/simulator"
-                    },
-                    {
-                      "title": "常见问题",
-                      "path": "configuration/south-devices/iec-104/faq"
-                    }
-                  ]
-                },
-                {
-                  "title": "IEC61850",
-                  "path": "configuration/south-devices/iec61850/overview",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "LibIEC61850 连接示例",
-                      "path": "configuration/south-devices/iec61850/libiec61850"
-                    },
-                    {
-                      "title": "常见问题",
-                      "path": "configuration/south-devices/iec61850/faq"
-                    }
-                  ]
-                },
-                {
-                  "title": "DL/T645-2007",
-                  "path": "configuration/south-devices/dlt645-2007/dlt645-2007",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "正泰单相导轨表连接示例",
-                      "path": "configuration/south-devices/dlt645-2007/example/connect"
-                    }
-                  ]
-                },
-                {
-                  "title": "DL/T 645-1997",
-                  "path": "configuration/south-devices/dlt645-1997/dlt645-1997"
-                },
-                {
-                  "title": "DNP 3.0",
-                  "path": "configuration/south-devices/dnp3/dnp3"
+                  "title": "常见问题",
+                  "path": "configuration/south-devices/mitsubishi-3e/faq"
                 }
               ]
             },
             {
-              "title": "CNC 与机床",
+              "title": "Mitsubishi 1E",
+              "path": "configuration/south-devices/mitsubishi-1e/mitsubishi-1e"
+            },
+            {
+              "title": "Mitsubishi 4E",
+              "path": "configuration/south-devices/mitsubishi-4e/overview"
+            },
+            {
+              "title": "Siemens S7 ISO TCP",
+              "path": "configuration/south-devices/siemens-s7/s7",
               "collapsed": true,
               "children": [
                 {
-                  "title": "Focas CNC",
-                  "path": "configuration/south-devices/fanuc-focas/fanuc-focas"
+                  "title": "配置 S7-1200/1500",
+                  "path": "configuration/south-devices/siemens-s7/plc/siemens-s7-1200-1500"
                 },
                 {
-                  "title": "HEIDENHAIN CNC",
-                  "path": "configuration/south-devices/heidenhain-cnc/heidenhain-cnc"
+                  "title": "S7-1200 连接示例",
+                  "path": "configuration/south-devices/siemens-s7/example/s71200/s71200"
                 },
                 {
-                  "title": "KND CNC",
-                  "path": "configuration/south-devices/knd/knd"
-                },
-                {
-                  "title": "Brother CNC",
-                  "path": "configuration/south-devices/brother-cnc/brother-cnc",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "设备端配置",
-                      "path": "configuration/south-devices/brother-cnc/brother-cnc-setup"
-                    }
-                  ]
-                },
-                {
-                  "title": "Mazak CNC",
-                  "path": "configuration/south-devices/mazak-udp/mazak-udp",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "设备端配置",
-                      "path": "configuration/south-devices/mazak-udp/mazak-setup"
-                    }
-                  ]
-                },
-                {
-                  "title": "MTConnect",
-                  "path": "configuration/south-devices/mtconnect/mtconnect",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "接入 DMG MORI 设备",
-                      "path": "configuration/south-devices/mtconnect/dmg-mori"
-                    }
-                  ]
+                  "title": "常见问题",
+                  "path": "configuration/south-devices/siemens-s7/faq/faq"
                 }
               ]
             },
             {
-              "title": "楼宇与环保",
+              "title": "Siemens MPI",
+              "path": "configuration/south-devices/siemens-mpi/mpi",
               "collapsed": true,
               "children": [
                 {
-                  "title": "BACnet/IP",
-                  "path": "configuration/south-devices/bacnet-ip/bacnet-ip",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Yabe 连接示例",
-                      "path": "configuration/south-devices/bacnet-ip/example/yabe"
-                    }
-                  ]
-                },
-                {
-                  "title": "KNXnet/IP",
-                  "path": "configuration/south-devices/knxnet-ip/knxnet-ip"
-                },
-                {
-                  "title": "HJ212-2017",
-                  "path": "configuration/south-devices/hj212-2017/hj212-2017"
+                  "title": "Siemens S7300 PLC 连接示例",
+                  "path": "configuration/south-devices/siemens-mpi/s7300"
                 }
               ]
             },
             {
-              "title": "其他",
+              "title": "Siemens S5 FetchWrite",
+              "path": "configuration/south-devices/siemens-fetchwrite/fetchwrite"
+            },
+            {
+              "title": "Omron FINS TCP",
+              "path": "configuration/south-devices/omron-fins/omron-fins",
               "collapsed": true,
               "children": [
                 {
-                  "title": "NON A11",
-                  "path": "configuration/south-devices/nona11/nona11"
+                  "title": "CP2E 连接示例",
+                  "path": "configuration/south-devices/omron-fins/example/cp2e/cp2e"
                 },
                 {
-                  "title": "SECS GEM HSMS",
-                  "path": "configuration/south-devices/secs-gem/secs-gem",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "连接 Ignition SECS GEM 模拟器",
-                      "path": "configuration/south-devices/secs-gem/example/ignition"
-                    }
-                  ]
+                  "title": "常见问题",
+                  "path": "configuration/south-devices/omron-fins/faq"
+                }
+              ]
+            },
+            {
+              "title": "Omron FINS UDP",
+              "path": "configuration/south-devices/omron-fins/omron-fins-udp",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "NX1P 连接示例",
+                  "path": "configuration/south-devices/omron-fins/example/nx1p/nx1p"
+                }
+              ]
+            },
+            {
+              "title": "Hostlink Cmode",
+              "path": "configuration/south-devices/hostlink/hostlink-cmode"
+            },
+            {
+              "title": "Beckhoff ADS",
+              "path": "configuration/south-devices/ads/ads",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "使用 Beckhoff ADS 协议采集 PLC 数据",
+                  "path": "configuration/south-devices/ads/plc-ads/ads"
+                }
+              ]
+            },
+            {
+              "title": "ABB COMLI",
+              "path": "configuration/south-devices/comli/comli"
+            },
+            {
+              "title": "Panasonic Mewtocol",
+              "path": "configuration/south-devices/panasonic-mewtocol/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "FP-XH C30T 连接示例",
+                  "path": "configuration/south-devices/panasonic-mewtocol/fp-xh-c30t"
                 },
                 {
-                  "title": "SNMP",
-                  "path": "configuration/south-devices/snmp/snmp"
+                  "title": "常见问题",
+                  "path": "configuration/south-devices/panasonic-mewtocol/faq"
+                }
+              ]
+            },
+            {
+              "title": "Mitsubishi FX",
+              "path": "configuration/south-devices/mitsubishi-fx/overview"
+            },
+            {
+              "title": "KUKA Ethernet KRL TCP",
+              "path": "configuration/south-devices/kuka/kuka"
+            },
+            {
+              "title": "GE SRTP",
+              "path": "configuration/south-devices/srtp/srtp"
+            },
+            {
+              "title": "CODESYS V3",
+              "path": "configuration/south-devices/codesys3/codesys3",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "连接 CODESYS V3 PLC 模拟器",
+                  "path": "configuration/south-devices/codesys3/demo"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "OPC",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "OPC UA",
+              "path": "configuration/south-devices/opc-ua/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "浏览 OPC UA 地址空间",
+                  "path": "configuration/south-devices/opc-ua/browse"
                 },
                 {
-                  "title": "NeuronHUB",
-                  "path": "configuration/south-devices/neuhub/neuhub",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "OPC DA",
-                      "path": "configuration/south-devices/neuhub/opcda"
-                    },
-                    {
-                      "title": "DCOM 设置",
-                      "path": "configuration/south-devices/opc-da/remote"
-                    },
-                    {
-                      "title": "KEPServerEX OPCDA Server 连接示例",
-                      "path": "configuration/south-devices/neuhub/example/kepware-da"
-                    },
-                    {
-                      "title": "SYNTEC CNC",
-                      "path": "configuration/south-devices/neuhub/syntec-cnc"
-                    },
-                    {
-                      "title": "MITSUBISHI CNC",
-                      "path": "configuration/south-devices/neuhub/mitsubishi-cnc"
-                    },
-                    {
-                      "title": "OPC AE",
-                      "path": "configuration/south-devices/neuhub/opcae"
-                    },
-                    {
-                      "title": "GE Historian",
-                      "path": "configuration/south-devices/neuhub/ge-historian"
-                    }
-                  ]
+                  "title": "连接策略",
+                  "path": "configuration/south-devices/opc-ua/policy"
+                },
+                {
+                  "title": "配置 UaExpert",
+                  "path": "configuration/south-devices/opc-ua/uaexpert"
+                },
+                {
+                  "title": "连接 Siemens S7-1200",
+                  "path": "configuration/south-devices/opc-ua/s71200"
+                },
+                {
+                  "title": "连接 KEPServerEX",
+                  "path": "configuration/south-devices/opc-ua/kepserverex"
+                },
+                {
+                  "title": "连接 Industrial Gateway OPC Server",
+                  "path": "configuration/south-devices/opc-ua/igs"
+                },
+                {
+                  "title": "连接 Ignition",
+                  "path": "configuration/south-devices/opc-ua/ignition"
+                },
+                {
+                  "title": "连接 Prosys Simulation Server",
+                  "path": "configuration/south-devices/opc-ua/prosys"
+                },
+                {
+                  "title": "条件和报警",
+                  "path": "configuration/south-devices/opc-ua/conditions"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "configuration/south-devices/opc-ua/faq"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "电力与能源",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "IEC60870-5-101",
+              "path": "configuration/south-devices/iec-101/iec-101"
+            },
+            {
+              "title": "IEC60870-5-102",
+              "path": "configuration/south-devices/iec-102/iec-102"
+            },
+            {
+              "title": "IEC60870-5-103",
+              "path": "configuration/south-devices/iec-103/iec-103"
+            },
+            {
+              "title": "IEC60870-5-104",
+              "path": "configuration/south-devices/iec-104/iec-104",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "IEC60870-5-104 Server 连接示例",
+                  "path": "configuration/south-devices/iec-104/example/server-simulator/simulator"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "configuration/south-devices/iec-104/faq"
+                }
+              ]
+            },
+            {
+              "title": "IEC61850",
+              "path": "configuration/south-devices/iec61850/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "LibIEC61850 连接示例",
+                  "path": "configuration/south-devices/iec61850/libiec61850"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "configuration/south-devices/iec61850/faq"
+                }
+              ]
+            },
+            {
+              "title": "DL/T645-2007",
+              "path": "configuration/south-devices/dlt645-2007/dlt645-2007",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "正泰单相导轨表连接示例",
+                  "path": "configuration/south-devices/dlt645-2007/example/connect"
+                }
+              ]
+            },
+            {
+              "title": "DL/T 645-1997",
+              "path": "configuration/south-devices/dlt645-1997/dlt645-1997"
+            },
+            {
+              "title": "DNP 3.0",
+              "path": "configuration/south-devices/dnp3/dnp3"
+            }
+          ]
+        },
+        {
+          "title": "CNC 与机床",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "Focas CNC",
+              "path": "configuration/south-devices/fanuc-focas/fanuc-focas"
+            },
+            {
+              "title": "HEIDENHAIN CNC",
+              "path": "configuration/south-devices/heidenhain-cnc/heidenhain-cnc"
+            },
+            {
+              "title": "KND CNC",
+              "path": "configuration/south-devices/knd/knd"
+            },
+            {
+              "title": "Brother CNC",
+              "path": "configuration/south-devices/brother-cnc/brother-cnc",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "设备端配置",
+                  "path": "configuration/south-devices/brother-cnc/brother-cnc-setup"
+                }
+              ]
+            },
+            {
+              "title": "Mazak CNC",
+              "path": "configuration/south-devices/mazak-udp/mazak-udp",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "设备端配置",
+                  "path": "configuration/south-devices/mazak-udp/mazak-setup"
+                }
+              ]
+            },
+            {
+              "title": "MTConnect",
+              "path": "configuration/south-devices/mtconnect/mtconnect",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "接入 DMG MORI 设备",
+                  "path": "configuration/south-devices/mtconnect/dmg-mori"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "楼宇与环保",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "BACnet/IP",
+              "path": "configuration/south-devices/bacnet-ip/bacnet-ip",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Yabe 连接示例",
+                  "path": "configuration/south-devices/bacnet-ip/example/yabe"
+                }
+              ]
+            },
+            {
+              "title": "KNXnet/IP",
+              "path": "configuration/south-devices/knxnet-ip/knxnet-ip"
+            },
+            {
+              "title": "HJ212-2017",
+              "path": "configuration/south-devices/hj212-2017/hj212-2017"
+            }
+          ]
+        },
+        {
+          "title": "其他",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "NON A11",
+              "path": "configuration/south-devices/nona11/nona11"
+            },
+            {
+              "title": "SECS GEM HSMS",
+              "path": "configuration/south-devices/secs-gem/secs-gem",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "连接 Ignition SECS GEM 模拟器",
+                  "path": "configuration/south-devices/secs-gem/example/ignition"
+                }
+              ]
+            },
+            {
+              "title": "SNMP",
+              "path": "configuration/south-devices/snmp/snmp"
+            },
+            {
+              "title": "NeuronHUB",
+              "path": "configuration/south-devices/neuhub/neuhub",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "OPC DA",
+                  "path": "configuration/south-devices/neuhub/opcda"
+                },
+                {
+                  "title": "DCOM 设置",
+                  "path": "configuration/south-devices/opc-da/remote"
+                },
+                {
+                  "title": "KEPServerEX OPCDA Server 连接示例",
+                  "path": "configuration/south-devices/neuhub/example/kepware-da"
+                },
+                {
+                  "title": "SYNTEC CNC",
+                  "path": "configuration/south-devices/neuhub/syntec-cnc"
+                },
+                {
+                  "title": "MITSUBISHI CNC",
+                  "path": "configuration/south-devices/neuhub/mitsubishi-cnc"
+                },
+                {
+                  "title": "OPC AE",
+                  "path": "configuration/south-devices/neuhub/opcae"
+                },
+                {
+                  "title": "GE Historian",
+                  "path": "configuration/south-devices/neuhub/ge-historian"
                 }
               ]
             }
@@ -1296,504 +1289,497 @@
           ]
         },
         {
-          "title": "Southbound Drivers",
-          "path": "configuration/south-devices/catalog",
+          "title": "Modbus",
           "collapsed": true,
           "children": [
             {
-              "title": "Modbus",
+              "title": "Modbus RTU",
+              "path": "configuration/south-devices/modbus-rtu/modbus-rtu",
               "collapsed": true,
               "children": [
                 {
-                  "title": "Modbus RTU",
-                  "path": "configuration/south-devices/modbus-rtu/modbus-rtu",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Connect to USR DTU",
-                      "path": "configuration/south-devices/modbus-rtu/example/dtu/dtu-connection"
-                    },
-                    {
-                      "title": "Connect to Modbus Slave",
-                      "path": "configuration/south-devices/modbus-rtu/example/modbus-slave/modbus-slave"
-                    },
-                    {
-                      "title": "FAQ",
-                      "path": "configuration/south-devices/modbus-rtu/faq"
-                    }
-                  ]
+                  "title": "Connect to USR DTU",
+                  "path": "configuration/south-devices/modbus-rtu/example/dtu/dtu-connection"
                 },
                 {
-                  "title": "Modbus TCP",
-                  "path": "configuration/south-devices/modbus-tcp/modbus-tcp",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Connect to Modbus Slave",
-                      "path": "configuration/south-devices/modbus-tcp/example/modbus-slave/modbus-slave"
-                    },
-                    {
-                      "title": "FAQ",
-                      "path": "configuration/south-devices/modbus-tcp/faq"
-                    }
-                  ]
+                  "title": "Connect to Modbus Slave",
+                  "path": "configuration/south-devices/modbus-rtu/example/modbus-slave/modbus-slave"
                 },
                 {
-                  "title": "Modbus ASCII",
-                  "path": "configuration/south-devices/modbus-ascii/modbus-ascii"
+                  "title": "FAQ",
+                  "path": "configuration/south-devices/modbus-rtu/faq"
                 }
               ]
             },
             {
-              "title": "PLC and Motion",
+              "title": "Modbus TCP",
+              "path": "configuration/south-devices/modbus-tcp/modbus-tcp",
               "collapsed": true,
               "children": [
                 {
-                  "title": "Inovance Modbus TCP",
-                  "path": "configuration/south-devices/modbus-hc-tcp/modbus-hc-tcp",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Connect to Easy521",
-                      "path": "configuration/south-devices/modbus-hc-tcp/example/autoshop/autoshop-modbus"
-                    },
-                    {
-                      "title": "FAQ",
-                      "path": "configuration/south-devices/modbus-hc-tcp/faq/faq"
-                    }
-                  ]
+                  "title": "Connect to Modbus Slave",
+                  "path": "configuration/south-devices/modbus-tcp/example/modbus-slave/modbus-slave"
                 },
                 {
-                  "title": "XINJE Modbus RTU",
-                  "path": "configuration/south-devices/modbus-xinje-rtu/modbus-xinje-rtu"
-                },
-                {
-                  "title": "HollySys Modbus TCP",
-                  "path": "configuration/south-devices/modbus-hollysys-tcp/modbus-hollysys-tcp"
-                },
-                {
-                  "title": "HollySys Modbus RTU",
-                  "path": "configuration/south-devices/modbus-hollysys-rtu/modbus-hollysys-rtu"
-                },
-                {
-                  "title": "EtherNet/IP(CIP)",
-                  "path": "configuration/south-devices/ethernet-ip/ethernet-ip"
-                },
-                {
-                  "title": "Allen-Bradley 5000 EIP",
-                  "path": "configuration/south-devices/ab-5000/ab-5000"
-                },
-                {
-                  "title": "Allen-Bradley ControlLogix 5500",
-                  "path": "configuration/south-devices/ab-5500/ab-5500"
-                },
-                {
-                  "title": "Allen-Bradley MicroLogix 1400",
-                  "path": "configuration/south-devices/ab-1400/ab-1400"
-                },
-                {
-                  "title": "Allen-Bradley DF1",
-                  "path": "configuration/south-devices/df1/df1"
-                },
-                {
-                  "title": "Mitsubishi 3E",
-                  "path": "configuration/south-devices/mitsubishi-3e/overview",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Connect to FX5U",
-                      "path": "configuration/south-devices/mitsubishi-3e/fx5u"
-                    },
-                    {
-                      "title": "Connect to Q03UDE",
-                      "path": "configuration/south-devices/mitsubishi-3e/q03ude"
-                    },
-                    {
-                      "title": "FAQ",
-                      "path": "configuration/south-devices/mitsubishi-3e/faq"
-                    }
-                  ]
-                },
-                {
-                  "title": "Mitsubishi 1E",
-                  "path": "configuration/south-devices/mitsubishi-1e/mitsubishi-1e"
-                },
-                {
-                  "title": "Mitsubishi 4E",
-                  "path": "configuration/south-devices/mitsubishi-4e/overview"
-                },
-                {
-                  "title": "Siemens S7 ISO TCP",
-                  "path": "configuration/south-devices/siemens-s7/s7",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Tailor S7 1200/1500 PLC for ISOTCP Plugin",
-                      "path": "configuration/south-devices/siemens-s7/plc/siemens-s7-1200-1500"
-                    },
-                    {
-                      "title": "Connect to S7-1200 PLC",
-                      "path": "configuration/south-devices/siemens-s7/example/s71200/s71200"
-                    },
-                    {
-                      "title": "FAQ",
-                      "path": "configuration/south-devices/siemens-s7/faq/faq"
-                    }
-                  ]
-                },
-                {
-                  "title": "Siemens MPI",
-                  "path": "configuration/south-devices/siemens-mpi/mpi",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Siemens S7-300 PLC Connection Example",
-                      "path": "configuration/south-devices/siemens-mpi/s7300"
-                    }
-                  ]
-                },
-                {
-                  "title": "Siemens S5 FetchWrite",
-                  "path": "configuration/south-devices/siemens-fetchwrite/fetchwrite"
-                },
-                {
-                  "title": "Omron FINS TCP",
-                  "path": "configuration/south-devices/omron-fins/omron-fins",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Connect to CP2E",
-                      "path": "configuration/south-devices/omron-fins/example/cp2e/cp2e"
-                    },
-                    {
-                      "title": "FAQ",
-                      "path": "configuration/south-devices/omron-fins/faq"
-                    }
-                  ]
-                },
-                {
-                  "title": "Omron FINS UDP",
-                  "path": "configuration/south-devices/omron-fins/omron-fins-udp",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Connect to NX1P",
-                      "path": "configuration/south-devices/omron-fins/example/nx1p/nx1p"
-                    }
-                  ]
-                },
-                {
-                  "title": "Hostlink Cmode",
-                  "path": "configuration/south-devices/hostlink/hostlink-cmode"
-                },
-                {
-                  "title": "Beckhoff ADS",
-                  "path": "configuration/south-devices/ads/ads",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Data collection (Beckhoff ADS Protocol)",
-                      "path": "configuration/south-devices/ads/plc-ads/ads"
-                    }
-                  ]
-                },
-                {
-                  "title": "ABB COMLI",
-                  "path": "configuration/south-devices/comli/comli"
-                },
-                {
-                  "title": "Panasonic Mewtocol",
-                  "path": "configuration/south-devices/panasonic-mewtocol/overview",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Connect to FP-XH C30T",
-                      "path": "configuration/south-devices/panasonic-mewtocol/fp-xh-c30t"
-                    },
-                    {
-                      "title": "FAQ",
-                      "path": "configuration/south-devices/panasonic-mewtocol/faq"
-                    }
-                  ]
-                },
-                {
-                  "title": "Mitsubishi FX",
-                  "path": "configuration/south-devices/mitsubishi-fx/overview"
-                },
-                {
-                  "title": "KUKA Ethernet KRL TCP",
-                  "path": "configuration/south-devices/kuka/kuka"
-                },
-                {
-                  "title": "GE SRTP",
-                  "path": "configuration/south-devices/srtp/srtp"
-                },
-                {
-                  "title": "CODESYS V3",
-                  "path": "configuration/south-devices/codesys3/codesys3",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Connecting to the CODESYS V3 PLC Simulator",
-                      "path": "configuration/south-devices/codesys3/demo"
-                    }
-                  ]
+                  "title": "FAQ",
+                  "path": "configuration/south-devices/modbus-tcp/faq"
                 }
               ]
             },
             {
-              "title": "OPC",
+              "title": "Modbus ASCII",
+              "path": "configuration/south-devices/modbus-ascii/modbus-ascii"
+            }
+          ]
+        },
+        {
+          "title": "PLC and Motion",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "Inovance Modbus TCP",
+              "path": "configuration/south-devices/modbus-hc-tcp/modbus-hc-tcp",
               "collapsed": true,
               "children": [
                 {
-                  "title": "OPC UA",
-                  "path": "configuration/south-devices/opc-ua/overview",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Browse OPC UA Address Space",
-                      "path": "configuration/south-devices/opc-ua/browse"
-                    },
-                    {
-                      "title": "Connection Policy",
-                      "path": "configuration/south-devices/opc-ua/policy"
-                    },
-                    {
-                      "title": "UaExpert",
-                      "path": "configuration/south-devices/opc-ua/uaexpert"
-                    },
-                    {
-                      "title": "Connect to Siemens S7-1200",
-                      "path": "configuration/south-devices/opc-ua/s71200"
-                    },
-                    {
-                      "title": "Connect to KEPServerEX",
-                      "path": "configuration/south-devices/opc-ua/kepserverex"
-                    },
-                    {
-                      "title": "Connect to Industrial Gateway OPC Server",
-                      "path": "configuration/south-devices/opc-ua/igs"
-                    },
-                    {
-                      "title": "Connect to Ignition",
-                      "path": "configuration/south-devices/opc-ua/ignition"
-                    },
-                    {
-                      "title": "Connect to Prosys Simulation Server",
-                      "path": "configuration/south-devices/opc-ua/prosys"
-                    },
-                    {
-                      "title": "Conditions and Alarms",
-                      "path": "configuration/south-devices/opc-ua/conditions"
-                    },
-                    {
-                      "title": "FAQ",
-                      "path": "configuration/south-devices/opc-ua/faq"
-                    }
-                  ]
+                  "title": "Connect to Easy521",
+                  "path": "configuration/south-devices/modbus-hc-tcp/example/autoshop/autoshop-modbus"
+                },
+                {
+                  "title": "FAQ",
+                  "path": "configuration/south-devices/modbus-hc-tcp/faq/faq"
                 }
               ]
             },
             {
-              "title": "Power and Energy",
+              "title": "XINJE Modbus RTU",
+              "path": "configuration/south-devices/modbus-xinje-rtu/modbus-xinje-rtu"
+            },
+            {
+              "title": "HollySys Modbus TCP",
+              "path": "configuration/south-devices/modbus-hollysys-tcp/modbus-hollysys-tcp"
+            },
+            {
+              "title": "HollySys Modbus RTU",
+              "path": "configuration/south-devices/modbus-hollysys-rtu/modbus-hollysys-rtu"
+            },
+            {
+              "title": "EtherNet/IP(CIP)",
+              "path": "configuration/south-devices/ethernet-ip/ethernet-ip"
+            },
+            {
+              "title": "Allen-Bradley 5000 EIP",
+              "path": "configuration/south-devices/ab-5000/ab-5000"
+            },
+            {
+              "title": "Allen-Bradley ControlLogix 5500",
+              "path": "configuration/south-devices/ab-5500/ab-5500"
+            },
+            {
+              "title": "Allen-Bradley MicroLogix 1400",
+              "path": "configuration/south-devices/ab-1400/ab-1400"
+            },
+            {
+              "title": "Allen-Bradley DF1",
+              "path": "configuration/south-devices/df1/df1"
+            },
+            {
+              "title": "Mitsubishi 3E",
+              "path": "configuration/south-devices/mitsubishi-3e/overview",
               "collapsed": true,
               "children": [
                 {
-                  "title": "IEC60870-5-101",
-                  "path": "configuration/south-devices/iec-101/iec-101"
+                  "title": "Connect to FX5U",
+                  "path": "configuration/south-devices/mitsubishi-3e/fx5u"
                 },
                 {
-                  "title": "IEC60870-5-102",
-                  "path": "configuration/south-devices/iec-102/iec-102"
+                  "title": "Connect to Q03UDE",
+                  "path": "configuration/south-devices/mitsubishi-3e/q03ude"
                 },
                 {
-                  "title": "IEC60870-5-103",
-                  "path": "configuration/south-devices/iec-103/iec-103"
-                },
-                {
-                  "title": "IEC60870-5-104",
-                  "path": "configuration/south-devices/iec-104/iec-104",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Connect to IEC60870-5-104 Server Simulator",
-                      "path": "configuration/south-devices/iec-104/example/server-simulator/simulator"
-                    },
-                    {
-                      "title": "FAQ",
-                      "path": "configuration/south-devices/iec-104/faq"
-                    }
-                  ]
-                },
-                {
-                  "title": "IEC61850",
-                  "path": "configuration/south-devices/iec61850/overview",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Connect to LibIEC61850 server",
-                      "path": "configuration/south-devices/iec61850/libiec61850"
-                    },
-                    {
-                      "title": "FAQ",
-                      "path": "configuration/south-devices/iec61850/faq"
-                    }
-                  ]
-                },
-                {
-                  "title": "DL/T645-2007",
-                  "path": "configuration/south-devices/dlt645-2007/dlt645-2007",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Connect to Chint Single-phase Rail Meter",
-                      "path": "configuration/south-devices/dlt645-2007/example/connect"
-                    }
-                  ]
-                },
-                {
-                  "title": "DL/T645-1997",
-                  "path": "configuration/south-devices/dlt645-1997/dlt645-1997"
-                },
-                {
-                  "title": "DNP 3.0",
-                  "path": "configuration/south-devices/dnp3/dnp3"
+                  "title": "FAQ",
+                  "path": "configuration/south-devices/mitsubishi-3e/faq"
                 }
               ]
             },
             {
-              "title": "CNC",
+              "title": "Mitsubishi 1E",
+              "path": "configuration/south-devices/mitsubishi-1e/mitsubishi-1e"
+            },
+            {
+              "title": "Mitsubishi 4E",
+              "path": "configuration/south-devices/mitsubishi-4e/overview"
+            },
+            {
+              "title": "Siemens S7 ISO TCP",
+              "path": "configuration/south-devices/siemens-s7/s7",
               "collapsed": true,
               "children": [
                 {
-                  "title": "HEIDENHAIN CNC",
-                  "path": "configuration/south-devices/heidenhain-cnc/heidenhain-cnc"
+                  "title": "Tailor S7 1200/1500 PLC for ISOTCP Plugin",
+                  "path": "configuration/south-devices/siemens-s7/plc/siemens-s7-1200-1500"
                 },
                 {
-                  "title": "KND CNC",
-                  "path": "configuration/south-devices/knd/knd"
+                  "title": "Connect to S7-1200 PLC",
+                  "path": "configuration/south-devices/siemens-s7/example/s71200/s71200"
                 },
                 {
-                  "title": "Brother CNC",
-                  "path": "configuration/south-devices/brother-cnc/brother-cnc",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Device-Side Configuration",
-                      "path": "configuration/south-devices/brother-cnc/brother-cnc-setup"
-                    }
-                  ]
-                },
-                {
-                  "title": "Mazak CNC",
-                  "path": "configuration/south-devices/mazak-udp/mazak-udp",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Device-Side Configuration",
-                      "path": "configuration/south-devices/mazak-udp/mazak-setup"
-                    }
-                  ]
-                },
-                {
-                  "title": "MTConnect",
-                  "path": "configuration/south-devices/mtconnect/mtconnect",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Connect to DMG MORI",
-                      "path": "configuration/south-devices/mtconnect/dmg-mori"
-                    }
-                  ]
-                },
-                {
-                  "title": "Focas CNC",
-                  "path": "configuration/south-devices/fanuc-focas/fanuc-focas"
+                  "title": "FAQ",
+                  "path": "configuration/south-devices/siemens-s7/faq/faq"
                 }
               ]
             },
             {
-              "title": "Building and Environment",
+              "title": "Siemens MPI",
+              "path": "configuration/south-devices/siemens-mpi/mpi",
               "collapsed": true,
               "children": [
                 {
-                  "title": "BACnet/IP",
-                  "path": "configuration/south-devices/bacnet-ip/bacnet-ip",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Connect to Yabe",
-                      "path": "configuration/south-devices/bacnet-ip/example/yabe"
-                    }
-                  ]
-                },
-                {
-                  "title": "KNXnet/IP",
-                  "path": "configuration/south-devices/knxnet-ip/knxnet-ip"
-                },
-                {
-                  "title": "HJ212-2017",
-                  "path": "configuration/south-devices/hj212-2017/hj212-2017"
+                  "title": "Siemens S7-300 PLC Connection Example",
+                  "path": "configuration/south-devices/siemens-mpi/s7300"
                 }
               ]
             },
             {
-              "title": "Others",
+              "title": "Siemens S5 FetchWrite",
+              "path": "configuration/south-devices/siemens-fetchwrite/fetchwrite"
+            },
+            {
+              "title": "Omron FINS TCP",
+              "path": "configuration/south-devices/omron-fins/omron-fins",
               "collapsed": true,
               "children": [
                 {
-                  "title": "NON A11",
-                  "path": "configuration/south-devices/nona11/nona11"
+                  "title": "Connect to CP2E",
+                  "path": "configuration/south-devices/omron-fins/example/cp2e/cp2e"
                 },
                 {
-                  "title": "SECS GEM HSMS",
-                  "path": "configuration/south-devices/secs-gem/secs-gem",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "Connect to Ignition SECS GEM simulator",
-                      "path": "configuration/south-devices/secs-gem/example/ignition"
-                    }
-                  ]
+                  "title": "FAQ",
+                  "path": "configuration/south-devices/omron-fins/faq"
+                }
+              ]
+            },
+            {
+              "title": "Omron FINS UDP",
+              "path": "configuration/south-devices/omron-fins/omron-fins-udp",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Connect to NX1P",
+                  "path": "configuration/south-devices/omron-fins/example/nx1p/nx1p"
+                }
+              ]
+            },
+            {
+              "title": "Hostlink Cmode",
+              "path": "configuration/south-devices/hostlink/hostlink-cmode"
+            },
+            {
+              "title": "Beckhoff ADS",
+              "path": "configuration/south-devices/ads/ads",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Data collection (Beckhoff ADS Protocol)",
+                  "path": "configuration/south-devices/ads/plc-ads/ads"
+                }
+              ]
+            },
+            {
+              "title": "ABB COMLI",
+              "path": "configuration/south-devices/comli/comli"
+            },
+            {
+              "title": "Panasonic Mewtocol",
+              "path": "configuration/south-devices/panasonic-mewtocol/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Connect to FP-XH C30T",
+                  "path": "configuration/south-devices/panasonic-mewtocol/fp-xh-c30t"
                 },
                 {
-                  "title": "SNMP",
-                  "path": "configuration/south-devices/snmp/snmp"
+                  "title": "FAQ",
+                  "path": "configuration/south-devices/panasonic-mewtocol/faq"
+                }
+              ]
+            },
+            {
+              "title": "Mitsubishi FX",
+              "path": "configuration/south-devices/mitsubishi-fx/overview"
+            },
+            {
+              "title": "KUKA Ethernet KRL TCP",
+              "path": "configuration/south-devices/kuka/kuka"
+            },
+            {
+              "title": "GE SRTP",
+              "path": "configuration/south-devices/srtp/srtp"
+            },
+            {
+              "title": "CODESYS V3",
+              "path": "configuration/south-devices/codesys3/codesys3",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Connecting to the CODESYS V3 PLC Simulator",
+                  "path": "configuration/south-devices/codesys3/demo"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "OPC",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "OPC UA",
+              "path": "configuration/south-devices/opc-ua/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Browse OPC UA Address Space",
+                  "path": "configuration/south-devices/opc-ua/browse"
                 },
                 {
-                  "title": "NeuronHUB",
-                  "path": "configuration/south-devices/neuhub/neuhub",
-                  "collapsed": true,
-                  "children": [
-                    {
-                      "title": "OPC DA",
-                      "path": "configuration/south-devices/neuhub/opcda"
-                    },
-                    {
-                      "title": "DCOM Settings",
-                      "path": "configuration/south-devices/opc-da/remote"
-                    },
-                    {
-                      "title": "Example of KEPServerEX OPCDA Server Connection",
-                      "path": "configuration/south-devices/neuhub/example/kepware-da"
-                    },
-                    {
-                      "title": "SYNTEC CNC",
-                      "path": "configuration/south-devices/neuhub/syntec-cnc"
-                    },
-                    {
-                      "title": "MITSUBISHI CNC",
-                      "path": "configuration/south-devices/neuhub/mitsubishi-cnc"
-                    },
-                    {
-                      "title": "OPC AE",
-                      "path": "configuration/south-devices/neuhub/opcae"
-                    },
-                    {
-                      "title": "GE Historian",
-                      "path": "configuration/south-devices/neuhub/ge-historian"
-                    }
-                  ]
+                  "title": "Connection Policy",
+                  "path": "configuration/south-devices/opc-ua/policy"
+                },
+                {
+                  "title": "UaExpert",
+                  "path": "configuration/south-devices/opc-ua/uaexpert"
+                },
+                {
+                  "title": "Connect to Siemens S7-1200",
+                  "path": "configuration/south-devices/opc-ua/s71200"
+                },
+                {
+                  "title": "Connect to KEPServerEX",
+                  "path": "configuration/south-devices/opc-ua/kepserverex"
+                },
+                {
+                  "title": "Connect to Industrial Gateway OPC Server",
+                  "path": "configuration/south-devices/opc-ua/igs"
+                },
+                {
+                  "title": "Connect to Ignition",
+                  "path": "configuration/south-devices/opc-ua/ignition"
+                },
+                {
+                  "title": "Connect to Prosys Simulation Server",
+                  "path": "configuration/south-devices/opc-ua/prosys"
+                },
+                {
+                  "title": "Conditions and Alarms",
+                  "path": "configuration/south-devices/opc-ua/conditions"
+                },
+                {
+                  "title": "FAQ",
+                  "path": "configuration/south-devices/opc-ua/faq"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Power and Energy",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "IEC60870-5-101",
+              "path": "configuration/south-devices/iec-101/iec-101"
+            },
+            {
+              "title": "IEC60870-5-102",
+              "path": "configuration/south-devices/iec-102/iec-102"
+            },
+            {
+              "title": "IEC60870-5-103",
+              "path": "configuration/south-devices/iec-103/iec-103"
+            },
+            {
+              "title": "IEC60870-5-104",
+              "path": "configuration/south-devices/iec-104/iec-104",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Connect to IEC60870-5-104 Server Simulator",
+                  "path": "configuration/south-devices/iec-104/example/server-simulator/simulator"
+                },
+                {
+                  "title": "FAQ",
+                  "path": "configuration/south-devices/iec-104/faq"
+                }
+              ]
+            },
+            {
+              "title": "IEC61850",
+              "path": "configuration/south-devices/iec61850/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Connect to LibIEC61850 server",
+                  "path": "configuration/south-devices/iec61850/libiec61850"
+                },
+                {
+                  "title": "FAQ",
+                  "path": "configuration/south-devices/iec61850/faq"
+                }
+              ]
+            },
+            {
+              "title": "DL/T645-2007",
+              "path": "configuration/south-devices/dlt645-2007/dlt645-2007",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Connect to Chint Single-phase Rail Meter",
+                  "path": "configuration/south-devices/dlt645-2007/example/connect"
+                }
+              ]
+            },
+            {
+              "title": "DL/T645-1997",
+              "path": "configuration/south-devices/dlt645-1997/dlt645-1997"
+            },
+            {
+              "title": "DNP 3.0",
+              "path": "configuration/south-devices/dnp3/dnp3"
+            }
+          ]
+        },
+        {
+          "title": "CNC",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "HEIDENHAIN CNC",
+              "path": "configuration/south-devices/heidenhain-cnc/heidenhain-cnc"
+            },
+            {
+              "title": "KND CNC",
+              "path": "configuration/south-devices/knd/knd"
+            },
+            {
+              "title": "Brother CNC",
+              "path": "configuration/south-devices/brother-cnc/brother-cnc",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Device-Side Configuration",
+                  "path": "configuration/south-devices/brother-cnc/brother-cnc-setup"
+                }
+              ]
+            },
+            {
+              "title": "Mazak CNC",
+              "path": "configuration/south-devices/mazak-udp/mazak-udp",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Device-Side Configuration",
+                  "path": "configuration/south-devices/mazak-udp/mazak-setup"
+                }
+              ]
+            },
+            {
+              "title": "MTConnect",
+              "path": "configuration/south-devices/mtconnect/mtconnect",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Connect to DMG MORI",
+                  "path": "configuration/south-devices/mtconnect/dmg-mori"
+                }
+              ]
+            },
+            {
+              "title": "Focas CNC",
+              "path": "configuration/south-devices/fanuc-focas/fanuc-focas"
+            }
+          ]
+        },
+        {
+          "title": "Building and Environment",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "BACnet/IP",
+              "path": "configuration/south-devices/bacnet-ip/bacnet-ip",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Connect to Yabe",
+                  "path": "configuration/south-devices/bacnet-ip/example/yabe"
+                }
+              ]
+            },
+            {
+              "title": "KNXnet/IP",
+              "path": "configuration/south-devices/knxnet-ip/knxnet-ip"
+            },
+            {
+              "title": "HJ212-2017",
+              "path": "configuration/south-devices/hj212-2017/hj212-2017"
+            }
+          ]
+        },
+        {
+          "title": "Others",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "NON A11",
+              "path": "configuration/south-devices/nona11/nona11"
+            },
+            {
+              "title": "SECS GEM HSMS",
+              "path": "configuration/south-devices/secs-gem/secs-gem",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Connect to Ignition SECS GEM simulator",
+                  "path": "configuration/south-devices/secs-gem/example/ignition"
+                }
+              ]
+            },
+            {
+              "title": "SNMP",
+              "path": "configuration/south-devices/snmp/snmp"
+            },
+            {
+              "title": "NeuronHUB",
+              "path": "configuration/south-devices/neuhub/neuhub",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "OPC DA",
+                  "path": "configuration/south-devices/neuhub/opcda"
+                },
+                {
+                  "title": "DCOM Settings",
+                  "path": "configuration/south-devices/opc-da/remote"
+                },
+                {
+                  "title": "Example of KEPServerEX OPCDA Server Connection",
+                  "path": "configuration/south-devices/neuhub/example/kepware-da"
+                },
+                {
+                  "title": "SYNTEC CNC",
+                  "path": "configuration/south-devices/neuhub/syntec-cnc"
+                },
+                {
+                  "title": "MITSUBISHI CNC",
+                  "path": "configuration/south-devices/neuhub/mitsubishi-cnc"
+                },
+                {
+                  "title": "OPC AE",
+                  "path": "configuration/south-devices/neuhub/opcae"
+                },
+                {
+                  "title": "GE Historian",
+                  "path": "configuration/south-devices/neuhub/ge-historian"
                 }
               ]
             }

@@ -6,7 +6,7 @@ Read this section in sidebar order:
 
 1. [List of Data Collection Plugins](../introduction/plugin-list/plugin-list.md): which protocols you can connect
 2. [Create a Southbound Driver](./south-devices/south-devices.md): create the node, groups, and tags
-3. [Southbound Drivers](./south-devices/catalog.md): parameters and examples per protocol
+3. Open a protocol family in the sidebar (Modbus, PLC, OPC, and so on) for parameters and examples
 4. [Data Monitoring](../admin/monitoring.md): confirm tags are collecting
 5. [Managing Plugins](./ecp_edge_plugin.md): install or replace custom plugins
 

@@ -6,7 +6,7 @@
 
 1. [数采插件列表](../introduction/plugin-list/plugin-list.md)：能接哪些协议
 2. [添加南向驱动](./south-devices/south-devices.md)：建节点、组和点位
-3. [南向驱动协议](./south-devices/catalog.md)：按协议查看参数和示例
+3. 侧边栏按协议族查看参数和示例（Modbus、PLC、OPC 等）
 4. [数据监控](../admin/monitoring.md)：确认点位已采到
 5. [管理插件模块](./ecp_edge_plugin.md)：安装或替换自定义插件
 

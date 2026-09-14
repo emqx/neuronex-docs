@@ -1,6 +1,6 @@
 # Brother CNC 设备端配置
 
-本指南介绍如何配置 Brother CNC 机床的通信和网络参数，以便 EMQX Neuron Brother CNC 插件通过 TCP/IP 连接并采集数据。
+本指南介绍如何配置 Brother CNC 机床的通信和网络参数，以便 EMQX Neuron Brother CNC 驱动通过 TCP/IP 连接并采集数据。
 
 ## 准备工作
 
@@ -61,7 +61,7 @@ IP 地址需与 EMQX Neuron 主机处于同一子网，默认通信端口为 **1
    ```
 3. 确认 EMQX Neuron 主机能够访问 TCP 端口 **10000**。
 
-验证通过后，在 EMQX Neuron 端配置 Brother CNC 插件。详情请参考 [Brother CNC](./brother-cnc.md)。
+验证通过后，在 EMQX Neuron 端配置 Brother CNC 驱动。详情请参考 [Brother CNC](./brother-cnc.md)。
 
 ## 故障排查
 

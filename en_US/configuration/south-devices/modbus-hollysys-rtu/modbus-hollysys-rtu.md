@@ -1,6 +1,6 @@
 # HollySys Modbus RTU
 
-The EMQX Neuron HollySys Modbus RTU plugin is for collecting HollySys PLC tags using the Modbus RTU protocol,
+The EMQX Neuron HollySys Modbus RTU driver is for collecting HollySys PLC tags using the Modbus RTU protocol,
 
 
 ## Add Device
@@ -8,7 +8,7 @@ The EMQX Neuron HollySys Modbus RTU plugin is for collecting HollySys PLC tags u
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **HollySys Modbus RTU** plugin.
+- Driver: Select the **HollySys Modbus RTU** driver.
 
 ## Device Configuration
 
@@ -33,11 +33,11 @@ After clicking **Create**, you will be redirected to the **Device Configuration*
 | **Maximum Retry Times**    | The maximum number of retries after a failed attempt to send a read command.           |
 | **Retry Interval**         | Resend reading instruction interval(ms) after a failed attempt to send a read command. |
 
-The HollySys Modbus RTU plugin configuration is similar to that of the [Modbus RTU driver module](../modbus-rtu/modbus-rtu.md).
+The HollySys Modbus RTU driver configuration is similar to that of the [Modbus RTU driver module](../modbus-rtu/modbus-rtu.md).
 
 ## Configure Data Groups and Tags
 
-After the plugin is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
+After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
 
 Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking on **Create**, then specifying the group name and data collection interval.
 
@@ -66,7 +66,7 @@ Required, Slave is the slave address or site number.
 #### **ADDRESS**
 
 HollySys PLC maps data units onto the Modbus address space for access through the Modbus RTU protocol.
-The EMQX Neuron HollySys Modbus RTU plugin frees users from details of the address mapping, and designates the PLC data unit name as the **ADDRESS**.
+The EMQX Neuron HollySys Modbus RTU driver frees users from details of the address mapping, and designates the PLC data unit name as the **ADDRESS**.
 
 
 | Area                            | Data unit example                           | Attribute  | Register Size | Data Type      |

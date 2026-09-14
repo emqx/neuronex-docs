@@ -1,6 +1,6 @@
 # FAQ
 
-## SparkplugB Plugin Disconnected from Broker
+## SparkplugB Application Disconnected from Broker
 
 * Ensure you create the Sparkplug B plug-in with the correct parameters, such as the broker address, username, and password.
 * If SSL is enabled, make sure you are using the correct certificate. Also, check that the broker is properly configured.

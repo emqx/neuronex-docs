@@ -2,15 +2,15 @@
 
 [TwinCAT] 是由 Beckhoff Automation 开发的一种控制技术。它是一种基于软件的控制系统，用于自动化和控制应用。TwinCAT 能够运行在多种平台上并支持多种编程语言。
 
-EMQX Neuron Beckhoff ADS 插件使用户可以通过 TCP/IP 连接到 Beckhoff TwinCAT PLC。
+EMQX Neuron Beckhoff ADS 驱动使用户可以通过 TCP/IP 连接到 Beckhoff TwinCAT PLC。
 
-## 添加插件
+## 添加驱动
 
-在 **数据采集 -> 南向设备**，点击**添加设备**来创建设备节点，输入插件名称，插件类型选择 **Beckhoff ADS** 启用插件。
+在 **数据采集 -> 南向设备**，点击**添加设备**来创建设备节点，输入驱动名称，驱动类型选择 **Beckhoff ADS** 启用驱动。
 
 ## 设备配置
 
-点击插件卡片或插件列，进入**设备配置**页。配置 EMQX Neuron 与设备建立连接所需的参数，下表为插件相关的配置项。
+点击驱动卡片或驱动列，进入**设备配置**页。配置 EMQX Neuron 与设备建立连接所需的参数，下表为驱动相关的配置项。
 
 | 字段             | 说明                                         |
 | ---------------- | -------------------------------------------- |
@@ -34,7 +34,7 @@ EMQX Neuron Beckhoff ADS 插件使用户可以通过 TCP/IP 连接到 Beckhoff T
 
 ## 设置组和点位
 
-完成插件的添加和配置后，要建立设备与 EMQX Neuron 之间的通信，首先为南向驱动程序添加组和点位。
+完成驱动的添加和配置后，要建立设备与 EMQX Neuron 之间的通信，首先为南向驱动程序添加组和点位。
 
 完成设备配置后，在**南向设备**页，点击设备卡片/设备列进入**组列表**页。点击**创建**来创建组，设定组名称以及采集间隔。完成组的创建后，点击组名称进入**点位列表**页，添加需要采集的设备点位，包括点位地址，点位属性，数据类型等。
 
@@ -57,7 +57,7 @@ EMQX Neuron Beckhoff ADS 插件使用户可以通过 TCP/IP 连接到 Beckhoff T
 
 ### 地址格式
 
-对 ADS 插件来说，一个点位地址由 INDEX_GROUP 和 INDEX_OFFSET 两个部分组成，分别表示 index group 和 index offset 。
+对 ADS 驱动来说，一个点位地址由 INDEX_GROUP 和 INDEX_OFFSET 两个部分组成，分别表示 index group 和 index offset 。
 
 > INDEX_GROUP,INDEX_OFFSET
 

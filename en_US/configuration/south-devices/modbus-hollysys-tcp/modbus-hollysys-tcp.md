@@ -1,6 +1,6 @@
 # HollySys Modbus TCP
 
-The EMQX Neuron HollySys Modbus TCP plugin is for collecting HollySys PLC tags using the Modbus TCP protocol,
+The EMQX Neuron HollySys Modbus TCP driver is for collecting HollySys PLC tags using the Modbus TCP protocol,
 
 Modbus TCP is a version of the Modbus protocol based on Ethernet, which uses TCP/IP for communication. Unlike the traditional Modbus RTU protocol, Modbus TCP allows devices to be interconnected directly through Ethernet without any special hardware or communication interface. Therefore, Modbus TCP has higher communication speed and wider application range.
 
@@ -10,7 +10,7 @@ Modbus TCP is a version of the Modbus protocol based on Ethernet, which uses TCP
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **HollySys Modbus TCP** plugin.
+- Driver: Select the **HollySys Modbus TCP** driver.
 
 
 ## Device Configuration
@@ -30,7 +30,7 @@ After clicking **Create**, you will be redirected to the **Device Configuration*
 
 ## Configure Data Groups and Tags
 
-After the plugin is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
+After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
 
 Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking on **Create**, then specifying the group name and data collection interval.
 
@@ -57,7 +57,7 @@ Required, Slave is the slave address or site number.
 #### **ADDRESS**
 
 HollySys PLC maps data units onto the Modbus address space for access through the Modbus TCP protocol.
-The EMQX Neuron HollySys Modbus TCP plugin frees users from details of the address mapping, and designates the PLC data unit name as the **ADDRESS**.
+The EMQX Neuron HollySys Modbus TCP driver frees users from details of the address mapping, and designates the PLC data unit name as the **ADDRESS**.
 
 
 | Area                            | Data unit example                           | Attribute  | Register Size | Data Type      |

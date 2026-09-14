@@ -2,7 +2,7 @@
 
 FX5U 是三菱电机的一款高性能的紧凑型可编程逻辑控制器（PLC）。它是三菱 FX 系列 PLC 的一部分，适用于各种中小型自动化应用。
 
-本节介绍如何通过 EMQX Neuron Mitsubishi 3E 插件连接 FX5U。
+本节介绍如何通过 EMQX Neuron Mitsubishi 3E 驱动连接 FX5U。
 
 ## 配置 FX5U
 

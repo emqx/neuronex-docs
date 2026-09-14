@@ -4,14 +4,14 @@ The Hostlink protocol is a protocol defined by Omron for communication between o
 The Hostlink communication protocol has two modes: C-mode and FINS.
 Cmode adopts ASCII code, and the upper computer actively sends instructions to the CPU; FINS adopts binary code and can be used in various network devices, and can be actively issued by CPU, IO module, and upper computer.
 
-The EMQX Neuron HostLink Cmode plugin is used to communicate with the Omron PLC through a serial network.
+The EMQX Neuron HostLink Cmode driver is used to communicate with the Omron PLC through a serial network.
 
 ## Add Device
 
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **HOSTLINK CMODE** plugin.
+- Driver: Select the **HOSTLINK CMODE** driver.
 
 ## Device Configuration
 

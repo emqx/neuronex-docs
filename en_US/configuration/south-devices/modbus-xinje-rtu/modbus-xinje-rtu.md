@@ -1,6 +1,6 @@
 # XINJE Modbus RTU
 
-The EMQX Neuron XINJE Modbus RTU plugin is for collecting XINJE PLC tags using the Modbus RTU protocol,
+The EMQX Neuron XINJE Modbus RTU driver is for collecting XINJE PLC tags using the Modbus RTU protocol,
 supporting XINJE XC/XD/XL PLC models.
 
 
@@ -9,7 +9,7 @@ supporting XINJE XC/XD/XL PLC models.
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **XINJE Modbus RTU** plugin.
+- Driver: Select the **XINJE Modbus RTU** driver.
 
 ## Device Configuration
 
@@ -36,11 +36,11 @@ After clicking **Create**, you will be redirected to the **Device Configuration*
 | **Maximum Retry Times**    | The maximum number of retries after a failed attempt to send a read command.           |
 | **Retry Interval**         | Resend reading instruction interval(ms) after a failed attempt to send a read command. |
 
-The XINJE Modbus RTU plugin configuration is similar to that of the [Modbus RTU driver module](../modbus-rtu/modbus-rtu.md).
+The XINJE Modbus RTU driver configuration is similar to that of the [Modbus RTU driver module](../modbus-rtu/modbus-rtu.md).
 
 ## Configure Data Groups and Tags
 
-After the plugin is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
+After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
 
 Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking on **Create**, then specifying the group name and data collection interval.
 
@@ -78,7 +78,7 @@ Required, Slave is the slave address or site number.
 
 XINJE PLC maps memory data unit (input/output relay, timer, counter etc) onto the Modbus address space for access through the Modbus RTU protocol.
 Depending on the PLC model, such address mapping may vary.
-The EMQX Neuron XINJE Modbus RTU plugin frees users from details of the address mapping, and designates the PLC data unit name as the **ADDRESS**.
+The EMQX Neuron XINJE Modbus RTU driver frees users from details of the address mapping, and designates the PLC data unit name as the **ADDRESS**.
 
 Users could check the address mapping according to the PLC model from [XINJE official documents](https://m.xinje.com/xj_service/xj_xzzx.html),
 and the following tables are listed here for convenience.

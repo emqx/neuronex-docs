@@ -2,16 +2,16 @@
 
 [MQTT] is a messaging protocol designed for IoT devices and applications operating on a publish/subscribe model. It's lightweight, efficient, reliable, and allows for real-time communication. MQTT is well-suited for environments with limited resources, where efficient use of power and bandwidth is necessary.
 
-EMQX Neuron supports MQTT as one of its communication protocols. The EMQX Neuron MQTT plugin allows users to quickly build IoT applications that use MQTT communication between devices and the cloud. 
+EMQX Neuron supports MQTT as one of its communication protocols. The EMQX Neuron MQTT application allows users to quickly build IoT applications that use MQTT communication between devices and the cloud.
 
-Using the MQTT plugin, developers can also publish messages back to IoT devices, triggering actions such as turning lights, motors, and other equipment on or off.
+Using the MQTT application, developers can also publish messages back to IoT devices, triggering actions such as turning lights, motors, and other equipment on or off.
 
-The plugin also supports secure communication with devices, using authentication and encrypted communication protocols to ensure data safety and privacy.
+The application also supports secure communication with devices, using authentication and encrypted communication protocols to ensure data safety and privacy.
 
 [MQTT]: https://mqtt.org
 
 ::: tip
-It is not recommended to enable multiple MQTT plugin nodes in the same EMQX Neuron instance, as this may lead to performance degradation and resource contention issues.
+It is not recommended to enable multiple MQTT application nodes in the same EMQX Neuron instance, as this may lead to performance degradation and resource contention issues.
 To collect and forward data from different southbound devices, it is recommended to add multiple subscriptions within the same MQTT node.
 :::
 
@@ -20,7 +20,7 @@ To collect and forward data from different southbound devices, it is recommended
 To create a northbound MQTT node and connect it to an MQTT Broker to upload data, navigate to **Data Collection -> North Apps** and click **Add Application** to add an MQTT client node.
 
 - Name: The name of this application node, for example, "mqtt".
-- Plugin: Select the MQTT plugin.
+- Application: Select the MQTT application.
 
 ## Configure Application
 
@@ -33,8 +33,8 @@ See the table below for the configuration parameters.
 | **QoS Level**                   | MQTT QoS level for message delivery, optional, default QoS 0.  |
 | **Upload Format**               | JSON format of reported data, a required field: <br /><br /> - *values-format*, data are split into `values` and `errors` sub-objects. <br />- *tags-format*, tag data are put in a single array. <br />- *ECP-format*：Add tag types on the basis of *tags-format*.<br />- *Custom*：Customize the reported data format. <br /><br />For data communication format, see [Upstream/Downstream Data Format](./api.md#write-tag) |
 | **Upload Tag Error Code**     | When data tag collection reports an error, report the tag error code, default enabled.           |
-| **Write Request Topic**         | MQTT topic to which the plugin subscribes for write requests. For data communication format, see [Upstream/Downstream Data Format](./api.md#write-tag) . If tracing is enabled, configure the user properties `traceparent` and `tracestate` according to the W3C standard. |
-| **Write Response Topic**        | MQTT topic to which the plugin sends write responses.  |
+| **Write Request Topic**         | MQTT topic to which the application subscribes for write requests. For data communication format, see [Upstream/Downstream Data Format](./api.md#write-tag) . If tracing is enabled, configure the user properties `traceparent` and `tracestate` according to the W3C standard. |
+| **Write Response Topic**        | MQTT topic to which the application sends write responses.  |
 | **Driver Status Report**         | Reports status of all the southbound nodes to the specified topic. |
 | **Status Report Topic**      | The topic for status reporting. |
 | **Status Report Interval**   | The time interval for reporting the status of the southbound node, in seconds. The range is 1-3600, default 1. |
@@ -53,9 +53,9 @@ See the table below for the configuration parameters.
 
 ### Offline Data Caching
 
-EMQX Neuron's offline data caching is a valuable feature designed to enhance application robustness and reliability. This feature is particularly beneficial in environments where network connectivity is inconsistent, unstable, or limited. It works by locally storing data on the device running EMQX Neuron during any network outages, enabling the MQTT plugin to synchronize data with the broker once the network connection is restored.
+EMQX Neuron's offline data caching is a valuable feature designed to enhance application robustness and reliability. This feature is particularly beneficial in environments where network connectivity is inconsistent, unstable, or limited. It works by locally storing data on the device running EMQX Neuron during any network outages, enabling the MQTT application to synchronize data with the broker once the network connection is restored.
 
-The process is straightforward: when a network disruption occurs, the MQTT plugin initially stores data in a memory cache. It only reverts to flushing data to a disk cache if the memory cache becomes full. Once the network connection is reestablished, the MQTT plugin starts publishing the cached data to the broker following a FIFO (First In, First Out) order. This streamlined approach ensures smooth data flow and connectivity, even in challenging network conditions.
+The process is straightforward: when a network disruption occurs, the MQTT application initially stores data in a memory cache. It only reverts to flushing data to a disk cache if the memory cache becomes full. Once the network connection is reestablished, the MQTT application starts publishing the cached data to the broker following a FIFO (First In, First Out) order. This streamlined approach ensures smooth data flow and connectivity, even in challenging network conditions.
 
 Offline data caching is controlled by the **Offline Data Caching**, **Cache Memory Size**, and **Cache Disk Size** parameters. To enable the cache feature:
 
@@ -69,7 +69,7 @@ Offline data caching is controlled by the **Offline Data Caching**, **Cache Memo
 The **Offline Data Caching** parameter is added since EMQX Neuron version 2.4.3. For older versions, you may disable offline data caching by setting both **Cache Memory Size** and **Cache Disk Size** to zero.
 :::
 
-The following table gives some statistics on disk space usage for offline caching (using the [Modbus TCP plugin](../../south-devices/modbus-tcp/modbus-tcp)).
+The following table gives some statistics on disk space usage for offline caching (using the [Modbus TCP driver](../../south-devices/modbus-tcp/modbus-tcp)).
 
 - The first column is the number of tags in each MQTT message.
 - The second column is the MQTT message payload size in bytes for that many tags. 
@@ -87,7 +87,7 @@ The following table gives some statistics on disk space usage for offline cachin
 
 
 ::: tip
-This plugin configuration will automatically subscribe to multiple topics. It is recommended to configure the corresponding permissions for each topic on the MQTT Broker when configuring ACL, to ensure that the plugin can work properly.
+This application configuration will automatically subscribe to multiple topics. It is recommended to configure the corresponding permissions for each topic on the MQTT Broker when configuring ACL, to ensure that the application can work properly.
 :::
 
 ### Driver Status Report
@@ -126,14 +126,14 @@ Where:
 SSL/TLS (Secure Sockets Layer/Transport Layer Security) is a security protocol used to encrypt communication channels between networked devices. It enables secure communication over an insecure network, such as the Internet. MQTT over SSL/TLS is a secure method for transmitting MQTT messages between the client and the MQTT broker by encrypting the data being transmitted with SSL/TLS encryption. This ensures that all data passed between the clients and the broker
 are encrypted and secure.
 
-The EMQX Neuron MQTT plugin supports running MQTT over SSL. To enable SSL encryption, turn on the **SSL** parameter when configuring the node. 
+The EMQX Neuron MQTT application supports running MQTT over SSL. To enable SSL encryption, turn on the **SSL** parameter when configuring the node.
 
 - If using self-signed certificates, the **CA** parameter should be provided with the server-side CA certificate. The certificate of the broker you are connecting to should be issued by the provided CA. 
 - If using two-way authentication, you should also provide the client certificate and key file through the **Client Cert** and **Client Private key** parameters respectively.
 
 ## Add Subscription
 
-After plugin configuration, data forwarding can be enabled via southbound device subscriptions.
+After application configuration, data forwarding can be enabled via southbound device subscriptions.
 
 Click the device card or row on the **North Apps** page, then **Add Subscription** on the **Group List** page. And set the following:
 
@@ -145,7 +145,7 @@ Select the desired southbound device (e.g., 'modbus-tcp-1') and group (e.g., 'gr
 
 ::: tip
 
-Before EMQX Neuron version 2.4.0, the EMQX Neuron MQTT plugin will publish collected data in JSON to the topic designated by the **upload-topic** parameter.
+Before EMQX Neuron version 2.4.0, the EMQX Neuron MQTT application will publish collected data in JSON to the topic designated by the **upload-topic** parameter.
 
 :::
 
@@ -160,15 +160,15 @@ Before EMQX Neuron version 2.4.0, the EMQX Neuron MQTT plugin will publish colle
 
 The exact format of the data reported is controlled by the **Upload Format** parameter. There are two formats, *tags-format* and *values-format*. For more detailed information, see [Upstream/Downstream Data Format](./api.md#data-upload)
 
-## Test the MQTT Plugin
+## Test the MQTT Application
 
-This section will use the [public EMQX Broker](https://www.emqx.com/en/mqtt/public-mqtt5-broker) as an example to demonstrate how to use the MQTT plugin to forward the Modbus TCP data. 
+This section will use the [public EMQX Broker](https://www.emqx.com/en/mqtt/public-mqtt5-broker) as an example to demonstrate how to use the MQTT application to forward the Modbus TCP data.
 
-### Southbound Plugin
+### Southbound driver
 
-The southbound Modbus TCP plugin has been installed, the group and point configurations are complete, and communication with EMQX Neuron is functioning normally. For details on the installation and configuration of the Modbus TCP plugin, refer to the [Modbus TCP section](../../south-devices/modbus-tcp/modbus-tcp.md).
+The southbound Modbus TCP driver has been installed, the group and point configurations are complete, and communication with EMQX Neuron is functioning normally. For details on the installation and configuration of the Modbus TCP driver, refer to the [Modbus TCP section](../../south-devices/modbus-tcp/modbus-tcp.md).
 
-### Northbound Plugin
+### Northbound Application
 
 On **Data Collection -> North Apps**, click **Add Application** to add an MQTT client node.
 
@@ -208,7 +208,7 @@ Adding Subscription
 
 In the connection window, click **New Subscription**. In the pop-up window, set up as follows:
 
-- Topic: This should be consistent with the topic in Create and Configure a Northbound Plugin, for example, "/neuron/mqtt/upload".
+- Topic: This should be consistent with the topic in Create and Configure a Northbound Application, for example, "/neuron/mqtt/upload".
 
   ::: tip
 

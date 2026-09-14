@@ -80,7 +80,7 @@ After expanding a device, you can see the detailed reasons for conversion failur
 | **KEPServerEX field**                                            | **Neuron field**      | **Description**                                                                 |
 | ---------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------- |
 | common.ALLTYPES_NAME                                             | name                  | Device node name                                                                |
-| servermain.MULTIPLE_TYPES_DEVICE_DRIVER:"Modbus TCP/IP Ethernet" | plugin: "Modbus TCP"  | Plugin name                                                                     |
+| servermain.MULTIPLE_TYPES_DEVICE_DRIVER:"Modbus TCP/IP Ethernet" | driver: "Modbus TCP"  | Driver name                                                                     |
 | servermain.DEVICE_ID_STRING                                      | params.host, slave id | IP and station number <192.168.10.111>.1, needs to be parsed out                 |
 | modbus_ethernet.DEVICE_ETHERNET_PORT_NUMBER                      | params.port           | Port number                                                                     |
 | modbus_ethernet.DEVICE_ZERO_BASED_ADDRESSING                     | params.address_base   | Start address<br><br>true->0<br><br>false->1                                     |

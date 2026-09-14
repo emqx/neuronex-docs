@@ -1,13 +1,13 @@
 # NON A11
 
-The non-A11 driver is applicable to non-A11 devices, with the plugin supporting both client and server modes for device interfacing. The plugin currently supports UINT16/INT16/UINT32/INT32/FLOAT/STRING data types and allows user-defined instructions for data reading.
+The non-A11 driver is applicable to non-A11 devices, with the driver supporting both client and server modes for device interfacing. The driver currently supports UINT16/INT16/UINT32/INT32/FLOAT/STRING data types and allows user-defined instructions for data reading.
 
 ## Add Device
 
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **NON A11** plugin.
+- Driver: Select the **NON A11** driver.
 
 ## Device Configuration
 

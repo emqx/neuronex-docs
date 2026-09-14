@@ -1,6 +1,6 @@
 # OPC UA 条件和报警
 
-OPC UA Part 9 定义了条件（Conditions）和报警（Alarms）模型，用于监控设备状态和事件。EMQX Neuron OPC UA 插件支持订阅条件与报警信息，并可调用 OPC UA 服务器上的方法（Methods）对报警进行确认等操作。
+OPC UA Part 9 定义了条件（Conditions）和报警（Alarms）模型，用于监控设备状态和事件。EMQX Neuron OPC UA 驱动支持订阅条件与报警信息，并可调用 OPC UA 服务器上的方法（Methods）对报警进行确认等操作。
 
 ## 前提条件
 

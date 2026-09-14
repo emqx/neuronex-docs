@@ -12,7 +12,7 @@ In the realm of data collection, EMQX Neuron not only supports industrial equipm
 
 ### Industrial Equipment Data Collection
 
-EMQX Neuron supports various industrial protocols through plugins, including Modbus, OPC UA, EtherNet/IP, IEC104, BACnet, Siemens PLC, and Mitsubishi PLC. This meets the data collection needs of diverse industries such as smart manufacturing, oil and gas, steel and metallurgy, energy, and building automation.
+EMQX Neuron supports various industrial protocols through drivers, including Modbus, OPC UA, EtherNet/IP, IEC104, BACnet, Siemens PLC, and Mitsubishi PLC. This meets the data collection needs of diverse industries such as smart manufacturing, oil and gas, steel and metallurgy, energy, and building automation.
 
 ### Integration of Multi-Source Data
 EMQX Neuron also possesses the capability to flexibly acquire various types of data. In industrial settings, it can support:

@@ -9,7 +9,7 @@ The Mitsubishi 3E is fully compatible with the Mitsubishi SLMP protocol.
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **Mitsubishi 3E** plugin.
+- Driver: Select the **Mitsubishi 3E** driver.
 
 ## Device Configuration
 

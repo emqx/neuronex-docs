@@ -2,9 +2,9 @@
 
 [Apache Kafka] is a distributed streaming platform widely used for building real-time data pipelines and streaming applications. Kafka offers high throughput, low latency, durable storage, and horizontal scalability, making it well-suited for large-scale industrial data collection and transmission scenarios.
 
-The EMQX Neuron Kafka plugin works as a Kafka **producer**, publishing data collected from southbound devices to Kafka topics in JSON format, enabling efficient data delivery to big data platforms.
+The EMQX Neuron Kafka application works as a Kafka **producer**, publishing data collected from southbound devices to Kafka topics in JSON format, enabling efficient data delivery to big data platforms.
 
-The plugin supports SASL authentication and SSL/TLS encrypted communication to ensure data security.
+The application supports SASL authentication and SSL/TLS encrypted communication to ensure data security.
 
 [Apache Kafka]: https://kafka.apache.org
 
@@ -50,7 +50,7 @@ When **Security Protocol** is set to `ssl` or `sasl_ssl`, the following paramete
 
 ## Add Subscription
 
-After plugin configuration, click the device card or row on the **North Apps** page, then **Add Subscription** on the **Group List** page. Set the following:
+After application configuration, click the device card or row on the **North Apps** page, then **Add Subscription** on the **Group List** page. Set the following:
 
 - **South device**: Select the southbound device to subscribe to.
 - **Group**: Select a group from the southbound device.
@@ -70,7 +70,7 @@ The following applies when delivering industrial data collected by EMQX Neuron t
 
 ### What is Microsoft Fabric
 
-**Microsoft Fabric** is Microsoft's unified SaaS analytics platform that brings data integration, data engineering, real-time analytics, and visualization into one product family. **OneLake** is the unified lake that holds data for multiple engines; **Real-Time Intelligence / Eventstream** can ingest streaming data over the **Kafka protocol**, so you do not need to operate a self-managed Kafka cluster in the cloud to scale consumption and persistence (for example into **Eventhouse**). For EMQX Neuron, if the cloud exposes a standard Kafka producer bootstrap address and credentials, you can use the northbound Kafka plugin described on this page.
+**Microsoft Fabric** is Microsoft's unified SaaS analytics platform that brings data integration, data engineering, real-time analytics, and visualization into one product family. **OneLake** is the unified lake that holds data for multiple engines; **Real-Time Intelligence / Eventstream** can ingest streaming data over the **Kafka protocol**, so you do not need to operate a self-managed Kafka cluster in the cloud to scale consumption and persistence (for example into **Eventhouse**). For EMQX Neuron, if the cloud exposes a standard Kafka producer bootstrap address and credentials, you can use the northbound Kafka application described on this page.
 
 ### Why EMQX Neuron + Microsoft Fabric
 
@@ -87,11 +87,11 @@ EMQX Neuron can send data to Fabric Eventstream (Kafka-compatible endpoint) via 
 | Approach | Description |
 | -------- | ----------- |
 | **Data processing → Kafka Sink** | Southbound data enters **Data processing (stream processing)** first. SQL rules filter, map, and aggregate; a **Kafka Sink** writes to Eventstream. **Suited to** trimming fields, throttling, or conditional upload at the edge. |
-| **Northbound Kafka plugin (this page)** | Data from subscriptions is sent by the northbound Kafka node as a Kafka **producer** straight to the broker/topic. **Suited to** models that already align with subscriptions, with send cadence and topic routing controlled outside the stream-processing console. |
+| **Northbound Kafka application (this page)** | Data from subscriptions is sent by the northbound Kafka node as a Kafka **producer** straight to the broker/topic. **Suited to** models that already align with subscriptions, with send cadence and topic routing controlled outside the stream-processing console. |
 
 On the Fabric side both paths often reuse the same Eventstream bootstrap, topic, and SASL credentials; the difference is whether data goes through the data processing engine before send.
 
-### Configuring the northbound Kafka plugin for Eventstream
+### Configuring the northbound Kafka application for Eventstream
 
 After you create **Eventstream** in Fabric and complete the Kafka custom endpoint setup, map the connection details to the **northbound Kafka** fields below.
 
@@ -100,7 +100,7 @@ After you create **Eventstream** in Fabric and complete the Kafka custom endpoin
 | **Broker Address** | Fabric Eventstream **bootstrap server** (including port). | `neuron-eventstream.servicebus.windows.net:9093` |
 | **Default Topic** | Topic name configured for that stream in Fabric; if **Add Subscription** sets a **Topic** for a subscription, that value takes precedence; otherwise use this default. | `neuron-topic` |
 | **Security Protocol** | Use **`sasl_ssl`** when connecting to Eventstream with TLS and SASL. | `sasl_ssl` |
-| **SASL Mechanism** | Matches Kafka Sink **SASL Auth Type = plain**; select **`PLAIN`** in the plugin. | `PLAIN` |
+| **SASL Mechanism** | Matches Kafka Sink **SASL Auth Type = plain**; select **`PLAIN`** in the application. | `PLAIN` |
 | **SASL Username** | Fixed string. | `$ConnectionString` |
 | **SASL Password** | Full Fabric **Connection string - primary key**; do not truncate. | `Endpoint=sb://...` |
 

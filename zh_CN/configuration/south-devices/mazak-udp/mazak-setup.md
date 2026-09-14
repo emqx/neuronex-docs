@@ -1,6 +1,6 @@
 # Mazak 设备端配置
 
-本指南介绍如何配置 Mazak CNC 通过 UDP 发送运行数据，以便 EMQX Neuron Mazak CNC 插件采集。通信依赖于 Mazak 控制器 Windows PC 上运行的 **Mazak Fusion Client** 应用程序。
+本指南介绍如何配置 Mazak CNC 通过 UDP 发送运行数据，以便 EMQX Neuron Mazak CNC 驱动采集。通信依赖于 Mazak 控制器 Windows PC 上运行的 **Mazak Fusion Client** 应用程序。
 
 ## 适用控制器
 
@@ -111,7 +111,7 @@ Fusion Client 运行在 Mazak 控制器的 Windows 系统上。访问 Windows �
 2. 确认 Mazak CNC 能够访问 EMQX Neuron 主机。
 3. 确认两台设备之间 UDP 端口 51001 已开放。
 
-验证通过后，在 EMQX Neuron 端配置 Mazak CNC 插件。详情请参考 [Mazak CNC](./mazak-udp.md)。
+验证通过后，在 EMQX Neuron 端配置 Mazak CNC 驱动。详情请参考 [Mazak CNC](./mazak-udp.md)。
 
 ## 故障排查
 

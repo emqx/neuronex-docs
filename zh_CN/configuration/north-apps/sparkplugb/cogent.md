@@ -24,7 +24,7 @@ Cogent DataHub 是由 Skkynet 公司开发的一款实时数据集成和分发�
 
 ### 南向设备
 
-本节以 OPC UA 南向设备为例进行配置。完成南向插件的安装，并已设置数据组和标签。具体步骤，见 [OPC UA](../../south-devices/opc-ua/overview.md)。
+本节以 OPC UA 南向设备为例进行配置。完成南向驱动的安装，并已设置数据组和标签。具体步骤，见 [OPC UA](../../south-devices/opc-ua/overview.md)。
 
 ### 北向应用
 

@@ -1,6 +1,6 @@
 # KUKA
 
-EMQX Neuron KUKA Ethernet KRL TCP plugin accesses KUKA robot devices with the KUKA Ethernet KRL module installed through TCP protocol. Currently, the EMQX Neuron KUKA plugin supports the robot device server mode and client mode.
+EMQX Neuron KUKA Ethernet KRL TCP driver accesses KUKA robot devices with the KUKA Ethernet KRL module installed through TCP protocol. Currently, the EMQX Neuron KUKA driver supports the robot device server mode and client mode.
 
 ## Parameter Configuration
 
@@ -30,7 +30,7 @@ On-site robot devices need to have the KUKA Ethernet KRL module installed in adv
 
 ## ADDRESS
 
-The plugin address is in the form of XML XPATH.
+The driver address is in the form of XML XPATH.
 
 ## Address Examples
 

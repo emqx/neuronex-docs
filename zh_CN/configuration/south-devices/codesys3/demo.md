@@ -1,6 +1,6 @@
 # 连接 CODESYS V3 PLC 模拟器示例
 
-本文将使用 CODESYS V3 TCP 插件连接 CODESYS V3 PLC 模拟器，实现读写 CODESYS V3 模拟设备的数据。
+本文将使用 CODESYS V3 TCP 驱动连接 CODESYS V3 PLC 模拟器，实现读写 CODESYS V3 模拟设备的数据。
 
 ## CODESYS V3 开发环境安装
 
@@ -93,7 +93,7 @@ CODESYS V3 开发环境安装程序，可以去 CODESYS 官网下载。本示例
 
 ## EMQX Neuron 配置节点连接 CODESYS V3 模拟器
 
-* 在 **南向设备** 中 点击 `添加设备`，选择 `CODESYS V3 TCP` 插件来创建一个连接 CODESYS V3 模拟器的节点。
+* 在 **南向设备** 中 点击 `添加设备`，选择 `CODESYS V3 TCP` 驱动来创建一个连接 CODESYS V3 模拟器的节点。
 * 创建好节点后，点击 `设备配置` 进入设备配置页面，根据实际情况配置节点信息，
 	* `设备 IP 地址`：设备的 IP 地址，即模拟器运行主机的 IP 地址
 	* `设备端口`：设备的端口，默认为 11740

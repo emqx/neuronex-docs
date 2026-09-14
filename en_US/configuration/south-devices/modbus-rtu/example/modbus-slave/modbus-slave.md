@@ -35,7 +35,7 @@ As a Client, EMQX Neuron initiates connection requests to Modbus Slave actively.
 
 ### Configure EMQX Neuron (Client)
 
-In **South Devices**, using Modbus RTU plugin to create a node named modbus-rtu-client, and configure the driver, as shown in the figure below.
+In **South Devices**, using Modbus RTU driver to create a node named modbus-rtu-client, and configure the driver, as shown in the figure below.
 
 ![neuron-rtu-client-config](./assets/neuron-rtu-client-config-en.png)
 

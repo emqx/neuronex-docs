@@ -1,6 +1,6 @@
 # Connect to FP-XH C30T
 
-Panasonic's FP-XH C30T is a versatile PLC from the FP-XH series, ideal for small-to-medium automation tasks. This guide will illustrate its integration via the EMQX Neuron Mewtocol plugin.
+Panasonic's FP-XH C30T is a versatile PLC from the FP-XH series, ideal for small-to-medium automation tasks. This guide will illustrate its integration via the EMQX Neuron Mewtocol driver.
 
 ## Install Configurator WD
 

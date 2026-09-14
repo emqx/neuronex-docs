@@ -66,7 +66,7 @@ EMQX Neuron 安装后，默认提供了一个默认的访问地址：`http://loc
 
 ## 软件支持采集哪些驱动？
 
-请参考侧边栏 [南向驱动协议](../introduction/plugin-list/plugin-list.md)。
+请参考侧边栏 [南向驱动协议](../introduction/driver-list/driver-list.md)。
 
 ## 数据采集最低采集周期是多少？
 
@@ -78,7 +78,7 @@ EMQX Neuron 标准产品最低采集周期是 `100ms`，如果有更低的采集
 
 ## 是否支持自行开发驱动？
 
-支持。EMQX Neuron 可以分为核心框架和多种可插拔模块，南向、北向的插件模块可动态添加和删除。EMQX Neuron 提供基于C语言的驱动开发 SDK。
+支持。EMQX Neuron 可以分为核心框架和多种可插拔模块，南向驱动和北向应用可动态添加和删除。EMQX Neuron 提供基于C语言的驱动开发 SDK。
 
 ## 最多支持多少个南向驱动同时采集？
 
@@ -102,7 +102,7 @@ EMQX Neuron 标准产品最低采集周期是 `100ms`，如果有更低的采集
 
 ## 如何将 Modbus TCP 驱动采集数据转发到 MQTT 服务器？
 
-在**数据采集**->**北向应用**页面，添加 MQTT 插件，并添加订阅，将 Modbus TCP 驱动的采集 group 添加进来。
+通过北向 MQTT 应用订阅 Modbus TCP 驱动的采集组即可转发数据。完整操作步骤见 [PLC 数据接入 MQTT](../best-practise/plc-to-mqtt.md)。
 
 ## EMQX Neuron 版本升级后，如何快速迁移配置？
 

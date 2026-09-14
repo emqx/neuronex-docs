@@ -2,14 +2,14 @@
 
 BACnet (Building Automation and Control Networks) is a communication protocol used in smart buildings. It is defined by the International Organization for Standardization (ISO), the American National Standards Institute (ANSI) and the American Society of Heating, Venting, and Air-conditioning Engineers (ASHRAE). BACnet is designed specifically for smart buildings and control systems, and can be used for heating, ventilation, and air conditioning (HVAC), lighting control, access control, fire detection systems, and related equipment. Its advantages include reducing the cost of maintenance systems and making installation simpler than general industrial communication protocols. In addition, BACnet also provides five standard protocols commonly used in the industry, which can prevent equipment and system suppliers from monopolizing the market and increase the scalability and compatibility of future systems. BACnet supports multiple communication methods, including serial ports, IP, Ethernet, and ZigBee.
 
-The BACnet/IP driver talks to a single device at a known address by unicast, reading with ReadPropertyMultiple and writing with WriteProperty. It does no discovery of its own: Who-Is/I-Am broadcasts and cross-subnet discovery through a BBMD (BACnet Broadcast Management Device) belong to the [Device Scanning](#device-scanning) plugin. Using the two together is the recommended approach - let the scan plugin find the devices and tags on the network, then have it generate a fully configured BACnet/IP node for you.
+The BACnet/IP driver talks to a single device at a known address by unicast, reading with ReadPropertyMultiple and writing with WriteProperty. It does no discovery of its own: Who-Is/I-Am broadcasts and cross-subnet discovery through a BBMD (BACnet Broadcast Management Device) belong to the [Device Scanning](#device-scanning) driver. Using the two together is the recommended approach - let the scan driver find the devices and tags on the network, then have it generate a fully configured BACnet/IP node for you.
 
 ## Add Device
 
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **BACnet/IP** plugin.
+- Driver: Select the **BACnet/IP** driver.
 
 ## Device Configuration
 
@@ -195,7 +195,7 @@ A `.NULL` tag is write-only. Adding one with the read or subscribe attribute is 
 
 ## Device Scanning
 
-BACnet/IP devices can be discovered by broadcasting Who-Is messages and listening for I-Am responses. The scan plugin implements this discovery, and can also re-enumerate the tags of known devices. It is a separate plugin from the BACnet/IP driver, and is used to generate fully configured BACnet/IP nodes.
+BACnet/IP devices can be discovered by broadcasting Who-Is messages and listening for I-Am responses. The scan driver implements this discovery, and can also re-enumerate the tags of known devices. It is a separate driver from the BACnet/IP driver, and is used to generate fully configured BACnet/IP nodes.
 
 The usual workflow is three steps:
 

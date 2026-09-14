@@ -1,10 +1,10 @@
 # 南向驱动协议
 
-南向插件按协议采集设备数据；北向插件把数据送到云平台或处理引擎。协议转换至少需要各一个。
+南向驱动按协议采集设备数据；北向应用把数据送到云平台或处理引擎。协议转换至少需要各一个。
 
-通用添加步骤见 [添加南向驱动](../../configuration/south-devices/south-devices.md)。安装、替换自定义插件见 [管理插件模块](../../configuration/ecp_edge_plugin.md)。二次开发见 [SDK 教程](../../dev-guide/sdk-tutorial/sdk-tutorial.md)。
+通用添加步骤见 [添加南向驱动](../../configuration/south-devices/south-devices.md)。安装、替换自定义驱动或应用见 [驱动与应用管理](../../configuration/ecp_edge_plugin.md)。二次开发见 [SDK 教程](../../dev-guide/sdk-tutorial/sdk-tutorial.md)。
 
-## 南向插件列表
+## 南向驱动列表
 
 ### 全球标准
 
@@ -99,7 +99,7 @@
 | ------------- | ------- | ----- | 
 |  [环保 HJ212-2017 协议](../../configuration/south-devices/hj212-2017/hj212-2017.md)  | 以太网/串口    |    采集支持环保 HJ212-2017 标准的设备数据        |
 
-## 北向插件列表
+## 北向应用列表
 
 ### 云连接
 
@@ -120,4 +120,3 @@
 | 协议名称                                 | 备注              | 
 | --------------------------------------- | --------------   |
 | [DataProcessing](../../configuration/north-apps/ekuiper/overview.md)               | 对接数据处理模块  |
-| [DataStorage](../../configuration/north-apps/DataStorage/DataStorage.md)              | 对接外部 Datalayers 时序数据库  |

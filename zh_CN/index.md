@@ -12,7 +12,7 @@ EMQX Neuron 打破了 OT 与 IT 之间的技术壁垒，为工业场景提供了
 
 - 丰富的协议接入
 
-    丰富的协议插件满足工业各类场景下，PLC、CNC、机器人、Scada以及智能仪表等设备数据的实时采集及统一接入。内置多种插件模块，例如 Modbus，OPC UA，Ethernet/IP，IEC104，BACnet，Siemens，Mitsubishi 等。这些插件某块被广泛应用于楼宇自动化、数控机床、机器人、电力以及各种 PLC 通信中。
+    丰富的协议驱动满足工业各类场景下，PLC、CNC、机器人、Scada以及智能仪表等设备数据的实时采集及统一接入。内置多种驱动模块，例如 Modbus，OPC UA，Ethernet/IP，IEC104，BACnet，Siemens，Mitsubishi 等。这些驱动模块被广泛应用于楼宇自动化、数控机床、机器人、电力以及各种 PLC 通信中。
 
 - 低延迟数据处理
 
@@ -38,7 +38,7 @@ EMQX Neuron 打破了 OT 与 IT 之间的技术壁垒，为工业场景提供了
 
 | <div style="width:40pt">功能</div> | 描述     | <div style="width:80pt">功能清单</div>   |
 | ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 数据采集                           | EMQX Neuron 支持超百种工业协议的一站式设备连接、数据采集、设备反控、MQTT 协议转换及南向数采监控，赋予工业设备关键的互联互通能力。| [添加南向驱动](./configuration/south-devices/south-devices.md) <br /><br />[南向驱动协议](./introduction/plugin-list/plugin-list.md)<br /><br />[数据监控](./admin/monitoring.md)|
+| 数据采集                           | EMQX Neuron 支持超百种工业协议的一站式设备连接、数据采集、设备反控、MQTT 协议转换及南向数采监控，赋予工业设备关键的互联互通能力。| [添加南向驱动](./configuration/south-devices/south-devices.md) <br /><br />[南向驱动协议](./introduction/driver-list/driver-list.md)<br /><br />[数据监控](./admin/monitoring.md)|
 | 数据上报                           | 完成设备数据的采集后，EMQX Neuron 支持用户通过北向应用将数据转发到云平台或外部处理引擎 | [创建北向应用](./configuration/north-apps/north-apps.md)<br /><br />[订阅南向数据](./configuration/subscription.md) |
 | 边缘数据处理                         | EMQX Neuron 集成了强大的边缘流式数据处理引擎，提供低延迟的数据清洗、转换、计算和分析能力，结合 AI/ML 算法，可以实现智能决策与控制，并优化云边通讯负载。 | [数据源](./streaming-processing/source.md)<br /><br />[规则](./streaming-processing/rules.md)<br /><br />[SQL 参考](./streaming-processing/sqls/overview.md)<br /><br />[Sink 连接](./streaming-processing/sink/sink.md)<br /><br />[扩展功能](./streaming-processing/extension.md) |
 | AI 生成 Python 插件                         |  通过自然语言描述业务逻辑，由大模型生成 eKuiper Python 便携插件并部署到边缘端，用于 SQL 难以表达的复杂计算。 | [AI 生成 Python 插件最佳实践指南](./best-practise/llm-portable-plugin.md)<br /><br />[AI 模型配置](./admin/sys-configuration.md#ai-模型配置)|

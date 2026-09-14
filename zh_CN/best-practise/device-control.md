@@ -30,11 +30,11 @@
 
 ### 功能介绍
 
-MQTT 反控允许任何支持 MQTT 协议的客户端程序向 MQTT Broker 的对应主题发送指令数据，EMQX Neuron 北向 MQTT 插件订阅该主题接收数据，并将控制指令发送给南向驱动节点实现设备控制。当在工业场景选择 EMQX 构建企业统一数据接入平台时，这种方式尤为合适。
+MQTT 反控允许任何支持 MQTT 协议的客户端程序向 MQTT Broker 的对应主题发送指令数据，EMQX Neuron 北向 MQTT 应用订阅该主题接收数据，并将控制指令发送给南向驱动节点实现设备控制。当在工业场景选择 EMQX 构建企业统一数据接入平台时，这种方式尤为合适。
 
 ![mqtt-control-arch](./_assets/mqtt-control-arch.png)
 
-采用该方式，需要在 EMQX Neuron 配置北向 MQTT 插件，并设置**写请求主题**和**写响应主题**。同时，需要配置南向驱动节点，并设置点位为可读可写状态。以下示例结合 EMQX 和 MQTTX（作为MQTT客户端） 进行详细说明。
+采用该方式，需要在 EMQX Neuron 配置北向 MQTT 应用，并设置**写请求主题**和**写响应主题**。同时，需要配置南向驱动节点，并设置点位为可读可写状态。以下示例结合 EMQX 和 MQTTX（作为MQTT客户端） 进行详细说明。
 
 ### MQTT 完整示例
 
@@ -44,9 +44,9 @@ MQTT 反控允许任何支持 MQTT 协议的客户端程序向 MQTT Broker 的�
 
 ![mqtt-control-1-zh](./_assets/mqtt-control-1-zh.png)
 
-**2）配置北向 MQTT 插件**
+**2）配置北向 MQTT 应用**
 
-在 EMQX Neuron 新建北向 MQTT 插件，在插件配置项中，可使用默认**写请求主题** `/neuron/HgihrB/write/req`和**写响应主题** `/neuron/HgihrB/write/resp`，进行 MQTT 反控指令的接收，见下图。在本例中使用 EMQ 提供的公共 MQTT 服务器 `broker.emqx.io` 作为 MQTT Broker。
+在 EMQX Neuron 新建北向 MQTT 应用，在应用配置项中，可使用默认**写请求主题** `/neuron/HgihrB/write/req`和**写响应主题** `/neuron/HgihrB/write/resp`，进行 MQTT 反控指令的接收，见下图。在本例中使用 EMQ 提供的公共 MQTT 服务器 `broker.emqx.io` 作为 MQTT Broker。
 
 ![mqtt-control-2-zh](./_assets/mqtt-control-2-zh.png)
 
@@ -90,9 +90,9 @@ MQTT 反控允许任何支持 MQTT 协议的客户端程序向 MQTT Broker 的�
 ![mqtt-control-5-zh](./_assets/mqtt-control-5-zh.png)
 
 ::: tip
-只是通过MQTT 驱动进行设备控制，则无需将南向驱动采集组配置到 MQTT 驱动的订阅组。
+只是通过MQTT 应用进行设备控制，则无需将南向驱动采集组配置到 MQTT 应用的订阅组。
 
-如需要同时通过 MQTT 驱动上报南向驱动数据到 MQTT Broker，则需要将南向驱动采集组配置到 MQTT 驱动的订阅组。
+如需要同时通过 MQTT 应用上报南向驱动数据到 MQTT Broker，则需要将南向驱动采集组配置到 MQTT 应用的订阅组。
 :::
 
 ## 数据处理模块反控

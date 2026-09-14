@@ -7,7 +7,7 @@ EMQX Neuron put all persistence data into its `data` directory, users can easily
 There are three directories inside `data` directory like following. 
 ![image](./assets/data-struct.jpg)
 
-* ekuiper: Data Processing related configuration 
+* Rules Engine Application: Data Processing related configuration
 * neuron: Data Collecting related configuration
 * neuronex: EMQX Neuron related configuration
 

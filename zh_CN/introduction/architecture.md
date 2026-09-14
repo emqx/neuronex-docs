@@ -12,7 +12,7 @@ EMQX Neuron 是一款面向工业领域的设备数据采集和边缘智能分�
 
 ### 工业设备数据采集
 
-EMQX Neuron 通过插件的方式实现对各类 **100+** 工业协议的支持，包括 Modbus、OPC UA、EtherNet/IP、IEC104、BACnet、Siemens PLC、Mitsubishi PLC等。满足智能制造、石油石化、钢铁冶金、能源电力以及楼宇自动化等各个行业的数据采集接入需求。
+EMQX Neuron 通过驱动的方式实现对各类 **100+** 工业协议的支持，包括 Modbus、OPC UA、EtherNet/IP、IEC104、BACnet、Siemens PLC、Mitsubishi PLC等。满足智能制造、石油石化、钢铁冶金、能源电力以及楼宇自动化等各个行业的数据采集接入需求。
 
 ### 多源数据接入集成
 

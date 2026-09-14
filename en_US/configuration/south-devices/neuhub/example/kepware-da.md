@@ -1,6 +1,6 @@
 # Example of Connecting to KEPServerEX 6 OPC DA Server  
 
-This article demonstrates how to use the Neuron HUB plugin and the NEURON HUB Windows program to connect to the KEPServerEX 6 OPC DA Server, enabling read and write operations on OPC DA Server data.  
+This article demonstrates how to use the Neuron HUB driver and the NEURON HUB Windows program to connect to the KEPServerEX 6 OPC DA Server, enabling read and write operations on OPC DA Server data. <br />
 
 ## Installing KEPServerEX 6  
 
@@ -31,7 +31,7 @@ When the OPC DA node is in a normal connected state, all OPC DA tags can be expo
 
 ## Connecting to the OPC DA Node Using the Neuron HUB Driver  
 
-* In the **Southbound Devices** section, click `Add Device`, select the `Neuron HUB` plugin to create a node connecting to the NEURON HUB Windows program. Fill in the configuration information:  
+* In the **Southbound Devices** section, click `Add Device`, select the `Neuron HUB` driver to create a node connecting to the NEURON HUB Windows program. Fill in the configuration information: <br />
   * `HUB IP Address`: The IP address of the host running the NEURON HUB Windows program.  
   * `HUB Port`: The port of the NEURON HUB Windows program, default is 17889.  
   * `Node Type`: Select `OPC DA`.  

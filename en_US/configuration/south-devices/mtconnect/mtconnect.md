@@ -1,6 +1,6 @@
 # MTConnect
 
-The EMQX Neuron MTConnect plugin accesses devices installed with MTConnect Agent through the HTTP protocol.
+The EMQX Neuron MTConnect driver accesses devices installed with MTConnect Agent through the HTTP protocol.
 
 ## Parameter Configuration
 
@@ -32,11 +32,11 @@ The EMQX Neuron MTConnect plugin accesses devices installed with MTConnect Agent
 For detailed information on the installation and usage of MTConnect Agent, please visit this link [cppagent](https://github.com/mtconnect/cppagent).
 
 ## ADDRESS
-The plugin address is in the form of XML XPATH.
+The driver address is in the form of XML XPATH.
 
 ### node-name: Prefix
 
-For self-closing tags where the value is represented by the element name (e.g., CONDITION-type data items), prepend `node-name:` to the address. When this prefix is used and the matched element has no child content, the plugin extracts the element's tag name instead of its text content.
+For self-closing tags where the value is represented by the element name (e.g., CONDITION-type data items), prepend `node-name:` to the address. When this prefix is used and the matched element has no child content, the driver extracts the element's tag name instead of its text content.
 
 | Address Prefix | Behavior |
 | -------------- | ---------------------------------------------------------- |

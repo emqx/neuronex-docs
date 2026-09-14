@@ -141,7 +141,7 @@ EMQX ECP 的 OpenTelemetry 服务地址请使用[ip]:[port]方式，例如`192.1
 
 - **服务名称** : 填写服务名称，EMQX Neuron 上报追踪数据时，将使用该服务名称，用于区分不同 EMQX Neuron 上报的追踪数据。
 
-- **追踪 API 及下行 MQTT 控制指令** : 开启追踪 API 及下行 MQTT 控制指令。如使用下行 MQTT 控制指令，还需要在北向应用页面将 MQTT 插件的`MQTT版本`设置为`5.0`。
+- **追踪 API 及下行 MQTT 控制指令** : 开启追踪 API 及下行 MQTT 控制指令。如使用下行 MQTT 控制指令，还需要在北向应用页面将 MQTT 应用的`MQTT版本`设置为`5.0`。
 
 - **追踪数据采集消息** : 开启追踪数据采集消息，开启后，EMQX Neuron 将所有南向驱动采集消息的追踪数据上报到 OpenTelemetry 服务。（目前仅支持 FINS TCP、FINS UDP、Mitsubishi 3E、Mewtocol、 Modbus RTU/TCP  驱动）
 
@@ -179,7 +179,7 @@ EMQX ECP 的 OpenTelemetry 服务地址请使用[ip]:[port]方式，例如`192.1
 
 实现 MQTT 下行控制指令追踪，需要同时满足以下条件：
 
-- 北向应用页面将 MQTT 插件的`MQTT版本`设置为`5.0`，如下图：
+- 北向应用页面将 MQTT 应用的`MQTT版本`设置为`5.0`，如下图：
 
 ![mqtt_version_zh](assets/mqtt_version_zh.png)
 

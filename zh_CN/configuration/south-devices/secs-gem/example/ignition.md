@@ -1,6 +1,6 @@
 # 连接 Ignition SECS/GEM 模拟器示例
 
-本文将使用 SECS GEM HSMS 插件连接 Ignition SECS/GEM 模拟器，实现读写 SECS/GEM 模拟设备的数据。确保插件和模拟器网络联通。
+本文将使用 SECS GEM HSMS 驱动连接 Ignition SECS/GEM 模拟器，实现读写 SECS/GEM 模拟设备的数据。确保驱动和模拟器网络联通。
 
 ## Ignition SECS/GEM 模拟器安装
 
@@ -21,7 +21,7 @@
 
 ## EMQX Neuron 配置节点连接 Ignition SECS/GEM 模拟器
 
-* 在 **南向设备** 中 点击 `添加设备`，选择 `SECS GEM HSMS` 插件来创建一个连接 SECS/GEM 模拟器的节点。
+* 在 **南向设备** 中 点击 `添加设备`，选择 `SECS GEM HSMS` 驱动来创建一个连接 SECS/GEM 模拟器的节点。
 * 创建好节点后，点击 `设备配置` 进入设备配置页面，根据实际情况配置节点信息，
 	* `设备 IP 地址`：设备的 IP 地址
 	* `设备端口`：设备的端口，默认为 5000

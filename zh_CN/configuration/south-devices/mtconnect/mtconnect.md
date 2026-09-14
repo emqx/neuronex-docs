@@ -1,6 +1,6 @@
 # MTConnect
 
-EMQX Neuron MTConnect 插件通过 HTTP 协议访问安装有 MTConnect Agent 的设备。
+EMQX Neuron MTConnect 驱动通过 HTTP 协议访问安装有 MTConnect Agent 的设备。
 
 ## 设备设置
 
@@ -30,11 +30,11 @@ EMQX Neuron MTConnect 插件通过 HTTP 协议访问安装有 MTConnect Agent �
 MTConnect Agent 的安装和使用，详细内容请访问此链接 [cppagent](https://github.com/mtconnect/cppagent)。
 
 ## ADDRESS
-插件地址为 XML XPATH 形式.
+驱动地址为 XML XPATH 形式.
 
 ### node-name: 前缀
 
-对于自闭合标签（元素值由标签名表示，如 CONDITION 类型数据项），可在地址前添加 `node-name:` 前缀。使用此前缀且匹配到的元素无子内容时，插件将提取元素的标签名而非文本内容。
+对于自闭合标签（元素值由标签名表示，如 CONDITION 类型数据项），可在地址前添加 `node-name:` 前缀。使用此前缀且匹配到的元素无子内容时，驱动将提取元素的标签名而非文本内容。
 
 | 地址前缀 | 行为 |
 | ---------- | -------------------------------------- |

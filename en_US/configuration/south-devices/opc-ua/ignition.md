@@ -1,6 +1,6 @@
 # Connect to Ignition 
 
-Ignition by Inductive Automation is an industrial application platform that enables seamless automation system creation and management. With EMQX Neuron's OPC UA plugin, you can achieve efficient data collection, communication, and process automation.
+Ignition by Inductive Automation is an industrial application platform that enables seamless automation system creation and management. With EMQX Neuron's OPC UA driver, you can achieve efficient data collection, communication, and process automation.
 
 ## Username/Password Login
 

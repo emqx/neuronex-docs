@@ -1,8 +1,8 @@
 # Omron NX1P 连接示例
 
-本文将使用 Omron FINS UDP 插件连接欧姆龙 NX1P PLC，实现读写 PLC 中的点位值。
+本文将使用 Omron FINS UDP 驱动连接欧姆龙 NX1P PLC，实现读写 PLC 中的点位值。
 
-Omron FINS UDP 插件需要通过本地局域网连接到欧姆龙 PLC，因此 PLC 应和 EMQX Neuron 处于同一局域网。
+Omron FINS UDP 驱动需要通过本地局域网连接到欧姆龙 PLC，因此 PLC 应和 EMQX Neuron 处于同一局域网。
 
 ## 前置准备
 
@@ -20,7 +20,7 @@ Omron FINS UDP 插件需要通过本地局域网连接到欧姆龙 PLC，因此 
     ![n1xp_watch](./assets/nx1p-watch-zh.png)
 
 ## 配置 EMQX Neuron
-* 在南向设备中，点击 **添加设备**，选择插件 **Omron FINS UDP** 来创建一个连接 NX1P PLC 的节点。
+* 在南向设备中，点击 **添加设备**，选择驱动 **Omron FINS UDP** 来创建一个连接 NX1P PLC 的节点。
 * 创建好节点后，点击 **设备配置** 进入设备配置页面，根据实际情况配置节点信息：
 	* **设备型号**: PLC 的型号，选择 NX
 	* **PLC IP 地址**：PLC 的 IP 地址

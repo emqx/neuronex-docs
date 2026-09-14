@@ -7,7 +7,7 @@ This chapter uses **Modbus TCP** to show how to add a southbound driver node in 
 In **Data Collection** -> **South Devices**, click **Add Device**. This example uses **Modbus TCP**.
 
 * **Name**: Device name, for example `modbus-tcp-1`.
-* **Plugin**: Select **Modbus TCP**.
+* **Driver**: Select **Modbus TCP**.
 * **Connection mode**: For Ethernet TCP, EMQX Neuron can act as TCP client or server.
 * **Max retries**: Maximum retries after a read command fails.
 * **Send interval**: Wait time between read/write commands, in milliseconds. If the interval is too short, some serial devices drop commands.
@@ -45,7 +45,7 @@ On **South Devices**, switch between list and card view in the upper right.
     * Off: Disconnect and stop collecting.
 * **Connection state**: After groups and tags are set, EMQX Neuron connects to collect data and the state becomes **Connected**. If it cannot connect, the state is **Disconnected**.
 * **Latency**: Time between sending a command and receiving a response.
-* **Plugin**: Plugin module used by this device.
+* **Driver**: Driver module used by this device.
 
 ![southdevice_card](assets/southdevice_card.png)
 

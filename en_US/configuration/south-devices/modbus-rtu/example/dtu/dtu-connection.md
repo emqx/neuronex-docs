@@ -2,12 +2,12 @@
 
 USR DTU supports two-way conversion of data, supports mutual conversion of common serial data such as RS232, RS485, RS422, and TCP/IP data, and transmits them through the wireless communication network. The communication methods generally used by DTU are 2/3/4G, NB-IoT, LoRaWAN, WIFI, etc.
 
-You can directly communicate with Modbus RTU devices using EMQX Neuron's Modbus RTU plugin in serial mode. Or you can use USR DTU to first gather and convert serial data to network data, then connect it to EMQX Neuron. In this case:
+You can directly communicate with Modbus RTU devices using EMQX Neuron's Modbus RTU driver in serial mode. Or you can use USR DTU to first gather and convert serial data to network data, then connect it to EMQX Neuron. In this case:
 
 - For USR DTU's pass-through working mode, connect directly to the Ethernet mode of EMQX Neuron's Modbus RTU module. 
-- If you're using USR DTU's Modbus TCP mode, you need to use the Modbus TCP plugin.
+- If you're using USR DTU's Modbus TCP mode, you need to use the Modbus TCP driver.
 
-This section introduces how to connect USR DTU under Modbus TCP mode. For details about EMQX Neuron's Modbus TCP plugin, see the  [Modbus TCP driver module](../../../modbus-tcp/modbus-tcp.md).
+This section introduces how to connect USR DTU under Modbus TCP mode. For details about EMQX Neuron's Modbus TCP driver, see the  [Modbus TCP driver module](../../../modbus-tcp/modbus-tcp.md).
 
 ![neuron-dtu](./assets/neuron-dtu.png)
 
@@ -57,7 +57,7 @@ While configuring the EMQX Neuron's southbound driver, you'll need to input the 
 
 ### Configure EMQX Neuron (Client)
 
-In **South Device**, create a node using the plugin Modbus TCP, and configure the driver, as shown in the figure below.
+In **South Device**, create a node using the driver Modbus TCP, and configure the driver, as shown in the figure below.
 ![neuron-client-config](./assets/neuron-client-config.png)
 
 * **Connection mode**: client
@@ -94,7 +94,7 @@ $ netstat -anp |grep <port>
 
 ### Configure EMQX Neuron (Server)
 
-In **South Devices**, create a node with plugin Modbus TCP, and configure the driver, as shown in the figure below.
+In **South Devices**, create a node with driver Modbus TCP, and configure the driver, as shown in the figure below.
 
 ![neuron-server-config](./assets/neuron-server-config.png)
 

@@ -2,12 +2,12 @@
 
 In practice, EMQX Neuron users often need to create large numbers of nodes having similar configurations. This can be a time-consuming and error-prone process, especially in large-scale deployments. To streamline this process, EMQX Neuron introduces the template feature in version **2.5.0**.
 
-The EMQX Neuron template feature allows users to create a template with the desired plugin and configurations including groups and tags. Users could then use that template as a basis to create new nodes.
+The EMQX Neuron template feature allows users to create a template with the desired driver and configurations including groups and tags. Users could then use that template as a basis to create new nodes.
 
 By using templates, users can quickly and easily create new nodes with similar configurations, saving time and effort.
 
 ::: tip
-EMQX Neuron 2.5.0 template feature only supports southbound plugins.
+EMQX Neuron 2.5.0 template feature only supports southbound drivers.
 :::
 
 ## Create Template
@@ -18,7 +18,7 @@ Click **Configuration -> Template -> Add Template** to open the **Add Template**
 
   ![Add template dialog](./assets/template_add_dialog.png)
 
-Fill in the template name and select the desired plugin, then click the **Create** button. If everything is successful, you should see the created template in the **Template** tab.
+Fill in the template name and select the desired driver, then click the **Create** button. If everything is successful, you should see the created template in the **Template** tab.
 
   ![Add template result](./assets/template_list.png)
 

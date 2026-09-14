@@ -2,14 +2,14 @@
 
 COMLI is an ABB-specific protocol facilitating data exchange between ABB's PLCs and devices, supporting both point-to-point and multipoint communications over various mediums like RS-232, RS-485, or Ethernet, thereby enhancing IoT connectivity and interoperability.
 
-This ABB COMLI plugin is used to access ABB's COMLI-compatible control system through the serial port.
+This ABB COMLI driver is used to access ABB's COMLI-compatible control system through the serial port.
 
 ## Add Device
 
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **ABB COMLI** plugin.
+- Driver: Select the **ABB COMLI** driver.
 
 ## Device Configuration
 

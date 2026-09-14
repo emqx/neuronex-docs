@@ -1,6 +1,6 @@
 # Brother CNC Device-Side Configuration
 
-This guide describes how to configure the Brother CNC machine's communication and network parameters so that the EMQX Neuron Brother CNC plugin can connect and collect data via TCP/IP.
+This guide describes how to configure the Brother CNC machine's communication and network parameters so that the EMQX Neuron Brother CNC driver can connect and collect data via TCP/IP.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ After completing the configuration:
    ```
 3. Verify that TCP port **10000** is reachable from the EMQX Neuron host.
 
-Once the connection is verified, configure the EMQX Neuron Brother CNC plugin on the EMQX Neuron side. See [Brother CNC](./brother-cnc.md) for details.
+Once the connection is verified, configure the EMQX Neuron Brother CNC driver on the EMQX Neuron side. See [Brother CNC](./brother-cnc.md) for details.
 
 ## Troubleshooting
 

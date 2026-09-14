@@ -33,7 +33,7 @@ EMQX Neuron 作为 Client，主动向 Modbus Slave 发起连接请求，用户�
 
 ### 配置 EMQX Neuron（Client 模式）
 
-在**数据采集 -> 南向设备**，点击**添加设备**来创建设备节点，使用 Modbus RTU 插件新建一个名为 modbus-rtu-client 的节点。
+在**数据采集 -> 南向设备**，点击**添加设备**来创建设备节点，使用 Modbus RTU 驱动新建一个名为 modbus-rtu-client 的节点。
 
 ![image-20230712105041126](./assets/neuron-rtu-client-config.png)
 

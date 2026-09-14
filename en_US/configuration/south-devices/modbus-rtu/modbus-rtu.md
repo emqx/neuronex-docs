@@ -2,14 +2,14 @@
 
 Modbus RTU is a version of the Modbus protocol that is based on serial communication. Unlike the Modbus TCP protocol, Modbus RTU is typically used to connect sensors, actuators, and other control devices on a factory production line. It is a fast, reliable, and flexible serial communication protocol that provides reliable data transmission and control functions.
 
-The Modbus RTU protocol uses binary encoding and can transmit data over RS-232, RS-485, or other serial communication media. EMQX Neuron Modbus RTU plugin adds an implementation based on Ethernet TCP and enables remote device data acquisition and control through a DTU device.
+The Modbus RTU protocol uses binary encoding and can transmit data over RS-232, RS-485, or other serial communication media. EMQX Neuron Modbus RTU driver adds an implementation based on Ethernet TCP and enables remote device data acquisition and control through a DTU device.
 
 ## Add Device
 
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **Modbus RTU** plugin.
+- Driver: Select the **Modbus RTU** driver.
 
 ## Device Configuration
 
@@ -48,7 +48,7 @@ The above configuration can meet the individualized needs of the device:<br>
 
 ## Configure Data Groups and Tags
 
-After the plugin is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
+After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
 
 Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking on **Create**, then specifying the group name and data collection interval.
 

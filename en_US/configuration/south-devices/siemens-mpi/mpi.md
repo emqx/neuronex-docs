@@ -12,7 +12,7 @@ In **Data Collection -> South Devices**, click **Add Device** to create the devi
 
 ## Device Configuration
 
-Click on the Plugin card or Plugin column to go to the **Device Configuration** page. Configure the parameters required for EMQX Neuron to establish a connection with the device, the table below shows the plugin related configuration items.
+Click on the Driver card or Driver column to go to the **Device Configuration** page. Configure the parameters required for EMQX Neuron to establish a connection with the device, the table below shows the driver related configuration items.
 
 
 | Parameter                  | Description                                                    |
@@ -28,7 +28,7 @@ Click on the Plugin card or Plugin column to go to the **Device Configuration** 
 
 ## Configure Data Groups and Tags
 
-After completing the plugin addition and configuration, to establish communication between the device and EMQX Neuron, first add groups and points for the southbound driver.
+After completing the driver addition and configuration, to establish communication between the device and EMQX Neuron, first add groups and points for the southbound driver.
 
 After completing the device configuration, on the **Southbound Devices** page, click on the Device Card/Device column to go to the **Group List** page. Click **Create** to create the group, set the group name and acquisition interval. After completing the creation of the group, click the group name to enter the **Tag List** page to add the device points to be collected, including point address, point attributes, data type, etc.
 

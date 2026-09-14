@@ -2,7 +2,7 @@
 
 Ignition 是由 Inductive Automation 公司开发的一种工业应用平台。它被设计用于快速开发和部署大规模的工业自动化和 IIoT（工业物联网）项目。
 
-本节将演示如何通过 EMQX Neuron OPC UA 插件连接 Ignition。
+本节将演示如何通过 EMQX Neuron OPC UA 驱动连接 Ignition。
 
 ## 连接 OPC UA Server（用户名/密码登录）
 

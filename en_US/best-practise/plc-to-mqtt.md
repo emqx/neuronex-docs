@@ -40,7 +40,7 @@ EMQX Neuron is an industrial edge gateway software designed specifically for ind
 
    - Modbus TCP/RTU, OPC UA, Siemens S7, Ethernet/IP, BACnet, IEC 60870-5-104, DNP3...
 
-   - Complete protocol list: [Southbound Drivers](../introduction/plugin-list/plugin-list.md)
+   - Complete protocol list: [Southbound Drivers](../introduction/driver-list/driver-list.md)
 
 2. **Flexible & Lightweight Deployment**
 
@@ -115,7 +115,7 @@ Access <http://localhost:8085> and log in with default credentials: Username: `a
 
    - Name: `modbus-tcp-1`
 
-   - Plugin: Select "**Modbus TCP**"
+   - Driver: Select "**Modbus TCP**"
 
    - **IP Address**: Enter the simulator's **IP** (e.g., `192.168.1.100`)
 
@@ -193,7 +193,7 @@ You will see the real-time values of each tag.
 
    - Name: `mqtt-broker`
 
-   - Plugin: Select "**MQTT**"
+   - Application: Select "**MQTT**"
 
 ![plc-to-mqtt-7](./_assets/plc-to-mqtt7.png)
 

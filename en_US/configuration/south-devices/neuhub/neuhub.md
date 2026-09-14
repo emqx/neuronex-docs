@@ -1,6 +1,6 @@
 # NEURON HUB
 
-The **NeuronHUB** desktop application (runs on **Windows**) and the **Neuron HUB** southbound plugin for EMQX Neuron together form an acquisition relay workflow: **NeuronHUB** connects to upstream protocols and collects data **on an on-site Windows machine** (protocols covered include **OPC DA**, **OPC AE**, **GE Historian**, **SYNTEC CNC**, and **Mitsubishi CNC**); **Neuron HUB** attaches to EMQX Neuron as its southbound driver plugin to ingest data already acquired on NeuronHUB.
+The **NeuronHUB** desktop application (runs on **Windows**) and the **Neuron HUB** southbound driver for EMQX Neuron together form an acquisition relay workflow: **NeuronHUB** connects to upstream protocols and collects data **on an on-site Windows machine** (protocols covered include **OPC DA**, **OPC AE**, **GE Historian**, **SYNTEC CNC**, and **Mitsubishi CNC**); **Neuron HUB** attaches to EMQX Neuron as its southbound driver driver to ingest data already acquired on NeuronHUB.
 
 **Why this exists:** EMQX Neuron is deployed on **Linux**. If acquisition depends on **DCOM** or other Windows-tied mechanisms (such as OPC DA), or only Windows-side gateways and data sources are available, **EMQX Neuron cannot natively acquire those protocols directly on Linux**.
 
@@ -18,7 +18,7 @@ The **NeuronHUB** desktop application (runs on **Windows**) and the **Neuron HUB
 | expires        | Expiration time (default: 2000 ms) |
 | sliding_window | Window size (default: 1)           |
 
-On the southbound plugin, `type` must match the node type already created in NeuronHUB. Common examples include **OPCDA**, **OPC AE**, **GE Historian**, **SYNTEC CNC**, and **MITSUBISHI CNC**, subject to NeuronHUB menus and versions in the field.
+On the southbound driver, `type` must match the node type already created in NeuronHUB. Common examples include **OPCDA**, **OPC AE**, **GE Historian**, **SYNTEC CNC**, and **MITSUBISHI CNC**, subject to NeuronHUB menus and versions in the field.
 
 ## Supported Data Types
 
@@ -51,7 +51,7 @@ On the southbound plugin, `type` must match the node type already created in Neu
 The address format varies by node type. Refer to the corresponding device documentation for details.
 
 ## NeuronHUB Windows Program
-NeuronHUB is the Windows program that performs protocol bridging and collection described above (names are similar to the EMQX Neuron southbound plugin; mind the deployment context). Contact support for the installer package.
+NeuronHUB is the Windows program that performs protocol bridging and collection described above (names are similar to the EMQX Neuron southbound driver; mind the deployment context). Contact support for the installer package.
 
 ### Installation
 Double-click to install. It is recommended not to install on the system drive to avoid permission issues when modifying configuration files. The program starts automatically by default.

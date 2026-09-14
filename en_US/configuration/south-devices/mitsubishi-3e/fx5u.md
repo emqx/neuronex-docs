@@ -2,7 +2,7 @@
 
 Mitsubishi Electric's FX5U stands out as a high-performance, compact Programmable Logic Controller (PLC), constituting an integral part of the Mitsubishi FX series PLCs. It caters efficiently to a wide range of small to medium-scale automation applications, making it a versatile asset in diverse industrial sectors.
 
-This section introduces how to connect the FX5U using the EMQX Neuron Mitsubishi 3E plugin.
+This section introduces how to connect the FX5U using the EMQX Neuron Mitsubishi 3E driver.
 
 ## Configure FX5U
 

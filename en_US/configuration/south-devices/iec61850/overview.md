@@ -11,7 +11,7 @@ The IEC61850 plug-in is used for read/write to the IEC61850 server and currently
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **IEC61850** plugin.
+- Driver: Select the **IEC61850** driver.
 
 ## Device Configuration
 
@@ -24,11 +24,11 @@ After clicking **Create**, you will be redirected to the **Device Configuration*
 | **GI Interval** | The interval at which the device sends a general interrogation. Set to 0 to disable general interrogation. Unit: seconds |
 ## Configure Data Groups and Tags
 
-After the plugin is added and configured, the next step is to establish communication between your device and IEC61850 driver by adding groups and tags to the Southbound driver.
+After the driver is added and configured, the next step is to establish communication between your device and IEC61850 driver by adding groups and tags to the Southbound driver.
 
-The IEC61850 plugin only supports the automatic addition of groups and tags by importing an SCL file. The Report block in the SCL file generates readable data groups, and the points are generated based on the referenced DataSet. Points are generated for data with FC as CO, SP, and SG. Writable points are generated in a separate Control group.
+The IEC61850 driver only supports the automatic addition of groups and tags by importing an SCL file. The Report block in the SCL file generates readable data groups, and the points are generated based on the referenced DataSet. Points are generated for data with FC as CO, SP, and SG. Writable points are generated in a separate Control group.
 
-IEC61850 plugin defines a special data reporting structure according to industry standards, with timestamp and quality fields in addition to the point value.
+IEC61850 driver defines a special data reporting structure according to industry standards, with timestamp and quality fields in addition to the point value.
 
 ```json
 {
@@ -53,13 +53,13 @@ IEC61850 plugin defines a special data reporting structure according to industry
 
 ::: tip 
 
-Since the IEC61850 plugin uses a special data reporting structure, when selecting the data format for the northbound plugin, you need to select the **Tags-format** format.
+Since the IEC61850 driver uses a special data reporting structure, when selecting the data format for the northbound application, you need to select the **Tags-format** format.
 
 :::
 
 ## Use Case
 
-You can access the LibIEC61850 server through the EMQX Neuron IEC61850 plugin. For specific steps, refer to [libiec61850](../iec61850/libiec61850.md).
+You can access the LibIEC61850 server through the EMQX Neuron IEC61850 driver. For specific steps, refer to [libiec61850](../iec61850/libiec61850.md).
 
 ## Data Monitoring
 

@@ -2,7 +2,7 @@
 
 Q03UDE 是三菱电机 Q 系列 PLC 的一款产品。这款 PLC 适用于大型和复杂的自动化应用，提供了高性能和丰富的功能。
 
-本节介绍如何通过 EMQX Neuron Mitsubishi 3E 插件连接 Q03UDE 。
+本节介绍如何通过 EMQX Neuron Mitsubishi 3E 驱动连接 Q03UDE 。
 
 ## PLC 设置
 

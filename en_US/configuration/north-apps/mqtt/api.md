@@ -1,14 +1,14 @@
 # Upstream/Downstream Data Format
 
-The following contents describe how MQTT plugin publishes collected data, and how to read or write data through MQTT plugin.
+The following contents describe how MQTT application publishes collected data, and how to read or write data through MQTT application.
 
 ## Data Upload
 
-The MQTT plugin publishes collected data in JSON format to some user-defined topics. The exact format of the data reported is controlled by the **Upload Format** parameter. There are four formats, [**Values-format**](#values-format), [**Tags-format**](#tags-format),  [**ECP-format**](#ecp-format), and [**Custom**](#custom-format).
+The MQTT application publishes collected data in JSON format to some user-defined topics. The exact format of the data reported is controlled by the **Upload Format** parameter. There are four formats, [**Values-format**](#values-format), [**Tags-format**](#tags-format),  [**ECP-format**](#ecp-format), and [**Custom**](#custom-format).
 
 ### Upload Topic
 
-The upload topic is specified by the **upload-topic** parameter, and the default one set through the dashboard is **/neuron/{MQTT driver name}**.
+The upload topic is specified by the **upload-topic** parameter, and the default one set through the dashboard is **/neuron/{MQTT application name}**.
 
 ### Values Format
 

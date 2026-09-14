@@ -10,7 +10,7 @@ DMG MORI Machine 1 ──TCP:7878──┐
 DMG MORI Machine 2 ──TCP:7878──┘
 ```
 
-每台 DMG MORI 机床运行一个适配器（Adapter）进程，通过 TCP 端口 7878 将实时运行数据推送至 MTConnect cppagent。Agent 聚合数据后通过 HTTP REST API（端口 5000）对外提供服务，EMQX Neuron 使用 MTConnect 插件从中采集数据。
+每台 DMG MORI 机床运行一个适配器（Adapter）进程，通过 TCP 端口 7878 将实时运行数据推送至 MTConnect cppagent。Agent 聚合数据后通过 HTTP REST API（端口 5000）对外提供服务，EMQX Neuron 使用 MTConnect 驱动从中采集数据。
 
 ## 部署 MTConnect Agent
 
@@ -99,7 +99,7 @@ logger_config {
 
 ### 添加设备
 
-在 **数据采集 -> 南向设备** 点击**添加设备**，选择 **MTConnect** 插件，配置以下参数：
+在 **数据采集 -> 南向设备** 点击**添加设备**，选择 **MTConnect** 驱动，配置以下参数：
 
 | 参数 | 值 |
 | ------------- | ----------------------------------------- |

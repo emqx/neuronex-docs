@@ -2,7 +2,7 @@
 
 <!--这里后面增加一些文字描述 @LenaLenaPan-->
 
-本节将演示如何通过 EMQX Neuron 南向采集设备实际点位数据，通过北向 Sparkplug B 插件将数据上报到 EMQX， 再通过EMQX编解码功能解码后得到正确完整的数据结果，流程如图：
+本节将演示如何通过 EMQX Neuron 南向采集设备实际点位数据，通过北向 Sparkplug B 应用将数据上报到 EMQX， 再通过EMQX编解码功能解码后得到正确完整的数据结果，流程如图：
 
 ![Sparkplug B](./assets/sparkplugcn.png)
 
@@ -299,7 +299,7 @@ EMQX Neuron 上报数据到 EMQX 的 Topic 是根据 Sparkplug B 协议规范定
 
 ![image-20230419143059088](./assets/image-20230419143059088.png)
 
-至于更多 EMQX Neuron 北向 Sparkplug B 插件相关标准的定义，可以参考 [SparkPlug B 协议规范](https://www.eclipse.org/tahu/spec/Sparkplug%20Topic%20Namespace%20and%20State%20ManagementV2.2-with%20appendix%20B%20format%20-%20Eclipse.pdf)。
+至于更多 EMQX Neuron 北向 Sparkplug B 应用相关标准的定义，可以参考 [SparkPlug B 协议规范](https://www.eclipse.org/tahu/spec/Sparkplug%20Topic%20Namespace%20and%20State%20ManagementV2.2-with%20appendix%20B%20format%20-%20Eclipse.pdf)。
 
 
 

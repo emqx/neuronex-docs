@@ -1,9 +1,9 @@
 # Brother CNC
 
-The Brother CNC plugin is used to access Brother CNC machining centers via the Brother NC protocol. It collects machine operating data such as axis coordinates, spindle, tool, alarms, workpiece count, program number, PLC devices, and tool offset data. The plugin supports connecting to the device over either a serial (Serial) or Ethernet link.
+The Brother CNC driver is used to access Brother CNC machining centers via the Brother NC protocol. It collects machine operating data such as axis coordinates, spindle, tool, alarms, workpiece count, program number, PLC devices, and tool offset data. The driver supports connecting to the device over either a serial (Serial) or Ethernet link.
 
 ::: tip
-The Brother CNC plugin is read-only. It only supports data collection (read) and does not support control (write).
+The Brother CNC driver is read-only. It only supports data collection (read) and does not support control (write).
 :::
 
 ## Add Device
@@ -11,7 +11,7 @@ The Brother CNC plugin is read-only. It only supports data collection (read) and
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **Brother CNC** plugin.
+- Driver: Select the **Brother CNC** driver.
 
 ## Device Configuration
 
@@ -31,7 +31,7 @@ After clicking **Create**, you will be redirected to the **Device Configuration*
 
 ## Configure Data Groups and Tags
 
-After the plugin is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the southbound driver.
+After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the southbound driver.
 
 Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking **Create**, then specifying the group name and data collection interval.
 
@@ -40,7 +40,7 @@ After successfully creating a group, click on its name to proceed to the **Tag L
 For information on general configuration items, see [Connect to Southbound Devices](../south-devices.md). The subsequent section will concentrate on configurations specific to the driver.
 
 ::: tip
-The Brother CNC plugin only supports the **read-only** tag attribute. During collection, the plugin batches requests for tags of the same data area (PDSP, ALARM, PLCD, etc.). Grouping tags of the same area together is recommended to improve collection efficiency.
+The Brother CNC driver only supports the **read-only** tag attribute. During collection, the driver batches requests for tags of the same data area (PDSP, ALARM, PLCD, etc.). Grouping tags of the same area together is recommended to improve collection efficiency.
 :::
 
 ### Data Types
@@ -59,7 +59,7 @@ The Brother CNC plugin only supports the **read-only** tag attribute. During col
 
 ### Address Format
 
-The Brother CNC plugin organizes tag addresses by data area. The address format and supported data types vary between areas.
+The Brother CNC driver organizes tag addresses by data area. The address format and supported data types vary between areas.
 
 #### PDSP (Machine Operating Data)
 

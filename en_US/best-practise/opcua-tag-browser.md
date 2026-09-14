@@ -14,7 +14,7 @@ Before using the tag discovery feature, we need to connect an OPC UA device.
 
 2. Click the "Add Device" button to go to the device addition page.
 
-3. Select the "OPC UA" plugin and enter the OPC UA server endpoint URL.
+3. Select the "OPC UA" driver and enter the OPC UA server endpoint URL.
 
 4. Fill in the device name, for example, opcua1, and click the "Add Device" button.
 

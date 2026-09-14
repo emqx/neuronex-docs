@@ -1,9 +1,9 @@
 # Mazak CNC
 
-The Mazak CNC plugin collects real-time operating data from Mazak CNC via a passive UDP listener. The Mazak CNC sends status data packets over UDP, and the plugin parses the packet fields into individual data tags. The driver does not send any requests to the CNC; it only listens for incoming UDP data.
+The Mazak CNC driver collects real-time operating data from Mazak CNC via a passive UDP listener. The Mazak CNC sends status data packets over UDP, and the driver parses the packet fields into individual data tags. The driver does not send any requests to the CNC; it only listens for incoming UDP data.
 
 ::: tip
-The Mazak CNC plugin is read-only. It only supports data collection (read) and does not support control (write).
+The Mazak CNC driver is read-only. It only supports data collection (read) and does not support control (write).
 :::
 
 ## Add Device
@@ -11,7 +11,7 @@ The Mazak CNC plugin is read-only. It only supports data collection (read) and d
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **Mazak CNC** plugin.
+- Driver: Select the **Mazak CNC** driver.
 
 ## Device Configuration
 
@@ -25,7 +25,7 @@ After clicking **Create**, you will be redirected to the **Device Configuration*
 
 ## Configure Data Groups and Tags
 
-After the plugin is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the southbound driver.
+After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the southbound driver.
 
 Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking **Create**, then specifying the group name and data collection interval.
 
@@ -34,7 +34,7 @@ After successfully creating a group, click on its name to proceed to the **Tag L
 For information on general configuration items, see [Connect to Southbound Devices](../south-devices.md). The subsequent section will concentrate on configurations specific to the driver.
 
 ::: tip
-The Mazak CNC plugin only supports the **read-only** tag attribute. All tag addresses are flat string names; there are no data areas or indexes.
+The Mazak CNC driver only supports the **read-only** tag attribute. All tag addresses are flat string names; there are no data areas or indexes.
 :::
 
 ### Data Types
@@ -44,7 +44,7 @@ The Mazak CNC plugin only supports the **read-only** tag attribute. All tag addr
 
 ### Address Format
 
-The Mazak CNC plugin defines a fixed set of tag addresses. Each address corresponds to a specific field parsed from the incoming UDP data packet.
+The Mazak CNC driver defines a fixed set of tag addresses. Each address corresponds to a specific field parsed from the incoming UDP data packet.
 
 | Address | Data Type | Attribute | Description |
 | --------------------- | --------- | --------- | ------------------------------------------------- |

@@ -2,14 +2,14 @@
 
 Mewtocol is a Panasonic-developed protocol enabling data exchange between its PLC devices and various others, such as computers and HMI devices
 
-The Mewtocol plugin is used to access Panasonic's FP-XH, FP0H series PLCs via Ethernet.
+The Mewtocol driver is used to access Panasonic's FP-XH, FP0H series PLCs via Ethernet.
 
 ## Add Device
 
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **Panasonic Mewtocol** plugin.
+- Driver: Select the **Panasonic Mewtocol** driver.
 
 ## Device Configuration
 
@@ -95,7 +95,7 @@ When the data type is string type, **`.LEN`** indicates the length of the string
 
 ## Use Case
 
-You can use EMQX Neuron Panasonic Mewtocol plugin to connect FP-XH C30T, for details, see [Connect to FP-XH C30T](./fp-xh-c30t.md). 
+You can use EMQX Neuron Panasonic Mewtocol driver to connect FP-XH C30T, for details, see [Connect to FP-XH C30T](./fp-xh-c30t.md).
 
 ## Data Monitoring
 

@@ -2,13 +2,13 @@
 
 [Apache Kafka] 是一个分布式流处理平台，广泛应用于构建实时数据管道和流式应用。Kafka 具有高吞吐量、低延迟、持久化存储和水平扩展等特点，适用于大规模工业数据采集和传输场景。
 
-EMQX Neuron Kafka 插件作为 Kafka **生产者**，将南向设备采集到的数据以 JSON 格式发布到 Kafka Topic，实现工业数据向大数据平台的高效传输。
+EMQX Neuron Kafka 应用作为 Kafka **生产者**，将南向设备采集到的数据以 JSON 格式发布到 Kafka Topic，实现工业数据向大数据平台的高效传输。
 
-该插件支持 SASL 认证和 SSL/TLS 加密通讯，确保数据传输的安全性。
+该应用支持 SASL 认证和 SSL/TLS 加密通讯，确保数据传输的安全性。
 
 [Apache Kafka]: https://kafka.apache.org
 
-## 添加插件
+## 添加应用
 
 在**数据采集 -> 北向应用**，点击**添加应用**添加 Kafka 节点。
 
@@ -50,7 +50,7 @@ EMQX Neuron Kafka 插件作为 Kafka **生产者**，将南向设备采集到的
 
 ## 添加订阅
 
-完成插件的添加和配置后，在**北向应用**页，点击设备卡片/设备列进入**组列表**页。点击**添加订阅**，并进行如下设置：
+完成应用的添加和配置后，在**北向应用**页，点击设备卡片/设备列进入**组列表**页。点击**添加订阅**，并进行如下设置：
 
 - **南向设备**：选择要订阅的南向设备；
 - **组**：选择南向设备下的某个组；
@@ -70,7 +70,7 @@ EMQX Neuron Kafka 插件作为 Kafka **生产者**，将南向设备采集到的
 
 ### 什么是 Microsoft Fabric
 
-**Microsoft Fabric** 是微软提供的统一 SaaS 数据分析平台，将数据集成、数据工程、实时分析与可视化整合在同一产品体系内。**OneLake** 作为统一数据湖承载多类引擎的数据；其中的 **Real-Time Intelligence / Eventstream** 支持以 **Kafka 协议**接入流数据，云上侧无需您自建 Kafka 集群即可扩展消费与入库（例如写入 **Eventhouse**）。对 EMQX Neuron 而言，只要云端暴露标准 Kafka Producer 可用的 Bootstrap 地址与认证信息，即可用本页所述北向 Kafka 插件对接。
+**Microsoft Fabric** 是微软提供的统一 SaaS 数据分析平台，将数据集成、数据工程、实时分析与可视化整合在同一产品体系内。**OneLake** 作为统一数据湖承载多类引擎的数据；其中的 **Real-Time Intelligence / Eventstream** 支持以 **Kafka 协议**接入流数据，云上侧无需您自建 Kafka 集群即可扩展消费与入库（例如写入 **Eventhouse**）。对 EMQX Neuron 而言，只要云端暴露标准 Kafka Producer 可用的 Bootstrap 地址与认证信息，即可用本页所述北向 Kafka 应用对接。
 
 ### 为什么选择 EMQX Neuron + Microsoft Fabric
 
@@ -87,20 +87,20 @@ EMQX Neuron 可通过以下路径把数据送至 Fabric Eventstream（Kafka 兼�
 | 方式 | 说明 |
 |------|------|
 | **数据处理 → Kafka Sink** | 南向数据先接入**数据处理（流处理）**，由 SQL 规则过滤、映射、聚合后，再通过 **Kafka Sink** 写出到 Eventstream。**适合**需在边缘删减字段、节流或按条件上云的场景。 |
-| **北向 Kafka 插件（本文档）** | 南向订阅的数据由北向 Kafka 节点作为 **Kafka 生产者**直接发送至 Broker/Topic。**适合**采集层已与订阅模型对齐、希望独立于流处理控制台调整发送节奏与 Topic 路由的场景。 |
+| **北向 Kafka 应用（本文档）** | 南向订阅的数据由北向 Kafka 节点作为 **Kafka 生产者**直接发送至 Broker/Topic。**适合**采集层已与订阅模型对齐、希望独立于流处理控制台调整发送节奏与 Topic 路由的场景。 |
 
 两种方式在 Fabric 侧通常都使用相同的 Eventstream Bootstrap、Topic 与 SASL 凭据；差异主要在 EMQX Neuron 侧是否在写出前经过数据处理引擎。
 
-### 使用北向 Kafka 插件连接 Eventstream 的配置说明
+### 使用北向 Kafka 应用连接 Eventstream 的配置说明
 
-在 Fabric 中创建 **Eventstream** 并完成 Kafka 自定义接入后，将连接信息与下列 **北向 Kafka 插件**字段对应填写。
+在 Fabric 中创建 **Eventstream** 并完成 Kafka 自定义接入后，将连接信息与下列 **北向 Kafka 应用**字段对应填写。
 
 | EMQX Neuron 北向 Kafka 字段 | 说明 | 示例（请以 Azure Fabric 实际内容为准） |
 | ------------------------ | ---- | ---------------------------------------- |
 | **Broker 地址** | Fabric Eventstream 的 Bootstrap server（含端口）。 | `neuron-eventstream.servicebus.windows.net:9093` |
 | **默认 Topic** | Fabric 中为该流配置的 Topic name；若在「添加订阅」里为某条订阅单独指定了 Topic，则以订阅为准，否则用此处默认值。 | `neuron-topic` |
 | **安全协议** | 使用 TLS + SASL 连接 Eventstream 时选 **`sasl_ssl`**。 | `sasl_ssl` |
-| **SASL 机制** | 与 Kafka Sink 中的 **SASL Auth Type = plain** 对应，插件内选 **`PLAIN`**。 | `PLAIN` |
+| **SASL 机制** | 与 Kafka Sink 中的 **SASL Auth Type = plain** 对应，应用内选 **`PLAIN`**。 | `PLAIN` |
 | **SASL 用户名** | 固定字符串。 | `$ConnectionString` |
 | **SASL 密码** | Fabric **Connection string - primary key** 整段，勿截断。 | `Endpoint=sb://...` |
 

@@ -60,7 +60,7 @@
       "collapsed": true,
       "children": [
         {
-          "title": "管理插件模块",
+          "title": "驱动与应用管理",
           "path": "configuration/ecp_edge_plugin"
         },
         {
@@ -90,7 +90,7 @@
     },
     {
       "title": "南向驱动协议",
-      "path": "introduction/plugin-list/plugin-list",
+      "path": "introduction/driver-list/driver-list",
       "collapsed": true,
       "children": [
         {
@@ -611,7 +611,7 @@
           "collapsed": true,
           "children": [
             {
-              "title": "MQTT 插件",
+              "title": "MQTT 应用",
               "path": "configuration/north-apps/mqtt/overview",
               "collapsed": true,
               "children": [
@@ -648,11 +648,11 @@
               ]
             },
             {
-              "title": "eKuiper 插件",
+              "title": "规则引擎应用",
               "path": "configuration/north-apps/ekuiper/overview"
             },
             {
-              "title": "Sparkplug B 插件",
+              "title": "Sparkplug B 应用",
               "path": "configuration/north-apps/sparkplugb/overview",
               "collapsed": true,
               "children": [
@@ -679,11 +679,7 @@
               "path": "configuration/north-apps/websocket/websocket"
             },
             {
-              "title": "DataStorage 数据存储插件",
-              "path": "configuration/north-apps/DataStorage/DataStorage"
-            },
-            {
-              "title": "OPCUA Server 插件",
+              "title": "OPCUA Server 应用",
               "path": "configuration/north-apps/opcua-server/overview",
               "collapsed": true,
               "children": [
@@ -694,7 +690,7 @@
               ]
             },
             {
-              "title": "Kafka 插件",
+              "title": "Kafka 应用",
               "path": "configuration/north-apps/kafka/overview"
             }
           ]
@@ -1154,7 +1150,7 @@
               "path": "api/jwt"
             },
             {
-              "title": "插件设置",
+              "title": "驱动与应用设置",
               "path": "api/plugin-setting"
             },
             {
@@ -1262,7 +1258,7 @@
       "collapsed": true,
       "children": [
         {
-          "title": "Managing Plugins",
+          "title": "Driver and Application Management",
           "path": "configuration/ecp_edge_plugin"
         },
         {
@@ -1292,7 +1288,7 @@
     },
     {
       "title": "Southbound Drivers",
-      "path": "introduction/plugin-list/plugin-list",
+      "path": "introduction/driver-list/driver-list",
       "collapsed": true,
       "children": [
         {
@@ -1423,7 +1419,7 @@
               "collapsed": true,
               "children": [
                 {
-                  "title": "Tailor S7 1200/1500 PLC for ISOTCP Plugin",
+                  "title": "Tailor S7 1200/1500 PLC for ISOTCP Driver",
                   "path": "configuration/south-devices/siemens-s7/plc/siemens-s7-1200-1500"
                 },
                 {
@@ -1850,7 +1846,7 @@
               ]
             },
             {
-              "title": "eKuiper",
+              "title": "Rules Engine Application",
               "path": "configuration/north-apps/ekuiper/overview"
             },
             {
@@ -1879,10 +1875,6 @@
             {
               "title": "WebSocket",
               "path": "configuration/north-apps/websocket/websocket"
-            },
-            {
-              "title": "DataStorage",
-              "path": "configuration/north-apps/DataStorage/DataStorage"
             },
             {
               "title": "OPCUA Server",
@@ -2355,7 +2347,7 @@
               "path": "api/jwt"
             },
             {
-              "title": "Plugin Configuration",
+              "title": "Driver and Application Settings",
               "path": "api/plugin-setting"
             },
             {

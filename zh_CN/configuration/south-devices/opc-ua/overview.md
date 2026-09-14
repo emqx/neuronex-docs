@@ -2,7 +2,7 @@
 
 OPC UA 是一种面向工业自动化的机器到机器通信协议，由 OPC 基金会开发维护。OPC UA 提供一种标准化的方式， 使不同的设备和系统能够互相通信。
 
-EMQX Neuron OPC UA 插件可作为客户端访问 KEPServerEX、Industrial Gateway OPC Server、Prosys Simulation Server、Ignition 等 OPC UA 服务器，也可以直接访问硬件设备的内置 OPC UA Server，如西门子 S7-1200 型 PLC 的内置 Server、 欧姆龙 NJ 系列 PLC 的内置 Server 等。
+EMQX Neuron OPC UA 驱动可作为客户端访问 KEPServerEX、Industrial Gateway OPC Server、Prosys Simulation Server、Ignition 等 OPC UA 服务器，也可以直接访问硬件设备的内置 OPC UA Server，如西门子 S7-1200 型 PLC 的内置 Server、 欧姆龙 NJ 系列 PLC 的内置 Server 等。
 
 ::: tip
 
@@ -11,13 +11,13 @@ OPCUA Part9 条件和报警功能，必须在 Subscribe 模式下使用。
 
 :::
 
-## 添加插件
+## 添加驱动
 
-在 **数据采集 -> 南向设备**，点击**添加设备**来创建设备节点，输入插件名称，插件类型选择 **OPC UA** 启用插件。
+在 **数据采集 -> 南向设备**，点击**添加设备**来创建设备节点，输入驱动名称，驱动类型选择 **OPC UA** 启用驱动。
 
 ## 设备配置
 
-点击插件卡片或插件列，进入**设备配置**页。配置 EMQX Neuron 与设备建立连接所需的参数，下表为 OPC UA 相关配置项。
+点击驱动卡片或驱动列，进入**设备配置**页。配置 EMQX Neuron 与设备建立连接所需的参数，下表为 OPC UA 相关配置项。
 
 | 参数           | 说明                                                                           |
 | -------------- | ------------------------------------------------------------------------------ |
@@ -57,7 +57,7 @@ OPCUA Part9 条件和报警功能，必须在 Subscribe 模式下使用。
 
 ## 设置组和点位
 
-完成插件的添加和配置后，要建立设备与 EMQX Neuron 之间的通信，首先为南向驱动程序添加组和点位。
+完成驱动的添加和配置后，要建立设备与 EMQX Neuron 之间的通信，首先为南向驱动程序添加组和点位。
 
 完成设备配置后，在**南向设备**页，点击设备卡片/设备列进入**组列表**页。点击**创建**来创建组，设定组名称以及采集间隔。完成组的创建后，点击组名称进入**点位列表**页，添加需要采集的设备点位，包括点位地址，点位属性，数据类型等。
 

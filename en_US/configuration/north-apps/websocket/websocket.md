@@ -2,7 +2,7 @@
 
 [WebSocket] is a network protocol that provides full-duplex communication channels over a single TCP connection. The WebSocket protocol was standardized by the IETF as [RFC 6455] in 2011. The WebSocket protocol specification defines two schemes, **ws** (WebSocket) and **wss** (WebSocket Secure), for unsecured and secure connections respectively. WebSocket has several advantages over traditional polling-based techniques, including lower latency, reduced network traffic, and improved scalability.
 
-The EMQX Neuron WebSocket plugin is a commercial northbound plugin, which enables users to push collected data to WebSocket servers.
+The EMQX Neuron WebSocket application is a commercial northbound application, which enables users to push collected data to WebSocket servers.
 
 ## Add Application
 
@@ -10,7 +10,7 @@ Navigate to **Data Collection -> North Apps** and click **Add Application** to a
 
 ## Configure Application
 
-These are the available parameters when configuring a node using the WebSocket plugin.
+These are the available parameters when configuring a node using the WebSocket application.
 
 | Parameter                       | Description                                                  |
 | ------------------------------- | ------------------------------------------------------------ |
@@ -22,7 +22,7 @@ These are the available parameters when configuring a node using the WebSocket p
 
 ## Add Subscription
 
-After plugin configuration, data forwarding can be enabled via southbound device subscriptions.
+After application configuration, data forwarding can be enabled via southbound device subscriptions.
 
 Click the device card or row on the **North Apps** page, then **Add Subscription** on the **Group List** page. And set the following:
 
@@ -31,15 +31,15 @@ Click the device card or row on the **North Apps** page, then **Add Subscription
 
 ## Data Upload
 
-The EMQX Neuron WebSocket plugin, acting as the WebSocket client, pushes data collected from devices as JSON to the WebSocket server at the address specified by the **Server URL** parameter.
+The EMQX Neuron WebSocket application, acting as the WebSocket client, pushes data collected from devices as JSON to the WebSocket server at the address specified by the **Server URL** parameter.
 
 The exact format of the data reported is controlled by the **Upload Format** parameter. There are two formats, *tags-format* and *values-format*. Both
-formats are the same as that of the [MQTT plugin], see [MQTT Upstream/downstream data format].
+formats are the same as that of the [MQTT application], see [MQTT Upstream/downstream data format].
 
 
 [WebSocket]: https://en.wikipedia.org/wiki/WebSocke://en.wikipedia.org/wiki/WebSocket
 [RFC 6455]: https://datatracker.ietf.org/doc/html/rfc6455
-[MQTT plugin]: ../mqtt/overview.md
+[MQTT application]: ../mqtt/overview.md
 [MQTT API tags format]: ../mqtt/api.md#tags-format
 
 ## Operation and Maintenance

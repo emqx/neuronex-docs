@@ -2,7 +2,7 @@
 
 The Q03UDE, a flagship product in Mitsubishi Electric's Q series of PLCs, is engineered for complex and large-scale automation applications, delivering high performance and a comprehensive suite of features.
 
-This section introduces how to connect Q03UDE using the EMQX Neuron Mitsubishi 3E plugin.
+This section introduces how to connect Q03UDE using the EMQX Neuron Mitsubishi 3E driver.
 
 ## Configure the PLC
 

@@ -5,19 +5,19 @@
 [MQTT] 是一种轻量级的消息传输协议，专为物联网设备和应用程序设计。它采用发布与订阅模型，允许设备和应用程序通过中间代理（Broker）进行通信。MQTT拥有轻量级、高效率和可靠性等诸多优点，特别适用于边缘硬件资源有限，需要高效地传输实时数据，以及对通信延迟和带宽占用有要求的场景。
 MQTT协议在工业互联网中得到广泛选择和应用，它为工业互联网带来了实时数据交换、设备互通性、资源节约和稳定可靠等诸多价值，成为工业互联网通信的重要基石。
 
-EMQX Neuron 支持 MQTT 插件作为其数据汇聚上报的方式之一。 EMQX Neuron AWS IoT 插件基于 [MQTT 插件]，提供对 AWS IoT Core 的便捷接入。
+EMQX Neuron 支持 MQTT 应用作为其数据汇聚上报的方式之一。 EMQX Neuron AWS IoT 应用基于 [MQTT 应用]，提供对 AWS IoT Core 的便捷接入。
 
 [MQTT]: https://mqtt.org
-[MQTT 插件]: ../mqtt/overview.md
+[MQTT 应用]: ../mqtt/overview.md
 [AWS IoT Core]: https://docs.aws.amazon.com/iot/
 
-## 添加插件
+## 添加应用
 
 在**北向应用**标签页，点击 **添加应用** 添加节点。
 
 ## 应用配置
 
-以下是使用 AWS IoT 插件配置节点时可用的参数：
+以下是使用 AWS IoT 应用配置节点时可用的参数：
 
 | 字段               | 说明                                                         |
 | ------------------ | ------------------------------------------------------------ |
@@ -33,7 +33,7 @@ EMQX Neuron 支持 MQTT 插件作为其数据汇聚上报的方式之一。 EMQX
 
 ## 添加订阅
 
-完成插件的添加和配置后，我们将继续通过订阅南向设备实现数据的转发。
+完成应用的添加和配置后，我们将继续通过订阅南向设备实现数据的转发。
 
 完成设备配置后，在**北向应用**页，点击设备卡片/设备列进入**组列表**页。点击**添加订阅**，并进行如下设置：
 
@@ -45,8 +45,8 @@ EMQX Neuron 支持 MQTT 插件作为其数据汇聚上报的方式之一。 EMQX
 
 <img src="./assets/subscribe_topic.png" style="border:thin solid #E0DCD9; width: 60%" alt="EMQX Neuron version 2.4.0 MQTT subscribe interface">
 
-上报数据的确切格式由**上报数据格式**参数控制，行为与 MQTT 插件一样。更多详细信息，请参阅 [数据上下行格式](../mqtt/api.md#data-upload)。
+上报数据的确切格式由**上报数据格式**参数控制，行为与 MQTT 应用一样。更多详细信息，请参阅 [数据上下行格式](../mqtt/api.md#data-upload)。
 
 ## 教程
 
-[使用 EMQX Neuron 将数据桥接到 AWS IoT](./example.md) 教程演示了如何使用 AWS IoT 插件连接 AWS IoT Core。
+[使用 EMQX Neuron 将数据桥接到 AWS IoT](./example.md) 教程演示了如何使用 AWS IoT 应用连接 AWS IoT Core。

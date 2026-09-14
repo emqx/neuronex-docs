@@ -1,14 +1,14 @@
 # Allen-Bradley DF1
 
 DF1 is a proprietary communication protocol developed by Rockwell Automation, primarily used for data exchange between its Allen Bradley series PLCs (Programmable Logic Controllers) and other devices.
-The EMQX Neuron Allen Bradley DF1 plugin supports point-to-point communication and data transmission through serial communication lines.
+The EMQX Neuron Allen Bradley DF1 driver supports point-to-point communication and data transmission through serial communication lines.
 
 ## Add Device
 
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **Allen-Bradley DF1** plugin.
+- Driver: Select the **Allen-Bradley DF1** driver.
 
 ## Device Configuration
 

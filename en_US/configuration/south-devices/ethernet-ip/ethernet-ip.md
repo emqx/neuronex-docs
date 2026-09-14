@@ -2,14 +2,14 @@
 
 EtherNet/IP (Industrial Protocol), developed and maintained by the Open DeviceNet Vendor Association (ODVA), is a pivotal network protocol in industrial automation. It fosters seamless automated control and data exchange between devices, significantly benefiting sectors including manufacturing, energy, transportation logistics, and construction by enhancing operational efficiency and data transparency.
 
-You can use EMQX Neuron EtherNet/IP (CIP) plugin to connect EtherNet/IP devices.
+You can use EMQX Neuron EtherNet/IP (CIP) driver to connect EtherNet/IP devices.
 
 ## Add Device
 
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **EtherNet/IP (CIP)** plugin.
+- Driver: Select the **EtherNet/IP (CIP)** driver.
 
 ## Device Configuration
 

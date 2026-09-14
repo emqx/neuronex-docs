@@ -1,5 +1,5 @@
 # CODESYS V3 TCP
-The EMQX Neuron CODESYS V3 TCP plugin enables access to PLCs and motion control systems based on the CODESYS V3 platform through the TCP protocol.
+The EMQX Neuron CODESYS V3 TCP driver enables access to PLCs and motion control systems based on the CODESYS V3 platform through the TCP protocol.
 ## Device Settings
 | Field    | Description                                     |
 | -------- | ----------------------------------------------- |

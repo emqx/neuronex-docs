@@ -4,7 +4,7 @@ The Chint Single-phase Rail Meter is a DIN rail-mounted device designed for meas
 
 The meter leverages the [RS485 communication protocol](#rs485), widely recognized in the power industry for remote communication and data transfer between multiple devices. This makes it possible to seamlessly transmit data from the meter to various devices or systems for monitoring and analysis.
 
-Lastly, this guide will demonstrate how to [convert data](#converter) from the Chint Single-phase Rail Meter into a format compatible with the RS485 protocol. It will also cover the use of the EMQX Neuron DLT645-2007 plugin to gather and forward this data, streamlining the process of power consumption monitoring and data management.
+Lastly, this guide will demonstrate how to [convert data](#converter) from the Chint Single-phase Rail Meter into a format compatible with the RS485 protocol. It will also cover the use of the EMQX Neuron DLT645-2007 driver to gather and forward this data, streamlining the process of power consumption monitoring and data management.
 
 The connection diagram is as follows:
 

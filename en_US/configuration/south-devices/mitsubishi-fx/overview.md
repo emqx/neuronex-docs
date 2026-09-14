@@ -7,7 +7,7 @@ The Mitsubishi FX plug-in is used to access Mitsubishi's FX0, FX2, FX3 and other
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **Mitsubishi FX** plugin.
+- Driver: Select the **Mitsubishi FX** driver.
 
 ## Device Configuration
 

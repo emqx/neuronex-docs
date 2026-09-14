@@ -138,7 +138,7 @@ The OpenTelemetry service address of EMQX ECP should use the [ip]:[port] format,
 :::
 
 - **Service Name**: Fill in the service name. When EMQX Neuron reports tracing data, it will use this service name to distinguish the tracing data reported by different EMQX Neuron.
-- **Tracing API and Downstream MQTT Control Commands**: Enable tracing for API and downlink MQTT control commands. If using downlink MQTT control commands, the MQTT plugin's MQTT version must be set to 5.0 on the northbound application page.
+- **Tracing API and Downstream MQTT Control Commands**: Enable tracing for API and downlink MQTT control commands. If using downlink MQTT control commands, the MQTT application's MQTT version must be set to 5.0 on the northbound application page.
 - **Tracing Data Collection Messages**: Enable tracing for data collection messages. Once enabled, EMQX Neuron will report all tracing data of southbound driver collection messages to the OpenTelemetry service. (Currently only supports FINS TCP、FINS UDP、Mitsubishi 3E、Mewtocol、Modbus RTU/TCP  drivers)
 - **Tracing Data Sampling Rate**: Fill in the tracking data sampling rate. Range: `0-1`.  1 indicates a 100% sampling rate for full tracing, while 0.1 indicates a 10% sampling rate for tracing. This parameter is only valid when `Tracing Data Collection Messages` is enabled.
 
@@ -171,7 +171,7 @@ Other API operations performed on the EMQX Neuron Dashboard will not record trac
 
 To implement downstream MQTT control command tracing, the following conditions must be met:
 
-- The northbound application page must set the MQTT plugin's MQTT version to 5.0, as shown in the figure:
+- The northbound application page must set the MQTT application's MQTT version to 5.0, as shown in the figure:
 
 ![mqtt_version_en](assets/mqtt_version_en.png)
 

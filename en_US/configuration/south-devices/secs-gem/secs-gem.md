@@ -72,7 +72,7 @@ greater, or even, in the associated secondary reply.
 
 ## Special Type Processing
 
-The SECS-II message definition defines the LIST type, which is also supported by the plugin through the string type. However, there is a deserialization process involved, with specific rules as follows.
+The SECS-II message definition defines the LIST type, which is also supported by the driver through the string type. However, there is a deserialization process involved, with specific rules as follows.
 
 | SECS-II Type | deserialization | Description                                                                                                    |
 | ------------ | --------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -98,10 +98,10 @@ The LIST type supports accessing specific elements using indices, such as S6F3[1
 The Device ID can usually be viewed on the SECS GEM HSMS protocol configuration page of the device.
 
 * How to serialize ASCII type in LIST?
-This plugin serializes ASCII in LIST as `<A[n] xxx>`, without quotes for the content. For example, "ABC" is serialized as `<A[3] ABC>`, not `<A[3] "ABC">`.
+This driver serializes ASCII in LIST as `<A[n] xxx>`, without quotes for the content. For example, "ABC" is serialized as `<A[3] ABC>`, not `<A[3] "ABC">`.
 
 * How to serialize Binary type in LIST?
-This plugin serializes Binary in LIST as `<B[n] xx>`, without quotes for the content. For example, 0xFF is serialized as `<B[1] FF>`, not `<B[2] "FF">`.
+This driver serializes Binary in LIST as `<B[n] xx>`, without quotes for the content. For example, 0xFF is serialized as `<B[1] FF>`, not `<B[2] "FF">`.
 
 * What type should be selected when creating a new point for data of LIST type?
 For points with device data type **LIST**, select **string** type when creating a new point.

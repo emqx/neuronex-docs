@@ -1,6 +1,6 @@
-# Data Acquisition with Beckhoff ADS Plugin
+# Data Acquisition with Beckhoff ADS Driver
 
-In this tutorial, we introduce how to collect data from Beckhoff software PLCs using the EMQX Neuron ADS plugin.
+In this tutorial, we introduce how to collect data from Beckhoff software PLCs using the EMQX Neuron ADS driver.
 
 ## Environment Setup
 

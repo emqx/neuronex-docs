@@ -35,7 +35,7 @@ As a Client, EMQX Neuron initiates connection requests to Modbus Slave actively.
 
 ### Configure EMQX Neuron(Client)
 
-In **South Devices**, using Modbus Plus TCP plugin create a node named modbus-tcp-client, and configure the driver, as shown in the figure below.
+In **South Devices**, using Modbus Plus TCP driver create a node named modbus-tcp-client, and configure the driver, as shown in the figure below.
 
 ![neuron-tcp-client-config](../assets/neuron-tcp-client-config-en.png)
 

@@ -2,14 +2,14 @@
 
 [TwinCAT] is a control technology developed by Beckhoff Automation. It is a software-based control system used in automation and control applications. TwinCAT is capable of running on a variety of platforms and supports various programming languages.
 
-The EMQX Neuron ADS plugin enables users to connect to Beckhoff TwinCAT PLC over TCP/IP.
+The EMQX Neuron ADS driver enables users to connect to Beckhoff TwinCAT PLC over TCP/IP.
 
 ## Add Device
 
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **Beckhoff** plugin.
+- Driver: Select the **Beckhoff** driver.
 
 ## Device Configuration
 
@@ -62,7 +62,7 @@ For information on general configuration items, see [Connect to Southbound Devic
 
 ### Address Format
 
-In the context of the ADS plugin, a tag address consists of two components,
+In the context of the ADS driver, a tag address consists of two components,
 `INDEX_GROUP` and `INDEX_OFFSET`, which represents the index group and the
 index offset respectively.
 
@@ -87,7 +87,7 @@ Both `INDEX_GROUP` and `INDEX_OFFSET` could be in decimal or hexadecimal format.
 
 ## Use Case
 
-YOu can use EMQX Neuron to collect data from Beckhoff software PLCs using the EMQX Neuron ADS plugin, for details, see [Data Acquisition with Beckhoff ADS Plugin](./plc-ads/ads.md).
+YOu can use EMQX Neuron to collect data from Beckhoff software PLCs using the EMQX Neuron ADS driver, for details, see [Data Acquisition with Beckhoff ADS Driver](./plc-ads/ads.md).
 
 ## Data Monitoring
 

@@ -7,13 +7,13 @@
 * 检查地址是否正确（EMQX Neuron 的 Modbus 地址从 1 开始）。
 * 某些设备可能不支持一次只读取一个点位，需要把所有点位都配上（EMQX Neuron 会自动优化批量读取）。
 * 连接是否通，可使用 telnet 指令检测链路是否有异常。
-* 设备支持的协议为 Modbus RTU，不是 Modbus TCP，使用 Modbus RTU 插件尝试。
+* 设备支持的协议为 Modbus RTU，不是 Modbus TCP，使用 Modbus RTU 驱动尝试。
 
 ## 点位值失效，错误码 3008
 ---
 * 设备离线，数据无法更新。
 * 设备在一定时间内无响应数据。
-* 设备支持的协议为 Modbus RTU，不是 Modbus TCP，使用 Modbus RTU 插件尝试。
+* 设备支持的协议为 Modbus RTU，不是 Modbus TCP，使用 Modbus RTU 驱动尝试。
 
 ## 读取到的点位值与预期不符
 ---
@@ -22,4 +22,4 @@
 * 存在多个上游主站采集数据，导致数据出现错乱。
 * DTU 开启了注册包或心跳包，导致 EMQX Neuron 认为数据流数据错误。
 * 设备主动上传数据，标准 Modbus 协议基于主设备主导的请求-响应模式，而不是从设备主动上传数据的模式。
-* 设备支持的协议为 Modbus RTU，不是 Modbus TCP，使用 Modbus RTU 插件尝试。
+* 设备支持的协议为 Modbus RTU，不是 Modbus TCP，使用 Modbus RTU 驱动尝试。

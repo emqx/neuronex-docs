@@ -1,6 +1,6 @@
 # GE SRTP
 
-EMQX Neuron GE SRTP plugin accesses GE PLC devices that support SRTP over TCP.
+EMQX Neuron GE SRTP driver accesses GE PLC devices that support SRTP over TCP.
 
 ## Parameter Configuration
 

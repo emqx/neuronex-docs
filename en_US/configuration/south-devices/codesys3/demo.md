@@ -1,6 +1,6 @@
 # Connecting to the CODESYS V3 PLC Simulator
 
-This document demonstrates how to use the CODESYS V3 TCP plugin to connect to the CODESYS V3 PLC simulator for reading and writing data.
+This document demonstrates how to use the CODESYS V3 TCP driver to connect to the CODESYS V3 PLC simulator for reading and writing data.
 
 ## Installation of the CODESYS V3 Development Environment
 
@@ -92,7 +92,7 @@ The installation package for the CODESYS V3 development environment can be downl
 - Log in to the simulator with the configured username and password, download the program, and run it.
 - 
 ## Configure EMQX Neuron Node to Connect to CODESYS V3 Simulator
-- In the **Southb Devices**, click **Add Device** and select the **CODESYS V3 TCP** plugin to create a node for connecting to the CODESYS V3 simulator.
+- In the **Southb Devices**, click **Add Device** and select the **CODESYS V3 TCP** driver to create a node for connecting to the CODESYS V3 simulator.
 - After creating the node, click **Device Configuration** to enter the configuration page and configure the node information based on the actual situation.
 	- **Device IP Address**: The IP address of the device, which is the IP address of the host running the simulator.
 	- **Device Port**: The port of the device, default is 11740.

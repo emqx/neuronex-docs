@@ -1,6 +1,6 @@
 # NEURON HUB
 
-**NeuronHUB**（运行于 **Windows** 的桌面程序）与 EMQX Neuron 南向插件 **NEURON HUB**共同构成一整套中转数采方案：前者在现场 Windows 环境的机器上做协议接入与数据采集（支持采集的协议有：**OPC DA、OPC AE、GE Historian、新代（SYNTEC）CNC、三菱（MITSUBISHI）CNC**），后者作为 EMQX Neuron 的南向驱动插件接入 NeuronHUB 上已采集的数据。
+**NeuronHUB**（运行于 **Windows** 的桌面程序）与 EMQX Neuron 南向驱动 **NEURON HUB**共同构成一整套中转数采方案：前者在现场 Windows 环境的机器上做协议接入与数据采集（支持采集的协议有：**OPC DA、OPC AE、GE Historian、新代（SYNTEC）CNC、三菱（MITSUBISHI）CNC**），后者作为 EMQX Neuron 的南向驱动接入 NeuronHUB 上已采集的数据。
 
 **部署背景：** EMQX Neuron 仅能部署在 **Linux**。若现场数采依赖 **DCOM** 等与 Windows 强绑定的机制（典型如 OPC DA），或必须使用仅提供 Windows 接口的网关与数据源，则无法在 Linux 上由原生存根方式直接采集这些协议。
 
@@ -54,7 +54,7 @@
 
 
 ## NeuronHUB Windows 程序
-上文所述在 Windows 上承担协议对接与中继的就是 **NeuronHUB** 桌面程序（与 Linux 侧的 EMQX Neuron 插件名称相近，请注意区分环境与角色）。安装包请联系支持人员获取。
+上文所述在 Windows 上承担协议对接与中继的就是 **NeuronHUB** 桌面程序（与 Linux 侧的 EMQX Neuron 驱动名称相近，请注意区分环境与角色）。安装包请联系支持人员获取。
 
 
 ### 安装

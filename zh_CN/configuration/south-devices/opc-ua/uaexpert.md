@@ -38,4 +38,4 @@ UaExpert 是一种常见的 OPC UA 客户端。用户可通过 UaExpert 连接 O
 
      
 
-6. 根据 **Data Access View** 视图中的类型信息设置 EMQX Neuron OPC UA 插件的测点类型。
+6. 根据 **Data Access View** 视图中的类型信息设置 EMQX Neuron OPC UA 驱动的测点类型。

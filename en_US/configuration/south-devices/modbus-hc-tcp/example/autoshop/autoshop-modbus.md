@@ -1,8 +1,8 @@
 # Connect to Easy521
 
-This article will use the Inovance Modbus TCP plugin to connect to the Inovance Easy521 PLC for reading and writing tags within the PLC.
+This article will use the Inovance Modbus TCP driver to connect to the Inovance Easy521 PLC for reading and writing tags within the PLC.
 
-The Inovance Modbus TCP plugin requires connection to the Inovance PLC via the local area network, so please ensure that the PLC and EMQX Neuron are in the same local area network.
+The Inovance Modbus TCP driver requires connection to the Inovance PLC via the local area network, so please ensure that the PLC and EMQX Neuron are in the same local area network.
 
 ## Prerequisites
 
@@ -16,7 +16,7 @@ This section assumes that It is already possible to use Inovance Programming Sof
 ![data_monitor](../assets/data_monitor.png)
 
 ## Configure EMQX Neuron
-* In EMQX Neuron, click **Data Collection** -> **South Devices**. Click on **Add Device** in the **South Devices** and select the Inovance Modbus TCP plugin to create a node to connect to the Easy521 PLC.
+* In EMQX Neuron, click **Data Collection** -> **South Devices**. Click on **Add Device** in the **South Devices** and select the Inovance Modbus TCP driver to create a node to connect to the Easy521 PLC.
 * After creating the node, click on **Device Configuration** to enter the device configuration page. Configure the node information according to the actual situation,
 	* **PLC IP Address**: PLC device IP address
 	* **PLC Port**: PLC device port, the default is 502

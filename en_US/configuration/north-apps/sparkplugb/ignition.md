@@ -2,7 +2,7 @@
 
 Ignition is a cutting-edge industrial automation software platform developed by Inductive Automation, offering a versatile and user-friendly solution for creating and managing a wide array of industrial applications. With its open architecture, real-time monitoring capabilities, and seamless support for various industrial protocols, Ignition empowers businesses to optimize processes and increase efficiency.
 
-To further enhance the capabilities of Ignition, the EMQX Neuron SparkPlugB plugin provides an effortless way to connect and integrate with the platform.
+To further enhance the capabilities of Ignition, the EMQX Neuron SparkPlugB application provides an effortless way to connect and integrate with the platform.
 
 ## Install Ignition
 
@@ -21,7 +21,7 @@ To further enhance the capabilities of Ignition, the EMQX Neuron SparkPlugB plug
 
 ### Southbound Device
 
-This section assumes that the southbound OCP UA plugin has been installed, the group and point configurations are complete, and communication with EMQX Neuron functions normally. For details on the installation and configuration of the OCP UA plugin, refer to the [OCP UA section](../../south-devices/opc-ua/overview.md).
+This section assumes that the southbound OCP UA driver has been installed, the group and point configurations are complete, and communication with EMQX Neuron functions normally. For details on the installation and configuration of the OCP UA driver, refer to the [OCP UA section](../../south-devices/opc-ua/overview.md).
 
 ### Northbound Application
 

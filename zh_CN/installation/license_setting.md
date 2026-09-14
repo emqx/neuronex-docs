@@ -52,7 +52,7 @@ EMQX Neuron 的功能受许可证的限制，请在许可证有效期前更换�
 | 签发时间     | EMQX Neuron License 生效的时间                             |
 | 过期时间     | EMQX Neuron 可使用的截止日期，如果 License 过期，系统将无法正常工作，您必须重新获取新的有效的 License，重新上传 License。 |
 | 点位数 | EMQX Neuron 可使用的最大点位数    |
-| 可用插件     | EMQX Neuron 已授权的插件，每个商业插件模块都可以在 EMQ 许可证中独立授权。 |
+| 可用驱动与应用     | EMQX Neuron 已授权的驱动与应用，每个商业驱动与应用模块都可以在 EMQ 许可证中独立授权。 |
 
 ## 硬件标识
 

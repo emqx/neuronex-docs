@@ -2,14 +2,14 @@
 
 Fetch/Write is a TCP/IP-based communication protocol that facilitates crucial data exchange between PLC and associated systems including SCADA, HMI devices, and other PLCs. In this setup, the 'Fetch' operation retrieves data from the PLC, while the 'Write' operation allows for data input into the PLC, ensuring a seamless data flow for optimized automation processes.
 
-EMQX Neuron Siemens FetchWrite plugin is used for accessing Siemens PLCs with network expansion module CP443, such as s7-300/400.
+EMQX Neuron Siemens FetchWrite driver is used for accessing Siemens PLCs with network expansion module CP443, such as s7-300/400.
 
 ## Add Device
 
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **Siemens FetchWrite** plugin.
+- Driver: Select the **Siemens FetchWrite** driver.
 
 ## Device Configuration
 

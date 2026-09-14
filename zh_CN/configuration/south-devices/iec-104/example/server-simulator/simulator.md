@@ -1,6 +1,6 @@
 # IEC 60870-5-104 Server 模拟器连接示例
 
-本文将使用 EMQX Neuron 的 IEC608750-5-104 插件连接到模拟器 [IEC 60870-5-104 Server Simulator](https://www.freyrscada.com/iec-60870-5-104-Client-Simulator.php)，此模拟器支持多种数据类型的采集以及控制写入。
+本文将使用 EMQX Neuron 的 IEC608750-5-104 驱动连接到模拟器 [IEC 60870-5-104 Server Simulator](https://www.freyrscada.com/iec-60870-5-104-Client-Simulator.php)，此模拟器支持多种数据类型的采集以及控制写入。
 
 ## 下载 IEC 60870-5-104 Server Simulator
 
@@ -21,7 +21,7 @@
 
 ## 配置 EMQX Neuron
 
-  - 进入 EMQX Neuron 管理页面，使用 **IEC60870-5-104 插件** 创建一个南向节点。
+  - 进入 EMQX Neuron 管理页面，使用 **IEC60870-5-104 驱动** 创建一个南向节点。
 
   * 点击按钮 **设备配置** 进入节点配置页面，**设备 IP 地址** 填写安装模拟器的设备 IP 地址，其他参数使用默认值即可，点击 **提交** 即可完成设备参数配置。 
   * 进入到节点组配置中，创建一个组后，在组下创建一个点位，点位数据类型选择 **INT16**，地址填写为 **1**，地址值为模拟器点位配置中的 **IOA** 参数。

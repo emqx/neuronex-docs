@@ -1,8 +1,8 @@
 # Connect to NX1P
 
-This article will use the Omron FINS UDP plugin to connect to the Omron NX1P PLC for reading and writing point positions within the PLC.
+This article will use the Omron FINS UDP driver to connect to the Omron NX1P PLC for reading and writing point positions within the PLC.
 
-The Omron FINS UDP plugin requires connection to the Omron PLC via the local area network, so please ensure that the PLC and EMQX Neuron are in the same local area network.
+The Omron FINS UDP driver requires connection to the Omron PLC via the local area network, so please ensure that the PLC and EMQX Neuron are in the same local area network.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ This section assumes that It is already possible to use Omron Programming Softwa
    ![n1xp_watch](./assets/nx1p-watch-en.png)
 
 ## Configure EMQX Neuron
-* In EMQX Neuron, click **Data Collection** -> **South Devices**. Click on **Add Device** in the **South Devices** and select the Omron FINS UDP plugin to create a node to connect to the NX1P PLC.
+* In EMQX Neuron, click **Data Collection** -> **South Devices**. Click on **Add Device** in the **South Devices** and select the Omron FINS UDP driver to create a node to connect to the NX1P PLC.
 * After creating the node, click on **Device Configuration** to enter the device configuration page. Configure the node information according to the actual situation,
 	* **Equipment Type**: PLC equipment type
 	* **PLC IP Address**: PLC device IP address

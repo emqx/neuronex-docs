@@ -1,6 +1,6 @@
 # CODESYS V3 TCP
 
-EMQX Neuron CODESYS V3 TCP 插件通过 TCP 协议访问基于 CODESYS V3 平台打造的 PLC 和 运动控制系统。
+EMQX Neuron CODESYS V3 TCP 驱动通过 TCP 协议访问基于 CODESYS V3 平台打造的 PLC 和 运动控制系统。
 
 ## 设备设置
 

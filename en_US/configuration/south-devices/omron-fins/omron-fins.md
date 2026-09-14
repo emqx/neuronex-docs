@@ -1,6 +1,6 @@
 # OMRON FINS (TCP)
 
-Omron Fins TCP is a protocol for communication between Omron PLCs and other devices. It is a TCP/IP based protocol. The fins plugin is used for Omron PLCs with network port, such as CP2E.
+Omron Fins TCP is a protocol for communication between Omron PLCs and other devices. It is a TCP/IP based protocol. The fins driver is used for Omron PLCs with network port, such as CP2E.
 
 EMQX Neuron supports Fins TCP protocol, which can be used to communicate with Omron PLCs through Fins TCP protocol.
 
@@ -9,7 +9,7 @@ EMQX Neuron supports Fins TCP protocol, which can be used to communicate with Om
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **Omron FINS TCP** plugin.
+- Driver: Select the **Omron FINS TCP** driver.
 
 ## Device Configuration
 

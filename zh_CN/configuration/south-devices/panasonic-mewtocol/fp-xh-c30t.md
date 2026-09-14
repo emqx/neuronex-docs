@@ -2,7 +2,7 @@
 
 FP-XH C30T 是 Panasonic（松下）公司生产的一款可编程逻辑控制器（PLC），属于 FP-XH 系列，适用于各种中小型自动化应用。
 
-本节将演示如何通过 EMQX Neuron Mewtocol 插件连接 FP-XH C30T。
+本节将演示如何通过 EMQX Neuron Mewtocol 驱动连接 FP-XH C30T。
 
 ## 安装 Configurator WD
 

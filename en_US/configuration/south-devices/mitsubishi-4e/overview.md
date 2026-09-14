@@ -1,6 +1,6 @@
 # Mitsubishi 4E
 
-The Mitsubishi 4E plugin is used to access Mitsubishi's PLCs, including iQ-F Series (SLMP), and iQ-R Series, via Ethernet.
+The Mitsubishi 4E driver is used to access Mitsubishi's PLCs, including iQ-F Series (SLMP), and iQ-R Series, via Ethernet.
 
 The Mitsubishi 4E is fully compatible with the Mitsubishi SLMP protocol.
 
@@ -9,7 +9,7 @@ The Mitsubishi 4E is fully compatible with the Mitsubishi SLMP protocol.
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **Mitsubishi 4E** plugin.
+- Driver: Select the **Mitsubishi 4E** driver.
 
 ## Device Configuration
 

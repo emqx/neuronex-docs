@@ -1,6 +1,6 @@
 # OPC UA Conditions and Alarms
 
-OPC UA Part 9 defines the Conditions and Alarms model for monitoring device status and events. The EMQX Neuron OPC UA plugin supports subscribing to conditions and alarms, and can invoke methods on the OPC UA server to perform operations such as alarm acknowledgment.
+OPC UA Part 9 defines the Conditions and Alarms model for monitoring device status and events. The EMQX Neuron OPC UA driver supports subscribing to conditions and alarms, and can invoke methods on the OPC UA server to perform operations such as alarm acknowledgment.
 
 ## Prerequisites
 

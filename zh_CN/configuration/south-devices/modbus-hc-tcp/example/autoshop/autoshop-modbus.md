@@ -1,8 +1,8 @@
 # Easy521 连接示例
 
-本文将使用 Inovance Modbus TCP 插件连接汇川 Easy521 PLC，实现读写 PLC 中的点位值。
+本文将使用 Inovance Modbus TCP 驱动连接汇川 Easy521 PLC，实现读写 PLC 中的点位值。
 
-Inovance Modbus TCP 插件可以通过本地局域网或者 Internet 连接到汇川 PLC，但是需要注意的是，如果 PLC 与 EMQX Neuron 服务器不在同一局域网，需要在 PLC 上配置端口转发。
+Inovance Modbus TCP 驱动可以通过本地局域网或者 Internet 连接到汇川 PLC，但是需要注意的是，如果 PLC 与 EMQX Neuron 服务器不在同一局域网，需要在 PLC 上配置端口转发。
 
 ## 前置准备
 
@@ -16,7 +16,7 @@ Inovance Modbus TCP 插件可以通过本地局域网或者 Internet 连接到�
 ![data_monitor](../assets/data_monitor.png)
 
 ## 配置 EMQX Neuron
-* 在南向设备中，点击 **添加设备**，选择插件 **Inovance Modbus TCP** 来创建一个连接汇川 PLC 的节点。
+* 在南向设备中，点击 **添加设备**，选择驱动 **Inovance Modbus TCP** 来创建一个连接汇川 PLC 的节点。
 * 创建好节点后，点击 **设备配置** 进入设备配置页面，根据实际情况配置节点信息，
 	* **PLC IP 地址**：PLC 的 IP 地址
 	* **PLC 端口**：PLC 的端口，默认为 502

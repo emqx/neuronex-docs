@@ -15,7 +15,7 @@ This walkthrough uses MQTT.
 In **Data Collection** -> **North Apps**, click **Add Application**:
 
 * **Name**: application node name, for example `mqtt`.
-* **Plugin**: select **MQTT**.
+* **Application**: select **MQTT**.
 
 After **Create**, you go to the application configuration page. You can also open **Application Configuration** from the card later.
 
@@ -43,7 +43,7 @@ On **North Apps**, switch between list and card view in the upper right. On the 
   * **Stop**: stopped.
 * **Working state switch**: on connects and reports; off disconnects.
 * **Connection state**: whether the peer is connected.
-* **Plugin**: plugin used by this application.
+* **Application**: application used by this application.
 
 ## Subscribe to southbound data
 

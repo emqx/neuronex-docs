@@ -2,7 +2,7 @@
 
 KEPServerEX 是由 Kepware 公司开发的一款工业自动化设备与应用间的通信连接服务软件，它是一款在工业控制中常见的数据采集服务软件，提供了各种类型的驱动，使得工业设备可以与各类控制硬件和软件进行高效、可靠的通信。KEPServerEX 利用 OPC（自动化行业的互操作性标准）和以 IT 为中心的通信协议（如 SNMP、ODBC 和 Web 服务）为用户提供工业数据的单一来源。
 
-本节将演示如何通过 EMQX Neuron OPC UA 插件连接 KEPServerEX。
+本节将演示如何通过 EMQX Neuron OPC UA 驱动连接 KEPServerEX。
 
 ## 连接 OPC UA Server（用户名/密码）
 

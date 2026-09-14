@@ -1,6 +1,6 @@
 # Ignition SECS/GEM Example
 
-This article will use the SECS GEM HSMS plugin to connect to the Ignition SECS/GEM simulator, enabling the reading and writing of data from SECS/GEM simulated devices. Please ensure that the plugin and simulator are networked.
+This article will use the SECS GEM HSMS driver to connect to the Ignition SECS/GEM simulator, enabling the reading and writing of data from SECS/GEM simulated devices. Please ensure that the driver and simulator are networked.
 
 ## Download And Install Ignition SECS/GEM Simulator
 
@@ -24,7 +24,7 @@ The created simulator in this article is named "test", with a Passive IP address
 
 ## Configure the EMQX Neuron node to connect to the Ignition SECS/GEM Simulator
 
-* Click on `Add Device` in the **South Devices** and select the `SECS GEM HSMS` plugin to create a node to connect to the SECS/GEM Simulator.
+* Click on `Add Device` in the **South Devices** and select the `SECS GEM HSMS` driver to create a node to connect to the SECS/GEM Simulator.
 * After creating the node, click on `Device Configuration` to enter the device configuration page. Configure the node information according to the actual situation,
 	* `Device IP Address`: Target device IP address
 	* `Device Port`: Target device port, default 5000

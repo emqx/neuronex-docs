@@ -1,6 +1,6 @@
 # Mazak Device-Side Configuration
 
-This guide describes how to configure the Mazak CNC to send operating data over UDP so that the EMQX Neuron Mazak CNC plugin can collect it. The communication relies on the **Mazak Fusion Client** application running on the Windows PC of the Mazak controller.
+This guide describes how to configure the Mazak CNC to send operating data over UDP so that the EMQX Neuron Mazak CNC driver can collect it. The communication relies on the **Mazak Fusion Client** application running on the Windows PC of the Mazak controller.
 
 ## Applicable Controls
 
@@ -111,7 +111,7 @@ After completing the configuration:
 2. Verify that the Mazak CNC can reach the EMQX Neuron host machine.
 3. Ensure UDP port 51001 is open between the two machines.
 
-Once the connection is verified, configure the EMQX Neuron Mazak CNC plugin on the EMQX Neuron side. See [Mazak CNC](./mazak-udp.md) for details.
+Once the connection is verified, configure the EMQX Neuron Mazak CNC driver on the EMQX Neuron side. See [Mazak CNC](./mazak-udp.md) for details.
 
 ## Troubleshooting
 

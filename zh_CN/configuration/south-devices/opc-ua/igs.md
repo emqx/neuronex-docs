@@ -2,7 +2,7 @@
 
 Industrial Gateway OPC Server 是 Matrikon 提供的 OPC 服务器，可用于通过 OPC 协议来收集和分发工业设备的数据。
 
-本节将演示如何通过 EMQX Neuron OPC UA 插件连接 Industrial Gateway OPC Server。
+本节将演示如何通过 EMQX Neuron OPC UA 驱动连接 Industrial Gateway OPC Server。
 
 ## 连接 OPC UA Server（匿名登录）
 

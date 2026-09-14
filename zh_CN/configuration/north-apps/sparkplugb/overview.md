@@ -4,13 +4,13 @@ Sparkplug B 是一种建立在 MQTT 3.1.1 基础上的工业物联网数据传�
 
 EMQX Neuron 从设备采集到的数据可以通过 Sparkplug B 协议从边缘端传输到 Sparkplug B 应用中，用户也可以从应用程序向 EMQX Neuron 发送数据修改指令。
 
-## 添加插件
+## 添加应用
 
 在**数据采集 -> 北向应用**，点击 **添加应用** 添加 SparkPlugB 客户端节点。
 
 ## 应用配置
 
-Sparkplug B 是运行在 MQTT 之上的应用型协议，所以在 EMQX Neuron 中的设置与 MQTT 插件相似。
+Sparkplug B 是运行在 MQTT 之上的应用型协议，所以在 EMQX Neuron 中的设置与 MQTT 应用相似。
 
 |  参数         | 说明                                                         |
 | ------------- | ------------------------------------------------------------ |
@@ -50,11 +50,11 @@ Sparkplug B 是运行在 MQTT 之上的应用型协议，所以在 EMQX Neuron �
 
 ## 应用场景
 
-您可通过 EMQX Neuron Sparkplug B 插件将数据上报到 EMQX，并通过 EMQX 的编解码功能得到正确完整的数据结果，具体结果，见 [集成 EMQX](sparkplug.md)。
+您可通过 EMQX Neuron Sparkplug B 应用将数据上报到 EMQX，并通过 EMQX 的编解码功能得到正确完整的数据结果，具体结果，见 [集成 EMQX](sparkplug.md)。
 
-您可通过 EMQX Neuron SparkPlugB 插件连接 Ignition 平台，具体步骤，见 [Ignition](./ignition.md)。
+您可通过 EMQX Neuron SparkPlugB 应用连接 Ignition 平台，具体步骤，见 [Ignition](./ignition.md)。
 
-您也可通过 EMQX Neuron SparkPlugB 插件连接 Cogent DataHub，具体步骤，见 [Cogent](./cogent.md)。
+您也可通过 EMQX Neuron SparkPlugB 应用连接 Cogent DataHub，具体步骤，见 [Cogent](./cogent.md)。
 
 ## 运行与维护
 

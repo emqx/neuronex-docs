@@ -1,6 +1,6 @@
 # KUKA
 
-EMQX Neuron KUKA Ethernet KRL TCP 插件通过 TCP 协议访问安装有 KUKA Ethernet KRL 模块的 KUKA 机器人设备，目前支持机器人设备 Client 和 Server 两种模式。
+EMQX Neuron KUKA Ethernet KRL TCP 驱动通过 TCP 协议访问安装有 KUKA Ethernet KRL 模块的 KUKA 机器人设备，目前支持机器人设备 Client 和 Server 两种模式。
 
 ## 设备设置
 
@@ -29,7 +29,7 @@ EMQX Neuron KUKA Ethernet KRL TCP 插件通过 TCP 协议访问安装有 KUKA Et
 现场机器人设备需要提前安装好 KUKA Ethernet KRL 模块，EMQX Neuron 提供机器人设备端 TCP Server 脚本和 TCP Client 脚本编写示例。获取脚本和配置文档，可直接 [联系我们](https://www.emqx.com/zh/contact?product=neuron)。
 
 ## ADDRESS
-插件地址为 XML XPATH 形式.
+驱动地址为 XML XPATH 形式.
 
 ## 地址示例
 

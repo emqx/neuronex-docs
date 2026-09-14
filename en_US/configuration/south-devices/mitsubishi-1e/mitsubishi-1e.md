@@ -9,7 +9,7 @@ EMQX Neuron's a1e plug-in is used to access Mitsubishi's A series, FX3U, FX3G, i
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **Mitsubishi 1E** plugin.
+- Driver: Select the **Mitsubishi 1E** driver.
 
 ## Device Configuration
 

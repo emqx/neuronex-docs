@@ -4,10 +4,10 @@
 
 [MQTT] is a messaging protocol designed for IoT devices and applications operating on a publish/subscribe model. It's lightweight, efficient, reliable, and allows for real-time communication. MQTT is well-suited for environments with limited resources, where efficient use of power and bandwidth is necessary.
 
-EMQX Neuron supports MQTT as one of its communication protocols. The EMQX Neuron AWS IoT plugin is based on the [MQTT plugin] to provide easy access to AWS IoT Core.
+EMQX Neuron supports MQTT as one of its communication protocols. The EMQX Neuron AWS IoT application is based on the [MQTT application] to provide easy access to AWS IoT Core.
 
 [MQTT]: https://mqtt.org
-[MQTT plugin]: ../mqtt/overview.md
+[MQTT application]: ../mqtt/overview.md
 [AWS IoT Core]: https://docs.aws.amazon.com/iot/
 
 ## Add Application
@@ -15,7 +15,7 @@ EMQX Neuron supports MQTT as one of its communication protocols. The EMQX Neuron
 To create a northbound node and connect it to AWS IoT Core to upload data, navigate to **North Apps** and click **Add Application**.
 
 - Name: The name of this application node, for example, "aws-iot".
-- Plugin: Select the AWS IoT plugin.
+- Application: Select the AWS IoT application.
 
 ## Configure Application
 
@@ -25,9 +25,9 @@ See the table below for the configuration parameters.
 | ------------------------------- | ------------------------------------------------------------ |
 | **Client ID**                   | MQTT client id for communication, a required field.          |
 | **QoS Level**                   | MQTT QoS level for message delivery, optional, default QoS 0. |
-| **Upload Format**               | JSON format of reported data, a required field: <br /><br /> - *values-format*, data are split into `values` and `errors` sub-objects. <br />- *tags-format*, tag data are put in a single array. <br /><br />Same as the MQTT plugin, see [MQTT Upstream/Downstream Data Format](../mqtt/api.md#write-tag) |
-| **Write Request Topic**         | MQTT topic to which the plugin subscribes for write requests. Same as the MQTT plugin, see [MQTT Upstream/Downstream Data Format](../mqtt/api.md#write-tag) (since 2.4.5) |
-| **Write Response Topic**        | MQTT topic to which the plugin sends write responses.        |
+| **Upload Format**               | JSON format of reported data, a required field: <br /><br /> - *values-format*, data are split into `values` and `errors` sub-objects. <br />- *tags-format*, tag data are put in a single array. <br /><br />Same as the MQTT application, see [MQTT Upstream/Downstream Data Format](../mqtt/api.md#write-tag) |
+| **Write Request Topic**         | MQTT topic to which the application subscribes for write requests. Same as the MQTT application, see [MQTT Upstream/Downstream Data Format](../mqtt/api.md#write-tag) (since 2.4.5) |
+| **Write Response Topic**        | MQTT topic to which the application sends write responses.        |
 | **Device Data Endpoint**        | AWS IoT device data endpont.                                 |
 | **Root CA Certificate**         | AWS IoT data endpoint root CA certificate.                   |
 | **Device Certificate**          | Device Certificate corresponding to a `thing` object in the AWS IoT console. |
@@ -36,7 +36,7 @@ See the table below for the configuration parameters.
 
 ## Add Subscription
 
-After plugin configuration, data forwarding can be enabled via southbound device subscriptions.
+After application configuration, data forwarding can be enabled via southbound device subscriptions.
 
 Click the device card or row on the **North Apps** page, then **Add Subscription** on the **Group List** page. And set the following:
 
@@ -50,8 +50,8 @@ Select the desired southbound device (e.g., 'modbus-tcp-1') and group (e.g., 'gr
   <img src="./assets/subscribe_topic.png" style="border:thin solid #E0DCD9; width: 60%" alt="EMQX Neuron version 2.4.0 MQTT subscribe interface">
 </figure>
 
-The exact format of the data reported is controlled by the **Upload Format** parameter, and the behavior is the same as that of the MQTT plugin. For more detailed information, see [MQTT Upstream/Downstream Data Format](../mqtt/api.md#data-upload)
+The exact format of the data reported is controlled by the **Upload Format** parameter, and the behavior is the same as that of the MQTT application. For more detailed information, see [MQTT Upstream/Downstream Data Format](../mqtt/api.md#data-upload)
 
 ## Tutorial
 
-[Bridging Data to AWS IoT using EMQX Neuron](./example.md) demonstrates how to use the AWS IoT plugin to connect to AWS IoT Core.
+[Bridging Data to AWS IoT using EMQX Neuron](./example.md) demonstrates how to use the AWS IoT application to connect to AWS IoT Core.

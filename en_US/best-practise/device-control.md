@@ -29,13 +29,13 @@ Dashboard control is the most intuitive human-machine interaction method, suitab
 
 ### Feature Introduction
 
-MQTT control allows any client program supporting the MQTT protocol to send command data to the corresponding topic on an MQTT Broker. The EMQX Neuron northbound MQTT plugin subscribes to this topic to receive data and sends control commands to the southbound driver node to implement device control. 
+MQTT control allows any client program supporting the MQTT protocol to send command data to the corresponding topic on an MQTT Broker. The EMQX Neuron northbound MQTT application subscribes to this topic to receive data and sends control commands to the southbound driver node to implement device control.
 
 This method is particularly suitable when using EMQX to build a UNS(Unifed Name Space) in industrial scenarios.
 
 ![mqtt-control-arch](./_assets/mqtt-control-arch.png)
 
-To use this method, you need to configure the northbound MQTT plugin in EMQX Neuron and set the **Write Request Topic** and **Write Response Topic**. At the same time, you need to configure the southbound driver node and set the tags to readable and writable status. The following example provides detailed instructions using EMQX and MQTTX (as an MQTT client).
+To use this method, you need to configure the northbound MQTT application in EMQX Neuron and set the **Write Request Topic** and **Write Response Topic**. At the same time, you need to configure the southbound driver node and set the tags to readable and writable status. The following example provides detailed instructions using EMQX and MQTTX (as an MQTT client).
 
 ### Complete MQTT Example
 
@@ -45,9 +45,9 @@ Configure the ModbusTCP southbound driver **modbus1** in EMQX Neuron, with group
 
 ![mqtt-control-1-en](./_assets/mqtt-control-1-en.png)
 
-**2) Configure northbound MQTT plugin**
+**2) Configure northbound MQTT application**
 
-Create a new northbound MQTT plugin in EMQX Neuron. In the plugin configuration, you can use the default **Write Request Topic** `/neuron/HgihrB/write/req` and **Write Response Topic** `/neuron/HgihrB/write/resp` to receive MQTT control commands, as shown below. In this example, we use EMQ's public MQTT server `broker.emqx.io` as the MQTT Broker.
+Create a new northbound MQTT application in EMQX Neuron. In the application configuration, you can use the default **Write Request Topic** `/neuron/HgihrB/write/req` and **Write Response Topic** `/neuron/HgihrB/write/resp` to receive MQTT control commands, as shown below. In this example, we use EMQ's public MQTT server `broker.emqx.io` as the MQTT Broker.
 
 ![mqtt-control-2-en](./_assets/mqtt-control-2-en.png)
 
@@ -93,9 +93,9 @@ On the **Data Collection** -> **Data Monitoring** page in EMQX Neuron, you can s
 ![mqtt-control-5-en](./_assets/mqtt-control-5-en.png)
 
 ::: tip
-If you only need to control devices through the MQTT driver, there is no need to configure the southbound driver to the MQTT driver's subscription list.
+If you only need to control devices through the MQTT application, there is no need to configure the southbound driver to the MQTT application's subscription list.
 
-If you also need to report southbound driver data to the MQTT Broker through the MQTT driver, you need to configure the southbound driver to the MQTT driver's subscription list.
+If you also need to report southbound driver data to the MQTT Broker through the MQTT application, you need to configure the southbound driver to the MQTT application's subscription list.
 :::
 
 ## Data Processing Module Control

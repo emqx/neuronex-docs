@@ -7,13 +7,13 @@
 * Check if the address is correct (EMQX Neuron Modbus address starts from 1).
 * Some devices may not support reading only one point at a time, so all points need to be configured (EMQX Neuron will automatically optimize batch reading).
 * Check if the connection is valid. Use the telnet command to detect if there are any abnormalities in the link.
-* The device supports the Modbus RTU protocol, not Modbus TCP. Try using the Modbus RTU plugin.
+* The device supports the Modbus RTU protocol, not Modbus TCP. Try using the Modbus RTU driver.
 
 ## Tag value Invalid, Error Code 3008
 ---
 * The device is offline and the data cannot be updated.
 * The device does not respond within a certain period of time.
-* The device supports the Modbus RTU protocol, not Modbus TCP. Try using the Modbus RTU plugin.
+* The device supports the Modbus RTU protocol, not Modbus TCP. Try using the Modbus RTU driver.
 
 ## Tag Value Read does not Match Expectations
 ---
@@ -22,4 +22,4 @@
 * Presence of multiple upstream masters collecting data results in data corruption.
 * The DTU has enabled registration or heartbeat packets, causing EMQX Neuron to consider data flow data as incorrect.
 * The device actively uploads data, but the standard Modbus only supports requesting and then responding with corresponding data.
-* The device supports Modbus RTU protocol instead of Modbus TCP. Try using the Modbus RTU plugin.
+* The device supports Modbus RTU protocol instead of Modbus TCP. Try using the Modbus RTU driver.

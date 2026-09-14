@@ -21,7 +21,7 @@ Ignition 是由 Inductive Automation 公司开发的一款工业应用平台。�
 
 ### 南向设备
 
-本节以 OPC UA 南向设备为例进行配置。完成南向插件的安装，并已设置数据组和标签。具体步骤，见 [OPC UA](../../south-devices/opc-ua/overview.md)。
+本节以 OPC UA 南向设备为例进行配置。完成南向驱动的安装，并已设置数据组和标签。具体步骤，见 [OPC UA](../../south-devices/opc-ua/overview.md)。
 
 ### 北向应用
 

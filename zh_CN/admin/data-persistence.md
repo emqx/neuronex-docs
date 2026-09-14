@@ -7,7 +7,7 @@ EMQX Neuron 将所有持久性数据放入其 `data` 目录中，用户可以轻
 `data` 目录下有三个子目录，如下图所示。
 ![image](./assets/data-struct.jpg)
 
-* ekuiper：数据处理模块相关配置
+* 规则引擎应用：数据处理模块相关配置
 * neuron：数据采集模块相关配置
 * neuronex：EMQX Neuron 相关配置
 

@@ -1,6 +1,6 @@
 # 连接 KEPServerEX 6 OPC DA Server 示例
 
-本文将使用 Neuron HUB 插件和 NEURON HUB Windows 程序连接 KEPServerEX 6 OPC DA Server，实现读写 OPC DA Server 的数据。
+本文将使用 Neuron HUB 驱动和 NEURON HUB Windows 程序连接 KEPServerEX 6 OPC DA Server，实现读写 OPC DA Server 的数据。
 
 ## KEPServerEX 6 安装
 
@@ -31,7 +31,7 @@ OPC DA 节点在正常连接状态下，可以按 EMQX Neuron EX 点位模板文
 
 ## 使用 Neuron HUB 驱动连接 OPC DA 节点
 
-* 在 **南向设备** 中 点击 `添加设备`，选择 `Neuron HUB` 插件来创建一个连接 NEURON HUB Windows 程序的节点。填写配置信息，
+* 在 **南向设备** 中 点击 `添加设备`，选择 `Neuron HUB` 驱动来创建一个连接 NEURON HUB Windows 程序的节点。填写配置信息，
 	* `HUB IP 地址`：NEURON HUB Windows 程序运行主机的 IP 地址
 	* `HUB 端口`：NEURON HUB Windows 程序端口，默认为 17889
 	* `节点类型`：选择 `OPC DA`

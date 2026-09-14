@@ -10,7 +10,7 @@ DMG MORI Machine 1 ──TCP:7878──┐
 DMG MORI Machine 2 ──TCP:7878──┘
 ```
 
-Each DMG MORI machine runs an adapter that pushes real-time operating data to the MTConnect cppagent via TCP port 7878. The agent aggregates the data and serves it through an HTTP REST API on port 5000, from which EMQX Neuron collects the data using the MTConnect plugin.
+Each DMG MORI machine runs an adapter that pushes real-time operating data to the MTConnect cppagent via TCP port 7878. The agent aggregates the data and serves it through an HTTP REST API on port 5000, from which EMQX Neuron collects the data using the MTConnect driver.
 
 ## Deploy MTConnect Agent
 
@@ -99,7 +99,7 @@ logger_config {
 
 ### Add Device
 
-Go to **Data Collection -> South Devices** and click **Add Device**. Select the **MTConnect** plugin and configure the following parameters:
+Go to **Data Collection -> South Devices** and click **Add Device**. Select the **MTConnect** driver and configure the following parameters:
 
 | Parameter | Value |
 | ----------- | ----------------------------------------- |

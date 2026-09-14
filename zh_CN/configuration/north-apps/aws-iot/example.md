@@ -110,11 +110,11 @@ Amazon IoT Core 是一种托管的云平台，让互联设备可以轻松安全�
 
 ### 创建南向设备
 
-本文使用 [Modbus TCP 插件]创建南向设备，采集数据。
+本文使用 [Modbus TCP 驱动]创建南向设备，采集数据。
 
 #### 添加 *modbus-tcp* 节点
 
-在控制面板，点击**南向设备 -> 添加设备**，选择 Modbus TCP 插件添加节点 *modbus-tcp* 。配置节点，连接到位于端口 `60502` 的 Modbus 模拟器。
+在控制面板，点击**南向设备 -> 添加设备**，选择 Modbus TCP 驱动添加节点 *modbus-tcp* 。配置节点，连接到位于端口 `60502` 的 Modbus 模拟器。
 <figure align="center">
   <img src="./assets/neuron_create_driver.png" style="border:thin solid #E0DCD9; width: 60%" alt="Add modbus node in EMQX Neuron dashboard">
 </figure>
@@ -142,7 +142,7 @@ Amazon IoT Core 是一种托管的云平台，让互联设备可以轻松安全�
 
 #### 添加 *aws* 节点
 
-点击**北向应用 -> 添加应用**，选择 AWS IoT 插件。
+点击**北向应用 -> 添加应用**，选择 AWS IoT 应用。
 <figure align="center">
   <img src="./assets/neuron_create_app.png" style="border:thin solid #E0DCD9; width: 60%" alt="Add aws node in EMQX Neuron dashboard">
 </figure>
@@ -198,4 +198,4 @@ Amazon IoT Core 是一种托管的云平台，让互联设备可以轻松安全�
   <img src="./assets/aws_neuron_pub_2.png" style="border:thin solid #E0DCD9; width: 60%" alt="AWS IoT test client sub2">
 </figure>
 
-[Modbus TCP 插件]: ../../south-devices/modbus-tcp/modbus-tcp.md
+[Modbus TCP 驱动]: ../../south-devices/modbus-tcp/modbus-tcp.md

@@ -1,10 +1,10 @@
 # Connect to CP2E
 
-This article uses the Omron FINS TCP plugin to connect to an Omron CP2E PLC and read/write tag values.
+This article uses the Omron FINS TCP driver to connect to an Omron CP2E PLC and read/write tag values.
 
 <img src="./assets/cp2ec.jpg" alt="cp2ec" style="zoom:80%;" />
 
-The Omron FINS TCP plugin can reach the PLC over a local LAN or the Internet. If the PLC and the EMQX Neuron server are not on the same LAN, configure port forwarding on the PLC.
+The Omron FINS TCP driver can reach the PLC over a local LAN or the Internet. If the PLC and the EMQX Neuron server are not on the same LAN, configure port forwarding on the PLC.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ CX-Programmer is already connected to the CP2E PLC so you can inspect PLC tags.
 
 ## Configure EMQX Neuron
 
-* Under Southbound Devices, click **Add Device** and select the **Omron FINS TCP** plugin to create a node for the CP2E PLC.
+* Under Southbound Devices, click **Add Device** and select the **Omron FINS TCP** driver to create a node for the CP2E PLC.
 * After the node is created, click **Device Configuration** and set:
 	* **PLC IP Address**: IP address of the PLC
 	* **PLC Port**: PLC port, default 9600

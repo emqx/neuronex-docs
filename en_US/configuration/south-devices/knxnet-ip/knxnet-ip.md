@@ -2,11 +2,11 @@
 
 KNXnet/IP is an IoT-focused protocol that leverages Internet Protocol (IP) for enabling communication among KNX automation devices over networks like Ethernet or Wi-Fi, thereby fostering scalability and remote management in smart homes and buildings.
 
-This section introduces how to use EMQX Neuron KNXnet/IP plugin to communicate with KNXnet/IP. 
+This section introduces how to use EMQX Neuron KNXnet/IP driver to communicate with KNXnet/IP.
 
 ::: tip
 
-Due to the way how KNXnet/IP protocol works, the KNX plugin may not be able to work correctly
+Due to the way how KNXnet/IP protocol works, the KNX driver may not be able to work correctly
 if EMQX Neuron is installed using some virtualization technology such as virtual machines or docker.
 In a Linux host with docker, using the docker option `--net=host` is required. In other cases,
 we recommend that you install EMQX Neuron using binary packages.
@@ -18,7 +18,7 @@ we recommend that you install EMQX Neuron using binary packages.
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **KNXnet/IP** plugin.
+- Driver: Select the **KNXnet/IP** driver.
 
 ## Device Configuration
 
@@ -57,8 +57,8 @@ For information on general configuration items, see [Connect to Southbound Devic
 
 Represents a KNX individual address that is a member of the group address.
 
-- When reading the KNX plugin, EMQX Neuron sends a `GroupValueRead` tunneling request using the specified group address, and updates the tag value upon receiving a `GroupValueResp` matching the specified individual address.
-- When writing the KNX plugin, EMQX Neuron sends a `GroupValueWrite` tunneling request using the specified group address.
+- When reading the KNX driver, EMQX Neuron sends a `GroupValueRead` tunneling request using the specified group address, and updates the tag value upon receiving a `GroupValueResp` matching the specified individual address.
+- When writing the KNX driver, EMQX Neuron sends a `GroupValueWrite` tunneling request using the specified group address.
 
 **Example**
 

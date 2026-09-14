@@ -10,9 +10,9 @@ Navigate to **Data Collection -> North Apps** and click **Add Application** to a
 
 ## Configure Application
 
-Sparkplug B is an application-based protocol running on top of MQTT, so the setup in EMQX Neuron is similar to the MQTT driver.
+Sparkplug B is an application-based protocol running on top of MQTT, so the setup in EMQX Neuron is similar to the MQTT application.
 
-Sparkplug B is an application-based protocol running on top of MQTT, so the setup in EMQX Neuron is similar to the MQTT driver.
+Sparkplug B is an application-based protocol running on top of MQTT, so the setup in EMQX Neuron is similar to the MQTT application.
 
 |  Parameter         |  Description                                                        |
 | ------------- | ------------------------------------------------------------ |
@@ -41,7 +41,7 @@ Only the `Group ID` and `Node ID` are from the Sparkplug B specification, the re
 
 ## Add Subscription
 
-After plugin configuration, data forwarding can be enabled via southbound device subscriptions.
+After application configuration, data forwarding can be enabled via southbound device subscriptions.
 
 Click the device card or row on the **North Apps** page, then **Add Subscription** on the **Group List** page. And set the following:
 
@@ -55,9 +55,9 @@ Add static tags in Json format and report them simultaneously with the southboun
 
 ## Use Case
 
-- You can use the EMQX Neuron Sparkplug B plugin to report data to EMQX, and decode the complete and accurate data results through the EMQX's encoding and decoding functions. For specific steps, see [Integration with EMQX](sparkplug.md).
-- You can connect to the Ignition platform through the EMQX Neuron SparkPlugB plugin. For specific steps, refer to [Ignition](ignition.md).
-- You can also connect to Cogent DataHub through the EMQX Neuron SparkPlugB plugin. For specific steps, refer to [Cogent](cogent.md).
+- You can use the EMQX Neuron Sparkplug B application to report data to EMQX, and decode the complete and accurate data results through the EMQX's encoding and decoding functions. For specific steps, see [Integration with EMQX](sparkplug.md).
+- You can connect to the Ignition platform through the EMQX Neuron SparkPlugB application. For specific steps, refer to [Ignition](ignition.md).
+- You can also connect to Cogent DataHub through the EMQX Neuron SparkPlugB application. For specific steps, refer to [Cogent](cogent.md).
 
 ## Operation and Maintenance
 

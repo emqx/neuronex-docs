@@ -1,14 +1,14 @@
 # XINJE Modbus RTU
 
-EMQX Neuron XINJE Modbus RTU 插件使用 Modbus RTU 协议，用于采集信捷 PLC 标签的数据，支持信捷 XC/XD/XL 系列 PLC 型号。
+EMQX Neuron XINJE Modbus RTU 驱动使用 Modbus RTU 协议，用于采集信捷 PLC 标签的数据，支持信捷 XC/XD/XL 系列 PLC 型号。
 
-## 添加插件
+## 添加驱动
 
-在 **数据采集 -> 南向设备**，点击**添加设备**来创建设备节点，输入插件名称，插件类型选择 **XINJE Modbus RTU** 启用插件。
+在 **数据采集 -> 南向设备**，点击**添加设备**来创建设备节点，输入驱动名称，驱动类型选择 **XINJE Modbus RTU** 启用驱动。
 
 ## 设备配置
 
-点击插件卡片或插件列，进入**设备配置**页。配置 EMQX Neuron 与设备建立连接所需的参数，下表为插件相关配置项。
+点击驱动卡片或驱动列，进入**设备配置**页。配置 EMQX Neuron 与设备建立连接所需的参数，下表为驱动相关配置项。
 
 | <div style="width:100pt">参数</div>               | 说明                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
@@ -30,11 +30,11 @@ EMQX Neuron XINJE Modbus RTU 插件使用 Modbus RTU 协议，用于采集信捷
 | **最大重试次数**     | 发送读取指令失败后最大重试次数。                                                               |
 | **指令重新发送间隔** | 发送读取指令失败后重新发送读指令时间间隔，单位为毫秒。                                         |
 
-XINJE Modbus RTU 插件的配置与 [Modbus RTU驱动模块](../modbus-rtu/modbus-rtu.md)相似。
+XINJE Modbus RTU 驱动的配置与 [Modbus RTU驱动模块](../modbus-rtu/modbus-rtu.md)相似。
 
 ## 设置组和点位
 
-完成插件的添加和配置后，要建立设备与 EMQX Neuron 之间的通信，首先为南向驱动程序添加组和点位。
+完成驱动的添加和配置后，要建立设备与 EMQX Neuron 之间的通信，首先为南向驱动程序添加组和点位。
 
 完成设备配置后，在**南向设备**页，点击设备卡片/设备列进入**组列表**页。点击**创建**来创建组，设定组名称以及采集间隔。完成组的创建后，点击组名称进入**点位列表**页，添加需要采集的设备点位，包括点位地址，点位属性，数据类型等。
 
@@ -66,7 +66,7 @@ XINJE Modbus RTU 插件的配置与 [Modbus RTU驱动模块](../modbus-rtu/modbu
 
 信捷 PLC 将内存数据单元（输入/输出继电器、定时器、计数器等）映射到 Modbus 地址空间，以通过 Modbus RTU 协议进行访问。
 根据 PLC 型号，此类地址映射可能会有所不同。
-EMQX Neuron XINJE Modbus RTU 插件将 PLC 数据单元名称指定为 **ADDRESS**，用户不需要关心地址映射的细节。
+EMQX Neuron XINJE Modbus RTU 驱动将 PLC 数据单元名称指定为 **ADDRESS**，用户不需要关心地址映射的细节。
 
 用户可以根据 PLC 型号从[信捷官方文档](https://m.xinje.com/xj_service/xj_xzzx.html)中查看地址映射的细节。
 为了方便起见，以下表格将其列在这里。

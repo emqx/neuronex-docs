@@ -1,6 +1,6 @@
 # Connect to IEC 60870-5-104 Server Simulator
 
-This article will use the IEC60870-5-104 plugin of EMQX Neuron to connect to [IEC60870-5-104 Server Simulator](https://www.freyrscada.com/iec-60870-5-104-Client-Simulator.php), which supports the collection of multiple data types and control.
+This article will use the IEC60870-5-104 driver of EMQX Neuron to connect to [IEC60870-5-104 Server Simulator](https://www.freyrscada.com/iec-60870-5-104-Client-Simulator.php), which supports the collection of multiple data types and control.
 
 ## Install IEC 60870-5-104 Server Simulator
 
@@ -21,7 +21,7 @@ Download and unzip the IEC6087-5-104 Server Simulator executable file, click ins
 
 ## Configure EMQX Neuron
 
-1. Go to EMQX Neuron Dashboard, and create a south node with the **IEC60870-5-104 plugin**.
+1. Go to EMQX Neuron Dashboard, and create a south node with the **IEC60870-5-104 driver**.
 2. Click **Device Configuration** and then **Device IP Address** fill in the simulator address, other parameters keep default value.
 3. Create a group, and then create a tag in that group with tag address **1**.
 

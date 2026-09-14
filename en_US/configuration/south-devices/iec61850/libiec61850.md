@@ -1,6 +1,6 @@
 # Connect to LibIEC61850 Server
 
-libiec61850 is an open-source (GPLv3) implementation of an IEC 61850 client and server library implementing the protocols MMS, GOOSE and SV. This section introduces how to use EMQX Neuron IEC61850 plugin to connect LibIEC61850 Server.
+libiec61850 is an open-source (GPLv3) implementation of an IEC 61850 client and server library implementing the protocols MMS, GOOSE and SV. This section introduces how to use EMQX Neuron IEC61850 driver to connect LibIEC61850 Server.
 
 ## Install LibIEC61850
 

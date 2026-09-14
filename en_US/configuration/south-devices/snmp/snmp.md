@@ -1,10 +1,10 @@
 # SNMP
 
-SNMP (Simple Network Management Protocol) is a standard protocol used for managing network devices. Through SNMP, network administrators can monitor and manage the status and performance of network devices such as routers, switches, and servers. Currently, the SNMP plugin supports SNMP v2c and plans to support SNMP v3 in future versions to provide enhanced security.
+SNMP (Simple Network Management Protocol) is a standard protocol used for managing network devices. Through SNMP, network administrators can monitor and manage the status and performance of network devices such as routers, switches, and servers. Currently, the SNMP driver supports SNMP v2c and plans to support SNMP v3 in future versions to provide enhanced security.
 
-## Adding the Plugin
+## Adding the Driver
 
-In **Data Collection -> South Devices**, click **Add Device** to create a device node. Enter the plugin name and select **SNMP** as the plugin type to enable the plugin.
+In **Data Collection -> South Devices**, click **Add Device** to create a device node. Enter the driver name and select **SNMP** as the driver type to enable the driver.
 
 ## Device Configuration
 
@@ -16,7 +16,7 @@ In **Data Collection -> South Devices**, click **Add Device** to create a device
 
 ## Setting Up Groups and Tags
 
-After adding and configuring the plugin, to establish communication between the device and EMQX Neuron, you first need to add groups and tags for the southbound driver.
+After adding and configuring the driver, to establish communication between the device and EMQX Neuron, you first need to add groups and tags for the southbound driver.
 
 After completing the device configuration, on the **South Devices** page, click the device card/device column to enter the **Group List** page. Click **Create** to create a group, setting the group name and collection interval. After creating the group, click the group name to enter the **Tag List** page, where you can add the device tags to be collected, including tag address, tag attributes, data types, etc.
 

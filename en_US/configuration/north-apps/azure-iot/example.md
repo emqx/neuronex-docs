@@ -82,11 +82,11 @@ Azure IoT Explorer could help generate SAS tokens for convenience.
 
 ### South device
 
-We need some south devices to collect data from. Any EMQX Neuron southbound plugin will do for this tutorial, for example, the [Modbus TCP plugin].
+We need some south devices to collect data from. Any EMQX Neuron southbound driver will do for this tutorial, for example, the [Modbus TCP driver].
 
 #### Add the *modbus-tcp* Node
 
-Click **South Devices -> Add Device** to add a node using the Modbus TCP plugin.
+Click **South Devices -> Add Device** to add a node using the Modbus TCP driver.
 This tutorial will connect to a modbus simulator at port `60502`.
 <figure align="center">
   <img src="./assets/neuron_create_driver.png" style="border:thin solid #E0DCD9; width: 60%" alt="Add modbus node in EMQX Neuron dashboard">
@@ -115,13 +115,13 @@ Finally, check that the *modbus-tcp* node is in **Connected** state.
 
 #### Add the *azure* Node
 
-Click **North Apps -> Add Application** to add a node using the Azure IoT plugin.
+Click **North Apps -> Add Application** to add a node using the Azure IoT application.
 <figure align="center">
   <img src="./assets/neuron_create_app.png" style="border:thin solid #E0DCD9; width: 60%" alt="Add azure node in EMQX Neuron dashboard">
 </figure>
 
 In the **Application Configuration** tab, configure the *azure* node.
-In order to make MQTT connections to Azure IoT Hub, the EMQX Neuron Azure IoT plugin must be provided with either a **Shared Access Signature** or **X.509 Certificates** for authentication. Here, we provides a **SAS Token**.
+In order to make MQTT connections to Azure IoT Hub, the EMQX Neuron Azure IoT application must be provided with either a **Shared Access Signature** or **X.509 Certificates** for authentication. Here, we provides a **SAS Token**.
 
 <figure align="center">
   <img src="./assets/neuron_app_conf.png" style="border:thin solid #E0DCD9; width: 60%" alt="EMQX Neuron dashboard north apps tab">
@@ -179,4 +179,4 @@ And Azure IoT Hub receives the correct tag data, *42*, which is expected.
   <img src="./assets/azure_neuron_pub_2.png" style="border:thin solid #E0DCD9; width: 60%" alt="Azure IoT Explorer telemetry 2">
 </figure>
 
-[Modbus TCP plugin]: ../../south-devices/modbus-tcp/modbus-tcp.md
+[Modbus TCP driver]: ../../south-devices/modbus-tcp/modbus-tcp.md

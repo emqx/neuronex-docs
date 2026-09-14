@@ -2,16 +2,16 @@
 
 Modbus TCP is a version of the Modbus protocol based on Ethernet, which uses TCP/IP for communication. Unlike the traditional Modbus RTU protocol, Modbus TCP allows devices to be interconnected directly through Ethernet without any special hardware or communication interface. Therefore, Modbus TCP has higher communication speed and wider application range.
 
-In addition to supporting data acquisition and processing via TCP client mode, the EMQX Neuron Modbus TCP plugin also supports TCP server mode, which allows devices to connect to EMQX Neuron actively. This feature is mainly used for 4G DTU because the IP address of 4G network is a private IP. In this case, the DTU device can only connect to EMQX Neuron actively.
+In addition to supporting data acquisition and processing via TCP client mode, the EMQX Neuron Modbus TCP driver also supports TCP server mode, which allows devices to connect to EMQX Neuron actively. This feature is mainly used for 4G DTU because the IP address of 4G network is a private IP. In this case, the DTU device can only connect to EMQX Neuron actively.
 
 ## Add Device
 
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
 - Name: The name of this device node.
-- Plugin: Select the **Modbus TCP** or **Modbus TCP QH** plugin.
+- Driver: Select the **Modbus TCP** or **Modbus TCP QH** driver.
 
-| Plugin | Description |
+| Driver | Description |
 | --- | --- | 
 | **Modbus TCP** |Standard Modbus TCP protocol implementation supports both TCP client and server modes, providing better compatibility with devices. |
 | **Modbus TCP QH** | Customized Modbus TCP protocol implementation supports a maximum of 65530 bytes for one read operation, while the standard protocol only allows a maximum of 250 bytes to be read at a time.|
@@ -50,7 +50,7 @@ The above configuration can meet the individualized needs of the device:<br>
 
 ## Configure Data Groups and Tags
 
-After the plugin is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
+After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
 
 Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking on **Create**, then specifying the group name and data collection interval.
 

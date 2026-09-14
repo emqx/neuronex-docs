@@ -2,7 +2,7 @@
 
 ## Why does my MQTT node consistently fail to connect to the broker?
 
-Ensure you've provided the correct information when configuring the node with the MQTT plugin. This includes details like the broker address, username, and password. If SSL is enabled, confirm the appropriate certificates are in use. Additionally, ensure the broker is correctly set up to accept node connections.
+Ensure you've provided the correct information when configuring the node with the MQTT application. This includes details like the broker address, username, and password. If SSL is enabled, confirm the appropriate certificates are in use. Additionally, ensure the broker is correctly set up to accept node connections.
 
 ## Why is my MQTT node intermittently shifting between connected and disconnected states?
 

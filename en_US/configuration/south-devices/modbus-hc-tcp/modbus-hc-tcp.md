@@ -2,13 +2,13 @@
 
 Inovance Modbus TCP is a version of the Modbus protocol based on Ethernet, utilizing TCP/IP for communication.
 
-The EMQX Neuron Inovance Modbus TCP plugin is tailored for Inovance PLC tags.
+The EMQX Neuron Inovance Modbus TCP driver is tailored for Inovance PLC tags.
 
 ## Add Device
 
 Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
 
-| Plugin | Description |
+| Driver | Description |
 | --- | --- | 
 | **Inovance Modbus TCP** |Modbus TCP protocol implementation, adapted for Inovance PLC points. |
 
@@ -28,7 +28,7 @@ After clicking **Create**, you will be redirected to the **Device Configuration*
 
 ## Configure Data Groups and Tags
 
-After the plugin is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
+After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
 
 Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking on **Create**, then specifying the group name and data collection interval.
 
@@ -142,7 +142,7 @@ When the data type is STRING, `.LEN` is a required field, indicating the number 
 | L   | One register stores two bytes, with the low byte first |
 
 ::: tip
-Please note, the default byte order for Inovance plugin strings is L.
+Please note, the default byte order for Inovance driver strings is L.
 :::
 
 #### **.BYTES**

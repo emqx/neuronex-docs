@@ -1,30 +1,30 @@
-# Managing plugins
+# Driver and Application Management
 
-After you log in, open **Data Collection** -> **Plugin** to see installed plugins. For custom development, see the [SDK Tutorial](../dev-guide/sdk-tutorial/sdk-tutorial.md).
+After logging in to EMQX Neuron, open the driver and application management page under **Data Collection** to view installed southbound drivers and northbound applications. For custom development, see the [SDK Tutorial](../dev-guide/sdk-tutorial/sdk-tutorial.md).
 
-## View available plugins
+## View Available Drivers and Applications
 
-The plugin page lists name, type, category, version, and description. Use the drop-down to filter northbound applications or southbound devices.
+The management page lists the name, type, category, version, and description. Use the drop-down to filter northbound applications or southbound drivers.
 
-![plugin-options](./_assets/plugin_options.png)
+![Driver and application list](./_assets/plugin_options.png)
 
-Plugin types:
+Drivers and applications have the following types:
 
-* **System**: shipped with the product, cannot be deleted, can be replaced.
-* **Custom**: user or custom-developed, can be deleted or replaced.
+* **System**: Built into the product. These cannot be deleted, but can be replaced for upgrades.
+* **Custom**: Developed by users or for custom requirements. These can be deleted or replaced for upgrades.
 
-## Add a plugin
+## Add a Driver or Application
 
-Click **Add Plugin** in the upper left and upload the local `.so` and `.json` files.
+Use the add action in the upper left and upload the local `.so` and `.json` files.
 
-![plugin-options](./_assets/plugin_add.png)
+![Add a driver or application](./_assets/plugin_add.png)
 
-## Replace a plugin
+## Replace a Driver or Application
 
-On a plugin card, click **Replace** and upload the new `.so` and `.json`. To replace an official plugin, contact the EMQ business team.
+Use the replace action on the corresponding driver or application card and upload the new `.so` and `.json` files. To replace an official driver or application, contact the EMQ business team.
 
-## CNC file upload
+## CNC File Upload
 
-Southbound CNC drivers can send files to the device.
+Southbound CNC drivers support sending files to devices.
 
 ![cnc_file](_assets/cnc_file.png)

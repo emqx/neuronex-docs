@@ -78,11 +78,11 @@ Azure IoT Hub 使用[共享访问签名] (SAS) 令牌对设备和服务进行身
 
 ### 创建南向设备
 
-本文使用 [Modbus TCP 插件]创建南向设备，采集数据。
+本文使用 [Modbus TCP 驱动]创建南向设备，采集数据。
 
 #### 添加 *modbus-tcp* 节点
 
-在控制面板，点击**南向设备 -> 添加设备**，选择 Modbus TCP 插件添加节点 *modbus-tcp* 。配置节点，连接到位于端口 `60502` 的 Modbus 模拟器。
+在控制面板，点击**南向设备 -> 添加设备**，选择 Modbus TCP 驱动添加节点 *modbus-tcp* 。配置节点，连接到位于端口 `60502` 的 Modbus 模拟器。
 <figure align="center">
   <img src="./assets/neuron_create_driver.png" style="border:thin solid #E0DCD9; width: 60%" alt="Add modbus node in EMQX Neuron dashboard">
 </figure>
@@ -110,12 +110,12 @@ Azure IoT Hub 使用[共享访问签名] (SAS) 令牌对设备和服务进行身
 
 #### 添加 *azure* 节点
 
-点击**北向应用 -> 添加应用**，选择 Azure IoT 插件。
+点击**北向应用 -> 添加应用**，选择 Azure IoT 应用。
 <figure align="center">
   <img src="./assets/neuron_create_app.png" style="border:thin solid #E0DCD9; width: 60%" alt="Add azure node in EMQX Neuron dashboard">
 </figure>
 
-在**应用配置**标签页，对 *azure* 节点进行配置。 为了建立与 Azure IoT Hub 的 MQTT 连接，EMQX Neuron Azure IoT 插件需要使用**共享访问签名（Shared Access Signature）** 或 **X.509 证书**进行身份验证。在这里，我们提供了一个 **SAS 令牌**。
+在**应用配置**标签页，对 *azure* 节点进行配置。 为了建立与 Azure IoT Hub 的 MQTT 连接，EMQX Neuron Azure IoT 应用需要使用**共享访问签名（Shared Access Signature）** 或 **X.509 证书**进行身份验证。在这里，我们提供了一个 **SAS 令牌**。
 <figure align="center">
   <img src="./assets/neuron_app_conf.png" style="border:thin solid #E0DCD9; width: 60%" alt="EMQX Neuron dashboard north apps tab">
 </figure>
@@ -168,4 +168,4 @@ EMQX Neuron Azure IoT 连接成功后，使用 MQTT 主题`devices/{device-id}/m
   <img src="./assets/azure_neuron_pub_2.png" style="border:thin solid #E0DCD9; width: 60%" alt="Azure IoT Explorer telemetry 2">
 </figure>
 
-[Modbus TCP 插件]: ../../south-devices/modbus-tcp/modbus-tcp.md
+[Modbus TCP 驱动]: ../../south-devices/modbus-tcp/modbus-tcp.md

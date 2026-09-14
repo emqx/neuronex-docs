@@ -1,10 +1,10 @@
 # Southbound Drivers
 
-Southbound plugins collect device data by protocol. Northbound plugins send data to a cloud platform or processing engine. You need at least one of each for protocol conversion.
+Southbound drivers collect device data by protocol. Northbound applications send data to a cloud platform or processing engine. You need at least one of each for protocol conversion.
 
-For the generic setup steps, see [Create a Southbound Driver](../../configuration/south-devices/south-devices.md). To install or replace a custom plugin, see [Managing plugins](../../configuration/ecp_edge_plugin.md). For custom development, see the [SDK Tutorial](../../dev-guide/sdk-tutorial/sdk-tutorial.md).
+For the generic setup steps, see [Create a Southbound Driver](../../configuration/south-devices/south-devices.md). To install or replace a custom driver or application, see [Driver and Application Management](../../configuration/ecp_edge_plugin.md). For custom development, see the [SDK Tutorial](../../dev-guide/sdk-tutorial/sdk-tutorial.md).
 
-## Southbound Plugin List
+## Southbound Driver List
 
 ### Global Standards
 
@@ -100,7 +100,7 @@ For the generic setup steps, see [Create a Southbound Driver](../../configuratio
 | ------------- | ------- | ----- |
 | [HJ212-2017](../../configuration/south-devices/hj212-2017/hj212-2017.md) | Ethernet / serial | Devices that support the HJ212-2017 environmental protocol |
 
-## Northbound Plugins
+## Northbound Applications
 
 ### Cloud Connection
 
@@ -120,4 +120,3 @@ For the generic setup steps, see [Create a Southbound Driver](../../configuratio
 | Protocol Name                                  | Remark              |
 | --------------------------------------- | ------------------- |
 | [DataProcessing](../../configuration/north-apps/ekuiper/overview.md)               | Integration with data processing module   |
-| [DataStorage](../../configuration/north-apps/DataStorage/DataStorage.md)              | Integration with external Datalayers   |

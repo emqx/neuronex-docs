@@ -1,6 +1,6 @@
 # Connect to Yabe
 
-This article will use the BACnet/IP plugin to connect to the Yabe simulator, and achieve reading and writing point values of BACnet simulator devices. Ensure that the BACnet/IP plugin is connected to the Yabe simulator network.
+This article will use the BACnet/IP driver to connect to the Yabe simulator, and achieve reading and writing point values of BACnet simulator devices. Ensure that the BACnet/IP driver is connected to the Yabe simulator network.
 
 Yabe (Yet Another Bacnet Explorer) is a graphical explorer program written in C#, for browsing BACnet devices (run on Windows & Linux). Currently supports BACnet IPv4, IPv6 + BACnet MSTP + BACnet PTP + BACnet Ethernet + BACnet SecureConnect. Basic functions for read, write, read multiple, write multiple, iam, whois, subscribeCOV, notify, WriteFile, ReadFile, etc. Includes three demo server applications:
 
@@ -38,7 +38,7 @@ Install Yabe software, and the installation package can be downloaded from [Yabe
 
 ## Configure EMQX Neuron
 
-* Click on **Add Device** in the **South Devices** and select the BACnet/IP plugin to create a node to connect to the Yabe DemoServer.
+* Click on **Add Device** in the **South Devices** and select the BACnet/IP driver to create a node to connect to the Yabe DemoServer.
 
 * After creating the node, click on **Device Configuration** to enter the device configuration page. Configure the node information according to the actual situation,
 	* **Device IP Address** : Target device IP address

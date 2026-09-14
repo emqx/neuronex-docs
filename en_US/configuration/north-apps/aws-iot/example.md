@@ -110,11 +110,11 @@ In the **Settings** tab, get the device data endpoint for device connection.
 
 ### South device
 
-We need some south devices to collect data from. Any EMQX Neuron southbound plugin will do for this tutorial, for example, the [Modbus TCP plugin].
+We need some south devices to collect data from. Any EMQX Neuron southbound driver will do for this tutorial, for example, the [Modbus TCP driver].
 
 #### Add the *modbus-tcp* Node
 
-Click **South Devices -> Add Device** to add a node using the Modbus TCP plugin.
+Click **South Devices -> Add Device** to add a node using the Modbus TCP driver.
 This tutorial will connect to a modbus simulator at port `60502`.
 <figure align="center">
   <img src="./assets/neuron_create_driver.png" style="border:thin solid #E0DCD9; width: 60%" alt="Add modbus node in EMQX Neuron dashboard">
@@ -143,7 +143,7 @@ Finally, check that the *modbus-tcp* node is in **Connected** state.
 
 #### Add the *aws* Node
 
-Click **North Apps -> Add Application** to add a node using the AWS IoT plugin.
+Click **North Apps -> Add Application** to add a node using the AWS IoT application.
 <figure align="center">
   <img src="./assets/neuron_create_app.png" style="border:thin solid #E0DCD9; width: 60%" alt="Add aws node in EMQX Neuron dashboard">
 </figure>
@@ -202,4 +202,4 @@ And AWS IoT Core receives the correct tag data, *42*, which is expected.
   <img src="./assets/aws_neuron_pub_2.png" style="border:thin solid #E0DCD9; width: 60%" alt="AWS IoT test client sub2">
 </figure>
 
-[Modbus TCP plugin]: ../../south-devices/modbus-tcp/modbus-tcp.md
+[Modbus TCP driver]: ../../south-devices/modbus-tcp/modbus-tcp.md

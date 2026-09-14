@@ -5,15 +5,15 @@ WebSocket 协议于 2011 年由 IETF 标准化为 [RFC 6455] 。
 其规范定义了两种方案，即 **ws**（WebSocket）和 **wss**（WebSocket Secure），分别用于非安全的和安全的连接。
 WebSocket 相对传统的轮询技术具有许多优点，包括较低的延迟、较少的网络流量和更好的可伸缩性。
 
-EMQX Neuron WebSocket 插件是一款商用的北向插件，使用户可以将采集的数据推送到 WebSocket 服务器上。
+EMQX Neuron WebSocket 应用是一款商用的北向应用，使用户可以将采集的数据推送到 WebSocket 服务器上。
 
-## 添加插件
+## 添加应用
 
 在**数据采集 -> 北向应用**，点击 **添加应用** 添加 WebSocket 客户端节点。
 
 ## 应用配置
 
-以下是使用 WebSocket 插件配置节点时可用的参数：
+以下是使用 WebSocket 应用配置节点时可用的参数：
 
 | 字段                       | 说明                                                  |
 | ------------------------------- | ------------------------------------------------------------ |
@@ -25,16 +25,16 @@ EMQX Neuron WebSocket 插件是一款商用的北向插件，使用户可以将�
 
 ## 添加订阅
 
-完成插件的添加和配置后，我们将继续通过订阅南向设备实现数据的转发。
+完成应用的添加和配置后，我们将继续通过订阅南向设备实现数据的转发。
 
 完成设备配置后，在**北向应用**页，点击设备卡片/设备列进入**组列表**页。点击**添加订阅**，完成南向设备和组的设置。订阅完成后，WebSocket 节点将开始接收南向数据。
 
 ## 数据上传
 
-EMQX Neuron WebSocket 插件作为客户端， 将从设备采集到的数据作以 JSON 形式推送到由**服务器 URL** 参数指定的 WebSocket 服务器上。
+EMQX Neuron WebSocket 应用作为客户端， 将从设备采集到的数据作以 JSON 形式推送到由**服务器 URL** 参数指定的 WebSocket 服务器上。
 
 上报数据的格式由**上报数据格式**参数控制。有两种格式，即 *tags-format* 和 *values-format* 。
-这两种格式与 [MQTT 插件]的相同，请参阅 [MQTT 数据上下行格式]。
+这两种格式与 [MQTT 应用]的相同，请参阅 [MQTT 数据上下行格式]。
 
 ## 运行与维护
 
@@ -47,5 +47,5 @@ EMQX Neuron WebSocket 插件作为客户端， 将从设备采集到的数据作
 
 [WebSocket]: https://en.wikipedia.org/wiki/WebSocke://en.wikipedia.org/wiki/WebSocket
 [RFC 6455]: https://datatracker.ietf.org/doc/html/rfc6455
-[MQTT 插件]: ../mqtt/overview.md
+[MQTT 应用]: ../mqtt/overview.md
 [MQTT 数据上下行格式]: ../mqtt/api.md#tags-format

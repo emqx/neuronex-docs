@@ -2,7 +2,7 @@
 
 Southbound drivers collect device data by protocol. Northbound applications send data to a cloud platform or processing engine. You need at least one of each for protocol conversion.
 
-For the generic setup steps, see [Create a Southbound Driver](../../configuration/south-devices/south-devices.md). To install or replace a custom driver or application, see [Driver and Application Management](../../configuration/ecp_edge_plugin.md). For custom development, see the [SDK Tutorial](../../dev-guide/sdk-tutorial/sdk-tutorial.md).
+For the generic setup steps, see [Create a Southbound Driver](../../configuration/south-devices/south-devices.md). For custom development, see the [SDK Tutorial](../../dev-guide/sdk-tutorial/sdk-tutorial.md).
 
 ## Southbound Driver List
 

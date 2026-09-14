@@ -57,3 +57,23 @@ To use **Data Processing → Extensions → Portable Plugins**, or to deploy **A
 docker pull emqx/neuronex:3.9.2-slim
 docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.9.2-slim
 ```
+
+## Uninstall
+
+Uninstalling the Docker deployment generally includes stopping the container and removing it. Deleting the image is optional.
+
+```bash
+# Stop the container
+docker stop neuronex || true
+
+# Remove the container
+docker rm neuronex || true
+```
+
+Optionally remove the image:
+
+```bash
+docker rmi emqx/neuronex:<tag>
+```
+
+If you started the container with `-v` bind mounts, removing the container will not delete the host data. Clean up the corresponding directories on the host manually if needed.

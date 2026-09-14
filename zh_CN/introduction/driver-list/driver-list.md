@@ -1,8 +1,8 @@
-# 南向驱动协议
+# 南向驱动
 
 南向驱动按协议采集设备数据；北向应用把数据送到云平台或处理引擎。协议转换至少需要各一个。
 
-通用添加步骤见 [添加南向驱动](../../configuration/south-devices/south-devices.md)。安装、替换自定义驱动或应用见 [驱动与应用管理](../../configuration/ecp_edge_plugin.md)。二次开发见 [SDK 教程](../../dev-guide/sdk-tutorial/sdk-tutorial.md)。
+通用添加步骤见 [添加南向驱动](../../configuration/south-devices/south-devices.md)。二次开发见 [SDK 教程](../../dev-guide/sdk-tutorial/sdk-tutorial.md)。
 
 ## 南向驱动列表
 

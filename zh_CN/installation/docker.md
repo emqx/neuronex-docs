@@ -57,3 +57,23 @@ neuronex:3.x.x-slim 类型的安装包不集成 Python 运行环境，体积更�
 docker pull emqx/neuronex:3.9.2-slim
 docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.9.2-slim
 ```
+
+## 卸载
+
+卸载 Docker 方式的 EMQX Neuron，一般包括“停止容器、删除容器”，必要时再删除镜像。
+
+```bash
+# 停止容器
+docker stop neuronex || true
+
+# 删除容器
+docker rm neuronex || true
+```
+
+如需删除镜像（可选）：
+
+```bash
+docker rmi emqx/neuronex:<tag>
+```
+
+如果你在启动容器时使用了 `-v` 挂载宿主机目录，那么卸载容器不会删除宿主机上的数据，请根据挂载路径自行清理对应数据目录。

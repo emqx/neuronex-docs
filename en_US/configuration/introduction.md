@@ -4,9 +4,8 @@ Install or confirm the required drivers first, then add a southbound driver, con
 
 Read this section in sidebar order:
 
-1. [Driver and Application Management](./ecp_edge_plugin.md): install or replace custom drivers or applications
-2. [Create a Southbound Driver](./south-devices/south-devices.md): create the node, groups, and tags
-3. [Data Monitoring](../admin/monitoring.md): confirm tags are collecting
+1. [Create a Southbound Driver](./south-devices/south-devices.md): create the node, groups, and tags
+2. [Data Monitoring](../admin/monitoring.md): confirm tags are collecting
 
 ## Key concepts
 
@@ -24,15 +23,14 @@ A tag describes a device address, read/write attributes, and metadata such as pr
 
 ## Configuration process
 
-1. [Driver and Application Management](./ecp_edge_plugin.md): confirm the protocol driver is installed.
-2. [Create a southbound driver](./south-devices/south-devices.md): pick the driver for the device protocol, create a node, and set connection parameters.
-3. [Configure groups and tags](./groups-tags/groups-tags.md). You can also [import tags in batch](./import-export/import-export.md) from Excel.
+1. [Create a southbound driver](./south-devices/south-devices.md): pick the driver for the device protocol, create a node, and set connection parameters.
+2. [Configure groups and tags](./groups-tags/groups-tags.md). You can also [import tags in batch](./import-export/import-export.md) from Excel.
 
     :::tip
-    Repeat steps 2 and 3 until all required drivers, groups, and tags are created.
+    Repeat steps 1 and 2 until all required drivers, groups, and tags are created.
     :::
 
-4. To send data to MQTT, the cloud, or a processing engine, go to [Data Forwarding](./north-apps/north-apps.md): create a northbound application and subscribe to southbound groups.
+3. To send data to MQTT, the cloud, or a processing engine, go to [Data Forwarding](./north-apps/north-apps.md): create a northbound application and subscribe to southbound groups.
 
 The overall process is shown below:
 

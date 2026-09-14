@@ -6,10 +6,6 @@
       "collapsed": true,
       "children": [
         {
-          "title": "架构",
-          "path": "introduction/architecture"
-        },
-        {
           "title": "许可证政策",
           "path": "introduction/license/license-policy"
         }
@@ -41,10 +37,6 @@
           "path": "installation/docker"
         },
         {
-          "title": "卸载",
-          "path": "installation/uninstall"
-        },
-        {
           "title": "主备模式",
           "path": "best-practise/master-backup"
         },
@@ -59,10 +51,6 @@
       "path": "configuration/introduction",
       "collapsed": true,
       "children": [
-        {
-          "title": "驱动与应用管理",
-          "path": "configuration/ecp_edge_plugin"
-        },
         {
           "title": "添加南向驱动",
           "path": "configuration/south-devices/south-devices",
@@ -89,7 +77,7 @@
       ]
     },
     {
-      "title": "南向驱动协议",
+      "title": "南向驱动",
       "path": "introduction/driver-list/driver-list",
       "collapsed": true,
       "children": [
@@ -1204,10 +1192,6 @@
       "collapsed": true,
       "children": [
         {
-          "title": "Architecture",
-          "path": "introduction/architecture"
-        },
-        {
           "title": "License Policy",
           "path": "introduction/license/license-policy"
         }
@@ -1239,10 +1223,6 @@
           "path": "installation/docker"
         },
         {
-          "title": "Uninstall",
-          "path": "installation/uninstall"
-        },
-        {
           "title": "Master-Backup Mode",
           "path": "best-practise/master-backup"
         },
@@ -1257,10 +1237,6 @@
       "path": "configuration/introduction",
       "collapsed": true,
       "children": [
-        {
-          "title": "Driver and Application Management",
-          "path": "configuration/ecp_edge_plugin"
-        },
         {
           "title": "Create a Southbound Driver",
           "path": "configuration/south-devices/south-devices",

@@ -1,12 +1,11 @@
 # 数据采集
 
-先安装或确认所需驱动，再添加南向驱动、配点和监控。北向上报见 [数据转发](./north-apps/north-apps.md)。各协议参数和示例见 [南向驱动协议](../introduction/driver-list/driver-list.md)。
+先安装或确认所需驱动，再添加南向驱动、配点和监控。北向上报见 [数据转发](./north-apps/north-apps.md)。各协议参数和示例见 [南向驱动](../introduction/driver-list/driver-list.md)。
 
 建议按侧边栏顺序阅读：
 
-1. [驱动与应用管理](./ecp_edge_plugin.md)：安装或替换自定义驱动或应用
-2. [添加南向驱动](./south-devices/south-devices.md)：建节点、组和点位
-3. [数据监控](../admin/monitoring.md)：确认点位已采到
+1. [添加南向驱动](./south-devices/south-devices.md)：建节点、组和点位
+2. [数据监控](../admin/monitoring.md)：确认点位已采到
 
 ## 关键概念
 
@@ -24,15 +23,14 @@
 
 ## 配置流程
 
-1. [驱动与应用管理](./ecp_edge_plugin.md)：确认目标协议驱动已安装。
-2. [创建南向驱动](./south-devices/south-devices.md)：按设备协议选驱动、建节点并填写连接参数。
-3. [配置组与点位](./groups-tags/groups-tags.md)：添加采集组和点位。也可用 Excel [批量导入](./import-export/import-export.md)。
+1. [创建南向驱动](./south-devices/south-devices.md)：按设备协议选驱动、建节点并填写连接参数。
+2. [配置组与点位](./groups-tags/groups-tags.md)：添加采集组和点位。也可用 Excel [批量导入](./import-export/import-export.md)。
 
    :::tip
-   重复步骤 2 和 3，直到所有必要的驱动、组和点位都建好。
+   重复步骤 1 和 2，直到所有必要的驱动、组和点位都建好。
    :::
 
-4. 要把数据送到 MQTT、云或处理引擎时，转到 [数据转发](./north-apps/north-apps.md)：创建北向应用并订阅南向组。
+3. 要把数据送到 MQTT、云或处理引擎时，转到 [数据转发](./north-apps/north-apps.md)：创建北向应用并订阅南向组。
 
 整体流程如下图：
 

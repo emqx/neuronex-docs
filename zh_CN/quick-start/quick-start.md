@@ -47,7 +47,7 @@ Windows 中尽量关闭防火墙，否则可能会导致 EMQX Neuron 连接不�
 
 ### 创建南向设备
 
-南向设备节点用于 EMQX Neuron 与设备建立连接，以及设备数据采集点位的创建及配置。在本例中使用EMQX Neuron 的 Modbus TCP插件，获取 Modbus 模拟器中的数据。
+南向设备节点用于 EMQX Neuron 与设备建立连接，以及设备数据采集点位的创建及配置。在本例中使用EMQX Neuron 的 Modbus TCP驱动，获取 Modbus 模拟器中的数据。
 
 在 `数据采集` 菜单中选择 `南向设备` 进入南向设备管理界面，单击 `添加设备` 新增设备，如下图所示。
 
@@ -58,7 +58,7 @@ Windows 中尽量关闭防火墙，否则可能会导致 EMQX Neuron 连接不�
 配置 EMQX Neuron 与设备建立 Modbus 通讯所需的参数。
 
 - 名称：填写设备名称，例如 modbus-tcp；
-- 插件：下拉框选择 Modbus TCP 的插件；
+- 驱动：下拉框选择 Modbus TCP 的驱动；
 - 连接模式：默认选择 Client；
 - 最大重试次数：默认选择 0；
 - 指令重新发送间隔：默认选择 0；
@@ -136,14 +136,14 @@ $ telnet <运行 Modbus 模拟器 PC 端的 IP> 502
 
 ### 创建北向应用节点
 
-北向应用节点用于 EMQX Neuron 与多种北向应用进行数据交互，以 MQTT 插件为例，新增一个 MQTT 节点。
+北向应用节点用于 EMQX Neuron 与多种北向应用进行数据交互，以 MQTT 应用为例，新增一个 MQTT 节点。
 
 在 `数据采集` 菜单中选择 `北向应用`，单击 `添加应用` 新增应用，如下图所示。
 
 ![north-add](./_assets/north-add.png)
 
 - 名称：填写应用名称，例如，mqtt；
-- 插件：下拉框选择 MQTT 插件；
+- 应用：下拉框选择 MQTT 应用；
 - 单击 `创建` 新增应用。
 
 ### 配置北向应用节点
@@ -201,7 +201,7 @@ EMQX Neuron 提供了强大的边缘数据处理功能，可以对数据点进�
 ![stream-rule](./_assets/stream-rule.png)
 
 
-在`动作`模块中单击`添加`，选择 MQTT Sink，进行插件配置，如下图所示。
+在`动作`模块中单击`添加`，选择 MQTT Sink，配置 MQTT Sink，如下图所示。
 
 ![stream-sink](./_assets/stream-sink.png)
 

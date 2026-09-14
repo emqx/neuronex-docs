@@ -10,9 +10,11 @@ EMQX Neuron 打破了 OT 与 IT 之间的技术壁垒，为工业场景提供了
 
 ## 产品优势
 
+<img src="./introduction/_assets/architect.png" alt="架构" style="zoom:100%;" />
+
 - 丰富的协议接入
 
-    丰富的协议插件满足工业各类场景下，PLC、CNC、机器人、Scada以及智能仪表等设备数据的实时采集及统一接入。内置多种插件模块，例如 Modbus，OPC UA，Ethernet/IP，IEC104，BACnet，Siemens，Mitsubishi 等。这些插件某块被广泛应用于楼宇自动化、数控机床、机器人、电力以及各种 PLC 通信中。
+    丰富的协议驱动满足工业各类场景下，PLC、CNC、机器人、Scada以及智能仪表等设备数据的实时采集及统一接入。内置多种驱动模块，例如 Modbus，OPC UA，Ethernet/IP，IEC104，BACnet，Siemens，Mitsubishi 等。这些驱动模块被广泛应用于楼宇自动化、数控机床、机器人、电力以及各种 PLC 通信中。
 
 - 低延迟数据处理
 
@@ -23,26 +25,60 @@ EMQX Neuron 打破了 OT 与 IT 之间的技术壁垒，为工业场景提供了
     EMQX Neuron具有轻量化、低内存占用，支持多种CPU架构部署，并且支持 Docker、Kubernetes容器化部署。
 
 - 完整的数据分析能力
-    - 实时分析： 内置强大的流式计算引擎，提供超过 160 个函数，支持对实时数据流进行抽取、转换、过滤和聚合。
-    - 历史洞察： 全新的「数据探索」功能，以内置时序数据库 (Datalayers) 作为坚实的数据基石，通过统一的数据分析界面和智能 SQL 编辑器，让用户能够轻松查询和探索存储在边缘的历史数据。
-    - 可视化监控： 新增的可视化「仪表盘」功能，允许用户通过简单的拖拽配置，将关键的实时和历史数据以图表形式直观展示，打造定制化的边缘监控中心。
+
+    内置强大的流式计算引擎，提供超过 160 个函数，支持对实时数据流进行抽取、转换、过滤和聚合。
 
 - AI/ML分析
 
-    支持用户自定义函数扩展及 AI/ML 算法集成。全新引入 AI 数据分析助手，可通过自然语言交互生成 SQL 查询，并基于执行反馈进行智能修正，降低数据分析门槛，加速洞察获取。
+    支持用户自定义函数扩展及 AI/ML 算法集成，可通过自然语言生成 Python 便携插件，在边缘端执行复杂计算与智能推理。
 
 - 平台集成
 
     通过对接 MQTT、SparkplugB、HTTP 等方式，将数据集成到本地数据中心、工业互联网平台或云服务中。
 
-## 功能一览
+## 产品架构
 
-| <div style="width:40pt">功能</div> | 描述     | <div style="width:80pt">功能清单</div>   |
-| ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 数据采集                           | EMQX Neuron 支持超百种工业协议的一站式设备连接、数据采集、设备反控、MQTT 协议转换及南向数采监控，赋予工业设备关键的互联互通能力。| [创建南向驱动](./configuration/south-devices/south-devices.md)<br /><br />[连接南向设备](./configuration/south-devices/south-devices.md) <br /><br />[南向数采监控](./admin/monitoring.md)|
-| 数据上报                           | 完成设备数据的采集后，EMQX Neuron 支持用户通过北向应用将数据转发到云平台或外部处理引擎 | [创建北向应用](./configuration/north-apps/north-apps.md)<br /><br />[订阅南向数据](./configuration/subscription.md) |
-| 边缘数据处理                         | EMQX Neuron 集成了强大的边缘流式数据处理引擎，提供低延迟的数据清洗、转换、计算和分析能力，结合 AI/ML 算法，可以实现智能决策与控制，并优化云边通讯负载。 | [数据源](./streaming-processing/source.md)<br /><br />[规则](./streaming-processing/rules.md)<br /><br />[Sink 连接](./streaming-processing/sink/sink.md)<br /><br />[扩展功能](./streaming-processing/extension.md) |
-| 数据存储与查询                         |  EMQX Neuron 集成 Datalayers 时序数据库，支持边缘数据的持久化存储。提供图形化的 SQL 查询界面，方便用户对历史数据进行即时分析和探索。 | [数据存储配置](./admin/sys-configuration.md#数据存储配置)<br /><br />[数据分析与SQL查询](./datainsights/data_analysis.md)|
-| AI 数据分析助手                         |  通过自然语言与 AI 助手交互，自动生成 SQL 查询语句。AI 能够理解用户意图，并基于数据库 Schema 和执行反馈进行智能调整和修正，简化数据分析过程。 | [AI 数据分析](./datainsights/data_analysis.md#5-ai-数据分析助手集成)|
-| 可视化仪表盘                         |  提供可定制的可视化仪表盘功能。用户可以轻松创建和配置图表 (折线图、柱状图、表格、统计值等)，将存储的或实时的数据以直观的方式展示出来，支持动态时间范围和自动刷新。 | [仪表盘管理](./datainsights/dashboards.md#1-仪表盘主页面管理)<br /><br />[创建与配置面板](./datainsights/dashboards.md#23-panel-管理与布局)|
-| 系统管理与运维                           | EMQX Neuron 提供一站式的运维与管理平台，您可通过 Web 页面进行系统配置、日志下载、查看系统信息、License 管理等操作。 | [日志管理](./admin/log-management.md)<br /><br />[数据统计](./admin/data-statistics.md)<br /><br />[系统配置](./admin/sys-configuration.md) |
+如上图所示，EMQX Neuron 主要分为`数据采集接入`、`数据处理分析`、`数据转发存储`以及`系统管理`等模块。
+
+### 数据采集接入模块
+
+在数据采集接入方面，EMQX Neuron 支持**工业设备数据采集**，还支持工业现场**多源数据接入集成**。
+
+#### 工业设备数据采集
+
+EMQX Neuron 通过驱动的方式实现对各类 **100+** 工业协议的支持，包括 Modbus、OPC UA、EtherNet/IP、IEC104、BACnet、Siemens PLC、Mitsubishi PLC等。满足智能制造、石油石化、钢铁冶金、能源电力以及楼宇自动化等各个行业的数据采集接入需求。
+
+#### 多源数据接入集成
+
+除了设备层，EMQX Neuron 还能从多种信息系统中获取数据，实现全面的数据融合:
+
+- **业务系统对接**： 通过 [HTTP Pull](./streaming-processing/http_pull.md) 及 [HTTP Push](./streaming-processing/http_push.md) 等方式与 MES、WMS、ERP 系统及企业服务总线 (ESB) 进行双向数据交互。
+- **数据库对接**： 支持从 [SQL 类数据库](./streaming-processing/sql.md)（如 MySQL, SQL Server, PostgreSQL）中读取数据，作为数据处理的补充源。
+- **文件与视频流**： 支持对本地[文件](./streaming-processing/file.md)进行数据采集，以及对[视频流](./streaming-processing/video.md)进行接入分析。
+
+### 数据处理分析模块
+
+EMQX Neuron 的核心价值在于其强大的边缘数据处理与分析能力，它能将原始、混乱的数据转化为标准化、有价值的洞察。
+
+- **数据标准化与清洗**： 内置超过 160+ 各类[函数](./streaming-processing/sqls/functions/overview.md)，支持对数据进行类型转换、单位统一、格式重构、过滤、排序、聚合等操作，满足各种数据预处理需求。
+- **实时流式计算**： 强大的流式计算引擎能够对数据流进行毫秒级的实时处理，满足多系统数据实时协同、闭环控制等低延迟场景。
+- **AI/ML 算法集成**： 支持用户集成 Python、C/C++ 等语言编写的[自定义函数](./streaming-processing/extension.md)和 [AI/ML 算法模型](./streaming-processing/portable_python.md)，在边缘端进行低延迟的智能推理。也可通过[自然语言生成 Python 便携插件](./best-practise/llm-portable-plugin.md)，降低扩展开发门槛。
+
+### 数据转发存储模块
+
+EMQX Neuron 是连接边缘与云/端的强大桥梁，提供灵活的数据转发与存储选项。
+
+- **数据转发**： 支持通过 MQTT、SparkplugB、HTTP、WebSocket 等标准协议，将处理后的数据无缝对接到公有云物联网平台、私有云或本地数据中心。
+- **数据存储**： EMQX Neuron 支持将数据写入到 MySQL、InfluxDB、Kafka、Datalayers 等多种外部数据库及消息队列中，满足不同的数据落地需求。
+
+
+
+### 系统管理模块
+
+EMQX Neuron 提供了一套完整、易用的系统管理功能，确保其在工业环境下的稳定、安全、可靠运行。
+
+- **系统配置**： 提供简洁的 Web UI，方便用户对驱动、数据处理规则、北向应用等所有模块进行配置管理。
+- **安全认证**： 支持基于用户名/密码的访问控制及 TLS/SSL 加密传输，保障系统和数据安全。
+- **日志与监控**： 提供详尽的运行日志、性能指标和状态监控，方便用户进行运维和故障诊断。
+
+如何使用EMQX Neuron 系统管理模块，请参考 [运维指南](./admin/introduction.md)。

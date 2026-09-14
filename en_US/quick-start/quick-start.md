@@ -47,7 +47,7 @@ Use the initial username and password to log in to the management console page (
 
 ### Create southbound device
 
-The southbound device is used to establish a connection between EMQX Neuron and the device, and get device data points. In this example, EMQX Neuron's Modbus TCP plugin is used to obtain data in the Modbus simulator.
+The southbound device is used to establish a connection between EMQX Neuron and the device, and get device data points. In this example, EMQX Neuron's Modbus TCP driver is used to obtain data in the Modbus simulator.
 
 Select `South Devices` in `Data Collection` menu to enter the southbound device management page, click `Add Device` to add a new device, as shown in the figure below.
 
@@ -60,7 +60,7 @@ Select `South Devices` in `Data Collection` menu to enter the southbound device 
 Configure the parameters EMQX Neuron needs to establish a connection with the device.
 
 - Name: fill in the device name, such as Modbus TCP;
-- Plugin: Select the Modbus TCP plugin from the drop-down box;
+- Driver: Select the Modbus TCP driver from the drop-down box;
 - IP address: Fill in the IP address of the access device. Example: fill in the IP address of the PC side of the Modbus simulator installed;
 - Port: default port 502;
 - Click `Add Device` to complete the device configuration, and the device status enters the **Running** status;
@@ -206,7 +206,7 @@ Click `Add Action`, as shown in the figure below.
 
 ![stream-sink](./_assets/stream-sink.png)
 
-- Sink: Select **MQTT** plugin;
+- Sink: Select **MQTT**;
 - MQTT broker address: Correctly fill in the MQTT broker address and port;
 - MQTT topic: data reporting topic, the example uses the default topic;
 

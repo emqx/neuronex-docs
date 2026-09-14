@@ -137,4 +137,4 @@ Enter the following in the rule:
 
 ### Example of external algorithm function
 
-Please refer to [External Algorithm Function Example](./ex_func.md).
+Please refer to [External Algorithm Function Example](./ex_func.md). To map an existing gRPC or REST service to a SQL function with JSON and protobuf, see [External service configuration](./external_func.md).

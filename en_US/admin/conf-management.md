@@ -1,4 +1,4 @@
-# Configuration Management
+# Startup Parameters and Configuration Files
 
 EMQX Neuron supports modifying Neuron's configuration parameters through `command line`, `environment variables`, and `configuration files`, which can provide a more flexible way of starting and running. If `command line`, `environment variables`, and `configuration files` are configured at the same time, the priority relationship between the three is: command line > environment variable > configuration file
 
@@ -18,7 +18,7 @@ Eg:
 ./bin/neuronex run -c etc/neuronex.yaml -k true
 ```
 
-This command starts EMQX Neuron as a process and displays its output in the terminal. The EMQX Neuron will not manage the lifecycle of Ekuiper.
+This command starts EMQX Neuron as a process and displays its output in the terminal. The EMQX Neuron will not manage the lifecycle of the Rules Engine Application.
 
 ### `start` command
 
@@ -30,7 +30,7 @@ Eg:
 ./bin/neuronex start 
 ```
 
-This command starts EMQX Neuron as a daemon and runs it in the background. The EMQX Neuron will not manage the lifecycle of Neuron and Ekuiper and will not turn on privilege authentication.
+This command starts EMQX Neuron as a daemon and runs it in the background. The EMQX Neuron will not manage the lifecycle of Neuron and Rules Engine Application and will not turn on privilege authentication.
 
 ### `stop` command
 
@@ -75,7 +75,7 @@ EMQX Neuron supports reading environment variables during the startup process to
 | NEURONEX__SERVER__VIEWER__USERNAME | The username of the newly added viewer user                                                                                               |
 | NEURONEX__SERVER__VIEWER__PASSWORD | The password of the newly added viewer user                                                                                               |
 | NEURONEX__LOG__MODE                | set to console, neuronex will print log into the console                                                                                  |
-| KUIPER__BASIC__CONSOLELOG          | set to true, ekuiper will print log into the console                                                                                      |
+| KUIPER__BASIC__CONSOLELOG          | set to true, Rules Engine Application will print log into the console                                                                                      |
 | NEURON__LOG__MODE                  | set to console, neuron will print log into the console                                                                                    |
 
 ### Environment variables mapping to configuration file
@@ -89,7 +89,7 @@ NEURONEX__LOG__MODE => log.mode in etc/neuronex.yaml
 
 Environment variables are separated by "__". The first part of the content matches the file name of the configuration file, and the rest of the content matches configuration items at different levels.
 
-EMQX Neuron supports configuring the eKuiper yaml configuration file through environment variables. Get more information about [eKuiper global configurations](https://ekuiper.org/docs/en/latest/configuration/global_configurations.html).The mapping relationship is as follows:
+EMQX Neuron supports configuring the Rules Engine Application yaml configuration file through environment variables. Get more information about [Rules Engine Application global configurations](https://ekuiper.org/docs/en/latest/configuration/global_configurations.html).The mapping relationship is as follows:
 
 ```
 KUIPER__BASIC__DEBUG => basic.debug in etc/kuiper.yaml
@@ -117,7 +117,7 @@ The `server` section defines the port number of the EMQX Neuron server.
 
 - `port`: port number of the EMQX Neuron server, default value is 8085.
 - `disableAuth`: whether to disable TOKEN authentication.
-- `disableKuiper`: whether to disable eKuiper.
+- `disableKuiper`: whether to disable Rules Engine Application.
 - `tls`: 
   - `certFile`: the certificate file location when enable TLS.
   - `keyFile`: the key file location when enable TLS.
@@ -136,16 +136,16 @@ The `neuron` section defines the version number and reverse proxy configuration 
   - `location`: Neuron's path.
   - `proxyPath`: path to Neuron's backend server.
 
-### ekuiper
+### Rules Engine Application
 
-The `ekuiper` section defines the version number and reverse proxy configuration of Ekuiper.
+The `ekuiper` section defines the version number and reverse proxy configuration of the Rules Engine Application.
 
-- `version`: the version number of eKuiper.
-- `reverseProxies`: list of reverse proxy configurations for Ekuiper. Each reverse proxy configuration is the same as the `neuron.reverseProxies` configuration.
-  - `location`: eKuiper's path.
-  - `proxyPath`: path to Ekuiper's backend server.
-  - `location`: eKuiper's ws service.
-  - `proxyPath`: path to eKuiper's ws server.
+- `version`: the version number of Rules Engine Application.
+- `reverseProxies`: list of reverse proxy configurations for the Rules Engine Application. Each reverse proxy configuration is the same as the `neuron.reverseProxies` configuration.
+  - `location`: Rules Engine Application's path.
+  - `proxyPath`: path to Rules Engine Application's backend server.
+  - `location`: Rules Engine Application's ws service.
+  - `proxyPath`: path to Rules Engine Application's ws server.
 
 ### log
 
@@ -156,12 +156,6 @@ The `log` section defines the logging configuration of the EMQX Neuron server.
 - `file`: path to the log file.
 - `maxSize`: maximum size in megabytes of the log file before it gets rotated.
 - `maxBackups`:  the maximum number of old log files to retain.
-- `syslogForward`: log remote forwarding configuration.
-  - `enable`: whether to enable log remote forwarding.
-  - `priority`：options are emerg,alert,crit,err,warning,notice,info,debug now.
-  - `network`: now only support udp4
-  - `remoteAddr`: log remote forwarding address.
-  - `tag`: log remote forwarding tag.
 
 ### official
 
@@ -203,15 +197,6 @@ log:
   file: log/neuronex.log
   maxSize: 20  # maximum size in megabytes of the log file before it gets rotated
   maxBackups: 5 # MaxBackups is the maximum number of old log files to retain
-  syslog:
-    enable: false
-    # fatal/error/warning/notice/info/debug
-    priority: "info"
-    # now only support udp4
-    network: "udp4"
-    remoteAddr: ""
-    # syslog protocol tag field, used for syslog server to identify which neuronex client send the syslog message
-    tag: "neuronex"
 
 official:
   url: https://neuronex-licenses.emqx.com

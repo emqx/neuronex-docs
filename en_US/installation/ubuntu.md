@@ -75,3 +75,23 @@ $ sudo systemctl start neuronex
 ::: tip
 Alternatively, you can manually copy and back up the files in the `/opt/neuronex/data/` directory of the old EMQX Neuron version, then import these files into the same directory of the new EMQX Neuron version to restore the configurations.
 :::
+
+## Uninstall
+
+Stop the service first (if installed as a systemd service):
+
+```bash
+sudo systemctl stop neuronex || true
+```
+
+Uninstall while keeping configuration, log, and data files:
+
+```bash
+sudo dpkg -r neuronex
+```
+
+Uninstall and remove all files:
+
+```bash
+sudo dpkg -P neuronex
+```

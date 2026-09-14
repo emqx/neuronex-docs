@@ -39,3 +39,25 @@ $ sudo systemctl stop neuronex
 ```bash
 $ sudo rpm -e neuronex
 ```
+
+## 卸载
+
+卸载前先停止服务（如果已安装为 systemd 服务）：
+
+```bash
+sudo systemctl stop neuronex || true
+```
+
+卸载 EMQX Neuron：
+
+```bash
+sudo rpm -e neuronex
+```
+
+如果你的系统使用的是 `dnf/yum`，也可以尝试使用包管理器卸载，例如：
+
+```bash
+sudo dnf remove -y neuronex
+# 或
+sudo yum remove -y neuronex
+```

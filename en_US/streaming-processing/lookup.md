@@ -2,7 +2,7 @@
 
 Not all data will change often, even in real-time computing. In some cases, you may need to supplement the stream data with externally stored static data. For example, user metadata may be stored in a relational database, and the only data in the stream data is data that changes in real time, requiring a connection between the stream data and the batch data in the database to make up the complete data.
 
-In earlier versions, eKuiper supported the Table concept for keeping a small amount of stream data in memory as a snapshot of the data for other streams to join and query. Such scan table is suitable for scenarios where there is less state and the state need to query very often. In version 1.7.0 and later, eKuiper added the new concept of lookup table for binding external static data, which can handle the needs of large number of batch data joins. This tutorial introduces how to perform batch stream binding calculations based on lookup tables.
+In earlier versions, Rules Engine Application supported the Table concept for keeping a small amount of stream data in memory as a snapshot of the data for other streams to join and query. Such scan table is suitable for scenarios where there is less state and the state need to query very often. In version 1.7.0 and later, Rules Engine Application added the new concept of lookup table for binding external static data, which can handle the needs of large number of batch data joins. This tutorial introduces how to perform batch stream binding calculations based on lookup tables.
 
 ## Dynamic alerting scenarios
 
@@ -31,7 +31,7 @@ For both inputs, we create streams and lookup tables to model them separately.
 
 ### Update alertTable Dynamically
 
-Alerting threshold values are stored in external storage such as Redis or SQL databases. They can be updated by the user through customized application or automatically by rules through the `Updatable Sink` feature provided by eKuiper. This tutorial will use rules to dynamically update the Redis lookup table which is defined above via Redis sink.
+Alerting threshold values are stored in external storage such as Redis or SQL databases. They can be updated by the user through customized application or automatically by rules through the `Updatable Sink` feature provided by Rules Engine Application. This tutorial will use rules to dynamically update the Redis lookup table which is defined above via Redis sink.
 
 The updating table rule is the same as the regular rule, the user can access any data source and do any data calculation, just make sure the output contains the update command field `action`, for example `{"action": "upsert", "id":1, "alarm":50}`. In this tutorial, we use the MQTT input update command to update Redis data via rules.
 

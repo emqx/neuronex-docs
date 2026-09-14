@@ -108,3 +108,5 @@ curl -sL emqx.sh/neuron | bash -
 ![c7e453ae-7fc9-4eb2-9869-ede677cc3530](_assets/oneclick-install.png)
 
 该脚本会根据运行环境自动选择安装方式（常见包括 `tar.gz`、`.deb`、`.rpm` 以及 `Docker`），并在提供校验文件时对下载包进行 SHA256 校验。以 `tar.gz` 方式为例，默认安装到 `/opt/neuronex`，同时将 `neuronex` 软链接到 `/usr/local/bin`，便于直接使用命令启动。
+
+生产环境需要高可用时，见 [主备模式](../best-practise/master-backup.md)。

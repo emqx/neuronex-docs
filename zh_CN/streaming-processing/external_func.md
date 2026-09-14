@@ -243,7 +243,7 @@ EMQX Neuron 启动时，会读取配置文件夹 *etc/services* 里的外部服�
 服务注册之后，其中定义的所有函数都可以在规则中使用。以上文 sample.json 中定义的 rest 服务函数 object_detection 为例，在 functions 中，映射为 objectDetection 函数。因此，调用该函数的 SQL 为：
 
 ```SQL
-SELECT objectDetection(cmd, img) from comandStream
+SELECT objectDetect(cmd, img) from comandStream
 ```
 
 调用前，需要确保 REST 服务运行于 *http://localhost:8090* 且其中有 API *http://localhost:8090/object_detection* 。

@@ -14,7 +14,7 @@ OPC UA（OPC Unified Architecture） 是一种跨平台、服务导向的通信�
 
 2. 点击「添加设备」按钮，进入到添加设备页面。
 
-3. 选择「OPC UA」插件，并填入 OPC UA 服务器端点 URL。
+3. 选择「OPC UA」驱动，并填入 OPC UA 服务器端点 URL。
 
 4. 填写设备名称，例如 opcua1，点击「添加设备」按扭。
 

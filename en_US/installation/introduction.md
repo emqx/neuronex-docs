@@ -112,3 +112,5 @@ curl -sL emqx.sh/neuron | bash -
 ![c7e453ae-7fc9-4eb2-9869-ede677cc3530](_assets/oneclick-install.png)
 
 The script automatically selects the installation method based on your runtime environment (commonly `tar.gz`, `.deb`, `.rpm`, or `Docker`) and performs SHA256 checksum verification when the checksum file is provided. For the `tar.gz` installation, it installs to the default directory `/opt/neuronex` and creates a `neuronex` symlink under `/usr/local/bin` to make it easy to start with `neuronex start`.
+
+For production high availability, see [Master-Backup Mode](../best-practise/master-backup.md).

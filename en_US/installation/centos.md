@@ -37,3 +37,25 @@ $ sudo systemctl stop neuronex
 ```bash
 $ sudo rpm -e neuronex
 ```
+
+## Uninstall
+
+Stop the service first (if installed as a systemd service):
+
+```bash
+sudo systemctl stop neuronex || true
+```
+
+Uninstall EMQX Neuron:
+
+```bash
+sudo rpm -e neuronex
+```
+
+If your system uses `dnf/yum`, you can also uninstall via the package manager:
+
+```bash
+sudo dnf remove -y neuronex
+# or
+sudo yum remove -y neuronex
+```

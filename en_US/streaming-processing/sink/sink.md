@@ -16,8 +16,10 @@ Users can directly use EMQX Neuron's built-in sink. The list of sink types is as
 - [InfluxDB V2](./influx2.md): Write to InfluxDB `v2.x`.
 - [File](./file.md): Write to file.
 - [Nop](./nop.md): No output, used for performance testing.
-- [Kafka](./kafka.md)：Output to Kafka 。
+- [Kafka](./kafka.md): Output to Kafka.
 - [Image sink](./image.md): Output to image file.
+- [Redis](./redis.md): Write to Redis.
+- [AWS S3](./aws-s3.md): Write to an AWS S3 bucket.
 
 ## Sink public parameter configuration
 

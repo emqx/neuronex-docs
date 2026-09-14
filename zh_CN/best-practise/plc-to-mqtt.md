@@ -39,7 +39,7 @@
 
    - **Modbus TCP/RTU**、**OPC UA**、**Siemens S7**、**Ethernet/IP**、**BACnet**、**IEC 60870-5-104**、**DNP3**...
 
-   - 完整协议列表：[数采插件列表](../introduction/plugin-list/plugin-list.md)
+   - 完整协议列表：[南向驱动](../introduction/driver-list/driver-list.md)
 
 2. **灵活&轻量的部署**
 
@@ -115,7 +115,7 @@ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=
 
    - 名称：`modbus-tcp-1`
 
-   - 插件：选择「**Modbus TCP**」
+   - 驱动：选择「**Modbus TCP**」
 
    - **IP** 地址：填写模拟器的 **IP**（如 `192.168.1.100`）
 
@@ -194,7 +194,7 @@ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=
 
    - 名称：`mqtt-broker`
 
-   - 插件：选择「**MQTT**」
+   - 应用：选择「**MQTT**」
 
 ![plc-to-mqtt-7](./_assets/plc-to-mqtt7.png)
 

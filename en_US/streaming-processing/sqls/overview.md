@@ -8,3 +8,5 @@ The EMQX Neuron data processing module provides a SQL-like query language for pe
 - [JSON expression](json_expr.md)
 - [Built-in functions](./functions/overview.md)
 - [Window](windows.md)
+- [Stream statements](streams.md)
+- [Table statements](tables.md)

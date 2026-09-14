@@ -59,7 +59,7 @@ The default login username and password are: `admin/0000`.
 
 ## Which drivers does the software support for data collection?
 
-Please refer to [Data Collection Plugin List](../introduction/plugin-list/plugin-list.md)
+Please refer to [Southbound Drivers](../introduction/driver-list/driver-list.md).
 
 ## What is the minimum collection interval for data collection?
 
@@ -71,7 +71,7 @@ Yes. EMQX Neuron supports device control, provides several device control method
 
 ## Does EMQX Neuron support self-developed drivers?
 
-Yes. EMQX Neuron can be divided into a core framework and multiple driver modules. Southbound and northbound plugin modules can be added and deleted dynamically. EMQX Neuron provides a driver development SDK based on C language.
+Yes. EMQX Neuron can be divided into a core framework and multiple driver modules. Southbound drivers and northbound applications can be added and deleted dynamically. EMQX Neuron provides a driver development SDK based on C language.
 
 ## How many southbound drivers can be collected at the same time?
 
@@ -95,7 +95,7 @@ Yes. EMQX Neuron can store data in a local database through data processing func
 
 ## How to forward the data collected by the Modbus TCP driver to the MQTT server?
 
-On the **Data Collection**->**Northbound Application** page, add MQTT plugin, click `add subscription` button , and add the collection group of the Modbus TCP driver.
+Subscribe a northbound MQTT application to the Modbus TCP driver’s collection group. For the complete procedure, see [Connect PLC Data to MQTT](../best-practise/plc-to-mqtt.md).
 
 ## How to quickly migrate the configuration after the EMQX Neuron version is upgraded?
 

@@ -92,7 +92,7 @@
 | Litmus Edge 字段                      | EMQX Neuron 字段              | 说明                                  |
 | ----------------------------------- | --------------------------- | ----------------------------------- |
 | `Dev.name`                          | `name`                      | 设备节点名                               |
-| 固定值                                 | `plugin: "Modbus TCP"`      | 插件名                                 |
+| 固定值                                 | `plugin: "Modbus TCP"`      | 驱动名                                 |
 | `settings.networkAddress`           | `params.host`               | IP 地址                               |
 | `settings.networkPort`              | `params.port`               | 端口                                  |
 | `settings.stationId`                | tag 地址中的 `slave_id`         | 从站 ID                               |

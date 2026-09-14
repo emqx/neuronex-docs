@@ -28,11 +28,11 @@ $ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privilege
 - `--device /dev/ttyUSB0:/dev/ttyS0`: Optional. Map a serial port into Docker. `/dev/ttyUSB0` is the serial device on Linux; `/dev/ttyS0` is the device inside Docker.
 - `--log-opt`: Optional. Limit Docker stdout size, for example `--log-opt max-size=100m`.
 
-For more startup parameters, please refer to the [Configuration Management](../admin/conf-management.md).
+For more startup parameters, please refer to [Startup Parameters and Configuration Files](../admin/conf-management.md).
 
 ## Docker Container Python Runtime Environment
 
-EMQX Neuron provides three types of Docker images:
+EMQX Neuron provides two types of Docker images:
 
 - **neuronex:3.x.x** (standard image)
 
@@ -58,26 +58,22 @@ docker pull emqx/neuronex:3.9.2-slim
 docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.9.2-slim
 ```
 
-- **neuronex:3.x.x-ai**
+## Uninstall
 
-The `neuronex:3.x.x-ai` image includes the Python runtime environment and the Python dependencies for large language models (LLM). If you need natural-language generation of Python plugins and AI data analysis, please use this type.
-
-```bash
-# run EMQX Neuron by neuronex:3.x.x-ai
-docker pull emqx/neuronex:3.9.2-ai
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.9.2-ai
-```
-
-<!--
-- **neuronex:3.x.x-ai-arm64**
-
-The installation package of type neuronex:3.x.x-ai-arm64 integrates the Python runtime environment and the Python dependencies for running large language models (LLM). If you have a need to use Python plugins for natural language generation and AI data analysis, please use this type of image.
-
-This image supports arm64 architecture devices.
+Uninstalling the Docker deployment generally includes stopping the container and removing it. Deleting the image is optional.
 
 ```bash
-#run EMQX Neuron by neuronex:3.x.x-ai-arm64
-docker pull emqx/neuronex:3.6.0-ai-arm64
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.6.0-ai-arm64
+# Stop the container
+docker stop neuronex || true
+
+# Remove the container
+docker rm neuronex || true
 ```
--->
+
+Optionally remove the image:
+
+```bash
+docker rmi emqx/neuronex:<tag>
+```
+
+If you started the container with `-v` bind mounts, removing the container will not delete the host data. Clean up the corresponding directories on the host manually if needed.

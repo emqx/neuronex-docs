@@ -92,7 +92,7 @@ On the **Litmus Edge** side there is no `group` concept that fully matches **EMQ
 | Litmus Edge field                     | EMQX Neuron field           | Description                                                                 |
 | ------------------------------------- | --------------------------- | --------------------------------------------------------------------------- |
 | `Dev.name`                            | `name`                      | Device node name                                                            |
-| Fixed value                           | `plugin: "Modbus TCP"`      | Plugin name                                                                 |
+| Fixed value                           | `plugin: "Modbus TCP"`      | Driver name                                                                 |
 | `settings.networkAddress`             | `params.host`               | IP address                                                                  |
 | `settings.networkPort`                | `params.port`               | Port                                                                        |
 | `settings.stationId`                  | `slave_id` in tag address   | Slave ID                                                                    |

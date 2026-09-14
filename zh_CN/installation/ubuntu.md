@@ -74,3 +74,23 @@ $ sudo systemctl start neuronex
 ::: tip
 也可以手动复制并保存老版本EMQX Neuron `/opt/neuronex/data/` 目录下的文件，并导入到新版本 EMQX Neuron 的相同目录下，可恢复配置。
 :::
+
+## 卸载
+
+卸载前先停止服务（如果已安装为 systemd 服务）：
+
+```bash
+sudo systemctl stop neuronex || true
+```
+
+- 卸载但保留配置文件、日志文件和数据文件：
+
+```bash
+sudo dpkg -r neuronex
+```
+
+- 卸载并清除所有文件：
+
+```bash
+sudo dpkg -P neuronex
+```

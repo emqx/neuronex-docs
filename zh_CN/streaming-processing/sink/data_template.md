@@ -80,7 +80,7 @@ Golang  模版将一段逻辑应用到数据上，然后按照用户指定的逻
 
 ## 模版中支持的函数
 
-用户可通过模板函数，对数据进行各种转换，包括但不限于格式转换，数学计算和编码等。eKuiper 中支持的模板函数包括以下几类：
+用户可通过模板函数，对数据进行各种转换，包括但不限于格式转换，数学计算和编码等。规则引擎应用 中支持的模板函数包括以下几类：
 
 1. Go 语言内置[模板函数](https://golang.org/pkg/text/template/#hdr-Functions)。
 2. 来自 [sprig library](http://masterminds.github.io/sprig/) 的丰富的扩展函数集。
@@ -228,7 +228,7 @@ Golang 还内置提供了一些函数，用户可以参考[更多 Golang 内置�
 该数据模板比较复杂，解释如下，
 
 ::: v-pre
-- `{{$len := len .values}} {{$loopsize := add $len -1}}`，这一段执行了两个表达式，第一个 `len` 函数取得数据中 `values` 的长度，第二个 `add` 将其值减 1 并赋值到变量 `loopsize`：由于 Golang 的表达式中目前还不支持直接将数值减 1 的操作， `add` 是 eKuiper 为实现该功能而扩展的函数。
+- `{{$len := len .values}} {{$loopsize := add $len -1}}`，这一段执行了两个表达式，第一个 `len` 函数取得数据中 `values` 的长度，第二个 `add` 将其值减 1 并赋值到变量 `loopsize`：由于 Golang 的表达式中目前还不支持直接将数值减 1 的操作， `add` 是 规则引擎应用 为实现该功能而扩展的函数。
 :::
 
 ::: v-pre
@@ -268,7 +268,7 @@ Golang 还内置提供了一些函数，用户可以参考[更多 Golang 内置�
 
 | 属性 | 职责 |
 |------|------|
-| `sendSingle` | 控制 `dataTemplate` 的输入粒度。值为 `false` 时，模板接收当前的映射数组；值为 `true` 时，eKuiper 遍历数组并对每个映射分别执行一次模板。 |
+| `sendSingle` | 控制 `dataTemplate` 的输入粒度。值为 `false` 时，模板接收当前的映射数组；值为 `true` 时，规则引擎应用 遍历数组并对每个映射分别执行一次模板。 |
 | `dataTemplate` | 转换 `sendSingle` 选出的每个输入。在批量模式下，模板应描述一个批次元素，而不是完整批次。模板输出被视为已经编码的数据，不会再次编码。用户需要负责保证输出符合 `format`。 |
 | `format` | 控制普通数据的编码方式；启用批量处理后，还控制如何将多个转换结果组织为一个批次。JSON Writer 会添加逗号和外层数组，Delimited Writer 会添加换行符，URL-encoded Writer 会在模板结果之间添加 `&`。 |
 | `batchSize` / `lingerInterval` | 控制何时将转换后的元素发送到 sink。批量处理不会把累计完成的批次暴露给 `dataTemplate`，也不会改变模板输入。 |
@@ -336,7 +336,7 @@ JSON Batch Writer 不会再次编码这些值，只添加逗号和外层数组�
 [[1,2],[3,4]]
 ```
 
-Batch Writer 不会展开模板输出。当 `format=json` 时，每次模板执行都必须产生一个合法的 JSON 值。eKuiper 会将模板输出视为配置格式的数据；格式错误或不兼容属于模板配置错误。如需逐条转换后再组成批次，应设置 `sendSingle=true`，并按单条记录编写模板。
+Batch Writer 不会展开模板输出。当 `format=json` 时，每次模板执行都必须产生一个合法的 JSON 值。规则引擎应用 会将模板输出视为配置格式的数据；格式错误或不兼容属于模板配置错误。如需逐条转换后再组成批次，应设置 `sendSingle=true`，并按单条记录编写模板。
 
 > **重要提示：** 同时使用批量处理与 `dataTemplate` 时，`format` 只负责选择 Writer 及其批量结构，不会解析或校验模板产生的已编码数据。因此，设置 `format=json` 并不能保证最终消息一定是合法 JSON。模板作者必须保证每次输出都符合配置格式，并且能够按照该格式的批量结构组合。
 

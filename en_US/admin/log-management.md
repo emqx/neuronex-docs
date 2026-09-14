@@ -2,7 +2,6 @@
 
 
 EMQX Neuron prints logs to the local file system by default and provides a one-click download button in the Web to obtain the packaged logs.
-In addition, it also supports sending logs to the user's own SYSLOG server through the SYSLOG protocol to meet the user's long-term log storage needs.
 Based on the user scenario, here are examples of how to obtain logs.
 
 ## Debug log of node
@@ -34,18 +33,6 @@ Let me explain the data collection engine log mentioned earlier. Its function is
 * dlt645.log： Northbound application configuration
 * modbus-plus-tcp.log：Southbound device configuration
 * neuron.log：Neuron Log
-
-## Syslog upload
-
-EMQX Neuron supports sending logs to the designated log receiving server through the SYSLOG protocol, and the configuration location is the log upload section.
-This configuration is persisted and takes precedence over the [configuration file](./conf-management.md#log) syslogForward section.
-
-
-The following parameters need to be configured
-* Button to turn this function on or off
-* SYSLOG service address, IP address or domain name can be used, only one address is supported
-* Network protocol type, currently only supports udp
-* Upload log level, the lower the level setting, the more information
 
 ## View logs in the backend
 

@@ -1,6 +1,6 @@
-# Connecting Southbound Device
+# Configure groups and tags
 
- Data tags will be assigned to groups. Each group has an independent polling frequency to read data from the device. To establish communication between the device and EMQX Neuron, first add the group and data tags for the southbound driver. Once the group and data tags are created, the real-time value of the tags can be obtained from data monitoring.
+Tags belong to collection groups. Each group has its own polling interval. To talk to a device, add groups and tags on the southbound driver. After that, live values appear in data monitoring.
 
 ## Create a group in the device node
 
@@ -20,7 +20,7 @@ Click the `Tag List` icon in the group to enter the Tag List page .
 
 Click the `Create` button to enter the add tag page, as shown in the figure below.
 
-![tags-add](./assets/tags-add.png)
+![tags-add](../south-devices/assets/tags-add.png)
 
 * **Name**: fill in the tag name, for example, tag1;
 * **Attribute**: Pull down to select Tag attributes, such as read, write, subscribe, static, and support the configuration of multiple tag types. For an introduction to different types of tags, see [Tag Attributes](#tag-attributes);
@@ -37,7 +37,11 @@ There are three types of tags: `Read`, `Write` and `Subscribe`.
 
 - Read and Write type tags are used to read data and write data respectively.
 
-- Subscribing to a tag will only send messages to north apps when the data changes, and will not send messages when there are no changes. For example, the default data is 0, when the data is changed to 2, a message will be sent. 
+- Subscribing to a tag will only send messages to north apps when the data changes, and will not send messages when there are no changes. For example, the default data is 0, when the data is changed to 2, a message will be sent. In MQTTX the payload looks like this:
+
+  ![mqttx_subscribe](../south-devices/assets/mqttx_subscribe.png) In MQTTX the payload looks like this:
+
+  ![mqttx_subscribe](../south-devices/assets/mqttx_subscribe.png) 
 
 ### Tag Precision
 
@@ -65,4 +69,4 @@ Please confirm that the IP and Port are set correctly during device configuratio
 
 In the **Add tag** page, support tag reading test. Currently only support Modbus TCP driver.
 
-![tag-test-en](assets/tag-test-en.png)
+![tag-test-en](../south-devices/assets/tag-test-en.png)

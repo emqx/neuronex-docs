@@ -79,7 +79,7 @@
 | **KEPServerEX字段**                                                | **Neuron字段**          | **说明**                                         |
 | ---------------------------------------------------------------- | --------------------- | ---------------------------------------------- |
 | common.ALLTYPES_NAME                                             | name                  | 设备节点名                                          |
-| servermain.MULTIPLE_TYPES_DEVICE_DRIVER:"Modbus TCP/IP Ethernet" | plugin: "Modbus TCP"  | 插件名                                            |
+| servermain.MULTIPLE_TYPES_DEVICE_DRIVER:"Modbus TCP/IP Ethernet" | driver: "Modbus TCP"  | 驱动名                                            |
 | servermain.DEVICE_ID_STRING                                      | params.host, slave id | ip和站号<192.168.10.111>.1，需要提取                   |
 | modbus_ethernet.DEVICE_ETHERNET_PORT_NUMBER                      | params.port           | 端口号                                            |
 | modbus_ethernet.DEVICE_ZERO_BASED_ADDRESSING                     | params.address_base   | 开始地址<br><br>true->0<br><br>false->1            |

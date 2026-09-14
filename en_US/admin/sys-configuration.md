@@ -23,63 +23,6 @@ When the metrics collection is enabled, on the **Logs** -> **Log Management** pa
 
 ![metrics_en](assets/metrics_en.png)
 
-## Data Storage Configuration
-
-Starting from EMQX Neuron v3.6.0, the Datalayers time-series database is integrated to persistently store collected data at the edge. You can configure data storage-related parameters here.
-
-![data_storage_config_en](assets/data_storage_config_en.png)
-
-*   **Time-Series Database (Datalayers):**
-    *   **Toggle Switch:** Use this switch to **enable or disable** the operation of the built-in Datalayers service.
-        *   **Enabled:** EMQX Neuron will start the integrated Datalayers service, and southbound driver data subscribed to in the northbound DataStorage plugin will be written to this database. This will allow you to use the features of the Data Insights module (Data Analysis, Dashboards).
-        *   **Disabled:** The Datalayers service will stop, and data will no longer be stored in the built-in database. Stored data will be inaccessible while the service is stopped.
-
-:::tip Note
-Enabling the Datalayers service will consume certain system resources (CPU, memory, disk). Please decide whether to enable it based on your hardware configuration and business needs. Datalayers does not start with EMQX Neuron by default.
-:::
-
-*   **Data Storage TTL (Days):**
-    *   **Input Field:** Used to set the retention period (Time To Live) for data in Datalayers, in "days". For example, entering `10` means data will be retained for 10 days, and older data will be automatically cleared.
-    *   **+/- Buttons:** Used to conveniently increase or decrease the TTL in days.
-    *   **Minimum Value:** (Please specify the minimum effective TTL value based on actual conditions, e.g., 1 day)
-
-*   **Save Data Storage TTL Configuration:**
-    *   **Button:** After modifying the "Data Storage TTL (Days)" value, you need to click this button to save the changes and apply the new TTL settings.
-
-:::tip Note
-*   After enabling the Datalayers service for the first time, EMQX Neuron will automatically create the required `neuronex` database and corresponding tables for data types (`neuron_int`, `neuron_float`, `neuron_bool`, `neuron_string`).
-*   Properly configuring TTL is crucial for managing disk space usage. Please set an appropriate TTL value based on your data volume, disk capacity, and historical data query needs.
-:::
-
-## AI Agent
-
-The AI Agent service is a core component for the [**AI Data Analysis Assistant**](../datainsights/data_analysis.md) and [**AI Generate Function**](../best-practise/llm-portable-plugin.md) features in EMQX Neuron, responsible for interacting with configured AI models.
-
-*   **Enable AI Agent:**
-    *   **Toggle Switch:** Use this switch to **enable or disable** the AI Agent service.
-        *   **Enabled:** The AI Agent service will start, allowing users to use the AI Data Analysis feature in the Data Analysis module.
-        *   **Disabled:** The AI Agent service will stop, and the AI Data Analysis feature will be unavailable.
-    *   **Dependencies:** To successfully use the AI Agent service, you also need to correctly configure and enable at least one AI model in the "System Configuration" -> [**AI Model Configuration**](#ai-model-configuration) tab.
-    *   **Environment:** Using the AI Agent requires a corresponding Python runtime environment and related dependencies. In Docker images (such as `emqx/neuronex:3.6.0-ai` and `emqx/neuronex:3.6.0-ai-arm64`), the Python runtime environment and related dependencies are pre-installed, allowing users to use this feature directly. If using other EMQX Neuron installation packages, please ensure that the Python runtime environment and related dependencies have been correctly configured according to the [AI Feature Environment Configuration Guide](#ai-feature-environment-configuration-guide).
-
-:::tip Note
-*   Disabling the AI Agent service will make the **AI Data Analysis** and **AI Generate Function** features unusable. Please ensure this service is enabled when needed and that AI models are correctly configured.
-*   Enabling the AI Agent service will consume certain system resources (CPU, memory). Please decide whether to enable it based on your hardware configuration and business needs.
-*   Ensure network connectivity between EMQX Neuron and the configured AI models.
-:::
-
-### AI Feature Environment Configuration Guide
-
-1.  Download the corresponding installation package according to the current environment, for example: `neuronex-3.6.0-linux-amd64.deb`.
-2.  Refer to the documentation [Install EMQX Neuron](../installation/introduction.md).
-3.  Navigate to the AI feature module directory. The default directory for AI features in a systemd-managed EMQX Neuron is: `/opt/neuronex/software/neuronex-ai`.
-4.  EMQX Neuron AI features use `uv` as the project management tool. If `uv` is not installed, you need to install it first. For details, refer to: [Installing uv](https://docs.astral.sh/uv/getting-started/installation/).
-5.  After `uv` is successfully installed, use the following command to test if the AI features can start normally: `uv sync && cd src/apps_entry && uv run main.py`.
-6.  If the above command displays the following prompt, it means the AI-related dependency libraries have been successfully installed:
-    ![neuronex ai hint](./assets/neuronex-ai-install.png)
-7.  If your environment cannot install `uv` and its dependencies normally, you can look for available domestic mirror repositories, or use EMQX Neuron container images with the `-ai` or `-ai-arm64` suffix to deploy the EMQX Neuron service. These images already have the complete AI features.
-
-
 ## SSO Configuration
 
 EMQX Neuron utilizes the OAuth 2.0 protocol to implement single sign-on functionality.
@@ -195,7 +138,7 @@ The OpenTelemetry service address of EMQX ECP should use the [ip]:[port] format,
 :::
 
 - **Service Name**: Fill in the service name. When EMQX Neuron reports tracing data, it will use this service name to distinguish the tracing data reported by different EMQX Neuron.
-- **Tracing API and Downstream MQTT Control Commands**: Enable tracing for API and downlink MQTT control commands. If using downlink MQTT control commands, the MQTT plugin's MQTT version must be set to 5.0 on the northbound application page.
+- **Tracing API and Downstream MQTT Control Commands**: Enable tracing for API and downlink MQTT control commands. If using downlink MQTT control commands, the MQTT application's MQTT version must be set to 5.0 on the northbound application page.
 - **Tracing Data Collection Messages**: Enable tracing for data collection messages. Once enabled, EMQX Neuron will report all tracing data of southbound driver collection messages to the OpenTelemetry service. (Currently only supports FINS TCP、FINS UDP、Mitsubishi 3E、Mewtocol、Modbus RTU/TCP  drivers)
 - **Tracing Data Sampling Rate**: Fill in the tracking data sampling rate. Range: `0-1`.  1 indicates a 100% sampling rate for full tracing, while 0.1 indicates a 10% sampling rate for tracing. This parameter is only valid when `Tracing Data Collection Messages` is enabled.
 
@@ -228,7 +171,7 @@ Other API operations performed on the EMQX Neuron Dashboard will not record trac
 
 To implement downstream MQTT control command tracing, the following conditions must be met:
 
-- The northbound application page must set the MQTT plugin's MQTT version to 5.0, as shown in the figure:
+- The northbound application page must set the MQTT application's MQTT version to 5.0, as shown in the figure:
 
 ![mqtt_version_en](assets/mqtt_version_en.png)
 

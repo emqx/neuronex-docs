@@ -1,16 +1,70 @@
 # 创建北向应用
 
-插件可以分为北向应用和南向驱动程序。北向插件通常用于连接到云平台或像处理引擎这样的外部应用程序。本节主要介绍如何在 EMQX Neuron 中创建北向应用。
+南向点位采到之后，用北向应用把数据送到 MQTT、云或处理引擎。协议清单和参数见 [北向应用协议](./catalog.md)。
 
-目前 EMQX Neuron 主要支持以下北向插件：
+阅读顺序：
 
-- [MQTT 插件](./mqtt/overview.md)：EMQX Neuron 支持 MQTT 通讯协议。 EMQX Neuron MQTT 插件允许用户快速构建使用 MQTT 协议的物联网应用程序，可以在设备和云之间进行通讯。
-- [Azure IoT 插件](./azure-iot/overview.md)：EMQX Neuron Azure IoT 插件允许用户通过 Azure IoT Hub 与 EMQX Neuron 进行数据交互。
-- [AWS IOT 插件](./aws-iot/overview.md)：EMQX Neuron AWS IOT 插件允许用户通过 AWS IOT Core 与 EMQX Neuron 进行数据交互。
-- [eKuiper 插件](./ekuiper/overview.md)：LF Edge [eKuiper](https://ekuiper.org/) 是 Golang 实现的轻量级物联网边缘分析、流式处理开源软件，可以运行在各类资源受限的边缘设备上。EMQX Neuron eKuiper 插件使用户能够将收集到的数据发布到 eKuiper 以进一步处理。 
-- [Sparkplug B 插件](./sparkplugb/overview.md)：Sparkplug B 是一种建立在 MQTT 3.1.1 基础上的工业物联网数据传输规范。EMQX Neuron Sparkplug B 插件从设备采集到的数据可以通过 Sparkplug B 协议从边缘端传输到 Sparkplug B 应用中，用户也可以从应用程序向 EMQX Neuron 发送数据修改指令。
-- [WebSocket 插件](./websocket/websocket.md)：WebSocket 网络协议支持在单个 TCP 连接上提供双向通信通道。借助 EMQX Neuron WebSocket 插件，用户可以将采集的数据推送到 WebSocket 服务器。
-- [DataStorage 数据存储插件](./DataStorage/DataStorage.md)：DataStorage 插件用于将采集的数据存储到 EMQX Neuron 内置的 Datalayers 时序数据库中。
-- [OPC UA Server插件](./opcua-server/overview.md)：OPC UA 是一种工业物联网数据传输规范。EMQX Neuron 支持将 OPC UA Server 作为北向应用，以便将南向设备的数据通过 OPC UA 服务暴露给上层系统或第三方客户端。通过 OPC UA Server，外部系统可以订阅数据变化、读取实时点位，以及下发控制命令。
-- [Kafka 插件](./kafka/overview.md)：Kafka 是一种分布式流式处理平台。EMQX Neuron Kafka 插件使用户能够将采集的数据发布到 Kafka 以进一步处理。
+1. 本页：创建北向节点
+2. [订阅南向数据](../subscription.md)：把南向组挂到该应用
+3. [北向应用协议](./catalog.md)：MQTT、Sparkplug B、Kafka 等
 
+本节以 MQTT 为例。
+
+## 添加北向应用
+
+在 **数据采集** -> **北向应用**，点击 **添加应用**：
+
+* **名称**：应用节点名称，例如 `mqtt`。
+* **应用**：选择 **MQTT**。
+
+点击 **创建** 后进入应用配置页。也可以稍后在卡片上点 **应用配置**。
+
+## 设置北向应用参数
+
+在应用配置里填写连接参数。MQTT 各项说明见 [MQTT 应用](./mqtt/overview.md)。
+
+点击 **提交** 后，卡片进入 **运行中**。
+
+## 应用卡片
+
+北向应用页右上角可在列表和卡片之间切换。卡片上的项：
+
+* **名称**：北向应用的唯一名称。
+* **应用配置**：填写连接参数。
+* **编辑**：修改节点名称。
+* **数据统计**：查看运行统计。
+* **DEBUG 日志**：打印当前节点 DEBUG 日志，约十分钟后恢复默认级别。
+* **删除**：从列表中删除该节点。
+* **工作状态**：
+  * **初始化**：刚添加。
+  * **配置中**：正在填写配置。
+  * **就绪**：配置成功。
+  * **运行中**：正在运行。
+  * **停止**：已停止。
+* **工作状态切换**：打开后与对端建立连接并上报；关闭则断开。
+* **连接状态**：与对端是否已连接。
+* **应用**：该应用使用的应用名。
+
+## 订阅南向数据
+
+点位按组上报。创建北向应用后，需要订阅南向组，步骤见 [订阅南向数据](../subscription.md)。
+
+## 运行与维护
+
+### 数据统计
+
+在卡片或列表中点击 **数据统计**。
+
+![north_statistics](./assets/north_statistics.png)
+
+| 参数 | 说明 |
+| --- | --- |
+| send_msgs_total | 发送消息总条数 |
+| send_msg_errors_total | 发送失败总条数 |
+| recv_msgs_total | 接收消息总条数 |
+| link_state | 连接状态：DISCONNECTED = 0，CONNECTED = 1 |
+| running_state | 节点状态：INIT = 1，READY = 2，RUNNING = 3，STOPPED = 4 |
+
+### 故障诊断
+
+若运行异常，点击 **DEBUG 日志**。系统会打印该节点 DEBUG 日志，约十分钟后切回默认级别。然后在页面顶部 **系统信息** -> **日志** 查看。详见 [管理日志](../../admin/log-management.md)。

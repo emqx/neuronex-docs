@@ -39,7 +39,7 @@ You can view the detailed information of a license, regardless of how it was ins
 | Issued At          | The date when the EMQX Neuron license becomes effective.        |
 | Expire At          | The deadline by which EMQX Neuron can be used. If the license expires, the system will not function properly. You must obtain a new valid license and re-upload the license. |
 | Tags Usage         | The maximum value of data tags that can be created in EMQX Neuron, as well as the number of data tags that are in use. |
-| Enabled    Plugins | The plugins that are authorized for EMQX Neuron. Each commercial plugin module can be independently authorized in the EMQ license. |
+| Enabled Drivers and Applications | The drivers and applications that are authorized for EMQX Neuron. Each commercial driver or application module can be independently authorized in the EMQ license. |
 
 ## Hardware Token
 

@@ -1,88 +1,77 @@
-# EMQX Neuron + ECP 构建饮料生产数字化平台
+# Build a beverage production digital platform with EMQX Neuron and ECP
 
-随着市场竞争的加剧和消费者需求的快速变化，某饮料生产企业期望通过智能化转型来保持竞争优势。为此，该企业决定使用 EMQ 的先进制造解决方案与 Azure 云平台集成，期望打造食品和饮料高度自动化的生产和管理系统，以实现生产效率、产品质量和市场响应速度的优化升级。
+Facing faster competition and changing demand, a beverage manufacturer wanted a more automated production and management system. They combined EMQ’s manufacturing stack with Azure to improve efficiency, quality, and time-to-market.
 
-## 项目挑战
+## Challenges
 
-在启动数字化转型项目时，该饮料生产企业遇到了以下挑战:
+- **Data silos**
 
-- 数据孤岛问题
+  Lines used equipment and systems from many vendors, each with its own data format and protocol. Heterogeneous data blocked unified management and analysis.
 
-  生产线上使用了来自不同供应商的多样化设备和系统，数据格式和通信协议各不相同。多种异构数据导致了信息孤岛现象，阻碍了数据的统一管理和深度分析，使得跨系统数据整合变得复杂且低效。
+- **Slow response**
 
-- 实时响应挑战
+  Traditional collection and analysis lagged behind the need for real-time monitoring and decisions, which limited how quickly the plant could adjust production.
 
-  传统的数据采集与分析方法存在滞后性，无法满足先进制造对实时监控和即时决策的需求。不仅影响了企业生产的及时调整和优化能力，也在一定程度上限制了企业的市场竞争力。
+- **Integration**
 
-- 系统集成障碍
+  Connecting many production systems and devices was difficult. Compatibility and interoperability became a bottleneck.
 
-  面对众多的生产系统和设备，实现其数据的无缝集成是一项艰巨的任务。不同系统的兼容性和互操作性问题，成为制约企业数字化转型的关键。
+- **Weak analytics**
 
-- 智能分析薄弱
+  Without better tools, it was hard to extract value from large volumes of production data, which limited intelligent production and predictive maintenance.
 
-  由于缺乏高效先进的数据分析工具和技术，企业难以从海量的生产数据中提取出有价值的信息。限制了企业智能化生产和预测性维护等方面的发展潜力，影响了整体运营效率和产品质量。
+- **Edge computing**
 
-- 边缘计算需求
+  To improve latency and reduce load on central servers, the plant needed to process data close to the source so critical tasks could run with low delay.
 
-  为了提高数据处理的实时性和减轻中心服务器负担，边缘计算的重要性日益显现。通过在靠近数据源的地方进行实时处理，不仅可以加快响应速度，还能确保关键任务的低延迟执行，从而支持更智能、更高效的先进制造流程。
+## Solution
 
-## 解决方案
+The manufacturer chose EMQ’s manufacturing solution on Azure. Core pieces:
 
-经过深入评估，该饮料生产企业选择了 EMQ 的先进制造解决方案结合 Azure 云平台来支持其智能化转型。核心组件如下：
+- **EMQX Neuron**: industrial edge gateway for multi-protocol collection and edge computing—collect, process, analyze, and forward data from devices and production systems.
+- **EMQX ECP**: industrial data platform for cloud–edge management of Neuron instances, including SSO.
+- **Azure Event Hubs**: cloud message queue for high-throughput streams from the edge.
+- **Azure Data Factory**: managed service for persistence and enterprise analytics.
+- **Azure Active Directory (AD)**: identity and access management, integrated with ECP SSO.
+- **Azure Kubernetes Service (AKS)**: container platform that simplifies ECP deployment and improves reliability.
 
-- **EMQX Neuron**：作为工业边缘网关软件，用于多协议设备的统一数据采集和边缘计算，实现各类工业设备和生产系统的数据实时采集、处理、分析和传输。
+![architecture](_assets/smartfactory1-1.png)
 
-- **EMQX ECP**：作为工业互联数据平台，提供云边协同管理能力，统一管理和监控边缘侧 EMQX Neuron，同时提供 SSO 单点登录集成功能。
+## Highlights
 
-- **Azure EventHub**：作为云端消息队列服务，接收来自边缘的实时数据流，支持高吞吐量的数据接入。
+- **Lightweight edge rollout**
 
-- **Azure Data Factory**：作为全托管的云服务，专门用于数据持久化存储和企业级数据分析。
+  Neuron on K3s was deployed to about 50 plants. The model fits limited shop-floor compute while keeping the system observable.
 
-- **Azure Active Directory (AD)**：和 EMQX ECP 的 SSO 功能无缝集成，能够提供企业级身份认证和访问管理服务。
+- **Broad data collection**
 
-- **Azure Kubernetes Service (AKS)**：通过提供容器化运行环境，简化了 EMQX ECP 的部署和管理，进一步提高系统可靠性。
+  OPC UA pulls data from SCADA. Incremental reads from SQL Server integrate third-party production systems (see [SQL source templates](../streaming-processing/sql.md#sql-statement-template-examples)).
 
-![alt text](_assets/smartfactory1-1.png)
+- **Edge compute and real-time analysis**
 
-## 方案特点
+  Preprocessing and analysis at the line standardizes data and reduces load on central systems.
 
-- **灵活的边缘部署**：
+- **Reliable transport**
 
-  通过支持轻量级 K3S 部署，EMQX Neuron 迅速在约 50 个生产设施中推出。这种敏捷的部署模型非常适合工厂中有限的计算资源，同时保持稳定性和可观察性。
+  Neuron publishes to Azure Event Hubs with checkpointing so streams stay complete across interruptions.
 
-- **全面的数据收集**：
+- **Cloud–edge operations**
 
-  EMQX Neuron 支持的 OPC UA 协议可从 SCADA 系统无缝获取数据，统一生产数据输入。此外，它还支持从 SQLServer 数据库提取增量数据，实现与第三方生产系统的数据集成（详情请参考[文档](../streaming-processing/sql.md#sql-语句模板示例)）。
+  ECP provides centralized lifecycle management for Neuron at 50 sites: remote configuration, monitoring, and anomaly detection.
 
-- **边缘计算和实时分析**：
+- **Stronger security**
 
-  EMQX Neuron 支持着生产现场数据预处理和原始数据分析，确保了标准化的数据处理并减轻了中心设备的处理负担。
+  ECP SSO plus Azure identity improves both security and day-to-day access.
 
-- **可靠的数据传输**：
+## Results
 
-  EMQX Neuron 将数据推送到 Azure EventHub，通过内置检查点实现不间断的数据传输，确保数据的完整性和准确性。
+The plant built a data-driven manufacturing platform:
 
-- **云边协同管理**：
+- **Connected data**: Unified collection, management, and sharing across the factory.
+- **Live production insight**: Key metrics available in time for operators and management to act.
+- **Lower cost and less downtime**: Remote monitoring reduced maintenance cost and unexpected stops.
+- **Faster response**: Digital workflows shortened the path from market change to production change.
 
-  借助 EMQX ECP 的云边协同能力，实现了对 50 个生产基地的 EMQX Neuron 设备进行集中的生命周期管理，进行统一的远程配置、监控和实时异常检测，确保了系统的可靠性。
+## Summary
 
-- **安全性显著增强**：
-
-  利用 EMQX ECP 的 SSO 单点登录集成功能，结合 Azure 云平台统一的身份认证系统，显著提高了系统的安全性和易用性。
-
-
-## 查看输出结果
-
-借助 EMQ 的先进制造解决方案，该饮料生产企业逐步建立起数字驱动、智能管理的制造平台，充分发挥了数据价值：
-
-- **数据互联互通**：通过打破数据孤岛，实现工厂数据的统一采集、管理和共享，为智能决策奠定了基础。
-
-- **生产实时洞察**：通过实时监控生产过程中的关键指标，使管理层能够及时掌握生产状况并做出调整。
-
-- **实现降本增效**：通过对生产系统的远程监控运维，降低了设备维护成本并减少了意外停机时间。
-
-- **快速灵活响应**：通过建立数字化系统，帮助企业更快速地响应市场需求变化，缩短新产品上市时间。
-
-## 总结
-
-通过与 EMQ 的深度合作，这家全球领先的饮料生产企业显著提升了生产效率和产品质量，实时采集的高质量数据也为先进制造平台的发展奠定了数据基础。EMQX Neuron 的灵活部署和数据处理能力结合 ECP 的云边协同管理功能，帮助该企业在激烈的市场竞争中继续保持领先地位，为其产品的持续创新和发展提供了强有力的技术支撑。
+With EMQ, this beverage manufacturer improved efficiency and quality, and gained a live data foundation for further manufacturing platforms. Flexible Neuron deployment plus ECP cloud–edge management supports continued product and process innovation.

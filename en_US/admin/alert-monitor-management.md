@@ -1,4 +1,4 @@
-# Monitor and Alert Management
+# Monitoring and Alert Management
 
 EMQX Neuron provides monitoring and alerts to help you understand the status of EMQX Neuron in real time and detect abnormalities in a timely manner.
 

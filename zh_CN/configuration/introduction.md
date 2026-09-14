@@ -1,11 +1,13 @@
-# 数据采集
+# 数据采集与转发
 
-先安装或确认所需驱动，再添加南向驱动、配点和监控。北向上报见 [数据转发](./north-apps/north-apps.md)。各协议参数和示例见 [南向驱动](../introduction/driver-list/driver-list.md)。
+先安装或确认所需驱动，再添加南向驱动、配点和监控。本节涵盖从设备采集、点位配置、数据监控到北向转发的完整流程。各协议参数和示例见 [南向驱动](../introduction/driver-list/driver-list.md)。
 
 建议按侧边栏顺序阅读：
 
 1. [添加南向驱动](./south-devices/south-devices.md)：建节点、组和点位
 2. [数据监控](../admin/monitoring.md)：确认点位已采到
+3. [Modbus TCP Server 模拟器](./modbus-simulator.md)：无硬件环境下测试采集
+4. [数据转发](../application/overview.md)：创建北向应用并订阅南向数据
 
 ## 关键概念
 

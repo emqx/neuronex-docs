@@ -47,7 +47,7 @@
       ]
     },
     {
-      "title": "数据采集",
+      "title": "数据采集与转发",
       "path": "configuration/introduction",
       "collapsed": true,
       "children": [
@@ -73,6 +73,25 @@
         {
           "title": "数据监控",
           "path": "admin/monitoring"
+        },
+        {
+          "title": "Modbus TCP Server 模拟器",
+          "path": "configuration/modbus-simulator"
+        },
+        {
+          "title": "数据转发",
+          "path": "application/overview",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "创建北向应用",
+              "path": "configuration/north-apps/north-apps"
+            },
+            {
+              "title": "订阅南向数据",
+              "path": "configuration/subscription"
+            }
+          ]
         }
       ]
     },
@@ -581,107 +600,92 @@
       ]
     },
     {
-      "title": "数据转发",
-      "path": "application/overview",
+      "title": "北向应用",
+      "path": "configuration/north-apps/catalog",
       "collapsed": true,
       "children": [
         {
-          "title": "创建北向应用",
-          "path": "configuration/north-apps/north-apps"
-        },
-        {
-          "title": "订阅南向数据",
-          "path": "configuration/subscription"
-        },
-        {
-          "title": "北向应用协议",
-          "path": "configuration/north-apps/catalog",
+          "title": "MQTT 应用",
+          "path": "configuration/north-apps/mqtt/overview",
           "collapsed": true,
           "children": [
             {
-              "title": "MQTT 应用",
-              "path": "configuration/north-apps/mqtt/overview",
-              "collapsed": true,
-              "children": [
-                {
-                  "title": "数据上下行格式",
-                  "path": "configuration/north-apps/mqtt/api"
-                },
-                {
-                  "title": "常见问题",
-                  "path": "configuration/north-apps/mqtt/faq"
-                }
-              ]
+              "title": "数据上下行格式",
+              "path": "configuration/north-apps/mqtt/api"
             },
             {
-              "title": "AWS IoT",
-              "path": "configuration/north-apps/aws-iot/overview",
-              "collapsed": true,
-              "children": [
-                {
-                  "title": "数据桥接到 AWS IoT Core",
-                  "path": "configuration/north-apps/aws-iot/example"
-                }
-              ]
-            },
-            {
-              "title": "Azure IoT",
-              "path": "configuration/north-apps/azure-iot/overview",
-              "collapsed": true,
-              "children": [
-                {
-                  "title": "数据桥接到 Azure IoT Hub",
-                  "path": "configuration/north-apps/azure-iot/example"
-                }
-              ]
-            },
-            {
-              "title": "规则引擎应用",
-              "path": "configuration/north-apps/ekuiper/overview"
-            },
-            {
-              "title": "Sparkplug B 应用",
-              "path": "configuration/north-apps/sparkplugb/overview",
-              "collapsed": true,
-              "children": [
-                {
-                  "title": "集成 EMQX",
-                  "path": "configuration/north-apps/sparkplugb/sparkplug"
-                },
-                {
-                  "title": "Ignition 连接示例",
-                  "path": "configuration/north-apps/sparkplugb/ignition"
-                },
-                {
-                  "title": "Cogent 连接示例",
-                  "path": "configuration/north-apps/sparkplugb/cogent"
-                },
-                {
-                  "title": "常见问题",
-                  "path": "configuration/north-apps/sparkplugb/faq"
-                }
-              ]
-            },
-            {
-              "title": "WebSocket 客户端",
-              "path": "configuration/north-apps/websocket/websocket"
-            },
-            {
-              "title": "OPCUA Server 应用",
-              "path": "configuration/north-apps/opcua-server/overview",
-              "collapsed": true,
-              "children": [
-                {
-                  "title": "UaExpert 连接示例",
-                  "path": "configuration/north-apps/opcua-server/uaexpert"
-                }
-              ]
-            },
-            {
-              "title": "Kafka 应用",
-              "path": "configuration/north-apps/kafka/overview"
+              "title": "常见问题",
+              "path": "configuration/north-apps/mqtt/faq"
             }
           ]
+        },
+        {
+          "title": "AWS IoT",
+          "path": "configuration/north-apps/aws-iot/overview",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "数据桥接到 AWS IoT Core",
+              "path": "configuration/north-apps/aws-iot/example"
+            }
+          ]
+        },
+        {
+          "title": "Azure IoT",
+          "path": "configuration/north-apps/azure-iot/overview",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "数据桥接到 Azure IoT Hub",
+              "path": "configuration/north-apps/azure-iot/example"
+            }
+          ]
+        },
+        {
+          "title": "规则引擎应用",
+          "path": "configuration/north-apps/ekuiper/overview"
+        },
+        {
+          "title": "Sparkplug B 应用",
+          "path": "configuration/north-apps/sparkplugb/overview",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "集成 EMQX",
+              "path": "configuration/north-apps/sparkplugb/sparkplug"
+            },
+            {
+              "title": "Ignition 连接示例",
+              "path": "configuration/north-apps/sparkplugb/ignition"
+            },
+            {
+              "title": "Cogent 连接示例",
+              "path": "configuration/north-apps/sparkplugb/cogent"
+            },
+            {
+              "title": "常见问题",
+              "path": "configuration/north-apps/sparkplugb/faq"
+            }
+          ]
+        },
+        {
+          "title": "WebSocket 客户端",
+          "path": "configuration/north-apps/websocket/websocket"
+        },
+        {
+          "title": "OPCUA Server 应用",
+          "path": "configuration/north-apps/opcua-server/overview",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "UaExpert 连接示例",
+              "path": "configuration/north-apps/opcua-server/uaexpert"
+            }
+          ]
+        },
+        {
+          "title": "Kafka 应用",
+          "path": "configuration/north-apps/kafka/overview"
         }
       ]
     },
@@ -1233,7 +1237,7 @@
       ]
     },
     {
-      "title": "Data Collection",
+      "title": "Data Collection and Forwarding",
       "path": "configuration/introduction",
       "collapsed": true,
       "children": [
@@ -1259,6 +1263,25 @@
         {
           "title": "Data Monitoring",
           "path": "admin/monitoring"
+        },
+        {
+          "title": "Modbus TCP Server Simulator",
+          "path": "configuration/modbus-simulator"
+        },
+        {
+          "title": "Data Forwarding",
+          "path": "application/overview",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "Create a Northbound Application",
+              "path": "configuration/north-apps/north-apps"
+            },
+            {
+              "title": "Subscribe to Southbound Data",
+              "path": "configuration/subscription"
+            }
+          ]
         }
       ]
     },
@@ -1767,107 +1790,92 @@
       ]
     },
     {
-      "title": "Data Forwarding",
-      "path": "application/overview",
+      "title": "Northbound Applications",
+      "path": "configuration/north-apps/catalog",
       "collapsed": true,
       "children": [
         {
-          "title": "Create a Northbound Application",
-          "path": "configuration/north-apps/north-apps"
-        },
-        {
-          "title": "Subscribe to Southbound Data",
-          "path": "configuration/subscription"
-        },
-        {
-          "title": "Northbound Applications",
-          "path": "configuration/north-apps/catalog",
+          "title": "MQTT",
+          "path": "configuration/north-apps/mqtt/overview",
           "collapsed": true,
           "children": [
             {
-              "title": "MQTT",
-              "path": "configuration/north-apps/mqtt/overview",
-              "collapsed": true,
-              "children": [
-                {
-                  "title": "Upstream/Downstream Data Format",
-                  "path": "configuration/north-apps/mqtt/api"
-                },
-                {
-                  "title": "FAQ",
-                  "path": "configuration/north-apps/mqtt/faq"
-                }
-              ]
+              "title": "Upstream/Downstream Data Format",
+              "path": "configuration/north-apps/mqtt/api"
             },
             {
-              "title": "AWS IoT",
-              "path": "configuration/north-apps/aws-iot/overview",
-              "collapsed": true,
-              "children": [
-                {
-                  "title": "Send data to AWS IoT Core",
-                  "path": "configuration/north-apps/aws-iot/example"
-                }
-              ]
-            },
-            {
-              "title": "Azure IoT",
-              "path": "configuration/north-apps/azure-iot/overview",
-              "collapsed": true,
-              "children": [
-                {
-                  "title": "Send data to Azure IoT Hub",
-                  "path": "configuration/north-apps/azure-iot/example"
-                }
-              ]
-            },
-            {
-              "title": "Rules Engine Application",
-              "path": "configuration/north-apps/ekuiper/overview"
-            },
-            {
-              "title": "SparkplugB",
-              "path": "configuration/north-apps/sparkplugb/overview",
-              "collapsed": true,
-              "children": [
-                {
-                  "title": "Integrate with EMQX",
-                  "path": "configuration/north-apps/sparkplugb/sparkplug"
-                },
-                {
-                  "title": "Connect to Ignition",
-                  "path": "configuration/north-apps/sparkplugb/ignition"
-                },
-                {
-                  "title": "Connect to Cogent",
-                  "path": "configuration/north-apps/sparkplugb/cogent"
-                },
-                {
-                  "title": "FAQ",
-                  "path": "configuration/north-apps/sparkplugb/faq"
-                }
-              ]
-            },
-            {
-              "title": "WebSocket",
-              "path": "configuration/north-apps/websocket/websocket"
-            },
-            {
-              "title": "OPCUA Server",
-              "path": "configuration/north-apps/opcua-server/overview",
-              "collapsed": true,
-              "children": [
-                {
-                  "title": "Connect to OPC UA Server using UaExpert",
-                  "path": "configuration/north-apps/opcua-server/uaexpert"
-                }
-              ]
-            },
-            {
-              "title": "Kafka",
-              "path": "configuration/north-apps/kafka/overview"
+              "title": "FAQ",
+              "path": "configuration/north-apps/mqtt/faq"
             }
           ]
+        },
+        {
+          "title": "AWS IoT",
+          "path": "configuration/north-apps/aws-iot/overview",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "Send data to AWS IoT Core",
+              "path": "configuration/north-apps/aws-iot/example"
+            }
+          ]
+        },
+        {
+          "title": "Azure IoT",
+          "path": "configuration/north-apps/azure-iot/overview",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "Send data to Azure IoT Hub",
+              "path": "configuration/north-apps/azure-iot/example"
+            }
+          ]
+        },
+        {
+          "title": "Rules Engine Application",
+          "path": "configuration/north-apps/ekuiper/overview"
+        },
+        {
+          "title": "SparkplugB",
+          "path": "configuration/north-apps/sparkplugb/overview",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "Integrate with EMQX",
+              "path": "configuration/north-apps/sparkplugb/sparkplug"
+            },
+            {
+              "title": "Connect to Ignition",
+              "path": "configuration/north-apps/sparkplugb/ignition"
+            },
+            {
+              "title": "Connect to Cogent",
+              "path": "configuration/north-apps/sparkplugb/cogent"
+            },
+            {
+              "title": "FAQ",
+              "path": "configuration/north-apps/sparkplugb/faq"
+            }
+          ]
+        },
+        {
+          "title": "WebSocket",
+          "path": "configuration/north-apps/websocket/websocket"
+        },
+        {
+          "title": "OPCUA Server",
+          "path": "configuration/north-apps/opcua-server/overview",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "Connect to OPC UA Server using UaExpert",
+              "path": "configuration/north-apps/opcua-server/uaexpert"
+            }
+          ]
+        },
+        {
+          "title": "Kafka",
+          "path": "configuration/north-apps/kafka/overview"
         }
       ]
     },

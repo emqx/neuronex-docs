@@ -1,11 +1,13 @@
-# Data Collection
+# Data Collection and Forwarding
 
-Install or confirm the required drivers first, then add a southbound driver, configure tags, and monitor values. Northbound reporting is covered in [Data Forwarding](./north-apps/north-apps.md). Per-protocol parameters and examples are in [Southbound Drivers](../introduction/driver-list/driver-list.md).
+Install or confirm the required drivers first, then add a southbound driver, configure tags, and monitor values. This section covers the complete workflow from device collection, tag configuration, and monitoring to northbound forwarding. Per-protocol parameters and examples are in [Southbound Drivers](../introduction/driver-list/driver-list.md).
 
 Read this section in sidebar order:
 
 1. [Create a Southbound Driver](./south-devices/south-devices.md): create the node, groups, and tags
 2. [Data Monitoring](../admin/monitoring.md): confirm tags are collecting
+3. [Modbus TCP Server Simulator](./modbus-simulator.md): test collection without hardware
+4. [Data Forwarding](../application/overview.md): create a northbound application and subscribe to southbound data
 
 ## Key concepts
 

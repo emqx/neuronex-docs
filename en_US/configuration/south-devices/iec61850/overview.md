@@ -4,7 +4,7 @@ IEC61850 is an international communication standard protocol that achieves stati
 
 The MMS message specification is applied between the IEC61850 standard station control layer and the interval layer. MMS achieves interoperability between different manufacturing devices in a network environment through an object-oriented modeling approach to the actual devices.
 
-The IEC61850 plug-in is used for read/write to the IEC61850 server and currently supports access to the MMS protocol.
+The IEC61850 driver is used for read/write to the IEC61850 server and currently supports access to the MMS protocol.
 
 ## Add Device
 

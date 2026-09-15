@@ -4,11 +4,11 @@ MPI is a communication protocol based on the Siemens MPI interface, which allows
 
 The MPI interface is typically built into S7300 and S7400 PLCs. MPI requires a special cable to be accessed by the PC. The MPI needs to be converted to RS232 serial protocol using a 6ES7-972-0CA23-0XA0 module (or a compatible module), and then connected to the PC using a USB-RS232 module, or if the PC has an RS232 interface the second conversion step is not required.
 
-EMQX Neuron's MPI plug-in is available for data access on S7300 and S7400 PLCs.
+EMQX Neuron's MPI driver is available for data access on S7300 and S7400 PLCs.
 
 ## Add Device
 
-In **Data Collection -> South Devices**, click **Add Device** to create the device node, enter the plug-in name, and select **Siemens MPI** for the plug-in type to enable the plug-in.
+In **Data Collection -> South Devices**, click **Add Device** to create the device node, enter the driver name, and select **Siemens MPI** as the driver type to enable it.
 
 ## Device Configuration
 

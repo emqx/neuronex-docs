@@ -610,7 +610,7 @@ Release Date: 2025-06-11
 
     - On the System Configuration -> AI Model Configuration page, users need to configure and enable AI models to use AI data analysis and AI plugin writing functions.
 
-  - In EMQX Neuron 3.6.0, the Docker images emqx/neuronex:3.6.0-ai and emqx/neuronex:3.6.0-ai-arm64 include Python dependency libraries required for LLM operation by default, allowing users to use this feature directly. When using deb, rpm, zip, or other Docker images, users need to manually configure Python dependency libraries before using EMQX Neuron AI features. Current versions use the standard image; see [AI-generated Python Plugin](../best-practise/llm-portable-plugin.md).
+  - In EMQX Neuron 3.6.0, the Docker images emqx/neuronex:3.6.0-ai and emqx/neuronex:3.6.0-ai-arm64 include Python dependency libraries required for LLM operation by default, allowing users to use this feature directly. When using deb, rpm, zip, or other Docker images, users need to manually configure Python dependency libraries before using EMQX Neuron AI features. Current versions use the standard image; see AI-generated Python Plugin.
 
 - **Dashboard** (this page has been removed)
 

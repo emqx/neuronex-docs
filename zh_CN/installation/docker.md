@@ -35,7 +35,7 @@ $ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privilege
 EMQX Neuron 提供 2 种类型的 Docker 安装包：
 - **neuronex:3.x.x**（标准镜像）
 
-neuronex:3.x.x 标准镜像集成了 Python 运行环境，以及 eKuiper Python SDK（`ekuiper`、`pynng`）。**安装和运行 eKuiper Python 便携插件（含 AI 生成函数插件）必须使用这类镜像。** `*-extend` 镜像基于标准镜像，同样包含该运行时。
+neuronex:3.x.x 标准镜像集成了 Python 运行环境，以及规则引擎的 Python SDK（`ekuiper`、`pynng`）。**安装和运行 Python 便携插件必须使用这类镜像。** `*-extend` 镜像基于标准镜像，同样包含该运行时。
 
 
 ```bash
@@ -46,10 +46,10 @@ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex
 
 - **neuronex:3.x.x-slim**
 
-neuronex:3.x.x-slim 类型的安装包不集成 Python 运行环境，体积更小。**不支持** eKuiper Python 便携插件：安装插件时无法拉起 Python 进程完成握手。若不使用 Python 相关算法插件，请使用这类镜像。
+neuronex:3.x.x-slim 类型的安装包不集成 Python 运行环境，体积更小。**不支持** Python 便携插件：安装插件时无法拉起 Python 进程完成握手。若不使用 Python 相关算法插件，请使用这类镜像。
 
 :::tip 提示
-使用 **数据处理 → 算法集成 → 便携插件**，或 **AI 生成函数** 并部署到 eKuiper 时，请使用标准镜像 `emqx/neuronex:x.y.z`，不要使用 `*-slim`。二进制安装包（tar/deb/rpm）默认也不包含 Python，需自行安装 Python 3 并执行 `pip install ekuiper pynng`，详见 [Python 便携插件扩展示例](../streaming-processing/portable_python.md#部署要求)。
+使用 **数据处理 → 算法集成 → 便携插件** 时，请使用标准镜像 `emqx/neuronex:x.y.z`，不要使用 `*-slim`。二进制安装包（tar/deb/rpm）默认也不包含 Python，需自行安装 Python 3 并执行 `pip install ekuiper pynng`，详见 [Python 便携插件扩展示例](../streaming-processing/portable_python.md#部署要求)。
 :::
 
 ```bash

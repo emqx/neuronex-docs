@@ -13,7 +13,7 @@ EMQX Neuron 的命令行位于 `/bin/neuronex`，它提供了以下的常用选�
 
 ```shell
 -c, --config 配置文件路径, 默认为 "etc/neuronex.yaml"
--k, --disable_kuiper 选择是否停用 eKuiper, 默认为 false, 即启用
+-k, --disable_kuiper 选择是否停用规则引擎应用，默认为 false，即启用
 ```
 
 例如：
@@ -21,7 +21,7 @@ EMQX Neuron 的命令行位于 `/bin/neuronex`，它提供了以下的常用选�
 ./bin/neuronex run -c etc/neuronex.yaml -k true
 ```
 
-该命令将 EMQX Neuron 作为进程启动，并在终端中显示其输出, EMQX Neuron 不会启动 规则引擎应用
+该命令将 EMQX Neuron 作为进程启动，并在终端中显示其输出, EMQX Neuron 不会启动规则引擎应用
 
 ### `start` 命令
 
@@ -70,7 +70,7 @@ EMQX Neuron 支持在启动过程中读取环境变量来配置启动参数，�
 | NEURONEX__SERVER__VIEWER__USERNAME | 新添加 viewer 用户的用户名                                        |
 | NEURONEX__SERVER__VIEWER__PASSWORD | 新添加 viewer 用户的密码                                         |
 | NEURONEX__LOG__MODE                | 设置为 console, EMQX Neuron 会把日志打印到标准输出                        |
-| KUIPER__BASIC__CONSOLELOG          | 设置为 true, 规则引擎应用 会把日志打印到标准输出                            |
+| KUIPER__BASIC__CONSOLELOG          | 设置为 true，规则引擎应用会把日志打印到标准输出                            |
 | NEURON__LOG__MODE                  | 设置为 console, Neuron 会把日志打印到标准输出                          |
 
 
@@ -85,7 +85,7 @@ EMQX Neuron 支持通过环境变量覆盖配置文件中的配置，当通过�
 
 环境变量之间用“__”分隔，分隔后第一部分的内容匹配配置文件的文件名，其余内容匹配不同级别的配置项。
 
-EMQX Neuron 支持通过环境变量配置数据处理模块 规则引擎应用 的 yaml 配置文件，详细配置项请参考[规则引擎应用 配置](https://ekuiper.org/docs/zh/latest/configuration/global_configurations.html)。 规则引擎应用配置文件与环境变量映射关系和 EMQX Neuron 相同，如下：
+EMQX Neuron 支持通过环境变量配置规则引擎应用的 yaml 配置文件，详细配置项请参考[规则引擎应用配置](https://ekuiper.org/docs/zh/latest/configuration/global_configurations.html)。 规则引擎应用配置文件与环境变量映射关系和 EMQX Neuron 相同，如下：
 
 ```
 KUIPER__BASIC__DEBUG => basic.debug in etc/kuiper.yaml
@@ -111,7 +111,7 @@ EMQX Neuron 提供 YAML 格式文件，位于`/opt/neuronex/etc/neuronex.yaml`�
 
 - ` port`：EMQX Neuron 服务器的端口号，默认值为 8085。
 - ` disableAuth`：EMQX Neuron 是否关闭 Token 认证。
-- ` disableKuiper`：EMQX Neuron 是否停用 规则引擎应用
+- `disableKuiper`：EMQX Neuron 是否停用规则引擎应用
 - `tls`: 开启 TLS 认证
   - `certFile`: 开启 TLS 认证后，证书文件位置
   - `keyFile`: 开启 TLS 认证后，密钥文件位置
@@ -132,14 +132,14 @@ EMQX Neuron 提供 YAML 格式文件，位于`/opt/neuronex/etc/neuronex.yaml`�
 
 ### 规则引擎应用
 
-` ekuiper ` 部分定义了 规则引擎应用 的版本号和反向代理配置。
+`ekuiper` 配置段定义了规则引擎应用的版本号和反向代理配置。
 
-- ` version`：规则引擎应用 的版本号。
-- ` reverseProxies` ：规则引擎应用 的反向代理配置列表。
-  - ` location`：规则引擎应用 的路径： 规则引擎应用 的路径。
-  - ` proxyPath` ：规则引擎应用 后端服务器的路径。
-  - `location`: 规则引擎应用 ws服务路径。
-  - `proxyPath`: 规则引擎应用 ws服务路径。
+- `version`：规则引擎应用的版本号。
+- `reverseProxies`：规则引擎应用的反向代理配置列表。
+  - `location`：规则引擎应用的路径。
+  - `proxyPath`：规则引擎应用后端服务器的路径。
+  - `location`：规则引擎应用的 ws 服务路径。
+  - `proxyPath`：规则引擎应用 ws 服务的后端路径。
 
 ### log
 

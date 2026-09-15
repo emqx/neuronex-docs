@@ -1,215 +1,236 @@
-# 快速开始
+# 快速入门
 
-本教程从下载安装开始，以 Modbus TCP 驱动协议为例，快速开始使用 EMQX Neuron 采集模拟设备数据，并将数据直接上传到 EMQX MQTT 公有云服务，以及数据处理功能的简单使用。
+本教程用五步跑通一条完整链路：启动 EMQX Neuron、用内置模拟器造一批数据、通过南向驱动采集上来、再经北向应用转发到 MQTT Broker。
 
-![start](./_assets/start.png)
+<style>
+.nxq            { width: 100%; height: auto; display: block; margin: 24px 0; }
+.nxq .t         { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif; fill: #1f2d3d; }
+.nxq .h         { font-size: 15px; font-weight: 600; }
+.nxq .m         { font-size: 14px; font-weight: 600; }
+.nxq .sub       { font-size: 12px; fill: #4a5b6e; }
+.nxq .step      { font-size: 11.5px; font-weight: 600; fill: #2a6ebb; }
+.nxq .lbl       { font-size: 12.5px; font-weight: 600; fill: #2a6ebb; }
+.nxq .ptitle    { fill: #1b4f89; }
+.nxq .bg        { fill: #f7fafd; }
+.nxq .box       { fill: #ffffff; stroke: #ccd8e4; stroke-width: 1.5; }
+.nxq .mod       { fill: #ffffff; stroke: #2a6ebb; stroke-width: 1.5; }
+.nxq .prod      { fill: #eaf2fb; stroke: #2a6ebb; stroke-width: 2; }
+.nxq .flow      { stroke: #2a6ebb; stroke-width: 2; }
+.nxq .ah        { fill: #2a6ebb; }
 
-## 安装 EMQX Neuron
+html.dark .nxq .t      { fill: #d7dee6; }
+html.dark .nxq .sub    { fill: #9db0c4; }
+html.dark .nxq .step   { fill: #7fb4ea; }
+html.dark .nxq .lbl    { fill: #7fb4ea; }
+html.dark .nxq .ptitle { fill: #8ec1f0; }
+html.dark .nxq .bg     { fill: #161c24; }
+html.dark .nxq .box    { fill: #1d2631; stroke: #3b4857; }
+html.dark .nxq .mod    { fill: #1d2631; stroke: #5a9fe0; }
+html.dark .nxq .prod   { fill: #1a2938; stroke: #5a9fe0; }
+html.dark .nxq .flow   { stroke: #7fb4ea; }
+html.dark .nxq .ah     { fill: #7fb4ea; }
+</style>
 
-EMQX Neuron 提供多种安装方式，用户可在 [安装](../installation/introduction.md) 中查看详细的安装方式。本实例采用容器化部署的方式，以便于最快开始体验 EMQX Neuron。
+<svg class="nxq" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" role="img" aria-label="快速入门链路图：内置 Modbus 模拟器产生数据，经 EMQX Neuron 的南向驱动采集、数据监控查看，再由北向 MQTT 应用转发到 broker.emqx.io，最后在 MQTTX 客户端订阅验证">
+  <defs>
+    <marker id="nxqA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0 L10 5 L0 10 z"/></marker>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1200" height="320" rx="10"/>
 
-获取 Docker 镜像
+  <rect class="box" x="24" y="98" width="188" height="118" rx="8"/>
+  <text class="t h" x="118" y="132" text-anchor="middle">内置 Modbus 模拟器</text>
+  <text class="t step" x="118" y="154" text-anchor="middle">第 2 步</text>
+  <text class="t sub" x="118" y="186" text-anchor="middle">正弦波 · 方波 · 随机数</text>
 
+  <line class="flow" x1="220" y1="158" x2="268" y2="158" marker-end="url(#nxqA)"/>
+  <text class="t lbl" x="244" y="146" text-anchor="middle">采集</text>
+
+  <rect class="prod" x="276" y="40" width="330" height="240" rx="10"/>
+  <text class="t h ptitle" x="441" y="68" text-anchor="middle">EMQX Neuron</text>
+
+  <rect class="mod" x="300" y="86" width="282" height="56" rx="6"/>
+  <text class="t m" x="441" y="110" text-anchor="middle">南向驱动 · Modbus TCP</text>
+  <text class="t step" x="441" y="130" text-anchor="middle">第 3 步</text>
+
+  <rect class="mod" x="300" y="154" width="282" height="52" rx="6"/>
+  <text class="t m" x="441" y="176" text-anchor="middle">数据监控</text>
+  <text class="t step" x="441" y="196" text-anchor="middle">第 4 步</text>
+
+  <rect class="mod" x="300" y="218" width="282" height="52" rx="6"/>
+  <text class="t m" x="441" y="240" text-anchor="middle">北向应用 · MQTT</text>
+  <text class="t step" x="441" y="260" text-anchor="middle">第 5 步</text>
+
+  <line class="flow" x1="614" y1="158" x2="662" y2="158" marker-end="url(#nxqA)"/>
+  <text class="t lbl" x="638" y="146" text-anchor="middle">转发</text>
+
+  <rect class="box" x="670" y="98" width="200" height="118" rx="8"/>
+  <text class="t h" x="770" y="140" text-anchor="middle">MQTT Broker</text>
+  <text class="t sub" x="770" y="168" text-anchor="middle">broker.emqx.io</text>
+
+  <line class="flow" x1="878" y1="158" x2="926" y2="158" marker-end="url(#nxqA)"/>
+  <text class="t lbl" x="902" y="146" text-anchor="middle">订阅</text>
+
+  <rect class="box" x="934" y="98" width="200" height="118" rx="8"/>
+  <text class="t h" x="1034" y="132" text-anchor="middle">MQTTX 客户端</text>
+  <text class="t step" x="1034" y="154" text-anchor="middle">第 5 步</text>
+  <text class="t sub" x="1034" y="186" text-anchor="middle">订阅主题验证数据</text>
+</svg>
+
+## 开始之前
+
+| 需要什么 | 说明 |
+| --- | --- |
+| Docker | 用来运行 EMQX Neuron。其他安装方式见[安装与部署](../installation/introduction.md) |
+| 浏览器 | 访问 EMQX Neuron 控制台 |
+| MQTT 客户端 | 最后一步验证数据用，推荐 [MQTTX](https://www.emqx.com/zh/products/mqttx) |
+
+## 第 1 步 · 启动 EMQX Neuron
+
+拉取镜像并启动容器：
+
+```bash
+docker pull emqx/neuronex:latest
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:latest
 ```
-$ docker pull emqx/neuronex:latest
-```
 
-启动 Docker 容器
-
-```
-$ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:latest
-```
-
-## 安装 Modbus 模拟器
-
-安装 PeakHMI Slave Simulators 软件，安装包可在 [PeakHMI 官网](https://hmisys.com) 中下载。
-
-安装后，运行 Modbus TCP slave EX。设置模拟器点位数值及站点号，如下图所示。
-
-![modbus-simulator](./_assets/modbus-simulator.png)
-
-:::tip 
-须保证 EMQX Neuron 与模拟器运行在同一局域网内。
-
-Windows 中尽量关闭防火墙，否则可能会导致 EMQX Neuron 连接不上模拟器。 
-
-:::
-
-## 登录 EMQX Neuron
-
-打开 Web 浏览器，输入运行 EMQX Neuron 的网关地址和端口号，即可进入到登录界面，默认端口号为 8085。例如，http://127.0.0.1:8085
-
-使用初始用户名与密码登录进入管理控制台页面（初始用户名：admin，初始密码：0000），登录界面如下图所示。
+浏览器打开 `http://127.0.0.1:8085`，用初始账号 **admin** / **0000** 登录。
 
 ![login](./_assets/login.png)
 
-## 南向设备配置
+## 第 2 步 · 启动内置模拟器
 
-### 创建南向设备
+EMQX Neuron 内置了一个 Modbus TCP 模拟器，可以直接产生动态数据，省去准备真实 PLC 的麻烦。
 
-南向设备节点用于 EMQX Neuron 与设备建立连接，以及设备数据采集点位的创建及配置。在本例中使用EMQX Neuron 的 Modbus TCP驱动，获取 Modbus 模拟器中的数据。
+1. 进入 **管理 → 系统配置**，选择 `内置 Modbus TCP Server 模拟器` 选项卡。
+2. 点击 `启动模拟器`。模拟器默认关闭，不占用资源，需要手动启动。
+3. 添加点位。最多 10 个，模拟类型可选 `正弦波`、`斜波`、`方波`、`随机数`，地址由系统自动分配。
+4. 点击 `保存点位配置`，模拟器开始产生数据。
 
-在 `数据采集` 菜单中选择 `南向设备` 进入南向设备管理界面，单击 `添加设备` 新增设备，如下图所示。
+模拟器监听 `502` 端口，与 EMQX Neuron 在同一容器内，不涉及跨机器网络。完整说明见[内置 Modbus TCP Server 模拟器](../configuration/modbus-simulator.md)。
+
+::: tip 走捷径
+在模拟器页面点击 `下载对应南向驱动配置`，得到的文件里已经包含全部点位。在 **数据采集 → 南向设备** 页导入它，可以直接跳到[第 4 步](#第-4-步-查看采集数据)。想了解驱动、组、点位是怎么配出来的，就按下面第 3 步手动做一遍。
+:::
+
+## 第 3 步 · 添加南向驱动并配置点位
+
+南向驱动负责和设备通信。这里用 Modbus TCP 驱动去读模拟器的数据。
+
+### 创建驱动节点
+
+在 **数据采集 → 南向设备** 页点击 `添加设备`：
 
 ![south-add](./_assets/south-add1.png)
 
-### 配置南向设备
-
-配置 EMQX Neuron 与设备建立 Modbus 通讯所需的参数。
-
-- 名称：填写设备名称，例如 modbus-tcp；
-- 驱动：下拉框选择 Modbus TCP 的驱动；
-- 连接模式：默认选择 Client；
-- 最大重试次数：默认选择 0；
-- 指令重新发送间隔：默认选择 0；
-- 指令发送间隔：默认选择 20；
-- IP地址：填写访问设备的 IP 地址。示例填写安装 Modbus 模拟器 PC 端的 IP 地址；
-- 端口：默认端口 502；
-- 连接超时时间：默认选择 3000；
-- 单击 `添加设备`，完成设备配置，设备卡片自动进入 **运行中** 的工作状态；
+| 字段 | 填什么 |
+| --- | --- |
+| 名称 | `modbus-tcp` |
+| 驱动 | 选择 **Modbus TCP** |
+| 连接模式 | `Client` |
+| IP 地址 | `127.0.0.1`（模拟器与 EMQX Neuron 在同一容器内） |
+| 端口 | `502` |
+| 连接超时时间 | `3000` |
 
 ![south-setting](./_assets/south-setting.png)
 
-驱动创建完成后， 驱动的连接状态为断开，需要继续完成[创建采集点位](#创建采集点位)配置后，EMQX Neuron才会向设备发送读请求，更新连接状态。
+驱动刚创建时连接状态是 **断开**，这是正常的——配好点位之后 EMQX Neuron 才会向设备发读请求。
 
 ![south-status](./_assets/south-status.png)
 
-
-:::tip 
-每个设备所需的配置参数有所不同，详细南向设备参数说明可参考 [创建南向驱动](../configuration/south-devices/south-devices.md)。 
+::: tip
+不同协议需要的参数不同，各驱动的完整参数说明见[南向驱动](../introduction/driver-list/driver-list.md)。
 :::
 
-### 创建采集点位
+### 创建组
 
-**创建组**用于设备点位的分组采集。不同采集组可设置各自的采集频率。单击刚创建的 **modbus-tcp** 南向设备节点任意空白处进入组列表管理界面。
-
-单击 `创建组` ，在 `创建组` 的弹框中填写相关参数，如下图所示。
+点击刚建好的 **modbus-tcp** 节点进入组列表，点击 `创建组`：
 
 ![group-add](./_assets/group-add.png)
 
-- 组名称：填写组名称，例如 group-1；
-- 间隔：默认选择 1000ms；
-- 点击 `创建`，完成组创建。
+| 字段 | 填什么 |
+| --- | --- |
+| 组名称 | `group-1` |
+| 间隔 | `1000`（毫秒，即每秒采集一次） |
 
-手动为组创建点位，单击刚创建的 **group-1** 组列表**操作**->**点位列表**进入点位列表界面。
+组是采集和上报的最小单位，同一组内的点位按相同频率采集。
 
-单击 `添加点位`，新建需要采集的设备点位，配置点位属性、类型、地址等，如下图所示。
+### 添加点位
+
+点击 **group-1** 的 `点位列表` → `添加点位`：
 
 ![tags-add](./_assets/tags-add.png)
 
-- 名称：填写设备点位名称，例如，pressure；
-- 属性：下拉选择点位属性，例如，Read；
-- 类型：下拉选择数据类型，例如，int16；
-- 地址：填写驱动点位地址，例如，1!40001；
-- 点击`创建`按键，完成 Tag 的创建；
+| 字段 | 填什么 |
+| --- | --- |
+| 名称 | `pressure` |
+| 属性 | `Read` |
+| 类型 | `int16` |
+| 地址 | 填模拟器中该点位的地址，格式为 `站点号!寄存器地址`，例如 `1!40001` |
 
-:::tip
-点位地址解析：1 表示 Modbus 模拟器中设置的点位站点号，40001 表示点位的寄存器地址。
-
-详细的驱动地址使用说明请参阅 [创建南向驱动](../configuration/south-devices/south-devices.md)。 
+::: tip
+`1!40001` 中，`1` 是从站地址，`40001` 是保持寄存器地址。各驱动的地址格式不同，详见对应的驱动页面。
 :::
 
-创建采集的设备点位后，EMQX Neuron 自动与设备建立通信。南向设备节点进入 **运行中** 的工作状态，**已连接** 的连接状态。
+点位创建完成后，节点状态应变为 **运行中** / **已连接**。若几秒后仍是 **断开连接**，在容器内执行以下命令确认端口可达：
 
-如果等待几秒后，连接状态仍然处于 **断开连接**，请进行以下操作查找原因：
-
-- 请确认在设备配置时 IP 地址 和端口号设置正确，并且防火墙处于关闭状态。
-- 在 EMQX Neuron 运行环境终端执行以下指令，以确认 EMQX Neuron 运行环境能否访问到到对应的 IP 及端口：
-
-```
-$ telnet <运行 Modbus 模拟器 PC 端的 IP> 502
+```bash
+docker exec -it neuronex telnet 127.0.0.1 502
 ```
 
-## 查看采集数据
+## 第 4 步 · 查看采集数据
 
-在 `数据采集` 菜单下选择`数据监控`，进入数据监控界面，查看已创建点位读取到的数值，如下图所示。
+进入 **数据采集 → 数据监控**，选择南向设备 `modbus-tcp` 和组 `group-1`，即可看到点位的实时值随模拟器变化。
 
 ![data-monitoring](./_assets/data-monitoring.png)
 
-数据监控以组为单位显示数值：
+数据能在这里刷新，说明采集链路已经通了。
 
-- 南向设备：下拉框选择想要查看的南向设备，例如，选择上面步骤已创建好的 modbus-tcp;
-- 组名称：下拉框选择想要查看所选南向设备下的组，例如，选择上面步骤已经创建好的 group-1；
-- 选择完成，页面将会展示组下每一个点位的值；
+## 第 5 步 · 转发到 MQTT
 
-## 北向应用配置
+### 创建北向应用
 
-### 创建北向应用节点
-
-北向应用节点用于 EMQX Neuron 与多种北向应用进行数据交互，以 MQTT 应用为例，新增一个 MQTT 节点。
-
-在 `数据采集` 菜单中选择 `北向应用`，单击 `添加应用` 新增应用，如下图所示。
+在 **数据采集 → 北向应用** 页点击 `添加应用`：
 
 ![north-add](./_assets/north-add.png)
 
-- 名称：填写应用名称，例如，mqtt；
-- 应用：下拉框选择 MQTT 应用；
-- 单击 `创建` 新增应用。
+| 字段 | 填什么 |
+| --- | --- |
+| 名称 | `mqtt` |
+| 应用 | 选择 **MQTT** |
 
-### 配置北向应用节点
-
-配置 EMQX Neuron 与北向应用建立连接所需的参数。
-
-北向节点创建成功后自动跳转到 `应用配置` 界面，如下图所示。
+创建后自动进入应用配置页：
 
 ![north-setting](./_assets/north-setting.png)
 
-- 服务器地址：填写应用的服务器地址，默认使用公共的 EMQX Broker（broker.emqx.io）；
-- 服务器端口：填写服务器端口，默认使用 1883；
-- 单击 `提交`，完成北向应用配置，应用卡片自动进入 **运行中** 的工作状态。
+| 字段 | 填什么 |
+| --- | --- |
+| 服务器地址 | `broker.emqx.io`（EMQX 公共 Broker） |
+| 服务器端口 | `1883` |
 
-### 订阅南向组
+提交后应用卡片进入 **运行中** 状态。
 
-采集到的数据都是以组为单位上传云端的，用户需要选择上传哪些组的数据。
+### 订阅南向数据
 
-点击刚创建的 **MQTT** 北向应用操作项中的**查看订阅**，进入应用组列表界面。
-
-单击 `添加订阅` 新增订阅，如下图所示。
+数据以**组**为单位上报，需要指定上报哪些组。点击 MQTT 应用的 `查看订阅` → `添加订阅`：
 
 ![subscription](./_assets/subscription.png)
 
-- 主题：可自定义主题，示例使用默认主题；
-- 订阅南向驱动数据：自主选择需要订阅的数据组；
-- 点击`提交`，完成订阅。
+| 字段 | 填什么 |
+| --- | --- |
+| 主题 | 用默认主题即可，记下它 |
+| 订阅南向驱动数据 | 勾选 `modbus-tcp` 的 `group-1` |
 
-## 在 MQTT 客户端查看数据
+### 在 MQTT 客户端验证
 
-使用 MQTT 客户端查看上传的数据，示例使用 MQTT 客户端工具 [MQTTX](https://www.emqx.com/zh/products/mqttx) 连接公共的 EMQX 代理查看 EMQX Neuron 上传到 MQTT Broker 的数据，如下图所示。
+打开 MQTTX，新建连接（Host `broker.emqx.io`，Port `1883`），订阅上一步记下的主题：
 
 ![mqttx](./_assets/mqttx.png)
 
-订阅成功之后可以看到 MQTTX 可以一直接收到 EMQX Neuron 采集并上报过来的数据。
+能持续收到 EMQX Neuron 上报的数据，整条链路就跑通了。
 
-- 打开 MQTTX 添加新的连接，正确填写名称、Host（broker.emqx.io） 和 Port（默认 1883）完成连接;
-- 添加新的订阅，Topic 要与 EMQX Neuron 端北向应用的订阅主题保持一致。
+## 下一步
 
-## 数据处理
-
-EMQX Neuron 提供了强大的边缘数据处理功能，可以对数据点进行数据抽取、转换、过滤、排序、分组、聚合、连接等功能，通过强大的流式计算分析能力，实现数据过滤清洗、数据标准化、分析监测及实时报警。详细请查阅[数据处理功能](../streaming-processing/overview.md)章节。
-
-本示例将介绍如何将 EMQX Neuron 采集到的数值进行 +1 操作后将结果发送到云端 MQTT 的动态主题中。
-
-### 数据处理北向应用节点
-
-在**数据采集** ->  **北向应用**页面，EMQX Neuron默认已经配置一个 DataProcessing 的北向应用，用户只需通过该应用订阅**南向驱动**的**数据组**即可，然后EMQX Neuron采集到的数据点就会发送到数据处理模块的 `neuronStream` 数据流中。
-
-
-### 新建规则
-
-在 `数据处理` 菜单中选择 `规则`，单击 `新建规则`，编写SQL语句，将南向驱动采集到的`pressure`加1并输出，如下图所示。
-
-![stream-rule](./_assets/stream-rule.png)
-
-
-在`动作`模块中单击`添加`，选择 MQTT Sink，配置 MQTT Sink，如下图所示。
-
-![stream-sink](./_assets/stream-sink.png)
-
-- MQTT 服务器地址：正确填写 MQTT 服务器地址和端口号；
-- MQTT 主题：数据上报主题，示例使用`node_name`加`group_name`的动态主题；
-
-## 查看数据处理结果
-
-示例中数据流节点订阅的 node_name 为 `modbus-tcp`，group_name 为 `group-1`，即，订阅主题为 `modbus-tcp/group-1`。
-
-![mqtt-result](./_assets/mqtt-result.png)
+- **接真实设备** —— 在[南向驱动](../introduction/driver-list/driver-list.md)里按协议或 CNC 型号找到对应页面，参数和地址格式都在那里。
+- **送到别的地方** —— 除 MQTT 外还支持 AWS IoT、Azure IoT、Sparkplug B、Kafka，以及对外开放 OPC UA Server，见[北向应用](../configuration/north-apps/catalog.md)。
+- **在边缘处理数据** —— 过滤、换算、聚合之后再上报，见[第一条规则](../streaming-processing/first-rule.md)。
+- **装到生产环境** —— 见[安装与部署](../installation/introduction.md)。

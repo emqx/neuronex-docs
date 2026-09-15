@@ -22,7 +22,7 @@ EMQX Neuron supports Docker deployment. EMQX Neuron provides two types of Docker
 
 - neuronex:3.x.x (standard image)
     
-    The `neuronex:3.x.x` standard image includes the Python runtime and the eKuiper Python SDK. Use this image to install and run eKuiper Python portable plugins (including AI-generated functions).
+    The `neuronex:3.x.x` standard image includes the Python runtime and the rules engine Python SDK. Use this image to install and run Python portable plugins.
 
 - neuronex:3.x.x-slim
     
@@ -38,14 +38,7 @@ EMQX Neuron does not currently support cluster deployment. High availability and
 
 ## What hardware configuration is required for software installation?
 
-The following table lists the minimum hardware requirements for EMQX Neuron to complete data collection at different numbers of data tags (using EMQX Neuron data processing functions will consume additional system resources).
-
-| Number of data tags | Recommended minimum memory | Hardware architecture | Notes |
-| --------------------- | --------- | ---------------------------------| --------------------------------- |
-| 100 tags | 128M | 64-bit ARM and 64-bit x86 architecture | Raspberry Pi 3 |
-| 1,000 tags | 256M | 64-bit ARM and 64-bit x86 architecture | Raspberry Pi 4 |
-| 10,000 tags | 512M | 64-bit ARM and 64-bit x86 architecture | Industrial PC, etc. |
-| More than 10,000 tags | 1G | 64-bit x86 architecture | Powerful Industrial PC, Server, etc. |
+Minimum memory scales with tag count: roughly 128M for 100 tags, 256M for 1,000, 512M for 10,000, and 1G or more beyond that. For the full table and measured performance data, see [Installation → Hardware requirements](../installation/introduction.md#hardware-requirements).
 
 ## Is there a free version of EMQX Neuron?
 

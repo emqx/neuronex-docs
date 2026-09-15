@@ -65,21 +65,21 @@ This document describes the error codes that the data collection function will r
 - 2304    Library open failed
 - 2305    Library module is invalid
 - 2306    System library is not allowed to be deleted
-- 2307    Plugin is not allowed to be instantiated
-- 2308    Plugin does not support this architecture
-- 2309    Plugin in using
-- 2310    Plugin add failed
-- 2311    Plugin already exit
-- 2312    Plugin not exist
-- 2313    Plugin type no support
-- 2314    Plugin version not match with core
-- 2315    Plugin name error
-- 2316    Plugin not match with c lib
-- 2317    Plugin update failed
+- 2307    Driver is not allowed to be instantiated
+- 2308    Driver does not support this architecture
+- 2309    Driver in using
+- 2310    Driver add failed
+- 2311    Driver already exit
+- 2312    Driver not exist
+- 2313    Driver type no support
+- 2314    Driver version not match with core
+- 2315    Driver name error
+- 2316    Driver not match with c lib
+- 2317    Driver update failed
 - 2400    License not found
 - 2401    License is invalid
 - 2402    License is expired
-- 2403    License does not enable the plugin
+- 2403    License does not enable the driver
 - 2404    Reached the maximum number of nodes authorized by the license
 - 2405    Reached the maximum number of points authorized by the license
 - 2406    Hardware does not match the license
@@ -90,25 +90,25 @@ This document describes the error codes that the data collection function will r
 - 2501    Template does not exist
 - 2502    Template name is too long
 
-## Common plugin error codes
+## Common driver error codes
 
-- 3000    Plugin read failed
-- 3001    Plugin write failed
-- 3002    Plugin is not connected
-- 3003    Plugin tag is not allowed to read
-- 3004    Plugin tag is not allowed to write
-- 3007    Plugin tag type mismatch
-- 3008    Plugin tag value is invalid
-- 3009    Plugin protocol parsing failed
-- 3010    Plugin is not running
-- 3011    Plugin tag is not ready
-- 3012    Plugin message disorder
-- 3013    Plugin name is too long
-- 3014    Plugin does not exist
-- 3015    Plugin device is not responding
-- 3016    Plugin does not support template
-- 3017    Plugin does not support writing points
-- 3018    Plugin does not support synchronous reading
+- 3000    Driver read failed
+- 3001    Driver write failed
+- 3002    Driver is not connected
+- 3003    Driver tag is not allowed to read
+- 3004    Driver tag is not allowed to write
+- 3007    Driver tag type mismatch
+- 3008    Driver tag value is invalid
+- 3009    Driver protocol parsing failed
+- 3010    Driver is not running
+- 3011    Driver tag is not ready
+- 3012    Driver message disorder
+- 3013    Driver name is too long
+- 3014    Driver does not exist
+- 3015    Driver device is not responding
+- 3016    Driver does not support template
+- 3017    Driver does not support writing points
+- 3018    Driver does not support synchronous reading
 
 ## FILE error codes
 
@@ -232,7 +232,7 @@ This document describes the error codes that the data collection function will r
 - 13024    Ecosy license network connection not working
 - 13025    Ecosy license tag is insufficient
 - 13026    Ecosy license request fail
-- 13027    License does not enable plugin
+- 13027    License does not enable driver
 - 13028    Reset license failed, please confirm that tag usage is less than 30 tags
 - 13029    Reset trial license failed
 
@@ -255,10 +255,10 @@ This document describes the error codes that the data collection function will r
 - 17014    Group parameter invalid
 - 17015    Group name too long
 - 17016    Library failed to open
-- 17017    Plugin name too long
-- 17018    Plugin does not support requested operation
+- 17017    Driver name too long
+- 17018    Driver does not support requested operation
 - 17019    Library not found
-- 17020    Plugin not found
+- 17020    Driver not found
 - 17021    Tag name conflict
 - 17022    Library does not allow instance creation
 - 17023    Server is busy
@@ -294,7 +294,6 @@ This document describes the error codes that the data collection function will r
 - 20002    Neuron code error
 - 20003    Data flow processing function service error
 - 20004    Neuron load not ready
-- 20005    Datalayers load not ready
 
 ## Request parameter error codes
 
@@ -306,15 +305,11 @@ This document describes the error codes that the data collection function will r
 - 20105    The directory does not exist or is empty
 - 20106    The file is not valid for data restore
 - 20107    The Neuron CID request is not valid
-- 20108    The Datalayers Query SQL is not valid
-- 20109    The Datalayers Query SQL execute fail
 - 20110    Name already exist
 - 20111    ID not exist
 - 20112    Timefilter not exist
 - 20113    Timefilter should not exist
-- 20114    More than one ai model enable
 - 20115    THE SQL should be Query SQL
-- 20116    Datalayers authentication failed
 
 ## User authentication error codes
 

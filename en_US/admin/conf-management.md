@@ -10,7 +10,7 @@ The `run` command is used to run EMQX Neuron on the console.This command starts 
 
 ```shell
 -c, --config string   config file path (default "etc/neuronex.yaml")
--k, --disable_kuiper    select whether to disable ekuiper
+-k, --disable_kuiper    select whether to disable the rules engine application
 ```
 Eg:
 

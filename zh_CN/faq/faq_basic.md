@@ -31,7 +31,7 @@ EMQX Neuron 已适配统信系统，EMQX Neuron 安装包可直接安装使用�
 EMQX Neuron 支持 Docker 容器化部署，EMQX Neuron提供两种类型的 Docker 安装包：
 
 - neuronex:3.x.x（标准镜像）
-    `neuronex:3.x.x` 标准镜像集成了 Python 运行环境及 eKuiper Python SDK。安装、运行 eKuiper Python 便携插件（含 AI 生成函数）请使用这类镜像。
+    `neuronex:3.x.x` 标准镜像集成了 Python 运行环境及规则引擎的 Python SDK。安装、运行 Python 便携插件请使用这类镜像。
 - neuronex:3.x.x-slim
     `neuronex:3.x.x-slim` 不集成 Python 运行环境，体积更小，**不支持** Python 便携插件。若不使用 Python 相关算法插件，请使用这类镜像。
 
@@ -45,14 +45,7 @@ EMQX Neuron暂不支持集群部署。可通过Kubernetes、K3S等方式，保�
 
 ## 软件安装需要的硬件配置？
 
-下表列出了 EMQX Neuron 在不同点位数量下的完成数采功能最低硬件要求（使用 EMQX Neuron 数据处理功能，会额外消耗系统资源）。
-
-| 点位数                | 建议最小内存 | 硬件架构                           | 备注                              |
-| --------------------- | --------- | ---------------------------------| --------------------------------- |
-| 100 tags              | 128M      | 64-bit ARM 和 64-bit x86 架构     | Raspberry Pi 3                    |
-| 1,000 tags            | 256M      | 64-bit ARM 和 64-bit x86 架构     | Raspberry Pi 4                    |
-| 10,000 tags           | 512M      | 64-bit ARM 和 64-bit x86 架构     | Industrial PC 等                  |
-| 超过 10,000 tags       | 1G       | 64-bit x86 架构                    | Powerful Industrial PC, Server 等 |
+最低内存随点位数变化：100 点约 128M、1000 点约 256M、1 万点约 512M、超过 1 万点建议 1G 以上。完整对照表和性能实测数据见[安装与部署 → 硬件要求](../installation/introduction.md#硬件要求)。
 
 ## EMQX Neuron 是否有免费版本？
 

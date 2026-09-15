@@ -77,7 +77,7 @@ Enter the device IP to confirm whether EMQX Neuron can access the device IP addr
 
 Backup refers to the complete export of all configurations of EMQX Neuron; restore refers to re-importing the exported backup, which will overwrite the original configuration.
 
-All configurations include nodes, tags, rules, files, certificates, and all other configuration information.
+All configurations include southbound driver and northbound application settings, tags, rules, files, and certificates.
 
 :::tip 
 During the restore process, EMQX Neuron will automatically restart.
@@ -185,26 +185,3 @@ To implement downstream MQTT control command tracing, the following conditions m
     For example, using MQTTX, as shown in the figure below:
 
 ![trace_mqttx](assets/trace_mqttx.png)
-
-## AI Model Configuration
-
-EMQX Neuron supports configuring AI models in the system configuration page, and using AI models to generate Python plugins.
-
-In the EMQX Neuron **System Configuration** -> **AI Model Configuration** page, add a LLM model, including the LLM model type, API Key, Endpoint address, and model name. Currently, EMQX Neuron supports the following models:
-
-| <div style="width:100pt">Model Vendor</div> | <div style="width:120pt">Endpoint Address</div> | <div style="width:120pt">Model Name</div> |
-| ------------------------------------------- | --------------------------------------------- | ---------------------------------------- |
-| DeepSeek | `https://api.deepseek.com` | `deepseek-chat` <br> `deepseek-reasoner` |
-| SiliconFlow | - | `Pro/deepseek-ai/DeepSeek-V3` <br> `deepseek-ai/DeepSeek-V3` |
-| Qwen  | `https://dashscope.aliyuncs.com/compatible-mode/v1` | `qwen-plus`  <br>   `qwen3-max` |
-| OpenAI | `https://api.openai.com/v1` | `gpt-4o` <br> `gpt-4.1` <br> `o1` <br> `o3-mini` <br> `gpt-4.5-preview` <br> `gpt-4.1-mini` <br> `o4-mini` |
-| Azure OpenAI | Obtain from Azure official website | `gpt-4o` <br> `o1-mini` <br>  `o3-mini` |
-
-You can obtain API Keys from the official websites of these model vendors, add model configurations on the EMQX Neuron page, and enable them. Multiple large models can be configured on the page simultaneously, but only one model can be enabled for use.
-
-![alt text](_assets/llm-config-en.png)
-
-::: tip
-1. Please ensure that EMQX Neuron can connect to the internet normally and access the model's API.
-2. Small models or excessively outdated models will affect the quality of generated Python plugins. The models in the above table are recommended, and new models released by various vendors can also be used in the future.
-:::

@@ -17,9 +17,9 @@ You can create multiple data groups under each node to categorize tags. For exam
 
 You can create multiple collection tags under each group. For example, if a temperature sensor collects multiple temperature values, each temperature value is a tag.
 
-### Plugin
+### Driver and Application
 
-In EMQX Neuron, each plugin corresponds to an implementation of a protocol. For example, one Modbus TCP protocol corresponds to one plugin, and the MQTT protocol corresponds to one plugin.
+In EMQX Neuron, each southbound driver implements one collection protocol and each northbound application implements one way of forwarding data. Modbus TCP, for example, corresponds to a southbound driver, and MQTT to a northbound application.
 
 ## Data types
 
@@ -129,7 +129,7 @@ If the tag attribute is both READ and WRITE, the value is 01 + 02 = 03, and so o
 * DISCONNECTED = 0
 * CONNECTED = 1
 
-## Plugin type
+## Driver and application types
 
 * STATIC = 0
 * SYSTEM = 1

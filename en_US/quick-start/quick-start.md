@@ -136,14 +136,14 @@ Data monitoring displays values in groups:
 
 ### Create northbound application node
 
-Northbound application nodes are used for data interaction between EMQX Neuron and various northbound applications. Taking the MQTT plug-in as an example, a new MQTT node is added.
+Northbound application nodes are used for data interaction between EMQX Neuron and various northbound applications. Taking the MQTT application as an example, a new MQTT node is added.
 
 Select `North Apps` in `Data Collection` menu and click `Add Application` to add a new application, as shown in the figure below.
 
 ![north-add](./_assets/north-add.png)
 
 - Name: fill in the application name, for example, mqtt;
-- Plug-in: Select the MQTT plug-in from the drop-down box;
+- Application: Select MQTT from the drop-down box;
 - Click `Create` to add a new application.
 
 ### Configure northbound application nodes

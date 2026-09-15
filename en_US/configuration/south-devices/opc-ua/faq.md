@@ -1,6 +1,6 @@
 ## FAQ
 
-## The device status is "Disconnected" for a long time or Error code - ERROR(3002): Plug-in is not connected
+## The device status is "Disconnected" for a long time or Error code - ERROR(3002): Driver is not connected
 
 * Test whether the OPC UA server port is available by Telnet tool, command
 
@@ -20,6 +20,6 @@
 
 * Provide EMQX Neuron device logs to developers to help troubleshoot issues.
 
-## Error code - ERROR(3008): Plug-in Tag value is invalid
+## Error code - ERROR(3008): Driver tag value is invalid
 
 * Read timeout, you can adjust the Interval value of Group appropriately.

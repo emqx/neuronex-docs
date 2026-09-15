@@ -1,6 +1,6 @@
 # Mitsubishi FX
 
-The Mitsubishi FX plug-in is used to access Mitsubishi's FX0, FX2, FX3 and other PLC series via the FX programming port.
+The Mitsubishi FX driver is used to access Mitsubishi's FX0, FX2, FX3 and other PLC series via the FX programming port.
 
 ## Add Device
 
@@ -25,7 +25,7 @@ After clicking **Create**, you will be redirected to the **Device Configuration*
 
 ## Configure Data Groups and Tags
 
-After the plug-in is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
+After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
 
 Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking on **Create**, then specifying the group name and data collection interval.
 

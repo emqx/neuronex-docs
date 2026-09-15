@@ -1,15 +1,8 @@
 {
   "cn": [
     {
-      "title": "介绍",
-      "path": "./",
-      "collapsed": true,
-      "children": [
-        {
-          "title": "许可证政策",
-          "path": "introduction/license/license-policy"
-        }
-      ]
+      "title": "产品概览",
+      "path": "./"
     },
     {
       "title": "快速入门",
@@ -39,6 +32,10 @@
         {
           "title": "主备模式",
           "path": "best-practise/master-backup"
+        },
+        {
+          "title": "许可证政策",
+          "path": "introduction/license/license-policy"
         },
         {
           "title": "申请和安装许可证",
@@ -1083,10 +1080,6 @@
           "collapsed": true,
           "children": [
             {
-              "title": "大语言模型 LLM - 实时监控预防工业火灾",
-              "path": "best-practise/llm-example"
-            },
-            {
               "title": "ECP 构建饮料生产数字化平台",
               "path": "best-practise/smartfactory1"
             },
@@ -1118,10 +1111,6 @@
                   "path": "dev-guide/dev-guide"
                 }
               ]
-            },
-            {
-              "title": "AI 生成 Python 插件最佳实践指南",
-              "path": "best-practise/llm-portable-plugin"
             }
           ]
         }
@@ -1132,6 +1121,10 @@
       "path": "reference/overview",
       "collapsed": true,
       "children": [
+        {
+          "title": "架构",
+          "path": "introduction/architecture"
+        },
         {
           "title": "HTTP API",
           "path": "api/api",
@@ -1191,15 +1184,8 @@
   ],
   "en": [
     {
-      "title": "Introduction",
-      "path": "./",
-      "collapsed": true,
-      "children": [
-        {
-          "title": "License Policy",
-          "path": "introduction/license/license-policy"
-        }
-      ]
+      "title": "Product Overview",
+      "path": "./"
     },
     {
       "title": "Quick Start",
@@ -1229,6 +1215,10 @@
         {
           "title": "Master-Backup Mode",
           "path": "best-practise/master-backup"
+        },
+        {
+          "title": "License Policy",
+          "path": "introduction/license/license-policy"
         },
         {
           "title": "License Management",
@@ -2272,10 +2262,6 @@
           "collapsed": true,
           "children": [
             {
-              "title": "LLM fire monitoring",
-              "path": "best-practise/llm-example"
-            },
-            {
               "title": "Beverage production digital platform",
               "path": "best-practise/smartfactory1"
             },
@@ -2307,10 +2293,6 @@
                   "path": "dev-guide/dev-guide"
                 }
               ]
-            },
-            {
-              "title": "AI-generated Python Plugin Guide",
-              "path": "best-practise/llm-portable-plugin"
             }
           ]
         }
@@ -2321,6 +2303,10 @@
       "path": "reference/overview",
       "collapsed": true,
       "children": [
+        {
+          "title": "Architecture",
+          "path": "introduction/architecture"
+        },
         {
           "title": "HTTP API",
           "path": "api/api",

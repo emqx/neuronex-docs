@@ -9,7 +9,7 @@
 
 This issue is likely due to the broker forcing the MQTT client to disconnect. Please ensure the configured [**Client ID**] parameter is unique, or that the broker is set up properly.
 
-[**Client ID**]: ./overview.md#parameters
+[**Client ID**]: ./overview.md#configure-application
 
 ## Why the SparkplugB application side does not see the northbound data set?
 

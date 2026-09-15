@@ -1,8 +1,8 @@
 # Your First Rule
 
-This page picks up where the [Quick Start](../quick-start/quick-start.md) left off. There, device data was collected and forwarded to MQTT unchanged. Here we add one edge-processing step: increment the collected value by 1 and publish it to a dynamic topic.
+This page picks up where the [Quick Start](../quick-start/quick-start.md) left off. There, device data was collected and forwarded to MQTT unchanged. This page adds one edge-processing step: increment the collected value by 1 and publish it to a dynamic topic.
 
-It assumes you already have the `modbus-tcp` southbound driver and the `group-1` collection group from the Quick Start.
+It assumes the `modbus-tcp` southbound driver and the `group-1` collection group from the Quick Start are already configured.
 
 ## Step 1 · Feed data into the rules engine
 

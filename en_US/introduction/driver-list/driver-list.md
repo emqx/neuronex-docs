@@ -1,12 +1,12 @@
 # Southbound Drivers
 
-Southbound drivers collect device data by protocol. Northbound applications send data to a cloud platform or processing engine. You need at least one of each for protocol conversion.
+EMQX Neuron talks to field devices through southbound drivers, one per protocol. The tables below list every supported protocol and device model by category; open a page for its connection parameters, address format, and connection examples.
 
-For the generic setup steps, see [Create a Southbound Driver](../../configuration/south-devices/south-devices.md). For custom development, see the [SDK Tutorial](../../dev-guide/sdk-tutorial/sdk-tutorial.md).
+For the generic setup steps, see [Create a Southbound Driver](../../configuration/south-devices/south-devices.md). For a protocol that is not listed, you can write your own driver — see the [SDK Tutorial](../../dev-guide/sdk-tutorial/sdk-tutorial.md).
 
 ## Southbound Driver List
 
-### Global Standards
+### Modbus
 
 | <div style="width:120pt">Protocol Name</div>               | <div style="width:100pt">Communication Interface</div> | <div style="width:80pt">Remark</div> |
 | ------------------------------------------------------------ |  ------------ | -------------------------------- |
@@ -14,15 +14,12 @@ For the generic setup steps, see [Create a Southbound Driver](../../configuratio
 | [Modbus RTU](../../configuration/south-devices/modbus-rtu/modbus-rtu.md)              | Serial port    |  - |
 | [Modbus RTU over TCP](../../configuration/south-devices/modbus-rtu/modbus-rtu.md)     | Ethernet  |  See the Ethernet link option in Modbus RTU |
 | [Modbus Ascii](../../configuration/south-devices/modbus-ascii/modbus-ascii.md)           | Serial port  |  - |
-| [OPC UA](../../configuration/south-devices/opc-ua/overview.md)                  | Ethernet  |  - |
-| [OPC DA](../../configuration/south-devices/neuhub/opcda.md)                  | Ethernet  |  Access via NeuronHUB |
-| [CIP Ethernet/IP](../../configuration/south-devices/ethernet-ip/ethernet-ip.md)         | Ethernet  | - |
-| [SECS GEM HSMS](../../configuration/south-devices/secs-gem/secs-gem.md)         | Ethernet  |  Semiconductor Industry Protocol |
 
-### PLC Drivers
+### PLC and Motion
 
 | <div style="width:120pt">Protocol Name</div>    | <div style="width:100pt">Communication Interface</div> | <div style="width:40pt">Remark</div> |
 | ------------------------------------------------------------ | ------ | ---- |
+| [CIP Ethernet/IP](../../configuration/south-devices/ethernet-ip/ethernet-ip.md)         | Ethernet  | - |
 | [Siemens S7 ISO TCP](../../configuration/south-devices/siemens-s7/s7.md)                                          | Ethernet    | connect to Siemens S200、S200smart、S1200、S1500 PLC |
 | [Siemens S7 ISOTCP for 300/400](../../configuration/south-devices/siemens-s7/s7.md) | Ethernet  | s7-300/400 |
 | [Siemens MPI](../../configuration/south-devices/siemens-mpi/mpi.md) | Serial port  | Connect to devices that support Siemens MPI protocol |
@@ -58,7 +55,14 @@ For the generic setup steps, see [Create a Southbound Driver](../../configuratio
 
 
 
-### Electricity
+### OPC
+
+| <div style="width:120pt">Protocol Name</div> | <div style="width:100pt">Communication Interface</div> | <div style="width:80pt">Remark</div> |
+| ------------- | ------ | ---- |
+| [OPC UA](../../configuration/south-devices/opc-ua/overview.md)                  | Ethernet  |  - |
+| [OPC DA](../../configuration/south-devices/neuhub/opcda.md)                  | Ethernet  |  Access via NeuronHUB |
+
+### Power and Energy
 
 | Protocol Name             |   <div style="width:100pt">Communication Interface</div>  |  Remark     |
 | ------------------- | ------ |  ---------- |
@@ -71,14 +75,7 @@ For the generic setup steps, see [Create a Southbound Driver](../../configuratio
 | [IEC 61850](../../configuration/south-devices/iec61850/overview.md)           | Ethernet    | - |
 | [DNP 3.0](../../configuration/south-devices/dnp3/dnp3.md)         | Ethernet  |  - |
 
-### Building Automation
-
-| Protocol Name         |  <div style="width:100pt">Communication Interface</div>    | Remark      | 
-| -------------- | ------- | ---------- | 
-| [BACnet IP](../../configuration/south-devices/bacnet-ip/bacnet-ip.md)      | Ethernet  | -        | 
-| [KNXnet IP](../../configuration/south-devices/knxnet-ip/knxnet-ip.md)      | Ethernet  | -        | 
-
-### CNC and Robots
+### CNC
 
 | CNC Vendor | CNC Model | <div style="width:60pt">Interface</div> | <div style="width:100pt">EMQX Neuron Protocol</div> | Remark |
 | ------------- | ------- | ----- | ----- |----- |
@@ -94,29 +91,23 @@ For the generic setup steps, see [Create a Southbound Driver](../../configuratio
 | Brother | Brother CNC devices | Ethernet | [Brother CNC](../../configuration/south-devices/brother-cnc/brother-cnc.md) | |
 | Mazak | Mazak CNC devices | Ethernet | [Mazak CNC](../../configuration/south-devices/mazak-udp/mazak-udp.md) | |
 
-### Other
+### Building and Environment
+
+| Protocol Name         |  <div style="width:100pt">Communication Interface</div>    | Remark      | 
+| -------------- | ------- | ---------- | 
+| [BACnet IP](../../configuration/south-devices/bacnet-ip/bacnet-ip.md)      | Ethernet  | -        | 
+| [KNXnet IP](../../configuration/south-devices/knxnet-ip/knxnet-ip.md)      | Ethernet  | -        | 
+| [HJ212-2017](../../configuration/south-devices/hj212-2017/hj212-2017.md) | Ethernet / serial | Chinese environmental monitoring standard |
+
+### Others
 
 | Protocol Name | <div style="width:100pt">Communication Interface</div> | Remark |
 | ------------- | ------- | ----- |
-| [HJ212-2017](../../configuration/south-devices/hj212-2017/hj212-2017.md) | Ethernet / serial | Devices that support the HJ212-2017 environmental protocol |
+| [NON A11](../../configuration/south-devices/nona11/nona11.md) | Serial port | Agricultural machinery standard |
+| [SECS GEM HSMS](../../configuration/south-devices/secs-gem/secs-gem.md)         | Ethernet  |  Semiconductor Industry Protocol |
+| [SNMP](../../configuration/south-devices/snmp/snmp.md) | Ethernet | Collect status from switches, servers, and other network devices |
+| [NeuronHUB](../../configuration/south-devices/neuhub/neuhub.md) | Ethernet | Windows-side agent for OPC DA, OPC AE, GE Historian, and some CNC controllers |
 
-## Northbound Applications
-
-### Cloud Connection
-
-| Protocol Name                                  | Remark                                 |
-| --------------------------------------- | ----------------------------------- |
-| RESTful API            | Provides standard RESTful API interfaces   |
-| [MQTT](../../configuration/north-apps/mqtt/overview.md)                   | MQTT protocol integration   |
-| [SparkplugB](../../configuration/north-apps/sparkplugb/overview.md)       | SparkplugB is an industrial IoT data transfer specification built on MQTT 3.1.1   |
-| [Azure IOT](../../configuration/north-apps/azure-iot/overview.md)                   | Integration with Azure IoT Hub   |
-| [AWS IOT](../../configuration/north-apps/aws-iot/overview.md)                   | Integration with AWS IoT Core   |
-| [Websocket](../../configuration/north-apps/websocket/websocket.md)              | WebSocket protocol integration   |
-| [OPC UA Server](../../configuration/north-apps/opcua-server/overview.md)          | Exposes OPC UA server services   |
-| [Kafka](../../configuration/north-apps/kafka/overview.md)              | Kafka protocol integration; publish collected data to Kafka for further processing   |
-
-### Applications
-
-| Protocol Name                                  | Remark              |
-| --------------------------------------- | ------------------- |
-| [DataProcessing](../../configuration/north-apps/ekuiper/overview.md)               | Integration with data processing module   |
+::: tip
+For northbound applications (MQTT, Sparkplug B, OPC UA Server, AWS IoT, Azure IoT, Kafka, and more), see [Northbound Applications](../../configuration/north-apps/catalog.md).
+:::

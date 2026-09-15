@@ -1,72 +1,88 @@
-# Configure groups and tags
+# Groups and Tags
 
-Tags belong to collection groups. Each group has its own polling interval. To talk to a device, add groups and tags on the southbound driver. After that, live values appear in data monitoring.
+A **tag** is one address inside a device, with read/write attributes, a data type, and a precision. A **group** is a set of tags with its own polling interval.
 
-## Create a group in the device node
+The group is the unit of collection, reporting, and subscription: every tag in a group is polled at the same interval, packed into a single message, and published together; northbound applications also subscribe per group. **How you divide tags into groups therefore determines the shape of the published payload, its size, and the bandwidth it consumes** — decide on grouping before configuring tags.
 
-Create collection groups, and data in the same group will be collected and reported at the same frequency.
+## Grouping strategy
 
-Click the newly added device node to enter the group list page, and click `Create` to create the group.
+**Group by polling interval.** This matters most. Temperature and level readings change slowly and a five-second interval is plenty, while vibration or current may need 100 ms. Putting them in one group polls the slow values at the fast rate — loading the device unnecessarily and filling every payload with values that have not changed.
 
-* Name: Fill in the name of the group, such as group-1.
-* Interval: The collection and reporting frequency of this group of tags, in milliseconds, 100 means collecting once every 100ms, and the value of the entire group of tags is reported once.
+**Group by destination.** Northbound applications subscribe per group. If some tags go to the cloud while others are only read by on-site SCADA, put them in separate groups so each can be subscribed independently.
 
+**Group by device or process section.** Runtime statistics (`group_last_timer_ms`, `group_tags_total`) are reported per group, so grouping that mirrors the plant structure makes problems easier to locate.
 
-## Add data tags to the group
+**Keep groups a reasonable size.** All tags in a group are published in one message, so a larger group means a larger payload. After the driver runs, check `group_last_timer_ms`: if it approaches or exceeds the group's interval, the poll cannot finish within one cycle and the group should be split or the interval widened.
 
-Add the data tags that need to be collected, including tags addresses, tags attributes, data types, etc.
+Limits: at most **512** groups per southbound driver, and a minimum polling interval of **100 ms**. For the full list, see [Configuration specification](../introduction.md#configuration-specification).
 
-Click the `Tag List` icon in the group to enter the Tag List page .
+## Create a group
 
-Click the `Create` button to enter the add tag page, as shown in the figure below.
+Click the driver node to open its group list, then click **Create Group**:
+
+| <div style="width:70pt">Field</div> | Description |
+| --- | --- |
+| **Name** | Group name, up to 128 characters. It appears in the default upload topic and in OPC UA NodeIds |
+| **Interval** | Polling and reporting interval for the group, in milliseconds, minimum 100 |
+
+## Add tags
+
+Open **Tag List** on the group, then click **Add Tag**:
 
 ![tags-add](../south-devices/assets/tags-add.png)
 
-* **Name**: fill in the tag name, for example, tag1;
-* **Attribute**: Pull down to select Tag attributes, such as read, write, subscribe, static, and support the configuration of multiple tag types. For an introduction to different types of tags, see [Tag Attributes](#tag-attributes);
-* **Type**: drop-down to select data type, for example, int16, uint16, int32, uint32, float, bit;
-* **Address**: Fill in the tag address. Different driver protocols have different address definition specifications. For details, please refer to [Create Southbound Driver](../south-devices/south-devices.md). Taking the Modbus protocol as an example, 1!40001. `1` represents the tag site number set in the Modbus simulator, and `40001` represents the tag register address.
-* **Decimal**: not filled in by default; when the tag attribute is read, it supports setting Decimal. At this time, `device value` * Decimal = `display value`.
-* **Bias**: not filled in by default; when the tag attribute is read, it supports setting Bias. At this time, `device value` + Bias = `display value`.
-* **Precision**: Configure the precision when the tag type is `float` or `double`, the accuracy range is 0 ~ 17
-* **Description**: Leave blank by default.
+| <div style="width:70pt">Field</div> | Description |
+| --- | --- |
+| **Name** | Tag name, up to 128 characters |
+| **Attribute** | `read`, `write`, `subscribe`; multiple may be selected — see [Tag attributes](#tag-attributes) |
+| **Type** | Data type. Supported types differ per driver; see the relevant driver page |
+| **Address** | The format differs per driver. In Modbus, `1!40001` means slave `1`, holding register `40001` |
+| **Decimal** | Optional — see [Shaping the data](#shaping-the-data) |
+| **Bias** | Optional — see [Shaping the data](#shaping-the-data) |
+| **Precision** | Configurable for `float` and `double`, range 0–17 |
+| **Description** | Optional, up to 256 characters |
 
-### Tag attributes
+## Tag attributes
 
-There are three types of tags: `Read`, `Write` and `Subscribe`.
+| Attribute | Behavior |
+| --- | --- |
+| **read** | Polled at the group's interval |
+| **write** | Allows writes from a northbound application, the data monitoring page, or the HTTP API. Without it, a write returns an error |
+| **subscribe** | Sends a message to northbound applications only when the value changes |
 
-- Read and Write type tags are used to read data and write data respectively.
+Attributes can be combined. A tag that is both collected and controlled needs `read` and `write` together.
 
-- Subscribing to a tag will only send messages to north apps when the data changes, and will not send messages when there are no changes. For example, the default data is 0, when the data is changed to 2, a message will be sent. In MQTTX the payload looks like this:
+`subscribe` suits discrete and status tags that rarely change: the device is still polled at the group's interval, but a message is produced only when the value moves, which cuts uplink traffic significantly. For example, a tag that defaults to 0 publishes only when it changes to 2:
 
-  ![mqttx_subscribe](../south-devices/assets/mqttx_subscribe.png) In MQTTX the payload looks like this:
+![mqttx_subscribe](../south-devices/assets/mqttx_subscribe.png)
 
-  ![mqttx_subscribe](../south-devices/assets/mqttx_subscribe.png) 
+## Shaping the data
 
-### Tag Precision
+The raw value in a device is often not the value the business needs — a register may hold an integer scaled by ten, or a baseline may have to be subtracted. This conversion can happen at collection time so downstream systems receive usable values directly.
 
-The tag precision is configured when the tag type is `float` or `double`. The accuracy range is 0 ~ 17.The collection specifications of tag precision are as follows:
+| Parameter | Formula | Constraints |
+| --- | --- | --- |
+| **Decimal** | device value × decimal = reported value | Applies only when the tag attribute is `read` |
+| **Bias** | device value + bias = reported value | Applies only when the tag attribute is `read`; unavailable when the tag also has `write`; numeric and float types only |
 
-- If the precision is not set, the float or double tag retains 5 decimal places by default.
+### Precision
 
-- Starting from the second decimal place, if two consecutive `00` or `99` appear, rounding will be performed, for example, `1.02990` will display `1.03`, and `1.80012` will display `1.8`.
+Precision is configurable for `float` and `double` types, range 0–17:
 
-- If the precision is set for the point, EMQX Neuron will not perform rounding.
+- With no precision set, five decimal places are kept by default.
+- From the second decimal place on, two consecutive `00` or `99` digits trigger rounding — `1.02990` displays as `1.03`, and `1.80012` as `1.8`.
+- Once a precision is set, EMQX Neuron no longer applies that rounding.
 
-## Test the connection
-
-After the tag creation is completed, the status of the device is **Running**, and the connection status should be **Connected**. If the connection status is still **Not Connected** at this time, please first execute the following command on the EMQX Neuron running environment to confirm whether the EMQX Neuron running environment can access the corresponding IP and port:
-
-```bash
-$ telnet <IP of the PC running the Modbus simulator> 502
-```
-
-:::tip
-Please confirm that the IP and Port are set correctly during device configuration and the firewall is turned off.
+::: tip
+For more involved conversion, filtering, or aggregation — a formula across several tags, or an average over a time window — use SQL in [Data Processing](../../streaming-processing/overview.md).
 :::
 
-### Tag Reading Test
+## Verify
 
-In the **Add tag** page, support tag reading test. Currently only support Modbus TCP driver.
+Once tags exist, the driver node should move to **Running** and **Connected**. If it stays **Disconnected**, see [Diagnosing a connection](../south-devices/south-devices.md#diagnosing-a-connection).
+
+The **Add Tag** page can read a tag directly to confirm the address is correct (Modbus TCP driver only):
 
 ![tag-test-en](../south-devices/assets/tag-test-en.png)
+
+With the configuration in place, open [Data Monitoring and Device Control](../../admin/monitoring.md) to see live values. For large tag counts, use [Excel import](../import-export/import-export.md) instead of entering them one by one.

@@ -6,7 +6,7 @@ The **User Management** page provides an overview of all active Dashboard users.
 
 ## Create User
 
-To add a new user, simply click the **Create User** button. A pop-up dialog box will prompt you to enter the necessary user details. Once you have entered them, click the **Create** button to generate the user account. For further user management, such as editing user information, updating passwords, or deleting users, you can easily access these options through the **Action** column.
+Click the **Create User** button at the top right of the page, fill in the user details in the dialog box, and click **Create**. Editing user information, updating passwords, and deleting users are all done from the **Action** column of the list.
 
 ![alt text](_assets/user_info_en.png)
 

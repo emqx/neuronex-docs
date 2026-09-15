@@ -1,44 +1,32 @@
 # Data Collection and Forwarding
 
-Install or confirm the required drivers first, then add a southbound driver, configure tags, and monitor values. This section covers the complete workflow from device collection, tag configuration, and monitoring to northbound forwarding. Per-protocol parameters and examples are in [Southbound Drivers](../introduction/driver-list/driver-list.md).
+This section is the configuration manual for real projects: connecting real devices, scaling up, and running reliably over time. To get one pipeline working in fifteen minutes with a simulator instead, see the [Quick Start](../quick-start/quick-start.md).
 
-Read this section in sidebar order:
+## Configuration flow
 
-1. [Create a Southbound Driver](./south-devices/south-devices.md): create the node, groups, and tags
-2. [Data Monitoring](../admin/monitoring.md): confirm tags are collecting
-3. [Modbus TCP Server Simulator](./modbus-simulator.md): test collection without hardware
-4. [Data Forwarding](../application/overview.md): create a northbound application and subscribe to southbound data
+| Step | What to do | Key point |
+| --- | --- | --- |
+| 1 | [Create a southbound driver](./south-devices/south-devices.md) | Pick the driver for the device protocol and fill in connection parameters. Per-protocol parameters, data types, and address formats are in [Southbound Drivers](../introduction/driver-list/driver-list.md) |
+| 2 | [Groups and tags](./groups-tags/groups-tags.md) | **Settle the grouping strategy first** — the group is the unit of collection, reporting, and subscription, so it determines payload shape and bandwidth |
+| 3 | [Data monitoring and device control](../admin/monitoring.md) | Confirm tags are collecting, and write back to devices from here |
+| 4 | [Create a northbound application](./north-apps/north-apps.md) | Choose where the data goes; for selection guidance see [Northbound Applications](./north-apps/catalog.md) |
+| 5 | [Subscribe to southbound data](./subscription.md) | Attach collection groups to the application and data starts flowing |
 
-## Key concepts
+Repeat steps 1 and 2 until every device is configured. Repeat steps 4 and 5 to send the same data to several destinations.
 
-### Drivers and Applications
-
-Southbound drivers collect device data; northbound applications send data to a cloud platform or processing engine. You need at least one of each for protocol conversion. For custom development, see the [SDK Tutorial](../dev-guide/sdk-tutorial/sdk-tutorial.md).
-
-### [Node](./south-devices/south-devices.md#add-a-southbound-device)
-
-A node is an instance of a driver or application. One EMQX Neuron process can run many nodes; the core framework routes messages between them.
-
-### [Group](./groups-tags/groups-tags.md) and [Tag](./groups-tags/groups-tags.md)
-
-A tag describes a device address, read/write attributes, and metadata such as precision. Tags belong to groups; each group has its own polling interval. Northbound nodes subscribe to southbound groups.
-
-## Configuration process
-
-1. [Create a southbound driver](./south-devices/south-devices.md): pick the driver for the device protocol, create a node, and set connection parameters.
-2. [Configure groups and tags](./groups-tags/groups-tags.md). You can also [import tags in batch](./import-export/import-export.md) from Excel.
-
-    :::tip
-    Repeat steps 1 and 2 until all required drivers, groups, and tags are created.
-    :::
-
-3. To send data to MQTT, the cloud, or a processing engine, go to [Data Forwarding](./north-apps/north-apps.md): create a northbound application and subscribe to southbound groups.
+For many devices, large tag counts, or a migration from KEPServerEX or Litmus Edge, see [Bulk Configuration and Migration](./bulk-config.md).
 
 The overall process is shown below:
 
 <img src="./_assets/config.png" alt="Configuration steps" style="zoom:40%;" />
 
+::: tip
+To filter, convert, or aggregate before forwarding, see [Data Processing](../streaming-processing/overview.md). For how nodes, groups, and tags relate, see [Architecture · Core data model](../introduction/architecture.md#core-data-model).
+:::
+
 ## Configuration specification
+
+Confirm the per-instance limits during project design:
 
 | Object | Limit |
 | --- | --- |
@@ -47,9 +35,11 @@ The overall process is shown below:
 | Tag address length | 128 characters |
 | Tag description length | 256 characters |
 | Group name length | 128 characters |
-| Maximum groups per southbound driver | 512 |
-| Maximum subscribed groups per northbound application | unlimited |
+| Groups per southbound driver | 512 |
+| Groups subscribed per northbound application | Unlimited |
 | Driver or application module name length | 32 characters |
 | Driver or application file name length | 64 characters |
 | Driver or application description length | 512 characters |
-| Southbound driver collection interval | minimum 100 milliseconds |
+| Southbound polling interval | 100 ms minimum |
+
+There is no hard limit on total tag count; it depends on the CPU and memory available. For measured figures, see [Performance](../performance/performance.md). With adequate hardware, keep a single instance under **100,000 tags** and **100 southbound drivers**; beyond that, split the workload across several EMQX Neuron instances. See [Hardware requirements](../installation/introduction.md#hardware-requirements).

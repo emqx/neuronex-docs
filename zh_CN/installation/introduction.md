@@ -69,6 +69,6 @@ EMQX Neuron 可以部署在工控机、网关设备和服务器上。在资源�
 
 ## 下一步
 
-- **装完先跑一遍** —— [快速入门](../quick-start/quick-start.md)，五步打通从采集到转发。
+- **安装后验证** —— [快速入门](../quick-start/quick-start.md)，五步完成从采集到转发的完整链路。
 - **配置许可证** —— 默认自带 30 点位免费额度，超出需要申请，见[许可证](./license.md)。
 - **生产环境高可用** —— 见[主备模式](../best-practise/master-backup.md)。

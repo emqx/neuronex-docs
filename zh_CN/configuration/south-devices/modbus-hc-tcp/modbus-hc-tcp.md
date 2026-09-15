@@ -172,7 +172,7 @@ Modbus 驱动的一个寄存器包含 2 个 bytes，在以 bytes 数据类型读
 
 ## 应用场景
 
-使用汇川的 PLC 编程软件 AutoShop 可以快速连接 PLC 和 EMQX Neuron 并调试，具体操作见 [Easy521 连接示例](./example/autoshop/autoshop-modbus)。
+使用汇川的 PLC 编程软件 AutoShop 可以快速连接 PLC 和 EMQX Neuron 并调试，具体操作见 [Easy521 连接示例](./example/autoshop/autoshop-modbus.md)。
 
 ## 数据监控
 

@@ -109,7 +109,7 @@ EMQX Neuron 支持 FINS TCP 协议，可以通过 FINS TCP 协议与欧姆龙 PL
 
 ## 应用场景
 
-本文将使用 Omron FINS TCP 驱动连接欧姆龙 CP2E PLC，实现读写 PLC 中的点位值，具体步骤，见 [CP2E 连接示例](./example/cp2e/cp2e)。
+本文将使用 Omron FINS TCP 驱动连接欧姆龙 CP2E PLC，实现读写 PLC 中的点位值，具体步骤，见 [CP2E 连接示例](./example/cp2e/cp2e.md)。
 
 ## 数据监控
 

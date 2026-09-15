@@ -423,7 +423,7 @@ If you would rather the primary not take over automatically — to avoid the dat
 
 ### Master Node Recovery
 
-1. Turn on the master node server, since we have set Keepalived and EMQX Neuron to start automatically in the previous steps, the master node will automatically start the Keepalived and EMQX Neuron service. Check the EMQX Neuron status of the master node through the following command:
+1. Power on the master node server. Because Keepalived and EMQX Neuron were configured to start automatically in the previous steps, the master node starts both services on boot. Check the EMQX Neuron status of the master node through the following command:
 
     ```shell
     sudo systemctl status neuronex

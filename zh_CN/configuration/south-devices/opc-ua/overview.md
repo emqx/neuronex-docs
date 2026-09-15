@@ -180,7 +180,7 @@ OPCUA Exentision Object 支持数组和嵌套。
 - [KEPServerEX](kepserverex.md)
 - [Industrial Gateway OPC Server](igs.md)
 - [Ignition](ignition.md)
-- [Prosys Simulation Server](prosys)
+- [Prosys Simulation Server](./prosys.md)
 - [Conditions and Alarms](conditions.md)
 
 ## 数据监控

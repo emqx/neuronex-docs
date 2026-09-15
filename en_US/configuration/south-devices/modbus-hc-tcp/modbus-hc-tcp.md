@@ -177,7 +177,7 @@ A register of the Modbus driver contains 2 bytes. When reading and writing Modbu
 
 ## Use Case
 
-Using Inovance' PLC programming software AutoShop, you can quickly connect to the PLC and EMQX Neuron for debugging. For specific operations, see [Connect to Easy521](./example/autoshop/autoshop-modbus).
+Using Inovance' PLC programming software AutoShop, you can quickly connect to the PLC and EMQX Neuron for debugging. For specific operations, see [Connect to Easy521](./example/autoshop/autoshop-modbus.md).
 
 ## Data Monitoring
 

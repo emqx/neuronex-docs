@@ -70,5 +70,5 @@ Versions are written as `x.y.z`:
 ## Next steps
 
 - **Try it end to end** — [Quick Start](../quick-start/quick-start.md) walks collection through forwarding in five steps.
-- **Set up a license** — 30 tags are free out of the box; beyond that you need a license. See [Licensing](./license.md).
+- **Set up a license** — 30 tags are included free by default; beyond that you need a license. See [Licensing](./license.md).
 - **Production high availability** — see [Master-Backup Mode](../best-practise/master-backup.md).

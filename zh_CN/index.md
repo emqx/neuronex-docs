@@ -108,7 +108,7 @@ html.dark .nxd .ah-g   { fill: #3ecf9a; }
   <text class="t sub" x="938" y="428" text-anchor="middle">历史库 · 组态软件</text>
 </svg>
 
-## 能做什么
+## 核心能力
 
 | <div style="width:60pt">能力</div> | 说明 | <div style="width:70pt">详见</div> |
 | --- | --- | --- |
@@ -117,16 +117,16 @@ html.dark .nxd .ah-g   { fill: #3ecf9a; }
 | **数据转发** | 上报到 IoT 平台与企业系统、写入数据库，或在现场以 OPC UA Server 对外开放数据 | [北向应用](./configuration/north-apps/catalog.md) |
 | **运维管理** | Web 控制台完成配置、用户与权限、日志下载、运行监控与告警，支持主备部署 | [运维](./admin/introduction.md) |
 
-## 从这里开始
+## 快速上手
 
-- **想先跑通一条链路** —— [快速入门](./quick-start/quick-start.md)，用 Docker 起一个实例，从模拟设备采集数据并转发到 MQTT。
+- **先验证一条完整链路** —— [快速入门](./quick-start/quick-start.md)，用 Docker 起一个实例，从模拟设备采集数据并转发到 MQTT。
 - **要装到生产环境** —— [安装与部署](./installation/introduction.md)，支持 tar.gz、rpm、deb、Docker，以及主备部署。
 - **先确认设备协议支不支持** —— [南向驱动](./introduction/driver-list/driver-list.md)，按协议和 CNC 型号查对照表。
 - **想了解内部怎么组成** —— [架构](./introduction/architecture.md)。
 
-## 数据往哪送
+## 数据去向
 
-如上图，采集和处理后的数据有四个去向：
+如上图所示，采集与处理后的数据有四个去向：
 
 | <div style="width:100pt">去向</div> | 方式 | 说明 |
 | --- | --- | --- |
@@ -137,9 +137,9 @@ html.dark .nxd .ah-g   { fill: #3ecf9a; }
 
 ### 在现场对外开放 OPC UA 服务
 
-前三种是 EMQX Neuron 主动把数据送出去，[OPC UA Server](./configuration/north-apps/opcua-server/overview.md) 是反过来的一条通道：EMQX Neuron 以 OPC UA 标准对外提供服务，厂内既有的 SCADA、HMI、MES 和历史库作为客户端直接连上来，订阅点位变化、读取实时值，也可以反向下发控制指令。
+前三种由 EMQX Neuron 主动上报数据，[OPC UA Server](./configuration/north-apps/opcua-server/overview.md) 是反过来的一条通道：EMQX Neuron 以 OPC UA 标准对外提供服务，厂内既有的 SCADA、HMI、MES 和历史库作为客户端直接连上来，订阅点位变化、读取实时值，也可以反向下发控制指令。
 
-对已经建成的产线，价值在于**不用改造上位机系统**——SCADA 本来就会说 OPC UA，接上之后，南向接入的上百种设备统一成一个 OPC UA 数据源，原本各说各话的 Modbus、西门子 S7、三菱、CNC 设备不再需要逐个对接。安全方面支持 Basic256Sha256 等安全策略、用户名密码认证，以及服务端证书与受信任客户端证书的双向校验。
+对已经建成的产线，价值在于**不用改造上位机系统**——SCADA 原生支持 OPC UA，接入之后，南向接入的上百种设备统一成一个 OPC UA 数据源，原本各说各话的 Modbus、西门子 S7、三菱、CNC 设备不再需要逐个对接。安全方面支持 Basic256Sha256 等安全策略、用户名密码认证，以及服务端证书与受信任客户端证书的双向校验。
 
 ## 部署与性能
 

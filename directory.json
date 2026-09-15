@@ -6,7 +6,14 @@
     },
     {
       "title": "快速入门",
-      "path": "quick-start/quick-start"
+      "path": "quick-start/quick-start",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "内置 Modbus TCP Server 模拟器",
+          "path": "configuration/modbus-simulator"
+        }
+      ]
     },
     {
       "title": "安装与部署",
@@ -44,7 +51,14 @@
             {
               "title": "组与点位",
               "path": "configuration/groups-tags/groups-tags"
-            },
+            }
+          ]
+        },
+        {
+          "title": "批量配置与迁移",
+          "path": "configuration/bulk-config",
+          "collapsed": true,
+          "children": [
             {
               "title": "基于模板配置",
               "path": "configuration/templates/templates"
@@ -52,29 +66,158 @@
             {
               "title": "批量点位配置",
               "path": "configuration/import-export/import-export"
+            },
+            {
+              "title": "驱动转换工具",
+              "path": "configuration/driver-migration-tool",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Kepware 到 Neuron 迁移指南",
+                  "path": "configuration/driver-migration-tool/kepware-to-neuron"
+                },
+                {
+                  "title": "Litmus Edge 到 Neuron 迁移指南",
+                  "path": "configuration/driver-migration-tool/litmus-edge-to-neuron"
+                }
+              ]
             }
           ]
         },
         {
-          "title": "数据监控",
-          "path": "admin/monitoring"
-        },
-        {
-          "title": "Modbus TCP Server 模拟器",
-          "path": "configuration/modbus-simulator"
-        },
-        {
-          "title": "数据转发",
-          "path": "application/overview",
+          "title": "数据监控与反控",
+          "path": "admin/monitoring",
           "collapsed": true,
           "children": [
             {
-              "title": "创建北向应用",
-              "path": "configuration/north-apps/north-apps"
+              "title": "设备反控功能详解",
+              "path": "best-practise/device-control"
+            }
+          ]
+        },
+        {
+          "title": "创建北向应用",
+          "path": "configuration/north-apps/north-apps"
+        },
+        {
+          "title": "订阅南向数据",
+          "path": "configuration/subscription"
+        }
+      ]
+    },
+    {
+      "title": "北向应用",
+      "path": "configuration/north-apps/catalog",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "数据上云",
+          "path": "configuration/north-apps/cloud",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "MQTT",
+              "path": "configuration/north-apps/mqtt/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "数据上下行格式",
+                  "path": "configuration/north-apps/mqtt/api"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "configuration/north-apps/mqtt/faq"
+                }
+              ]
             },
             {
-              "title": "订阅南向数据",
-              "path": "configuration/subscription"
+              "title": "AWS IoT",
+              "path": "configuration/north-apps/aws-iot/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "数据桥接到 AWS IoT Core",
+                  "path": "configuration/north-apps/aws-iot/example"
+                }
+              ]
+            },
+            {
+              "title": "Azure IoT",
+              "path": "configuration/north-apps/azure-iot/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "数据桥接到 Azure IoT Hub",
+                  "path": "configuration/north-apps/azure-iot/example"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "对接工业物联网平台（统一命名空间）",
+          "path": "configuration/north-apps/uns",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "Sparkplug B",
+              "path": "configuration/north-apps/sparkplugb/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "集成 EMQX",
+                  "path": "configuration/north-apps/sparkplugb/sparkplug"
+                },
+                {
+                  "title": "Ignition 连接示例",
+                  "path": "configuration/north-apps/sparkplugb/ignition"
+                },
+                {
+                  "title": "Cogent 连接示例",
+                  "path": "configuration/north-apps/sparkplugb/cogent"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "configuration/north-apps/sparkplugb/faq"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "对接上位系统",
+          "path": "configuration/north-apps/scada",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "OPC UA Server",
+              "path": "configuration/north-apps/opcua-server/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "UaExpert 连接示例",
+                  "path": "configuration/north-apps/opcua-server/uaexpert"
+                }
+              ]
+            },
+            {
+              "title": "WebSocket",
+              "path": "configuration/north-apps/websocket/websocket"
+            }
+          ]
+        },
+        {
+          "title": "接入大数据与边缘计算",
+          "path": "configuration/north-apps/analytics",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "Kafka",
+              "path": "configuration/north-apps/kafka/overview"
+            },
+            {
+              "title": "规则引擎应用",
+              "path": "configuration/north-apps/ekuiper/overview"
             }
           ]
         }
@@ -585,96 +728,6 @@
       ]
     },
     {
-      "title": "北向应用",
-      "path": "configuration/north-apps/catalog",
-      "collapsed": true,
-      "children": [
-        {
-          "title": "MQTT 应用",
-          "path": "configuration/north-apps/mqtt/overview",
-          "collapsed": true,
-          "children": [
-            {
-              "title": "数据上下行格式",
-              "path": "configuration/north-apps/mqtt/api"
-            },
-            {
-              "title": "常见问题",
-              "path": "configuration/north-apps/mqtt/faq"
-            }
-          ]
-        },
-        {
-          "title": "AWS IoT",
-          "path": "configuration/north-apps/aws-iot/overview",
-          "collapsed": true,
-          "children": [
-            {
-              "title": "数据桥接到 AWS IoT Core",
-              "path": "configuration/north-apps/aws-iot/example"
-            }
-          ]
-        },
-        {
-          "title": "Azure IoT",
-          "path": "configuration/north-apps/azure-iot/overview",
-          "collapsed": true,
-          "children": [
-            {
-              "title": "数据桥接到 Azure IoT Hub",
-              "path": "configuration/north-apps/azure-iot/example"
-            }
-          ]
-        },
-        {
-          "title": "规则引擎应用",
-          "path": "configuration/north-apps/ekuiper/overview"
-        },
-        {
-          "title": "Sparkplug B 应用",
-          "path": "configuration/north-apps/sparkplugb/overview",
-          "collapsed": true,
-          "children": [
-            {
-              "title": "集成 EMQX",
-              "path": "configuration/north-apps/sparkplugb/sparkplug"
-            },
-            {
-              "title": "Ignition 连接示例",
-              "path": "configuration/north-apps/sparkplugb/ignition"
-            },
-            {
-              "title": "Cogent 连接示例",
-              "path": "configuration/north-apps/sparkplugb/cogent"
-            },
-            {
-              "title": "常见问题",
-              "path": "configuration/north-apps/sparkplugb/faq"
-            }
-          ]
-        },
-        {
-          "title": "WebSocket 客户端",
-          "path": "configuration/north-apps/websocket/websocket"
-        },
-        {
-          "title": "OPCUA Server 应用",
-          "path": "configuration/north-apps/opcua-server/overview",
-          "collapsed": true,
-          "children": [
-            {
-              "title": "UaExpert 连接示例",
-              "path": "configuration/north-apps/opcua-server/uaexpert"
-            }
-          ]
-        },
-        {
-          "title": "Kafka 应用",
-          "path": "configuration/north-apps/kafka/overview"
-        }
-      ]
-    },
-    {
       "title": "数据处理",
       "path": "streaming-processing/overview",
       "collapsed": true,
@@ -1043,27 +1096,8 @@
               "path": "best-practise/plc-to-mqtt"
             },
             {
-              "title": "设备反控功能详解",
-              "path": "best-practise/device-control"
-            },
-            {
               "title": "OPCUA 点位发现功能",
               "path": "best-practise/opcua-tag-browser"
-            },
-            {
-              "title": "驱动转换工具",
-              "path": "configuration/driver-migration-tool",
-              "collapsed": true,
-              "children": [
-                {
-                  "title": "Kepware 到 Neuron 迁移指南",
-                  "path": "configuration/driver-migration-tool/kepware-to-neuron"
-                },
-                {
-                  "title": "Litmus Edge 到 Neuron 迁移指南",
-                  "path": "configuration/driver-migration-tool/litmus-edge-to-neuron"
-                }
-              ]
             }
           ]
         },
@@ -1181,7 +1215,14 @@
     },
     {
       "title": "Quick Start",
-      "path": "quick-start/quick-start"
+      "path": "quick-start/quick-start",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "Built-in Modbus TCP Server Simulator",
+          "path": "configuration/modbus-simulator"
+        }
+      ]
     },
     {
       "title": "Installation and Deployment",
@@ -1219,7 +1260,14 @@
             {
               "title": "Groups and Tags",
               "path": "configuration/groups-tags/groups-tags"
-            },
+            }
+          ]
+        },
+        {
+          "title": "Bulk Configuration and Migration",
+          "path": "configuration/bulk-config",
+          "collapsed": true,
+          "children": [
             {
               "title": "Template-based Configuration",
               "path": "configuration/templates/templates"
@@ -1227,29 +1275,158 @@
             {
               "title": "Batch Tag Configuration",
               "path": "configuration/import-export/import-export"
+            },
+            {
+              "title": "Driver Migration Tool",
+              "path": "configuration/driver-migration-tool",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Kepware to Neuron Migration Guide",
+                  "path": "configuration/driver-migration-tool/kepware-to-neuron"
+                },
+                {
+                  "title": "Litmus Edge to Neuron Migration Guide",
+                  "path": "configuration/driver-migration-tool/litmus-edge-to-neuron"
+                }
+              ]
             }
           ]
         },
         {
-          "title": "Data Monitoring",
-          "path": "admin/monitoring"
-        },
-        {
-          "title": "Modbus TCP Server Simulator",
-          "path": "configuration/modbus-simulator"
-        },
-        {
-          "title": "Data Forwarding",
-          "path": "application/overview",
+          "title": "Data Monitoring and Device Control",
+          "path": "admin/monitoring",
           "collapsed": true,
           "children": [
             {
-              "title": "Create a Northbound Application",
-              "path": "configuration/north-apps/north-apps"
+              "title": "Device Control",
+              "path": "best-practise/device-control"
+            }
+          ]
+        },
+        {
+          "title": "Create a Northbound Application",
+          "path": "configuration/north-apps/north-apps"
+        },
+        {
+          "title": "Subscribe to Southbound Data",
+          "path": "configuration/subscription"
+        }
+      ]
+    },
+    {
+      "title": "Northbound Applications",
+      "path": "configuration/north-apps/catalog",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "Send Data to the Cloud",
+          "path": "configuration/north-apps/cloud",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "MQTT",
+              "path": "configuration/north-apps/mqtt/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Upstream/Downstream Data Format",
+                  "path": "configuration/north-apps/mqtt/api"
+                },
+                {
+                  "title": "FAQ",
+                  "path": "configuration/north-apps/mqtt/faq"
+                }
+              ]
             },
             {
-              "title": "Subscribe to Southbound Data",
-              "path": "configuration/subscription"
+              "title": "AWS IoT",
+              "path": "configuration/north-apps/aws-iot/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Send data to AWS IoT Core",
+                  "path": "configuration/north-apps/aws-iot/example"
+                }
+              ]
+            },
+            {
+              "title": "Azure IoT",
+              "path": "configuration/north-apps/azure-iot/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Send data to Azure IoT Hub",
+                  "path": "configuration/north-apps/azure-iot/example"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Connect an IIoT Platform (Unified Namespace)",
+          "path": "configuration/north-apps/uns",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "Sparkplug B",
+              "path": "configuration/north-apps/sparkplugb/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Integrate with EMQX",
+                  "path": "configuration/north-apps/sparkplugb/sparkplug"
+                },
+                {
+                  "title": "Connect to Ignition",
+                  "path": "configuration/north-apps/sparkplugb/ignition"
+                },
+                {
+                  "title": "Connect to Cogent",
+                  "path": "configuration/north-apps/sparkplugb/cogent"
+                },
+                {
+                  "title": "FAQ",
+                  "path": "configuration/north-apps/sparkplugb/faq"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Serve Upper-Level Systems",
+          "path": "configuration/north-apps/scada",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "OPC UA Server",
+              "path": "configuration/north-apps/opcua-server/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Connect to OPC UA Server using UaExpert",
+                  "path": "configuration/north-apps/opcua-server/uaexpert"
+                }
+              ]
+            },
+            {
+              "title": "WebSocket",
+              "path": "configuration/north-apps/websocket/websocket"
+            }
+          ]
+        },
+        {
+          "title": "Feed Analytics and Edge Computing",
+          "path": "configuration/north-apps/analytics",
+          "collapsed": true,
+          "children": [
+            {
+              "title": "Kafka",
+              "path": "configuration/north-apps/kafka/overview"
+            },
+            {
+              "title": "Rules Engine Application",
+              "path": "configuration/north-apps/ekuiper/overview"
             }
           ]
         }
@@ -1760,96 +1937,6 @@
       ]
     },
     {
-      "title": "Northbound Applications",
-      "path": "configuration/north-apps/catalog",
-      "collapsed": true,
-      "children": [
-        {
-          "title": "MQTT",
-          "path": "configuration/north-apps/mqtt/overview",
-          "collapsed": true,
-          "children": [
-            {
-              "title": "Upstream/Downstream Data Format",
-              "path": "configuration/north-apps/mqtt/api"
-            },
-            {
-              "title": "FAQ",
-              "path": "configuration/north-apps/mqtt/faq"
-            }
-          ]
-        },
-        {
-          "title": "AWS IoT",
-          "path": "configuration/north-apps/aws-iot/overview",
-          "collapsed": true,
-          "children": [
-            {
-              "title": "Send data to AWS IoT Core",
-              "path": "configuration/north-apps/aws-iot/example"
-            }
-          ]
-        },
-        {
-          "title": "Azure IoT",
-          "path": "configuration/north-apps/azure-iot/overview",
-          "collapsed": true,
-          "children": [
-            {
-              "title": "Send data to Azure IoT Hub",
-              "path": "configuration/north-apps/azure-iot/example"
-            }
-          ]
-        },
-        {
-          "title": "Rules Engine Application",
-          "path": "configuration/north-apps/ekuiper/overview"
-        },
-        {
-          "title": "SparkplugB",
-          "path": "configuration/north-apps/sparkplugb/overview",
-          "collapsed": true,
-          "children": [
-            {
-              "title": "Integrate with EMQX",
-              "path": "configuration/north-apps/sparkplugb/sparkplug"
-            },
-            {
-              "title": "Connect to Ignition",
-              "path": "configuration/north-apps/sparkplugb/ignition"
-            },
-            {
-              "title": "Connect to Cogent",
-              "path": "configuration/north-apps/sparkplugb/cogent"
-            },
-            {
-              "title": "FAQ",
-              "path": "configuration/north-apps/sparkplugb/faq"
-            }
-          ]
-        },
-        {
-          "title": "WebSocket",
-          "path": "configuration/north-apps/websocket/websocket"
-        },
-        {
-          "title": "OPCUA Server",
-          "path": "configuration/north-apps/opcua-server/overview",
-          "collapsed": true,
-          "children": [
-            {
-              "title": "Connect to OPC UA Server using UaExpert",
-              "path": "configuration/north-apps/opcua-server/uaexpert"
-            }
-          ]
-        },
-        {
-          "title": "Kafka",
-          "path": "configuration/north-apps/kafka/overview"
-        }
-      ]
-    },
-    {
       "title": "Data Processing",
       "path": "streaming-processing/overview",
       "collapsed": true,
@@ -2217,27 +2304,8 @@
               "path": "best-practise/plc-to-mqtt"
             },
             {
-              "title": "Device Control",
-              "path": "best-practise/device-control"
-            },
-            {
               "title": "OPCUA Tag Browser",
               "path": "best-practise/opcua-tag-browser"
-            },
-            {
-              "title": "Driver Migration Tool",
-              "path": "configuration/driver-migration-tool",
-              "collapsed": true,
-              "children": [
-                {
-                  "title": "Kepware to Neuron Migration Guide",
-                  "path": "configuration/driver-migration-tool/kepware-to-neuron"
-                },
-                {
-                  "title": "Litmus Edge to Neuron Migration Guide",
-                  "path": "configuration/driver-migration-tool/litmus-edge-to-neuron"
-                }
-              ]
             }
           ]
         },

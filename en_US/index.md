@@ -108,7 +108,7 @@ html.dark .nxd .ah-g   { fill: #3ecf9a; }
   <text class="t sub" x="938" y="428" text-anchor="middle">Historians · HMI software</text>
 </svg>
 
-## What it does
+## Core capabilities
 
 | <div style="width:90pt">Capability</div> | Description | <div style="width:110pt">Learn more</div> |
 | --- | --- | --- |
@@ -117,14 +117,14 @@ html.dark .nxd .ah-g   { fill: #3ecf9a; }
 | **Data forwarding** | Publish to IoT platforms and enterprise systems, write into databases, or serve data on the plant floor through an OPC UA Server | [Northbound Applications](./configuration/north-apps/catalog.md) |
 | **Operations** | A web console for configuration, users and permissions, log download, runtime monitoring and alerts, with master-backup deployment | [Operations](./admin/introduction.md) |
 
-## Start here
+## Getting started
 
 - **Get one pipeline working first** — [Quick Start](./quick-start/quick-start.md): run an instance in Docker, collect from a simulated device, and forward to MQTT.
 - **Deploy to production** — [Installation and Deployment](./installation/introduction.md): tar.gz, rpm, deb, and Docker, plus master-backup deployment.
 - **Check whether your device protocol is supported** — [Southbound Drivers](./introduction/driver-list/driver-list.md): look up your protocol or CNC model in the compatibility tables.
 - **Understand how it is put together** — [Architecture](./introduction/architecture.md).
 
-## Where the data goes
+## Data destinations
 
 As the diagram shows, collected and processed data leaves in four directions:
 

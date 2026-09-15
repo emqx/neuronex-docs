@@ -60,7 +60,7 @@ The minimum collection interval of EMQX Neuron is `100ms`. If you need a lower i
 
 ## Does EMQX Neuron support device control?
 
-Yes. EMQX Neuron supports device control, provides several device control methods such as [RestAPI](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html#tag/rw), [MQTT](../configuration/north-apps/mqtt/api.md#写-tag), [edge computing control](../streaming-processing/sink/neuron.md), etc., and supports intelligent control decision-making of industrial equipment.
+Yes. EMQX Neuron supports device control, provides several device control methods such as [RestAPI](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html#tag/rw), [MQTT](../configuration/north-apps/mqtt/api.md#write-tag), [edge computing control](../streaming-processing/sink/neuron.md), etc., and supports intelligent control decision-making of industrial equipment.
 
 ## Does EMQX Neuron support self-developed drivers?
 

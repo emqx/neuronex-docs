@@ -37,7 +37,7 @@ The exact format of the data reported is controlled by the **Upload Format** par
 formats are the same as that of the [MQTT application], see [MQTT Upstream/downstream data format].
 
 
-[WebSocket]: https://en.wikipedia.org/wiki/WebSocke://en.wikipedia.org/wiki/WebSocket
+[WebSocket]: https://en.wikipedia.org/wiki/WebSocket
 [RFC 6455]: https://datatracker.ietf.org/doc/html/rfc6455
 [MQTT application]: ../mqtt/overview.md
 [MQTT API tags format]: ../mqtt/api.md#tags-format

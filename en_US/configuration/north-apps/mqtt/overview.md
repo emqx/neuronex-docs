@@ -69,7 +69,7 @@ Offline data caching is controlled by the **Offline Data Caching**, **Cache Memo
 The **Offline Data Caching** parameter is added since EMQX Neuron version 2.4.3. For older versions, you may disable offline data caching by setting both **Cache Memory Size** and **Cache Disk Size** to zero.
 :::
 
-The following table gives some statistics on disk space usage for offline caching (using the [Modbus TCP driver](../../south-devices/modbus-tcp/modbus-tcp)).
+The following table gives some statistics on disk space usage for offline caching (using the [Modbus TCP driver](../../south-devices/modbus-tcp/modbus-tcp.md)).
 
 - The first column is the number of tags in each MQTT message.
 - The second column is the MQTT message payload size in bytes for that many tags. 

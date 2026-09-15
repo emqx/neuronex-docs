@@ -1,6 +1,6 @@
 # 使用安装包安装
 
-本文介绍用 deb、rpm、tar.gz 三种安装包部署 EMQX Neuron。如果不确定选哪种，或者想省事，用[一键安装脚本](./introduction.md#快速安装)即可，它会自动判断并选择。
+本文介绍用 deb、rpm、tar.gz 三种安装包部署 EMQX Neuron。如不确定选用哪种格式，可使用[一键安装脚本](./introduction.md#快速安装)即可，它会自动判断并选择。
 
 ## 选择包格式
 

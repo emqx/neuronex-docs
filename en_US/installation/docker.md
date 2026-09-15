@@ -25,7 +25,7 @@ docker run -d --name neuronex \
 
 Open `http://localhost:8085` and sign in with the default account **admin** / **0000**.
 
-::: warning Always mount the data directory
+::: warning The data directory must be mounted
 `-v` maps a host directory onto the container's `/opt/neuronex/data`. **Without it, removing the container also destroys your driver configuration, tag lists, and rules.**
 :::
 

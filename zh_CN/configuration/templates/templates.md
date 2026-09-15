@@ -31,7 +31,7 @@ EMQX Neuron 模板功能只支持南向驱动。
 
   ![Add template group](./assets/template_add_group.png)
 
-为模板添加数据组的操作流程基本与[配置采集数据组和点位](../south-devices/south-devices.md#设置组和点位)中的相同。
+为模板添加数据组的操作流程基本与[组与点位](../groups-tags/groups-tags.md)中的相同。
 此处我们添加一个名为 *grp* 的数据组，时间间隔为 *3000* 。
 
   ![Template group list](./assets/template_group_list.png)

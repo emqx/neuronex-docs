@@ -132,7 +132,7 @@ sudo systemctl enable neuronex
 
 两个节点需要配置**完全相同**的采集服务，切换后才能无缝接管。
 
-1. 在主节点的控制台配置数采服务，例如建一个 Modbus TCP 南向驱动，确认能正常采集。
+1. 在主节点的控制台配置数采服务，例如创建一个 Modbus TCP 南向驱动，确认能正常采集。
 2. 把主节点的 `/opt/neuronex/data/` 目录复制到备节点的相同位置，覆盖原有配置。也可以在备节点手动配置一遍。
 3. 停止备节点的 EMQX Neuron 服务，进入「主节点运行、备节点待命」的初始状态：
 
@@ -427,7 +427,7 @@ sudo systemctl enable keepalived
 
 ### 主节点恢复
 
-1. 将主节点服务器开机，由于前序步骤中我们已经设置了 Keepalived 和 EMQX Neuron 开机自启动，所以主节点会自动启动 Keepalived 和 EMQX Neuron 服务。通过以下命令查看主节点的 EMQX Neuron 状态：
+1. 将主节点服务器开机，由于前序步骤中已设置 Keepalived 和 EMQX Neuron 开机自启动，所以主节点会自动启动 Keepalived 和 EMQX Neuron 服务。通过以下命令查看主节点的 EMQX Neuron 状态：
 
     ```shell
     sudo systemctl status neuronex

@@ -2,11 +2,8 @@
 
 [AWS IoT Core] provides secure, bi-directional communication for Internet-connected devices to connect to the AWS Cloud over MQTT.
 
-[MQTT] is a messaging protocol designed for IoT devices and applications operating on a publish/subscribe model. It's lightweight, efficient, reliable, and allows for real-time communication. MQTT is well-suited for environments with limited resources, where efficient use of power and bandwidth is necessary.
+The EMQX Neuron AWS IoT application is built on the [MQTT application] and comes preconfigured for AWS IoT Core: supply the device data endpoint plus the certificate and private key generated when you create a thing in the AWS IoT console. Upload formats, offline caching, and write-back all work the same as in the MQTT application.
 
-EMQX Neuron supports MQTT as one of its communication protocols. The EMQX Neuron AWS IoT application is based on the [MQTT application] to provide easy access to AWS IoT Core.
-
-[MQTT]: https://mqtt.org
 [MQTT application]: ../mqtt/overview.md
 [AWS IoT Core]: https://docs.aws.amazon.com/iot/
 
@@ -28,6 +25,10 @@ See the table below for the configuration parameters.
 | **Upload Format**               | JSON format of reported data, a required field: <br /><br /> - *values-format*, data are split into `values` and `errors` sub-objects. <br />- *tags-format*, tag data are put in a single array. <br /><br />Same as the MQTT application, see [MQTT Upstream/Downstream Data Format](../mqtt/api.md#write-tag) |
 | **Write Request Topic**         | MQTT topic to which the application subscribes for write requests. Same as the MQTT application, see [MQTT Upstream/Downstream Data Format](../mqtt/api.md#write-tag) (since 2.4.5) |
 | **Write Response Topic**        | MQTT topic to which the application sends write responses.        |
+| **Offline Data Caching**    | Cache messages while the connection is down and sync them once it is restored. See [Offline Data Caching](../mqtt/overview.md#offline-data-caching) |
+| **Cache Memory Size**       | In-memory cache limit in MB when publishing fails, required; range [0, 1024]. Must not exceed the disk cache size. |
+| **Cache Disk Size**         | On-disk cache limit in MB when publishing fails, required; range [0, 10240].<br />If nonzero, the memory cache size must also be nonzero. |
+| **Cache Sync Interval**     | Interval in ms between messages when replaying the cache after the connection is restored, required; range [10, 120000] |
 | **Device Data Endpoint**        | AWS IoT device data endpont.                                 |
 | **Root CA Certificate**         | AWS IoT data endpoint root CA certificate.                   |
 | **Device Certificate**          | Device Certificate corresponding to a `thing` object in the AWS IoT console. |
@@ -40,7 +41,7 @@ After application configuration, data forwarding can be enabled via southbound d
 
 Click the device card or row on the **North Apps** page, then **Add Subscription** on the **Group List** page. And set the following:
 
-- **South device**: Select the southbound device you want to subscribe to, for example, 'modbus-tcp-1'.
+- **South device**: Select the southbound device to subscribe to, for example, 'modbus-tcp-1'.
 - **Group**: Select a group from the southbound device, for example, 'group-1'.
 - **Topic**: Specify the reporting topic, for example '/neuron/mqtt/upload'.
 

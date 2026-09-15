@@ -1,4 +1,4 @@
-# SparkPlugB
+# Sparkplug B
 
 Sparkplug B is an industrial IoT data transfer specification built on MQTT 3.1.1. Sparkplug B provides a unified way for device manufacturers and software providers to share data by making MQTT networks state-aware and interoperable while ensuring flexibility and efficiency.
 
@@ -9,8 +9,6 @@ Data collected by EMQX Neuron from devices can be transferred from the edge to t
 Navigate to **Data Collection -> North Apps** and click **Add Application** to add a Sparkplug B client node.
 
 ## Configure Application
-
-Sparkplug B is an application-based protocol running on top of MQTT, so the setup in EMQX Neuron is similar to the MQTT application.
 
 Sparkplug B is an application-based protocol running on top of MQTT, so the setup in EMQX Neuron is similar to the MQTT application.
 
@@ -41,17 +39,42 @@ Only the `Group ID` and `Node ID` are from the Sparkplug B specification, the re
 
 ## Add Subscription
 
-After application configuration, data forwarding can be enabled via southbound device subscriptions.
+Data is reported per **group**. Click the Sparkplug B application card to open the **Group List** page, then click **Add Subscription** and pick the groups to report. Once subscribed, the application starts receiving and publishing southbound data. For the generic steps, see [Subscribe to Southbound Data](../../subscription.md).
 
-Click the device card or row on the **North Apps** page, then **Add Subscription** on the **Group List** page. And set the following:
+On the same page you can give each group a set of **static tags** — JSON key/value pairs published alongside the collected data to describe fixed device attributes:
 
-- **South device**: Select the southbound device you want to subscribe to, for example, 'modbus-tcp-1'.
-- **Group**: Select a group from the southbound device, for example, 'group-1'.
-
-Add static tags in Json format and report them simultaneously with the southbound data tags:
-``` json
-{"location":"sh","number":"12345613"}
+```json
+{"location": "sh", "sn_number": "12345613"}
 ```
+
+See [Upstream/Downstream Data Format · Static Tags](../mqtt/api.md#static-tags) for details.
+
+## Topic Structure
+
+EMQX Neuron builds topics per the Sparkplug B specification, with the fixed namespace `spBv1.0`:
+
+| <div style="width:190pt">Topic</div> | Description |
+| --- | --- |
+| `spBv1.0/{group id}/NBIRTH/{node id}` | Edge node came online |
+| `spBv1.0/{group id}/DBIRTH/{node id}/{driver}` | Device came online, carrying that driver's tag definitions |
+| `spBv1.0/{group id}/DDATA/{node id}/{driver}` | Collected data |
+| `spBv1.0/{group id}/DDEATH/{node id}/{driver}` | Device went offline |
+| `spBv1.0/{group id}/NDEATH/{node id}` | Edge node went offline, sent as the MQTT will message |
+
+**Group ID** and **Node ID** come from the application configuration; `{driver}` is the name of the subscribed southbound driver node. For the specification itself, see [Integration with EMQX](./sparkplug.md).
+
+## Write Back to Devices
+
+Once connected, the Sparkplug B application subscribes to the command topics automatically. An upstream application publishes a CMD message to one of them to write a tag:
+
+| <div style="width:190pt">Topic</div> | Description |
+| --- | --- |
+| `spBv1.0/{group id}/DCMD/{node id}/{driver}` | Write to tags of the named southbound driver |
+| `spBv1.0/{group id}/NCMD/{node id}` | Edge node level command |
+
+The tag must carry the **write** attribute in the southbound driver; see [Groups and Tags · Tag attributes](../../groups-tags/groups-tags.md#tag-attributes).
+
+For the steps in an upstream platform, see [Ignition](./ignition.md) and [Cogent](./cogent.md).
 
 ## Use Case
 

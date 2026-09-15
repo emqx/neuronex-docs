@@ -10,7 +10,7 @@
 这带概率是因为 broker 在踢除 MQTT 客户端。请检查配置的 [**client-id**] 参数
 没有与其他客户端冲突， 或者 broker 的配置是否正确。
 
-[**client-id**]: ../mqtt/overview.md#parameters
+[**client-id**]: ../mqtt/overview.md#应用配置
 
 ## Sparkplug B 应用端没有看到 EMQX Neuron 北向 Sparkplug B 节点上报的数据组
 请确认 EMQX Neuron 北向 Sparkplug B 节点订阅了南向驱动的数据，且所有相关的南向驱动已经启动。

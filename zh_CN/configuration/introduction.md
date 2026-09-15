@@ -1,44 +1,32 @@
 # 数据采集与转发
 
-先安装或确认所需驱动，再添加南向驱动、配点和监控。本节涵盖从设备采集、点位配置、数据监控到北向转发的完整流程。各协议参数和示例见 [南向驱动](../introduction/driver-list/driver-list.md)。
-
-建议按侧边栏顺序阅读：
-
-1. [添加南向驱动](./south-devices/south-devices.md)：建节点、组和点位
-2. [数据监控](../admin/monitoring.md)：确认点位已采到
-3. [Modbus TCP Server 模拟器](./modbus-simulator.md)：无硬件环境下测试采集
-4. [数据转发](../application/overview.md)：创建北向应用并订阅南向数据
-
-## 关键概念
-
-### 驱动与应用 (Driver and Application)
-
-南向驱动按协议采集设备数据；北向应用把数据送到云平台或处理引擎。协议转换至少需要各一个。二次开发见 [SDK 教程](../dev-guide/sdk-tutorial/sdk-tutorial.md)。
-
-### [节点 (Node)](./south-devices/south-devices.md#添加南向设备)
-
-节点是驱动或应用的实例。一个 EMQX Neuron 进程里可以同时跑多类节点，由核心框架做消息路由。
-
-### [组 (Group)](./groups-tags/groups-tags.md) 与 [点位 (Tag)](./groups-tags/groups-tags.md)
-
-点位描述设备里的地址、读写属性和精度等元数据。点位归到组，每组有独立采集频率。北向节点按组订阅南向数据。
+本节是面向真实项目的配置手册：接真实设备、配到上规模、长期稳定运行。如需先用模拟器在十五分钟内完成一条链路，见[快速入门](../quick-start/quick-start.md)。
 
 ## 配置流程
 
-1. [创建南向驱动](./south-devices/south-devices.md)：按设备协议选驱动、建节点并填写连接参数。
-2. [配置组与点位](./groups-tags/groups-tags.md)：添加采集组和点位。也可用 Excel [批量导入](./import-export/import-export.md)。
+| 步骤 | 做什么 | 重点 |
+| --- | --- | --- |
+| 1 | [添加南向驱动](./south-devices/south-devices.md) | 按设备协议选驱动、填连接参数。各协议的参数、数据类型和地址格式见[南向驱动](../introduction/driver-list/driver-list.md) |
+| 2 | [组与点位](./groups-tags/groups-tags.md) | **先定分组策略**——组是采集、上报和订阅的最小粒度，分组方式决定了报文结构和带宽 |
+| 3 | [数据监控与反控](../admin/monitoring.md) | 确认点位采集正常，也可从这里向设备写入 |
+| 4 | [创建北向应用](./north-apps/north-apps.md) | 确定数据的上报目的地，选型见[北向应用](./north-apps/catalog.md) |
+| 5 | [订阅南向数据](./subscription.md) | 把采集组关联到北向应用，数据开始转发 |
 
-   :::tip
-   重复步骤 1 和 2，直到所有必要的驱动、组和点位都建好。
-   :::
+重复第 1、2 步，直至所有设备配置完成；重复第 4、5 步，可将同一份数据同时上报至多个目的地。
 
-3. 要把数据送到 MQTT、云或处理引擎时，转到 [数据转发](./north-apps/north-apps.md)：创建北向应用并订阅南向组。
+设备数量多、点位数量大，或者要从 KEPServerEX、Litmus Edge 迁移过来，见[批量配置与迁移](./bulk-config.md)。
 
 整体流程如下图：
 
 <img src="./_assets/config.png" alt="配置步骤" style="zoom:40%;" />
 
+::: tip
+需要在转发前做过滤、换算或聚合，见[数据处理](../streaming-processing/overview.md)。节点、组、点位三者的关系见[架构 · 核心数据模型](../introduction/architecture.md#核心数据模型)。
+:::
+
 ## 配置规范
+
+项目设计阶段先确认单实例的容量限制：
 
 | 对象 | 规范限制 |
 | --- | --- |
@@ -53,3 +41,5 @@
 | 驱动或应用文件名长度 | 最大 64 字符 |
 | 驱动或应用描述长度 | 最大 512 字符 |
 | 南向驱动采集周期 | 最快 100 毫秒 |
+
+点位总数没有硬性上限，取决于分配的 CPU 和内存，实测数据见[性能测试](../performance/performance.md)。硬件充足时，单实例建议不超过 **10 万个点位**、**100 个南向驱动**；超出这个规模建议拆分为多个 EMQX Neuron 实例，见[硬件要求](../installation/introduction.md#硬件要求)。

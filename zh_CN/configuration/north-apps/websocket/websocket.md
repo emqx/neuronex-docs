@@ -38,14 +38,14 @@ EMQX Neuron WebSocket 应用作为客户端， 将从设备采集到的数据作
 
 ## 运行与维护
 
-在设备卡片或设备列，您可点击数据统计图表查看及应用运行情况、接受和发送的数据情况。关于统计字段的说明，见[创建北向应用](../north-apps.md)。
+在设备卡片或设备列，您可点击数据统计图表查看应用运行情况以及接收和发送的数据情况。关于统计字段的说明，见[创建北向应用](../north-apps.md)。
 
-如果设备运行出现任何问题，您可点击 DEBUG 日志图表，此时系统将自动打印该节点的 DEBUG 级别日志，十分钟后将切回系统默认级别日志。稍后，您可点击页面顶部功能栏的**系统信息** -> **日志**查看日志，并进行故障诊断。稍后，您可点击页面顶部功能栏的**系统信息** -> **日志**查看日志，并进行故障诊断。有关系统日志的详细解析，见[管理日志](../../../admin/log-management.md)。
-
-
+如果设备运行出现任何问题，您可点击 DEBUG 日志图表，此时系统将自动打印该节点的 DEBUG 级别日志，十分钟后将切回系统默认级别日志。稍后，您可点击页面顶部功能栏的**系统信息** -> **日志**查看日志，并进行故障诊断。有关系统日志的详细解析，见[管理日志](../../../admin/log-management.md)。
 
 
-[WebSocket]: https://en.wikipedia.org/wiki/WebSocke://en.wikipedia.org/wiki/WebSocket
+
+
+[WebSocket]: https://en.wikipedia.org/wiki/WebSocket
 [RFC 6455]: https://datatracker.ietf.org/doc/html/rfc6455
 [MQTT 应用]: ../mqtt/overview.md
 [MQTT 数据上下行格式]: ../mqtt/api.md#tags-format

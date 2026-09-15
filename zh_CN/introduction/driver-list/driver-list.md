@@ -1,12 +1,12 @@
 # 南向驱动
 
-南向驱动按协议采集设备数据；北向应用把数据送到云平台或处理引擎。协议转换至少需要各一个。
+EMQX Neuron 通过南向驱动按协议与现场设备通信。下表按类别列出全部已支持的协议和设备型号，点击进入对应页面可查看连接参数、地址格式和连接示例。
 
-通用添加步骤见 [添加南向驱动](../../configuration/south-devices/south-devices.md)。二次开发见 [SDK 教程](../../dev-guide/sdk-tutorial/sdk-tutorial.md)。
+添加驱动的通用步骤见[添加南向驱动](../../configuration/south-devices/south-devices.md)。表中没有的协议可以自行开发，见 [SDK 教程](../../dev-guide/sdk-tutorial/sdk-tutorial.md)。
 
 ## 南向驱动列表
 
-### 全球标准
+### Modbus 系列
 
 | <div style="width:120pt">协议名称</div>                 | <div style="width:60pt">接口类型</div> | <div style="width:80pt">备注</div> |
 | ------------------------------------------------------------ |  ------------ | -------------------------------- |
@@ -14,16 +14,13 @@
 | [Modbus RTU](../../configuration/south-devices/modbus-rtu/modbus-rtu.md)              | 串口    |  - |
 | [Modbus RTU over TCP](../../configuration/south-devices/modbus-rtu/modbus-rtu.md)     | 以太网  |  见 Modbus RTU 的以太网链路 |
 | [Modbus Ascii](../../configuration/south-devices/modbus-ascii/modbus-ascii.md)            | 串口  |  - |
-| [OPC UA](../../configuration/south-devices/opc-ua/overview.md)                  | 以太网  |  - |
-| [OPC DA](../../configuration/south-devices/neuhub/opcda.md)                  | 以太网  |  通过 NeuronHUB 访问 |
-| [CIP Ethernet/IP](../../configuration/south-devices/ethernet-ip/ethernet-ip.md)         | 以太网  |  CIP –通用工业协议 |
-| [SECS GEM HSMS](../../configuration/south-devices/secs-gem/secs-gem.md)         | 以太网  |  半导体行业协议 |
 
 
-### PLC 驱动
+### PLC 与运动控制
 
 | <div style="width:120pt">协议名称</div>    | <div style="width:60pt">接口类型</div> | <div style="width:40pt">备注</div> |
 | ------------------------------------------------------------ | ------ | ---- |
+| [CIP Ethernet/IP](../../configuration/south-devices/ethernet-ip/ethernet-ip.md)         | 以太网  |  CIP –通用工业协议 |
 | [Siemens S7 ISO TCP](../../configuration/south-devices/siemens-s7/s7.md)                                          | 以太网    | 连接西门子 S200、S200smart、S1200、S1500 型号的 PLC |
 | [Siemens S7 ISOTCP for 300/400](../../configuration/south-devices/siemens-s7/s7.md) | 以太网  | s7-300/400 |
 | [Siemens MPI](../../configuration/south-devices/siemens-mpi/mpi.md) | 串口  | 连接支持西门子 MPI 接口的通信协议的设备 |
@@ -57,7 +54,14 @@
 | [MTconnect](../../configuration/south-devices/mtconnect/mtconnect.md)                      | 以太网    |  通过 HTTP 协议访问安装有 MTConnect Agent 的设备。 |
 | [Codesys V3](../../configuration/south-devices/codesys3/codesys3.md)         | 以太网  |  CODESYS V3 平台 |
 
-### 电力
+### OPC
+
+| <div style="width:120pt">协议名称</div> | <div style="width:60pt">接口类型</div> | <div style="width:80pt">备注</div> |
+| ------------- | ------ | ---- |
+| [OPC UA](../../configuration/south-devices/opc-ua/overview.md)                  | 以太网  |  - |
+| [OPC DA](../../configuration/south-devices/neuhub/opcda.md)                  | 以太网  |  通过 NeuronHUB 访问 |
+
+### 电力与能源
 
 | 协议名称             |   <div style="width:60pt">接口类型</div>  |  备注     |
 | ------------------- | ------ |  ---------- |
@@ -70,14 +74,7 @@
 | [IEC 61850](../../configuration/south-devices/iec61850/overview.md)           | 以太网    | - |
 | [DNP 3.0](../../configuration/south-devices/dnp3/dnp3.md)         | 以太网  |  - |
 
-### 楼宇自动化
-
-| 协议名称        |  <div style="width:60pt">接口类型</div>    | 备注      | 
-| -------------- | ------- | ---------- | 
-| [BACnet IP](../../configuration/south-devices/bacnet-ip/bacnet-ip.md)      | 以太网  | -        | 
-| [KNXnet IP](../../configuration/south-devices/knxnet-ip/knxnet-ip.md)      | 以太网  | -        | 
-
-### 数控机床和机器人
+### CNC 与机床
 
 | CNC 厂商       |  CNC型号      | <div style="width:60pt">接口类型</div>|  <div style="width:100pt">对应 EMQX Neuron 协议</div>      |    备注      |
 | ------------- | ------- | ----- | ----- |----- |
@@ -93,30 +90,23 @@
 |兄弟 Brother | Brother CNC 设备    |以太网    | [Brother CNC](../../configuration/south-devices/brother-cnc/brother-cnc.md) |        |
 |马扎克 Mazak | Mazak CNC 设备    |以太网    | [Mazak CNC](../../configuration/south-devices/mazak-udp/mazak-udp.md) |         |
 
+### 楼宇与环保
+
+| 协议名称        |  <div style="width:60pt">接口类型</div>    | 备注      | 
+| -------------- | ------- | ---------- | 
+| [BACnet IP](../../configuration/south-devices/bacnet-ip/bacnet-ip.md)      | 以太网  | -        | 
+| [KNXnet IP](../../configuration/south-devices/knxnet-ip/knxnet-ip.md)      | 以太网  | -        | 
+| [HJ212-2017](../../configuration/south-devices/hj212-2017/hj212-2017.md) | 以太网/串口 | 环保行业标准 |
+
 ### 其他
 
 | 协议名称       |  <div style="width:60pt">接口类型</div>        | 备注      |
-| ------------- | ------- | ----- | 
-|  [环保 HJ212-2017 协议](../../configuration/south-devices/hj212-2017/hj212-2017.md)  | 以太网/串口    |    采集支持环保 HJ212-2017 标准的设备数据        |
+| ------------- | ------- | ----- |
+| [NON A11](../../configuration/south-devices/nona11/nona11.md) | 串口 | 农业机械标准 |
+| [SECS GEM HSMS](../../configuration/south-devices/secs-gem/secs-gem.md)         | 以太网  |  半导体行业协议 |
+| [SNMP](../../configuration/south-devices/snmp/snmp.md) | 以太网 | 采集交换机、服务器等网络设备状态 |
+| [NeuronHUB](../../configuration/south-devices/neuhub/neuhub.md) | 以太网 | Windows 侧代理，用于 OPC DA、OPC AE、GE Historian 及部分 CNC |
 
-## 北向应用列表
-
-### 云连接
-
-| 协议名称                                 | 备注                                 | 
-| --------------------------------------- | ----------------------------------- | 
-| RESTful API            | 提供标准的 RESTful API 接口   |
-| [MQTT](../../configuration/north-apps/mqtt/overview.md)                   | 对接 MQTT 协议   | 
-| [SparkplugB](../../configuration/north-apps/sparkplugb/overview.md)       | SparkplugB 是一种建立在 MQTT 3.1.1 基础上的工业物联网数据传输规范  | 
-| [Azure IOT](../../configuration/north-apps/azure-iot/overview.md)                   | 对接 Azure IOT Hub 平台  | 
-| [AWS IOT](../../configuration/north-apps/aws-iot/overview.md)                   | 对接 AWS IOT Core 平台  | 
-| [Websocket](../../configuration/north-apps/websocket/websocket.md)              | 对接 WebSocket 协议  | 
-| [OPC UA Server](../../configuration/north-apps/opcua-server/overview.md)          | 对外提供 OPC UA 服务  | 
-| [Kafka](../../configuration/north-apps/kafka/overview.md)              | 对接 Kafka 协议，将采集的数据发布到 Kafka 以进一步处理  | 
-
-
-### 应用程序
-
-| 协议名称                                 | 备注              | 
-| --------------------------------------- | --------------   |
-| [DataProcessing](../../configuration/north-apps/ekuiper/overview.md)               | 对接数据处理模块  |
+::: tip
+北向应用（MQTT、Sparkplug B、OPC UA Server、AWS IoT、Azure IoT、Kafka 等）见[北向应用](../../configuration/north-apps/catalog.md)。
+:::

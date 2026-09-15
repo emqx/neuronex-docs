@@ -109,7 +109,7 @@ EMQX Neuron ships with a Modbus TCP simulator that produces live data, so you do
 The simulator listens on port `502` inside the same container as EMQX Neuron, so there is no cross-machine networking involved. For full details, see [Built-in Modbus TCP Server Simulator](../configuration/modbus-simulator.md).
 
 ::: tip Shortcut
-On the simulator page, click `Download Southbound Driver Configuration`. The file already contains every tag. Import it on the **Data Collection → South Devices** page and you can skip straight to [Step 4](#step-4-view-the-collected-data). Work through Step 3 by hand if you want to see how drivers, groups, and tags fit together.
+On the simulator page, click `Download Southbound Driver Configuration`. The file already contains every tag. Import it on the **Data Collection → South Devices** page and you can skip straight to [Step 4](#step-4-view-the-collected-data). Work through Step 3 manually to see how drivers, groups, and tags fit together.
 :::
 
 ## Step 3 · Add a southbound driver and configure tags

@@ -9,7 +9,7 @@
 
 这大概率是因为 broker 在踢除 MQTT 客户端。请检查配置的 [**客户端 ID**] 参数是否与其他客户端冲突， 或者 broker 的配置是否正确。
 
-[**客户端 ID**]: ./overview.md#parameters
+[**客户端 ID**]: ./overview.md#应用配置
 
 ## MQTT 节点没有上报数据
 

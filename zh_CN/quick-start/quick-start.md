@@ -1,6 +1,6 @@
 # 快速入门
 
-本教程用五步跑通一条完整链路：启动 EMQX Neuron、用内置模拟器造一批数据、通过南向驱动采集上来、再经北向应用转发到 MQTT Broker。
+本教程分五步完成一条完整链路：启动 EMQX Neuron、用内置模拟器造一批数据、通过南向驱动采集上来、再经北向应用转发到 MQTT Broker。
 
 <style>
 .nxq            { width: 100%; height: auto; display: block; margin: 24px 0; }
@@ -99,7 +99,7 @@ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex
 
 ## 第 2 步 · 启动内置模拟器
 
-EMQX Neuron 内置了一个 Modbus TCP 模拟器，可以直接产生动态数据，省去准备真实 PLC 的麻烦。
+EMQX Neuron 内置了一个 Modbus TCP 模拟器，可直接产生动态数据，无需准备真实 PLC。
 
 1. 进入 **管理 → 系统配置**，选择 `内置 Modbus TCP Server 模拟器` 选项卡。
 2. 点击 `启动模拟器`。模拟器默认关闭，不占用资源，需要手动启动。
@@ -133,7 +133,7 @@ EMQX Neuron 内置了一个 Modbus TCP 模拟器，可以直接产生动态数�
 
 ![south-setting](./_assets/south-setting.png)
 
-驱动刚创建时连接状态是 **断开**，这是正常的——配好点位之后 EMQX Neuron 才会向设备发读请求。
+驱动刚创建时连接状态为 **断开**，属正常现象。配置点位之后，EMQX Neuron 才会向设备发送读请求。
 
 ![south-status](./_assets/south-status.png)
 
@@ -143,7 +143,7 @@ EMQX Neuron 内置了一个 Modbus TCP 模拟器，可以直接产生动态数�
 
 ### 创建组
 
-点击刚建好的 **modbus-tcp** 节点进入组列表，点击 `创建组`：
+点击已创建的 **modbus-tcp** 节点进入组列表，点击 `创建组`：
 
 ![group-add](./_assets/group-add.png)
 
@@ -226,11 +226,11 @@ docker exec -it neuronex telnet 127.0.0.1 502
 
 ![mqttx](./_assets/mqttx.png)
 
-能持续收到 EMQX Neuron 上报的数据，整条链路就跑通了。
+持续收到 EMQX Neuron 上报的数据，即表示整条链路已连通。
 
 ## 下一步
 
 - **接真实设备** —— 在[南向驱动](../introduction/driver-list/driver-list.md)里按协议或 CNC 型号找到对应页面，参数和地址格式都在那里。
-- **送到别的地方** —— 除 MQTT 外还支持 AWS IoT、Azure IoT、Sparkplug B、Kafka，以及对外开放 OPC UA Server，见[北向应用](../configuration/north-apps/catalog.md)。
+- **上报到其他目的地** —— 除 MQTT 外还支持 AWS IoT、Azure IoT、Sparkplug B、Kafka，以及对外开放 OPC UA Server，见[北向应用](../configuration/north-apps/catalog.md)。
 - **在边缘处理数据** —— 过滤、换算、聚合之后再上报，见[第一条规则](../streaming-processing/first-rule.md)。
 - **装到生产环境** —— 见[安装与部署](../installation/introduction.md)。

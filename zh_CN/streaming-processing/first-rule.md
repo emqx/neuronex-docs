@@ -2,7 +2,7 @@
 
 本文接着[快速入门](../quick-start/quick-start.md)往下走：那里把设备数据采集上来并原样转发到了 MQTT，这里加一步边缘处理——把采集到的数值加 1，再发到一个动态主题上。
 
-前提是已经按快速入门配好 `modbus-tcp` 南向驱动和 `group-1` 采集组。
+本文假设已按快速入门完成 `modbus-tcp` 南向驱动与 `group-1` 采集组的配置。
 
 ## 第 1 步 · 让数据进入规则引擎
 
@@ -14,7 +14,7 @@
 
 ## 第 2 步 · 新建规则
 
-在 **数据处理 → 规则** 页点击 `新建规则`，写一条 SQL 把 `pressure` 加 1：
+在 **数据处理 → 规则** 页点击 `新建规则`，编写 SQL 语句将 `pressure` 加 1：
 
 ```sql
 SELECT pressure + 1 AS pressure FROM neuronStream

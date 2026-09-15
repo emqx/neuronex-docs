@@ -48,7 +48,7 @@
 
 ## 配置 EMQX
 
-我们可以通过安装 [MQTTX 桌面客户端](https://mqttx.app/zh)查看由 EMQX Neuron 转发到 EMQX 的数据。但如果直接订阅 EMQX Neuron 北向 SparkPlugB 上报到 EMQX 的数据，则会出现字符串乱码的情况，如图：
+我们可以通过安装 [MQTTX 桌面客户端](https://mqttx.app/zh)查看由 EMQX Neuron 转发到 EMQX 的数据。但如果直接订阅 EMQX Neuron 北向 Sparkplug B 上报到 EMQX 的数据，则会出现字符串乱码的情况，如图：
 
 ![image-20230419140026304](./assets/image-20230419140026304.png)
 
@@ -287,7 +287,7 @@ FROM
 
 ![image-20230419141831882](./assets/image-20230419141831882.png)
 
-如上图，可以看到解码前的原数据是乱码的，解码后得到完整正确的数据结果；至此，通过Neuron南向采集设备点位值，北向 SparkPlugB 上报到 EMQX，通过编解码功能解码得到完整的数据结果已完成。
+如上图，可以看到解码前的原数据是乱码的，解码后得到完整正确的数据结果；至此，通过Neuron南向采集设备点位值，北向 Sparkplug B 上报到 EMQX，通过编解码功能解码得到完整的数据结果已完成。
 
 ## 拓展阅读：Sparkplug 协议
 
@@ -299,7 +299,7 @@ EMQX Neuron 上报数据到 EMQX 的 Topic 是根据 Sparkplug B 协议规范定
 
 ![image-20230419143059088](./assets/image-20230419143059088.png)
 
-至于更多 EMQX Neuron 北向 Sparkplug B 应用相关标准的定义，可以参考 [SparkPlug B 协议规范](https://www.eclipse.org/tahu/spec/Sparkplug%20Topic%20Namespace%20and%20State%20ManagementV2.2-with%20appendix%20B%20format%20-%20Eclipse.pdf)。
+至于更多 EMQX Neuron 北向 Sparkplug B 应用相关标准的定义，可以参考 [Sparkplug B 协议规范](https://www.eclipse.org/tahu/spec/Sparkplug%20Topic%20Namespace%20and%20State%20ManagementV2.2-with%20appendix%20B%20format%20-%20Eclipse.pdf)。
 
 
 

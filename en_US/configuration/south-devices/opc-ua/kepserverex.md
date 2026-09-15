@@ -2,7 +2,7 @@
 
 Developed by Kepware, KEPServerEX is a robust connectivity solution between industrial automation equipment and applications, commonly employed in industrial control environments for efficient data acquisition. With a comprehensive set of drivers, it enables reliable communication between a wide range of industrial hardware and software. Leveraging OPC (an industry standard for interoperability in automation) alongside IT-centric communication protocols such as SNMP, ODBC, and Web Services, KEPServerEX serves as a unified source for industrial data access.
 
-The EMQX Neuron OPC UA plug-in can be used as a client to access KEPServerEX.
+The EMQX Neuron OPC UA driver can be used as a client to access KEPServerEX.
 
 ## Username/Password Login
 

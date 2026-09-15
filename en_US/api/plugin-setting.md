@@ -1,4 +1,4 @@
-# Plugin Configuration
+# Driver and Application Settings
 
 ## MQTT
 

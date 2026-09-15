@@ -601,7 +601,7 @@
 
     - 在系统配置->AI模型配置页面，需要配置并开启 AI 模型，以使用 AI 数据分析以及 AI 写插件功能。
 
-  - EMQX Neuron 3.6.0版本，在 Docker 镜像 emqx/neuronex:3.6.0-ai 和  emqx/neuronex:3.6.0-ai-arm64  版本中，默认集成了LLM运行所需的 Python依赖库，用户可直接使用该功能。当使用deb、rpm、zip或其他 Docker 镜像时，用户需要手动配置好Python依赖库后，方可使用 EMQX Neuron AI 功能。当前版本请使用标准镜像，见 [AI 生成 Python 插件](../best-practise/llm-portable-plugin.md)。
+  - EMQX Neuron 3.6.0版本，在 Docker 镜像 emqx/neuronex:3.6.0-ai 和  emqx/neuronex:3.6.0-ai-arm64  版本中，默认集成了LLM运行所需的 Python依赖库，用户可直接使用该功能。当使用deb、rpm、zip或其他 Docker 镜像时，用户需要手动配置好Python依赖库后，方可使用 EMQX Neuron AI 功能。当前版本请使用标准镜像，见 AI 生成 Python 插件。
 
 - **仪表盘**（该页已下线）
 

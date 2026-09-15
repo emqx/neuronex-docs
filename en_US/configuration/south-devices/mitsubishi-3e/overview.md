@@ -1,6 +1,6 @@
 # Mitsubishi 3E
 
-The Mitsubishi 3E plug-in is used to access Mitsubishi's QnA-compatible PLCs, including the Q Series (MC), iQ-F Series (SLMP), and iQ-L Series, via Ethernet.
+The Mitsubishi 3E driver is used to access Mitsubishi's QnA-compatible PLCs, including the Q Series (MC), iQ-F Series (SLMP), and iQ-L Series, via Ethernet.
 
 The Mitsubishi 3E is fully compatible with the Mitsubishi SLMP protocol.
 
@@ -24,7 +24,7 @@ After clicking **Create**, you will be redirected to the **Device Configuration*
 
 ## Configure Data Groups and Tags
 
-After the plug-in is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
+After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
 
 Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking on **Create**, then specifying the group name and data collection interval.
 

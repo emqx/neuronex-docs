@@ -1,6 +1,6 @@
 # Integrate with EMQX
 
-This page introduces how to use the EMQX Neuron southbound driver to collect data, then report the data to EMQX through the northbound Sparkplug B plug-in, and the correct and complete data results are obtained after decoding through the codec function. The process is shown in the figure:
+This page introduces how to use the EMQX Neuron southbound driver to collect data, then report the data to EMQX through the northbound Sparkplug B application, and the correct and complete data results are obtained after decoding through the codec function. The process is shown in the figure:
 
 ![Sparkplug B](./assets/sparkplug.png)
 
@@ -293,4 +293,4 @@ The topic that EMQX Neuron reports data to EMQX is `namespace/group_id/DDATA/edg
 
 ![image-20230419143059088](./assets/image-20230419143059088.png)
 
-As for how to define more EMQX Neuron northbound Sparkplug B plug-in related standards, you can refer to the Sparkplug B protocol specification[🔗](https://www.eclipse.org/tahu/spec/Sparkplug%20Topic%20Namespace%20and%20State%20ManagementV2.2-with%20appendix%20B%20format%20-%20Eclipse.pdf)
+As for how to define more EMQX Neuron northbound Sparkplug B application standards, you can refer to the Sparkplug B protocol specification[🔗](https://www.eclipse.org/tahu/spec/Sparkplug%20Topic%20Namespace%20and%20State%20ManagementV2.2-with%20appendix%20B%20format%20-%20Eclipse.pdf)

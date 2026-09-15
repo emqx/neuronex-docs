@@ -30,4 +30,4 @@ Go to [Unified Automation Downloads](https://www.unified-automation.com/download
 5. Drag the child node in the **Address Space** view to the **Data Access View** view to see the data type of the node.
      ![uaexpert5](./assets/uaexpert5.jpg)
 
-6. Set the type of measurement point for the EMQX Neuron OPC UA plug-in according to the type information in the **Data Access View** view.
+6. Set the type of measurement point for the EMQX Neuron OPC UA driver according to the type information in the **Data Access View** view.

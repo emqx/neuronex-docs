@@ -15,9 +15,9 @@
 
 在每个组底下可以创建多个采集点位，例如，一台温度传感器采集多个温度值，一个温度值作为一个点位。
 
-### Plugin 插件
+### 驱动与应用 (Driver and Application)
 
-在 EMQX Neuron 中，每个插件对应一种协议的实现。例如，一种 modbus tcp 协议对应一个插件，mqtt 协议对应一个插件。
+在 EMQX Neuron 中，每个南向驱动对应一种采集协议的实现，每个北向应用对应一种转发方式。例如 Modbus TCP 协议对应一个南向驱动，MQTT 对应一个北向应用。
 
 ## 数据类型
 
@@ -127,7 +127,7 @@
 * DISCONNECTED = 0
 * CONNECTED = 1
 
-## 插件类型
+## 驱动与应用类型
 
 * STATIC = 0
 * SYSTEM = 1

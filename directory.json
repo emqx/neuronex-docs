@@ -14,16 +14,8 @@
       "collapsed": true,
       "children": [
         {
-          "title": "使用 .tar.gz 包安装",
-          "path": "installation/targz"
-        },
-        {
-          "title": "使用 rpm 包安装",
-          "path": "installation/centos"
-        },
-        {
-          "title": "使用 deb 包安装",
-          "path": "installation/ubuntu"
+          "title": "使用安装包安装",
+          "path": "installation/package"
         },
         {
           "title": "通过 Docker 部署",
@@ -34,12 +26,8 @@
           "path": "best-practise/master-backup"
         },
         {
-          "title": "许可证政策",
-          "path": "introduction/license/license-policy"
-        },
-        {
-          "title": "申请和安装许可证",
-          "path": "installation/license_setting"
+          "title": "许可证",
+          "path": "installation/license"
         }
       ]
     },
@@ -1196,21 +1184,13 @@
       "path": "quick-start/quick-start"
     },
     {
-      "title": "Installation",
+      "title": "Installation and Deployment",
       "path": "installation/introduction",
       "collapsed": true,
       "children": [
         {
-          "title": "tar.gz Package",
-          "path": "installation/targz"
-        },
-        {
-          "title": "rpm Package",
-          "path": "installation/centos"
-        },
-        {
-          "title": "deb Package",
-          "path": "installation/ubuntu"
+          "title": "Installing from a Package",
+          "path": "installation/package"
         },
         {
           "title": "Docker",
@@ -1221,12 +1201,8 @@
           "path": "best-practise/master-backup"
         },
         {
-          "title": "License Policy",
-          "path": "introduction/license/license-policy"
-        },
-        {
-          "title": "License Management",
-          "path": "installation/license_setting"
+          "title": "Licensing",
+          "path": "installation/license"
         }
       ]
     },

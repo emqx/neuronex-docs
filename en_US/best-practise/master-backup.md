@@ -1,59 +1,148 @@
-# EMQX Neuron Master-Backup Mode
+# Master-Backup Mode
 
-## Overview
+## How it works
 
-EMQX Neuron is an industrial edge data hub that provides industrial data collection and edge intelligent analysis services. In some scenarios, it is necessary to ensure the continuity and stability of the EMQX Neuron service. By deploying two EMQX Neuron services in master-backup mode, the high availability of the service can be achieved.
+Deploy EMQX Neuron on two servers and let Keepalived handle failure detection and failover. If the EMQX Neuron service on the primary node fails, or the whole server goes down, the backup node takes over; when the primary recovers, the role switches back.
 
-This solution achieves high availability by deploying two EMQX Neuron services on two servers and using Keepalived to automatically switch between the master and backup nodes. It supports scenarios where the master EMQX Neuron fails to work or the master server fails, and the backup node automatically takes over the service to ensure that the EMQX Neuron service is not interrupted. When the master node recovers, it automatically switches to the master node EMQX Neuron.
+<style>
+.nxm            { width: 100%; height: auto; display: block; margin: 24px 0; }
+.nxm .t         { font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #1f2d3d; }
+.nxm .h         { font-size: 15px; font-weight: 600; }
+.nxm .m         { font-size: 14px; font-weight: 600; }
+.nxm .sub       { font-size: 12px; fill: #4a5b6e; }
+.nxm .tiny      { font-size: 11.5px; fill: #6b7c8f; }
+.nxm .lbl       { font-size: 12px; font-weight: 600; fill: #2a6ebb; }
+.nxm .on        { fill: #00b173; font-size: 13px; font-weight: 600; }
+.nxm .off       { fill: #8b98a6; font-size: 13px; font-weight: 600; }
+.nxm .bg        { fill: #f7fafd; }
+.nxm .box       { fill: #ffffff; stroke: #ccd8e4; stroke-width: 1.5; }
+.nxm .node      { fill: #eaf2fb; stroke: #2a6ebb; stroke-width: 2; }
+.nxm .nodeoff   { fill: #f2f5f8; stroke: #a9b8c7; stroke-width: 2; stroke-dasharray: 6 4; }
+.nxm .card      { fill: #ffffff; stroke: #ccd8e4; stroke-width: 1.5; }
+.nxm .flow      { stroke: #2a6ebb; stroke-width: 2; }
+.nxm .idle      { stroke: #a9b8c7; stroke-width: 2; stroke-dasharray: 6 4; }
+.nxm .vrrp      { stroke: #00b173; stroke-width: 2; }
+.nxm .ah        { fill: #2a6ebb; }
+.nxm .ah-i      { fill: #a9b8c7; }
+.nxm .ah-v      { fill: #00b173; }
 
-## Environment Preparation
+html.dark .nxm .t       { fill: #d7dee6; }
+html.dark .nxm .sub     { fill: #9db0c4; }
+html.dark .nxm .tiny    { fill: #8496a8; }
+html.dark .nxm .lbl     { fill: #7fb4ea; }
+html.dark .nxm .on      { fill: #3ecf9a; }
+html.dark .nxm .off     { fill: #7d8b99; }
+html.dark .nxm .bg      { fill: #161c24; }
+html.dark .nxm .box     { fill: #1d2631; stroke: #3b4857; }
+html.dark .nxm .node    { fill: #1a2938; stroke: #5a9fe0; }
+html.dark .nxm .nodeoff { fill: #1a1f27; stroke: #4a5866; }
+html.dark .nxm .card    { fill: #1d2631; stroke: #3b4857; }
+html.dark .nxm .flow    { stroke: #7fb4ea; }
+html.dark .nxm .idle    { stroke: #56646f; }
+html.dark .nxm .vrrp    { stroke: #3ecf9a; }
+html.dark .nxm .ah      { fill: #7fb4ea; }
+html.dark .nxm .ah-i    { fill: #56646f; }
+html.dark .nxm .ah-v    { fill: #3ecf9a; }
+</style>
 
-- Hardware Requirements
-  - 2 servers for master and backup nodes
-  - At least 1 CPU core and 1GB memory per server
+<svg class="nxm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 430" role="img" aria-label="Master-backup topology: on the primary node Keepalived is MASTER with priority 100 and EMQX Neuron is running, collecting from field devices and forwarding upstream; on the backup node Keepalived is BACKUP with priority 90 and nopreempt enabled, and EMQX Neuron is stopped; the two nodes exchange VRRP unicast advertisements, and the backup takes over when the primary fails">
+  <defs>
+    <marker id="nxmA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0 L10 5 L0 10 z"/></marker>
+    <marker id="nxmI" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-i" d="M0 0 L10 5 L0 10 z"/></marker>
+    <marker id="nxmV" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-v" d="M0 0 L10 5 L0 10 z"/></marker>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1060" height="430" rx="10"/>
 
-- Software Requirements
-  - Operating System: Ubuntu >=18.04 or CentOS >=7
-  - EMQX Neuron Installation Package (supports deb, rpm, Docker)
-  - Keepalived Software
+  <rect class="box" x="24" y="80" width="150" height="280" rx="8"/>
+  <text class="t h" x="99" y="200" text-anchor="middle">Field devices</text>
+  <text class="t sub" x="99" y="226" text-anchor="middle">PLC · CNC · meters</text>
 
-- Network Requirements
-  - Internal network communication between master and backup nodes
-  - Ensure that the security group or firewall allows VRRP protocol and EMQX Neuron service port traffic
+  <line class="flow" x1="182" y1="115" x2="242" y2="115" marker-end="url(#nxmA)"/>
+  <text class="t lbl" x="212" y="104" text-anchor="middle">Collect</text>
+  <line class="idle" x1="182" y1="325" x2="242" y2="325" marker-end="url(#nxmI)"/>
+  <text class="t tiny" x="212" y="314" text-anchor="middle">on failover</text>
 
-This example uses two Ubuntu 22.04 x86_64 architecture virtual machines on Cloud, with the internal network IP address of the host as `10.0.0.127` and the internal network IP address of the backup as `10.0.0.223`. The host and backup IP addresses are bound to the `eth0` network card.
+  <rect class="node" x="250" y="40" width="520" height="150" rx="10"/>
+  <text class="t h" x="510" y="66" text-anchor="middle">Primary  10.0.0.127</text>
+  <rect class="card" x="270" y="82" width="230" height="90" rx="6"/>
+  <text class="t m" x="385" y="106" text-anchor="middle">Keepalived</text>
+  <text class="t sub" x="385" y="128" text-anchor="middle">MASTER · priority 100</text>
+  <text class="t tiny" x="385" y="150" text-anchor="middle">check_alive.sh every 5s</text>
+  <rect class="card" x="520" y="82" width="230" height="90" rx="6"/>
+  <text class="t m" x="635" y="112" text-anchor="middle">EMQX Neuron</text>
+  <text class="t on" x="635" y="140" text-anchor="middle">● running</text>
 
+  <line class="vrrp" x1="385" y1="196" x2="385" y2="244" marker-start="url(#nxmV)" marker-end="url(#nxmV)"/>
+  <text class="t sub" x="404" y="216" >VRRP unicast</text>
+  <text class="t tiny" x="404" y="236" >every 1s</text>
 
-## EMQX Neuron Installation and Configuration
+  <rect class="nodeoff" x="250" y="250" width="520" height="150" rx="10"/>
+  <text class="t h" x="510" y="276" text-anchor="middle">Backup  10.0.0.223</text>
+  <rect class="card" x="270" y="292" width="230" height="90" rx="6"/>
+  <text class="t m" x="385" y="316" text-anchor="middle">Keepalived</text>
+  <text class="t sub" x="385" y="338" text-anchor="middle">BACKUP · priority 90</text>
+  <text class="t tiny" x="385" y="360" text-anchor="middle">nopreempt</text>
+  <rect class="card" x="520" y="292" width="230" height="90" rx="6"/>
+  <text class="t m" x="635" y="322" text-anchor="middle">EMQX Neuron</text>
+  <text class="t off" x="635" y="350" text-anchor="middle">○ stopped</text>
 
-### EMQX Neuron Installation
-Install EMQX Neuron on both the master and backup nodes. This example uses the EMQX Neuron 3.4.3 x86_64 architecture deb package. For other installation packages, please visit [EMQX Neuron Download Page](https://www.emqx.com/en/downloads-and-install/neuronex).
+  <line class="flow" x1="778" y1="115" x2="838" y2="115" marker-end="url(#nxmA)"/>
+  <text class="t lbl" x="808" y="104" text-anchor="middle">Forward</text>
+  <line class="idle" x1="778" y1="325" x2="838" y2="325" marker-end="url(#nxmI)"/>
 
-```shell
-# Download EMQX Neuron installation package
-wget https://www.emqx.com/zh/downloads/neuronex/3.4.3/neuronex-3.4.3-linux-amd64.deb
+  <rect class="box" x="846" y="80" width="150" height="280" rx="8"/>
+  <text class="t h" x="921" y="200" text-anchor="middle">Upstream</text>
+  <text class="t sub" x="921" y="226" text-anchor="middle">MQTT · SCADA</text>
+</svg>
 
-# Install EMQX Neuron
-sudo dpkg -i neuronex-3.4.3-linux-amd64.deb
+::: warning The two nodes are mutually exclusive
+**Only one node collects data at a time.** The backup keeps its EMQX Neuron service stopped and starts it only when taking over. Running both at once produces duplicate collection. This is also why a short window of data loss and duplication exists around a switchover — see [Data loss and duplication](#data-loss-and-duplication).
+:::
 
-# Start EMQX Neuron
-sudo systemctl start neuronex
+## Environment
 
-# Set to start automatically on boot
+| Item | Requirement |
+| --- | --- |
+| Servers | 2, one primary and one backup |
+| Resources per server | At least 1 CPU core and 1 GB memory |
+| Operating system | Ubuntu 18.04 or later, or CentOS 7 or later |
+| Software | EMQX Neuron (deb, rpm, or Docker) and Keepalived |
+| Network | Internal connectivity between the two nodes; security groups and firewalls must allow VRRP and the EMQX Neuron service port |
+
+The examples below use two Ubuntu 22.04 x86_64 servers:
+
+| Role | Internal IP | Interface |
+| --- | --- | --- |
+| Primary | `10.0.0.127` | `eth0` |
+| Backup | `10.0.0.223` | `eth0` |
+
+Replace the IP addresses and interface names in the configuration with your own.
+
+## Installing and configuring EMQX Neuron
+
+### Installation
+
+Install EMQX Neuron on both nodes — see [Installing from a Package](../installation/package.md) or [Docker](../installation/docker.md). Then enable it at boot:
+
+```bash
 sudo systemctl enable neuronex
 ```
 
-### EMQX Neuron Configuration
+### Configuring data collection
 
-Access the EMQX Neuron Dashboard of the master node, and configure one Modbus TCP southbound driver to collect data, which will be used to verify the master-backup switch function.
+Both nodes need an **identical** collection setup so the backup can take over seamlessly.
 
-Access the EMQX Neuron Dashboard page of the backup node, you can manually configure the same data collection service as the master node to verify the master-backup switch function. Alternatively, you can copy the master node's configuration `/opt/neuronex/data/` to the same directory on the backup node to overwrite the existing configuration.
+1. Configure collection on the primary — for example a Modbus TCP southbound driver — and confirm it collects data.
+2. Copy `/opt/neuronex/data/` from the primary to the same path on the backup, overwriting what is there. You can also configure the backup by hand.
+3. Stop the EMQX Neuron service on the backup to reach the initial state of "primary running, backup standing by":
 
-Through the above configuration, both the master and backup EMQX Neuron can run normally. At this point, you can stop the EMQX Neuron service of the backup node by the following command to represent the initial state where the master node is running and the backup node is stopped.  
+   ```bash
+   sudo systemctl stop neuronex
+   ```
 
-```shell
-sudo systemctl stop neuronex
-```
+::: tip
+Configuration is **not synchronized automatically** between the two nodes. When the primary's configuration changes later, sync it manually — see [Configuration file synchronization](#configuration-file-synchronization).
+:::
 
 ## Keepalived Installation and Configuration
 
@@ -170,89 +259,57 @@ sudo systemctl enable keepalived
 ```
 
 
-### Configure Keepalived on the Backup Node
+### Configuring Keepalived on the backup node
 
-Create `keepalived.conf`、 `master.sh`、 `backup.sh` files in the `/etc/keepalived/` directory of the backup node.
+The backup node's `keepalived.conf` is **mostly the same** as the primary's. Copy it over and change the following:
 
-1. Configure Keepalived on the backup node, the configuration file directory is `/etc/keepalived/keepalived.conf`, the content is as follows:
+| Setting | Primary | Backup |
+| --- | --- | --- |
+| `state` | `MASTER` | `BACKUP` |
+| `priority` | `100` | `90` |
+| `nopreempt` | commented out (preemption on) | enabled |
+| `unicast_peer` | `10.0.0.223` (the peer) | `10.0.0.127` (the peer) |
+| `vrrp_script` / `track_script` | required | **remove** — the backup does not monitor its own service |
+| Notify scripts | `notify_fault` + `notify_master` | `notify_master` + `notify_backup` |
+
+The resulting `vrrp_instance` block on the backup:
 
 ```shell
-! Configuration File for keepalived
-global_defs {
-   vrrp_skip_check_adv_addr
-   #vrrp_strict
-   vrrp_garp_interval 0
-   vrrp_gna_interval 0
-}
-
-# Define a virtual router instance
 vrrp_instance VI_1 {
-    # Define the initial state, which can be MASTER or BACKUP
     state BACKUP
-	# Non-preemptive mode
     nopreempt
-    # Define the working interface
     interface eth0
-
     virtual_router_id 51
-	# Define the weight
     priority 90
-	# Announcement frequency, unit is second
     advert_int 1
-	# Define the communication authentication mechanism
     authentication {
         auth_type PASS
         auth_pass abcdefgh
     }
-
-    # Define the virtual VIP address, which is not used
     virtual_ipaddress {
         192.160.127.254/17
     }
-
     unicast_peer {
-        10.0.0.127  # Master node IP address
+        10.0.0.127  # the primary node's IP
     }
-
-    # Notify script, which will be executed after the host state becomes Master|Backup|Fault
     notify_master "/etc/keepalived/master.sh"
     notify_backup "/etc/keepalived/backup.sh"
 }
 ```
 
-::: tip
+The backup needs only two scripts in `/etc/keepalived/`:
 
-Since the IP address of the master node in this example is `10.0.0.127`, the unicast_peer content in the keepalived.conf file is `10.0.0.127`, please modify it according to actual conditions.
+| Script | Contents | When it runs |
+| --- | --- | --- |
+| `master.sh` | `systemctl start neuronex` | The backup is promoted to MASTER and starts serving |
+| `backup.sh` | `systemctl stop neuronex` | The backup is demoted to BACKUP and stands down |
 
-Since the network card bound to the host IP address `10.0.0.223` is `eth0`,  `interface` in the keepalived.conf file is `eth0`. Please modify it according to actual conditions.
+Start Keepalived and enable it at boot:
 
-:::
-
-2. Configure `master.sh` script on the backup node, the configuration file directory is `/etc/keepalived/master.sh`, the content is as follows:
-
-```shell
-#!/bin/bash
-
-systemctl start neuronex
-```
-
-3. Configure `backup.sh` script on the backup node, the configuration file directory is `/etc/keepalived/backup.sh`, the content is as follows:
-
-```shell
-#!/bin/bash
-
-systemctl stop neuronex
-```
-
-4. Start Keepalived on the backup node
-
-```shell
+```bash
 sudo systemctl start keepalived
-
-# Set to start automatically on boot
 sudo systemctl enable keepalived
 ```
-
 
 ## Master-Backup Switch Logic
 
@@ -314,18 +371,18 @@ After the above configuration steps, both the master and backup nodes have start
 
   - Master node becomes `MASTER`:
 
-    The backup node receives the VRRP announcement from the master node and finds that the priority of the master node is higher than its own priority.
+    The backup receives the primary's VRRP advertisement, sees that its priority (100) is higher than its own (90), and steps down to `BACKUP`.
 
-    The backup node is configured with nopreempt, so the backup node actively downgrades to the `BACKUP` state.
+    The backup runs `backup.sh` to stop its own EMQX Neuron service.
 
-    The backup node executes the `backup.sh` script to stop the EMQX Neuron service.
+    The primary becomes `MASTER` again and takes over the workload.
 
-    The master node becomes `MASTER`, taking over the workload.
+::: tip About preemption
+On the primary, `nopreempt` is commented out, so **preemption is on** — once it recovers, its higher priority wins `MASTER` back automatically.
 
-::: tip 
+On the backup, `nopreempt` **is** enabled, which stops it from seizing `MASTER` from a primary that is already running when Keepalived starts.
 
-Since the master node Keepalived is configured with the preemptive mode, the master node will automatically switch to the `MASTER` state and start the EMQX Neuron service after recovery, taking over the workload of the master node.
-
+If you would rather the primary not take over automatically — to avoid the data churn of a second switchover — uncomment `nopreempt` on the primary as well.
 :::
 
 
@@ -381,13 +438,16 @@ Since the master node Keepalived is configured with the preemptive mode, the mas
 
 ### Deployment Mode
 
-The master-backup mode also supports the EMQX Neuron Docker deployment mode.
+This guide deploys with systemd, so the scripts use `systemctl`.
 
-In this example, EMQX Neuron is deployed through the `systemd` method, so the corresponding script starts and stops EMQX Neuron in the systemctl command form. 
+With a Docker deployment, swap the commands in `master.sh`, `backup.sh`, and `fault.sh` for their Docker equivalents:
 
-If the EMQX Neuron deployment method is `Docker`, then the startup and stop EMQX Neuron method in the script is in the docker command form. You need to replace the systemctl command in the `master.sh`, `backup.sh`, `fault.sh` scripts with the docker command. For example, `docker start neuronex`, `docker stop neuronex`.
+| Script | systemd | Docker |
+| --- | --- | --- |
+| `master.sh` | `systemctl start neuronex` | `docker start neuronex` |
+| `backup.sh` / `fault.sh` | `systemctl stop neuronex` | `docker stop neuronex` |
 
-### Configuration File Synchronization
+### Configuration file synchronization
 
 The master-backup mode does not support automatic synchronization of configuration files between the master and backup EMQX Neuron. If you need the configuration files of the master and backup EMQX Neuron to be consistent, you need to manually synchronize the configuration files.
 
@@ -402,7 +462,7 @@ If the configuration file of the master node EMQX Neuron has changed after runni
     Copy the configuration file `/opt/neuronex/data/` of the master node EMQX Neuron to the directory mounted to the host by the docker container.
 
 
-### Data Loss and Duplication Issues
+### Data loss and duplication
 
 To build a complete high-availability function for EMQX Neuron, the complete high-availability means that any single EMQX Neuron node failure will not lose or duplicate data. This requires configuring three EMQX Neuron services, implementing data high availability through distributed databases and cluster modes. This method requires a high cost and requires the factory equipment and network to support high availability to be fully effective. In actual factory scenarios, it is often difficult to meet this condition, that is, the PLC does not support master-backup or the factory network does not support master-backup, and there is still a single point of failure, which cannot achieve full data link high availability.
 

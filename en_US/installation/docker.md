@@ -1,79 +1,87 @@
-# Running with Docker
+# Docker
 
-## Get the image
+## Choosing an image
 
-Get the latest Docker image from the [EMQ website](https://www.emqx.com/en/downloads-and-install/neuronex?os=Docker), for example:
+| <div style="width:140pt">Image</div> | Notes |
+| --- | --- |
+| `emqx/neuronex:x.y.z` | Standard image. Includes the Python runtime and the rules engine Python SDK (`ekuiper`, `pynng`). **Required for Python portable plugins** |
+| `emqx/neuronex:x.y.z-extend` | Based on the standard image, with the same Python runtime |
+| `emqx/neuronex:x.y.z-slim` | No Python runtime, smaller footprint. **Does not support** Python portable plugins — plugin install cannot start a Python process for the handshake |
 
-```bash
-## pull EMQX Neuron
-$ docker pull emqx/neuronex:3.9.2
-```
+When in doubt, use the standard image. The full tag list is on [Docker Hub](https://hub.docker.com/r/emqx/neuronex/tags), and images are also linked from the [download page](https://www.emqx.com/en/downloads-and-install/neuronex?os=Docker).
 
-::::tip
-For more EMQX Neuron Docker images, please visit [Docker Hub](https://hub.docker.com/r/emqx/neuronex/tags).
-::::
-
-## Start
+## Starting the container
 
 ```bash
-## run EMQX Neuron
-$ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:3.9.2
-```
-
-- `-p 8085:8085`: Port mapping for accessing the Web UI and HTTP API.
-- `--env NEURONEX_DISABLE_AUTH=1`: Optional. Disable authentication.
-- `--restart=always`: Optional. Automatically restart the EMQX Neuron container when the Docker process restarts.
-- `--privileged=true`: Optional. Grant the container higher privileges to access host resources (**recommended**).
-- `-v /host/path:/container/path`: Optional. Mount a host directory into the container. For example, `/host/dir:/opt/neuronex/data`.
-- `--device /dev/ttyUSB0:/dev/ttyS0`: Optional. Map a serial port into Docker. `/dev/ttyUSB0` is the serial device on Linux; `/dev/ttyS0` is the device inside Docker.
-- `--log-opt`: Optional. Limit Docker stdout size, for example `--log-opt max-size=100m`.
-
-For more startup parameters, please refer to [Startup Parameters and Configuration Files](../admin/conf-management.md).
-
-## Docker Container Python Runtime Environment
-
-EMQX Neuron provides two types of Docker images:
-
-- **neuronex:3.x.x** (standard image)
-
-The `neuronex:3.x.x` standard image includes the Python runtime and the rules engine Python SDK (`ekuiper`, `pynng`). **Use this image to install and run Python portable plugins.** The `*-extend` image is based on the standard image and includes the same runtime.
-
-```bash
-# run EMQX Neuron by neuronex:3.x.x
 docker pull emqx/neuronex:3.9.2
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.9.2
+
+docker run -d --name neuronex \
+  -p 8085:8085 \
+  -v /host/neuronex-data:/opt/neuronex/data \
+  --ulimit nofile=65535:65535 \
+  --log-opt max-size=100m \
+  emqx/neuronex:3.9.2
 ```
 
-- **neuronex:3.x.x-slim**
+Open `http://localhost:8085` and sign in with the default account **admin** / **0000**.
 
-The `neuronex:3.x.x-slim` image does **not** include the Python runtime. It is smaller. **It does not support** Python portable plugins: plugin install cannot start a Python process for handshake. Use this image only if you do not need Python algorithm plugins.
-
-::: tip
-To use **Data Processing → Extensions → Portable Plugins**, use the standard image `emqx/neuronex:x.y.z`. Do not use `*-slim`. Binary packages (tar/deb/rpm) also omit Python by default; install Python 3 and run `pip install ekuiper pynng`. See [Python portable plugin example](../streaming-processing/portable_python.md#deployment-requirements).
+::: warning Always mount the data directory
+`-v` maps a host directory onto the container's `/opt/neuronex/data`. **Without it, removing the container also destroys your driver configuration, tag lists, and rules.**
 :::
 
+## Runtime options
+
+| <div style="width:170pt">Option</div> | Purpose |
+| --- | --- |
+| `-p 8085:8085` | Port mapping for the web console and the HTTP API |
+| `-v <host dir>:/opt/neuronex/data` | Persist configuration and data — see the warning above |
+| `--ulimit nofile=65535:65535` | Raise the file descriptor limit; needed with many nodes, see [below](#raising-the-file-descriptor-limit-for-larger-deployments) |
+| `--log-opt max-size=100m` | Cap the size of the container's stdout log |
+| `--restart=always` | Restart the container automatically when the Docker daemon restarts |
+| `--device <host device>:<container device>` | Map a serial port or other device, see [Connecting serial devices](#connecting-serial-devices) |
+
+For more startup parameters, see [Startup Parameters and Configuration File](../admin/conf-management.md).
+
+## Connecting serial devices
+
+To collect over serial protocols such as Modbus RTU or DL/T645, map the host's serial port into the container:
+
 ```bash
-# run EMQX Neuron by neuronex:3.x.x-slim
-docker pull emqx/neuronex:3.9.2-slim
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:3.9.2-slim
+docker run -d --name neuronex \
+  -p 8085:8085 \
+  --device /dev/ttyUSB0:/dev/ttyS0 \
+  emqx/neuronex:3.9.2
 ```
 
-## Uninstall
+`/dev/ttyUSB0` is the device on the host and `/dev/ttyS0` is its path inside the container — use the container path in the driver's **serial device** parameter. Repeat `--device` for each additional port.
 
-Uninstalling the Docker deployment generally includes stopping the container and removing it. Deleting the image is optional.
+## Raising the file descriptor limit for larger deployments
+
+Every running node consumes a number of file descriptors. With many nodes configured, the total exceeds the container's default limit of 1024, which shows up as nodes failing to connect or disconnecting repeatedly.
+
+The direct fix is to raise the limit:
 
 ```bash
-# Stop the container
-docker stop neuronex || true
+--ulimit nofile=65535:65535
+```
 
-# Remove the container
+`--privileged=true` also works, since it lifts the container's restrictions including the descriptor limit — but it grants the container privileges close to host root. **Use it only when you actually need it**; `--ulimit` is enough for this case.
+
+## Uninstalling
+
+Stop and remove the container:
+
+```bash
+docker stop neuronex || true
 docker rm neuronex || true
 ```
 
-Optionally remove the image:
+To remove the image as well:
 
 ```bash
 docker rmi emqx/neuronex:<tag>
 ```
 
-If you started the container with `-v` bind mounts, removing the container will not delete the host data. Clean up the corresponding directories on the host manually if needed.
+::: tip
+If you mounted a host directory with `-v`, removing the container leaves that data in place. Delete the directory yourself if you no longer need it.
+:::

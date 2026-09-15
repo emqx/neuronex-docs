@@ -1,112 +1,74 @@
-# 安装 EMQX Neuron
+# 安装与部署
 
-EMQX Neuron 在基于 Linux 的操作系统上支持 32/64位 ARM 和 64位 X86 架构，并提供以下安装包格式：
-- tar 软件包方式，适用于所有 Linux 操作系统
-- Debian 软件包（.deb）格式，用于基于 Debian、Ubuntu 的 Linux 操作系统
-- Redhat 包管理器（.rpm）格式，适用于基于 RedHat、CentOS 的 Linux 操作系统
+EMQX Neuron 运行在基于 Linux 的操作系统上，支持 32/64 位 ARM 和 64 位 x86 架构，也支持 Docker、Kubernetes、KubeEdge 等容器化部署。
 
-## 下载安装包
+## 快速安装
 
-EMQX Neuron 软件包可从 [官网](https://www.emqx.com/zh/try?tab=self-managed) 下载。
-
-## EMQX Neuron 支持的操作系统
-
-EMQX Neuron 支持以下操作系统：
-- CentOS 8.0 及以上版本，Ubuntu 20.04 及以上版本，Debian 11 及以上版本。
-
-:::tip 提示
-如果是 Windows 操作系统，支持以下几种安装方式:
-
-- 使用 Virtual Box安装相应的 Linux 系统
-- 使用 WSL 安装相应的 Linux 系统
-- 使用 Docker Desktop，以 Docker 的方式安装和运行 EMQX Neuron
-:::
-
-## 硬件要求
-
-EMQX Neuron 支持运行在 X86，ARM 等硬件架构的设备上以及支持容器化的部署，如 Kubernetes、KubeEdge 等，可以部署在工业现场各类**工控机**、**网关设备**及**服务器**等硬件。在硬件资源有限的设备上也能达到**100 毫秒**的高频数据采集，以及极低的采集延迟。在硬件资源充足的服务器上，EMQX Neuron 也能充分利用多核 CPU，能够同时对几十万的点位进行高频率的数据采集以及点位写入控制。
-
-**下表列出了 EMQX Neuron 在不同点位数量下的完成数采功能最低硬件要求（使用数据处理功能会额外消耗系统资源）。**
-
-| 点位数                | 建议最小内存 | 硬件架构                           | 备注                              |
-| --------------------- | --------- | ---------------------------------| --------------------------------- |
-| 100 tags              | 128M      | 64-bit ARM 和 64-bit x86 架构     | Raspberry Pi 3                    |
-| 1,000 tags            | 256M      | 64-bit ARM 和 64-bit x86 架构     | Raspberry Pi 4                    |
-| 10,000 tags           | 512M      | 64-bit ARM 和 64-bit x86 架构     | Industrial PC 等                  |
-| 超过 10,000 tags       | 1G       | 64-bit x86 架构                    | Powerful Industrial PC, Server 等 |
-
-:::tip
-EMQX Neuron 没有点位数量上限。取决于分配的 CPU 和内存资源。以下提供一些 EMQX Neuron 的性能测试结果供用户参考，这些测试数据仍然不是上限。更强大的服务器支持配置更多的数据点位。
-
-|Platform                         | Intel(R) Xeon(R) Gold 6266C@3.00GHz<br>|
-| :-------------------- | :---------  |
-|Memory                           | 4G<br>  |
-|Architecture                     | x86<br>  |
-|OS Support                       | Ubuntu 20.04<br>  |
-|No. of Connections               | 500 connections of Modbus TCP driver<br>  |
-|No. of Tags for Each Connection  | 30 tags<br>  |
-|Collection Interval              | 1 second<br>  |
-|Total Tags                       | 15,000 tags<br>  |
-|Memory Usage                     | 300M<br>  |
-|CPU Usage                        | 0.9 * 1 core<br>  |
-
-
-:::
-
-:::tip
-在硬件性能足够的情况下，推荐采集的总点位数不超过10万个数据采集点位，推荐配置不超过100个南向驱动。如果数据点位或者南向驱动数量超过上述推荐配置，可通过部署多个 EMQX Neuron 实例来满足需求。
-
-:::
-
-## Debian 软件包
-
-| 下载文件                         | 架构  |
-| ------------------------------ | ----- |
-| neuronex-x.y.z-linux-amd64.deb | AMD64 |
-| neuronex-x.y.z-linux-arm.deb   | ARM   |
-| neuronex-x.y.z-linux-arm64.deb | ARM   |
-
-
-## Redhat 软件包管理工具
-
-| 下载文件                        | 架构  |
-| ------------------------------ | ----- |
-| neuronex-x.y.z-linux-amd64.rpm | AMD64 |
-| neuronex-x.y.z-linux-arm64.rpm | ARM   |
-
-
-## Tape Archive（tar）
-
-| 下载文件                           | 架构  |
-| --------------------------------- | ----- |
-| neuronex-x.y.z-linux-amd64.tar.gz | AMD64 |
-| neuronex-x.y.z-linux-arm.tar.gz   | ARM   |
-| neuronex-x.y.z-linux-arm64.tar.gz | ARM   |
-
-
-## Docker 镜像
-
-| 下载文件                           | 架构   |
-| -------------------------------- | ------ |
-| emqx/neuronex:x.y.z              | Docker |
-| emqx/neuronex:x.y.z-slim         | Docker |
-
-## 版本号说明
-
-- x 为主要版本号：一般情况下，该版本会引入一些重大功能，如引入架构性的更改，主版本升级不保证与老版本之间的兼容性；
-- y 是次要版本号：一般情况下，该类型版本会引入一些新功能，但是会保证在该主要版本号下的兼容性；
-- z 是维护版本号：一般情况下，该版本只包含软件中错误修复的补丁等。
-
-## 一键安装脚本
-
-如果希望自动完成 EMQX Neuron 的安装（根据系统环境下载对应架构与版本，并进行校验），可以使用一键安装脚本：
+一条命令完成安装。脚本会识别当前系统架构、选择合适的安装方式、下载并校验安装包：
 
 ```bash
 curl -sL emqx.sh/neuron | bash -
 ```
 
-![c7e453ae-7fc9-4eb2-9869-ede677cc3530](_assets/oneclick-install.png)
+![一键安装脚本的运行输出](_assets/oneclick-install.png)
 
-该脚本会根据运行环境自动选择安装方式（常见包括 `tar.gz`、`.deb`、`.rpm` 以及 `Docker`），并在提供校验文件时对下载包进行 SHA256 校验。以 `tar.gz` 方式为例，默认安装到 `/opt/neuronex`，同时将 `neuronex` 软链接到 `/usr/local/bin`，便于直接使用命令启动。
+脚本在 `tar.gz`、`.deb`、`.rpm`、Docker 之间自动选择，并在有校验文件时做 SHA256 校验。以 `tar.gz` 为例，默认装到 `/opt/neuronex`，同时把 `neuronex` 软链接到 `/usr/local/bin`，装完即可直接用命令启动。
 
-生产环境需要高可用时，见 [主备模式](../best-practise/master-backup.md)。
+## 选择安装方式
+
+如果需要指定安装方式，或者脚本不适用于你的环境：
+
+| <div style="width:80pt">方式</div> | 适用场景 | 详见 |
+| --- | --- | --- |
+| **.deb** | Debian、Ubuntu、麒麟等 Debian 系发行版，首选 | [使用安装包安装](./package.md) |
+| **.rpm** | RedHat、CentOS、欧拉等 RPM 系发行版 | [使用安装包安装](./package.md) |
+| **.tar.gz** | 任意 Linux 发行版，不依赖包管理器 | [使用安装包安装](./package.md) |
+| **Docker** | 快速试用、容器化部署、CI 环境 | [通过 Docker 部署](./docker.md) |
+
+安装包从[官网下载页](https://www.emqx.com/zh/try?tab=self-managed)获取，文件名形如 `neuronex-x.y.z-linux-amd64.rpm`——`x.y.z` 是版本号，`amd64` / `arm` / `arm64` 是架构。
+
+## 操作系统要求
+
+| 类别 | 已适配的系统 | 安装方式 |
+| --- | --- | --- |
+| 国际发行版 | CentOS 8.0 及以上、Ubuntu 20.04 及以上、Debian 11 及以上 | 对应的 rpm / deb / tar.gz 包 |
+| 国产操作系统 | 欧拉（ARM64） | RPM 包直接安装 |
+| | 麒麟（ARM64） | DEB 包直接安装 |
+| | 统信 | 安装包直接安装 |
+
+::: tip Windows
+EMQX Neuron 不提供 Windows 原生安装包。在 Windows 上可以通过 Docker Desktop 运行，或用 WSL、VirtualBox 装一个 Linux 环境。
+:::
+
+## 硬件要求
+
+EMQX Neuron 可以部署在工控机、网关设备和服务器上。在资源有限的设备上仍能做到 **100 毫秒**的采集周期；资源充足时可以利用多核 CPU 同时采集大量点位。
+
+下表是完成数据采集所需的最低内存（启用数据处理会额外消耗资源）：
+
+| 点位数 | 建议最小内存 | 硬件架构 | 参考机型 |
+| --- | --- | --- | --- |
+| 100 | 128 MB | 64 位 ARM / x86 | 树莓派 3 |
+| 1,000 | 256 MB | 64 位 ARM / x86 | 树莓派 4 |
+| 10,000 | 512 MB | 64 位 ARM / x86 | 工控机 |
+| 10,000 以上 | 1 GB 起 | 64 位 x86 | 高性能工控机、服务器 |
+
+点位数没有硬性上限，取决于分配的 CPU 和内存。各驱动的实测数据见[性能测试](../performance/performance.md)。
+
+::: tip 单实例推荐规模
+硬件充足时，单个实例建议不超过 **10 万个点位**、**100 个南向驱动**。超出这个规模，建议拆成多个 EMQX Neuron 实例。
+:::
+
+## 版本号说明
+
+版本号形如 `x.y.z`：
+
+- **x** 主版本号：引入架构性变更，不保证与旧版本兼容。
+- **y** 次版本号：引入新功能，在同一主版本号内保持兼容。
+- **z** 维护版本号：只含缺陷修复。
+
+## 下一步
+
+- **装完先跑一遍** —— [快速入门](../quick-start/quick-start.md)，五步打通从采集到转发。
+- **配置许可证** —— 默认自带 30 点位免费额度，超出需要申请，见[许可证](./license.md)。
+- **生产环境高可用** —— 见[主备模式](../best-practise/master-backup.md)。

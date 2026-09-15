@@ -34,11 +34,17 @@ admin 用户通过以上设置登录系统后，可以继续修改上述用户�
 
 ::: warning
 
-EMQX Neuron 用户管理功能与认证功能相关，如需使用多用户功能，请确保未手动关闭认证功能(默认配置下，认证功能是开启的)：
+用户管理依赖认证功能，默认是开启的。
 
-1. 在安装包部署时，未设置 `NEURONEX_DISABLE_AUTH=1` 环境变量
-2. 在 Docker 部署时，未设置 `NEURONEX_DISABLE_AUTH=1` 环境变量
-3. 位于`/opt/neuronex/etc/neuronex.yaml`的配置文件中的配置项 `disableAuth` 未关闭 Token 认证。
+**关闭认证后，Web 控制台和 HTTP API 都不再校验身份——打开页面直接进入，不需要登录，用户、角色和权限也随之失效。**
+
+以下任意一种情况都会关闭认证：
+
+1. 安装包部署时设置了 `NEURONEX_DISABLE_AUTH=1` 环境变量
+2. Docker 部署时设置了 `NEURONEX_DISABLE_AUTH=1` 环境变量
+3. `/opt/neuronex/etc/neuronex.yaml` 中的 `server.disableAuth` 设为 `true`
+
+要使用多用户功能，确保以上三项都未开启。
 
 :::
 

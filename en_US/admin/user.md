@@ -33,11 +33,17 @@ After the admin user logs in to the system through the above settings, he can co
 
 :::warning
 
-EMQX Neuron user management functionality is related to authentication functionality. If you need to use multi-user functionality, please ensure that the authentication function is not manually disabled (the authentication function is enabled by default):
+User management depends on authentication, which is enabled by default.
 
-1. When deploying via installation package, ensure `NEURONEX_DISABLE_AUTH=1` environment variable is not set.
-2. When deploying via Docker, ensure `NEURONEX_DISABLE_AUTH=1` environment variable is not set.
-3. The `disableAuth` configuration item in the `/opt/neuronex/etc/neuronex.yaml` configuration file is not true.
+**With authentication disabled, neither the web console nor the HTTP API verifies identity — the console opens straight up with no login, and users, roles, and permissions stop taking effect.**
+
+Any of the following disables authentication:
+
+1. `NEURONEX_DISABLE_AUTH=1` is set when deploying from an installation package
+2. `NEURONEX_DISABLE_AUTH=1` is set when deploying with Docker
+3. `server.disableAuth` is set to `true` in `/opt/neuronex/etc/neuronex.yaml`
+
+To use multi-user functionality, make sure none of the above applies.
 
 :::
 

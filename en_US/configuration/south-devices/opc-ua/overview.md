@@ -2,6 +2,10 @@
 
 OPC UA is a machine-to-machine communication protocol for industrial automation developed and maintained by the OPC Foundation. OPC UA provides a standardized way for different devices and systems to communicate with each other.
 
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
+
+For measured tag counts and polling intervals, see [OPC UA Driver Performance](../../../performance/opcua.md).
+
 The EMQX Neuron OPC UA driver can be used as a client to access KEPServerEX, Industrial Gateway OPC Server, Prosys Simulation Server, Ignition, and other OPC UA servers. You can also directly access the built-in OPC UA Server of hardware equipment, such as the built-in Server of Siemens S7-1200 PLC, the built-in Server of Omron NJ series PLC, etc.
 
 ::: tip
@@ -11,16 +15,16 @@ OPC UA Part 9 Conditions and Alarms functionality must be used in Subscribe mode
 
 :::
 
-## Add Device
+## Add Driver
 
-Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
+On **Data Collection → South Devices**, click **Add Device**.
 
 - Name: The name of this device node.
 - Driver: Select the **OPC UA** driver.
 
-## Device Configuration
+## Connection Parameters
 
-After clicking **Create**, you will be redirected to the **Device Configuration** page, where we will set up the parameters required for EMQX Neuron to establish a connection with the device. You can also click the device configuration icon on the southbound device card to enter the **Device Configuration** interface.
+Click the driver card to open the **Device Configuration** page and fill in:
 
 | Parameter            | Description                                                                                                                   |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -58,15 +62,9 @@ When the **Update Mode** is set to Subscribe or Read&Subscribe, and the tag attr
 
 :::
 
-## Configure Data Groups and Tags
+## Tag Configuration
 
-After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
-
-Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking on **Create**, then specifying the group name and data collection interval.
-
-Upon successfully creating a group, click on its name to proceed to the **Tag List** page. This page allows you to add device tags for data collection. You'll need to provide information such as the tag address, attributes, and data type.
-
-For information on general configuration items, see [Connect to Southbound Devices](../south-devices.md). The subsequent section will concentrate on configurations specific to the driver.
+The data types and address formats supported by this driver are listed below.
 
 ::: tip
 
@@ -138,16 +136,15 @@ You can use UaExpert to view the **Namespace Index** ( `NamespaceIndex`) and is 
 | Double Array             | ARRAY_DOUBLE                      |
 | Boolean Array            | ARRAY_BOOL                        |
 | String Array             | ARRAY_STRING                      |
-| OPCUA Exentision Object  | JSON                              |
+| OPC UA Extension Object  | JSON                              |
 
 ARRAY_CHAR displays and writes in the form of a string.
 JSON displays and writes in the form of a JSON string.
-OPCUA Extension Object supports arrays and nesting.
+OPC UA Extension Object supports arrays and nesting.
 
 ### Address Format
 
 > (cond:|alarm:|method:)NS[x,y,z]!NODEID(Method-NS!Method-NODEID)(?para1=type1&para2=type2 ...)
-
 
 **cond:|alarm:|method:** Special node flags for conditions, alarms, and methods.
 
@@ -187,7 +184,3 @@ This chapter also provides practical examples to facilitate a quick start.
 - [Ignition](ignition.md)
 - [Prosys Simulation Server](prosys.md)
 - [Conditions and Alarms](conditions.md)
-
-## Data Monitoring
-
-After completing the point configuration, you can click **Monitoring** -> **Data Monitoring** to view device information and control devices. For details, refer to [Data Monitoring](../../../admin/monitoring.md).

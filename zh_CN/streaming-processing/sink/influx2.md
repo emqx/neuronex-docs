@@ -1,4 +1,4 @@
-# InfluxDB 目标（Sink）
+# InfluxDB V2 Sink
 
 该插件将分析结果发送到 InfluxDB V2.X 中。
 
@@ -17,5 +17,5 @@
 | Fields     | 是       | InfluxDB 的标签值         |
 | 标签       | 是       | InfluxDB 的标签键         |
 
-其他通用的 sink 属性也支持，请参阅[公共属性](../overview.md#公共属性)。
+其他通用的 sink 属性也支持，请参阅[公共属性](./sink.md#动作公共参数配置)。
 

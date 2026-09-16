@@ -1,4 +1,4 @@
-# 使用 EMQX Neuron 将数据桥接到 Azure IoT Hub
+# 数据桥接到 Azure IoT Hub
 
 本文将介绍如何使用 EMQX Neuron 通过公网桥接数据到 Azure IoT Hub ，从而借助 Azure IoT Hub 轻松构建 IoT 应用程序。
 

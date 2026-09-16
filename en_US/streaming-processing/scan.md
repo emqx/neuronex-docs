@@ -1,4 +1,4 @@
-# Scan Table Scenarios
+# Scan Table Use Cases
 
 Typically, table will be joined with stream with or without a window. When joining with stream, table data won't affect the downstream data, it is treated like a static referenced data, although it may be updated internally.
 

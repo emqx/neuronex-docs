@@ -1,4 +1,4 @@
-# MQTT Application Development Example
+# MQTT Application Example
 
 Northbound application development mainly includes the following parts. The bottom layer is the development of the instruction processing layer, and the outermost layer is the development of the application layer.
 

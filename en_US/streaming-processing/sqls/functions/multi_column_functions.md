@@ -1,4 +1,4 @@
-# Multiple Column Functions
+# Multi-Column Functions
 
 A multiple column function is a function that returns multiple columns. Contrast to normal scalar function, which
 returns a single column of a single row.

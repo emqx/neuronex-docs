@@ -51,7 +51,6 @@ KEPServerEX 是由 Kepware 公司开发的一款工业自动化设备与应用�
 
    ![kepware-5](./assets/kepware-5.jpg)
 
-
 2. EMQX Neuron 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 **端点 URL**，填写用户名/密码，添加证书/密钥。
 
 3. 可以修改**更新模式**为 Subscribe 或 Read&Subscribe，以 OPC UA 订阅方式获取数据。
@@ -74,4 +73,3 @@ KEPServerEX 是由 Kepware 公司开发的一款工业自动化设备与应用�
 | Short1   | 2!数据类型示例.16 位设备.R 寄存器.Short1   | Read Write | INT16  |
 | Word1    | 2!数据类型示例.16 位设备.R 寄存器.Word1    | Read Write | UINT16 |
 | String1  | 2!数据类型示例.16 位设备.S 寄存器.String1  | Read Write | STRING |
-

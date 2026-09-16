@@ -2,6 +2,7 @@
 
 DNP 3.0 （Distributed Network Protocol 3.0）是一种通信协议，主要用于工业自动化领域，特别是在电力系统中，用于监控和数据采集（SCADA）系统。它允许远程终端单元（RTU）和主站系统之间进行可靠的数据交换。
 
+通用配置步骤见[添加南向驱动](../south-devices.md)与[组与点位](../../groups-tags/groups-tags.md)。
 
 ## 设备设置
 
@@ -88,7 +89,6 @@ Control Code 取值如下：
 | 132          | output latch off  + trip  |
 | +16          | + queue                   |
 | +32          | + clear                   |
-
 
 ## 地址示例
 

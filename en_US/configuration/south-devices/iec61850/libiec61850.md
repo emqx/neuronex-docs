@@ -1,4 +1,4 @@
-# Connect to LibIEC61850 Server
+# Connect to LibIEC61850 server
 
 libiec61850 is an open-source (GPLv3) implementation of an IEC 61850 client and server library implementing the protocols MMS, GOOSE and SV. This section introduces how to use EMQX Neuron IEC61850 driver to connect LibIEC61850 Server.
 
@@ -49,7 +49,3 @@ $ cd sudo ./examples/server_example_61400_25/server_example_61400_25
 | MX2  | GenericIO/GGIO1$MX$AnIn3$mag$f        | Read | DOUBLE |
 | CO3  | GenericIO/GGIO1$CO$SPCSO1$Oper$Test   | Read | BOOL   |
 | DC1  | GenericIO/LLN0$DC$NamPlt$vendor       | Read | STRING |
-
-## Data Monitoring
-
-After completing the point configuration, you can click **Monitoring** -> **Data Monitoring** to view device information and control devices. For details, refer to [Data Monitoring](../../../admin/monitoring.md).

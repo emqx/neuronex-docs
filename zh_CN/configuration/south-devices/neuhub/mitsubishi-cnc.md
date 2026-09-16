@@ -11,7 +11,6 @@ EMQX Neuron 可以使用 Neuron HUB 驱动和 NeuronHUB Windows 程序，间接�
 | cnctype   | 设备类型，目前支持 M700L,M700M,M800L,M800M |
 | cardno    | 控制卡号，默认填写 1                       |
 
-
 ## 支持的数据类型
 
 * uint8
@@ -26,7 +25,6 @@ EMQX Neuron 可以使用 Neuron HUB 驱动和 NeuronHUB Windows 程序，间接�
 * string    
 * ARRAY_STRING
 * ARRAY_DOUBLE 
-
 
 ## CNC 数据
 
@@ -66,9 +64,6 @@ EMQX Neuron 可以使用 Neuron HUB 驱动和 NeuronHUB Windows 程序，间接�
 commonVar 可读写，其他只读。
 :::
 
-
-
-
 *CNC 地址示例*
 
 | 地址              | 说明                |
@@ -79,7 +74,6 @@ commonVar 可读写，其他只读。
 | feedSpeed.0       | 读取当前进给速度    |
 | alarm             | 当前报警列表        |
 | param.1.30.8002.1 | 加工件数            |
-
 
 ### PLC 数据
 
@@ -112,7 +106,6 @@ commonVar 可读写，其他只读。
 ::: tip
 地址输入形式为 16 进制。
 :::
-
 
 *PLC 常用点位*
 
@@ -148,6 +141,3 @@ commonVar 可读写，其他只读。
 ::: tip
 PLC 数据表可以查看三菱官网提供的《PLC开发说明书-M800/M80/E80系列》，获取更多系统运行数据。
 :::
-
-
-

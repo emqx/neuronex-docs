@@ -2,16 +2,18 @@
 
 The Mitsubishi FX driver is used to access Mitsubishi's FX0, FX2, FX3 and other PLC series via the FX programming port.
 
-## Add Device
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
 
-Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
+## Add Driver
+
+On **Data Collection → South Devices**, click **Add Device**.
 
 - Name: The name of this device node.
 - Driver: Select the **Mitsubishi FX** driver.
 
-## Device Configuration
+## Connection Parameters
 
-After clicking **Create**, you will be redirected to the **Device Configuration** page, where we will set up the parameters required for EMQX Neuron to establish a connection with the northbound application. You can also click the device configuration icon on the southbound device card to enter the **Device Configuration** interface.
+Click the driver card to open the **Device Configuration** page and fill in:
 
 |  Parameter    |  Description              |
 | -------- | ------------------------------ |
@@ -23,15 +25,9 @@ After clicking **Create**, you will be redirected to the **Device Configuration*
 | **Baud Rate** | Baud rate, default is 9600                       |
 | **Data Bits** | Data Bits, default is 7                          |
 
-## Configure Data Groups and Tags
+## Tag Configuration
 
-After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
-
-Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking on **Create**, then specifying the group name and data collection interval.
-
-Upon successfully creating a group, click on its name to proceed to the **Tag List** page. This page allows you to add device tags for data collection. You'll need to provide information such as the tag address, attributes, and data type.
-
-For information on general configuration items, see [Connect to Southbound Devices](../south-devices.md). The subsequent section will concentrate on configurations specific to the driver.
+The data types and address formats supported by this driver are listed below.
 
 ### Data Types
 
@@ -43,7 +39,6 @@ For information on general configuration items, see [Connect to Southbound Devic
 * DOUBLE
 * BIT
 * STRING
-
 
 ### Address Format
 
@@ -91,7 +86,3 @@ When the data type is string type, **.LEN** indicates the length of the string; 
 | D20   | double   | D Area, address is 20  |
 | D152.16L | string   | D Area, address is 152, string length is 16, endianness is L |
 | D183.16  | string   | D Area, address is 183, string length is 16, endianness H |
-
-## Data Monitoring
-
-After completing the point configuration, you can click **Monitoring** -> **Data Monitoring** to view device information and control devices. For details, refer to [Data Monitoring](../../../admin/monitoring.md).

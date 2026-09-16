@@ -1,6 +1,8 @@
-# KUKA
+# KUKA Ethernet KRL TCP
 
 EMQX Neuron KUKA Ethernet KRL TCP driver accesses KUKA robot devices with the KUKA Ethernet KRL module installed through TCP protocol. Currently, the EMQX Neuron KUKA driver supports the robot device server mode and client mode.
+
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
 
 ## Parameter Configuration
 
@@ -41,4 +43,3 @@ The driver address is in the form of XML XPATH.
 | /RobotState/Torque/@A1  | float | torque of A1 axis  |
 | /RobotState/Torque/@A2  | float | torque of A2 axis  |
 | /RobotState/Err/@number | int32 | error number       |
-

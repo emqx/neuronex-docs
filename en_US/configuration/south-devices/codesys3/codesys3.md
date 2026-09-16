@@ -1,5 +1,8 @@
-# CODESYS V3 TCP
+# CODESYS V3
+
 The EMQX Neuron CODESYS V3 TCP driver enables access to PLCs and motion control systems based on the CODESYS V3 platform through the TCP protocol.
+
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
 ## Device Settings
 | Field    | Description                                     |
 | -------- | ----------------------------------------------- |
@@ -52,4 +55,3 @@ The symbol configuration exported by the CODESYS V3 platform is the address of t
 | Application.PLC_PRG.d3arr[1,1,1]   | int16     | Value of index 1,1,1 in a 3D array                          |
 | Application.PLC_PRG.point.Y        | float     | Y variable value of the Point structure                     |
 | Application.PLC_PRG.points[1].Name | string    | Name variable value of the Point structure array at index 1 |
-

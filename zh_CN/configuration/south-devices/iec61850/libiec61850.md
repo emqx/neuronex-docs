@@ -1,4 +1,4 @@
-# LibIEC61850 服务器连接示例
+# LibIEC61850 连接示例
 
 LibIEC61850 是一个开源库，提供了实现 IEC 61850 标准的工具和服务。您可通过 LibIEC61850 API，创建符合 IEC 61850 标准的设备和应用，包括 IEC 61850 服务器和客户端，处理 IEC 61850 数据模型，以及实现 IEC 61850 通信服务。
 
@@ -53,7 +53,3 @@ $ cd sudo ./examples/server_example_control/server_example_control
 | DC1  | simpleIOGenericIO/GGIO1$CO$SPCSO2$SBO         | Read | STRING |
 | RP1  | simpleIOGenericIO/LLN0$RP$ControlEventsRCB01$RptID         | Read Write | STRING |
 | RP2  | simpleIOGenericIO/LLN0$RP$ControlEventsRCB01$BufTm         | Read Write | UINT32 |
-
-## 数据监控
-
-完成点位的配置后，您可点击 **监控** -> **数据监控**查看设备信息以及反控设备，具体可参考[数据监控](../../../admin/monitoring.md)。

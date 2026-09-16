@@ -5,5 +5,5 @@ This chapter mainly provides the performance test in various functions such as d
 For specific performance tests, please check the following pages:
 
 * [Modbus TCP Driver Performance Testing](./modbustcp.md)
-* [OPCUA Driver Performance Testing](./opcua.md)
+* [OPC UA Driver Performance Testing](./opcua.md)
 * [Siemens S7 Driver Performance Testing](./siemens-s7.md)

@@ -1,4 +1,4 @@
-# Kafka 目标（Sink）
+# Kafka Sink
 
 This plugin sends the analysis results into Kafka.
 

@@ -1,4 +1,4 @@
-# Websocket Source Connector
+# WebSocket Source
 
 <span style="background:green;color:white;">stream</span> <span style="background:green;color:white;">Scan table</span>
 

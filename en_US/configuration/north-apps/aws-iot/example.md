@@ -1,4 +1,4 @@
-# Bridging Data to AWS IoT using EMQX Neuron
+# Send data to AWS IoT Core
 
 This article will introduce how to use the EMQX Neuron to bridge data to AWS IoT through the public network so that you can easily build IoT applications.
 

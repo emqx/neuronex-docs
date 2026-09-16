@@ -1,4 +1,4 @@
-# EMQX Neuron Best Practice: Integrating MySQL Data into Your IIoT Platform
+# Integrating MySQL Data into an IIoT Platform
 
 In the wave of industrial digitalization, the convergence of IT and OT has become an irreversible trend. While equipment data from the factory floor (OT data) is crucial, its full value is often unlocked only when combined with data from enterprise IT systems. These IT systems, such as Manufacturing Execution Systems (MES), Warehouse Management Systems (WMS), or Enterprise Resource Planning (ERP), typically use SQL databases (like MySQL) to store key business data, including production work orders, material information, quality standards, and personnel schedules.
 

@@ -1,4 +1,4 @@
-# Modbus plugin development example
+# Modbus Driver Example
 
 The southbound driver development mainly includes the following parts, the bottom layer is the protocol layer development, and the outermost layer is the driver layer development.
 | Modules                     | Documentation                             | Instructions                                                                          |

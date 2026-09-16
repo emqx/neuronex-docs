@@ -1,4 +1,4 @@
-# Connection Policy
+# OPC UA Connection Policies
 
 On this page, you'll learn about client certificate and key configuration for connecting with the EMQX Neuron OPC UA module. This includes different login modes, certificate requirements, conversion and generation of certificates, and how to work with the crucial localhost.cnf file. 
 
@@ -150,7 +150,6 @@ $ rm localhost.key
 `-days` can set the value as desired.
 
 The *.cnf file specified by `-config` can be modified using the file attachment `localhost.cnf` in the next section and needs to contain the following configuration section:
-
 
 ```sh
 [ v3_req ]
@@ -450,9 +449,7 @@ IP.1 = 127.0.0.1
 
 [ v3_ca ]
 
-
 # Extensions for a typical CA
-
 
 # PKIX recommendation.
 
@@ -582,4 +579,3 @@ ess_cert_id_chain	= no	# Must the ESS cert id chain be included?
 				# (optional, default: no)
 
 ```
-

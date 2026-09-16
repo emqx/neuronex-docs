@@ -1,4 +1,4 @@
-# Release history
+# Release History
 
 ## v3.9.3
 
@@ -59,34 +59,6 @@ Release Date: 2026-08-14
   - Affected scope: Topology shutdown/cleanup only. Active-rule reconnect behavior during runtime disconnection is unchanged.
 
 
-
-## v3.8.2
-
-Release Date: 2026-07-17
-
-### Enhancements
-
-- **Modbus TCP/RTU driver**: Added support for writing holding register bits using function code **0x16**.
-
-### Fixes
-
-- Fixed **OPC UA Server** crash in Neuron when configuring a large number of nodes.
-
-- **MQTT/SparkplugB**: CA configuration is now mandatory when TLS is enabled, preventing connections that do not actually use TLS despite TLS being enabled.
-
-- Fixed issue where **ADS driver** device read failures could cause CPU usage to reach **100%**.
-
-- Fixed memory anomalies in multiple modules, including stack overflow, value out-of-bounds, and memory information leakage.
-
-- Fixed issues in the **RBAC** feature.
-
-- Fixed sensitive information exposure in logs.
-
-- Fixed issue where the **Node-RED** page could not be opened.
-
-- Standardized **Okta SSO** front-end parameters; extended back-end timeout.
-
-- Reduced the maximum process monitoring restart count from **3** to **2**.
 
 ## v3.9.1
 
@@ -165,21 +137,33 @@ Release Date: 2026-05-20
 - Fixed Shared Source Schema Lost on Wildcard Rule Detach. When two or more rules share a SHARED=true source (e.g., neuronStream) and both use wildcard queries (SELECT *), stopping one rule caused the remaining rule(s) to start emitting empty tuples {}. 
 
 
-## v3.6.5
+## v3.8.2
 
-Release Date: 2026-04-24
+Release Date: 2026-07-17
 
 ### Enhancements
 
-- **Observability**: Added observability capabilities to shared connections in the data processing module.
-- **Logging**: Added connection pool logs for better troubleshooting.
-  
+- **Modbus TCP/RTU driver**: Added support for writing holding register bits using function code **0x16**.
+
 ### Fixes
 
-- Fixed a difficult-to-reproduce race condition where sub-topologies or rules using shared connections could hang during specific connection error scenarios.
-- Fixed Kafka Sink Transport Resource Leak: Resolved an issue where the Kafka sink's underlying transport goroutines (specifically the discover goroutine) were not being terminated when a rule was stopped. This was caused by the kafka-go writer not automatically closing external transport connections. Kafka Sink now explicitly calls CloseIdleConnections() to ensure all resources are properly freed.
+- Fixed **OPC UA Server** crash in Neuron when configuring a large number of nodes.
 
+- **MQTT/SparkplugB**: CA configuration is now mandatory when TLS is enabled, preventing connections that do not actually use TLS despite TLS being enabled.
 
+- Fixed issue where **ADS driver** device read failures could cause CPU usage to reach **100%**.
+
+- Fixed memory anomalies in multiple modules, including stack overflow, value out-of-bounds, and memory information leakage.
+
+- Fixed issues in the **RBAC** feature.
+
+- Fixed sensitive information exposure in logs.
+
+- Fixed issue where the **Node-RED** page could not be opened.
+
+- Standardized **Okta SSO** front-end parameters; extended back-end timeout.
+
+- Reduced the maximum process monitoring restart count from **3** to **2**.
 
 ## v3.8.1
 
@@ -209,70 +193,6 @@ Release Date: 2026-04-14
 
 - Resolved issues related to the HTTP Push data source in EMQX Neuron 3.8.0.
 
-
-## v3.7.2
-
-Release Date: 2026-03-27
-
-### Enhancements
-
-- **Tag Write Logging**: When performing tag write operations via MQTT or HTTP API, the logs now include the execution status (Success/Failure) and specific error details. Successful operations are logged as INFO, while failures are logged as ERROR.
-
-- **MQTT Driver Enhancement**: Offline data caching will be cleared when the northbound MQTT driver node is deleted or the offline data caching function is disabled.
-
-- **Allen-Bradley 5000 EtherNet/IP Driver**: Added support for writing Struct String data type for CompactLogix 53xx series.
-
-- **IEC61850-5-101 Driver**: Added support for data types with CP24 and configurable parameter length.
-
-- **SECS GEM Driver**: Increased the maximum supported nesting level of List structures from 4 to 10.
-
-- **Optimized interaction for Add Tags**: The tag name column now supports drag-and-drop resizing to better display long tag names.
-
-- **REST Sink**：Support access headers for REST sink outputs.
-
-- **Backup & Restore**: Versions 3.7.2 and later support importing exported backup file after renaming.(Versions 3.7.1 and earlier do not support importing backup files after renaming.)
-
-### Fixes
-
-- Fixed the detection logic for invalid tag reading when the OPC UA Update Mode is set to Read or Subscribe, and added automatic reconnection to the OPC UA Server and tag reading.
-
-- Fixed the issue of duplicate Node entries in the OPC UA Tag Browser function.
-
-- Fixed the OPC UA Tag Browser function to only filter out Method nodes.
-
-- Integrated the latest version of the MQTT SDK, optimized the blocking issue of the QoS 2 message mechanism, and fixed the disconnection from the MQTT Broker caused by large message transmission (excessive tags in a single collection group).
-
-- Fixed a crash issue in the Sparkplug B driver caused by triggering rebirth.
-
-- Fixed the problem where users with the Viewer role could not access the Data Monitoring page.
-
-- Fixed incorrect permission issues for users with the Viewer role on pages such as Data Analysis and Dashboard.
-
-## v3.6.4
-
-Release Date: 2026-03-19
-
-### Enhancements
-
-- **Tag Write Logging**: When performing tag write operations via MQTT or HTTP API, the logs now include the execution status (`Success`/`Failure`) and specific error details. Successful operations are logged as `INFO`, while failures are logged as `ERROR`.
-
-- **MQTT Driver Enhancement**: Offline data caching will be cleared when the northbound MQTT driver node is deleted or the offline data caching function is disabled.
-
-- **Allen-Bradley 5000 EtherNet/IP Driver**: Added support for writing Struct String data type for CompactLogix 53xx series.
-
-- **IEC61850-5-101 Driver**: Added support for data types with CP24 and configurable parameter length.
-
-### Fixes
-
-- Fixed the detection logic for invalid tag reading when the OPC UA Update Mode is set to Read or Subscribe, and added automatic reconnection to the OPC UA Server and tag reading.
-
-- Fixed the issue of duplicate Node entries in the OPC UA Tag Browser function.
-
-- Fixed the OPC UA Tag Browser function to only filter out Method nodes.
-
-- Fixed the issue where the OPC UA Subscription Task Timestamp overflowed, causing the task update to fail.
-
-- Integrated the latest version of the MQTT SDK, optimized the blocking issue of the QoS 2 message mechanism, and fixed the disconnection from the MQTT Broker caused by large message transmission (excessive tags in a single collection group).
 
 ## v3.8.0
 
@@ -337,29 +257,43 @@ Release Date: 2026-02-07
     
 - Fix the abnormal crash issue of the SparkPlugB driver
 
-## v3.5.5
+## v3.7.2
 
-Release Date: 2026-01-07
+Release Date: 2026-03-27
 
 ### Enhancements
 
-- **OPC UA** driver now adds support for complex nested `struct` types
+- **Tag Write Logging**: When performing tag write operations via MQTT or HTTP API, the logs now include the execution status (Success/Failure) and specific error details. Successful operations are logged as INFO, while failures are logged as ERROR.
 
-- Enhanced **BACnet BBMD** functionality
+- **MQTT Driver Enhancement**: Offline data caching will be cleared when the northbound MQTT driver node is deleted or the offline data caching function is disabled.
 
-- Upgraded **OPC UA** tag browser feature to support automatic filtering of incompatible data point types
+- **Allen-Bradley 5000 EtherNet/IP Driver**: Added support for writing Struct String data type for CompactLogix 53xx series.
 
-- **IEC 61850** driver now adds support for the `mmstring` data type
+- **IEC61850-5-101 Driver**: Added support for data types with CP24 and configurable parameter length.
 
-- **S7 300/400** driver now adds support for the `char array` data type
+- **SECS GEM Driver**: Increased the maximum supported nesting level of List structures from 4 to 10.
+
+- **Optimized interaction for Add Tags**: The tag name column now supports drag-and-drop resizing to better display long tag names.
+
+- **REST Sink**：Support access headers for REST sink outputs.
+
+- **Backup & Restore**: Versions 3.7.2 and later support importing exported backup file after renaming.(Versions 3.7.1 and earlier do not support importing backup files after renaming.)
 
 ### Fixes
 
-- Fixed the issue where no data could be received after the driver disconnected in the **OPC UA** driver subscription mode
+- Fixed the detection logic for invalid tag reading when the OPC UA Update Mode is set to Read or Subscribe, and added automatic reconnection to the OPC UA Server and tag reading.
 
-- Fixed the crash issue caused by modifying `group name` in **OPC UA** nodes
+- Fixed the issue of duplicate Node entries in the OPC UA Tag Browser function.
 
-- Fixed the abnormal leakage issue of connection file descriptor (`connection fd`)
+- Fixed the OPC UA Tag Browser function to only filter out Method nodes.
+
+- Integrated the latest version of the MQTT SDK, optimized the blocking issue of the QoS 2 message mechanism, and fixed the disconnection from the MQTT Broker caused by large message transmission (excessive tags in a single collection group).
+
+- Fixed a crash issue in the Sparkplug B driver caused by triggering rebirth.
+
+- Fixed the problem where users with the Viewer role could not access the Data Monitoring page.
+
+- Fixed incorrect permission issues for users with the Viewer role on pages such as Data Analysis and Dashboard.
 
 ## v3.7.1
 
@@ -396,30 +330,6 @@ Release Date: 2025-12-24
 - Fixed the issues related to `access token` and `refresh token` in **OAuth** authentication of the **REST sink** configuration items
 
 - Changed the built-in default **JWT** key pair to be dynamically generated each time **EMQX Neuron** starts, which is used to generate `token` after successful login with username and password. Meanwhile, upgraded the **JWT Golang** library used by the project from `v3.2` to `v5`
-
-## v3.6.3
-
-Release Date: 2025-12-9
-
-### Enhancements
-
-- Enhanced **BACnet BBMD** functionality
-
-- Upgraded **OPC UA** Tag browser function, with support for automatic filtering of incompatible data tag types
-
-- **IEC 61850** driver has added support for `unicodestring255` data type
-
-- **Sparkplug B** driver: Supported two data reporting formats, namely **Tag** and **Alias**
-
-- **Siemens S7 ISO on TCP for S7-300/400** driver: Added support for the `Char Array` data type
-
-### Fixes
-
-- Fixed the occasional crash issue of the **ADS** protocol caused by NNG bugs
-
-- Fixed the issue where no data could be received after the driver disconnected in the **OPC UA** driver's subscription mode
-
-- Fix the issue where error messages are not reported properly when values are incorrect in the OPCUA driver subscription mode. If you need to disable this error reporting, you can set the environment variable `NEURON_SUB_FILTER_ERROR = 1`
 
 ## v3.7.0
 
@@ -484,6 +394,72 @@ Release Date: 2025-10-29
   - Optimized the content display style on the System Info page.
 
   - Upgraded the built-in Datalayers version to 2.3.11.
+
+## v3.6.5
+
+Release Date: 2026-04-24
+
+### Enhancements
+
+- **Observability**: Added observability capabilities to shared connections in the data processing module.
+- **Logging**: Added connection pool logs for better troubleshooting.
+  
+### Fixes
+
+- Fixed a difficult-to-reproduce race condition where sub-topologies or rules using shared connections could hang during specific connection error scenarios.
+- Fixed Kafka Sink Transport Resource Leak: Resolved an issue where the Kafka sink's underlying transport goroutines (specifically the discover goroutine) were not being terminated when a rule was stopped. This was caused by the kafka-go writer not automatically closing external transport connections. Kafka Sink now explicitly calls CloseIdleConnections() to ensure all resources are properly freed.
+
+
+
+## v3.6.4
+
+Release Date: 2026-03-19
+
+### Enhancements
+
+- **Tag Write Logging**: When performing tag write operations via MQTT or HTTP API, the logs now include the execution status (`Success`/`Failure`) and specific error details. Successful operations are logged as `INFO`, while failures are logged as `ERROR`.
+
+- **MQTT Driver Enhancement**: Offline data caching will be cleared when the northbound MQTT driver node is deleted or the offline data caching function is disabled.
+
+- **Allen-Bradley 5000 EtherNet/IP Driver**: Added support for writing Struct String data type for CompactLogix 53xx series.
+
+- **IEC61850-5-101 Driver**: Added support for data types with CP24 and configurable parameter length.
+
+### Fixes
+
+- Fixed the detection logic for invalid tag reading when the OPC UA Update Mode is set to Read or Subscribe, and added automatic reconnection to the OPC UA Server and tag reading.
+
+- Fixed the issue of duplicate Node entries in the OPC UA Tag Browser function.
+
+- Fixed the OPC UA Tag Browser function to only filter out Method nodes.
+
+- Fixed the issue where the OPC UA Subscription Task Timestamp overflowed, causing the task update to fail.
+
+- Integrated the latest version of the MQTT SDK, optimized the blocking issue of the QoS 2 message mechanism, and fixed the disconnection from the MQTT Broker caused by large message transmission (excessive tags in a single collection group).
+
+## v3.6.3
+
+Release Date: 2025-12-9
+
+### Enhancements
+
+- Enhanced **BACnet BBMD** functionality
+
+- Upgraded **OPC UA** Tag browser function, with support for automatic filtering of incompatible data tag types
+
+- **IEC 61850** driver has added support for `unicodestring255` data type
+
+- **Sparkplug B** driver: Supported two data reporting formats, namely **Tag** and **Alias**
+
+- **Siemens S7 ISO on TCP for S7-300/400** driver: Added support for the `Char Array` data type
+
+### Fixes
+
+- Fixed the occasional crash issue of the **ADS** protocol caused by NNG bugs
+
+- Fixed the issue where no data could be received after the driver disconnected in the **OPC UA** driver's subscription mode
+
+- Fix the issue where error messages are not reported properly when values are incorrect in the OPCUA driver subscription mode. If you need to disable this error reporting, you can set the environment variable `NEURON_SUB_FILTER_ERROR = 1`
 
 ## v3.6.2
 
@@ -680,6 +656,30 @@ Release Date: 2025-06-11
 
 - From EMQX Neuron v3.6.0, SparkplugB plugin only sets the `name` attribute of metric in `NBIRTH` and `DBIRTH` messages, and does not carry the `name` attribute in subsequent `NDATA`, `DDATA`, `NCMD`, and `DCMD` messages, only using `alias` to identify metrics, which may affect existing systems and integrations.
 
+## v3.5.5
+
+Release Date: 2026-01-07
+
+### Enhancements
+
+- **OPC UA** driver now adds support for complex nested `struct` types
+
+- Enhanced **BACnet BBMD** functionality
+
+- Upgraded **OPC UA** tag browser feature to support automatic filtering of incompatible data point types
+
+- **IEC 61850** driver now adds support for the `mmstring` data type
+
+- **S7 300/400** driver now adds support for the `char array` data type
+
+### Fixes
+
+- Fixed the issue where no data could be received after the driver disconnected in the **OPC UA** driver subscription mode
+
+- Fixed the crash issue caused by modifying `group name` in **OPC UA** nodes
+
+- Fixed the abnormal leakage issue of connection file descriptor (`connection fd`)
+
 ## v3.5.4
 
 Release Date: 2025-07-16
@@ -787,37 +787,6 @@ Release Date: 2025-04-18
 - Fixed the panic problem when the Portable plugin fails
 
 
-## v3.4.5
-
-Release Date: 2025-03-20
-
-### Fixes
-
-- Writing a float value like "121.0" through EMQX Neuron API to OPCUA Server fails, while values like 120.9 or 121.1 work correctly.
-
-## v3.4.4
-
-Release Date: 2025-03-12
-
-### Enhancements
-
-- FINS TCP/UDP optimized read size
-- Modbus driver data processing optimization
-- SparkplugB write tag adaption neuron core rule
-- Data processing module adds sync cache metrics
-
-### Fixes
-
-- Fix CNC License display abnormality
-- Fix SparkplugB node DBIRTH trigger incorrect issue after startup
-- Fix SparkplugB NDEATH and DDEATH trigger incorrect issue
-- Fix DLT645 driver crash issue
-- Fix FINS TCP/UDP driver crash issue
-- Fix sink bufferLength configuration not taking effect
-- Fix last_agg_hit_time() not updating value when used alone in having
-- Fix change deletion connection rule failure text, clearly indicate that there is a rule in use
-- Fix sink omitEmpty property not taking effect when send single, non-nil but no data
-
 ## v3.5.0
 
 Release Date: 2025-02-25
@@ -853,6 +822,37 @@ Release Date: 2025-02-25
 
 - Fix the display error of the CNC License on the license page.
 - Fix the abnormal export issue of the backup function.
+
+## v3.4.5
+
+Release Date: 2025-03-20
+
+### Fixes
+
+- Writing a float value like "121.0" through EMQX Neuron API to OPCUA Server fails, while values like 120.9 or 121.1 work correctly.
+
+## v3.4.4
+
+Release Date: 2025-03-12
+
+### Enhancements
+
+- FINS TCP/UDP optimized read size
+- Modbus driver data processing optimization
+- SparkplugB write tag adaption neuron core rule
+- Data processing module adds sync cache metrics
+
+### Fixes
+
+- Fix CNC License display abnormality
+- Fix SparkplugB node DBIRTH trigger incorrect issue after startup
+- Fix SparkplugB NDEATH and DDEATH trigger incorrect issue
+- Fix DLT645 driver crash issue
+- Fix FINS TCP/UDP driver crash issue
+- Fix sink bufferLength configuration not taking effect
+- Fix last_agg_hit_time() not updating value when used alone in having
+- Fix change deletion connection rule failure text, clearly indicate that there is a rule in use
+- Fix sink omitEmpty property not taking effect when send single, non-nil but no data
 
 ## v3.4.3
 

@@ -1,4 +1,4 @@
-# Data types
+# Data type
 
 In EMQX Neuron, each column or an expression has a related data type. A data type describes (and constrains) the set of values that a column of that type can hold or an expression of that type can produce.
 

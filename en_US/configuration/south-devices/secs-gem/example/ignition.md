@@ -1,4 +1,4 @@
-# Ignition SECS/GEM Example
+# Connect to Ignition SECS GEM simulator
 
 This article will use the SECS GEM HSMS driver to connect to the Ignition SECS/GEM simulator, enabling the reading and writing of data from SECS/GEM simulated devices. Please ensure that the driver and simulator are networked.
 
@@ -33,7 +33,6 @@ The created simulator in this article is named "test", with a Passive IP address
 * Enter the EMQX Neuron **Data Monitoring** page and select the corresponding device and group to view the collected data points, as shown in the following figure.
   
 ![secs-gem-simulator-monitoring-1](./assets/secs-gem-simulator-monitoring-1.png)
-
 
 Due to the unique characteristics of the SECS-II protocol, there are certain patterns when creating new points. For example, for the S1F1 message, which does not require any additional parameters for reading, you can simply create a point with a Read or Sub attribute to obtain the return value. However, for messages such as S1F3, which requires a LIST-type parameter and returns an S1F4 message, in order to complete an operation, you need to create two points: a Write-attribute S1F3 node and a Sub (or Read) attribute S1F4 node, with the point name matching the message name. As shown in the following figure.
 

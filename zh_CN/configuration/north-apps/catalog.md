@@ -36,3 +36,9 @@
 ::: tip
 除北向应用外，EMQX Neuron 还提供 RESTful API 读写点位，见 [HTTP API](../../api/api.md)。
 :::
+
+## 下一步
+
+- **上报前需要加工数据** —— 过滤、降采样、聚合或统一字段名，见[数据处理](../../streaming-processing/overview.md)。
+- **确认数据已经上报** —— 在应用卡片查看 `send_msgs_total`，见[订阅南向数据 · 验证](../subscription.md#验证)。
+- **上线后的监控与告警** —— 见[运维](../../admin/introduction.md)。

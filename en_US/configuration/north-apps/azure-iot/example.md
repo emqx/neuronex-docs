@@ -1,4 +1,4 @@
-# Bridging Data to Microsoft Azure IoT Hub using EMQX Neuron
+# Send data to Azure IoT Hub
 
 This article will introduce how to use EMQX Neuron to bridge data to Microsoft Azure IoT Hub through the public network so that you can easily build IoT applications.
 

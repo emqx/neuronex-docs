@@ -1,4 +1,4 @@
-# Lookup Table Scenarios
+# Lookup Table Use Cases
 
 Not all data will change often, even in real-time computing. In some cases, you may need to supplement the stream data with externally stored static data. For example, user metadata may be stored in a relational database, and the only data in the stream data is data that changes in real time, requiring a connection between the stream data and the batch data in the database to make up the complete data.
 

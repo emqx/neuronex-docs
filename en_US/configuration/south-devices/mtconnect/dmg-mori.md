@@ -1,4 +1,4 @@
-# Connect to DMG MORI via MTConnect
+# Connect to DMG MORI
 
 This guide demonstrates how to connect DMG MORI CNC to EMQX Neuron using the MTConnect protocol, with the MTConnect cppagent as the intermediate agent.
 
@@ -182,7 +182,7 @@ The `dataItemId` attribute in the XPath corresponds to the `id` value defined in
 
 ## Data Monitoring
 
-After configuring the tags, you can click **Monitoring -> Data Monitoring** to view the real-time data collected from the DMG MORI machines.
+After configuring the tags, you can click **Data Collection -> Data Monitoring** to view the real-time data collected from the DMG MORI machines.
 
 ![DMG MORI data monitoring](./assets/en_monitoring.png)
 

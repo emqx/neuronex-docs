@@ -1,4 +1,4 @@
-# Source
+# Source Connectors
 
 Source is used to read data from external systems. EMQX Neuron supports loading data sources into three modes: `Stream`, `Scan Table`, and `Lookup Table`.
 

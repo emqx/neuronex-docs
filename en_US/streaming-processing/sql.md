@@ -1,4 +1,4 @@
-# Sql 
+# SQL Source
 
 <span style="background:green;color:white;padding:1px;margin:2px">Stream</span>
 <span style="background:green;color:white;padding:1px;margin:2px">Scan table</span>
@@ -88,7 +88,7 @@ Database connection address reference:
 
 ## Create scan table
 
-Please refer to the [Create Stream](#CreateStream) section.
+Please refer to the [Create Stream](#create-stream) section.
 
 ## Create lookup table
 

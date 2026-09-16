@@ -47,4 +47,3 @@
 | ProductName      | 0!2261  | Read      | STRING    |
 | ProductUri       | 0!2262  | Read      | STRING    |
 | SoftwareVersion  | 0!2264  | Read      | STRING    |
-

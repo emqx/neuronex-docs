@@ -1,6 +1,6 @@
 # Startup Parameters and Configuration Files
 
-EMQX Neuron supports modifying Neuron's configuration parameters through `command line`, `environment variables`, and `configuration files`, which can provide a more flexible way of starting and running. If `command line`, `environment variables`, and `configuration files` are configured at the same time, the priority relationship between the three is: command line > environment variable > configuration file
+EMQX Neuron supports modifying EMQX Neuron's configuration parameters through `command line`, `environment variables`, and `configuration files`, which can provide a more flexible way of starting and running. If `command line`, `environment variables`, and `configuration files` are configured at the same time, the priority relationship between the three is: command line > environment variable > configuration file
 
 ## Command Line
 
@@ -30,7 +30,7 @@ Eg:
 ./bin/neuronex start 
 ```
 
-This command starts EMQX Neuron as a daemon and runs it in the background. The EMQX Neuron will not manage the lifecycle of Neuron and Rules Engine Application and will not turn on privilege authentication.
+This command starts EMQX Neuron as a daemon and runs it in the background. The EMQX Neuron will not manage the lifecycle of EMQX Neuron and Rules Engine Application and will not turn on privilege authentication.
 
 ### `stop` command
 
@@ -102,7 +102,7 @@ For example, if you want to increase the timeout for calling external algorithm 
 
 ```
 # Docker Deployment
-docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s neuronex/neuronex:latest
+docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s emqx/neuronex:latest
 
 ```
 
@@ -129,12 +129,12 @@ The `server` section defines the port number of the EMQX Neuron server.
 
 ### neuron
 
-The `neuron` section defines the version number and reverse proxy configuration for Neuron.
+The `neuron` section defines the version number and reverse proxy configuration for EMQX Neuron.
 
-- `version`: the version number of Neuron.
-- `reverseProxies`: list of reverse proxy configurations for Neuron. Each reverse proxy configuration consists of two key-value pairs, `location` and `proxyPath`.
-  - `location`: Neuron's path.
-  - `proxyPath`: path to Neuron's backend server.
+- `version`: the version number of EMQX Neuron.
+- `reverseProxies`: list of reverse proxy configurations for EMQX Neuron. Each reverse proxy configuration consists of two key-value pairs, `location` and `proxyPath`.
+  - `location`: EMQX Neuron's path.
+  - `proxyPath`: path to EMQX Neuron's backend server.
 
 ### Rules Engine Application
 

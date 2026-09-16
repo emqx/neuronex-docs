@@ -109,5 +109,14 @@ For the generic setup steps, see [Create a Southbound Driver](../../configuratio
 | [NeuronHUB](../../configuration/south-devices/neuhub/neuhub.md) | Ethernet | Windows-side agent for OPC DA, OPC AE, GE Historian, and some CNC controllers |
 
 ::: tip
+Measured tag counts and polling intervals are published for the Modbus TCP, OPC UA, and Siemens S7 drivers — see [Performance](../../performance/performance.md).
+
 For northbound applications (MQTT, Sparkplug B, OPC UA Server, AWS IoT, Azure IoT, Kafka, and more), see [Northbound Applications](../../configuration/north-apps/catalog.md).
 :::
+
+## Next steps
+
+- **Found your driver** — create the node following [Create a Southbound Driver](../../configuration/south-devices/south-devices.md), then configure collection groups per [Groups and Tags](../../configuration/groups-tags/groups-tags.md).
+- **Many devices to configure** — create them in bulk with templates or Excel. See [Bulk Configuration and Migration](../../configuration/bulk-config.md).
+- **Where the collected data goes** — see [Northbound Applications](../../configuration/north-apps/catalog.md).
+- **Your protocol is not listed** — write your own driver with the C SDK. See [Driver SDK Tutorial](../../dev-guide/sdk-tutorial/sdk-tutorial.md).

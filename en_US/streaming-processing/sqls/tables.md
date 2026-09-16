@@ -1,4 +1,4 @@
-# TABLE Statements
+# Table Statements
 
 SQL statements are defined to create and manage tables.
 

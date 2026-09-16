@@ -1,4 +1,4 @@
-# OPCDA
+# OPC DA
 
 EMQX Neuron can use the Neuron HUB driver and NeuronHUB Windows program to indirectly access OPC DA servers running on Windows systems. For remote system configuration, refer to [DCOM Settings](../opc-da/remote.md).
 

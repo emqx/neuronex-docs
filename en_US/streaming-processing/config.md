@@ -1,4 +1,4 @@
-# Configuration
+# Configuration Management
 
 This page describes how to configure resources and modes for data processing functions, including four parts: `Connector`, `Source Configuration Groups`, `Schema`, and `Files Management`.
 

@@ -2,11 +2,15 @@
 
 Modbus TCP is a version of the Modbus protocol based on Ethernet, which uses TCP/IP for communication. Unlike the traditional Modbus RTU protocol, Modbus TCP allows devices to be interconnected directly through Ethernet without any special hardware or communication interface. Therefore, Modbus TCP has higher communication speed and wider application range.
 
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
+
+For measured tag counts and polling intervals, see [Modbus TCP Driver Performance](../../../performance/modbustcp.md).
+
 In addition to supporting data acquisition and processing via TCP client mode, the EMQX Neuron Modbus TCP driver also supports TCP server mode, which allows devices to connect to EMQX Neuron actively. This feature is mainly used for 4G DTU because the IP address of 4G network is a private IP. In this case, the DTU device can only connect to EMQX Neuron actively.
 
-## Add Device
+## Add Driver
 
-Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
+On **Data Collection → South Devices**, click **Add Device**.
 
 - Name: The name of this device node.
 - Driver: Select the **Modbus TCP** or **Modbus TCP QH** driver.
@@ -16,9 +20,9 @@ Go to **Data Collection -> South Devices**, then click **Add Device** to add the
 | **Modbus TCP** |Standard Modbus TCP protocol implementation supports both TCP client and server modes, providing better compatibility with devices. |
 | **Modbus TCP QH** | Customized Modbus TCP protocol implementation supports a maximum of 65530 bytes for one read operation, while the standard protocol only allows a maximum of 250 bytes to be read at a time.|
 
-## Device Configuration
+## Connection Parameters
 
-After clicking **Create**, you will be redirected to the **Device Configuration** page, where we will set up the parameters required for EMQX Neuron to establish a connection with the device. You can also click the device configuration icon on the southbound device card to enter the **Device Configuration** interface.
+Click the driver card to open the **Device Configuration** page and fill in:
 
 | Parameter                  | Description                                                    |
 | -------------------- | ------------------------------------------------------- |
@@ -48,15 +52,9 @@ The above configuration can meet the individualized needs of the device:<br>
 3. The device degradation is triggered when a certain tag under a slave id fails to respond for multiple consecutive cycles (or can be configured to trigger after just one failed cycle). Once triggered, all requests for that slave will be stopped for the configured period.  
 :::
 
-## Configure Data Groups and Tags
+## Tag Configuration
 
-After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
-
-Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking on **Create**, then specifying the group name and data collection interval.
-
-Upon successfully creating a group, click on its name to proceed to the **Tag List** page. This page allows you to add device tags for data collection. You'll need to provide information such as the tag address, attributes, and data type.
-
-For information on general configuration items, see [Connect to Southbound Devices](../south-devices.md). The subsequent section will concentrate on configurations specific to the driver.
+The data types and address formats supported by this driver are listed below.
 
 ### Data types
 
@@ -178,7 +176,3 @@ A register of the Modbus driver contains 2 bytes. When reading and writing Modbu
 This chapter also provides practical examples to facilitate a quick start.
 
 - [Modbus Slave Simulator](./example/modbus-slave/modbus-slave.md)
-
-## Data Monitoring
-
-After completing the point configuration, you can click **Monitoring** -> **Data Monitoring** to view device information and control devices. For details, refer to [Data Monitoring](../../../admin/monitoring.md).

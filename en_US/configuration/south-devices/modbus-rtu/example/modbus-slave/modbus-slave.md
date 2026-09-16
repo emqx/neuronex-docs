@@ -32,7 +32,6 @@ As a Client, EMQX Neuron initiates connection requests to Modbus Slave actively.
 4. Information regarding the slave definition is displayed within a single document interface. To view data for multiple slave definitions, navigate to **File -> New**. This action will generate a new document window; then, repeat step 3. You can alter the data by double-clicking on any item within the table, which will allow you to input a new value.
 5. If you need to simulate multiple slave devices simultaneously, run Modbus Slave on multiple instances. Repeat the above steps.
 
-
 ### Configure EMQX Neuron (Client)
 
 In **South Devices**, using Modbus RTU driver to create a node named modbus-rtu-client, and configure the driver, as shown in the figure below.

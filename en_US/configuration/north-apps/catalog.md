@@ -36,3 +36,9 @@ Data is reported per **group**. One application can subscribe to many groups, an
 ::: tip
 Besides northbound applications, EMQX Neuron offers a RESTful API for reading and writing tags — see [HTTP API](../../api/api.md).
 :::
+
+## Next steps
+
+- **Process data before publishing** — filter, downsample, aggregate, or normalize field names. See [Data Processing](../../streaming-processing/overview.md).
+- **Confirm data is leaving** — check `send_msgs_total` on the application card. See [Subscribe to Southbound Data · Verify](../subscription.md#verify).
+- **Monitoring and alerts once live** — see [Operations](../../admin/introduction.md).

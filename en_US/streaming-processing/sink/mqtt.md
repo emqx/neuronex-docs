@@ -29,7 +29,7 @@ If you want to save the settings as a template, you can also click **Add Sink Te
 - **Omit if content is empty**: Default is False.
 - **Send single**: Default is True.
 - **Stream format**: supports json, binary, protobuf, delimited, custom. Default json format.
-   - If you select protobuf or custom, you should also configure the corresponding [mode and mode message] (../config.md#mode)
+   - If you select protobuf or custom, you should also configure the corresponding [mode and mode message] (../config.md#schema)
    - If you select delimited, you should also configure the delimiter, such as "`,`"
 - **Data template**: Golang template, used to specify the output data format. If no data template is specified, the data will be used as raw input. For a detailed introduction to data templates, see [Data Template](./data_template.md).
 

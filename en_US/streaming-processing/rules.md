@@ -1,4 +1,4 @@
-# rule
+# Rules
 
 All calculation logic is handled through **Rules** in EMQX Neuron. The rules take the data source as input, define the calculation logic through **SQL**, and output the results to **Sink (Action)**. Once a rule definition is submitted, it will continue to run. It will continuously obtain data from the source, perform calculations based on SQL logic, and trigger **Sink (Action)** in real time based on the results.
 

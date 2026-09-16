@@ -1,4 +1,4 @@
-# Data collection function data types
+# Data Types
 
 ## Concepts
 

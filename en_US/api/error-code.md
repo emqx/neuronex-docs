@@ -1,4 +1,4 @@
-# Error codes
+# Error Codes
 
 This document describes the error codes that the data collection function will respond with when calling HTTP API and MQTT API.
 
@@ -117,7 +117,7 @@ This document describes the error codes that the data collection function will r
 - 4102   Failed to read file
 - 4103   Failed to write file
 
-## OPCUA error codes
+## OPC UA error codes
 
 - 10001    opcua tag does not exist
 - 10002    opcua connection configuration error
@@ -214,9 +214,9 @@ This document describes the error codes that the data collection function will r
 - 13006    The license has expired and cannot perform the current operation
 - 13007    License error
 - 13008    Allocated tag count is less than in use
-- 13009    Neuron detected clock abnormality
-- 13010    Neuron invalid license module
-- 13011    Neuron internal error
+- 13009    EMQX Neuron detected clock abnormality
+- 13010    EMQX Neuron invalid license module
+- 13011    EMQX Neuron internal error
 - 13012    Breaking away from ECP management beyond its validity period, modification, addition, or operation is not allowed
 - 13013    Not virtual license, not removable
 - 13014    License not exist
@@ -291,9 +291,9 @@ This document describes the error codes that the data collection function will r
 
 - 20000    Server internal error
 - 20001    Data acquisition function service error
-- 20002    Neuron code error
+- 20002    EMQX Neuron code error
 - 20003    Data flow processing function service error
-- 20004    Neuron load not ready
+- 20004    EMQX Neuron load not ready
 
 ## Request parameter error codes
 
@@ -304,7 +304,7 @@ This document describes the error codes that the data collection function will r
 - 20104    Loglevel not support
 - 20105    The directory does not exist or is empty
 - 20106    The file is not valid for data restore
-- 20107    The Neuron CID request is not valid
+- 20107    The EMQX Neuron CID request is not valid
 - 20110    Name already exist
 - 20111    ID not exist
 - 20112    Timefilter not exist

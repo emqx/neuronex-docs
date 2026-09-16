@@ -1,4 +1,4 @@
-# Configure with Templates
+# Template-based Configuration
 
 In practice, EMQX Neuron users often need to create large numbers of nodes having similar configurations. This can be a time-consuming and error-prone process, especially in large-scale deployments. To streamline this process, EMQX Neuron introduces the template feature in version **2.5.0**.
 

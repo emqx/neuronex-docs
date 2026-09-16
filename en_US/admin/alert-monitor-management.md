@@ -1,38 +1,49 @@
 # Monitoring and Alert Management
 
-EMQX Neuron provides monitoring and alerts to help you understand the status of EMQX Neuron in real time and detect abnormalities in a timely manner.
+EMQX Neuron provides metric monitoring and alert events, for tracking the state of an instance and being notified when something goes wrong.
 
-## Monitoring
+::: tip
+Both are **disabled by default** and are currently configured and queried through the HTTP API only; there is no configuration screen in the console. Once configured, the push status can be seen on **Administration → System Information**.
+:::
 
-EMQX Neuron provides a variety of metrics for you to monitor, including.
+## Monitoring metrics
 
-- Data collection engine metrics, such as the number of north-south drives, drive connection status, and abnormal drives.
-- Data processing engine metrics, such as the number of rule log inputs and outputs, and the number of stop rules.
-- System resource metrics, such as CPU, memory, and so on.
+The metrics that can be collected fall into three categories:
 
-Users can specify which metrics are needed when distributing monitoring configuration. There are two ways to get these metrics data:
+| Category | Contents |
+| --- | --- |
+| Collection engine | Number of southbound and northbound drivers, driver link states, number of drivers in error |
+| Data processing engine | Records in and out per rule, number of stopped rules |
+| System resources | CPU, memory, and so on |
 
-1. Configure the [pushgatway](https://github.com/prometheus/pushgateway) address (Pushgateway is a component of Prometheus, an open source combination of system monitoring, alarms, and time series databases), and EMQX Neuron will automatically push the metrics data to the specified pushgatway.
-2. Query metrics data via API
+The monitoring configuration selects which metrics are wanted. They can be retrieved two ways:
 
-EMQX Neuron disables the monitoring function by default, users can call the API to send the monitoring configuration and query the related content, please check the [link](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html#tag/monitor/operation/MetricConfig) for details.
+| Method | Description |
+| --- | --- |
+| Push to Pushgateway | With a [Pushgateway](https://github.com/prometheus/pushgateway) address configured, EMQX Neuron pushes metrics to it for Prometheus to scrape |
+| API query | Read the current metrics directly from the API |
 
-## Alerts
+For the configuration and query endpoints, see the [Monitor API](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html#tag/monitor/operation/MetricConfig).
 
-EMQX Neuron determines the occurrence of alarm events by polling. Currently, there are 3 types of alarms, after users send alarm configuration, they can specify which rules are needed and the number of times (i.e., N-value, P-value) that each alarm event is triggered or recovered, and EMQX Neuron will generate alarm triggers or alarm recovery events according to the configuration.
+## Alert events
 
-| Alarm Types                                                  | Alarm Objects             | Alarm Trigger Conditions                            | Alarm Trigger Event Generation Conditions | Alarm Resume Event Generation Conditions          |
-| ------------------------------------------------------------ | ------------------------- | --------------------------------------------------- | ----------------------------------------- | ------------------------------------------------- |
-| Numeric mining driver node anomaly alarm (including southbound and northbound) | Single driver             | Driver is running but not connected                 | Continuous monitoring N times             | Continuous monitoring non-anomalous state P times |
-| Stream Processing Engine Rule Exception Alarm                | Single Rule               | Any source, op, sink of a rule increased abnormally | Continuously monitor N times              | Continuously monitor non-exception status P times |
-| EMQX Neuron Restart Alarms                                      | Current EMQX Neuron Instance | EMQX Neuron Restart                                    | Monitored only 1 time                     | None                                              |
+EMQX Neuron evaluates alert conditions by polling. The alert configuration selects which rules are enabled and how many consecutive polls are required to raise and to clear an alert — **N** is the number of consecutive abnormal polls before the event is raised, and **P** the number of consecutive normal polls before it clears.
 
-There are two ways to get these alerts :
-1. Configure a webhook address and EMQX Neuron will automatically push alert events to the specified webhook. 
-2. Query the API for the most recently generated alert events.
+| Alert type | Subject | Trigger condition | Raised after | Cleared after |
+| --- | --- | --- | --- | --- |
+| Driver node abnormal (southbound and northbound) | A single driver | The driver is running but not connected | N consecutive polls | P consecutive normal polls |
+| Stream processing rule abnormal | A single rule | The error count of any source, operator, or sink in the rule increases | N consecutive polls | P consecutive normal polls |
+| EMQX Neuron restart | The current instance | EMQX Neuron restarts | 1 poll | Not applicable |
 
-EMQX Neuron disables the alarm function by default. Users can call the API to send the alarm configuration and query the related content, please refer to the [link](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html#tag/monitor/operation/AlertRuleConfig) for details.
+Alert events can be retrieved two ways:
 
-## Monitor Alarm Status
+| Method | Description |
+| --- | --- |
+| Push to a webhook | With a webhook address configured, EMQX Neuron pushes alert events to it |
+| API query | Query the most recent alert events |
 
-You can view "Log Push Status", "Monitor Push Status" and "Alarm Push Status" in the System Information page under Admin.
+For the configuration and query endpoints, see the [Alert Rule API](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html#tag/monitor/operation/AlertRuleConfig).
+
+## Checking push status
+
+**Administration → System Information** shows the current log, monitoring, and alert push status, which confirms whether the configuration has taken effect.

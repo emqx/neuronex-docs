@@ -2,20 +2,22 @@
 
 The Mazak CNC driver collects real-time operating data from Mazak CNC via a passive UDP listener. The Mazak CNC sends status data packets over UDP, and the driver parses the packet fields into individual data tags. The driver does not send any requests to the CNC; it only listens for incoming UDP data.
 
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
+
 ::: tip
 The Mazak CNC driver is read-only. It only supports data collection (read) and does not support control (write).
 :::
 
-## Add Device
+## Add Driver
 
-Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
+On **Data Collection → South Devices**, click **Add Device**.
 
 - Name: The name of this device node.
 - Driver: Select the **Mazak CNC** driver.
 
-## Device Configuration
+## Connection Parameters
 
-After clicking **Create**, you will be redirected to the **Device Configuration** page, where you set up the parameters required for EMQX Neuron to establish a connection with the device. You can also click the device configuration icon on the southbound device card to enter the **Device Configuration** interface.
+Click the driver card to open the **Device Configuration** page and fill in:
 
 | Parameter | Description |
 | ----------------------- | ------------------------------------------------------------------------------------------------ |
@@ -23,15 +25,11 @@ After clicking **Create**, you will be redirected to the **Device Configuration*
 | **Port** | The UDP port to listen on, ranging from 1 to 65535. Default is `51001`. |
 | **Connection Timeout (ms)** | UDP receive timeout, ranging from 1 to 60000. Default is `3000`. |
 
-## Configure Data Groups and Tags
+## Tag Configuration
 
-After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the southbound driver.
-
-Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking **Create**, then specifying the group name and data collection interval.
+The data types and address formats supported by this driver are listed below.
 
 After successfully creating a group, click on its name to proceed to the **Tag List** page. This page allows you to add device tags for data collection. You'll need to provide information such as the tag address, attributes, and data type.
-
-For information on general configuration items, see [Connect to Southbound Devices](../south-devices.md). The subsequent section will concentrate on configurations specific to the driver.
 
 ::: tip
 The Mazak CNC driver only supports the **read-only** tag attribute. All tag addresses are flat string names; there are no data areas or indexes.
@@ -103,7 +101,3 @@ The `mode` address returns one of the following string values:
 | tool | STRING | Current tool identifier |
 | rapid_rate | INT32 | Rapid traverse override rate |
 | feed_rate | INT32 | Feed rate |
-
-## Data Monitoring
-
-After configuring the tags, you can click **Monitoring** -> **Data Monitoring** to view device information. For more details, see [Data Monitoring](../../../admin/monitoring.md).

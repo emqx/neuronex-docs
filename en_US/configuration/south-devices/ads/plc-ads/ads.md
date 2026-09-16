@@ -1,4 +1,4 @@
-# Data Acquisition with Beckhoff ADS Driver
+# Collecting PLC Data with the Beckhoff ADS Driver
 
 In this tutorial, we introduce how to collect data from Beckhoff software PLCs using the EMQX Neuron ADS driver.
 
@@ -8,7 +8,6 @@ We use two PCs connected to a local area network in this tutorial.
 
 - One is a Linux machine with EMQX Neuron installed. Consult the the installation instruction on how to install EMQX Neuron.
 - The other is a Windows machine with TwinCAT 3 installed. Refer to the Beckhoff TwinCAT website to download and install TwinCAT.
-
 
 |                  | PC 1              | PC 2                |
 | ---------------- | ----------------- | ------------------- |
@@ -50,7 +49,6 @@ Before EMQX Neuron and the TwinCAT PLC can communicate with each other, we first
   </figcaption>
 </figure>
 
-
 4. A successfully added route is shown as follows.
 
 <figure align="center">
@@ -59,7 +57,6 @@ Before EMQX Neuron and the TwinCAT PLC can communicate with each other, we first
     <sub><b>Fig.4 - TwinCAT static routes dialog updated</b></sub>
   </figcaption>
 </figure>
-
 
 ### Get AMS Net ID and Port Number
 
@@ -118,7 +115,6 @@ Open the TwinCAT PLC data area tab to find the index offset of the variables.
   </figcaption>
 </figure>
 
-
 #### Get the Index Group/Offset by TPY File
 
 We could also find the index group and index offset through the TPY file.
@@ -132,7 +128,6 @@ We could also find the index group and index offset through the TPY file.
   </figcaption>
 </figure>
 
-
 2. Open the TPY file in the TwinCAT project directory.
 
 <figure align="center">
@@ -141,7 +136,6 @@ We could also find the index group and index offset through the TPY file.
     <sub><b>Fig.11 - TwinCAT PLC project TPY file path</b></sub>
   </figcaption>
 </figure>
-
 
 3. The TPY file contains the index group and index offset of each variable defined
    in the PLC program.
@@ -152,7 +146,6 @@ We could also find the index group and index offset through the TPY file.
     <sub><b>Fig.12 - TwinCAT PLC project TPY file content</b></sub>
   </figcaption>
 </figure>
-
 
 ## Configure EMQX Neuron
 
@@ -210,7 +203,6 @@ The following figure shows all added tags in the ADS node.
     <sub><b>Fig.17 - ADS node tags in EMQX Neuron dashboard</b></sub>
   </figcaption>
 </figure>
-
 
 ## Monitor Data
 

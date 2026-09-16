@@ -1,4 +1,4 @@
-# 连接 KEPServerEX 6 OPC DA Server 示例
+# KEPServerEX OPCDA Server 连接示例
 
 本文将使用 Neuron HUB 驱动和 NEURON HUB Windows 程序连接 KEPServerEX 6 OPC DA Server，实现读写 OPC DA Server 的数据。
 
@@ -27,7 +27,6 @@ NEURON HUB Windows 程序安装包可以联系技术支持人员获取。获取�
 
 OPC DA 节点在正常连接状态下，可以按 EMQX Neuron EX 点位模板文件的格式导出 OPC DA 全部点位。具体操作为点击需要导出点位的 OPC DA 节点的 `Actions` 列的 `Export` 按钮。
  ![export neuronex tags](./assets/export_ex_tags.png)
-
 
 ## 使用 Neuron HUB 驱动连接 OPC DA 节点
 

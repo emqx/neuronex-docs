@@ -2,20 +2,20 @@
 
 The EMQX Neuron HollySys Modbus TCP driver is for collecting HollySys PLC tags using the Modbus TCP protocol,
 
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
+
 Modbus TCP is a version of the Modbus protocol based on Ethernet, which uses TCP/IP for communication. Unlike the traditional Modbus RTU protocol, Modbus TCP allows devices to be interconnected directly through Ethernet without any special hardware or communication interface. Therefore, Modbus TCP has higher communication speed and wider application range.
 
+## Add Driver
 
-## Add Device
-
-Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
+On **Data Collection → South Devices**, click **Add Device**.
 
 - Name: The name of this device node.
 - Driver: Select the **HollySys Modbus TCP** driver.
 
+## Connection Parameters
 
-## Device Configuration
-
-After clicking **Create**, you will be redirected to the **Device Configuration** page, where we will set up the parameters required for EMQX Neuron to establish a connection with the device. You can also click the device configuration icon on the southbound device card to enter the **Device Configuration** interface.
+Click the driver card to open the **Device Configuration** page and fill in:
 
 | Parameter                  | Description                                                    |
 | -------------------- | ------------------------------------------------------- |
@@ -28,15 +28,9 @@ After clicking **Create**, you will be redirected to the **Device Configuration*
 | **Connection Timeout** |  The time the system waits for a device to respond to a command. |
 | **Check Header** | Choose whether to verify the message header. After selecting True, when encountering packet header errors, the neuron and device will reconnect. |
 
-## Configure Data Groups and Tags
+## Tag Configuration
 
-After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
-
-Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking on **Create**, then specifying the group name and data collection interval.
-
-Upon successfully creating a group, click on its name to proceed to the **Tag List** page. This page allows you to add device tags for data collection. You'll need to provide information such as the tag address, attributes, and data type.
-
-For information on general configuration items, see [Connect to Southbound Devices](../south-devices.md). The subsequent section will concentrate on configurations specific to the driver.
+The data types and address formats supported by this driver are listed below.
 
 ### Data types
 
@@ -59,7 +53,6 @@ Required, Slave is the slave address or site number.
 HollySys PLC maps data units onto the Modbus address space for access through the Modbus TCP protocol.
 The EMQX Neuron HollySys Modbus TCP driver frees users from details of the address mapping, and designates the PLC data unit name as the **ADDRESS**.
 
-
 | Area                            | Data unit example                           | Attribute  | Register Size | Data Type      |
 | ------------------------------- | ------------------------------------------- | ---------- | ------------- | -------------- |
 | IX (Input)                      | IX0.0 ... IX0.7, IX1.0 ... IX1.7 ...        | Read       | 1Bit          |  BOOL/BIT      |
@@ -68,7 +61,6 @@ The EMQX Neuron HollySys Modbus TCP driver frees users from details of the addre
 | QW (Hold Registers)             | QW0, QW1, ...                               | Read/Write | 16Bit,2Byte   |  INT16/UINT16  |
 | MX (Coils)                      | MX0.0 ... MX0.7, MX1.0 ... MX1.7 ...        | Read/Write | 1Bit          |  BOOL/BIT      |
 | MW (Hold Registers)             | MW0, MW1, ...                               | Read/Write | 16Bit,2Byte   |  INT16/UINT16  |
-
 
 #### **#ENDIAN**
 
@@ -84,7 +76,6 @@ The byte order of a tag has a higher priority than the byte order configuration 
 The byte order can be illustrated using the notation ABCD, which corresponds directly to the sequence 1234. As an example, the ABCD designation represents the standard or default Endianness 1234. (#LL).
 :::
 
-
 ### Example Addresses
 
 | Address        | Data Type | Description                                        |
@@ -92,8 +83,3 @@ The byte order can be illustrated using the notation ABCD, which corresponds dir
 | 1!IX1.0        | bit       | Data unit IX1.0 on slave 1, read only.             |
 | 1!QW0          | int16     | Data unit QW0 on slave 1, support read/write.      |
 | 2!MW1          | int16     | Data unit MW1 on slave 1, support read/write.      |
-
-
-## Data Monitoring
-
-After completing the point configuration, you can click **Monitoring** -> **Data Monitoring** to view device information and control devices. For details, refer to [Data Monitoring](../../../admin/monitoring.md).

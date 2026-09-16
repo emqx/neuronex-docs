@@ -1,4 +1,4 @@
-# EMQX Neuron Device Control Best Practices
+# Device Control
 
 ## Overview
 

@@ -1,4 +1,4 @@
-## FAQ
+# FAQ
 
 ## The device status is "Disconnected" for a long time or Error code - ERROR(3002): Driver is not connected
 

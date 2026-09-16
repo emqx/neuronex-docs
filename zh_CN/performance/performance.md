@@ -5,5 +5,5 @@
 具体各类性能测试，请查看以下页面：
 
 * [Modbus TCP 驱动性能测试](./modbustcp.md)
-* [OPCUA 驱动性能测试](./opcua.md)
+* [OPC UA 驱动性能测试](./opcua.md)
 * [Siemens S7 驱动性能测试](./siemens-s7.md)

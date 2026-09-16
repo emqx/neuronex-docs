@@ -1,4 +1,4 @@
-# Date and Time Functions
+# Data and Time Functions
 
 Date and time functions are used to perform operations on date and time type data.
 

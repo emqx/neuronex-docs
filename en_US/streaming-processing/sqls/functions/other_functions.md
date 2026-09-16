@@ -1,4 +1,4 @@
-## Other Functions
+# Other Functions
 
 The following function are built-in functions that are not included in other document pages.
 

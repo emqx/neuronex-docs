@@ -77,10 +77,7 @@ Prosys Simulation Server 是由 Prosys 公司开发的 OPC UA 服务器，用于
 
 ## 连接 OPC UA Server（证书/密钥 + 用户名/密码）
 
-用户名/密码以及证书/密钥设置参考 
-
-- [连接 OPC UA Server（证书/密钥 + 匿名登录）](#连接-opc-ua-server-证书-密钥-匿名登录)
-- [连接 OPC UA Server（用户名/密码登录）](#连接-opc-ua-server-用户名-密码)
+证书/密钥与用户名/密码的设置方式，见本页上文的**连接 OPC UA Server（证书/密钥 + 匿名登录）**和**连接 OPC UA Server（用户名/密码）**两节。
 
 ## 配置 EMQX Neuron
 
@@ -112,4 +109,3 @@ Prosys Simulation Server 是由 Prosys 公司开发的 OPC UA 服务器，用于
 | Sinusoid | 3!1004 | Read | DOUBLE |
 | Square   | 3!1005 | Read | DOUBLE |
 | Triangle | 3!1006 | Read | DOUBLE |
-

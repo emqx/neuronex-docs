@@ -32,7 +32,6 @@ The EMQX Neuron OPC UA driver can be used as a client to access KEPServerEX.
 
 4. Right-click on the KEPServerEX icon in the system tray and select **Reinitialize** in the menu.
 
-
 ## Configure EMQX Neuron
 
 1. Get the PLC measurement point information via the UaExpert software, refer to [UaExpert](./uaexpert.md).
@@ -56,4 +55,3 @@ The EMQX Neuron OPC UA driver can be used as a client to access KEPServerEX.
 | ProductName | 0!2261 | Read | STRING |
 | ProductUri | 0!2262 | Read | STRING |
 | SoftwareVersion | 0!2264 | Read | STRING |
-

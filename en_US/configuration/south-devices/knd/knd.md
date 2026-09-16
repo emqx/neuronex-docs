@@ -2,6 +2,8 @@
 
 The KND CNC driver accesses KND K2000, K1000 C/Ci/F/Fi, and K1000TTCi series CNC systems via HTTP protocol, enabling real-time collection of various device operation data, including program name, spindle override, operating status, PLC points, etc.
 
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
+
 ## Device Settings
 
 | Field | Description                      |

@@ -105,7 +105,7 @@ docker exec -it neuronex telnet <设备 IP> <端口>
 
 **4. 检查设备端配置**　部分协议需要在设备侧开启服务或授权，例如西门子 S7 需要在 PLC 中启用 PUT/GET 并关闭优化块访问。见对应的驱动页面。
 
-**5. 查看 DEBUG 日志**　点击卡片上的 **开启 DEBUG 日志**，在 **系统信息 → 日志** 查看实际收发的指令，详见[日志管理](../../admin/log-management.md)。
+**5. 查看 DEBUG 日志**　点击卡片上的 **开启 DEBUG 日志**，在 **管理 → 日志** 页面查看实际收发的指令，详见[日志管理](../../admin/log-management.md)。
 
 **6. 检查防火墙**　确认设备侧和 EMQX Neuron 侧均已放行对应端口。
 

@@ -1,4 +1,4 @@
-# Table
+# Tables
 
 Tables are a method of retaining a relatively large amount of state. EMQX Neuron currently supports two types of tables: `Scan Table` and `Lookup Table`. Both types of tables are suitable for streaming batch synthesis calculations.
 

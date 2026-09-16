@@ -1,5 +1,4 @@
-
-# Query language elements
+# Query
 
 EMQX Neuron provides a variety of elements for building queries. They are summarized below.
 

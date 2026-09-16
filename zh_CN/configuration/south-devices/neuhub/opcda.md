@@ -1,7 +1,6 @@
-# OPCDA
+# OPC DA
 
 EMQX Neuron 可以使用 Neuron HUB 驱动和 NeuronHUB Windows 程序，间接访问运行于 Windows 操作系统的 OPC DA 服务器。远程连接的系统配置参考 [DCOM 设置](../opc-da/remote.md)。
-
 
 ## NEURON HUB Windows 程序参数
 
@@ -13,7 +12,6 @@ EMQX Neuron 可以使用 Neuron HUB 驱动和 NeuronHUB Windows 程序，间接�
 | PassWrod  | 密码                                                                                                                     |
 | Domain    | 域                                                                                                                       |
 | Server    | DA 服务器的名称，如 `opcda://192.168.10.133/Matrikon.OPC.Simulation`，填写 Host 之后可以点击下拉按钮尝试获取 Server 列表 |
-
 
 ## 支持的数据类型
 
@@ -42,11 +40,8 @@ EMQX Neuron 可以使用 Neuron HUB 驱动和 NeuronHUB Windows 程序，间接�
 * ARRAY_BOOL     
 * ARRAY_STRING 
 
-
 ## 地址格式
 Neuron HUB 驱动选择 OPCDA 节点类型时，地址格式与 OPCDA 一致，也可以通过`导出`功能导出全部点位信息表格，然后直接导入 NEURON。
-
-
 
 ## Tag Browser 功能
 OPCDA 节点支持浏览 OPCDA 服务器功能，点击 `Actions` 中 `Tag Browser` 按钮，弹出浏览界面，节点以树形结构组织。在分支节点右键可以添加到采集组，在叶子节点右键可以添加为采集点。

@@ -1,4 +1,4 @@
-# 数据源
+# 数据源 (Source)
 
 数据源（Source）用于从外部系统中读取数据。EMQX Neuron 支持将数据源加载为三种模式：`流(Stream)`、`扫描表(Scan Table)`、`查询表(Lookup Table)`。
 

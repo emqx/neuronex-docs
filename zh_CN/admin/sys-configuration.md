@@ -82,15 +82,13 @@ Overview -> Endpoints 页面获取授权终端 URL 和 Token 中端 URL。
 
 ![alt text](./_assets/network-test.png)
 
+## 内置 Modbus TCP Server 模拟器
+
+在 `内置 Modbus TCP Server 模拟器` 选项卡中启动模拟器、配置模拟点位，并下载对应的南向驱动配置，用于在无硬件环境下验证采集链路。详见[内置 Modbus TCP Server 模拟器](../configuration/modbus-simulator.md)。
+
 ## 备份与恢复
 
-备份指将 EMQX Neuron 所有配置完整导出；恢复指将导出备份重新导入，并覆盖掉原有配置。
-
-所有配置包括南向驱动与北向应用的配置、点表、规则、文件和证书。
-
-:::tip 注意
-在恢复配置过程中 EMQX Neuron 将自动进行重启操作。
-:::
+在 `备份与恢复` 选项卡中将全部配置导出为一个文件，或导入备份文件覆盖现有配置。覆盖范围、与其他备份方式的区别以及执行时机，见[备份与恢复](./backup-restore.md)。
 
 
 ## 代理功能配置

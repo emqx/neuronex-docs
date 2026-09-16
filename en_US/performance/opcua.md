@@ -1,7 +1,7 @@
-# OPCUA Driver Performance Testing
+# OPC UA Driver
 ## Test Purpose
 
-In the scenario where OPCUA driver connects to devices for large-scale data collection and device control, verify the resource usage of EMQX Neuron, and continuously monitor: CPU, memory, network IO, and device control delay.
+In the scenario where OPC UA driver connects to devices for large-scale data collection and device control, verify the resource usage of EMQX Neuron, and continuously monitor: CPU, memory, network IO, and device control delay.
 
 ## Test Architecture
 
@@ -24,32 +24,32 @@ In the scenario where OPCUA driver connects to devices for large-scale data coll
 
 - Scenario 1
 
-EMQX Neuron is configured with 1 OPCUA driver, which includes 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 10,000 data points.
+EMQX Neuron is configured with 1 OPC UA driver, which includes 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 10,000 data points.
 
 - Scenario 2
 
-EMQX Neuron is configured with 5 OPCUA drivers, each driver including 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 50,000 data points.
+EMQX Neuron is configured with 5 OPC UA drivers, each driver including 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 50,000 data points.
 
 - Scenario 3
 
-EMQX Neuron is configured with 10 OPCUA drivers, each driver including 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 100,000 data points.
+EMQX Neuron is configured with 10 OPC UA drivers, each driver including 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 100,000 data points.
 
 - Scenario 4
 
-EMQX Neuron is configured with 1 OPCUA driver, each driver including 1 collection group, each group collecting 1,000 Float type data points every 100 milliseconds, totaling 1,000 data points.
+EMQX Neuron is configured with 1 OPC UA driver, each driver including 1 collection group, each group collecting 1,000 Float type data points every 100 milliseconds, totaling 1,000 data points.
 
 - Scenario 5
 
-EMQX Neuron is configured with 5 OPCUA drivers, each driver including 1 collection group, each group collecting 1,000 Float type data points every 100 milliseconds, totaling 5,000 data points.
+EMQX Neuron is configured with 5 OPC UA drivers, each driver including 1 collection group, each group collecting 1,000 Float type data points every 100 milliseconds, totaling 5,000 data points.
 
 - Scenario 6
 
-EMQX Neuron is configured with 10 OPCUA drivers, each driver including 1 collection group, each group collecting 1,000 Float type data points every 100 milliseconds, totaling 10,000 data points.
+EMQX Neuron is configured with 10 OPC UA drivers, each driver including 1 collection group, each group collecting 1,000 Float type data points every 100 milliseconds, totaling 10,000 data points.
 
 ### Device Control Scenarios
 - Scenario 7
 
-In EMQX Neuron configured with 10 OPCUA drivers, each driver including 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 100,000 data points, dispatch 100 data points.
+In EMQX Neuron configured with 10 OPC UA drivers, each driver including 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 100,000 data points, dispatch 100 data points.
 
 ## Overview of Results
 
@@ -68,7 +68,7 @@ Scenario | Number of Drivers | Number of Groups per Driver | Number of Points pe
 
 |Scenario	|Dispatch Method|	Number of Points Dispatched	|Test Count|	Minimum Response Time	|Maximum Response Time|	Average Response Time
 | ---------------- | ------- | --------- | ------ |------ |------ |------ |
-|Configured 10 OPCUA drivers in EMQX Neuron, each driver containing 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 100,000 data points under normal collection conditions.	|API Dispatch	|100|	100 times|	6ms	|19ms	|12ms|
+|Configured 10 OPC UA drivers in EMQX Neuron, each driver containing 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 100,000 data points under normal collection conditions.	|API Dispatch	|100|	100 times|	6ms	|19ms	|12ms|
 
 ::: tip 
 
@@ -81,7 +81,7 @@ If using EMQX Neuron data processing functions for data cleaning and filtering, 
 ## Detailed Test Results
 ### Scenario 1
 
-EMQX Neuron is configured with 1 OPCUA driver, which includes 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 10,000 data points.
+EMQX Neuron is configured with 1 OPC UA driver, which includes 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 10,000 data points.
 
 - Memory Usage ：172MB
 
@@ -99,7 +99,7 @@ EMQX Neuron is configured with 1 OPCUA driver, which includes 10 collection grou
 
 ### Scenario 2
 
-EMQX Neuron is configured with 5 OPCUA drivers, each driver including 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 50,000 data points.
+EMQX Neuron is configured with 5 OPC UA drivers, each driver including 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 50,000 data points.
 
 - Memory Usage ：323MB
 
@@ -117,7 +117,7 @@ EMQX Neuron is configured with 5 OPCUA drivers, each driver including 10 collect
 
 ### Scenario 3
 
-EMQX Neuron is configured with 10 OPCUA drivers, each driver including 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 100,000 data points.
+EMQX Neuron is configured with 10 OPC UA drivers, each driver including 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 100,000 data points.
 
 - Memory Usage ：594MB
 
@@ -136,7 +136,7 @@ EMQX Neuron is configured with 10 OPCUA drivers, each driver including 10 collec
 
 ### Scenario 4
 
-EMQX Neuron is configured with 1 OPCUA driver, each driver including 1 collection group, each group collecting 1,000 Float type data points every 100 milliseconds, totaling 1,000 data points.
+EMQX Neuron is configured with 1 OPC UA driver, each driver including 1 collection group, each group collecting 1,000 Float type data points every 100 milliseconds, totaling 1,000 data points.
 
 - Memory Usage ：140MB
 
@@ -155,7 +155,7 @@ EMQX Neuron is configured with 1 OPCUA driver, each driver including 1 collectio
 
 ### Scenario 5
 
-EMQX Neuron is configured with 5 OPCUA drivers, each driver including 1 collection group, each group collecting 1,000 Float type data points every 100 milliseconds, totaling 5,000 data points.
+EMQX Neuron is configured with 5 OPC UA drivers, each driver including 1 collection group, each group collecting 1,000 Float type data points every 100 milliseconds, totaling 5,000 data points.
 
 - Memory Usage ：162MB
 
@@ -174,7 +174,7 @@ EMQX Neuron is configured with 5 OPCUA drivers, each driver including 1 collecti
 
 ### Scenario 6
 
-EMQX Neuron is configured with 10 OPCUA drivers, each driver including 1 collection group, each group collecting 1,000 Float type data points every 100 milliseconds, totaling 10,000 data points.
+EMQX Neuron is configured with 10 OPC UA drivers, each driver including 1 collection group, each group collecting 1,000 Float type data points every 100 milliseconds, totaling 10,000 data points.
 
 - Memory Usage ：199MB
 

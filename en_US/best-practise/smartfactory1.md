@@ -1,4 +1,4 @@
-# Build a beverage production digital platform with EMQX Neuron and ECP
+# Beverage production digital platform
 
 Facing faster competition and changing demand, a beverage manufacturer wanted a more automated production and management system. They combined EMQ’s manufacturing stack with Azure to improve efficiency, quality, and time-to-market.
 
@@ -45,7 +45,7 @@ The manufacturer chose EMQ’s manufacturing solution on Azure. Core pieces:
 
 - **Broad data collection**
 
-  OPC UA pulls data from SCADA. Incremental reads from SQL Server integrate third-party production systems (see [SQL source templates](../streaming-processing/sql.md#sql-statement-template-examples)).
+  OPC UA pulls data from SCADA. Incremental reads from SQL Server integrate third-party production systems (see [SQL source templates](../streaming-processing/sql.md#sql-statement-template-example)).
 
 - **Edge compute and real-time analysis**
 

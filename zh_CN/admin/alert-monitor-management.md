@@ -1,39 +1,49 @@
 # 监控告警管理
 
-EMQX Neuron 提供监控告警功能，可帮助用户实时了解 EMQX Neuron 的状态，并及时发现异常情况。
+EMQX Neuron 提供指标监控与告警事件两项能力，用于掌握实例运行状态并在异常发生时得到通知。
 
-## 监控
+::: tip
+两项能力**默认均为关闭**，且目前只能通过 HTTP API 下发配置与查询，控制台上没有对应的配置界面。配置下发后，推送状态可在 **管理 → 系统信息** 页面查看。
+:::
 
-EMQX Neuron 提供多种指标数据来方便您监控，包括:
+## 监控指标
 
-- 数据采集引擎指标，如南北向驱动数量，驱动连接状态，异常驱动等。
-- 数据处理引擎指标，如规则记录输入,输出数量，停止规则数量等。
-- 系统资源指标，如CPU,内存等。
+可采集的指标分三类：
 
-用户可在下发监控配置时，可以指定需要哪些指标数据。目前提供两种方式获取到这些指标数据：
+| 类别 | 包含内容 |
+| --- | --- |
+| 数据采集引擎 | 南北向驱动数量、驱动连接状态、异常驱动数 |
+| 数据处理引擎 | 规则的记录输入与输出数量、已停止的规则数 |
+| 系统资源 | CPU、内存等 |
 
-1. 配置[pushgatway](https://github.com/prometheus/pushgateway) 地址(Pushgateway 是一个 Prometheus 的组件，开源的系统监控、报警、时间序列数据库的组合)，EMQX Neuron将自动推送指标数据到指定的pushgatway中
-2. 通过API 查询指标数据
+下发监控配置时可指定需要哪些指标。获取方式有两种：
 
-EMQX Neuron默认关闭监控功能，用户可通过调用API来下发监控配置及查询相关内容，详情可查看[链接](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html#tag/monitor/operation/MetricConfig)。
+| 方式 | 说明 |
+| --- | --- |
+| 推送到 Pushgateway | 配置 [Pushgateway](https://github.com/prometheus/pushgateway) 地址后，EMQX Neuron 自动将指标推送过去，由 Prometheus 拉取 |
+| API 查询 | 直接调用接口读取当前指标 |
 
-## 告警
+配置与查询接口见 [Monitor API](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html#tag/monitor/operation/MetricConfig)。
 
-EMQX Neuron 通过轮询的方式来判断告警事件的发生，目前提供3种告警类型，用户下发告警相关配置后，可以指定需要哪些规则，以及每种告警事件触发或者恢复时连续监控的次数（即N值，P值），EMQX Neuron会根据配置生成告警触发或告警恢复事件。
+## 告警事件
 
-| 告警类型                                 | 告警对象         | 告警触发条件                          | 告警触发事件生成条件 | 告警恢复事件生成条件  |
-| ---------------------------------------- | ---------------- | ------------------------------------- | -------------------- | --------------------- |
-| 数采驱动节点异常告警  （包括南向、北向） | 单个驱动         | 驱动处于运行中但未连接状态            | 连续监控N次          | 连续监控非异常状态P次 |
-| 流处理引擎规则异常告警                   | 单个规则         | 一个规则的任意source, op,sink异常增加 | 连续监控N次          | 连续监控非异常状态P次 |
-| EMQX Neuron重启告警                         | 当前EMQX Neuron实例 | EMQX Neuron重启                          | 监控到1次            | 无                    |
+EMQX Neuron 以轮询方式判断告警事件。下发告警配置时指定启用哪些规则，以及触发和恢复各自需要连续监控的次数——**N 值**为触发前需连续监控到异常的次数，**P 值**为恢复前需连续监控到正常的次数。
 
-目前提供两种方式获取到这些告警事件：
+| 告警类型 | 告警对象 | 触发条件 | 触发事件生成条件 | 恢复事件生成条件 |
+| --- | --- | --- | --- | --- |
+| 数采驱动节点异常（含南向与北向） | 单个驱动 | 驱动处于运行中但未连接状态 | 连续监控 N 次 | 连续监控非异常状态 P 次 |
+| 流处理引擎规则异常 | 单个规则 | 规则的任意 source、op 或 sink 异常数增加 | 连续监控 N 次 | 连续监控非异常状态 P 次 |
+| EMQX Neuron 重启 | 当前实例 | EMQX Neuron 发生重启 | 监控到 1 次 | 无 |
 
-1. 配置webhook地址，EMQX Neuron将自动推送告警事件到指定webhook中。
-2. 通过API查询最近产生的告警事件。
+获取方式有两种：
 
-EMQX Neuron默认关闭告警功能，用户可通过调用API来下发告警配置及查询相关内容，详情可查看[链接](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html#tag/monitor/operation/AlertRuleConfig)。
+| 方式 | 说明 |
+| --- | --- |
+| 推送到 Webhook | 配置 Webhook 地址后，EMQX Neuron 自动将告警事件推送过去 |
+| API 查询 | 查询最近产生的告警事件 |
 
-## 监控告警状态
+配置与查询接口见 [Alert Rule API](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html#tag/monitor/operation/AlertRuleConfig)。
 
-用户可在管理下的系统信息页面查看到当前“日志推送状态“、”监控推送状态“、”告警推送状态“。
+## 查看推送状态
+
+在 **管理 → 系统信息** 页面可查看当前的日志推送状态、监控推送状态与告警推送状态，用于确认配置是否生效。

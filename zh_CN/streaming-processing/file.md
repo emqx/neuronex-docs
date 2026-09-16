@@ -1,4 +1,4 @@
-# 文件（File）
+# 文件 源
 
 <span style="background:green;color:white;">流</span>        <span style="background:green;color:white">扫描表</span>
 
@@ -29,7 +29,7 @@ EMQX Neuron 目前支持两种方式上传配置文件：上传文件或者提�
 点击**提交**后，文件将出现在**文件管理**页面的列表中，名称包含该文件的路径和文件名，如：
 
 ```
-/opt/neuron/ekuiper/data/uploads/my.json
+/opt/neuronex/data/ekuiper/data/uploads/my.json
 ``` -->
 
 ## 创建流

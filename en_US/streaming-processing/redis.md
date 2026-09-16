@@ -1,4 +1,4 @@
-# Redis
+# Redis Source
 
 <span style="background:green;color:white">Lookup table</span>
 
@@ -25,7 +25,7 @@ In the pop-up **Sources**/**Create** page, enter the following configuration:
    - **Password**: Optional parameter, MQTT connection password.
    - **data type**: The Redis data type, could be string or list. The default is string.
 - **Table format**: supports json, binary, protobuf, delimited, custom. Default json format.
-   - If you select protobuf or custom, you should also configure the corresponding [mode](./config.md#mode)
+   - If you select protobuf or custom, you should also configure the corresponding [mode](./config.md#schema)
    - If you select delimited, you should also configure the delimiter, such as "`,`"
 
 - **key**: Set the key of the table.

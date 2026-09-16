@@ -1,4 +1,4 @@
-# Video
+# Video Source
 
 <span style="background:green;color:white;padding:1px;margin:2px">Stream</span>
 <span style="background:green;color:white;padding:1px;margin:2px">Scan table</span>

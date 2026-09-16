@@ -2,6 +2,8 @@
 
 The EMQX Neuron FOCAS driver supports the use of the FOCAS2 protocol for data acquisition and writing for various types of FANUC devices (including multi-path devices). It supports coordinates, operating status, alarms, operation information, macro variables, parameters, diagnostic data, program data, tool offset, tooling, tool life, PMC, and more.
 
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
+
 **Support arch**: amd64, armv7
 
 ## Parameter Configuration
@@ -113,7 +115,6 @@ To use the tool life management function, the corresponding parameters on the de
 If the parameter address does not set `@p`, it defaults to path 1.
 :::
 
-
 *CNC address example*
 
 | address         | description                                  |
@@ -141,10 +142,9 @@ If the parameter address does not set `@p`, it defaults to path 1.
 
 ## PMC Data
 
-Address Format
-`AREA ADDRESS[.BIT][.LEN][@p]`
+### Address Format
 
-
+> AREA ADDRESS\[.BIT]\[.LEN]\[@p]
 
 | tag address | description                     | data type | access     |
 | ----------- | ------------------------------- | --------- | ---------- |

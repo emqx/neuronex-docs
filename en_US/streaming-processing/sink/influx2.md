@@ -1,4 +1,4 @@
-# InfluxDB Sink
+# InfluxDB V2 Sink
 
 The sink will write the result into a InfluxDB `V2.X` .
 
@@ -31,7 +31,7 @@ Write options:
 | useLineProtocol | true     | Use [line protocol format](https://docs.influxdata.com/influxdb/v2/reference/syntax/line-protocol/) or not. Default is false. If line protocol is set, the dataTemplate must format to the line protocol format.                                                                                                                                                |
 
 Other common sink properties including batch settings are supported. Please refer to
-the [sink common properties](../overview.md#common-properties) for more information.
+the [sink common properties](./sink.md#sink-public-parameter-configuration) for more information.
 
 ## Sample usage
 

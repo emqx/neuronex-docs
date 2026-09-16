@@ -1,4 +1,4 @@
-# Redis 目标（Sink）
+# Redis Sink
 
 <span style="background:green;color:white">updatable</span>
 

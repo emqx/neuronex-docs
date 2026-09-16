@@ -1,4 +1,4 @@
-# SQL References
+# SQL Reference
 
 The EMQX Neuron data processing module provides a SQL-like query language for performing transformations and calculations on data streams. This article introduces the syntax, usage, and best practices of the Data Processing Module query language.
 

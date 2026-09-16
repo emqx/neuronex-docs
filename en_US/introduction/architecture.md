@@ -120,7 +120,7 @@ Three concepts underpin every configuration in EMQX Neuron:
 
 A single EMQX Neuron process runs many southbound and northbound nodes side by side, isolated from one another, with the core framework routing messages between them.
 
-For configuration steps, see [Data Collection and Forwarding](../configuration/introduction.md); for limits such as name lengths, groups per node, and the fastest polling interval, see [Configuration specification](../configuration/introduction.md#configuration-specification) on that page.
+For configuration steps, see [Data Collection, Processing and Forwarding](../configuration/introduction.md); for limits such as name lengths, groups per node, and the fastest polling interval, see [Configuration specification](../configuration/introduction.md#configuration-specification) on that page.
 
 ## Routing from southbound to northbound
 

@@ -1,4 +1,4 @@
-# Yabe 模拟器连接示例
+# Yabe 连接示例
 
 本文将使用 BACnet/IP 驱动连接 Yabe 模拟器，实现读写 BACnet 模拟设备的点位值。确保  BACnet/IP 驱动和 Yabe 模拟器网络联通。
 
@@ -43,8 +43,6 @@ Yabe（Yet Another Bacnet Explorer）是一款图形界面应用程序，可以�
 * 在创建好的南向设备节点中，创建组，并在组下创建点位。
 
 ## 数据监控
-
-完成点位的配置后，您可点击 **监控** -> **数据监控**查看设备信息以及反控设备，具体可参考[数据监控](../../../../admin/monitoring.md)。
 
 ![yabe-demoserver-tags-show](./assets/yabe-demoserver-tags-show.png)
 

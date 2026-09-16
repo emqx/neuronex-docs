@@ -3,18 +3,18 @@
 The EMQX Neuron XINJE Modbus RTU driver is for collecting XINJE PLC tags using the Modbus RTU protocol,
 supporting XINJE XC/XD/XL PLC models.
 
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
 
-## Add Device
+## Add Driver
 
-Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
+On **Data Collection → South Devices**, click **Add Device**.
 
 - Name: The name of this device node.
 - Driver: Select the **XINJE Modbus RTU** driver.
 
-## Device Configuration
+## Connection Parameters
 
-
-After clicking **Create**, you will be redirected to the **Device Configuration** page, where we will set up the parameters required for EMQX Neuron to establish a connection with the device. You can also click the device configuration icon on the southbound device card to enter the **Device Configuration** interface.
+Click the driver card to open the **Device Configuration** page and fill in:
 
 | Parameter                  | Description                                                                            |
 | -------------------------- | -------------------------------------------------------------------------------------- |
@@ -38,15 +38,9 @@ After clicking **Create**, you will be redirected to the **Device Configuration*
 
 The XINJE Modbus RTU driver configuration is similar to that of the [Modbus RTU driver module](../modbus-rtu/modbus-rtu.md).
 
-## Configure Data Groups and Tags
+## Tag Configuration
 
-After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
-
-Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking on **Create**, then specifying the group name and data collection interval.
-
-Upon successfully creating a group, click on its name to proceed to the **Tag List** page. This page allows you to add device tags for data collection. You'll need to provide information such as the tag address, attributes, and data type.
-
-For information on general configuration items, see [Connect to Southbound Devices](../south-devices.md). The subsequent section will concentrate on configurations specific to the driver.
+The data types and address formats supported by this driver are listed below.
 
 ### Data types
 
@@ -111,7 +105,6 @@ As an example, for XC1/XC2/XC3/XC5/XCM/XCC PLC models:
 | FD8000-FD8511 (Hold Registers)  | 0x6800-0x69FF  (26624-27135)   | 512        | Read/Write | 16Bit,2Byte   |  Various  |
 | ED0-ED36863 (Hold Registers)    | 0x7000-0xFFFF  (28672-65535)   | 36864      | Read/Write | 16Bit,2Byte   |  Various  |
 
-
 * XD1/XD2/XD3/XL1/XL3 PLC models:
 
 | Area                                | Modbus Address Range           | Quantity   | Attribute  | Register Size | Data Type |
@@ -158,7 +151,6 @@ As an example, for XC1/XC2/XC3/XC5/XCM/XCC PLC models:
 | SFD0-SFD1999 (Hold Registers)       | 0xE4C0-0xEC8F  (58560-60559)   | 2000       | Read/Write | 16Bit,2Byte   |  Various  |
 | FS0-FS47 (Hold Registers)           | 0xF4C0-0xF4EF  (62656-62703)   | 48         | Read/Write | 16Bit,2Byte   |  Various  |
 
-
 * XD5/XDM/XDC/XD5E/XDME/XL5/XL5E/XL5H/XLME PLC models:
 
 | Area                                | Modbus Address Range           | Quantity   | Attribute  | Register Size | Data Type |
@@ -204,7 +196,6 @@ As an example, for XC1/XC2/XC3/XC5/XCM/XCC PLC models:
 | FD0-FD8199 (Hold Registers)         | 0xC4C0-0xE4BF  (50368-58559)   | 8192       | Read/Write | 16Bit,2Byte   |  Various  |
 | SFD0-SFD4095 (Hold Registers)       | 0xE4C0-0xF4BF  (58560-62655)   | 4096       | Read/Write | 16Bit,2Byte   |  Various  |
 | FS0-FS47 (Hold Registers)           | 0xF4C0-0xF4EF  (62656-62703)   | 48         | Read/Write | 16Bit,2Byte   |  Various  |
-
 
 * XDH/XLH PLC models:
 
@@ -279,7 +270,6 @@ The byte order of a tag has a higher priority than the byte order configuration 
 The byte order can be illustrated using the notation ABCD, which corresponds directly to the sequence 1234. As an example, the ABCD designation represents the standard or default Endianness 1234. (#LL).
 :::
 
-
 #### .LEN\[H]\[L]
 
 When the data type is STRING, `.LEN` is a required field, indicating the number of bytes the string occupies. Each register contains four storage methods: H, L, D, and E, as shown in the table below.
@@ -290,7 +280,6 @@ When the data type is STRING, `.LEN` is a required field, indicating the number 
 | L      | One register stores two bytes, with the low byte first          |
 | D      | One register stores one byte, and it is stored in the low byte  |
 | E      | One register stores one byte, and it is stored in the high byte |
-
 
 #### **.BYTES**
 
@@ -317,8 +306,3 @@ A register of the Modbus driver contains 2 bytes. When reading and writing Modbu
 | D1.10L         | String    | PLC data register D1, character length 10, byte order L, which occupies addresses D1 to D5|
 | M8             | bit       | Auxiliary relay M8                        |
 | X10            | bit       | Input relay X10                           |
-
-
-## Data Monitoring
-
-After completing the point configuration, you can click **Monitoring** -> **Data Monitoring** to view device information and control devices. For details, refer to [Data Monitoring](../../../admin/monitoring.md).

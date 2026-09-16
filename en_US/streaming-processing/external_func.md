@@ -1,4 +1,4 @@
-# External services
+# External service configuration
 
 ## Overview
 

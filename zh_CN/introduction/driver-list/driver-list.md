@@ -108,5 +108,14 @@ EMQX Neuron 通过南向驱动按协议与现场设备通信。下表按类别�
 | [NeuronHUB](../../configuration/south-devices/neuhub/neuhub.md) | 以太网 | Windows 侧代理，用于 OPC DA、OPC AE、GE Historian 及部分 CNC |
 
 ::: tip
+Modbus TCP、OPC UA、Siemens S7 三个驱动有实测的点位规模与采集周期数据，见[性能测试](../../performance/performance.md)。
+
 北向应用（MQTT、Sparkplug B、OPC UA Server、AWS IoT、Azure IoT、Kafka 等）见[北向应用](../../configuration/north-apps/catalog.md)。
 :::
+
+## 下一步
+
+- **找到了对应的驱动** —— 按[添加南向驱动](../../configuration/south-devices/south-devices.md)建节点，再按[组与点位](../../configuration/groups-tags/groups-tags.md)配置采集组。
+- **设备数量多** —— 用模板或 Excel 批量建，见[批量配置与迁移](../../configuration/bulk-config.md)。
+- **采集到的数据发往何处** —— 见[北向应用](../../configuration/north-apps/catalog.md)。
+- **表里没有需要的协议** —— 可用 C SDK 自行开发，见[驱动开发 SDK 教程](../../dev-guide/sdk-tutorial/sdk-tutorial.md)。

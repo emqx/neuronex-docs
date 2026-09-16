@@ -57,4 +57,3 @@ Industrial Gateway OPC Server 是 Matrikon 提供的 OPC 服务器，可用于�
 | Short1   | 2!数据类型示例.16 位设备.R 寄存器.Short1   | Read Write | INT16  |
 | Word1    | 2!数据类型示例.16 位设备.R 寄存器.Word1    | Read Write | UINT16 |
 | String1  | 2!数据类型示例.16 位设备.S 寄存器.String1  | Read Write | STRING |
-

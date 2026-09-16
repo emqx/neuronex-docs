@@ -14,7 +14,7 @@ The sink will write the result to the database.
 | Table Name         | false    | The table name of the database                                                                                                                                  |
 | Tag Fields         | true     | The fields to be inserted to. The result map and the database should both have these fields. If not specified, all fields in the result map will be inserted. |
 
-Other common sink properties are supported. Please refer to the [sink common properties](../overview.md#common-properties) for more information.
+Other common sink properties are supported. Please refer to the [sink common properties](./sink.md#sink-public-parameter-configuration) for more information.
 
 ## Database Connection Address
 

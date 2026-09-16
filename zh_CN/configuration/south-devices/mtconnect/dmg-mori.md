@@ -182,7 +182,7 @@ XPath 中的 `dataItemId` 属性值对应 `Devices.xml` 中定义的 `id` 值。
 
 ## 数据监控
 
-完成点位配置后，您可点击 **监控 -> 数据监控** 查看从 DMG MORI 设备采集的实时数据。
+完成点位配置后，您可点击 **数据采集 -> 数据监控** 查看从 DMG MORI 设备采集的实时数据。
 
 ![DMG MORI 数据监控](./assets/zh_monitoring.png)
 

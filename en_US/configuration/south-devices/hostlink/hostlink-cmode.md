@@ -1,21 +1,23 @@
-# HOSTLINK CMODE
+# Omron Host Link
 
 The Hostlink protocol is a protocol defined by Omron for communication between other devices and Omron PLC.
 The Hostlink communication protocol has two modes: C-mode and FINS.
 Cmode adopts ASCII code, and the upper computer actively sends instructions to the CPU; FINS adopts binary code and can be used in various network devices, and can be actively issued by CPU, IO module, and upper computer.
 
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
+
 The EMQX Neuron HostLink Cmode driver is used to communicate with the Omron PLC through a serial network.
 
-## Add Device
+## Add Driver
 
-Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
+On **Data Collection → South Devices**, click **Add Device**.
 
 - Name: The name of this device node.
 - Driver: Select the **HOSTLINK CMODE** driver.
 
-## Device Configuration
+## Connection Parameters
 
-After clicking **Create**, you will be redirected to the **Device Configuration** page, where we will set up the parameters required for EMQX Neuron to establish a connection with the northbound application. You can also click the device configuration icon on the southbound device card to enter the **Device Configuration** interface.
+Click the driver card to open the **Device Configuration** page and fill in:
 
 | Parameter                 | Description                                                    |
 | -------------------- | ------------------------------------------------------- |
@@ -27,15 +29,9 @@ After clicking **Create**, you will be redirected to the **Device Configuration*
 | **Baud Rate** | Serial connection parameter. |
 | **Data Size** | Serial connection parameter. |
 
-## Configure Data Groups and Tags
+## Tag Configuration
 
-After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
-
-Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking on **Create**, then specifying the group name and data collection interval.
-
-Upon successfully creating a group, click on its name to proceed to the **Tag List** page. This page allows you to add device tags for data collection. You'll need to provide information such as the tag address, attributes, and data type.
-
-For information on general configuration items, see [Connect to Southbound Devices](../south-devices.md). The subsequent section will concentrate on configurations specific to the driver.
+The data types and address formats supported by this driver are listed below.
 
 ### Data Types
 
@@ -100,7 +96,3 @@ When the data type is STRING, .LEN is a required field, indicating the number of
 | 10!TS0004         | BOOL    | TC status, address is 4, unit id is 10     |
 | 10!CIO0000.20L    | string  | CIO Area, address is 0, unit id is 10, the string length is 20 bytes, and the endianness is L      |
 | 10!CIO0001.20H    | string  | CIO Area, address is 1, unit id is 10, the string length is 20 bytes, and the endianness is H      |
-
-## Data Monitoring
-
-After completing the point configuration, you can click **Monitoring** -> **Data Monitoring** to view device information and control devices. For details, refer to [Data Monitoring](../../../admin/monitoring.md).

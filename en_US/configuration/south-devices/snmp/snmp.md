@@ -2,11 +2,13 @@
 
 SNMP (Simple Network Management Protocol) is a standard protocol used for managing network devices. Through SNMP, network administrators can monitor and manage the status and performance of network devices such as routers, switches, and servers. Currently, the SNMP driver supports SNMP v2c and plans to support SNMP v3 in future versions to provide enhanced security.
 
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
+
 ## Adding the Driver
 
 In **Data Collection -> South Devices**, click **Add Device** to create a device node. Enter the driver name and select **SNMP** as the driver type to enable the driver.
 
-## Device Configuration
+## Connection Parameters
 
 | <div style="width:100pt">Field</div> | Description |
 | ------ | ----------------- |

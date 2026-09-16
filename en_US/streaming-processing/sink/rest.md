@@ -1,5 +1,3 @@
-
-
 # REST Sink
 
 This action is used to publish output messages to a RESTful API.

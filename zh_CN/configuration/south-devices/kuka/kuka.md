@@ -1,6 +1,8 @@
-# KUKA
+# KUKA Ethernet KRL TCP
 
 EMQX Neuron KUKA Ethernet KRL TCP 驱动通过 TCP 协议访问安装有 KUKA Ethernet KRL 模块的 KUKA 机器人设备，目前支持机器人设备 Client 和 Server 两种模式。
+
+通用配置步骤见[添加南向驱动](../south-devices.md)与[组与点位](../../groups-tags/groups-tags.md)。
 
 ## 设备设置
 
@@ -40,4 +42,3 @@ EMQX Neuron KUKA Ethernet KRL TCP 驱动通过 TCP 协议访问安装有 KUKA Et
 | /RobotState/Torque/@A1  | float    | A1 轴实时扭矩 |
 | /RobotState/Torque/@A2  | float    | A2 轴实时扭矩 |
 | /RobotState/Err/@number | int32    | 错误编号      |
-

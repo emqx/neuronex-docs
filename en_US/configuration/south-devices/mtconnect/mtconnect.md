@@ -2,6 +2,10 @@
 
 The EMQX Neuron MTConnect driver accesses devices installed with MTConnect Agent through the HTTP protocol.
 
+MTConnect is a read-only collection protocol: an MTConnect Agent exposes an HTTP read interface only, so this driver does not support writing back to the device.
+
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
+
 ## Parameter Configuration
 
 | Parameter | Description                      |
@@ -10,8 +14,6 @@ The EMQX Neuron MTConnect driver accesses devices installed with MTConnect Agent
 | port      | Target Device port, default 5000 |
 | ns_prefix | namespace prefix                 |
 | ns_uri    | namespace uri                    |
-
-
 
 ## Support Data Type
 
@@ -51,4 +53,3 @@ For self-closing tags where the value is represented by the element name (e.g., 
 | //m:DeviceStream[@uuid='Mazak']/m:ComponentStream[@componentId='LYI1']/m:Samples/m:Position[@dataItemId='LYI1actm']                | double | Mechanical coordinates of linear axis Y |
 | //m:DeviceStream[@uuid='Mazak']/m:ComponentStream[@componentId='Lct1']/m:Events/m:InputOutputSignal[@dataItemId='LPlcMonitorIO_1'] | bit    | IO signal                               |
 | node-name://m:*[@dataItemId='DMGlogic1']                                                                                            | string | Element name of self-closing tag (e.g., Normal, Warning, Fault)  |
-

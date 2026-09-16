@@ -1,147 +1,187 @@
-# Data processing
+# Data Processing
 
-EMQX Neuron (formerly NeuronEX) has a built-in data processing engine to improve the real-time performance of data processing, reduce edge-cloud communication costs, and provide low-latency data access management and intelligent analysis services for industrial scenarios.
+EMQX Neuron includes a stream processing engine that filters, converts, aggregates, and evaluates alarms before data leaves the edge.
 
-## Architecture
+<style>
+.nxs            { width: 100%; height: auto; display: block; margin: 24px 0; }
+.nxs .t         { font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #1f2d3d; }
+.nxs .h         { font-size: 16px; font-weight: 600; }
+.nxs .m         { font-size: 15px; font-weight: 600; }
+.nxs .sub       { font-size: 12.5px; fill: #4a5b6e; }
+.nxs .lbl       { font-size: 12.5px; font-weight: 600; fill: #2a6ebb; }
+.nxs .green     { fill: #00b173; }
+.nxs .ptitle    { fill: #1b4f89; }
+.nxs .bg        { fill: #f7fafd; }
+.nxs .box       { fill: #ffffff; stroke: #ccd8e4; stroke-width: 1.5; }
+.nxs .mod       { fill: #ffffff; stroke: #2a6ebb; stroke-width: 1.5; }
+.nxs .src       { fill: #ffffff; stroke: #00b173; stroke-width: 2; }
+.nxs .prod      { fill: #eaf2fb; stroke: #2a6ebb; stroke-width: 2; }
+.nxs .flow      { stroke: #2a6ebb; stroke-width: 2; fill: none; }
+.nxs .back      { stroke: #00b173; stroke-width: 2; fill: none; stroke-dasharray: 7 4; }
+.nxs .ah        { fill: #2a6ebb; }
+.nxs .ahg       { fill: #00b173; }
 
-The architecture of the EMQX Neuron data processing module is as follows:
+html.dark .nxs .t      { fill: #d7dee6; }
+html.dark .nxs .sub    { fill: #9db0c4; }
+html.dark .nxs .lbl    { fill: #7fb4ea; }
+html.dark .nxs .green  { fill: #3ecf9a; }
+html.dark .nxs .ptitle { fill: #8ec1f0; }
+html.dark .nxs .bg     { fill: #161c24; }
+html.dark .nxs .box    { fill: #1d2631; stroke: #3b4857; }
+html.dark .nxs .mod    { fill: #1d2631; stroke: #5a9fe0; }
+html.dark .nxs .src    { fill: #1d2631; stroke: #3ecf9a; }
+html.dark .nxs .prod   { fill: #1a2938; stroke: #5a9fe0; }
+html.dark .nxs .flow   { stroke: #7fb4ea; }
+html.dark .nxs .back   { stroke: #3ecf9a; }
+html.dark .nxs .ah     { fill: #7fb4ea; }
+html.dark .nxs .ahg    { fill: #3ecf9a; }
+</style>
 
-![arch](./_assets/arch.png)
+<svg class="nxs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 470" role="img" aria-label="Data processing flow: on the left the collection module feeds in through the Neuron source, alongside other sources such as MQTT, HTTP, SQL databases, files and video streams; in the middle data processing runs source, rule and sink in sequence; on the right results are written to IoT platforms and brokers, databases and time-series stores, and object storage and files; the dashed line at the bottom shows rule results written back to devices through the Neuron sink">
+  <defs>
+    <marker id="nxsA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0 L10 5 L0 10 z"/></marker>
+    <marker id="nxsG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ahg" d="M0 0 L10 5 L0 10 z"/></marker>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1200" height="470" rx="10"/>
 
-## Features and advantages
+  <rect class="src" x="24" y="62" width="188" height="92" rx="8"/>
+  <text class="t m" x="118" y="96" text-anchor="middle">Collection module</text>
+  <text class="t sub" x="118" y="122" text-anchor="middle">Tags from southbound drivers</text>
 
-### Low latency
-It provides low-latency data processing and analysis, which can transfer data between multiple systems more quickly. Combined with AI/ML algorithms, it can realize intelligent decision-making and control.
+  <rect class="box" x="24" y="212" width="188" height="118" rx="8"/>
+  <text class="t m" x="118" y="246" text-anchor="middle">Other sources</text>
+  <text class="t sub" x="118" y="272" text-anchor="middle">MQTT · HTTP · SQL databases</text>
+  <text class="t sub" x="118" y="296" text-anchor="middle">Files · Video · Kafka · Redis</text>
 
-### Complete data analysis
+  <line class="flow" x1="212" y1="108" x2="292" y2="119" marker-end="url(#nxsA)"/>
+  <text class="t lbl" x="252" y="96" text-anchor="middle">Neuron source</text>
+  <polyline class="flow" points="212,271 250,271 250,133 292,133" marker-end="url(#nxsA)"/>
+  <text class="t lbl" x="252" y="196" text-anchor="middle">Ingest</text>
 
-- Data extraction, transformation and filtering
-- Data sorting, grouping, aggregation, and connection
-- 160+ various functions, covering mathematical operations, string processing, aggregation operations, hash operations, etc.
-- 4 types of time windows, and counting windows
+  <rect class="prod" x="300" y="30" width="336" height="330" rx="10"/>
+  <text class="t h ptitle" x="468" y="58" text-anchor="middle">Data Processing</text>
 
-### AI/ML integration
+  <rect class="mod" x="324" y="82" width="288" height="66" rx="6"/>
+  <text class="t m" x="468" y="110" text-anchor="middle">Source</text>
+  <text class="t sub" x="468" y="133" text-anchor="middle">Streams · Scan and lookup tables</text>
 
-Custom functions, AI/ML algorithms, etc. can be accessed through Python or Go extensions to achieve expansion in the three aspects of `Source`, `Function`, and `Sink`.
-- [Source](./source.md): allows users to access more data sources for data analysis
-- [Function](./extension.md): Allows users to add custom functions for data analysis (for example, AI/ML function calls)
-- [Sink](./sink/sink.md): allows users to send analysis results to different extension systems
+  <rect class="mod" x="324" y="164" width="288" height="86" rx="6"/>
+  <text class="t m" x="468" y="192" text-anchor="middle">Rule</text>
+  <text class="t sub" x="468" y="215" text-anchor="middle">SQL query · filter · aggregate</text>
+  <text class="t sub" x="468" y="237" text-anchor="middle">Time windows · 160+ functions</text>
 
-### Multi-source data access integration
-It has the ability to flexibly acquire various types of data and can support:
+  <rect class="mod" x="324" y="266" width="288" height="66" rx="6"/>
+  <text class="t m" x="468" y="294" text-anchor="middle">Sink</text>
+  <text class="t sub" x="468" y="317" text-anchor="middle">Data templates · parallel actions</text>
 
-- MES, WMS, ERP system integration
+  <polyline class="flow" points="636,299 674,299 674,105 706,105" marker-end="url(#nxsA)"/>
+  <line class="flow" x1="674" y1="220" x2="706" y2="220" marker-end="url(#nxsA)"/>
+  <line class="flow" x1="674" y1="335" x2="706" y2="335" marker-end="url(#nxsA)"/>
+  <text class="t lbl" x="672" y="366" text-anchor="middle">Write out</text>
 
-- Database integration
+  <rect class="box" x="714" y="62" width="216" height="86" rx="8"/>
+  <text class="t m" x="822" y="94" text-anchor="middle">IoT platforms and brokers</text>
+  <text class="t sub" x="822" y="118" text-anchor="middle">MQTT · Kafka · REST</text>
 
-- Enterprise Service Bus (ESB) integration
+  <rect class="box" x="714" y="177" width="216" height="86" rx="8"/>
+  <text class="t m" x="822" y="209" text-anchor="middle">Databases and time series</text>
+  <text class="t sub" x="822" y="233" text-anchor="middle">MySQL · InfluxDB · Redis</text>
 
-- File data collection
+  <rect class="box" x="714" y="292" width="216" height="86" rx="8"/>
+  <text class="t m" x="822" y="324" text-anchor="middle">Object storage and files</text>
+  <text class="t sub" x="822" y="348" text-anchor="middle">AWS S3 · Local files · Images</text>
 
-- Video stream analysis
+  <polyline class="back" points="468,332 468,424 118,424 118,158" marker-end="url(#nxsG)"/>
+  <text class="t lbl green" x="300" y="446" text-anchor="middle">Neuron sink · write back to devices</text>
+</svg>
 
+## When to use it
 
-## Core conception
+Southbound data can be published directly by a northbound application without passing through data processing. Process it through a rule first when:
 
-### Source
+- **The polling rate far exceeds what the business needs.** Polling every 100 ms catches transients, but a report only needs a per-minute average. Aggregating over a time window before publishing cuts volume by two orders of magnitude.
+- **Values barely move in steady state.** During normal operation tag values are nearly constant. A conditional filter publishes only when a value moves beyond a threshold.
+- **Alarms need sub-second response.** Keeping the decision at the edge avoids a cloud round trip and keeps working while the link is down.
+- **Units or field names need normalizing before publishing.** Doing it once at the edge beats doing it in every downstream system.
 
-[Source](./source.md) defines the connection to the external system to load data. In the rules, according to the data usage logic, the data source can be used as **Stream** or **Table**.
+Both paths can run side by side. For selection guidance, see [Northbound Applications · Feed Analytics and Edge Computing](../configuration/north-apps/analytics.md).
 
-- [Stream](./stream.md): Stream is the main operation mode of data source access in EMQX Neuron. Users can define how to connect to external resources by selecting the data source type and configuration parameters. Whenever data flows into the data stream, calculations in the rules will be triggered.
+## Reading order
 
-- [Table](./tables.md): Table is used to represent the current status of the stream. It can be thought of as a snapshot of a stream where you can batch process data through a table. By combining **stream** and **table** in rules, more data processing functions can be achieved.
+1. [Your First Rule](./first-rule.md): bring collected data in, transform it with one SQL statement, and publish to MQTT
+2. [Source](./source.md): define where data comes from, used as a stream or a table in rules
+3. [Rules](./rules.md): write SQL, add actions, and debug
+4. [Sink](./sink/sink.md): where rule results go
 
-   - [Scan Table](./scan.md): In EMQX Neuron save state data in memory like an event-driven stream, loading data events one by one.
+## Connecting to the collection module
 
-   - [Lookup Table](./lookup.md): Bind external data (such as data in a SQL database) and query and reference external data when needed.
+Data processing and the collection module are linked in both directions. These two connectors are the ones used most:
 
-- **Decoding of source**: Users can define the decoding method by specifying the `format` attribute when creating the source. Currently `json`, `binary`, `protobuf` and `delimited` formats are supported. You can also use your own encoding format and define the field as `custom`.
+| Direction | What to use | Notes |
+| --- | --- | --- |
+| Collection → rules | [Neuron source](./neuron.md) | The northbound **Rules Engine Application** feeds subscribed collection groups into the `neuronStream` stream. The application exists by default — just add a subscription. See [Rules Engine Application](../configuration/north-apps/ekuiper/overview.md) |
+| Rules → devices | [Neuron sink](./sink/neuron.md) | Rule results are written back to devices through southbound drivers, closing a collect → decide → control loop at the edge |
 
-- **Source definition and operation**: After creating the stream or table of the data source, the system actually only creates a logical definition of the data source rather than the actual data input for physical operation. This logical definition can be used in the `from` clause of SQL for multiple rules. The data flow will not actually run until it is started using the defined rules.
+## Sources
 
-Currently EMQX Neuron has the following built-in data sources:
+A source defines how to connect to an external system. Creating one only registers a logical definition; data flows only once a rule that references it starts. The same definition can be used in the `FROM` clause of many rules.
 
-- [Neuron](./neuron.md): Read data from the EMQX Neuron data collection module.
-- [MQTT](./mqtt.md): Read data from the MQTT topic.
-- [HTTP pull](./http_pull.md): Pulls data from the HTTP server.
-- [HTTP push](./http_push.md): Receive HTTP client messages through the built-in HTTP Server.
-- [Memory](./memory.md): Read data from the memory topic to form a rule pipeline.
-- [SQL](./sql.md): Get data from `sqlserver\postgres\mysql\sqlite3\oracle` database.
-- [File](./file.md): Read data from a file.
-- [Video](./video.md): Obtain data from the video stream.
-- [Simulator](./simulator.md): built-in simulation data source for simulating data and debugging.
-- [Redis](./redis.md): Obtain data from Redis.
-- [CAN](./can.md): Read data from CAN bus.
-- [Kafka](./kafka.md): Read data from Kafka.
-- [WebSocket](./websocket.md): Read data from WebSocket.
+In a rule, a source is used either as a [stream](./stream.md) or a [table](./tables.md): a stream triggers computation whenever data arrives; a table represents the current state of a stream for batch processing, and comes in [scan](./scan.md) and [lookup](./lookup.md) forms.
 
-### [Rule](./rules.md)
+Decoding is set with the `format` property, which supports `json`, `binary`, `protobuf`, and `delimited`, or `custom` for your own format.
 
-Rules represent a data flow processing process, defining input from data sources, various processing logic, and then outputting data to actions (Sink).
+| <div style="width:80pt">Type</div> | Purpose |
+| --- | --- |
+| [Neuron](./neuron.md) | Tag data collected by the collection module |
+| [MQTT](./mqtt.md) | Subscribe to an MQTT topic |
+| [HTTP Pull](./http_pull.md) | Poll an HTTP service on a timer |
+| [HTTP Push](./http_push.md) | A built-in HTTP server that receives client pushes |
+| [Memory](./memory.md) | Receive the output of a previous rule, forming a pipeline |
+| [SQL](./sql.md) | Query MySQL, PostgreSQL, SQL Server, Oracle, or SQLite |
+| [File](./file.md) | Read file contents |
+| [Video](./video.md) | Pull a video stream |
+| [Simulator](./simulator.md) | Built-in simulated data for debugging rules |
+| [Redis](./redis.md) | Read from Redis |
+| [CAN](./can.md) | Read from a CAN bus |
+| [Kafka](./kafka.md) | Consume a Kafka topic |
+| [WebSocket](./websocket.md) | Receive over WebSocket |
 
-- **Rule Lifecycle**: Once started, a rule will run continuously and will only stop when the user explicitly sends a stop command. Rules may stop abnormally due to errors or the EMQX Neuron instance exiting.
+## Sinks
 
-- **Relationship between multiple rules**: The rules are separated at run time, and an error in one rule does not affect other rules. All rules share the same hardware resources, and each rule can specify an operator buffer to limit the processing speed and avoid occupying all resources.
+A rule can have several actions, including more than one of the same type. Results can be reshaped by a [data template](./sink/data_template.md) before output; without one, the rule result is written as is.
 
-- [**Rule Pipeline**](./rule_pipeline.md): Multiple rules can form a processing pipeline by specifying `Memory Source/Sink`. For example, the first rule saves the results in memory sink, and other rules subscribe to topics in their memory sources to get data. In addition to `memory Source/Sink`, users can also use `MQTT Source/Sink` to connect rules.
+| <div style="width:90pt">Type</div> | Purpose |
+| --- | --- |
+| [MQTT](./sink/mqtt.md) | Publish to an external MQTT service |
+| [Neuron](./sink/neuron.md) | Write back to devices |
+| [REST](./sink/rest.md) | Call an external HTTP API |
+| [Memory](./sink/memory.md) | Pass to the next rule, forming a pipeline |
+| [Log](./sink/log.md) | Write to the log, normally for debugging only |
+| [SQL](./sink/sql.md) | Write to a relational database |
+| [InfluxDB V1](./sink/influx.md) / [V2](./sink/influx2.md) | Write to a time-series database |
+| [File](./sink/file.md) | Write to a file |
+| [Kafka](./sink/kafka.md) | Write to a Kafka topic |
+| [Redis](./sink/redis.md) | Write to Redis |
+| [AWS S3](./sink/aws-s3.md) | Upload to object storage |
+| [Image](./sink/image.md) | Save as an image file |
+| [Nop](./sink/nop.md) | Discard output, for performance testing |
 
-- **[SQL Statement](./sqls/overview.md)**: The EMQX Neuron data processing module provides a SQL-like query language for performing transformations and calculations on data streams. SQL language support in rules includes data definition language (DDL), data manipulation language (DML), and query language. SQL support in EMQX Neuron is a subset of ANSI SQL, with some custom extensions.
+## SQL capabilities
 
-- **[Rule Test](./rule_test.md)**: When creating rules, rule test allows you to view the output results of rules after SQL processing in real-time, ensuring that SQL syntax, built-in functions, and data templates meet the expected output results.
+| Capability | Description | Learn more |
+| --- | --- | --- |
+| Query and transform | Extract, convert, filter, sort, group, aggregate, plus LEFT / RIGHT / FULL / CROSS joins | [Query language](./sqls/query_language_elements.md) |
+| Functions | 160+ covering math, strings, aggregation, hashing, date and time, JSON, arrays, objects, and analytics | [Functions](./sqls/functions/overview.md) |
+| Windows | Tumbling, hopping, sliding, and session time windows, plus count windows | [Windows](./sqls/windows.md) |
+| Custom extensions | What SQL cannot express can be written in Python, C/C++, or JavaScript, or registered as an external REST service | [Extensions](./extension.md) |
 
-### Sink
+## How rules run
 
-- [Action Sink](./sink/sink.md): Action Sink is used to write data to external systems. A rule can have multiple actions, and different actions can be of the same action type.
+- A rule runs continuously once started, until stopped manually; it also stops on an error or when the instance exits.
+- Rules are isolated from each other, so an error in one does not affect the others. They share the same hardware, and each rule can set an operator buffer to cap its processing rate.
+- Rules can be chained into a pipeline through [memory](./memory.md) or MQTT source/sink pairs. See [Rule Pipeline](./rule_pipeline.md).
+- Enable [rule testing](./rule_test.md) while creating a rule to see live whether the SQL, functions, and data template produce what you expect.
 
-- [Data Template](./sink/data_template.md): After EMQX Neuron performs data analysis and processing through **rules**, the data template performs "secondary processing" of the rule processing results, and can use various sinks to system. The data template is an optional configuration item. If the data template is not configured, the rule processing results will be output directly to the Sink.
+## Configuration
 
-
-- Action type
-   - [MQTT sink](./sink/mqtt.md): Output to external MQTT service.
-   - [Neuron sink](./sink/neuron.md): Output to EMQX Neuron data collection module.
-   - [Rest sink](./sink/rest.md): Output to external HTTP server.
-   - [Memory sink](./sink/memory.md): Output to the memory (Memory) topic to form a rule pipeline.
-   - [Log sink](./sink/log.md): Write logs, usually only used for debugging.
-   - [SQL sink](./sink/sql.md): Write to SQL database.
-   - [InfluxDB V1 sink](./sink/influx.md): Write to Influx DB `v1.x`.
-   - [InfluxDB V2 sink](./sink/influx2.md): Write to Influx DB `v2.x`.
-   - [File sink](./sink/file.md): Write to file.
-   - [Nop sink](./sink/nop.md): No output, used for performance testing.
-   - [Kafka sink](./sink/kafka.md): Output to Kafka.
-   - [Image sink](./sink/image.md): Output to image file.
-
-
-### Streaming
-Streaming data is a growing, infinite data set, and stream processing is the processing of streaming data.
-Stream processing has the characteristics of low latency and near real-time. It can process data after it is generated and obtain results with extremely low latency. Therefore, stream processing can be used in real-time analysis, real-time calculation, real-time prediction and other scenarios.
-
-- **Stateful Stream Processing**: Stateful stream processing is a subset of stream processing in which computations maintain context state. Examples of stateful stream processing include:
-   - [Aggregation Events](./sqls/functions/aggregate_functions.md) when calculating a sum, count or average.
-   - Detect changes in events.
-   - Search for a pattern in a series of events.
-
-- [**Window**](./sqls/windows.md): The window provides a mechanism to divide unbounded data into a series of continuous bounded data for calculation. In time windows, both processing time and event time are supported. For all supported window types, see window functions. In EMQX Neuron, the built-in windows include two types:
-   - Time window: window divided by time
-   - Counting window: window split by element count
-
-- [**Multiple Source Join**](./sqls/query_language_elements.md#join): In stream processing, joins are the only way to merge multiple data sources together. It requires a way to align multiple sources and trigger concatenated results. EMQX Neuron supports connection types including LEFT, RIGHT, FULL and CROSS.
-
-- **Time concept of stream processing**:
-Streaming data is a data sequence that changes over time, where time is an inherent property of the data. In stream processing, time plays an important role in computation. For example, when doing aggregations based on certain time periods (often called windows), it is important to define the concept of time. In stream processing, there are two concepts of time:
-
-   - [**Event time**](./rules.md#Rule options - optional), that is, the time when the event actually occurred. Typically, events should have a timestamp field to indicate when they occurred.
-   - **Processing time**, i.e. the time the event was observed in the system.
-
-- **Event Time and Watermarks**: A stream processor that supports event time requires a way to measure event time progress. For example, when creating a one-hour time window, the internal operator needs to be notified when the event time exceeds one hour, so that the operator can publish the ongoing window.
-The mechanism in EMQX Neuron for measuring event time progression is watermarking. The watermark is part of the data stream and carries a timestamp t. A watermark (t) declares that the event time has reached time t in this data stream, meaning that there should be no more elements in this data stream with timestamp t' <= t (i.e. events with timestamps greater than or equal to the watermark). In EMQX Neuron, watermarking is at the rule level, which means that when reading data from multiple data streams, the watermark will flow across all input streams.
-
-
-
-### [Extension](./extension.md)
-
-EMQX Neuron allows users to customize extensions to support AI/ML and other functions. Users can write Python/Go extension plug-ins through the plug-in system. In addition, users can also call existing external REST services to use as functions and algorithm extensions. You can create plug-ins or register external services through the [Extension](./extension.md) page.
-
-### [Configuration](./config.md)
-
-The configuration page introduces the [Resource](./config.md#Resource) configuration and [Mode](./config.md#Mode) configuration of the EMQX Neuron data analysis module.
-
+The [configuration](./config.md) page manages [connectors](./config.md#connector) (connection reuse), [schemas](./config.md#schema) for decoding formats such as Protobuf, and file management.

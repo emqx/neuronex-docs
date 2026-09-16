@@ -1,6 +1,8 @@
-# NEURON HUB
+# NeuronHUB
 
 **NeuronHUB**（运行于 **Windows** 的桌面程序）与 EMQX Neuron 南向驱动 **NEURON HUB**共同构成一整套中转数采方案：前者在现场 Windows 环境的机器上做协议接入与数据采集（支持采集的协议有：**OPC DA、OPC AE、GE Historian、新代（SYNTEC）CNC、三菱（MITSUBISHI）CNC**），后者作为 EMQX Neuron 的南向驱动接入 NeuronHUB 上已采集的数据。
+
+通用配置步骤见[添加南向驱动](../south-devices.md)与[组与点位](../../groups-tags/groups-tags.md)。
 
 **部署背景：** EMQX Neuron 仅能部署在 **Linux**。若现场数采依赖 **DCOM** 等与 Windows 强绑定的机制（典型如 OPC DA），或必须使用仅提供 Windows 接口的网关与数据源，则无法在 Linux 上由原生存根方式直接采集这些协议。
 
@@ -52,10 +54,8 @@
 ## 地址格式
 节点类型不同，地址形式不同，具体查看对应类型设备的文档。
 
-
 ## NeuronHUB Windows 程序
 上文所述在 Windows 上承担协议对接与中继的就是 **NeuronHUB** 桌面程序（与 Linux 侧的 EMQX Neuron 驱动名称相近，请注意区分环境与角色）。安装包请联系支持人员获取。
-
 
 ### 安装
 双击安装即可，安装目录推荐不要安装到系统盘，不然配置文件修改可能由于权限问题失败。程序默认开机启动。
@@ -68,9 +68,5 @@
 在界面 `Node Tables`，使用节点对接的 `Actions` ，可以实现节点启停，参数更新以及删除。OPCDA 节点还支持点位导出为 NEURON 节点的表格文件。
  ![right](./assets/right_mouse_menu.png)
 
-
 ### 端口设置
  程序默认监听 17889 端口，可以通过 `Port Setting` 进行端口设置。
-
-
-

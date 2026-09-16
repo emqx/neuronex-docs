@@ -49,8 +49,6 @@ Install Yabe software, and the installation package can be downloaded from [Yabe
   
 ## Data Monitoring
 
-After completing the point configuration, you can click **Monitoring** -> **Data Monitoring** to view device information and control devices. For details, refer to [Data Monitoring](../../../../admin/monitoring.md).
-
 ![yabe-demoserver-tags-show-en](./assets/yabe-demoserver-tags-show-en.png)
 
 ## DemoServer Configuration File

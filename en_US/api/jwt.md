@@ -1,4 +1,4 @@
-# Custom JWT
+# JWT Authentication
 
 To call APIs in EMQX Neuron, you need to first call the login interface to generate a JWT, and then call other interfaces to validate the JWT. The default JWT expires after 24 hour, and you can generate your own JWT to customize the expiration time.
 

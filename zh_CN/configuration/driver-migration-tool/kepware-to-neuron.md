@@ -13,7 +13,7 @@
 | Modbus TCP/IP Ethernet              | 支持   | BCD, 数组不支持                          |
 | Modbus RTU Serial                   | 支持   | BCD, 数组不支持                          |
 | Modbus ASCII Serial                 | 支持   | BCD, 数组不支持                          |
-| OPCUA Client                        | 支持   | 证书不支持导出                             |
+| OPC UA Client                        | 支持   | 证书不支持导出                             |
 | Mitsubishi Ethernet                 | 支持   | BCD, 数组不支持                          |
 | Allen-Bradley ControlLogix Ethernet | 支持   | 只支持 ControlLoginc 5500设备。BCD, 数组不支持 |
 | Allen-Bradley DF1                   | 支持   | BCD, 数组不支持                          |
@@ -76,7 +76,7 @@
 
 ### 数据模型映射
 
-| **KEPServerEX字段**                                                | **Neuron字段**          | **说明**                                         |
+| **KEPServerEX字段**                                                | **EMQX Neuron 字段**          | **说明**                                         |
 | ---------------------------------------------------------------- | --------------------- | ---------------------------------------------- |
 | common.ALLTYPES_NAME                                             | name                  | 设备节点名                                          |
 | servermain.MULTIPLE_TYPES_DEVICE_DRIVER:"Modbus TCP/IP Ethernet" | driver: "Modbus TCP"  | 驱动名                                            |
@@ -95,7 +95,7 @@
 
 ### 寄存器区域映射
 
-| **KEPServerEX** | **Neuron** | **读写** | **说明**                 |
+| **KEPServerEX** | **EMQX Neuron** | **读写** | **说明**                 |
 | --------------- | ---------- | ------ | ---------------------- |
 | 0               | 0          | 只读     | Coil (线圈)              |
 | 1               | 1          | 读写     | Discrete Input (离散输入)  |
@@ -104,7 +104,7 @@
 
 ### 数据类型映射
 
-| **KEPServerEX** | **Neuron** | **说明**  |
+| **KEPServerEX** | **EMQX Neuron** | **说明**  |
 | --------------- | ---------- | ------- |
 | 1               | 12         | boolean |
 | 5               | 4          | uint16  |
@@ -116,7 +116,7 @@
 | 0               | 13         | string  |
 
 :::tip
-Neuron string 数据类型只支持 128 字节长度，KEPServerEX 支持 240 字节长度。 Neuron 不支持数组，KEPServerEX 支持数组。
+EMQX Neuron string 数据类型只支持 128 字节长度，KEPServerEX 支持 240 字节长度。 EMQX Neuron 不支持数组，KEPServerEX 支持数组。
 :::
 
 ### 分组策略
@@ -137,7 +137,7 @@ Neuron string 数据类型只支持 128 字节长度，KEPServerEX 支持 240 �
 
 ### 1. 协议名称 Modbus TCP
 
-Neuron Modbus TCP 地址格式：`{slave_id}!{area_code}{address}|[.bit|.len]`
+EMQX Neuron Modbus TCP 地址格式：`{slave_id}!{area_code}{address}|[.bit|.len]`
 
 - **普通数值类型**：`1!40000`（slave_id=1, Hold Register, address=0）
 
@@ -147,7 +147,7 @@ Neuron Modbus TCP 地址格式：`{slave_id}!{area_code}{address}|[.bit|.len]`
 
 KEPServerEX Modbus TCP 地址规则：`[H|]|{area_code}{address}|[.bit|.len]| [size]`，KEPServerEX 支持10进制和16进制地址寻址。
 
-**KEPServerEX → Neuron** 的转换逻辑如下：
+**KEPServerEX → EMQX Neuron** 的转换逻辑如下：
 
 - 解析出slaveid
 
@@ -165,10 +165,10 @@ KEPServerEX Modbus TCP 地址规则：`[H|]|{area_code}{address}|[.bit|.len]| [s
 
 - 支持轮询和订阅模式
 
-- **KepServerEX** 不支持证书导出，如果配置了证书，转换为 Neuron 的时候会使用自生成的证书，后续由用户自行修改。
+- **KepServerEX** 不支持证书导出，如果配置了证书，转换为 EMQX Neuron 的时候会使用自生成的证书，后续由用户自行修改。
 
 - **KepServerEX** 密码为加密密码，不支持密码导出，需要由用户自行填入。
 
 ### 3. 协议名称 Mitsubishi Ethernet
 
-- 工具根据 **KepServerEX** 中 **Mitsubishi Ethernet** 不同的设备型号，分别映射到 Neuron 三个不同的驱动。
+- 工具根据 **KepServerEX** 中 **Mitsubishi Ethernet** 不同的设备型号，分别映射到 EMQX Neuron 三个不同的驱动。

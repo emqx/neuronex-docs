@@ -1,35 +1,56 @@
-# Operation and Maintenance Guide
+# Operations
 
-This chapter aims to assist administrators and operations personnel in effectively managing and maintaining EMQX Neuron (formerly NeuronEX). In this chapter, we will explore various management tasks and provide comprehensive guidance and best practices to ensure smooth and efficient operation of EMQX Neuron.
+This section is for the administrators and operators who maintain EMQX Neuron day to day, organized by operational task.
 
-## Log in
+## Signing in to the console
 
-Open a web browser and enter the gateway address and port number running EMQX Neuron to enter the dashboard. The default port number is 8085.
+Open `http://<gateway address>:8085` in a browser and sign in with the default account **admin** / **0000**. The port can be changed in the startup parameters — see [Startup Parameters and Configuration Files](./conf-management.md).
 
-Access address, http://x.x.x.x:8085 where x.x.x.x represents the gateway address where EMQX Neuron is installed.
+If the page does not open, check in order:
 
-After the login page is opened. The user can log in using the initial username and password (initial username: `admin`, initial password: `0000`).
-
-If the page cannot be opened, please execute the following command in the terminal to detect:
-
-* Use the `ping` command to test whether the network is accessible.
-* Use the `telnet` command to test whether port 8085 is accessible.
-* Execute the following command to view the process status of EMQX Neuron.
-
-```
-$ systemctl status neuron
+```bash
+ping <gateway address>            # is the host reachable
+telnet <gateway address> 8085     # is the port open
+systemctl status neuronex         # is the service running
 ```
 
-## Management
+In production, change the default password and create read-only accounts as needed — see [User Management](./user.md).
 
-Please see the following pages for specific management functions:
+## Routine checks
 
-* [Operation Monitoring](./data-statistics.md)
-* [Monitoring and Alert Management](./alert-monitor-management.md)
-* [Log Management](./log-management.md)
-* [System Configuration](./sys-configuration.md)
-* [Startup Parameters and Configuration Files](./conf-management.md)
-* [Data Directory and Persistence](./data-persistence.md)
-* [User Management](./user.md)
+| What to watch | Where |
+| --- | --- |
+| Node link states, collection and forwarding volume, rule status | [Operation Monitoring](./data-statistics.md) |
+| Automatic notification of driver disconnects, rule failures, and instance restarts | [Monitoring and Alert Management](./alert-monitor-management.md) |
+| Tags failing to collect | [Data Monitoring and Device Control](./monitoring.md) |
+| Disk usage and log rotation | [Log Management](./log-management.md) |
 
-High availability is under [Installation / Master-Backup Mode](../best-practise/master-backup.md).
+## Upgrades and backups
+
+1. Take a backup first — see [Backup and Restore](./backup-restore.md).
+2. An upgrade does not overwrite `/opt/neuronex/data`. For package upgrades see [Install from a Package · Upgrading](../installation/package.md#upgrading); for containers see [Deploy with Docker](../installation/docker.md).
+3. After upgrading, confirm that southbound and northbound nodes return to **Running** and **Connected**, and that rules are healthy.
+
+## Troubleshooting
+
+| Symptom | Where to look |
+| --- | --- |
+| No data from a device | [Diagnosing a connection](../configuration/south-devices/south-devices.md#diagnosing-a-connection), then the read error counters in [Operation Monitoring](./data-statistics.md) |
+| Data is not being forwarded | Confirm the northbound application is running and the subscription exists — see [Subscribe to Southbound Data · Verify](../configuration/subscription.md#verify) |
+| A rule produces no output | [Rule testing](../streaming-processing/rule_test.md) |
+| Filing a support ticket | Download the logs — see [Log Management](./log-management.md) |
+
+## Configuration and permissions
+
+- [System Configuration](./sys-configuration.md): data processing engine, SSO, network connection test, tracing, backup and restore
+- [Startup Parameters and Configuration Files](./conf-management.md): command line, environment variables, configuration files, HTTPS
+- [Data Directory and Persistence](./data-persistence.md): directory layout and mounting
+- [User Management](./user.md): accounts, roles, and permissions
+
+## High availability
+
+Two instances form a master-backup pair through Keepalived, with the virtual IP failing over automatically when the master goes down. See [Master-Backup Mode](../best-practise/master-backup.md).
+
+## Further reading
+
+For API calls, error codes, measured performance figures, and common questions, see [Reference and Support](../reference/overview.md). For end-to-end walkthroughs of specific scenarios, see [Tutorials and Best Practices](../best-practise/overview.md).

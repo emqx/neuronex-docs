@@ -2,6 +2,8 @@
 
 KNXnet/IP is an IoT-focused protocol that leverages Internet Protocol (IP) for enabling communication among KNX automation devices over networks like Ethernet or Wi-Fi, thereby fostering scalability and remote management in smart homes and buildings.
 
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
+
 This section introduces how to use EMQX Neuron KNXnet/IP driver to communicate with KNXnet/IP.
 
 ::: tip
@@ -13,16 +15,16 @@ we recommend that you install EMQX Neuron using binary packages.
 
 :::
 
-## Add Device
+## Add Driver
 
-Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
+On **Data Collection → South Devices**, click **Add Device**.
 
 - Name: The name of this device node.
 - Driver: Select the **KNXnet/IP** driver.
 
-## Device Configuration
+## Connection Parameters
 
-After clicking **Create**, you will be redirected to the **Device Configuration** page, where we will set up the parameters required for EMQX Neuron to establish a connection with the northbound application. You can also click the device configuration icon on the southbound device card to enter the **Device Configuration** interface.
+Click the driver card to open the **Device Configuration** page and fill in:
 
 | Parameter                 | Description                              |
 | ------------------------- | ---------------------------------------- |
@@ -31,15 +33,9 @@ After clicking **Create**, you will be redirected to the **Device Configuration*
 
 Note that setting with the multicast address *224.0.23.12* normally requires that the KNXnet/IP device and EMQX Neuron are in the same subnetwork.
 
-## Configure Data Groups and Tags
+## Tag Configuration
 
-After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
-
-Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking on **Create**, then specifying the group name and data collection interval.
-
-Upon successfully creating a group, click on its name to proceed to the **Tag List** page. This page allows you to add device tags for data collection. You'll need to provide information such as the tag address, attributes, and data type.
-
-For information on general configuration items, see [Connect to Southbound Devices](../south-devices.md). The subsequent section will concentrate on configurations specific to the driver.
+The data types and address formats supported by this driver are listed below.
 
 ### Data Types
 
@@ -73,7 +69,3 @@ Same as above, but for `uint8` values with fewer than 8 bits, such as KNX data p
 **Example**
 
 `0/0/1,1.1.1,2` represents a KNX individual address `1.1.1` that is a member of the group address `0/0/1`, the data is of 2 bit.
-
-## Data Monitoring
-
-After completing the point configuration, you can click **Monitoring** -> **Data Monitoring** to view device information and control devices. For details, refer to [Data Monitoring](../../../admin/monitoring.md).

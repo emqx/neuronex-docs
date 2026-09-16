@@ -49,7 +49,3 @@ FP-XH C30T 是 Panasonic（松下）公司生产的一款可编程逻辑控制�
 | DATA8  | Y0    | Read Write | BIT    |
 | DATA9  | DT20.0 | Read       | BIT    |
 | DATA10  | DT17.20  | Read Write | STRING |
-
-## 数据监控
-
-完成点位的配置后，您可点击 **监控** -> **数据监控**查看设备信息以及反控设备，具体可参考[数据监控](../../../admin/monitoring.md)。

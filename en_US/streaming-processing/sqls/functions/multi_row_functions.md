@@ -1,4 +1,4 @@
-# Multiple Row Functions
+# Multi-Row Functions
 
 A multiple row function is a function that returns multiple rows.
 

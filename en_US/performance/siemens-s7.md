@@ -1,4 +1,4 @@
-# Siemens S7 Driver Performance Testing
+# Siemens S7 Driver
 
 ## Test Purpose
 

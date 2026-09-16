@@ -1,4 +1,4 @@
-# Custom JavaScript Function
+# Custom JavaScript function
 
 EMQX Neuron supports creating custom JavaScript functions on the Dashboard. By creating JavaScript functions and using them in rules, you can quickly implement logical calculations and format conversions of data.
 

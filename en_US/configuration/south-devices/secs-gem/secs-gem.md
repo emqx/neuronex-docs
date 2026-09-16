@@ -1,6 +1,8 @@
-# SECS GEM
+# SECS GEM HSMS
 
 The SECS GEM HSMS driver supports accessing devices that comply with the SEMI E37 HSMS standard through the TCP/IP protocol. Currently, it supports passive mode for devices and acts as the active host connection.
+
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
 
 ## Parameter Configuration
 
@@ -53,7 +55,6 @@ greater, or even, in the associated secondary reply.
 | 11     | (Not Used)                     |
 | 12     | Wafer Mapping                  |
 | 13     | Unformatted Data Set Transfers |
-
 
 **Some SxFy**
 

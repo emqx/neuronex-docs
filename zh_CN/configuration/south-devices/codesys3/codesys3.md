@@ -1,6 +1,8 @@
-# CODESYS V3 TCP
+# CODESYS V3
 
 EMQX Neuron CODESYS V3 TCP 驱动通过 TCP 协议访问基于 CODESYS V3 平台打造的 PLC 和 运动控制系统。
+
+通用配置步骤见[添加南向驱动](../south-devices.md)与[组与点位](../../groups-tags/groups-tags.md)。
 
 ## 设备设置
 
@@ -13,7 +15,6 @@ EMQX Neuron CODESYS V3 TCP 驱动通过 TCP 协议访问基于 CODESYS V3 平台
 | password | 设备密码                             |
 
 设备如果是匿名登陆，用户名填写 Anonymous，密码为空。
-
 
 ## 支持的数据类型
 
@@ -44,14 +45,12 @@ EMQX Neuron CODESYS V3 TCP 驱动通过 TCP 协议访问基于 CODESYS V3 平台
 | UDInt      | uint32 |
 | String     | string |
 
-
 ## ADDRESS
 > TAG NAME
 
 CODESYS V3 平台导出的符号配置，即为 Nueron 的点位地址。
 
 如果使用包含中文的 TAG NAME， 需要 CODESYS 3.5.20 以上版本，并进行相应的项目配置。
-
 
 ## 地址示例
 
@@ -63,4 +62,3 @@ CODESYS V3 平台导出的符号配置，即为 Nueron 的点位地址。
 | Application.PLC_PRG.d3arr[1,1,1]   | int16    | 三维数组下标 1,1,1 的值                        |
 | Application.PLC_PRG.point.Y        | float    | 结构体 Point 的 Y 变量值                       |
 | Application.PLC_PRG.points[1].Name | string   | 结构体 Point 的数组下标 1 的对象的 Name 变量值 |
-

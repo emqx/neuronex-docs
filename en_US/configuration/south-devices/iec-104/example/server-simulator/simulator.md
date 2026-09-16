@@ -1,4 +1,4 @@
-# Connect to IEC 60870-5-104 Server Simulator
+# Connect to IEC60870-5-104 Server Simulator
 
 This article will use the IEC60870-5-104 driver of EMQX Neuron to connect to [IEC60870-5-104 Server Simulator](https://www.freyrscada.com/iec-60870-5-104-Client-Simulator.php), which supports the collection of multiple data types and control.
 
@@ -26,7 +26,3 @@ Download and unzip the IEC6087-5-104 Server Simulator executable file, click ins
 3. Create a group, and then create a tag in that group with tag address **1**.
 
 * In **Monitoring -> Data Monitoring** page, you can see the tag value after selecting **South device** and **Group name**.
-
-## Data Monitoring
-
-After completing the point configuration, you can click **Monitoring** -> **Data Monitoring** to view device information and control devices. For details, refer to [Data Monitoring](../../../../../admin/monitoring.md).

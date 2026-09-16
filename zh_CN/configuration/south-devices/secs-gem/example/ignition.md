@@ -1,4 +1,4 @@
-# 连接 Ignition SECS/GEM 模拟器示例
+# Ignition SECS GEM 模拟器连接示例
 
 本文将使用 SECS GEM HSMS 驱动连接 Ignition SECS/GEM 模拟器，实现读写 SECS/GEM 模拟设备的数据。确保驱动和模拟器网络联通。
 
@@ -30,7 +30,6 @@
 * 进入 EMQX Neuron **监控页面** 选择对应设备与组，查看采集的数据点，如下图所示。
   
 ![secs-gem-simulator-monitoring-1](./assets/secs-gem-simulator-monitoring-1.png)
-
 
 因为 SECS-II 协议的特殊性，所以新建点位的时候有一定的规律。比如 S1F1 消息，其读取时不需要额外参数，那么直接新建一个 Read 或者 Sub 属性的点位就可以获取到返回值。但是对于比如 S1F3 消息，其需要一个 LIST 类型的参数，而且其返回值是 S1F4 消息，那么为了完成一次操作，需要新建两个点位，分别为 Write 属性的 S1F3 节点和 Sub（或者 Read ） 属性的 S1F4 节点，并且要求点位名称和消息名称一致。如以下图所示。
 

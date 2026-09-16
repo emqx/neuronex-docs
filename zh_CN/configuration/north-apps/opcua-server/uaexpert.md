@@ -1,5 +1,4 @@
-
-# 使用 UaExpert 连接 EMQX Neuron OPC UA Server
+# UaExpert 连接示例
 
 本节演示如何使用 UAExpert（一个常用的 OPC UA 客户端）连接、信任证书、订阅变量和写入值，以验证 EMQX Neuron 中的 OPC UA Server 配置正确。
 

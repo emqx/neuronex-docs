@@ -1,4 +1,4 @@
-# SQL 目标（Sink）
+# SQL Sink
 
 <span style="background:green;color:white">updatable</span>
 
@@ -15,7 +15,7 @@
 | 标签字段         | 是       | 要插入的字段。结果映射和数据库都应该有这些字段。如果未指定，将插入结果映射中的所有字段 |
 
 
-其他通用的 sink 属性也支持，请参阅[公共属性](./sink.md#公共属性)。
+其他通用的 sink 属性也支持，请参阅[公共属性](./sink.md#动作公共参数配置)。
 
 ## 数据库连接地址
 

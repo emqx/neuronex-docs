@@ -1,4 +1,4 @@
-# Siemens S7 ISOTCP FAQ
+# FAQ
 
 ## COTP connection is disconnected, error code 10150
 

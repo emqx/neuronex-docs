@@ -1,4 +1,4 @@
-# Image 目标（Sink）
+# Image Sink
 
 目标（Sink）用于将图片保存到指定文件夹中。
 

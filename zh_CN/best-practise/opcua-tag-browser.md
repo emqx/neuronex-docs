@@ -1,4 +1,4 @@
-# OPCUA 点位发现功能介绍
+# OPC UA 点位发现功能
 
 ## 前言
 
@@ -37,7 +37,7 @@ OPC UA（OPC Unified Architecture） 是一种跨平台、服务导向的通信�
 
 2. 进入「设备配置」页面后，点击最右侧的「点位发现」标签页。
 
-3. 在「点位发现」页面中，点击「扫描」按扭进行点位发现扫描。EMQX Neuron 将自动扫描 OPCUA 服务器地址空间中的点位信息。
+3. 在「点位发现」页面中，点击「扫描」按扭进行点位发现扫描。EMQX Neuron 将自动扫描 OPC UA 服务器地址空间中的点位信息。
 
 ![opcua-add-device-zh](./_assets/opcua-browser2-zh.png)
 

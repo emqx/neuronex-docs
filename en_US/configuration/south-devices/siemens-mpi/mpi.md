@@ -2,18 +2,19 @@
 
 MPI is a communication protocol based on the Siemens MPI interface, which allows a PLC to exchange data with other devices (e.g. SCADA systems, HMI devices, other PLCs, etc.) The MPI interface is typically built into S7300 and S7400 PLCs.
 
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
+
 The MPI interface is typically built into S7300 and S7400 PLCs. MPI requires a special cable to be accessed by the PC. The MPI needs to be converted to RS232 serial protocol using a 6ES7-972-0CA23-0XA0 module (or a compatible module), and then connected to the PC using a USB-RS232 module, or if the PC has an RS232 interface the second conversion step is not required.
 
 EMQX Neuron's MPI driver is available for data access on S7300 and S7400 PLCs.
 
-## Add Device
+## Add Driver
 
-In **Data Collection -> South Devices**, click **Add Device** to create the device node, enter the driver name, and select **Siemens MPI** as the driver type to enable it.
+On **Data Collection → South Devices**, click **Add Device** and select **Siemens MPI** as the driver type.
 
-## Device Configuration
+## Connection Parameters
 
 Click on the Driver card or Driver column to go to the **Device Configuration** page. Configure the parameters required for EMQX Neuron to establish a connection with the device, the table below shows the driver related configuration items.
-
 
 | Parameter                  | Description                                                    |
 | ------------ | --------------------------- |
@@ -26,7 +27,9 @@ Click on the Driver card or Driver column to go to the **Device Configuration** 
 | Baud Rate       |   Baud Rate, Default and only 38400 |
 | Data Bits       |   Data Bits, Default and only 8 |
 
-## Configure Data Groups and Tags
+## Tag Configuration
+
+The data types and address formats supported by this driver are listed below.
 
 After completing the driver addition and configuration, to establish communication between the device and EMQX Neuron, first add groups and points for the southbound driver.
 
@@ -89,8 +92,3 @@ Required when the data type is string, indicating the length of the string.
 | M112.20 | string   | M Area，Starting data address is 20，string length is 20 |
 | I2.1 | bit   | I Area，Starting data address is 2，1st bit |
 | Q0.7 | bit   | Q Area，Starting data address is 0，7th bit |
-
-
-## Data Monitoring
-
-After completing the point configuration, you can click **Monitoring** -> **Data Monitoring** to view device information and control devices. For details, refer to [Data Monitoring](../../../admin/monitoring.md).

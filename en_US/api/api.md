@@ -1,16 +1,16 @@
 # HTTP API
 
-EMQX Neuron (formerly NeuronEX) provides management and monitoring REST APIs that conform to the OpenAPI (Swagger) 3.1 specification.
+EMQX Neuron provides REST APIs for management and monitoring, following the OpenAPI (Swagger) 3.1 specification and covering system administration, collection configuration, and runtime statistics.
 
-Once the EMQX Neuron service is started, you can access http://localhost:8085/api-docs/index.html to view the API documentation. You can also try executing some of the APIs directly in the Swagger UI.
+Once the service is running, open `http://<gateway address>:8085/api-docs/index.html` for the full interface documentation, where requests can also be issued directly from the Swagger UI. An online copy is available as the [API reference](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html).
 
-This section will guide you on how to get started with the EMQX Neuron REST API quickly.
+| Page | Contents |
+| --- | --- |
+| [JWT Authentication](./jwt.md) | The API uses JWT authentication; this page covers obtaining and using a token |
+| [Driver and Application Settings](./plugin-setting.md) | The parameter structure for configuring each southbound driver and northbound application through the API |
+| [Data Types](./data-type.md) | How tag data types are represented in the API |
+| [Error Codes](./error-code.md) | Every error code and its meaning, for diagnosing failed calls |
 
-[JWT authentication:](./jwt.md) The API uses JWT authentication to ensure secure communication and authentication between IIoT platforms or monitoring applications and EMQX Neuron devices. This enhances the overall security of the system.
-
-[Data type description:](./data-type.md) To ensure that data is represented and interpreted clearly and consistently, the API describes the data types used. This facilitates seamless integration and analysis of data in IIoT platforms or monitoring applications.
-
-[Data collection function error code description:](./error-code.md) The API includes comprehensive error code descriptions that provide information about the nature and cause of the errors encountered. This helps with effective troubleshooting and issue resolution.
-
-[API documentation:](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html) Includes the relevant APIs for system, data collection, and data statistics functions.
-
+::: tip
+For a worked example of controlling a device through the API, see [Data Monitoring and Device Control](../admin/monitoring.md#device-control).
+:::

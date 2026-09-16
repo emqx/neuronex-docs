@@ -1,4 +1,4 @@
-# Rule management
+# Rule Management
 
 We can manage rules on the rules page, including operating rules, importing rules, viewing rule status information, etc.
 

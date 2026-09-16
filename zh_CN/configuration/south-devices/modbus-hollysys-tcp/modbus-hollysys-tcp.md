@@ -1,18 +1,18 @@
-# Modbus TCP
+# HollySys Modbus TCP
 
 EMQX Neuron HollySys Modbus TCP 驱动使用 Modbus TCP 协议，用于采集和利时 PLC 标签的数据，支持 LK/LE 系列 PLC 型号。
 
-Modbus TCP 是一种基于以太网的 Modbus 协议版本，它使用 TCP/IP 协议进行通信。与传统的 Modbus RTU 协议不同，Modbus TCP 允许设备直接通过以太网互联，不需要任何专用的硬件或通信接口。因此，Modbus TCP 具有更高的通信速率和更广泛的应用范围。
+通用配置步骤见[添加南向驱动](../south-devices.md)与[组与点位](../../groups-tags/groups-tags.md)。
 
+Modbus TCP 是一种基于以太网的 Modbus 协议版本，它使用 TCP/IP 协议进行通信。与传统的 Modbus RTU 协议不同，Modbus TCP 允许设备直接通过以太网互联，不需要任何专用的硬件或通信接口。因此，Modbus TCP 具有更高的通信速率和更广泛的应用范围。
 
 ## 添加驱动
 
-在 **数据采集 -> 南向设备**，点击**添加设备**来创建设备节点，输入驱动名称，驱动类型选择 **HollySys Modbus TCP** 启用驱动。
+在 **数据采集 → 南向设备** 页点击 **添加设备**，驱动类型选择 **HollySys Modbus TCP**。
 
+## 连接参数
 
-## 设备配置
-
-点击驱动卡片或驱动列，进入**设备配置**页。配置 EMQX Neuron 与设备建立连接所需的参数，下表为驱动相关的配置项。
+点击驱动卡片进入**设备配置**页填写：
 
 | <div style="width:100pt">字段</div> | 说明                                                    |
 | -------------------- | ------------------------------------------------------- |
@@ -25,15 +25,9 @@ Modbus TCP 是一种基于以太网的 Modbus 协议版本，它使用 TCP/IP �
 | **连接超时时间** | 等待设备返回指令响应的时间。 |
 | **校验报文头** | 选择是否对报文头进行校验。选择校验后，遇到报文头错误时 neuron 与设备会重新连接。 |
 
+## 点位配置
 
-## 设置组和点位
-
-完成驱动的添加和配置后，要建立设备与 EMQX Neuron 之间的通信，首先为南向驱动程序添加组和点位。
-
-完成设备配置后，在**南向设备**页，点击设备卡片/设备列进入**组列表**页。点击**创建**来创建组，设定组名称以及采集间隔。完成组的创建后，点击组名称进入**点位列表**页，添加需要采集的设备点位，包括点位地址，点位属性，数据类型等。
-
-公共配置项部分可参考[连接南向设备](../south-devices.md)，本页将介绍支持的数据类型和地址格式部分。
-
+以下为本驱动支持的数据类型与地址格式。
 
 ### 数据类型
 
@@ -42,7 +36,6 @@ Modbus TCP 是一种基于以太网的 Modbus 协议版本，它使用 TCP/IP �
 * INT16
 * UINT16
 * WORD
-
 
 ### 地址格式
 
@@ -66,7 +59,6 @@ EMQX Neuron HollySys Modbus TCP 驱动将 PLC 数据单元名称指定为 **ADDR
 | MX (Coils)                      | MX0.0 ... MX0.7, MX1.0 ... MX1.7 ...        | Read/Write | 1Bit          |  BOOL/BIT     |
 | MW (Hold Registers)             | MW0, MW1, ...                               | Read/Write | 16Bit,2Byte   |  INT16/UINT16 |
 
-
 #### **#ENDIAN**
 
 选填，字节顺序，适用于 int16/uint16 数据类型，详细说明见下表。
@@ -81,7 +73,6 @@ EMQX Neuron HollySys Modbus TCP 驱动将 PLC 数据单元名称指定为 **ADDR
 字节顺序可能用 ABCD 表示，只需将 1234 对应 ABCD 即可。例如 ABCD 对应默认字节序 1234 (#LL)。
 :::
 
-
 ### 地址示例
 
 | 地址           | 数据类型  | 说明                                               |
@@ -89,8 +80,3 @@ EMQX Neuron HollySys Modbus TCP 驱动将 PLC 数据单元名称指定为 **ADDR
 | 1!IX1.0        | bit       | 指站号为 1，PLC 数据单元 IX1.0, 只读。             |
 | 1!QW0          | int16     | 指站号为 1，PLC 数据单元 QW0, 支持读写。           |
 | 2!MW1          | int16     | 指站号为 2，PLC 数据单元 MW1, 支持读写。           |
-
-
-## 数据监控
-
-完成点位的配置后，您可点击 **监控** -> **数据监控**查看设备信息以及反控设备，具体可参考[数据监控](../../../admin/monitoring.md)。

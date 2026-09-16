@@ -97,7 +97,7 @@ For the steps in UaExpert, see [Using UaExpert](./uaexpert.md#4-monitoring-and-w
 
 Click **Data Statistics** on the application card or row to see connection state and traffic. For the statistics fields, see [Create a Northbound Application](../north-apps.md#data-statistics).
 
-If clients have trouble connecting, click **DEBUG log**. The system prints DEBUG-level logs for that node and switches back to the default level after about ten minutes. Then open **System Information** -> **Logs** at the top of the page; see [Managing Logs](../../../admin/log-management.md).
+If clients have trouble connecting, click **DEBUG log**. The system prints DEBUG-level logs for that node and switches back to the default level after about ten minutes. Then open **Administration** -> **Logs**; see [Managing Logs](../../../admin/log-management.md).
 
 Common causes of connection failure:
 

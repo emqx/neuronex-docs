@@ -71,7 +71,7 @@ EMQX Neuron 支持在启动过程中读取环境变量来配置启动参数，�
 | NEURONEX__SERVER__VIEWER__PASSWORD | 新添加 viewer 用户的密码                                         |
 | NEURONEX__LOG__MODE                | 设置为 console, EMQX Neuron 会把日志打印到标准输出                        |
 | KUIPER__BASIC__CONSOLELOG          | 设置为 true，规则引擎应用会把日志打印到标准输出                            |
-| NEURON__LOG__MODE                  | 设置为 console, Neuron 会把日志打印到标准输出                          |
+| NEURON__LOG__MODE                  | 设置为 console, EMQX Neuron 会把日志打印到标准输出                          |
 
 
 ### 环境变量映射为配置文件
@@ -96,7 +96,7 @@ CONNECTION__EDGEX__REDISMSGBUS__PORT => edgex.redismsgbus.port int etc/connectio
 举例，如要调大调用外部算法函数的超时时间（默认为5s），可以设置如下环境变量`KUIPER__PORTABLE__RECVTIMEOUT => recvTimeout in etc/kuiper.yaml`：
 ```
 # Docker 部署方式
-docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s neuronex/neuronex:latest
+docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s emqx/neuronex:latest
 
 ```
 
@@ -123,12 +123,12 @@ EMQX Neuron 提供 YAML 格式文件，位于`/opt/neuronex/etc/neuronex.yaml`�
 
 ### neuron
 
-` neuron ` 部分定义 Neuron 的版本号和反向代理配置。
+` neuron ` 部分定义 EMQX Neuron 的版本号和反向代理配置。
 
-- ` version`：Neuron 的版本号。
-- ` reverseProxies`：Neuron 的反向代理配置列表。
-  - ` location`： Neuron 的路径： Neuron 的路径。
-  - ` proxyPath` ：Neuron 后端服务器的路径。
+- ` version`：EMQX Neuron 的版本号。
+- ` reverseProxies`：EMQX Neuron 的反向代理配置列表。
+  - ` location`： EMQX Neuron 的访问路径。
+  - ` proxyPath` ：EMQX Neuron 后端服务器的路径。
 
 ### 规则引擎应用
 

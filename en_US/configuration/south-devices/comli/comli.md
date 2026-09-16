@@ -1,19 +1,21 @@
-# ABB Comli
+# ABB COMLI
 
 COMLI is an ABB-specific protocol facilitating data exchange between ABB's PLCs and devices, supporting both point-to-point and multipoint communications over various mediums like RS-232, RS-485, or Ethernet, thereby enhancing IoT connectivity and interoperability.
 
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
+
 This ABB COMLI driver is used to access ABB's COMLI-compatible control system through the serial port.
 
-## Add Device
+## Add Driver
 
-Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
+On **Data Collection → South Devices**, click **Add Device**.
 
 - Name: The name of this device node.
 - Driver: Select the **ABB COMLI** driver.
 
-## Device Configuration
+## Connection Parameters
 
-After clicking **Create**, you will be redirected to the **Device Configuration** page, where we will set up the parameters required for EMQX Neuron to establish a connection with the northbound application. You can also click the device configuration icon on the southbound device card to enter the **Device Configuration** interface.
+Click the driver card to open the **Device Configuration** page and fill in:
 
 | Parameter                 | Description                                                    |
 | -------------------- | ------------------------------------------------------- |
@@ -26,15 +28,9 @@ After clicking **Create**, you will be redirected to the **Device Configuration*
 | **Baud Rate** | Serial connection parameter. |
 | **Data Size** | Serial connection parameter. |
 
-## Configure Data Groups and Tags
+## Tag Configuration
 
-After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
-
-Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking on **Create**, then specifying the group name and data collection interval.
-
-Upon successfully creating a group, click on its name to proceed to the **Tag List** page. This page allows you to add device tags for data collection. You'll need to provide information such as the tag address, attributes, and data type.
-
-For information on general configuration items, see [Connect to Southbound Devices](../south-devices.md). The subsequent section will concentrate on configurations specific to the driver.
+The data types and address formats supported by this driver are listed below.
 
 ### Data Types
 
@@ -63,7 +59,6 @@ Required, Slave is the slave address or site number.
 | ---- | ---------|----- | ---------- | ---- | ---- | -------------------------------- |
 | 0    | bit     | 1bit | Read/Write | 0 ~ 16383 | I/O-bits             ||
 | 1   | ALL      | 16bit, 2byte| Read/Write| 0 ~ 3071 | Register                         | the type of bit  read only|
-
 
 #### **.BIT**
 
@@ -136,7 +131,3 @@ When the data type is STRING, .LEN is a required field, indicating the number of
 | 1!1.10.10L | String  | Refers to station1, Register area, address 10, character length 10, byte order L, which occupies addresses 10 to 15 |
 | 1!1.10.10D | String  | Refers to station1, Register area, address 10, character length 10, byte order D, which occupies addresses 10 to 20 |
 | 1!1.10.10E | String  | Refers to station1, Register area, address 10, character length 10, byte order E, which occupies addresses 10 to 20 |
-
-## Data Monitoring
-
-After completing the point configuration, you can click **Monitoring** -> **Data Monitoring** to view device information and control devices. For details, refer to [Data Monitoring](../../../admin/monitoring.md).

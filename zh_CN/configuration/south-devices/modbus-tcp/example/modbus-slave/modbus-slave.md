@@ -1,4 +1,4 @@
-# Modbus Slave 连接示例
+# Modbus Slave 模拟器连接示例
 
 Modbus Slave 是一款 Modbus 从机模拟器，方便 Modbus 主设备开发者在获得物理设备之前，进行 PLC 程序的开发与测试。
 
@@ -31,10 +31,9 @@ EMQX Neuron 作为 Client，主动向 Modbus Slave 发起连接请求，用户�
 * 主界面中独立文档窗口就可以看到地址配置相关的数据信息显示。如果想要配置多个从机地址定义，点击 **File -> New** 新建文档窗口，重复上一步从机地址配置即可。在独立文档窗口双击表头为地址的表格项目可以对数据进行修改。
 * 如果需要同时模拟多个从设备，运行 Modbus Slave 多个实例，重复上述步骤即可。
 
-
 ### 配置 EMQX Neuron （Client 模式）
 
-在 **数据采集 -> 南向设备**，点击**添加设备**来创建设备节点，输入驱动名称，驱动类型选择 **Modbus TCP**。
+在 **数据采集 → 南向设备** 页点击 **添加设备**，驱动类型选择 **Modbus TCP**。
 
 <img src="../assets/neuron-client-config.png" alt="image-20230711160257212" style="zoom:50%;" />
 
@@ -42,8 +41,3 @@ EMQX Neuron 作为 Client，主动向 Modbus Slave 发起连接请求，用户�
 * Host 填写 Modbus Slave 的 IP 地址；
 * Port 填写 Modbus Slave 配置的端口；
 * 其他项目可保留默认设置。
-
-## 数据监控
-
-完成点位的配置后，您可点击 **监控** -> **数据监控**查看设备信息以及反控设备，具体可参考[数据监控](../../../../../admin/monitoring.md)。
-

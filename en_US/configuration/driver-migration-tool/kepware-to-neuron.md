@@ -1,4 +1,4 @@
-# KEPServerEX to EMQX Neuron Migration Guide
+# Kepware to EMQX Neuron Migration Guide
 
 ## Overview
 
@@ -13,7 +13,7 @@
 | Modbus TCP/IP Ethernet              | Yes       | BCD and arrays not supported                                          |
 | Modbus RTU Serial                   | Yes       | BCD and arrays not supported                                          |
 | Modbus ASCII Serial                 | Yes       | BCD and arrays not supported                                          |
-| OPCUA Client                        | Yes       | Certificates cannot be exported                                       |
+| OPC UA Client                        | Yes       | Certificates cannot be exported                                       |
 | Mitsubishi Ethernet                 | Yes       | BCD and arrays not supported                                          |
 | Allen-Bradley ControlLogix Ethernet | Yes       | Only ControlLoginc 5500 devices supported. BCD and arrays not supported |
 | Allen-Bradley DF1                   | Yes       | BCD and arrays not supported                                          |
@@ -77,7 +77,7 @@ After expanding a device, you can see the detailed reasons for conversion failur
 
 ### Data model mapping
 
-| **KEPServerEX field**                                            | **Neuron field**      | **Description**                                                                 |
+| **KEPServerEX field**                                            | **EMQX Neuron field**      | **Description**                                                                 |
 | ---------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------- |
 | common.ALLTYPES_NAME                                             | name                  | Device node name                                                                |
 | servermain.MULTIPLE_TYPES_DEVICE_DRIVER:"Modbus TCP/IP Ethernet" | driver: "Modbus TCP"  | Driver name                                                                     |
@@ -96,7 +96,7 @@ After expanding a device, you can see the detailed reasons for conversion failur
 
 ### Register area mapping
 
-| **KEPServerEX** | **Neuron** | **R/W** | **Description**              |
+| **KEPServerEX** | **EMQX Neuron** | **R/W** | **Description**              |
 | --------------- | ---------- | ------- | ---------------------------- |
 | 0               | 0          | Read-only | Coil                         |
 | 1               | 1          | R/W     | Discrete Input               |
@@ -105,7 +105,7 @@ After expanding a device, you can see the detailed reasons for conversion failur
 
 ### Data type mapping
 
-| **KEPServerEX** | **Neuron** | **Description** |
+| **KEPServerEX** | **EMQX Neuron** | **Description** |
 | --------------- | ---------- | --------------- |
 | 1               | 12         | boolean         |
 | 5               | 4          | uint16          |
@@ -117,7 +117,7 @@ After expanding a device, you can see the detailed reasons for conversion failur
 | 0               | 13         | string          |
 
 :::tip
-Neuron strings support a maximum length of 128; KEPServerEX supports 240. Neuron does not support arrays; KEPServerEX does.
+EMQX Neuron strings support a maximum length of 128; KEPServerEX supports 240. EMQX Neuron does not support arrays; KEPServerEX does.
 :::
 
 ### Grouping strategy
@@ -141,7 +141,7 @@ Neuron strings support a maximum length of 128; KEPServerEX supports 240. Neuron
 
 #### 1) Protocol name: Modbus TCP
 
-Neuron Modbus TCP address format: `{slave_id}!{area_code}{address}|[.bit|.len]`
+EMQX Neuron Modbus TCP address format: `{slave_id}!{area_code}{address}|[.bit|.len]`
 
 - **Ordinary numeric types**: `1!40000` (slave_id=1, Hold Register, address=0)
 
@@ -151,7 +151,7 @@ Neuron Modbus TCP address format: `{slave_id}!{area_code}{address}|[.bit|.len]`
 
 KEPServerEX Modbus TCP address pattern: `[H|]|{area_code}{address}|[.bit|.len]| [size]`; KEPServerEX supports decimal and hexadecimal addressing.
 
-**KEPServerEX → Neuron** conversion steps:
+**KEPServerEX → EMQX Neuron** conversion steps:
 
 - Parse slave ID
 
@@ -169,10 +169,10 @@ KEPServerEX Modbus TCP address pattern: `[H|]|{area_code}{address}|[.bit|.len]| 
 
 - Polling and subscription modes are supported
 
-- **KEPServerEX** does not support exporting certificates. If certificates are configured, conversion to Neuron uses auto-generated certificates, which the user should update afterward.
+- **KEPServerEX** does not support exporting certificates. If certificates are configured, conversion to EMQX Neuron uses auto-generated certificates, which the user should update afterward.
 
 - The password for **KepServerEX** is encrypted and does not support password export; it must be entered manually by the user.
 
 #### 3) Protocol name: Mitsubishi Ethernet
 
-- The tool maps different **Mitsubishi Ethernet** device models in **KEPServerEX** to three different Neuron drivers respectively.
+- The tool maps different **Mitsubishi Ethernet** device models in **KEPServerEX** to three different EMQX Neuron drivers respectively.

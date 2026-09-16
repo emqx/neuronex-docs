@@ -2,18 +2,20 @@
 
 BACnet (Building Automation and Control Networks) is a communication protocol used in smart buildings. It is defined by the International Organization for Standardization (ISO), the American National Standards Institute (ANSI) and the American Society of Heating, Venting, and Air-conditioning Engineers (ASHRAE). BACnet is designed specifically for smart buildings and control systems, and can be used for heating, ventilation, and air conditioning (HVAC), lighting control, access control, fire detection systems, and related equipment. Its advantages include reducing the cost of maintenance systems and making installation simpler than general industrial communication protocols. In addition, BACnet also provides five standard protocols commonly used in the industry, which can prevent equipment and system suppliers from monopolizing the market and increase the scalability and compatibility of future systems. BACnet supports multiple communication methods, including serial ports, IP, Ethernet, and ZigBee.
 
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
+
 The BACnet/IP driver talks to a single device at a known address by unicast, reading with ReadPropertyMultiple and writing with WriteProperty. It does no discovery of its own: Who-Is/I-Am broadcasts and cross-subnet discovery through a BBMD (BACnet Broadcast Management Device) belong to the [Device Scanning](#device-scanning) driver. Using the two together is the recommended approach - let the scan driver find the devices and tags on the network, then have it generate a fully configured BACnet/IP node for you.
 
-## Add Device
+## Add Driver
 
-Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
+On **Data Collection → South Devices**, click **Add Device**.
 
 - Name: The name of this device node.
 - Driver: Select the **BACnet/IP** driver.
 
-## Device Configuration
+## Connection Parameters
 
-After clicking **Create**, you will be redirected to the **Device Configuration** page, where we will set up the parameters required for EMQX Neuron to establish a connection with the northbound application. You can also click the device configuration icon on the southbound device card to enter the **Device Configuration** interface.
+Click the driver card to open the **Device Configuration** page and fill in:
 
 | Parameter                 | Description                                                                                                                                     |
 | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -41,15 +43,9 @@ The MAC length depends on the network the device is on: an MS/TP station number 
 When in doubt, run a scan first with [Device Scanning](#device-scanning). Every device it reports carries `address`, `port`, `dnet` and `dadr`, which map one to one onto the four settings above - or call its apply endpoint and skip filling them in by hand.
 :::
 
-## Configure Data Groups and Tags
+## Tag Configuration
 
-After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the Southbound driver.
-
-Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking on **Create**, then specifying the group name and data collection interval.
-
-Upon successfully creating a group, click on its name to proceed to the **Tag List** page. This page allows you to add device tags for data collection. You'll need to provide information such as the tag address, attributes, and data type.
-
-For information on general configuration items, see [Connect to Southbound Devices](../south-devices.md). The subsequent section will concentrate on configurations specific to the driver.
+The data types and address formats supported by this driver are listed below.
 
 ### Data Types
 
@@ -155,7 +151,6 @@ support standard property
 | value before change             | Value_Before_Change             | uint8  |
 | value change time               | Value_Change_Time               | string |
 
-
 If no property is specified, the default property is Present_Value.
 
 support custom property
@@ -203,7 +198,6 @@ The usual workflow is three steps:
 2. Look at the devices and tags found by the scan
 3. Select a device and the tags you want, and click to generate a BACnet/IP node with all its tags
 
-
 ### Enable Scanning
 
 In **System Settings -> BACnet/IP Device Scan**, enable scanning.
@@ -234,3 +228,19 @@ The three modes correspond to three different places a device can be. They may b
 | On an MS/TP or other BACnet network behind a BACnet router | Global Broadcast Scan | A router receiving a Who-Is with DNET 0xFFFF forwards it onward         |
 
 If you cannot tell which applies, enable all three and look at the result. A device found across a BACnet network is reported with `routed` set to `true` plus a `dnet` and `dadr`, which go straight into the target device network and MAC above.
+
+### Properties Read During a Scan
+
+Besides the address and the name, each object has the following properties read. Most are optional in BACnet, so the field is empty when the device does not support it.
+
+| Property | Applies to | Purpose |
+| --- | --- | --- |
+| Object_Name | All | Tag name |
+| Present_Value | All | A snapshot of the value at scan time |
+| Status_Flags | All | The alarm, fault, overridden, and out-of-service flags |
+| Description | All | Description — a device's human-readable label often lives here rather than in Object_Name |
+| Units | Analog types | Engineering units, such as `degrees-celsius` |
+| Number_Of_States | Multi-state types | Total number of states |
+| State_Text | Multi-state types | The name of each state, up to 16 recorded |
+| Inactive_Text | Binary types | What a value of 0 means, such as "stopped" |
+| Active_Text | Binary types | What a value of 1 means, such as "running" |

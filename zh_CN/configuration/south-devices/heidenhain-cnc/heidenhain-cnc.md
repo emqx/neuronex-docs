@@ -2,6 +2,8 @@
 
 海德汉 CNC 驱动通过 LSV2 协议访问海德汉 TNC640, iTNC530 等系列机床和加工中心，可以实时采集多种设备运行数据，包括程序名，主轴倍率，运行状态，主轴刀具，PLC点位等。
 
+通用配置步骤见[添加南向驱动](../south-devices.md)与[组与点位](../../groups-tags/groups-tags.md)。
+
 ## 设备设置
 
 | 字段    | 说明                       |
@@ -43,7 +45,6 @@
 | machinePosition   | 机械坐标         | double   | .X .Y .Z .A .C | -                                                                              |
 | parameter         | 参数             | string   | .(name)        | -                                                                              |
 
-
 *CNC 地址示例*
 
 | 地址                                    | 说明                |
@@ -51,7 +52,6 @@
 | ProgramMain                             | 读取加工主程序号    |
 | machinePosition.X                       | 读取X轴坐标         |
 | parameter.CfgDisplayLanguage.ncLanguage | TNC640 读写语言设置 |
-
 
 ### PLC 数据
 

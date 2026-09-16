@@ -1,4 +1,4 @@
-# EMQX Neuron lexical elements
+# lexical elements
 
 ## Comments
 

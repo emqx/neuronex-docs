@@ -2,15 +2,17 @@
 
 [TwinCAT] 是由 Beckhoff Automation 开发的一种控制技术。它是一种基于软件的控制系统，用于自动化和控制应用。TwinCAT 能够运行在多种平台上并支持多种编程语言。
 
+通用配置步骤见[添加南向驱动](../south-devices.md)与[组与点位](../../groups-tags/groups-tags.md)。
+
 EMQX Neuron Beckhoff ADS 驱动使用户可以通过 TCP/IP 连接到 Beckhoff TwinCAT PLC。
 
 ## 添加驱动
 
-在 **数据采集 -> 南向设备**，点击**添加设备**来创建设备节点，输入驱动名称，驱动类型选择 **Beckhoff ADS** 启用驱动。
+在 **数据采集 → 南向设备** 页点击 **添加设备**，驱动类型选择 **Beckhoff ADS**。
 
-## 设备配置
+## 连接参数
 
-点击驱动卡片或驱动列，进入**设备配置**页。配置 EMQX Neuron 与设备建立连接所需的参数，下表为驱动相关的配置项。
+点击驱动卡片进入**设备配置**页填写：
 
 | 字段             | 说明                                         |
 | ---------------- | -------------------------------------------- |
@@ -32,13 +34,9 @@ EMQX Neuron Beckhoff ADS 驱动使用户可以通过 TCP/IP 连接到 Beckhoff T
 | AMS port           | TwinCAT 网络中的 ADS 设备由 AMS Net ID 和 [AMS port] 标识。<br />每个 TwinCAT 系统通常为特定的目的使用特定的 AMS Port 。<br />例如，Port 801 用于系统通信，Port 851 用于事件通知。 |
 | Index group/offset | ADS [index group 和 index offset] 是 TwinCAT ADS 系统服务中用于设备或程序之间进行数据交换的规范。<br />所有的读取和写入操作都通过 index group 和 index offset 在 PLC 上进行。<br />Index offset 是16位的，index offset 是32位的。<br />Index group 用于指定正在访问的数据的类别或类型，而 index offset 指定该类别或类型中的特定数据元素。 |
 
-## 设置组和点位
+## 点位配置
 
-完成驱动的添加和配置后，要建立设备与 EMQX Neuron 之间的通信，首先为南向驱动程序添加组和点位。
-
-完成设备配置后，在**南向设备**页，点击设备卡片/设备列进入**组列表**页。点击**创建**来创建组，设定组名称以及采集间隔。完成组的创建后，点击组名称进入**点位列表**页，添加需要采集的设备点位，包括点位地址，点位属性，数据类型等。
-
-公共配置项部分可参考[连接南向设备](../south-devices.md)，本页将介绍支持的数据类型和地址格式部分。
+以下为本驱动支持的数据类型与地址格式。
 
 ### 数据类型
 
@@ -74,11 +72,6 @@ EMQX Neuron Beckhoff ADS 驱动使用户可以通过 TCP/IP 连接到 Beckhoff T
 ## 应用场景
 
 您可通过 EMQX Neuron 通过 ADS 协议采集倍福 PLC 上不同地址区域的数据，具体步骤，见[采集 PLC 数据（Beckhoff ADS 协议）](./plc-ads/ads.md)。
-
-## 数据监控
-
-完成点位的配置后，您可点击 **监控** -> **数据监控**查看设备信息以及反控设备，具体可参考[数据监控](../../../admin/monitoring.md)。
-
 
 [TwinCAT]: https://www.beckhoff.com/en-us/products/automation/twincat/
 [ADS]: https://infosys.beckhoff.com/english.php?content=../content/1033/tcadscommon/12440276875.html

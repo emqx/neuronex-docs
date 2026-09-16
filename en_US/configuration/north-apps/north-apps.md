@@ -67,4 +67,4 @@ On the card or in the list, click **Data Statistics**.
 
 ### Troubleshooting
 
-If the application misbehaves, click **DEBUG Log**. The system prints DEBUG logs for that node and returns to the default level after about ten minutes. Then open **System Information** -> **Logs** at the top of the page. See [Managing Logs](../../admin/log-management.md).
+If the application misbehaves, click **DEBUG Log**. The system prints DEBUG logs for that node and returns to the default level after about ten minutes. Then open **Administration** -> **Logs**. See [Managing Logs](../../admin/log-management.md).

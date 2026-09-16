@@ -1,4 +1,4 @@
-# UaExpert
+# 配置 UaExpert
 
 UaExpert 是一种常见的 OPC UA 客户端。用户可通过 UaExpert 连接 OPC UA 服务器并查看服务器上可用的所有节点（比如设备、传感器等）及其属性（例如温度、压力等）等信息。
 

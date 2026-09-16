@@ -1,4 +1,4 @@
-# Rule pipeline
+# Rule Pipeline
 
 We can form a rule pipeline by importing the results of previous rules into subsequent rules. By using [memory](./memory.md) as **data source** and **action (Sink)**, we can create a rule pipeline.
 

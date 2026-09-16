@@ -4,7 +4,7 @@ The data monitoring page shows live values collected by southbound drivers and p
 
 ## View collected data
 
-Click **Data Monitoring** in the sidebar, then select a southbound device and a group:
+On **Data Collection → Data Monitoring**, select a southbound device and a group:
 
 ![data-monitoring](./_assets/data-monitoring.png)
 
@@ -12,6 +12,7 @@ Click **Data Monitoring** in the sidebar, then select a southbound device and a 
 | --- | --- |
 | **South device** | The southbound driver node to inspect, for example `modbus-tcp` |
 | **Group** | A collection group under that node, for example `group-1` |
+| **Keyword search** | Filters by tag name, for locating a single tag among many |
 | **Show error tags only** | Shows only tags that failed to collect. With many tags, this is the quickest way to find a wrong address or one the device does not support |
 
 Values refreshing as the device changes means the collection path works. If they do not refresh, or show an error code, see [Diagnosing a connection](../configuration/south-devices/south-devices.md#diagnosing-a-connection).

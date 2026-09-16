@@ -21,7 +21,3 @@ This section assumes that It is already possible to use Inovance Programming Sof
 	* **PLC IP Address**: PLC device IP address
 	* **PLC Port**: PLC device port, the default is 502
 * In the created south-device node, create a group and create some point positions under the group.
-
-## Data Monitoring
-
-After completing the point configuration, you can click **Monitoring** -> **Data Monitoring** to view device information and control devices. For details, refer to [Data Monitoring](../../../../../admin/monitoring.md).

@@ -1,7 +1,6 @@
-# OPCAE
+# OPC AE
 
 EMQX Neuron 可以使用 Neuron HUB 驱动和 NeuronHUB Windows 程序，间接访问运行于 Windows 操作系统的 OPC AE（Alarms and Events）服务器，支持 Simple，Conditional 和 Tracking。OPC AE 主要用于获取设备的报警和事件信息。
-
 
 ## NEURON HUB Windows 程序参数
 
@@ -13,7 +12,6 @@ EMQX Neuron 可以使用 Neuron HUB 驱动和 NeuronHUB Windows 程序，间接�
 | PassWrod  | 密码                                                                                                                 |
 | Domain    | 域                                                                                                                   |
 | Server    | AE 服务器的名称，如 `opcae://192.168.10.133/Matrikon.OPC.Alarms`，填写 Host 之后可以点击下拉按钮尝试获取 Server 列表 |
-
 
 ## 支持的数据类型
 
@@ -46,10 +44,8 @@ EMQX Neuron 可以使用 Neuron HUB 驱动和 NeuronHUB Windows 程序，间接�
 }
 ```
 
-
 ## 地址格式
 Neuron HUB 驱动选择 OPCAE 节点类型时，地址为 OPC AE 服务器中的事件源路径。可以通过`导出`功能导出全部点位信息表格，然后直接导入 NEURON。
-
 
 ## 报警确认
 支持对 Conditional 报警的确认以及 comment 的写入。

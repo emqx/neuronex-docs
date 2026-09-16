@@ -1,4 +1,4 @@
-# 采集 PLC 数据
+# 使用 Beckhoff ADS 协议采集 PLC 数据
 
 本教程介绍使用 EMQX Neuron 通过 ADS 协议采集倍福 PLC 上不同地址区域的数据。
 

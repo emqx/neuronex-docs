@@ -1,4 +1,4 @@
-# Windows
+# Windowing
 
 In time-streaming scenarios, performing operations on the data contained in temporal windows is a common pattern. EMQX Neuron has native support for windowing functions, enabling you to author complex stream processing jobs with minimal effort.
 
@@ -132,15 +132,23 @@ SELECT * FROM demo GROUP BY COUNTWINDOW(3,1) FILTER(where revenue > 100)
 
 Every event has a timestamp associated with it. The timestamp will be used to calculate the window. By default, a timestamp will be added when an event feed into the source which is called `processing time`. We also support to specify a field as the timestamp, which is called `event time`. The timestamp field is specified in the stream definition. In the below definition, the field `ts` is specified as the timestamp field.
 
-`
+```sql
 CREATE STREAM demo (
                     color STRING,
                     size BIGINT,
                     ts BIGINT
-                ) WITH (DATASOURCE="demo", FORMAT="json", KEY="ts", TIMESTAMP="ts"
-`
+                ) WITH (DATASOURCE="demo", FORMAT="json", KEY="ts", TIMESTAMP="ts")
+```
 
 In event time mode, the watermark algorithm is used to calculate a window.
+
+## Event Time and Watermarks
+
+A stream processor that supports event time needs a way to measure the progress of event time. When an hour-long time window is created, for example, the operator inside has to be told once event time passes the hour mark so that it can emit the window in progress.
+
+EMQX Neuron measures that progress with **watermarks**. A watermark travels as part of the data stream and carries a timestamp `t`. A watermark of `t` declares that event time has reached `t` in that stream, meaning no further element with a timestamp `t' <= t` is expected.
+
+Watermarks are held at the rule level, so when a rule reads from several streams the watermark flows across all of its inputs.
 
 ## Runtime error in window
 

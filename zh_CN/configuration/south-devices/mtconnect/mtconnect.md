@@ -2,6 +2,10 @@
 
 EMQX Neuron MTConnect 驱动通过 HTTP 协议访问安装有 MTConnect Agent 的设备。
 
+MTConnect 是只读的采集协议，MTConnect Agent 仅对外提供 HTTP 读取接口，该驱动不支持反向控制（写入）。
+
+通用配置步骤见[添加南向驱动](../south-devices.md)与[组与点位](../../groups-tags/groups-tags.md)。
+
 ## 设备设置
 
 | 字段      | 说明                |
@@ -49,4 +53,3 @@ MTConnect Agent 的安装和使用，详细内容请访问此链接 [cppagent](h
 | //m:DeviceStream[@uuid='Mazak']/m:ComponentStream[@componentId='LYI1']/m:Samples/m:Position[@dataItemId='LYI1actm']                | double   | 线性轴 Y 的机械坐标 |
 | //m:DeviceStream[@uuid='Mazak']/m:ComponentStream[@componentId='Lct1']/m:Events/m:InputOutputSignal[@dataItemId='LPlcMonitorIO_1'] | bit      | IO 信号             |
 | node-name://m:*[@dataItemId='DMGlogic1']                                                                                            | string   | 自闭合标签的元素名（如 Normal, Warning, Fault） |
-

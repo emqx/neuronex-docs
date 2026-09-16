@@ -50,7 +50,3 @@ Panasonic's FP-XH C30T is a versatile PLC from the FP-XH series, ideal for small
 | DATA8  | Y0    | Read Write | BIT    |
 | DATA9  | DT20.0 | Read       | BIT    |
 | DATA10  | DT17.20  | Read Write | STRING |
-
-## Data Monitoring
-
-After completing the point configuration, you can click **Monitoring** -> **Data Monitoring** to view device information and control devices. For details, refer to [Data Monitoring](../../../admin/monitoring.md).

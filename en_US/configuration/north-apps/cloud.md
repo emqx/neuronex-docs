@@ -1,55 +1,104 @@
 # Send Data to the Cloud
 
-A group or headquarters consolidating data from several plants for analysis, dashboards, and remote maintenance — this is the most common use of a northbound application.
+Publish tags collected by southbound drivers to a cloud platform or an MQTT broker. Protocol conversion happens at the edge, so the cloud receives JSON with a uniform structure.
 
-Field devices speak Modbus, Siemens S7, Mitsubishi, CNC protocols; cloud platforms only speak MQTT and JSON. EMQX Neuron does the protocol conversion and normalization at the edge and publishes per collection group on a timer, so the cloud receives uniformly structured JSON instead of a separate adapter per device type.
+## Selecting an application
 
-## Three things to decide first
+| <div style="width:80pt">Application</div> | Target | Authentication |
+| --- | --- | --- |
+| [MQTT](./mqtt/overview.md) | Any MQTT broker: EMQX, EMQX Cloud, or self-hosted | Username and password, TLS with one-way or mutual authentication |
+| [AWS IoT](./aws-iot/overview.md) | AWS IoT Core | Device certificate and private key |
+| [Azure IoT](./azure-iot/overview.md) | Azure IoT Hub | SAS token or X.509 certificate |
 
-### Which upload format
-
-The same data can be organized in different JSON shapes, controlled by the **Upload Format** parameter. How you write the cloud-side parser depends on which you pick:
-
-| Format | What it looks like |
-| --- | --- |
-| `values-format` | Splits data into `values` and `errors` sub-objects, keeping healthy tags separate from ones that failed to collect |
-| `tags-format` | Puts every tag in one array, each element carrying a tag name and value |
-| `ECP-format` | `tags-format` plus a data type field |
-| `Custom` | A template you define, with fields and nesting of your choosing |
-
-For field-level details and sample payloads, see [Upstream/Downstream Data Format](./mqtt/api.md#data-upload).
-
-You can also give each collection group a set of **static tags** — fixed JSON key/value pairs such as line number, device serial, or location — published alongside the collected data, so the cloud does not have to look up a device registry elsewhere.
-
-### Which topic
-
-The default upload topic is `/neuron/{application name}/upload`, and each subscription can override it. Across multiple plants or lines, put the hierarchy in the topic — for example `factory-a/line-1/modbus-tcp` — so the cloud can route with wildcard subscriptions.
-
-### Raw data or processed first
-
-With many tags at a high polling rate, sending raw data straight to the cloud consumes significant bandwidth and cloud storage. You can route southbound data into the [data processing](../../streaming-processing/overview.md) engine first and use SQL to filter, downsample, or aggregate before it leaves — for example publishing only when a value changes beyond a threshold, or one average per minute. Both paths can run side by side.
-
-## Three things plants care about
-
-**No data loss when the link drops**　During an outage, messages go to memory first and spill to disk when memory fills (up to 1 GB memory plus 10 GB disk), then replay in FIFO order once the connection returns. Unstable networks are normal on a plant floor, and this is what determines whether the data set is complete. For configuration and measured disk usage, see [Offline Data Caching](./mqtt/overview.md#offline-data-caching).
-
-**Write-back from the cloud**　The link is bidirectional. The platform publishes a write command to a designated topic; EMQX Neuron writes it to the device through the southbound driver and returns the result. The tag must carry the **write** attribute — see [Groups and Tags · Tag attributes](../groups-tags/groups-tags.md#tag-attributes).
-
-**Encryption in transit**　TLS with mutual certificate authentication. The AWS IoT and Azure IoT applications come preconfigured for each platform's certificate scheme, so there is no TLS configuration to assemble by hand.
-
-## Which application
-
-| Application | When |
-| --- | --- |
-| [MQTT](./mqtt/overview.md) | Any MQTT broker — EMQX, EMQX Cloud, or self-hosted. Upload topics and JSON format are configurable. Every other MQTT-based application inherits its parameters, so read this page first |
-| [AWS IoT](./aws-iot/overview.md) | For AWS IoT Core. Connection and topic rules come preconfigured — supply the device data endpoint plus the certificate and private key from the console |
-| [Azure IoT](./azure-iot/overview.md) | For Azure IoT Hub, with Shared Access Signature or X.509 certificate authentication |
+All three are built on MQTT and share most configuration parameters. AWS IoT and Azure IoT embed the topic rules and certificate scheme of their platform, so only the platform credentials have to be supplied.
 
 ::: tip
-Avoid running several MQTT application nodes in one EMQX Neuron instance — it causes resource contention and lower throughput. To reach multiple destinations, add several subscriptions to one node, or use different northbound application types.
+Running several MQTT application nodes in one EMQX Neuron instance is not recommended, as it may cause reduced throughput and resource contention. To publish to several destinations, add multiple subscriptions under one node, or use different northbound application types.
 :::
+
+## Upload topic
+
+The upload topic is set per subscription. When it is left blank, the default topic applies:
+
+```
+/neuron/{application name}/{driver name}/{group name}
+```
+
+For an application named `mqtt`, a southbound driver `modbus-tcp-1`, and a group `group-1`, the default topic is `/neuron/mqtt/modbus-tcp-1/group-1`.
+
+Across multiple plants or production lines, define topics that carry the hierarchy — `factory-a/line-1/modbus-tcp-1`, for example — so the cloud can subscribe with topic wildcards.
+
+![Setting the upload topic on a subscription](./mqtt/assets/upload_topic.png)
+
+## Upload format
+
+The JSON structure of the published payload is controlled by the **Upload Format** parameter. Four formats are available:
+
+| <div style="width:90pt">Format</div> | Structure |
+| --- | --- |
+| `values-format` | Tags collected successfully go into `values`, tags that failed into `errors` |
+| `tags-format` | All tags go into a single array, each element carrying a tag name and value |
+| `ECP-format` | `tags-format` with an added data type field |
+| `Custom` | A user-defined template; fields and nesting are composed with built-in variables |
+
+A `values-format` payload:
+
+```json
+{
+    "timestamp": 1650006388943,
+    "node": "modbus",
+    "group": "grp",
+    "values": { "tag0": 123 },
+    "errors": { "tag1": 2014 },
+    "metas": {}
+}
+```
+
+When a tag fails to collect, an error code is published instead of a value. Setting the **Upload Tag Error Code** parameter to `False` filters failed tags out of the payload entirely.
+
+For the other three formats and full field descriptions, see [Upstream/Downstream Data Format](./mqtt/api.md#data-upload).
+
+### Static tags
+
+Each collection group can carry a set of static tags — JSON key/value pairs published alongside the collected data — for attributes that do not change with collection, such as a line number, device serial, or installation location:
+
+```json
+{ "location": "sh", "sn_number": "123456" }
+```
+
+Boolean, integer, float, and string types are supported; arrays and structures are published as strings. A static tag must not share a name with a collected tag, or it will override the collected value under `values-format`.
+
+## Offline caching
+
+When communication is interrupted, messages are written to the memory cache first and moved to the disk cache once memory fills. They are replayed in first-in, first-out order after the connection is restored.
+
+| Parameter | Range | Default |
+| --- | --- | --- |
+| Offline Data Caching | On / Off | Off |
+| Cache Memory Size | 1 – 1024 MB | Empty |
+| Cache Disk Size | 1 – 10240 MB | Empty |
+| Cache Sync Interval | 10 – 120000 ms | 100 |
+
+When the disk cache size is nonzero, the memory cache size must also be nonzero, and the memory cache size must not exceed the disk cache size. For measured disk usage at different tag counts, see [Offline Data Caching](./mqtt/overview.md#offline-data-caching).
+
+MQTT, AWS IoT, Azure IoT, and Sparkplug B all support these parameters; Kafka and WebSocket do not.
+
+## Writing back to devices
+
+The cloud publishes a JSON write request to the **write request topic**. EMQX Neuron writes the value to the device through the southbound driver and publishes the result to the **write response topic**.
+
+| Application | Write request topic |
+| --- | --- |
+| MQTT, AWS IoT | Configurable, default `neuron/${random_str}/write/req` |
+| Azure IoT | Fixed at `devices/{device ID}/messages/devicebound/#`, with the result published to `devices/{device ID}/messages/events/` |
+
+The target tag must have the **write** attribute configured in the southbound driver — see [Groups and Tags · Tag attributes](../groups-tags/groups-tags.md#tag-attributes). For the request body and multi-tag writes, see [Upstream/Downstream Data Format · Write Tag](./mqtt/api.md#write-tag).
+
+## Processing before upload
+
+With a large number of tags or a high polling rate, publishing raw data consumes considerable uplink bandwidth and cloud storage. Southbound data can first be routed into the [data processing](../../streaming-processing/overview.md) engine and filtered, downsampled, or aggregated with SQL before publishing. Both paths can coexist; for selection guidance, see [Feed Analytics and Edge Computing](./analytics.md).
 
 ## Next steps
 
-- Get one path working: [Create a Northbound Application](./north-apps.md) → [Subscribe to Southbound Data](../subscription.md)
-- If the platform should model devices automatically, see [Connect an IIoT Platform](./uns.md)
+- [Create a northbound application](./north-apps.md) → [Subscribe to southbound data](../subscription.md)
+- Southbound driver states can be published to a dedicated topic for monitoring gateway health from the cloud — see [MQTT · Driver status reporting](./mqtt/overview.md#driver-status-report)

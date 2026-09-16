@@ -1,147 +1,187 @@
 # 数据处理
 
-EMQX Neuron 内置了数据处理引擎，提高数据处理的实时性，降低边云通信成本，为工业场景提供低延迟的数据接入管理及智能分析服务。
+EMQX Neuron 内置流式计算引擎，在数据离开边缘之前完成过滤、换算、聚合与告警判断。
 
-## 架构
+<style>
+.nxs            { width: 100%; height: auto; display: block; margin: 24px 0; }
+.nxs .t         { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif; fill: #1f2d3d; }
+.nxs .h         { font-size: 16px; font-weight: 600; }
+.nxs .m         { font-size: 15px; font-weight: 600; }
+.nxs .sub       { font-size: 12.5px; fill: #4a5b6e; }
+.nxs .lbl       { font-size: 12.5px; font-weight: 600; fill: #2a6ebb; }
+.nxs .green     { fill: #00b173; }
+.nxs .ptitle    { fill: #1b4f89; }
+.nxs .bg        { fill: #f7fafd; }
+.nxs .box       { fill: #ffffff; stroke: #ccd8e4; stroke-width: 1.5; }
+.nxs .mod       { fill: #ffffff; stroke: #2a6ebb; stroke-width: 1.5; }
+.nxs .src       { fill: #ffffff; stroke: #00b173; stroke-width: 2; }
+.nxs .prod      { fill: #eaf2fb; stroke: #2a6ebb; stroke-width: 2; }
+.nxs .flow      { stroke: #2a6ebb; stroke-width: 2; fill: none; }
+.nxs .back      { stroke: #00b173; stroke-width: 2; fill: none; stroke-dasharray: 7 4; }
+.nxs .ah        { fill: #2a6ebb; }
+.nxs .ahg       { fill: #00b173; }
 
-EMQX Neuron 数据处理模块的架构如下：
+html.dark .nxs .t      { fill: #d7dee6; }
+html.dark .nxs .sub    { fill: #9db0c4; }
+html.dark .nxs .lbl    { fill: #7fb4ea; }
+html.dark .nxs .green  { fill: #3ecf9a; }
+html.dark .nxs .ptitle { fill: #8ec1f0; }
+html.dark .nxs .bg     { fill: #161c24; }
+html.dark .nxs .box    { fill: #1d2631; stroke: #3b4857; }
+html.dark .nxs .mod    { fill: #1d2631; stroke: #5a9fe0; }
+html.dark .nxs .src    { fill: #1d2631; stroke: #3ecf9a; }
+html.dark .nxs .prod   { fill: #1a2938; stroke: #5a9fe0; }
+html.dark .nxs .flow   { stroke: #7fb4ea; }
+html.dark .nxs .back   { stroke: #3ecf9a; }
+html.dark .nxs .ah     { fill: #7fb4ea; }
+html.dark .nxs .ahg    { fill: #3ecf9a; }
+</style>
 
-![arch](./_assets/arch.png)
+<svg class="nxs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 470" role="img" aria-label="数据处理数据流图：左侧数采模块经 Neuron 数据源接入，其他数据源如 MQTT、HTTP、SQL 数据库、文件与视频流一并接入；中间数据处理依次经数据源、规则、动作三段；右侧写出到 IoT 平台与消息队列、数据库与时序库、对象存储与文件；底部虚线表示规则结果经 Neuron 动作写回设备实现反控">
+  <defs>
+    <marker id="nxsA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0 L10 5 L0 10 z"/></marker>
+    <marker id="nxsG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ahg" d="M0 0 L10 5 L0 10 z"/></marker>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1200" height="470" rx="10"/>
 
-## 特点及优势
+  <rect class="src" x="24" y="62" width="188" height="92" rx="8"/>
+  <text class="t m" x="118" y="96" text-anchor="middle">数采模块</text>
+  <text class="t sub" x="118" y="122" text-anchor="middle">南向驱动采集的点位</text>
 
-### 低延迟
-提供低延迟的数据处理分析，能够更快速地将数据在多系统间传递，结合 AI/ML 算法，可以实现智能决策与控制。
+  <rect class="box" x="24" y="212" width="188" height="118" rx="8"/>
+  <text class="t m" x="118" y="246" text-anchor="middle">其他数据源</text>
+  <text class="t sub" x="118" y="272" text-anchor="middle">MQTT · HTTP · SQL 数据库</text>
+  <text class="t sub" x="118" y="296" text-anchor="middle">文件 · 视频流 · Kafka · Redis</text>
 
-### 完整的数据分析
+  <line class="flow" x1="212" y1="108" x2="292" y2="119" marker-end="url(#nxsA)"/>
+  <text class="t lbl" x="252" y="96" text-anchor="middle">Neuron 数据源</text>
+  <polyline class="flow" points="212,271 250,271 250,133 292,133" marker-end="url(#nxsA)"/>
+  <text class="t lbl" x="252" y="196" text-anchor="middle">接入</text>
 
-- [数据抽取、转换和过滤](./sqls/query_language_elements.md)
-- [数据排序、分组、聚合、连接](./sqls/query_language_elements.md)
-- 160+ 各类[函数](./sqls/functions/overview.md)，覆盖数学运算、字符串处理、聚合运算和哈希运算等
-- 4 类[时间窗口](./sqls/windows.md)，以及计数窗口
+  <rect class="prod" x="300" y="30" width="336" height="330" rx="10"/>
+  <text class="t h ptitle" x="468" y="58" text-anchor="middle">数据处理</text>
 
-### AI/ML 集成
+  <rect class="mod" x="324" y="82" width="288" height="66" rx="6"/>
+  <text class="t m" x="468" y="110" text-anchor="middle">数据源 (Source)</text>
+  <text class="t sub" x="468" y="133" text-anchor="middle">流 · 扫描表 · 查询表</text>
 
-可通过  Python 或者 Go 扩展接入自定义函数、 AI/ML 算法等，实现在源(Source)，函数(Function), 动作(Sink) 三个方面的扩展.
-- [源 (Source)](./source.md) ：允许用户接入更多的数据源用于数据分析
-- [目标 (Sink)](./sink/sink.md)：允许用户将分析结果发送到不同的扩展系统中
-- [函数(Function)](./extension.md)：允许用户增加自定义函数用于数据分析（比如，AI/ML 的函数调用）
+  <rect class="mod" x="324" y="164" width="288" height="86" rx="6"/>
+  <text class="t m" x="468" y="192" text-anchor="middle">规则 (Rule)</text>
+  <text class="t sub" x="468" y="215" text-anchor="middle">SQL 查询 · 过滤 · 聚合</text>
+  <text class="t sub" x="468" y="237" text-anchor="middle">时间窗口 · 160+ 函数</text>
 
-### 多源数据接入集成
-具备各类数据灵活获取的能力，可以支持：
+  <rect class="mod" x="324" y="266" width="288" height="66" rx="6"/>
+  <text class="t m" x="468" y="294" text-anchor="middle">动作 (Sink)</text>
+  <text class="t sub" x="468" y="317" text-anchor="middle">数据模板 · 多动作并行</text>
 
-- MES、WMS、ERP系统对接
+  <polyline class="flow" points="636,299 674,299 674,105 706,105" marker-end="url(#nxsA)"/>
+  <line class="flow" x1="674" y1="220" x2="706" y2="220" marker-end="url(#nxsA)"/>
+  <line class="flow" x1="674" y1="335" x2="706" y2="335" marker-end="url(#nxsA)"/>
+  <text class="t lbl" x="672" y="366" text-anchor="middle">写出</text>
 
-- 数据库对接
+  <rect class="box" x="714" y="62" width="216" height="86" rx="8"/>
+  <text class="t m" x="822" y="94" text-anchor="middle">IoT 平台与消息队列</text>
+  <text class="t sub" x="822" y="118" text-anchor="middle">MQTT · Kafka · REST</text>
 
-- 企业服务总线（ESB）对接
+  <rect class="box" x="714" y="177" width="216" height="86" rx="8"/>
+  <text class="t m" x="822" y="209" text-anchor="middle">数据库与时序库</text>
+  <text class="t sub" x="822" y="233" text-anchor="middle">MySQL · InfluxDB · Redis</text>
 
-- 文件数据采集
+  <rect class="box" x="714" y="292" width="216" height="86" rx="8"/>
+  <text class="t m" x="822" y="324" text-anchor="middle">对象存储与文件</text>
+  <text class="t sub" x="822" y="348" text-anchor="middle">AWS S3 · 本地文件 · 图片</text>
 
-- 视频流接入分析
+  <polyline class="back" points="468,332 468,424 118,424 118,158" marker-end="url(#nxsG)"/>
+  <text class="t lbl green" x="300" y="446" text-anchor="middle">Neuron 动作 · 写回设备实现反控</text>
+</svg>
 
+## 适用场景
 
-## 核心概念
+南向采集到的数据可由北向应用直接上报，不必经过数据处理。以下情况建议先经规则处理：
 
-### 源(Source)
+- **采集频率远高于业务需要**——100 毫秒采一次是为了不漏掉瞬变，而报表只需要分钟级均值。用时间窗口聚合后上报，数据量可降两个数量级。
+- **稳态下数值几乎不变**——设备平稳运行时点位值基本不动。用条件过滤，只在变化超过阈值时上报。
+- **告警需要秒级响应**——判断逻辑放在边缘，不必等待云端往返，断网时仍然有效。
+- **上报前需要统一单位或字段名**——在边缘做一次，胜过每个下游系统各做一次。
 
-[源（Source）](./source.md)定义了与外部系统的连接方式，以便将数据加载进来。在规则中，根据数据使用逻辑，数据源可作为 **流(Stream)** 或者 **表(Table)** 使用。 
+两条路径可以并存，选型依据见[北向应用 · 接入大数据与边缘计算](../configuration/north-apps/analytics.md)。
 
-- [流（Stream）](./stream.md)：流是 EMQX Neuron 中数据源接入的主要运行方式，用户可通过选择数据源类型及配置参数来定义如何连接到外部资源。数据流中有数据流入时，都会触发规则中的计算。
+## 阅读顺序
 
-- [表（Table）](./tables.md)：表 （**Table**） 用于表示流的当前状态。它可以被认为是流的快照，您可通过表对数据进行批处理。通过在规则中组合使用**流**与**表**,可以实现更多的数据处理功能。
+1. [第一条规则](./first-rule.md)：把数采数据接进来，用一条 SQL 加工后发到 MQTT
+2. [数据源 (Source)](./source.md)：定义数据从哪里来，在规则中作为流或表使用
+3. [规则](./rules.md)：编写 SQL、添加动作、调试验证
+4. [动作 (Sink)](./sink/sink.md)：规则结果写到哪里去
 
-  - [扫描表](./scan.md)：在 EMQX Neuron 在内存中保存状态数据，像一个由事件驱动的流一样，逐个加载数据事件。
+## 与数采模块的连接
 
-  - [查询表](./lookup.md)：绑定外部数据（比如 SQL 数据库中的数据）并在需要时查询引用外部数据。
+数据处理与数采模块之间是双向的，以下两个连接器是产品中最常用的：
 
-- **源的解码**：用户可以在创建源时通过指定 `format` 属性来定义解码方式。当前支持 `json`、`binary`、`protobuf` 和 `delimited` 格式，你也可以使用自己的编码格式，并将该字段定义为 `custom`。
+| 方向 | 用什么 | 说明 |
+| --- | --- | --- |
+| 数采 → 规则 | [Neuron 数据源](./neuron.md) | 北向的**规则引擎应用**把订阅的采集组送入 `neuronStream` 流。该应用默认已存在，只需添加订阅，见[规则引擎应用](../configuration/north-apps/ekuiper/overview.md) |
+| 规则 → 设备 | [Neuron 动作](./sink/neuron.md) | 规则结果通过南向驱动写回设备，构成「采集 → 判断 → 控制」的边缘闭环 |
 
-- **源的定义与运行**：创建数据源的流或者表之后，系统实际上只是创建了一个数据源的逻辑定义而非真正物理运行的数据输入。此逻辑定义可在多个规则的 SQL 的 `from` 子句中使用。只有当使用了该定义的规则启动之后，数据流才会真正运行。
+## 数据源
 
-目前 EMQX Neuron 内置以下数据源：
+数据源定义与外部系统的连接方式。创建后只是一个逻辑定义，只有引用它的规则启动后，数据才真正流动。同一个定义可被多条规则的 `FROM` 子句使用。
 
-- [Neuron](./neuron.md): 从 EMQX Neuron 数采模块读取数据；
-- [MQTT](./mqtt.md)：从 MQTT 主题读取数据；
-- [HTTP pull](./http_pull.md)：从 HTTP 服务器中拉取数据；
-- [HTTP push](./http_push.md)：通过 EMQX Neuron 内置的HTTP Server源接收 HTTP 客户端消息；
-- [内存](./memory.md)：从内存主题读取数据以形成规则流水线；
-- [SQL](./sql.md)：从 `sqlserver\postgresql\mysql\sqlite3\oracle` 数据库中获取数据；
-- [文件](./file.md)：从文件中读取数据；
-- [Video](./video.md)：从视频流中获取数据；
-- [Simulator](./simulator.md)：内置模拟数据源，用来模拟数据以及调试；
-- [Redis](./redis.md)：从 Redis 读取数据。
-- [CAN](./can.md)：连接 CAN 总线读取数据。
-- [Kafka](./kafka.md)：从 Kafka 读取数据。
-- [WebSocket](./websocket.md)：从 WebSocket 读取数据。
+在规则中，数据源可作为[流 (Stream)](./stream.md) 或[表 (Table)](./tables.md) 使用：流有数据流入即触发计算；表表示流的当前状态，用于批处理，分[扫描表](./scan.md)和[查询表](./lookup.md)两种。
 
-### [规则(Rule)](./rules.md)
+解码方式由 `format` 属性指定，支持 `json`、`binary`、`protobuf`、`delimited`，也可设为 `custom` 使用自定义格式。
 
-规则代表了一个数据处理流程，定义了从数据源输入、到各种处理逻辑，再到将数据输出到动作(Sink)。
+| <div style="width:70pt">类型</div> | 用途 |
+| --- | --- |
+| [Neuron](./neuron.md) | 数采模块采集的点位数据 |
+| [MQTT](./mqtt.md) | 订阅 MQTT 主题 |
+| [HTTP Pull](./http_pull.md) | 定时从 HTTP 服务拉取 |
+| [HTTP Push](./http_push.md) | 内置 HTTP Server，接收客户端推送 |
+| [内存](./memory.md) | 接收上一条规则的输出，构成规则流水线 |
+| [SQL](./sql.md) | 从 MySQL、PostgreSQL、SQL Server、Oracle、SQLite 查询 |
+| [文件](./file.md) | 读取文件内容 |
+| [Video](./video.md) | 拉取视频流 |
+| [Simulator](./simulator.md) | 内置模拟数据，用于调试规则 |
+| [Redis](./redis.md) | 从 Redis 读取 |
+| [CAN](./can.md) | 连接 CAN 总线读取 |
+| [Kafka](./kafka.md) | 消费 Kafka Topic |
+| [WebSocket](./websocket.md) | 从 WebSocket 接收 |
 
-- **规则生命周期**：规则一旦启动就会连续运行，只有在用户明确发送停止命令时才会停止。规则可能会因为错误或 EMQX Neuron 实例退出而异常停止。
+## 动作 (Sink)
 
-- **多个规则的关系**：规则在运行时上是分开的，一个规则的错误不影响其他规则。所有的规则都共享相同的硬件资源，每条规则可以指定算子缓冲区，以限制处理速度，避免占用所有资源。
+一条规则可以有多个动作，同一类型也可重复使用。结果输出前可经[数据模板](./sink/data_template.md)做二次处理；不配置数据模板时，规则结果直接输出。
 
-- [**规则流水线**](./rule_pipeline.md)：多个规则可以通过指定 `内存 Source/Sink` 形成一个处理管道。例如，第一条规则在内存 sink 中保存结果，其他规则在其内存源中订阅主题获取数据。除了通过`内存 Source/Sink`，用户还可以使用 `MQTT Source/Sink` 来连接规则。
+| <div style="width:80pt">类型</div> | 用途 |
+| --- | --- |
+| [MQTT](./sink/mqtt.md) | 发布到外部 MQTT 服务 |
+| [Neuron](./sink/neuron.md) | 写回设备，实现反控 |
+| [REST](./sink/rest.md) | 调用外部 HTTP 接口 |
+| [内存](./sink/memory.md) | 传给下一条规则，构成规则流水线 |
+| [Log](./sink/log.md) | 写入日志，通常仅用于调试 |
+| [SQL](./sink/sql.md) | 写入关系型数据库 |
+| [InfluxDB V1](./sink/influx.md) / [V2](./sink/influx2.md) | 写入时序数据库 |
+| [文件](./sink/file.md) | 写入文件 |
+| [Kafka](./sink/kafka.md) | 写入 Kafka Topic |
+| [Redis](./sink/redis.md) | 写入 Redis |
+| [AWS S3](./sink/aws-s3.md) | 上传到对象存储 |
+| [Image](./sink/image.md) | 保存为图片文件 |
+| [Nop](./sink/nop.md) | 不输出，用于性能测试 |
 
-- **[SQL语句](./sqls/overview.md)**：EMQX Neuron 数据处理模块提供了一种类似于 SQL 的查询语言，用于对数据流执行转换和计算。规则中的 SQL 语言支持包括数据定义语言（DDL）、数据操作语言（DML）和查询语言。EMQX Neuron 中的 SQL 支持是 ANSI SQL 的一个子集，并有一些定制的扩展。
+## SQL 能力
 
-- **[规则调试](./rule_test.md)**：在规则创建时，开启规则调试功能，可以实时查看数据源接入后，经过 SQL 处理后的规则输出结果，可以快速对 SQL 语法、内置函数以及数据模板等内容进行测试验证，是否符合预期输出结果。
+| 能力 | 说明 | 详见 |
+| --- | --- | --- |
+| 查询与转换 | 抽取、转换、过滤、排序、分组、聚合，以及 LEFT / RIGHT / FULL / CROSS 连接 | [查询语句](./sqls/query_language_elements.md) |
+| 函数 | 160+ 个，覆盖数学、字符串、聚合、哈希、时间日期、JSON、数组、对象与分析函数 | [函数](./sqls/functions/overview.md) |
+| 窗口 | 滚动、跳跃、滑动、会话四类时间窗口，以及计数窗口 | [窗口](./sqls/windows.md) |
+| 自定义扩展 | SQL 表达不了的逻辑，可用 Python、C/C++、JavaScript 扩展，或注册外部 REST 服务 | [算法集成](./extension.md) |
 
-### 动作(Sink)
+## 规则的运行方式
 
-- [动作Sink](./sink/sink.md)：动作Sink 用来向外部系统写入数据，一个规则可以有多个动作，不同的动作可以是同一个动作类型。
+- 规则启动后持续运行，直到手动停止；发生错误或实例退出时会异常停止。
+- 规则之间相互隔离，一条规则出错不影响其他规则；但共享同一份硬件资源，可为每条规则指定算子缓冲区以限制处理速度。
+- 多条规则可以串成流水线，通过[内存](./memory.md) Source/Sink 或 MQTT Source/Sink 连接，见[规则流水线](./rule_pipeline.md)。
+- 创建规则时可开启[规则调试](./rule_test.md)，实时查看 SQL、函数和数据模板的输出是否符合预期。
 
-- [数据模板](./sink/data_template.md)： EMQX Neuron 通过**规则**进行数据分析处理后，数据模板将规则处理结果进行「二次处理」后，使用各种 Sink 可以往不同的系统。数据模板为非必须配置项，如果不配置数据模板，规则处理结果将直接输出到 Sink 中。
+## 配置
 
-
-- 动作类型
-  - [MQTT sink](./sink/mqtt.md)：输出到外部 MQTT 服务。
-  - [Neuron sink](./sink/neuron.md)：输出到 EMQX Neuron 数采模块。
-  - [Rest sink](./sink/rest.md)：输出到外部 HTTP 服务器。
-  - [Memory sink](./sink/memory.md)：输出到内存(Memory)主题以形成规则流水线。
-  - [Log sink](./sink/log.md)：写入日志，通常只用于调试。
-  - [SQL sink](./sink/sql.md)：写入 SQL 数据库。
-  - [InfluxDB V1 sink](./sink/influx.md)： 写入 Influx DB `v1.x`。
-  - [InfluxDB V2 sink](./sink/influx2.md)： 写入 Influx DB `v2.x`。
-  - [File sink](./sink/file.md)： 写入文件。
-  - [Nop sink](./sink/nop.md)：不输出，用于性能测试。
-  - [Kafka sink](./sink/kafka.md)：输出到 Kafka。
-  - [Image sink](./sink/image.md)：输出到图片文件。
-
-
-### 流式处理
-流数据是一种不断增长的、无限的数据集，流处理是对流数据的处理。
-流处理具有低延迟、近实时的特点，可以在数据产生后就进行处理，以极低的延迟获得结果，因此流处理可以用于实时分析、实时计算、实时预测等场景。
-
-- **有状态的流处理**：有状态的流处理是流处理的一个子集，其中的计算保持着上下文状态。有状态流处理的例子包括：
-  - [聚合事件](./sqls/functions/aggregate_functions.md)以计算总和、计数或平均值时。
-  - 检测事件的变化。
-  - 在一系列事件中搜索一个模式。
-
-- [**窗口**](./sqls/windows.md)：窗口提供了一种机制，将无界的数据分割成一系列连续的有界数据来计算。在时间窗口中，同时支持处理时间和事件时间。对于所有支持的窗口类型，请查看窗口函数。在 EMQX Neuron 中，内置的窗口包括两种类型：
-  - 时间窗口：按时间分割的窗口
-  - 计数窗口：按元素计数分割的窗口
-
-- [**多源连接**](./sqls/query_language_elements.md#join)：在流处理中，连接是将多个数据源合并到一起的唯一方法。它需要一种方法来对齐多个来源并触发连接结果。EMQX Neuron 支持的连接类型包括 LEFT、RIGHT、FULL 和 CROSS 。
-
-- **流处理的时间概念**：
-流数据是一个随时间变化的数据序列，其中时间是数据的一个固有属性。在流处理中，时间在计算中起着重要的作用。例如，在做基于某些时间段（通常称为窗口）的聚合时，定义时间的概念是很重要的。在流处理中，有两种时间概念：
-
-  - [**事件时间**](./rules.md#规则选项-可选)，即事件实际发生的时间。通常情况下，事件应该有一个时间戳字段来表明其产生的时间。
-  - **处理时间**，即在系统中观察到事件的时间。
-
-- **事件时间和水印**：一个支持事件时间的流处理器需要一种方法来衡量事件时间的进展。例如，创建一个小时的时间窗口时，内部的算子需要在事件时间超过一小时后得到通知，这样算子就可以发布正在进行的窗口。
-EMQX Neuron 中衡量事件时间进展的机制是水印。水印作为数据流的一部分，带有一个时间戳 t 。一个水印（ t ）声明事件时间在该数据流中已经达到了时间 t ，意味着该数据流中不应该再有时间戳 t' <= t 的元素（即时间戳大于或等于水印的事件）。在 EMQX Neuron 中，水印是在规则层面上的，这意味着当从多个数据流中读取数据时，水印将在所有输入流中流动。
-
-
-
-### [扩展](./extension.md)
-
-EMQX Neuron 允许用户自定义扩展，以支持AI/ML等更多功能。 用户可以通过插件系统编写 Python/Go 扩展插件。此外，用户也可以调用外部已有的 REST 服务作为函数及算法扩展来使用。您可通过[扩展](./extension.md)页面创建插件或注册外部服务。
-
-### [配置](./config.md)
-
-配置页面介绍 EMQX Neuron 数据分析模块的[资源](./config.md#资源)配置及[模式](./config.md#模式)配置等。
-
+[配置](./config.md)页面管理[连接器](./config.md#连接器)（连接复用）、[模式](./config.md#模式)（Protobuf 等解码格式）以及文件管理。

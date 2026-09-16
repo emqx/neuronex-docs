@@ -41,7 +41,6 @@ This section introduces how to connect the FX5U using the EMQX Neuron Mitsubishi
 2. Configure the EMQX Neuron UDP transport mode, **Transport Mode** select UDP, and use the default port number 52001 for the UDP source port.
 ![fx5u8](./assets/fx5u_en8.jpg)
 
-
 ## Test Data List
 
 | Name | Address    | Attribute | Data Type   |

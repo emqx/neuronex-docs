@@ -1,4 +1,4 @@
-# 使用 EMQX Neuron 将数据桥接到 AWS IoT
+# 数据桥接到 AWS IoT Core
 
 本文将介绍如何使用 EMQX Neuron 通过公网桥接数据到 AWS IoT，从而借助 AWS IoT 轻松构建 IoT 应用程序。
 

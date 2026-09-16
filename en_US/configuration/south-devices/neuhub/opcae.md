@@ -1,7 +1,6 @@
-# OPCAE
+# OPC AE
 
 EMQX Neuron can use the Neuron HUB driver and NeuronHUB Windows program to indirectly access OPC AE (Alarms and Events) servers running on Windows systems, supporting Simple, Conditional, and Tracking events. OPC AE is primarily used to retrieve alarm and event information from devices.
-
 
 ## NEURON HUB Windows Program Parameters
 
@@ -13,7 +12,6 @@ EMQX Neuron can use the Neuron HUB driver and NeuronHUB Windows program to indir
 | PassWrod  | password                                                                                                                              |
 | Domain    | domain                                                                                                                                |
 | Server    | AE server name (e.g., `opcae://192.168.10.133/Matrikon.OPC.Alarms`). After filling in Host, click the dropdown to fetch server lists. |
-
 
 ## Supported Data Types
 
@@ -46,10 +44,8 @@ Data example:
 }
 ```
 
-
 ## Address Format
 When selecting the OPCAE node type in the Neuron HUB driver, the address is the event source path in the OPC AE server. You can use the `Export` function to export all point information as a table and import it directly into NEURON.
-
 
 ## Alarm Acknowledgment
 Supports acknowledgment of Conditional alarms and writing comments.

@@ -101,4 +101,3 @@ In **South Devices**, create a node with driver Modbus TCP, and configure the dr
 * Select server as the **Connection mode**;
 * **Host**: Fill in 0.0.0.0;
 * **Port**: Fill in the listening port.
-

@@ -1,4 +1,4 @@
-# Batch Data Group/Tag Configuration
+# Batch Tag Configuration
 
 EMQX Neuron offers a feature that allows batch import and export of data label configuration information in Excel format. This function accelerates the data label configuration process and conveniently enables the export of created data label information to external storage.
 

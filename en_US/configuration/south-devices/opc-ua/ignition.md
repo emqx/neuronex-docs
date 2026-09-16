@@ -18,7 +18,6 @@ Ignition by Inductive Automation is an industrial application platform that enab
 
 2. Open the **Config** -> **OPC UA** -> **Security** -> **Server**, and upload the client certificate and set it to Trust.
 
-
 ## Configure EMQX Neuron
 
 1. To view the PLC measurement point information via the UaExpert software, Refer to [UaExpert usage](./uaexpert.md).
@@ -38,4 +37,3 @@ Ignition by Inductive Automation is an industrial application platform that enab
 | ProductName      | 0!2261 | Read | STRING |
 | ProductUri       | 0!2262 | Read | STRING |
 | SoftwareVersion  | 0!2264 | Read | STRING |
-

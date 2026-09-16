@@ -1,4 +1,4 @@
-# CAN
+# CAN Source
 
 <span style="background:green;color:white;">Stream</span> <span style="background:green;color:white">Scan Table</span>
 

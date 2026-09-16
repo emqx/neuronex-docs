@@ -1,4 +1,4 @@
-# InfluxDB Sink
+# InfluxDB V1 Sink
 
 The sink will write the result into InfluxDB `V1`.
 
@@ -28,7 +28,7 @@ Write options:
 | Timestamp Field Name   | true     | The field name of the timestamp. If set, the written timestamp will use the value of the field. For example, if the data has {"ts": 1888888888} and the tsFieldName is set to ts, then the value 1888888888 will be used when written to InfluxDB. Make sure the value is formatted according to the precision. If not set, the current timestamp will be used. |
 
 Other common sink properties including batch settings are supported. Please refer to
-the [sink common properties](../overview.md#common-properties) for more information.
+the [sink common properties](./sink.md#sink-public-parameter-configuration) for more information.
 
 
 

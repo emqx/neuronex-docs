@@ -449,9 +449,7 @@ IP.1 = 127.0.0.1
 
 [ v3_ca ]
 
-
 # Extensions for a typical CA
-
 
 # PKIX recommendation.
 

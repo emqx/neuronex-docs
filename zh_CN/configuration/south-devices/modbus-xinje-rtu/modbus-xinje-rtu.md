@@ -2,13 +2,15 @@
 
 EMQX Neuron XINJE Modbus RTU 驱动使用 Modbus RTU 协议，用于采集信捷 PLC 标签的数据，支持信捷 XC/XD/XL 系列 PLC 型号。
 
+通用配置步骤见[添加南向驱动](../south-devices.md)与[组与点位](../../groups-tags/groups-tags.md)。
+
 ## 添加驱动
 
-在 **数据采集 -> 南向设备**，点击**添加设备**来创建设备节点，输入驱动名称，驱动类型选择 **XINJE Modbus RTU** 启用驱动。
+在 **数据采集 → 南向设备** 页点击 **添加设备**，驱动类型选择 **XINJE Modbus RTU**。
 
-## 设备配置
+## 连接参数
 
-点击驱动卡片或驱动列，进入**设备配置**页。配置 EMQX Neuron 与设备建立连接所需的参数，下表为驱动相关配置项。
+点击驱动卡片进入**设备配置**页填写：
 
 | <div style="width:100pt">参数</div>               | 说明                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
@@ -32,13 +34,9 @@ EMQX Neuron XINJE Modbus RTU 驱动使用 Modbus RTU 协议，用于采集信捷
 
 XINJE Modbus RTU 驱动的配置与 [Modbus RTU驱动模块](../modbus-rtu/modbus-rtu.md)相似。
 
-## 设置组和点位
+## 点位配置
 
-完成驱动的添加和配置后，要建立设备与 EMQX Neuron 之间的通信，首先为南向驱动程序添加组和点位。
-
-完成设备配置后，在**南向设备**页，点击设备卡片/设备列进入**组列表**页。点击**创建**来创建组，设定组名称以及采集间隔。完成组的创建后，点击组名称进入**点位列表**页，添加需要采集的设备点位，包括点位地址，点位属性，数据类型等。
-
-公共配置项部分可参考[连接南向设备](../south-devices.md)，本页将介绍支持的数据类型和地址格式部分。
+以下为本驱动支持的数据类型与地址格式。
 
 ### 数据类型
 
@@ -100,7 +98,6 @@ X 和 Y 区域的数据单元使用八进制进行编号。
 | FD8000-FD8511 (Hold Registers)  | 0x6800-0x69FF  (26624-27135)   | 512        | Read/Write | 16Bit,2Byte   |  Various  |
 | ED0-ED36863 (Hold Registers)    | 0x7000-0xFFFF  (28672-65535)   | 36864      | Read/Write | 16Bit,2Byte   |  Various  |
 
-
 * XD1/XD2/XD3/XL1/XL3 PLC 型号:
 
 | 数据区                              | Modbus 地址范围                | 数量       | 属性       | 寄存器大小    | 数据类型  |
@@ -147,7 +144,6 @@ X 和 Y 区域的数据单元使用八进制进行编号。
 | SFD0-SFD1999 (Hold Registers)       | 0xE4C0-0xEC8F  (58560-60559)   | 2000       | Read/Write | 16Bit,2Byte   |  Various  |
 | FS0-FS47 (Hold Registers)           | 0xF4C0-0xF4EF  (62656-62703)   | 48         | Read/Write | 16Bit,2Byte   |  Various  |
 
-
 * XD5/XDM/XDC/XD5E/XDME/XL5/XL5E/XL5H/XLME PLC 型号:
 
 | 数据区                              | Modbus 地址范围                | 数量       | 属性       | 寄存器大小    | 数据类型  |
@@ -193,7 +189,6 @@ X 和 Y 区域的数据单元使用八进制进行编号。
 | FD0-FD8199 (Hold Registers)         | 0xC4C0-0xE4BF  (50368-58559)   | 8192       | Read/Write | 16Bit,2Byte   |  Various  |
 | SFD0-SFD4095 (Hold Registers)       | 0xE4C0-0xF4BF  (58560-62655)   | 4096       | Read/Write | 16Bit,2Byte   |  Various  |
 | FS0-FS47 (Hold Registers)           | 0xF4C0-0xF4EF  (62656-62703)   | 48         | Read/Write | 16Bit,2Byte   |  Various  |
-
 
 * XDH/XLH PLC 型号:
 
@@ -305,8 +300,3 @@ Modbus 驱动的一个寄存器包含 2 个 bytes，在以 bytes 数据类型读
 | 1!D1.10L       | String    | 指站号为 1，PLC 数据寄存器 D1, 字符长度为 10，字节顺序为 L，占用 D1 ～ D5 |
 | 1!M8           | bit       | 指站号为 1，PLC 辅助继电器 M8                      |
 | 1!X10          | bit       | 指站号为 1，PLC 输入继电器 X10                     |
-
-
-## 数据监控
-
-完成点位的配置后，您可点击 **监控** -> **数据监控**查看设备信息以及反控设备，具体可参考[数据监控](../../../admin/monitoring.md)。

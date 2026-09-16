@@ -49,15 +49,11 @@ To establish a seamless connection with the Prosys Simulation Server using EMQX 
 2. EMQX Neuron adds a new southbound OPC UA device, opens **Device Configuration**, fills in the **Endpoint URL** of the target Server, fills in the user name/password, no need to add certificate/key, and starts the device connection.
 3. Open the **Certificates** and set the client certificate in the list to Trust.
 
-
 4. Add **Groups** and **Tags** based on the measurement point information.
 
 ## Certificate/Key + Username/Password Login
 
-You can refer to the above sections on how to set the Certificate/Key and Username/Password
-
-- [Certificate/Key](#certificate-key-anonymous-login)
-- [Username/Password](#username-password-login)
+For how to set the certificate/key and the username/password, see the **Certificate/Key + Anonymous Login** and **Username/Password Login** sections above.
 
 ## Configure EMQX Neuron
 
@@ -81,4 +77,3 @@ You can refer to the above sections on how to set the Certificate/Key and Userna
 | Sinusoid | 3!1004 | Read | DOUBLE |
 | Square   | 3!1005 | Read | DOUBLE |
 | Triangle | 3!1006 | Read | DOUBLE |
-

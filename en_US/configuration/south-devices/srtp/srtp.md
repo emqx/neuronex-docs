@@ -2,6 +2,8 @@
 
 EMQX Neuron GE SRTP driver accesses GE PLC devices that support SRTP over TCP.
 
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
+
 ## Parameter Configuration
 
 | Parameter | Description                                                 |
@@ -25,8 +27,6 @@ EMQX Neuron GE SRTP driver accesses GE PLC devices that support SRTP over TCP.
 * bit
 * string
 
-
-
 ## ADDRESS 
 
 > AREA ADDRESS\[.BIT][.LEN]
@@ -39,9 +39,7 @@ Optional, referring to a bit of an address, range 0 - 15.
 
 When the data type is a string type, it is required and indicates the length of the string.
 
-
 ### ADDRESS AREA
-
 
 | AREA | DATA TYPE                                             | ATTRIBUTE | PLC AREA                   |
 | ---- | ----------------------------------------------------- | --------- | -------------------------- |
@@ -57,8 +55,6 @@ When the data type is a string type, it is required and indicates the length of 
 | %AI  | int32/uint32/int64/uint64/float/double/bit            | R         | Analog input registers     |
 | %AQ  | int32/uint32/int64/uint64/float/double/bit            | R/W       | Analog output registers    |
 | %R   | int32/uint32/int64/uint64/float/double/bit/string     | R/W       | System register reference  |
-
-
 
 ## Address Examples
 

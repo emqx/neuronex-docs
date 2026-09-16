@@ -1,4 +1,4 @@
-# 连接 CODESYS V3 PLC 模拟器示例
+# CODESYS V3 PLC 模拟器连接示例
 
 本文将使用 CODESYS V3 TCP 驱动连接 CODESYS V3 PLC 模拟器，实现读写 CODESYS V3 模拟设备的数据。
 

@@ -73,15 +73,13 @@ Enter the device IP to confirm whether EMQX Neuron can access the device IP addr
 
 ![alt text](./_assets/network-test.png)
 
+## Built-in Modbus TCP Server Simulator
+
+The `Built-in Modbus TCP Server Simulator` tab starts the simulator, configures simulated tags, and downloads a matching southbound driver configuration, so the collection path can be verified without hardware. See [Built-in Modbus TCP Server Simulator](../configuration/modbus-simulator.md).
+
 ## Backup and Restore
 
-Backup refers to the complete export of all configurations of EMQX Neuron; restore refers to re-importing the exported backup, which will overwrite the original configuration.
-
-All configurations include southbound driver and northbound application settings, tags, rules, files, and certificates.
-
-:::tip 
-During the restore process, EMQX Neuron will automatically restart.
-:::
+The `Backup and Restore` tab exports all configuration to a single file, or imports a backup file to overwrite the current configuration. For what is covered, how it differs from the other backup methods, and when to run it, see [Backup and Restore](./backup-restore.md).
 
 ## Agent Configuration
 

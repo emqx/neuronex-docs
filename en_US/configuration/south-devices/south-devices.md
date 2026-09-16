@@ -105,7 +105,7 @@ docker exec -it neuronex telnet <device IP> <port>
 
 **4. Check device-side configuration**　Some protocols require a service or permission to be enabled on the device — Siemens S7, for example, needs PUT/GET enabled in the PLC and optimized block access turned off. See the relevant driver page.
 
-**5. Read the DEBUG log**　Click **Enable DEBUG log** on the card, then open **System Information → Logs** to see the commands actually exchanged. See [Managing Logs](../../admin/log-management.md).
+**5. Read the DEBUG log**　Click **Enable DEBUG log** on the card, then open **Administration → Logs** to see the commands actually exchanged. See [Managing Logs](../../admin/log-management.md).
 
 **6. Check firewalls**　Confirm the port is open on both the device side and the EMQX Neuron side.
 

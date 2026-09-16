@@ -2,20 +2,22 @@
 
 The Brother CNC driver is used to access Brother CNC machining centers via the Brother NC protocol. It collects machine operating data such as axis coordinates, spindle, tool, alarms, workpiece count, program number, PLC devices, and tool offset data. The driver supports connecting to the device over either a serial (Serial) or Ethernet link.
 
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
+
 ::: tip
 The Brother CNC driver is read-only. It only supports data collection (read) and does not support control (write).
 :::
 
-## Add Device
+## Add Driver
 
-Go to **Data Collection -> South Devices**, then click **Add Device** to add the driver. Configure the following settings in the popup dialog box.
+On **Data Collection → South Devices**, click **Add Device**.
 
 - Name: The name of this device node.
 - Driver: Select the **Brother CNC** driver.
 
-## Device Configuration
+## Connection Parameters
 
-After clicking **Create**, you will be redirected to the **Device Configuration** page, where you set up the parameters required for EMQX Neuron to establish a connection with the device. You can also click the device configuration icon on the southbound device card to enter the **Device Configuration** interface.
+Click the driver card to open the **Device Configuration** page and fill in:
 
 | Parameter | Description |
 | ------------------ | ----------------------------------------------------------- |
@@ -29,15 +31,11 @@ After clicking **Create**, you will be redirected to the **Device Configuration*
 | **CNC IP Address** | In Ethernet mode, the IPv4 address of the target CNC device. |
 | **CNC Port** | In Ethernet mode, the port of the target CNC device, ranging from 1 to 65535. Default is 10000. |
 
-## Configure Data Groups and Tags
+## Tag Configuration
 
-After the driver is added and configured, the next step is to establish communication between your device and EMQX Neuron by adding groups and tags to the southbound driver.
-
-Once device configuration is completed, navigate to the **South Devices** page. Click on the device card or device row to access the **Group List** page. Here, you can create a new group by clicking **Create**, then specifying the group name and data collection interval.
+The data types and address formats supported by this driver are listed below.
 
 After successfully creating a group, click on its name to proceed to the **Tag List** page. This page allows you to add device tags for data collection. You'll need to provide information such as the tag address, attributes, and data type.
-
-For information on general configuration items, see [Connect to Southbound Devices](../south-devices.md). The subsequent section will concentrate on configurations specific to the driver.
 
 ::: tip
 The Brother CNC driver only supports the **read-only** tag attribute. During collection, the driver batches requests for tags of the same data area (PDSP, ALARM, PLCD, etc.). Grouping tags of the same area together is recommended to improve collection efficiency.
@@ -132,7 +130,3 @@ The Brother CNC driver organizes tag addresses by data area. The address format 
 | PLCD.D.100 | INT16 | D register at address 100 |
 | PLCD.M.2048 | BIT | M relay at address 2048 |
 | TOLSD.1.1.2 | FLOAT | DB 1, tool ID 1, column index 2 |
-
-## Data Monitoring
-
-After configuring the tags, you can click **Monitoring** -> **Data Monitoring** to view device information. For more details, see [Data Monitoring](../../../admin/monitoring.md).

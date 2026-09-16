@@ -1,4 +1,4 @@
-# NeuOPC remote access 
+# DCOM Settings
 
 In this example, the host set above is used as a client to connect to another host in the LAN to realize cross-host OPC DA data reading and conversion. The remote host uses the Windows 10 x64 operating system for demonstration.
 
@@ -69,4 +69,3 @@ So far, the local host test environment of OPC DA has been set up.
 <!-- ![client-worked](./assets/client-worked.png)
 
 ![client-worked](./assets/client-worked1.png) -->
-

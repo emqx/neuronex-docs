@@ -1,4 +1,4 @@
-# MQTT 
+# MQTT Source
 
 <span style="background:green;color:white;">Stream</span>        <span style="background:green;color:white">Scan table</span>
 
@@ -30,7 +30,7 @@ In the pop-up **Sources**/**Create** page, enter the following configuration:
    - **Skip certificate verification**: Defaults to False. If set to True, certificate verification will be skipped, otherwise certificate verification will be performed.
    - **Decompression**: Leave blank by default to not decompress. Decompress MQTT Payload using the specified compression method, optional values: zlib, gzip, flate.
 - **Stream format**: supports json, binary, protobuf, delimited, custom. Default json format.
-   - If you select protobuf or custom, you should also configure the corresponding [mode](./config.md#mode)
+   - If you select protobuf or custom, you should also configure the corresponding [mode](./config.md#schema)
    - If you select delimited, you should also configure the delimiter, such as "`,`"
 
 - **Shared**: Check to confirm whether to share the source.
@@ -45,7 +45,7 @@ MQTT sources support lookup table. Log in to EMQX Neuron and click **Data Proces
 - **Data source** (MQTT topic): The MQTT topic to be subscribed to, for example topic1
 - **Configuration key**: You can use the default configuration key. If you want to customize the configuration key, please refer to the [Create Stream](#Create Stream) section
 - **Table format**: supports json, binary, delimited, custom.
-   - If you select custom, you should also configure the corresponding [mode](./config.md#mode)
+   - If you select custom, you should also configure the corresponding [mode](./config.md#schema)
    - If you select delimited, you should also configure the delimiter, such as ","
 
 - **Retain Size**: Specify the Retain size.

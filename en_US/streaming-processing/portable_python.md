@@ -7,7 +7,7 @@ The following is the introduction and packaging process of the pysam plugin exam
 To use Python portable plugins, you need Python 3 and the eKuiper Python SDK (`ekuiper`, `pynng`). When a plugin is installed, eKuiper immediately starts a Python process for handshake. Missing the interpreter or the SDK causes install to fail.
 
 ::: tip
-**Only the standard Docker image `emqx/neuronex:x.y.z` (and `*-extend`, which is based on it) ships this runtime.** The `*-slim` image does not include Python and cannot install or run Python portable plugins. See [Docker Container Python Runtime Environment](../installation/docker.md#docker-container-python-runtime-environment).
+**Only the standard Docker image `emqx/neuronex:x.y.z` (and `*-extend`, which is based on it) ships this runtime.** The `*-slim` image does not include Python and cannot install or run Python portable plugins. See [Docker Container Python Runtime Environment](../installation/docker.md#choosing-an-image).
 :::
 
 - If you install EMQX Neuron through a binary package (tar/deb/rpm):
@@ -18,7 +18,7 @@ To use Python portable plugins, you need Python 3 and the eKuiper Python SDK (`e
    pip install ekuiper pynng
    ```
 
-- If you install EMQX Neuron through Docker, use the **standard** [neuronex:3.x.x](../installation/docker.md#docker-container-python-runtime-environment) image, which already includes Python 3, `ekuiper`, and `pynng`. Do not use `*-slim`.
+- If you install EMQX Neuron through Docker, use the **standard** [neuronex:3.x.x](../installation/docker.md#choosing-an-image) image, which already includes Python 3, `ekuiper`, and `pynng`. Do not use `*-slim`.
 
 ## Overall introduction of pysam plugin
 

@@ -39,7 +39,7 @@
       ]
     },
     {
-      "title": "数据采集与转发",
+      "title": "数据采集、处理与转发",
       "path": "configuration/introduction",
       "collapsed": true,
       "children": [
@@ -73,11 +73,11 @@
               "collapsed": true,
               "children": [
                 {
-                  "title": "Kepware 到 Neuron 迁移指南",
+                  "title": "Kepware 到 EMQX Neuron 迁移指南",
                   "path": "configuration/driver-migration-tool/kepware-to-neuron"
                 },
                 {
-                  "title": "Litmus Edge 到 Neuron 迁移指南",
+                  "title": "Litmus Edge 到 EMQX Neuron 迁移指南",
                   "path": "configuration/driver-migration-tool/litmus-edge-to-neuron"
                 }
               ]
@@ -94,6 +94,10 @@
               "path": "best-practise/device-control"
             }
           ]
+        },
+        {
+          "title": "在转发前处理数据",
+          "path": "configuration/processing"
         },
         {
           "title": "创建北向应用",
@@ -238,11 +242,11 @@
               "collapsed": true,
               "children": [
                 {
-                  "title": "连接 DTU",
+                  "title": "DTU 连接示例",
                   "path": "configuration/south-devices/modbus-rtu/example/dtu/dtu-connection"
                 },
                 {
-                  "title": "连接 Modbus Slave 模拟器",
+                  "title": "Modbus Slave 模拟器连接示例",
                   "path": "configuration/south-devices/modbus-rtu/example/modbus-slave/modbus-slave"
                 },
                 {
@@ -257,7 +261,7 @@
               "collapsed": true,
               "children": [
                 {
-                  "title": "连接 Modbus Slave 模拟器",
+                  "title": "Modbus Slave 模拟器连接示例",
                   "path": "configuration/south-devices/modbus-tcp/example/modbus-slave/modbus-slave"
                 },
                 {
@@ -304,11 +308,11 @@
               "path": "configuration/south-devices/modbus-hollysys-rtu/modbus-hollysys-rtu"
             },
             {
-              "title": "EtherNet/IP(CIP)",
+              "title": "CIP Ethernet/IP",
               "path": "configuration/south-devices/ethernet-ip/ethernet-ip"
             },
             {
-              "title": "Allen-Bradley 5000 EIP",
+              "title": "Allen-Bradley 5000 EtherNet/IP",
               "path": "configuration/south-devices/ab-5000/ab-5000"
             },
             {
@@ -356,7 +360,7 @@
               "collapsed": true,
               "children": [
                 {
-                  "title": "配置 S7-1200/1500",
+                  "title": "配置 Siemens S7-1200/1500",
                   "path": "configuration/south-devices/siemens-s7/plc/siemens-s7-1200-1500"
                 },
                 {
@@ -411,7 +415,7 @@
               ]
             },
             {
-              "title": "Hostlink Cmode",
+              "title": "Omron Host Link",
               "path": "configuration/south-devices/hostlink/hostlink-cmode"
             },
             {
@@ -420,7 +424,7 @@
               "collapsed": true,
               "children": [
                 {
-                  "title": "使用 Beckhoff ADS 协议采集 PLC 数据",
+                  "title": "采集 PLC 数据",
                   "path": "configuration/south-devices/ads/plc-ads/ads"
                 }
               ]
@@ -462,7 +466,7 @@
               "collapsed": true,
               "children": [
                 {
-                  "title": "连接 CODESYS V3 PLC 模拟器",
+                  "title": "CODESYS V3 PLC 模拟器连接示例",
                   "path": "configuration/south-devices/codesys3/demo"
                 }
               ]
@@ -491,23 +495,23 @@
                   "path": "configuration/south-devices/opc-ua/uaexpert"
                 },
                 {
-                  "title": "连接 Siemens S7-1200",
+                  "title": "Siemens S7-1200 连接示例",
                   "path": "configuration/south-devices/opc-ua/s71200"
                 },
                 {
-                  "title": "连接 KEPServerEX",
+                  "title": "KEPServerEX 连接示例",
                   "path": "configuration/south-devices/opc-ua/kepserverex"
                 },
                 {
-                  "title": "连接 Industrial Gateway OPC Server",
+                  "title": "Industrial Gateway OPC Server 连接示例",
                   "path": "configuration/south-devices/opc-ua/igs"
                 },
                 {
-                  "title": "连接 Ignition",
+                  "title": "Ignition 连接示例",
                   "path": "configuration/south-devices/opc-ua/ignition"
                 },
                 {
-                  "title": "连接 Prosys Simulation Server",
+                  "title": "Prosys Simulation Server 连接示例",
                   "path": "configuration/south-devices/opc-ua/prosys"
                 },
                 {
@@ -594,7 +598,7 @@
           "collapsed": true,
           "children": [
             {
-              "title": "Focas CNC",
+              "title": "Fanuc Focas Ethernet",
               "path": "configuration/south-devices/fanuc-focas/fanuc-focas"
             },
             {
@@ -679,7 +683,7 @@
               "collapsed": true,
               "children": [
                 {
-                  "title": "连接 Ignition SECS GEM 模拟器",
+                  "title": "Ignition SECS GEM 模拟器连接示例",
                   "path": "configuration/south-devices/secs-gem/example/ignition"
                 }
               ]
@@ -943,12 +947,12 @@
           ]
         },
         {
-          "title": "动作(Sink)",
+          "title": "动作 (Sink)",
           "path": "streaming-processing/sink/sink",
           "collapsed": true,
           "children": [
             {
-              "title": "数据模版",
+              "title": "数据模板",
               "path": "streaming-processing/sink/data_template"
             },
             {
@@ -1069,6 +1073,10 @@
           "path": "admin/sys-configuration"
         },
         {
+          "title": "备份与恢复",
+          "path": "admin/backup-restore"
+        },
+        {
           "title": "启动参数与配置文件",
           "path": "admin/conf-management"
         },
@@ -1096,7 +1104,7 @@
               "path": "best-practise/plc-to-mqtt"
             },
             {
-              "title": "OPCUA 点位发现功能",
+              "title": "OPC UA 点位发现功能",
               "path": "best-practise/opcua-tag-browser"
             }
           ]
@@ -1110,7 +1118,7 @@
               "path": "best-practise/smartfactory1"
             },
             {
-              "title": "最佳实践：集成 MySQL 数据到您的 IIoT 平台",
+              "title": "集成 MySQL 数据到 IIoT 平台",
               "path": "best-practise/sql-data"
             }
           ]
@@ -1125,7 +1133,7 @@
               "collapsed": true,
               "children": [
                 {
-                  "title": "Modbus 插件开发示例",
+                  "title": "Modbus 驱动开发示例",
                   "path": "dev-guide/sdk-tutorial/sdk-example/modbus-example"
                 },
                 {
@@ -1188,7 +1196,7 @@
               "path": "performance/modbustcp"
             },
             {
-              "title": "OPCUA 驱动性能测试",
+              "title": "OPC UA 驱动性能测试",
               "path": "performance/opcua"
             },
             {
@@ -1248,7 +1256,7 @@
       ]
     },
     {
-      "title": "Data Collection and Forwarding",
+      "title": "Data Collection, Processing and Forwarding",
       "path": "configuration/introduction",
       "collapsed": true,
       "children": [
@@ -1282,11 +1290,11 @@
               "collapsed": true,
               "children": [
                 {
-                  "title": "Kepware to Neuron Migration Guide",
+                  "title": "Kepware to EMQX Neuron Migration Guide",
                   "path": "configuration/driver-migration-tool/kepware-to-neuron"
                 },
                 {
-                  "title": "Litmus Edge to Neuron Migration Guide",
+                  "title": "Litmus Edge to EMQX Neuron Migration Guide",
                   "path": "configuration/driver-migration-tool/litmus-edge-to-neuron"
                 }
               ]
@@ -1303,6 +1311,10 @@
               "path": "best-practise/device-control"
             }
           ]
+        },
+        {
+          "title": "Processing Data Before Forwarding",
+          "path": "configuration/processing"
         },
         {
           "title": "Create a Northbound Application",
@@ -1513,11 +1525,11 @@
               "path": "configuration/south-devices/modbus-hollysys-rtu/modbus-hollysys-rtu"
             },
             {
-              "title": "EtherNet/IP(CIP)",
+              "title": "CIP Ethernet/IP",
               "path": "configuration/south-devices/ethernet-ip/ethernet-ip"
             },
             {
-              "title": "Allen-Bradley 5000 EIP",
+              "title": "Allen-Bradley 5000 EtherNet/IP",
               "path": "configuration/south-devices/ab-5000/ab-5000"
             },
             {
@@ -1565,7 +1577,7 @@
               "collapsed": true,
               "children": [
                 {
-                  "title": "Tailor S7 1200/1500 PLC for ISOTCP Driver",
+                  "title": "Configure Siemens S7-1200/1500",
                   "path": "configuration/south-devices/siemens-s7/plc/siemens-s7-1200-1500"
                 },
                 {
@@ -1620,7 +1632,7 @@
               ]
             },
             {
-              "title": "Hostlink Cmode",
+              "title": "Omron Host Link",
               "path": "configuration/south-devices/hostlink/hostlink-cmode"
             },
             {
@@ -1629,7 +1641,7 @@
               "collapsed": true,
               "children": [
                 {
-                  "title": "Data collection (Beckhoff ADS Protocol)",
+                  "title": "Collect PLC Data",
                   "path": "configuration/south-devices/ads/plc-ads/ads"
                 }
               ]
@@ -1844,7 +1856,7 @@
               ]
             },
             {
-              "title": "Focas CNC",
+              "title": "Fanuc Focas Ethernet",
               "path": "configuration/south-devices/fanuc-focas/fanuc-focas"
             }
           ]
@@ -1955,15 +1967,15 @@
               "path": "streaming-processing/stream"
             },
             {
-              "title": "Table",
+              "title": "Tables",
               "path": "streaming-processing/tables",
               "children": [
                 {
-                  "title": "Scan table",
+                  "title": "Scan Table Use Cases",
                   "path": "streaming-processing/scan"
                 },
                 {
-                  "title": "Lookup table",
+                  "title": "Lookup Table Use Cases",
                   "path": "streaming-processing/lookup"
                 }
               ]
@@ -2277,6 +2289,10 @@
           "path": "admin/sys-configuration"
         },
         {
+          "title": "Backup and Restore",
+          "path": "admin/backup-restore"
+        },
+        {
           "title": "Startup Parameters and Configuration Files",
           "path": "admin/conf-management"
         },
@@ -2304,7 +2320,7 @@
               "path": "best-practise/plc-to-mqtt"
             },
             {
-              "title": "OPCUA Tag Browser",
+              "title": "OPC UA Tag Browser",
               "path": "best-practise/opcua-tag-browser"
             }
           ]
@@ -2318,7 +2334,7 @@
               "path": "best-practise/smartfactory1"
             },
             {
-              "title": "Integrate MySQL data into your IIoT platform",
+              "title": "Integrating MySQL Data into an IIoT Platform",
               "path": "best-practise/sql-data"
             }
           ]
@@ -2333,7 +2349,7 @@
               "collapsed": true,
               "children": [
                 {
-                  "title": "Modbus Plugin Example",
+                  "title": "Modbus Driver Example",
                   "path": "dev-guide/sdk-tutorial/sdk-example/modbus-example"
                 },
                 {
@@ -2396,7 +2412,7 @@
               "path": "performance/modbustcp"
             },
             {
-              "title": "OPCUA Driver",
+              "title": "OPC UA Driver",
               "path": "performance/opcua"
             },
             {

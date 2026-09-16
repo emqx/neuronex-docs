@@ -1,4 +1,3 @@
-
 # Neuron Sink
 
 This action is used to send the results to the data collection module of the EMQX Neuron instance to achieve device control.

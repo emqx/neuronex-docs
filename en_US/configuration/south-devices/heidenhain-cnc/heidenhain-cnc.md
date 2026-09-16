@@ -2,6 +2,7 @@
 
 The Heidenhain CNC drive accesses Heidenhain TNC640, iTNC530 and other series of machine tools and machining centers through the LSV2 protocol, and can collect real-time operating data from multiple devices, including program names, spindle override , runing status, spindle tools, PLC points, and more.
 
+For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
 
 ## Parameter Configuration
 
@@ -10,7 +11,6 @@ The Heidenhain CNC drive accesses Heidenhain TNC640, iTNC530 and other series of
 | host      | device ip address                  |
 | port      | device port, default 19000         |
 | timeout   | connection timeout, default 5000ms |
-
 
 ## Support Data Type
 
@@ -45,7 +45,6 @@ The Heidenhain CNC drive accesses Heidenhain TNC640, iTNC530 and other series of
 | machinePosition   | machine position        | double    | .X .Y .Z .A .C | -                                                                                                   |
 | parameter         | cnc setting parameter   | string    | .(name)        | -                                                                                                   |
 
-
 *CNC address example*
 
 | address                                 | description                        |
@@ -53,7 +52,6 @@ The Heidenhain CNC drive accesses Heidenhain TNC640, iTNC530 and other series of
 | ProgramMain                             | read the main program              |
 | machinePosition.X                       | read x asix of machine position    |
 | parameter.CfgDisplayLanguage.ncLanguage | TNC640 read/write language setting |
-
 
 ### PLC Data
 

@@ -1,4 +1,4 @@
-# Data template
+# Data Template
 
 After users perform data analysis and processing through EMQX Neuron, they can use various actions (Sink) to send data analysis results to different systems. For the same analysis results, different actions (Sink) may not necessarily require the same format.
 

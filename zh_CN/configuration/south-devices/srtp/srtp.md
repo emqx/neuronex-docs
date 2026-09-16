@@ -2,6 +2,8 @@
 
 EMQX Neuron GE SRTP 驱动通过 TCP 协议访问支持 SRTP 协议的 GE PLC 设备。
 
+通用配置步骤见[添加南向驱动](../south-devices.md)与[组与点位](../../groups-tags/groups-tags.md)。
+
 ## 设备设置
 
 | 字段    | 说明                                 |
@@ -25,8 +27,6 @@ EMQX Neuron GE SRTP 驱动通过 TCP 协议访问支持 SRTP 协议的 GE PLC �
 * bit
 * string
 
-
-
 ## 地址格式
 
 > AREA ADDRESS\[.BIT][.LEN]
@@ -40,7 +40,6 @@ EMQX Neuron GE SRTP 驱动通过 TCP 协议访问支持 SRTP 协议的 GE PLC �
 当数据类型为 string 类型时，是必填项，表示字符串长度。
 
 ### 区域
-
 
 | 区域 | 数据类型                                              | 属性  | 备注           | PLC 区域                   |
 | ---- | ----------------------------------------------------- | ----- | -------------- | -------------------------- |
@@ -56,8 +55,6 @@ EMQX Neuron GE SRTP 驱动通过 TCP 协议访问支持 SRTP 协议的 GE PLC �
 | %AI  | int32/uint32/int64/uint64/float/double/bit            | 读    | 模拟输入寄存器 | Analog input registers     |
 | %AQ  | int32/uint32/int64/uint64/float/double/bit            | 读/写 | 模拟输出寄存器 | Analog output registers    |
 | %R   | int32/uint32/int64/uint64/float/double/bit/string     | 读/写 | 系统寄存器引用 | System register reference  |
-
-
 
 ## 地址示例
 

@@ -1,4 +1,4 @@
-# Stream management
+# Stream
 
 Streaming is the main mode of operation for data source access in EMQX Neuron. Users can define how to connect to external resources by selecting the data source type and configuration parameters. Whenever data flows into the data stream, calculations in the rules will be triggered.
 
@@ -41,7 +41,7 @@ On the EMQX Neuron page, click **Data Processing** -> **Sources**. On the stream
    Users define data schema at the data source (Source) layer. Data applicable to users has a fixed or approximately fixed format.
 
    :::tip Tips
-   Some data formats have data structures themselves, such as the `protobuf` format. When creating a source, users can define a stream format to point to the data structure definition in the Schema Registry. At this time, the data structure of the data source will be overwritten by the definition in the schema registry. For a detailed introduction to modes, see the [Mode](./config.md#Mode) chapter.
+   Some data formats have data structures themselves, such as the `protobuf` format. When creating a source, users can define a stream format to point to the data structure definition in the Schema Registry. At this time, the data structure of the data source will be overwritten by the definition in the schema registry. For a detailed introduction to modes, see the [Mode](./config.md#schema) chapter.
    :::
 
 - **Stream Type**
@@ -66,7 +66,7 @@ On the EMQX Neuron page, click **Data Processing** -> **Sources**. On the stream
 
    - protobuf
   
-     Protobuf is a way to serialize structured data. When the stream format is set to `protobuf`, the mode used when decoding should also be configured. Modes can be defined in **Data Processing** -> **Configuration** -> **Schema**. For a detailed introduction to modes, see the [Mode](./config.md#Mode) chapter.
+     Protobuf is a way to serialize structured data. When the stream format is set to `protobuf`, the mode used when decoding should also be configured. Modes can be defined in **Data Processing** -> **Configuration** -> **Schema**. For a detailed introduction to modes, see the [Mode](./config.md#schema) chapter.
 
    - Binary
   
@@ -145,4 +145,4 @@ The stream will subscribe to the MQTT topic `test/` and the server connection us
 demo () WITH (DATASOURCE="test/", FORMAT="protobuf", SCHEMAID="proto1.Book");
 ```
 
-The stream will subscribe to the MQTT topic `test/`, using the PROTOBUF format, decoding the incoming data according to the `Book` definition in the `$ekuiper/data/schemas/protobuf/schema1.proto` file. For details on mode management, see [Mode](./config.md#mode).
+The stream will subscribe to the MQTT topic `test/`, using the PROTOBUF format, decoding the incoming data according to the `Book` definition in the `$ekuiper/data/schemas/protobuf/schema1.proto` file. For details on mode management, see [Mode](./config.md#schema).

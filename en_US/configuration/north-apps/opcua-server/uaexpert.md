@@ -1,4 +1,4 @@
-# Using UaExpert to Connect to EMQX Neuron OPC UA Server
+# Connect to OPC UA Server using UaExpert
 
 This section demonstrates how to use UaExpert (a popular OPC UA client) to connect, trust certificates, subscribe to variables, and write values, to verify the EMQX Neuron OPC UA Server configuration.
 

@@ -9,7 +9,6 @@ EMQX Neuron 可以使用 Neuron HUB 驱动和 NeuronHUB Windows 程序，间接�
 | Node Name | 节点名称，必须唯一，用来区分多个节点 |
 | Host      | 需要连接 CNC 设备 IP 地址            |
 
-
 ## 支持的数据类型
 
 * uint8
@@ -23,7 +22,6 @@ EMQX Neuron 可以使用 Neuron HUB 驱动和 NeuronHUB Windows 程序，间接�
 * bit
 * string    
 * ARRAY_STRING 
-
 
 ## CNC 数据
 
@@ -66,9 +64,6 @@ EMQX Neuron 可以使用 Neuron HUB 驱动和 NeuronHUB Windows 程序，间接�
 macro，param 可读写，其他只读。
 :::
 
-
-
-
 *CNC 地址示例*
 
 | 地址                    | 说明                |
@@ -80,7 +75,6 @@ macro，param 可读写，其他只读。
 | alarms                  | 当前报警            |
 | partCount.total         | 总加工计数          |
 | toolOffset1.RADIUS_GEOM | 刀补1，半径补偿     |
-
 
 ### PLC 数据
 
@@ -96,7 +90,6 @@ macro，param 可读写，其他只读。
 | S    | S Bits      | bit/int8/uint8                                    | 读    |
 | A    | A Bits      | bit/int8/uint8                                    | 读    |
 | R    | 寄存器      | bit/int32/uint32/int64/uint64/float/double/string | 读/写 |
-
 
 ::: tip
 目前只支持设置部分 R 区，不支持 bit 写入。
@@ -122,6 +115,3 @@ macro，param 可读写，其他只读。
 | R100       | float | 寄存器 区域，地址100的数据     |
 | T0.setting | int32 | 定时器 区域，地址0的设定值数据 |
 | T0.value   | int32 | 定时器 区域，地址0的当前数据   |
-
-
-

@@ -120,7 +120,7 @@ html.dark .nxa .ah     { fill: #7fb4ea; }
 
 一个 EMQX Neuron 进程里可以同时运行多个南向和北向节点，彼此隔离，由核心框架负责它们之间的消息路由。
 
-详细配置见[数据采集与转发](../configuration/introduction.md)，名称长度、单节点组数、最快采集周期等限制见该页的[配置规范](../configuration/introduction.md#配置规范)。
+详细配置见[数据采集、处理与转发](../configuration/introduction.md)，名称长度、单节点组数、最快采集周期等限制见该页的[配置规范](../configuration/introduction.md#配置规范)。
 
 ## 南向到北向的数据路由
 

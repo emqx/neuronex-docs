@@ -1,4 +1,4 @@
-# Effectively Managing OPC UA Server Tags with EMQX Neuron Tag Browser Feature
+# OPC UA Tag Browser
 
 ## Introduction
 

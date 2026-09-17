@@ -32,7 +32,7 @@ SELECT pressure + 1 AS pressure FROM neuronStream
 | --- | --- |
 | MQTT 服务器地址 | `broker.emqx.io` |
 | 端口 | `1883` |
-| MQTT 主题 | 用动态主题 `{{.node_name}}/{{.group_name}}`，结果会按来源自动分主题 |
+| MQTT 主题 | 用动态主题 <code v-pre>{{.node_name}}/{{.group_name}}</code>，结果会按来源自动分主题 |
 
 提交后规则开始运行。
 

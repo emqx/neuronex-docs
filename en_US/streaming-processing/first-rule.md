@@ -32,7 +32,7 @@ In the **Actions** area, click `Add` and choose **MQTT**:
 | --- | --- |
 | MQTT broker address | `broker.emqx.io` |
 | Port | `1883` |
-| MQTT topic | Use the dynamic topic `{{.node_name}}/{{.group_name}}` so results are split by source |
+| MQTT topic | Use the dynamic topic <code v-pre>{{.node_name}}/{{.group_name}}</code> so results are split by source |
 
 Submit, and the rule starts running.
 

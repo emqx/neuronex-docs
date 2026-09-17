@@ -4,15 +4,34 @@ EMQX Neuron runs on Linux, supporting 32/64-bit ARM and 64-bit x86 architectures
 
 ## Quick install
 
-One command does the whole thing. The script detects your architecture, picks a suitable install method, then downloads and verifies the package:
-
 ```bash
-curl -sL emqx.sh/neuron | bash -
+curl -fsSL emqx.sh/neuron | bash
 ```
 
 ![Output of the one-click installation script](_assets/oneclick-install.png)
 
-The script chooses between `tar.gz`, `.deb`, `.rpm`, and Docker, and verifies the SHA256 checksum when one is published. With `tar.gz`, it installs to `/opt/neuronex` and symlinks `neuronex` into `/usr/local/bin`, so you can start it straight from the command line.
+The script chooses between `.deb`, `.rpm`, `tar.gz`, and Docker, and verifies the SHA256 checksum when one is published. With `tar.gz`, it installs to `/opt/neuronex` and symlinks `neuronex` into `/usr/local/bin`, so you can start it straight from the command line.
+
+### Controlling what the script does
+
+Environment variables steer the script, so there is no need to download a package by hand:
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `INSTALL_METHOD` | `auto` | Force an install method: `deb`, `rpm`, `targz`, or `docker` |
+| `NEURONEX_VERSION` | latest | Install a specific version |
+| `ROOT` | `/opt` | Install root; the product goes to `$ROOT/neuronex` |
+| `BIN_LINK_DIR` | `/usr/local/bin` | Where the executable is symlinked |
+| `DOCKER_IMAGE` | `emqx/neuronex:latest` | Used only with `INSTALL_METHOD=docker` |
+| `DOCKER_PORT` | `8085` | Docker only — host port to publish |
+| `DOCKER_NAME` | `neuronex` | Docker only — container name |
+
+For example, to force a Docker install of a specific version:
+
+```bash
+curl -fsSL emqx.sh/neuron -o install_neuronex.sh
+INSTALL_METHOD=docker NEURONEX_VERSION=3.9.2 bash install_neuronex.sh
+```
 
 ## Choosing an install method
 

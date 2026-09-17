@@ -4,15 +4,34 @@ EMQX Neuron 运行在基于 Linux 的操作系统上，支持 32/64 位 ARM 和 
 
 ## 快速安装
 
-一条命令完成安装。脚本会识别当前系统架构、选择合适的安装方式、下载并校验安装包：
-
 ```bash
-curl -sL emqx.sh/neuron | bash -
+curl -fsSL emqx.sh/neuron | bash
 ```
 
 ![一键安装脚本的运行输出](_assets/oneclick-install.png)
 
-脚本在 `tar.gz`、`.deb`、`.rpm`、Docker 之间自动选择，并在有校验文件时做 SHA256 校验。以 `tar.gz` 为例，默认装到 `/opt/neuronex`，同时把 `neuronex` 软链接到 `/usr/local/bin`，装完即可直接用命令启动。
+脚本在 `.deb`、`.rpm`、`tar.gz`、Docker 之间自动选择，并在有校验文件时做 SHA256 校验。以 `tar.gz` 为例，默认装到 `/opt/neuronex`，同时把 `neuronex` 软链接到 `/usr/local/bin`，装完即可直接用命令启动。
+
+### 指定安装行为
+
+通过环境变量控制脚本，无需手工下载安装包：
+
+| 变量 | 默认值 | 说明 |
+| --- | --- | --- |
+| `INSTALL_METHOD` | `auto` | 指定安装方式，可选 `deb`、`rpm`、`targz`、`docker` |
+| `NEURONEX_VERSION` | 最新版 | 安装指定版本 |
+| `ROOT` | `/opt` | 安装根目录，实际装到 `$ROOT/neuronex` |
+| `BIN_LINK_DIR` | `/usr/local/bin` | 可执行文件软链接目录 |
+| `DOCKER_IMAGE` | `emqx/neuronex:latest` | 仅 `INSTALL_METHOD=docker` 时使用 |
+| `DOCKER_PORT` | `8085` | 仅 Docker 方式，映射到宿主机的端口 |
+| `DOCKER_NAME` | `neuronex` | 仅 Docker 方式，容器名称 |
+
+例如强制用 Docker 方式安装指定版本：
+
+```bash
+curl -fsSL emqx.sh/neuron -o install_neuronex.sh
+INSTALL_METHOD=docker NEURONEX_VERSION=3.9.2 bash install_neuronex.sh
+```
 
 ## 选择安装方式
 

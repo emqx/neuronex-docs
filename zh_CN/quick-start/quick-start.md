@@ -101,12 +101,12 @@ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex
 
 EMQX Neuron 内置了一个 Modbus TCP 模拟器，可直接产生动态数据，无需准备真实 PLC。
 
-1. 进入 **管理 → 系统配置**，选择 `内置 Modbus TCP Server 模拟器` 选项卡。
+1. 进入 **数据采集 → Modbus TCP Slave 模拟器**。
 2. 点击 `启动模拟器`。模拟器默认关闭，不占用资源，需要手动启动。
 3. 添加点位。最多 10 个，模拟类型可选 `正弦波`、`斜波`、`方波`、`随机数`，地址由系统自动分配。
 4. 点击 `保存点位配置`，模拟器开始产生数据。
 
-模拟器监听 `502` 端口，与 EMQX Neuron 在同一容器内，不涉及跨机器网络。完整说明见[内置 Modbus TCP Server 模拟器](../configuration/modbus-simulator.md)。
+模拟器监听 `502` 端口，与 EMQX Neuron 在同一容器内，不涉及跨机器网络。完整说明见[Modbus TCP Slave 模拟器](../configuration/modbus-simulator.md)。
 
 ::: tip 走捷径
 在模拟器页面点击 `下载对应南向驱动配置`，得到的文件里已经包含全部点位。在 **数据采集 → 南向设备** 页导入它，可以直接跳到[第 4 步](#第-4-步-查看采集数据)。想了解驱动、组、点位是怎么配出来的，就按下面第 3 步手动做一遍。

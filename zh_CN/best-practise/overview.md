@@ -25,7 +25,7 @@
 | 设备反控的四条通道与完整示例 | [数据监控与反控](../admin/monitoring.md) |
 | 从 Kepware、Litmus Edge 迁移配置 | [批量配置与迁移](../configuration/bulk-config.md) |
 | 主备部署 | [主备模式](./master-backup.md) |
-| 无设备时验证链路 | [内置 Modbus TCP Server 模拟器](../configuration/modbus-simulator.md) |
+| 无设备时验证链路 | [Modbus TCP Slave 模拟器](../configuration/modbus-simulator.md) |
 
 ## 延伸阅读
 

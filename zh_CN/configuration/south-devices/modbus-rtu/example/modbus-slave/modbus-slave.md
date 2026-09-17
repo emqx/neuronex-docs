@@ -1,4 +1,4 @@
-# Modbus Slave 模拟器连接示例
+# Modbus Slave 模拟器连接示例（RTU）
 
 Modbus Slave 是一款 Modbus 从机模拟器，主要用于 Modbus 主设备开发者在获得物理设备之前，加快 PLC 程序开发与测试。
 

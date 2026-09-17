@@ -1,4 +1,4 @@
-# Modbus Slave 模拟器连接示例
+# Modbus Slave 模拟器连接示例（TCP）
 
 Modbus Slave 是一款 Modbus 从机模拟器，方便 Modbus 主设备开发者在获得物理设备之前，进行 PLC 程序的开发与测试。
 

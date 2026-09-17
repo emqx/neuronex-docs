@@ -83,11 +83,7 @@
 
 **1. 确认网络可达**
 
-在 **管理 → 系统配置** 输入设备 IP，测试 EMQX Neuron 运行环境能否访问该地址：
-
-![network-test](assets/network-test.png)
-
-也可在运行环境直接执行：
+在 EMQX Neuron 的运行环境中执行：
 
 ```bash
 telnet <设备 IP> <端口>

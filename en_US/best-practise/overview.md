@@ -25,7 +25,7 @@ The following are filed under the section they belong to rather than here:
 | The four device control paths, with worked examples | [Data Monitoring and Device Control](../admin/monitoring.md) |
 | Migrating configuration from Kepware or Litmus Edge | [Bulk Configuration and Migration](../configuration/bulk-config.md) |
 | Master-backup deployment | [Master-Backup Mode](./master-backup.md) |
-| Verifying the path without hardware | [Built-in Modbus TCP Server Simulator](../configuration/modbus-simulator.md) |
+| Verifying the path without hardware | [Modbus TCP Slave Simulator](../configuration/modbus-simulator.md) |
 
 ## Further reading
 

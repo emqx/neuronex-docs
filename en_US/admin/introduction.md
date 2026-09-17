@@ -42,7 +42,7 @@ In production, change the default password and create read-only accounts as need
 
 ## Configuration and permissions
 
-- [System Configuration](./sys-configuration.md): data processing engine, SSO, network connection test, tracing, backup and restore
+- [System Configuration](./sys-configuration.md): data processing engine, log level, third-party sign-in, tracing, backup and restore
 - [Startup Parameters and Configuration Files](./conf-management.md): command line, environment variables, configuration files, HTTPS
 - [Data Directory and Persistence](./data-persistence.md): directory layout and mounting
 - [User Management](./user.md): accounts, roles, and permissions

@@ -3,7 +3,7 @@
 EMQX Neuron provides metric monitoring and alert events, for tracking the state of an instance and being notified when something goes wrong.
 
 ::: tip
-Both are **disabled by default** and are currently configured and queried through the HTTP API only; there is no configuration screen in the console. Once configured, the push status can be seen on **Administration → System Information**.
+Both are **disabled by default** and are configured and queried through the HTTP API only; there is no configuration screen in the console. Whether a configuration has taken effect is also checked through the API.
 :::
 
 ## Monitoring metrics
@@ -43,7 +43,3 @@ Alert events can be retrieved two ways:
 | API query | Query the most recent alert events |
 
 For the configuration and query endpoints, see the [Alert Rule API](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html#tag/monitor/operation/AlertRuleConfig).
-
-## Checking push status
-
-**Administration → System Information** shows the current log, monitoring, and alert push status, which confirms whether the configuration has taken effect.

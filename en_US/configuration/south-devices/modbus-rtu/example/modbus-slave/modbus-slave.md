@@ -1,4 +1,4 @@
-# Connect to Modbus Slave
+# Modbus Slave Simulator Connection Example (RTU)
 
 Modbus Slave is a comprehensive simulator designed to accelerate PLC programming and testing. It allows users to begin programming and conducting tests before the arrival of the actual slave device from the supplier. 
 

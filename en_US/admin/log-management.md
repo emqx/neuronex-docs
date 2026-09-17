@@ -1,38 +1,38 @@
 # Log Management
 
+EMQX Neuron prints logs to the local file system and provides log download and level configuration in the console.
 
-EMQX Neuron prints logs to the local file system by default and provides a one-click download button in the Web to obtain the packaged logs.
-Based on the user scenario, here are examples of how to obtain logs.
+## Downloading logs
 
-## Debug log of node
+Click the **Download logs** icon at the top right of the page to export a single archive containing all logs. The entry point is visible on every page, so there is no need to leave the page you are diagnosing.
 
-EMQX Neuron supports the debug log of a data collection node. There is a `DEBUG log` button of each node, as shown in the figure below. Click to set the log level to debug.
-![debug](./assets/neuron_node_debug_en.png)
+The archive contains three parts:
 
-At this time, the node starts to store debug logs. Users can choose to download the logs by the `Download Driver Log` button and view the logs of the corresponding node. 
+| Source | Directory | Contents |
+| --- | --- | --- |
+| Collection engine | `log/neuron/` | `neuron.log` plus a separate log per configured driver, such as `modbus-plus-tcp.log` and `dlt645.log` |
+| Data processing engine | `log/ekuiper/` | `stream.log` and others |
+| EMQX Neuron | `log/neuronex/` | `neuronex.log`, `monitor.log` |
+
+## Log level
+
+Set the log level for EMQX Neuron and for the collection engine on **Administration → System Configuration → Log level**. The Debug level prints extensive diagnostic detail; higher levels print less.
 
 ::: tip
-When enabling the node debug log, a lot of redundant log will be printed and it will have a certain impact on performance. When it is not needed, it must be closed in time.
+The log level is **not persisted** and returns to the default after EMQX Neuron restarts. Debug affects performance, so raise the level again once the investigation is finished.
 :::
 
-## Log Management
+## Debug log of a driver node
 
-EMQX Neuron supports the function of one-click download of all log files on the web page. After logging in to EMQX Neuron, click **Administration** -> **Logs** on the left side of the page to enter the log management page.
-![image](./assets/log_manage_en.png)
+Besides the global log level, the debug log of a single driver node can be enabled on its own. On the driver card, click `More` -> `Enable DEBUG log` to set that node's level to debug:
 
-In the log download section, click the **Download Data Collection Engine Log** button to download the log of the data collection module (Neuron).
-If the existing log information cannot meet the needs, in the log configuration section, you can dynamically set the log level. The Debug level will print a large amount of debugging information, which is helpful for engineers to debug and analyze program failures. As the log level increases, the information printed by the log will The less.
-Note that this log level setting will not be persistent and will be restored to the default log level after EMQX Neuron is restarted. Printing too many logs will have a certain impact on performance, so it needs to be adjusted to a higher level in time.
+![debug](./assets/neuron_node_debug_en.png)
 
-### Data Collection Engine Log
+Then click `Download Driver Log` on the same node to download that node's log file alone.
 
-Let me explain the data collection engine log mentioned earlier. Its function is to package the /opt/neuronex/software/neuron/logs folder into a neuron_debug.tar.gz file and download it to the web page. The file contains all created driver and neuron log files. An example of the file directory level is as shown in the figure below.
-<img src="./assets/neuron_logs.png" alt="neuron_logs" style="zoom:50%;" />
-
-* data-stream-processing.log：Data processing configuration
-* dlt645.log： Northbound application configuration
-* modbus-plus-tcp.log：Southbound device configuration
-* neuron.log：Neuron Log
+::: tip
+Node debug logs print a great deal of redundant detail and affect performance. Click `Disable DEBUG log` once the investigation is finished.
+:::
 
 ## View logs in the backend
 
@@ -41,25 +41,25 @@ n addition to downloading logs on the front end, users can also observe log outp
 The command to view the data mining engine log is
 
 ```shell
- tail -f tail -f /opt/neuronex/software/neuron/logs/neuron.log
+ tail -f /opt/neuronex/log/neuron/neuron.log
 ```
 
 The command to view the log of a southbound node of the data mining engine is
 
 ```shell
- tail -f tail -f modbus-plus-tcp.log
+ tail -f /opt/neuronex/log/neuron/modbus-plus-tcp.log
 ```
 
 The command to view the data processing engine log is
 
 ```shell
-  tail -f /opt/neuronex/software/ekuiper/log/stream.log
+  tail -f /opt/neuronex/log/ekuiper/stream.log
 ```
 
 The EMQX Neuron log viewing command is
 
 ```shell
-  tail -f /opt/neuronex/log/neuronex.log 
+  tail -f /opt/neuronex/log/neuronex/neuronex.log
 ```
 
 If deployed through Docker, the command to view the log is ``docker exec <container_name> <command>``
@@ -67,7 +67,7 @@ If deployed through Docker, the command to view the log is ``docker exec <contai
 The command to view the data mining engine log is
 
 ```shell
- docker exec neuronex tail -f /opt/neuronex/software/neuron/logs/neuron.log
+ docker exec neuronex tail -f /opt/neuronex/log/neuron/neuron.log
 ```
 
 ## EMQX Neuron Exception Exit Log

@@ -79,13 +79,18 @@ if __name__ == '__main__':
         md_file_list += get_md_files(config_dict['cn'], 'zh_CN')
         md_file_list += get_md_files(config_dict['en'], 'en_US')
 
-        for file_path, dir_list, file_list in os.walk(docs_path):
-            for file_name in file_list:
-                if file_name.split('.')[-1] != 'md':
-                    continue
-                md_path = os.path.join(file_path, file_name)
-                if md_path not in md_file_list:
-                    os.remove(md_path)
+        # 只清理语言目录内的 md，避免误删仓库根目录的 README 等文件
+        for lang_dir in ('zh_CN', 'en_US'):
+            lang_path = os.path.join(docs_path, lang_dir)
+            if not os.path.isdir(lang_path):
+                continue
+            for file_path, dir_list, file_list in os.walk(lang_path):
+                for file_name in file_list:
+                    if file_name.split('.')[-1] != 'md':
+                        continue
+                    md_path = os.path.join(file_path, file_name)
+                    if md_path not in md_file_list:
+                        os.remove(md_path)
 
         for file in md_file_list:
             check_md_content(file)

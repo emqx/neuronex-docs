@@ -6,14 +6,7 @@
     },
     {
       "title": "快速入门",
-      "path": "quick-start/quick-start",
-      "collapsed": true,
-      "children": [
-        {
-          "title": "内置 Modbus TCP Server 模拟器",
-          "path": "configuration/modbus-simulator"
-        }
-      ]
+      "path": "quick-start/quick-start"
     },
     {
       "title": "安装与部署",
@@ -94,6 +87,10 @@
               "path": "best-practise/device-control"
             }
           ]
+        },
+        {
+          "title": "Modbus TCP Slave 模拟器",
+          "path": "configuration/modbus-simulator"
         },
         {
           "title": "在转发前处理数据",
@@ -246,7 +243,7 @@
                   "path": "configuration/south-devices/modbus-rtu/example/dtu/dtu-connection"
                 },
                 {
-                  "title": "Modbus Slave 模拟器连接示例",
+                  "title": "Modbus Slave 模拟器连接示例（RTU）",
                   "path": "configuration/south-devices/modbus-rtu/example/modbus-slave/modbus-slave"
                 },
                 {
@@ -261,7 +258,7 @@
               "collapsed": true,
               "children": [
                 {
-                  "title": "Modbus Slave 模拟器连接示例",
+                  "title": "Modbus Slave 模拟器连接示例（TCP）",
                   "path": "configuration/south-devices/modbus-tcp/example/modbus-slave/modbus-slave"
                 },
                 {
@@ -653,6 +650,10 @@
               "path": "configuration/south-devices/bacnet-ip/bacnet-ip",
               "collapsed": true,
               "children": [
+                {
+                  "title": "设备扫描",
+                  "path": "configuration/south-devices/bacnet-ip/scan"
+                },
                 {
                   "title": "Yabe 连接示例",
                   "path": "configuration/south-devices/bacnet-ip/example/yabe"
@@ -1223,14 +1224,7 @@
     },
     {
       "title": "Quick Start",
-      "path": "quick-start/quick-start",
-      "collapsed": true,
-      "children": [
-        {
-          "title": "Built-in Modbus TCP Server Simulator",
-          "path": "configuration/modbus-simulator"
-        }
-      ]
+      "path": "quick-start/quick-start"
     },
     {
       "title": "Installation and Deployment",
@@ -1311,6 +1305,10 @@
               "path": "best-practise/device-control"
             }
           ]
+        },
+        {
+          "title": "Modbus TCP Slave Simulator",
+          "path": "configuration/modbus-simulator"
         },
         {
           "title": "Processing Data Before Forwarding",
@@ -1463,7 +1461,7 @@
                   "path": "configuration/south-devices/modbus-rtu/example/dtu/dtu-connection"
                 },
                 {
-                  "title": "Connect to Modbus Slave",
+                  "title": "Modbus Slave Simulator Connection Example (RTU)",
                   "path": "configuration/south-devices/modbus-rtu/example/modbus-slave/modbus-slave"
                 },
                 {
@@ -1478,7 +1476,7 @@
               "collapsed": true,
               "children": [
                 {
-                  "title": "Connect to Modbus Slave",
+                  "title": "Modbus Slave Simulator Connection Example (TCP)",
                   "path": "configuration/south-devices/modbus-tcp/example/modbus-slave/modbus-slave"
                 },
                 {
@@ -1870,6 +1868,10 @@
               "path": "configuration/south-devices/bacnet-ip/bacnet-ip",
               "collapsed": true,
               "children": [
+                {
+                  "title": "Device Scan",
+                  "path": "configuration/south-devices/bacnet-ip/scan"
+                },
                 {
                   "title": "Connect to Yabe",
                   "path": "configuration/south-devices/bacnet-ip/example/yabe"

@@ -42,7 +42,7 @@ systemctl status neuronex        # 服务是否在运行
 
 ## 配置与权限
 
-- [系统配置](./sys-configuration.md)：数据处理引擎、单点登录、网络连接测试、链路追踪、备份与恢复
+- [系统配置](./sys-configuration.md)：数据处理引擎、日志级别、第三方登录、链路追踪、备份与恢复
 - [启动参数与配置文件](./conf-management.md)：命令行、环境变量、配置文件、HTTPS
 - [数据目录与持久化](./data-persistence.md)：数据目录结构与挂载方式
 - [用户管理](./user.md)：账号、角色与权限

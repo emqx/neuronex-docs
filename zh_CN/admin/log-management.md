@@ -1,54 +1,38 @@
 # 日志管理
 
+EMQX Neuron 将日志打印到本地文件系统，并在控制台提供日志下载与级别配置。
 
-EMQX Neuron 默认将日志打印到本地文件系统中，并在 Dashboard 上提供日志管理功能。
+## 下载日志
+
+点击页面右上角的**下载日志**图标，导出一个包含全部日志的压缩包。该入口在任意页面都可见，排障时不必离开当前页面。
+
+压缩包包含三部分：
+
+| 来源 | 目录 | 内容 |
+| --- | --- | --- |
+| 数采引擎 | `log/neuron/` | `neuron.log` 核心日志，以及每个已创建驱动的独立日志（如 `modbus-plus-tcp.log`、`dlt645.log`） |
+| 数据处理引擎 | `log/ekuiper/` | `stream.log` 等 |
+| EMQX Neuron | `log/neuronex/` | `neuronex.log`、`monitor.log` |
+
+## 日志级别
+
+在 **管理 → 系统配置 → 日志级别** 分别设置 EMQX Neuron 与数采引擎的日志级别。Debug 级别打印大量调试信息，便于定位故障；级别越高打印越少。
+
+::: tip
+日志级别设置**不会持久化**，EMQX Neuron 重启后恢复默认级别。Debug 级别对性能有影响，排查结束后请及时调回。
+:::
 
 ## 数采驱动 Debug 日志
 
-EMQX Neuron 数采驱动支持开启/关闭某个驱动节点的 debug 日志，方便用户调试驱动，点击驱动节点的 `更多` -> `开启DEBUG日志`，即可将日志级别设置为 debug，如下图所示。
+除全局日志级别外，还可以单独打开某个驱动节点的 debug 日志。在驱动卡片上点击 `更多` -> `开启DEBUG日志`，该节点的日志级别即设为 debug：
+
 ![调试节点](./assets/neuron_node_debug_zh.png)
 
-此时，该驱动节点开始打印 debug 日志，用户点击该驱动节点下的`下载驱动日志`，即可将日志文件下载到本地。
+随后点击该节点的 `下载驱动日志`，可单独下载这一个节点的日志文件。
 
-::: tip 注意
-打印节点 debug 日志时会打印很多冗余信息并对性能产生一定影响，当不需要时，请点击`关闭DEBUG日志`及时关闭。
+::: tip
+节点 debug 日志会打印大量冗余信息并影响性能，排查结束后请点击 `关闭DEBUG日志` 及时关闭。
 :::
-
-## 日志管理
-
-EMQX Neuron 支持在 Dashboard 页面一键下载所有日志文件的功能。登录 EMQX Neuron 后，点击页面左侧的 **管理** -> **日志**， 进入日志管理界面。
-![如图所示](./assets/log_manage_zh.png)
-
-### 日志下载
-
-在日志下载部分，支持下载 **数采引擎日志**、**数据处理引擎日志**、**EMQX Neuron 系统日志**。
-
-以 **下载数采引擎日志** 为例，该功能是把 `/opt/neuronex/software/neuron/logs` 的文件夹打包成 neuron_debug.tar.gz 文件并下载到本地。文件包含所有已创建的驱动及 neuron 核心的日志文件，文件目录级别如下图所示。
-
-<img src="./assets/neuron_logs.png" alt="neuron_logs" style="zoom:50%;" />
-
-  * data-stream-processing.log：数据处理节点日志
-  * dlt645.log：驱动日志
-  * modbus-plus-tcp.log：驱动日志
-  * neuron.log：Neuron 核心日志
-
-### 日志配置
-
-  如果现有日志信息不能满足需要， 在日志配置部分，可以动态设置日志级别，其中 Debug 级别将打印大量调试信息，有助于工程师调试分析程序故障，随着日志级别的升高，日志打印的信息越少。
-
-:::tip  注意
-
-注意此日志级别设置不会持久化，在 EMQX Neuron 重启后将恢复默认日志级别, 日志打印过多会对性能有一定影响，因此需要及时调整到较高级别。
-
-:::
-
-<!-- ## 日志监控
-EMQX Neuron 支持实时查看日志信息。登录 EMQX Neuron 后，点击页面左侧的 **管理** -> **日志**， 进入日志监控界面。
-![如图所示](./assets/log_monitor_zh.png)
-
-### 日志过滤
-支持对服务类型和日志级别进行过滤。服务类型支持 All、EMQX Neuron、数据处理引擎，日志级别支持 All、Debug、Info、Notice、Warn、Error、Fatal。
-![如图所示](./assets/log_monitor_filter_zh.png) -->
 
 ## 后台查看日志
 
@@ -57,25 +41,25 @@ EMQX Neuron 支持实时查看日志信息。登录 EMQX Neuron 后，点击页�
 数采引擎日志查看命令为
 
 ```shell
- tail -f tail -f /opt/neuronex/software/neuron/logs/neuron.log
+ tail -f /opt/neuronex/log/neuron/neuron.log
 ```
 
 数采引擎某南向节点日志查看命令为
 
 ```shell
- tail -f tail -f modbus-plus-tcp.log
+ tail -f /opt/neuronex/log/neuron/modbus-plus-tcp.log
 ```
 
 数据处理模块日志查看命令为
 
 ```shell
-  tail -f /opt/neuronex/software/ekuiper/log/stream.log
+  tail -f /opt/neuronex/log/ekuiper/stream.log
 ```
 
 EMQX Neuron 日志查看命令为
 
 ```shell
-  tail -f /opt/neuronex/log/neuronex.log 
+  tail -f /opt/neuronex/log/neuronex/neuronex.log
 ```
 
 如果通过 Docker 部署，那么查看日志的命令为 ``docker exec <container_name> <command>``
@@ -83,7 +67,7 @@ EMQX Neuron 日志查看命令为
 数采引擎日志查看命令为
 
 ```shell
- docker exec neuronex tail -f /opt/neuronex/software/neuron/logs/neuron.log
+ docker exec neuronex tail -f /opt/neuronex/log/neuron/neuron.log
 ```
 
 ## EMQX Neuron 异常退出日志

@@ -30,9 +30,23 @@ EMQX Neuron 支持在 Dashboard 上对相关功能进行配置修改。
 
 :::
 
-## 单点登录配置
+## 日志级别
 
-EMQX Neuron 使用 OAuth2.0 协议实现单点登录功能。
+分别设置 EMQX Neuron 与数采引擎的日志级别。Debug 级别打印大量调试信息，便于定位故障；级别越高打印越少。
+
+日志级别设置不会持久化，重启后恢复默认级别。日志的下载入口在页面右上角，详见[日志管理](./log-management.md)。
+
+## 第三方登录
+
+EMQX Neuron 支持对接标准的 OAuth 2.0 授权服务器，让用户使用第三方账号登录控制台。填写授权端点、Token 端点、Client ID、Client Secret、Scope、Grant Type、请求方法与 Content-Type 后启用即可，任何符合 OAuth 2.0 的提供方都能接入。
+
+::: warning 登录后为管理员权限
+通过第三方登录进入的用户一律以**管理员**身份登录。EMQX Neuron 只验证第三方授权是否通过，不读取第三方返回的用户身份，也不做角色映射。
+
+这意味着**第三方授权服务器的授权范围，就等于 EMQX Neuron 的管理员范围**。启用前请确认第三方侧已按管理员标准限制可登录的人员。
+:::
+
+下面以两个平台为例，其他提供方的配置方式相同。
 
 ### 天翼物联
 
@@ -75,16 +89,6 @@ Overview -> Endpoints 页面获取授权终端 URL 和 Token 中端 URL。
 授权范围（Scope）、授权方式（Grant Type）、请求方法（Request Method）和内容类型（Content Type）字段需要根据平台要求填写。
 
 :::
-
-## 网络连接测试
-
-输入设备的 IP，确认 EMQX Neuron 运行环境能否访问到设备的 IP 地址：
-
-![alt text](./_assets/network-test.png)
-
-## 内置 Modbus TCP Server 模拟器
-
-在 `内置 Modbus TCP Server 模拟器` 选项卡中启动模拟器、配置模拟点位，并下载对应的南向驱动配置，用于在无硬件环境下验证采集链路。详见[内置 Modbus TCP Server 模拟器](../configuration/modbus-simulator.md)。
 
 ## 备份与恢复
 

@@ -23,9 +23,23 @@ When the metrics collection is enabled, on the **Logs** -> **Log Management** pa
 
 ![metrics_en](assets/metrics_en.png)
 
-## SSO Configuration
+## Log level
 
-EMQX Neuron utilizes the OAuth 2.0 protocol to implement single sign-on functionality.
+Set the log level for EMQX Neuron and for the collection engine. The Debug level prints extensive diagnostic detail; higher levels print less.
+
+The log level is not persisted and returns to the default after a restart. Logs are downloaded from the icon at the top right of the page — see [Log Management](./log-management.md).
+
+## Third-party sign-in
+
+EMQX Neuron can delegate console sign-in to any standard OAuth 2.0 authorization server. Fill in the authorization endpoint, token endpoint, client ID, client secret, scope, grant type, request method, and content type, then enable it; any OAuth 2.0-compliant provider works.
+
+::: warning Users sign in with administrator rights
+Everyone who signs in through a third-party provider is granted **administrator** rights. EMQX Neuron only verifies that the third-party authorization succeeded; it does not read the user identity returned by the provider and performs no role mapping.
+
+This means **the authorization scope on the third-party side is the administrator scope of EMQX Neuron**. Before enabling it, confirm that the provider restricts sign-in to people who should hold administrator rights.
+:::
+
+Two platforms are used as examples below; other providers are configured the same way.
 
 ### AIoT
 
@@ -66,16 +80,6 @@ On the EMQX Neuron page, you need to configure the SSO service access address an
 The fields for Scope, Grant Type, Request Method, and Content Type need to be filled out according to the platform requirements.
 
 :::
-
-## Network Connection Test
-
-Enter the device IP to confirm whether EMQX Neuron can access the device IP address:
-
-![alt text](./_assets/network-test.png)
-
-## Built-in Modbus TCP Server Simulator
-
-The `Built-in Modbus TCP Server Simulator` tab starts the simulator, configures simulated tags, and downloads a matching southbound driver configuration, so the collection path can be verified without hardware. See [Built-in Modbus TCP Server Simulator](../configuration/modbus-simulator.md).
 
 ## Backup and Restore
 

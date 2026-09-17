@@ -1,4 +1,4 @@
-# Built-in Modbus TCP Server Simulator
+# Modbus TCP Slave Simulator
 
 ## Introduction
 
@@ -24,11 +24,11 @@ Typical application scenarios:
 
 ### Starting the Simulator
 
-In the EMQX Neuron Management -> System Configuration page, select the `Built-in Modbus TCP Server Simulator` tab, and click the `Start Simulator` button to start the simulator. After the simulator starts, you still need to configure tags information. Please refer to [Adding Tags in the Simulator](#adding-tags-in-the-simulator).
+On **Data Collection → Modbus TCP Slave Simulator**, click `Start Simulator`. After the simulator starts, you still need to configure tags information. Please refer to [Adding Tags in the Simulator](#adding-tags-in-the-simulator).
 
 ::: tip
 
-After EMQX Neuron is installed and started by default, the built-in Modbus TCP Server simulator is in a stopped state and does not consume any system resources. It needs to be started manually.
+After EMQX Neuron is installed and started by default, the Modbus TCP Slave simulator is in a stopped state and does not consume any system resources. It needs to be started manually.
 
 :::
 

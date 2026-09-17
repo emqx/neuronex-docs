@@ -101,12 +101,12 @@ Open `http://127.0.0.1:8085` in a browser and sign in with the default account *
 
 EMQX Neuron ships with a Modbus TCP simulator that produces live data, so you do not need a real PLC to get started.
 
-1. Go to **Administration → System Configuration** and open the `Built-in Modbus TCP Server Simulator` tab.
+1. Go to **Data Collection → Modbus TCP Slave Simulator**.
 2. Click `Start Simulator`. The simulator is off by default and consumes no resources until you start it.
 3. Add tags — up to 10, with simulation types `sine`, `ramp`, `square`, or `random`. Addresses are assigned automatically.
 4. Click `Save Tag Configuration`. The simulator starts producing data.
 
-The simulator listens on port `502` inside the same container as EMQX Neuron, so there is no cross-machine networking involved. For full details, see [Built-in Modbus TCP Server Simulator](../configuration/modbus-simulator.md).
+The simulator listens on port `502` inside the same container as EMQX Neuron, so there is no cross-machine networking involved. For full details, see [Modbus TCP Slave Simulator](../configuration/modbus-simulator.md).
 
 ::: tip Shortcut
 On the simulator page, click `Download Southbound Driver Configuration`. The file already contains every tag. Import it on the **Data Collection → South Devices** page and you can skip straight to [Step 4](#step-4-view-the-collected-data). Work through Step 3 manually to see how drivers, groups, and tags fit together.

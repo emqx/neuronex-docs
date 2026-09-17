@@ -83,11 +83,7 @@ When the link state stays **Disconnected**, work through the following.
 
 **1. Confirm the network is reachable**
 
-On **Administration → System Configuration**, enter the device IP to test whether the EMQX Neuron host can reach it:
-
-![network-test](assets/network-test.png)
-
-You can also run this on the host directly:
+Run this on the EMQX Neuron host:
 
 ```bash
 telnet <device IP> <port>

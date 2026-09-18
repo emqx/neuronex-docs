@@ -97,7 +97,7 @@ To subtract a time interval, you can prepend a `-` sign before the `duration`.
 
 For example, `-1h30m` represents subtracting 1 hour 30 minutes.
 
-Here are some examples for the `duration`：
+Here are some examples for the `duration`:
 
 ```text
 date_calc('2019-01-01', '1h')

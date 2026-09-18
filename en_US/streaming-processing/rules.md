@@ -19,7 +19,7 @@ In the EMQX Neuron dashboard, click **Data Processing** -> **Rules**. Click the 
 
 - Name: Enter the rule name
 
-- Enable：Run the rule immediately after creating it
+- Enable: Run the rule immediately after creating it
 
 - Enter rule SQL,for example:
 
@@ -143,9 +143,16 @@ Multiple rules can form a processing pipeline by specifying sink/source union po
 
 ## Incremental Computation
 
-When using data processing functions to perform aggregate calculations on data within a window, the default implementation method is to segment the continuous stream data into windows according to the window definition and cache it in memory. After the window ends, all data in the window is aggregated for calculation. One problem with this method is that when the data has not been aggregated for calculation, caching in memory can easily cause memory expansion and lead to OOM (Out of Memory) issues.
-For detailed information about incremental computation, please refer to [Incremental Computation](https://ekuiper.org/docs/en/latest/guide/rules/incremental.html)
+By default, an aggregate over a window caches the whole window in memory and computes once the window closes. With a large window or a high message rate, that pending data inflates memory use and can end in an out-of-memory failure.
 
-To enable incremental computation in rules, please enable it in the rule options.
+Some aggregates do not need the raw data. For `avg`, each incoming record only has to update two intermediate values, sum and count, which are divided when the window closes. Incremental computation replaces the default implementation with that approach: each record is folded in as it arrives, and the window holds only the intermediate state.
 
-![alt text](_assets/incremental_calc.png)
+The SQL does not change — you still write `count()`, `sum()`, and `avg()`. Whether the incremental path is taken is decided by the execution plan.
+
+Turn on **Enable Incremental Calculation** in the rule options:
+
+![The Enable Incremental Calculation switch in the rule options](_assets/incremental_calc.png)
+
+::: tip
+Incremental computation requires the rule to have both a time window and an aggregate that supports it. If the SQL contains an aggregate that does not — `stddev`, for example — the whole rule falls back to the default window implementation and the switch has no effect.
+:::

@@ -36,7 +36,7 @@ EMQX Neuron is an industrial edge gateway software designed specifically for ind
 
 ### Core Advantages
 
-1. **100+ Industrial Protocols Out of the Box**
+1. **70+ Industrial Protocols Out of the Box**
 
    - Modbus TCP/RTU, OPC UA, Siemens S7, Ethernet/IP, BACnet, IEC 60870-5-104, DNP3...
 
@@ -262,7 +262,7 @@ Congratulations! You have completed the complete data pipeline from **Modbus PLC
 
 ## Advanced: Support for More PLC Protocols
 
-The example above uses a **Modbus** simulator for data collection. **EMQX Neuron** supports `100+` industrial protocols. For a complete tutorial on collecting data from **Siemens S7-1200 PLC** using **EMQX Neuron** and sending it to **MQTT**, please refer to: [Connecting Siemens S7-1200 PLC to MQTT in 10 Minutes](https://www.emqx.com/en/blog/connecting-siemens-s7-1200-plc-to-mqtt)
+The example above uses a **Modbus** simulator for data collection. **EMQX Neuron** supports `70+` industrial protocols. For a complete tutorial on collecting data from **Siemens S7-1200 PLC** using **EMQX Neuron** and sending it to **MQTT**, please refer to: [Connecting Siemens S7-1200 PLC to MQTT in 10 Minutes](https://www.emqx.com/en/blog/connecting-siemens-s7-1200-plc-to-mqtt)
 
 ## Advanced: Edge Data Processing
 
@@ -328,7 +328,7 @@ WHERE values.temperature > 80
 
 Connecting **PLCs** to **MQTT** should not be a complex, expensive, and time-consuming project. **EMQX Neuron** simplifies the entire process in the following ways:
 
-✅ **100+ protocols out of the box**: No need to write drivers for each **PLC**
+✅ **70+ protocols out of the box**: No need to write drivers for each **PLC**
 
 ✅ **Zero-code configuration**: Visual **Web** interface operations, complete configuration in 10 minutes
 

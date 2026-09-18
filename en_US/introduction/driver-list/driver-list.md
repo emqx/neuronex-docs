@@ -20,7 +20,7 @@ For the generic setup steps, see [Create a Southbound Driver](../../configuratio
 | <div style="width:120pt">Protocol Name</div>    | <div style="width:100pt">Communication Interface</div> | <div style="width:40pt">Remark</div> |
 | ------------------------------------------------------------ | ------ | ---- |
 | [CIP Ethernet/IP](../../configuration/south-devices/ethernet-ip/ethernet-ip.md)         | Ethernet  | - |
-| [Siemens S7 ISO TCP](../../configuration/south-devices/siemens-s7/s7.md)                                          | Ethernet    | connect to Siemens S200、S200smart、S1200、S1500 PLC |
+| [Siemens S7 ISO TCP](../../configuration/south-devices/siemens-s7/s7.md)                                          | Ethernet    | connect to Siemens S200, S200smart, S1200, S1500 PLC |
 | [Siemens S7 ISOTCP for 300/400](../../configuration/south-devices/siemens-s7/s7.md) | Ethernet  | s7-300/400 |
 | [Siemens MPI](../../configuration/south-devices/siemens-mpi/mpi.md) | Serial port  | Connect to devices that support Siemens MPI protocol |
 | [Siemens S5 FetchWrite](../../configuration/south-devices/siemens-fetchwrite/fetchwrite.md) | Ethernet  | connect to Siemens PLCs with network expansion module CP443 |
@@ -39,15 +39,15 @@ For the generic setup steps, see [Create a Southbound Driver](../../configuratio
 | [Omron Host Link](../../configuration/south-devices/hostlink/hostlink-cmode.md)                      | Serial port    |   connect to Omron PLC with HostLink Cmode |
 | [Omron FINS on TCP](../../configuration/south-devices/omron-fins/omron-fins.md)         | Ethernet  |  connect to Omron PLC with FINS TCP |
 | [Omron FINS on UDP](../../configuration/south-devices/omron-fins/omron-fins-udp.md)                     | Ethernet  | connect to Omron PLC with FINS UDP  |
-| [Mitsubishi 1E](../../configuration/south-devices/mitsubishi-1e/mitsubishi-1e.md)           | Ethernet  |  connect to Mitsubishi A series、FX3U、FX3G、iQ-F series PLC |
-| [Mitsubishi 3E](../../configuration/south-devices/mitsubishi-3e/overview.md)           | Ethernet  |  connect to Mitsubishi Q series（MC）、iQ-F series（SLMP）and iQ-L series PLC |
+| [Mitsubishi 1E](../../configuration/south-devices/mitsubishi-1e/mitsubishi-1e.md)           | Ethernet  |  connect to Mitsubishi A series, FX3U, FX3G, iQ-F series PLC |
+| [Mitsubishi 3E](../../configuration/south-devices/mitsubishi-3e/overview.md)           | Ethernet  |  connect to Mitsubishi Q series (MC), iQ-F series (SLMP) and iQ-L series PLC |
 | [Mitsubishi 4E](../../configuration/south-devices/mitsubishi-4e/overview.md)           | Ethernet  |  connect to Mitsubishi iQ-F Series (SLMP), and iQ-R Series PLC |
-| [Mitsubishi FX](../../configuration/south-devices/mitsubishi-fx/overview.md)           | Serial port    |  connect to Mitsubishi FX0、FX2、FX3 series PLC |
-| [Panasonic Mewtocol](../../configuration/south-devices/panasonic-mewtocol/overview.md)      | Ethernet    |  connect to Panasonic FP-XH、FP0H series PLC |
+| [Mitsubishi FX](../../configuration/south-devices/mitsubishi-fx/overview.md)           | Serial port    |  connect to Mitsubishi FX0, FX2, FX3 series PLC |
+| [Panasonic Mewtocol](../../configuration/south-devices/panasonic-mewtocol/overview.md)      | Ethernet    |  connect to Panasonic FP-XH, FP0H series PLC |
 | [Beckhoff ADS](../../configuration/south-devices/ads/ads.md)            | Ethernet  |  connect to Beckhoff TwinCAT PLC |
 | [Keyence CIP Ethernet/IP](../../configuration/south-devices/ethernet-ip/ethernet-ip.md)                                      | Ethernet  |  - |
 | [Keyence MC Protocol](../../configuration/south-devices/mitsubishi-3e/overview.md)                                          | Ethernet  |  Mitsubishi MC Protocol |
-| [Delta Modbus TCP](../../configuration/south-devices/modbus-tcp/modbus-tcp.md)                  | Ethernet    |   connect to Delta DVP series、AS series PLC |
+| [Delta Modbus TCP](../../configuration/south-devices/modbus-tcp/modbus-tcp.md)                  | Ethernet    |   connect to Delta DVP series, AS series PLC |
 | [KUKA Ethernet KRL TCP](../../configuration/south-devices/kuka/kuka.md)                        | Ethernet    |  connect to Kuka Devices|
 | [GE SRTP](../../configuration/south-devices/srtp/srtp.md)      | Ethernet    |  Access GE PLC devices that support SRTP protocol through TCP protocol. |
 | [MTConnect](../../configuration/south-devices/mtconnect/mtconnect.md)          | Ethernet    |  Access devices installed with MTConnect Agent through the HTTP protocol. |

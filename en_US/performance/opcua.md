@@ -9,7 +9,7 @@ In the scenario where OPC UA driver connects to devices for large-scale data col
 
 ## Test Environment and Testing Tools
 
-- **Prosys OPC UA Simulation Server** ：This software is an advanced simulation tool developed by Prosys OPC, specifically designed for the development, testing, and educational training of OPC UA (OPC Unified Architecture) technology. OPC UA is an open, standardized communication protocol widely used in the fields of industrial automation and smart manufacturing. It supports cross-platform, cross-language data exchange and provides high levels of security and reliability.
+- **Prosys OPC UA Simulation Server**: This software is an advanced simulation tool developed by Prosys OPC, specifically designed for the development, testing, and educational training of OPC UA (OPC Unified Architecture) technology. OPC UA is an open, standardized communication protocol widely used in the fields of industrial automation and smart manufacturing. It supports cross-platform, cross-language data exchange and provides high levels of security and reliability.
 
 - Hardware resources of the Linux machine deployed with EMQX Neuron:
 
@@ -83,15 +83,15 @@ If using EMQX Neuron data processing functions for data cleaning and filtering, 
 
 EMQX Neuron is configured with 1 OPC UA driver, which includes 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 10,000 data points.
 
-- Memory Usage ：172MB
+- Memory Usage: 172MB
 
 ![alt text](_assets/opcua-memory1.png)
 
-- CPU Usage ：7%
+- CPU Usage: 7%
 
 ![alt text](_assets/opcua-cpu1.png)
 
-- Network IO ：receive:147KB/s;  transmit:186KB/s
+- Network IO: receive:147KB/s;  transmit:186KB/s
 
 ![alt text](_assets/opcua-io1-1.png)
 ![alt text](_assets/opcua-io1-2.png)
@@ -101,15 +101,15 @@ EMQX Neuron is configured with 1 OPC UA driver, which includes 10 collection gro
 
 EMQX Neuron is configured with 5 OPC UA drivers, each driver including 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 50,000 data points.
 
-- Memory Usage ：323MB
+- Memory Usage: 323MB
 
 ![alt text](_assets/opcua-memory2.png)
 
-- CPU Usage ：31%
+- CPU Usage: 31%
 
 ![alt text](_assets/opcua-cpu2.png)
 
-- Network IO ：receive: 738KB/s;  transmit: 934KB/s
+- Network IO: receive: 738KB/s;  transmit: 934KB/s
 
 ![alt text](_assets/opcua-io2-1.png)
 ![alt text](_assets/opcua-io2-2.png)
@@ -119,15 +119,15 @@ EMQX Neuron is configured with 5 OPC UA drivers, each driver including 10 collec
 
 EMQX Neuron is configured with 10 OPC UA drivers, each driver including 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 100,000 data points.
 
-- Memory Usage ：594MB
+- Memory Usage: 594MB
 
 ![alt text](_assets/opcua-memory3.png)
 
-- CPU Usage ：60%
+- CPU Usage: 60%
 
 ![alt text](_assets/opcua-cpu3.png)
 
-- Network IO ：receive: 1.49MB/s; transmit: 1.88MB/s
+- Network IO: receive: 1.49MB/s; transmit: 1.88MB/s
 
 ![alt text](_assets/opcua-io3-1.png)
 ![alt text](_assets/opcua-io3-2.png)
@@ -138,15 +138,15 @@ EMQX Neuron is configured with 10 OPC UA drivers, each driver including 10 colle
 
 EMQX Neuron is configured with 1 OPC UA driver, each driver including 1 collection group, each group collecting 1,000 Float type data points every 100 milliseconds, totaling 1,000 data points.
 
-- Memory Usage ：140MB
+- Memory Usage: 140MB
 
 ![alt text](_assets/opcua-memory4.png)
 
-- CPU Usage ：4%
+- CPU Usage: 4%
 
 ![alt text](_assets/opcua-cpu4.png)
 
-- Network IO ：receive: 148KB/s; transmit: 188KB/s
+- Network IO: receive: 148KB/s; transmit: 188KB/s
 
 ![alt text](_assets/opcua-io4-1.png)
 ![alt text](_assets/opcua-io4-2.png)
@@ -157,15 +157,15 @@ EMQX Neuron is configured with 1 OPC UA driver, each driver including 1 collecti
 
 EMQX Neuron is configured with 5 OPC UA drivers, each driver including 1 collection group, each group collecting 1,000 Float type data points every 100 milliseconds, totaling 5,000 data points.
 
-- Memory Usage ：162MB
+- Memory Usage: 162MB
 
 ![alt text](_assets/opcua-memory5.png)
 
-- CPU Usage ：20%
+- CPU Usage: 20%
 
 ![alt text](_assets/opcua-cpu5.png)
 
-- Network IO ：receive: 741KB/s; transmit: 939KB/s
+- Network IO: receive: 741KB/s; transmit: 939KB/s
 
 ![alt text](_assets/opcua-io5-1.png)
 ![alt text](_assets/opcua-io5-2.png)
@@ -176,15 +176,15 @@ EMQX Neuron is configured with 5 OPC UA drivers, each driver including 1 collect
 
 EMQX Neuron is configured with 10 OPC UA drivers, each driver including 1 collection group, each group collecting 1,000 Float type data points every 100 milliseconds, totaling 10,000 data points.
 
-- Memory Usage ：199MB
+- Memory Usage: 199MB
 
 ![alt text](_assets/opcua-memory6.png)
 
-- CPU Usage ：36%
+- CPU Usage: 36%
 
 ![alt text](_assets/opcua-cpu6.png)
 
-- Network IO ： receive: 1.49MB/s; transmit: 1.88MB/s
+- Network IO: receive: 1.49MB/s; transmit: 1.88MB/s
 
 ![alt text](_assets/opcua-io6-1.png)
 ![alt text](_assets/opcua-io6-2.png)

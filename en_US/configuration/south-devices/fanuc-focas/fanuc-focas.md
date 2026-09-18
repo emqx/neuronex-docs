@@ -166,11 +166,11 @@ If the parameter address does not set `@p`, it defaults to path 1.
 
 | address | data type                                                      | descrption                                                               |
 | ------- | -------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| A0      | uint8/int8/uint16/int16/uint32/int32/int64/uint64/float/double | PMC **message demand**，address 0                                        |
-| A0.1    | bit                                                            | PMC **message demand** ，no.1 bit of address 0                           |
-| A0.0    | bit                                                            | PMC **message demand** ，no.0 bit of address 0                           |
-| A0.2    | string                                                         | PMC **message demand** ，address 0 starts with a string of length 2      |
-| D0.2    | string                                                         | PMC **data table** ，address 0 starts with a string of length 2          |
-| D0.7    | bit                                                            | PMC **data table** ，no.7 bit of address 0                               |
-| G12     | uint8                                                          | PMC **signal to PMC -> CNC** ，address 12, 255-(G12)，feedrate overriden |
-| G30     | uint16                                                         | PMC **signal to PMC -> CNC** ，address 30, spindle overriden             |
+| A0      | uint8/int8/uint16/int16/uint32/int32/int64/uint64/float/double | PMC **message demand**, address 0                                        |
+| A0.1    | bit                                                            | PMC **message demand**, no.1 bit of address 0                           |
+| A0.0    | bit                                                            | PMC **message demand**, no.0 bit of address 0                           |
+| A0.2    | string                                                         | PMC **message demand**, address 0 starts with a string of length 2      |
+| D0.2    | string                                                         | PMC **data table**, address 0 starts with a string of length 2          |
+| D0.7    | bit                                                            | PMC **data table**, no.7 bit of address 0                               |
+| G12     | uint8                                                          | PMC **signal to PMC -> CNC**, address 12, 255-(G12), feedrate overriden |
+| G30     | uint16                                                         | PMC **signal to PMC -> CNC**, address 30, spindle overriden             |

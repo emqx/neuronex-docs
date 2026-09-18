@@ -30,7 +30,7 @@ In **COM Security**, add `Everyone`, `Administrators`, and `ANONYMOUS LOGON` use
 
 ![comcnf5](./assets/comcnf5.png)
 
-In **Location** select `Run application on the computer where the data is located` and `Run application on this computer`：
+In **Location** select `Run application on the computer where the data is located` and `Run application on this computer`:
 
 ![comcnf6](./assets/comcnf6.png)
 

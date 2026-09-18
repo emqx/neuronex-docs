@@ -41,11 +41,11 @@ OPC UA Part9 条件和报警功能，必须在 Subscribe 模式下使用。
 
 ## 更新模式
 
-**Read** 模式，数据更新方式与之前版本的方式一致，采用 OPC UA 标准的读取接口获取 Server 端数据，这也是默认的数据更新方式。
+**Read** 模式：采用 OPC UA 标准的读取接口，按采集组的间隔轮询 Server 端数据。这是默认模式。
 
-**Subscribe** 模式，新增的数据更新方式，采用 OPC UA 标准的订阅接口获取 Server 数据，订阅成功会批量更新一次数据，后续只有 Server 端数据变化才会更新。
+**Subscribe** 模式：采用 OPC UA 标准的订阅接口获取 Server 端数据。订阅建立后批量更新一次数据，此后只在 Server 端数据变化时更新。
 
-**Read&Subscribe** 模式，新增的数据更新方式，同时采用读取接口和订阅接口获取 Server 端数据。
+**Read&Subscribe** 模式：同时使用读取接口和订阅接口获取 Server 端数据。
 
 **发布间隔**定义了当**更新模式**设置为 Subscribe 或 Read&Subscribe 模式时， OPC UA 服务器向 EMQX Neuron 循环发送点位更新值的最快速率。如果该参数设置为0，使用 OPC UA 服务器支持的最快发布间隔。该间隔以毫秒为单位表示。默值值为 500ms，表示 OPC UA 服务器发送给 EMQX Neuron 最快的点位更新速率为 500ms。
 

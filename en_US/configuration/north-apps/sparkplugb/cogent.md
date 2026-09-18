@@ -24,7 +24,7 @@ Cogent, an advanced artificial intelligence and data analytics software platform
 
 ### Southbound Device
 
-This section assumes that the southbound OCP UA driver has been installed, the group and point configurations are complete, and communication with EMQX Neuron functions normally. For details on the installation and configuration of the OCP UA driver, refer to the [OCP UA section](../../south-devices/opc-ua/overview.md).
+This section assumes that the southbound OPC UA driver has been installed, the group and point configurations are complete, and communication with EMQX Neuron functions normally. For details on the installation and configuration of the OPC UA driver, refer to the [OPC UA section](../../south-devices/opc-ua/overview.md).
 
 ### Northbound Application
 

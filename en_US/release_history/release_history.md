@@ -275,7 +275,7 @@ Release Date: 2026-03-27
 
 - **Optimized interaction for Add Tags**: The tag name column now supports drag-and-drop resizing to better display long tag names.
 
-- **REST Sink**：Support access headers for REST sink outputs.
+- **REST Sink**: Support access headers for REST sink outputs.
 
 - **Backup & Restore**: Versions 3.7.2 and later support importing exported backup file after renaming.(Versions 3.7.1 and earlier do not support importing backup files after renaming.)
 
@@ -796,7 +796,7 @@ Release Date: 2025-02-25
 - Added new southbound driver: KND CNC driver  
 - Added new southbound driver: Mitsubishi 4E  
 - MQTT driver supports customizable data upload formats 
-- MQTT driver supports a new data reporting format：ECP-format
+- MQTT driver supports a new data reporting format: ECP-format
 - MQTT driver supports parameter configuration for reporting tag error code  
 - IEC61850 driver updates:  
   - Supports three reporting modes: general interrogation, scheduled interval reporting, and data change reporting  
@@ -995,7 +995,7 @@ Release Date: 2024-10-22
 
 ## v3.3.2
 
-Release Date： 2024-09-02
+Release Date: 2024-09-02
 
 ### Enhancements
 - Southbound device and northbound application pages support driver paging and total number display.
@@ -1016,7 +1016,7 @@ Release Date： 2024-09-02
 
 ## v3.3.1
 
-Release Date： 2024-07-31
+Release Date: 2024-07-31
 
 ### Enhancements
 - Focas driver PMC reading optimization
@@ -1038,7 +1038,7 @@ Release Date： 2024-07-31
 
 ## v3.3.0
 
-Release Date： 2024-06-24
+Release Date: 2024-06-24
 
 ### Enhancements
 
@@ -1087,7 +1087,7 @@ Release Date： 2024-06-24
 
 ## v3.2.2
 
-Release Date： 2024-06-28
+Release Date: 2024-06-28
 
 ### Enhancements
 - Inovance Modbus supports coil area merge reading and writing
@@ -1111,7 +1111,7 @@ Release Date： 2024-06-28
 
 ## v3.2.1
 
-Release Date： 2024-04-26
+Release Date: 2024-04-26
 
 ### Enhancements
 - Focas driver supports more function
@@ -1147,7 +1147,7 @@ Release Date： 2024-04-26
 
 ## v3.2.0
 
-Release Date： 2024-03-18
+Release Date: 2024-03-18
 
 ### Enhancements
 
@@ -1189,7 +1189,7 @@ Release Date： 2024-03-18
 
 ## v3.1.2
 
-Release Date： 2024-03-06
+Release Date: 2024-03-06
 
 ### Enhancements
 - Increased the data tag name length limit to 128 bits.
@@ -1206,7 +1206,7 @@ Release Date： 2024-03-06
 
 ## v3.1.1
 
-Release Date： 2024-01-12
+Release Date: 2024-01-12
 
 ### Enhancements
 
@@ -1233,7 +1233,7 @@ Release Date： 2024-01-12
 
 ## v3.1.0
 
-Release Date： 2023-12-22
+Release Date: 2023-12-22
 
 ### Enhancements
 - Support for Centos 7, Ubuntu 18.04 and Debian-10 operating systems

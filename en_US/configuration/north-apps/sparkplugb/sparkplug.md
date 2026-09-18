@@ -8,7 +8,7 @@ This page introduces how to use the EMQX Neuron southbound driver to collect dat
 
 ### Southbound Device
 
-Collect the Modbus TCP simulator point value through the southbound drive to simulate the actual device point value, the configuration is as follows：
+Collect the Modbus TCP simulator point value through the southbound drive to simulate the actual device point value, the configuration is as follows:
 
 **Add device**
 

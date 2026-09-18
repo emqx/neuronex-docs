@@ -95,7 +95,9 @@ EMQX Neuron installed in Docker or another container has an empty hardware token
 
 ## Expiry and renewal
 
-Once a license expires the system stops functioning normally, so replace it before the expiry date. Renewal works the same as the first install — upload the new license file and it replaces the old one; there is no need to remove the old license first.
+When a license expires, core EMQX Neuron functions stop: data collection and forwarding halt, and the instance does not fall back to the default free license.
+
+The console stays accessible. Upload a new license file to restore service — the procedure is the same as the first install, the new license replaces the old one, and there is no need to remove the old license first. If a new license is not available yet, [reset to the free license](#resetting-to-the-free-license) to keep running within the 30-tag quota.
 
 ## Resetting to the free license
 

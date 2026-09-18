@@ -35,7 +35,7 @@ the [sink common properties](./sink.md#sink-public-parameter-configuration) for 
 
 ## Example
 
-- The data format after SQL processing is as follows：
+- The data format after SQL processing is as follows:
 
 ```json
 {

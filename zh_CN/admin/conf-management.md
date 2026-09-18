@@ -85,7 +85,7 @@ EMQX Neuron 支持通过环境变量覆盖配置文件中的配置，当通过�
 
 环境变量之间用“__”分隔，分隔后第一部分的内容匹配配置文件的文件名，其余内容匹配不同级别的配置项。
 
-EMQX Neuron 支持通过环境变量配置规则引擎应用的 yaml 配置文件，详细配置项请参考[规则引擎应用配置](https://ekuiper.org/docs/zh/latest/configuration/global_configurations.html)。 规则引擎应用配置文件与环境变量映射关系和 EMQX Neuron 相同，如下：
+EMQX Neuron 支持通过环境变量配置规则引擎应用的 yaml 配置文件，映射关系和 EMQX Neuron 相同，如下：
 
 ```
 KUIPER__BASIC__DEBUG => basic.debug in etc/kuiper.yaml
@@ -100,6 +100,89 @@ docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s 
 
 ```
 
+
+### 规则引擎应用配置项
+
+规则引擎应用的主配置文件是 `/opt/neuronex/etc/kuiper.yaml`，文件内每一项都带有注释。常用配置项按分组列在下面，配置文件与环境变量二选一即可，环境变量优先。
+
+#### basic —— 日志与服务
+
+| 配置项 | 默认值 | 说明 |
+| --- | --- | --- |
+| `logLevel` | `info` | 日志级别，可选 debug、info、warn、error、fatal、panic |
+| `debug` | `false` | 打开后按 debug 级别打印更多调试信息 |
+| `consoleLog` | `false` | 日志输出到控制台 |
+| `fileLog` | `true` | 日志输出到文件 |
+| `rotateTime` | `24` | 日志切分间隔，单位小时 |
+| `maxAge` | `72` | 日志保留时长，单位小时 |
+| `rotateSize` | `10485760` | 单个日志文件大小上限，单位字节。设置后 `maxAge` 不再生效 |
+| `rotateCount` | `3` | 保留的日志文件数量 |
+| `restPort` | `9081` | REST 服务端口 |
+| `timezone` | `Local` | 时区，取 IANA 时区数据库中的名称，`Local` 表示跟随系统 |
+| `ignoreCase` | `false` | SQL 处理是否忽略大小写。插件自定义函数的名称始终区分大小写 |
+| `pluginHosts` | `https://packages.emqx.net` | 预编译插件的下载地址 |
+| `rulePatrolInterval` | `10s` | 规则巡检间隔 |
+| `sql.maxConnections` | `0` | 同一数据库实例上各数据源与动作共享的最大连接数，0 表示不限 |
+| `gracefulShutdownTimeout` | `10s` | 优雅退出的等待时长 |
+
+#### rule —— 规则的默认选项
+
+每条规则可以单独覆盖这里的取值。
+
+| 配置项 | 默认值 | 说明 |
+| --- | --- | --- |
+| `qos` | `0` | 0 至多一次，1 至少一次，2 恰好一次。大于 0 时启用检查点机制，保存状态以便中断或重启后恢复，会影响性能 |
+| `checkpointInterval` | `300s` | 检查点的执行间隔 |
+| `sendError` | `false` | 是否把错误发送到动作 |
+
+#### sink —— 动作的断网缓存
+
+| 配置项 | 默认值 | 说明 |
+| --- | --- | --- |
+| `enableCache` | `false` | 是否启用缓存 |
+| `memoryCacheThreshold` | `1024` | 内存中缓存的最大消息条数 |
+| `maxDiskCache` | `1024000` | 磁盘上缓存的最大消息条数 |
+| `bufferPageSize` | `256` | 批量读写磁盘的页大小，单位条，用于减少频繁 IO |
+| `resendInterval` | `0s` | 重发缓存消息的间隔 |
+| `cleanCacheAtStop` | `false` | 规则停止时是否清空缓存 |
+
+#### source —— httppush 数据源的 HTTP 服务
+
+| 配置项 | 默认值 | 说明 |
+| --- | --- | --- |
+| `httpServerIp` | `0.0.0.0` | HTTP 数据服务监听地址 |
+| `httpServerPort` | `10081` | HTTP 数据服务端口 |
+
+#### store —— 状态存储
+
+| 配置项 | 默认值 | 说明 |
+| --- | --- | --- |
+| `type` | `sqlite` | 状态存储类型，可选 `sqlite`、`redis` |
+| `extStateType` | `sqlite` | 外部状态的存储类型 |
+| `sqlite.name` | 空 | SQLite 文件名，留空时使用 `sqliteKV.db` |
+| `redis.host` | `localhost` | 使用 Redis 时的主机地址 |
+| `redis.port` | `6379` | 使用 Redis 时的端口 |
+| `redis.timeout` | `1s` | Redis 连接超时 |
+
+#### portable —— Python 插件
+
+| 配置项 | 默认值 | 说明 |
+| --- | --- | --- |
+| `pythonBin` | `python` | Python 可执行文件。系统中有多个 Python 时需要指定 |
+| `initTimeout` | `60s` | 插件初始化超时，超过后插件被终止 |
+| `sendTimeout` | `5s` | 发送超时 |
+| `recvTimeout` | `5s` | 接收超时 |
+
+#### openTelemetry —— 链路追踪
+
+| 配置项 | 默认值 | 说明 |
+| --- | --- | --- |
+| `enableRemoteCollector` | `false` | 是否上报到远端采集器 |
+| `remoteEndpoint` | `localhost:4318` | 远端采集器地址 |
+| `localTraceCapacity` | `2048` | 本地保留的追踪条数 |
+| `enableLocalStorage` | `false` | 是否把追踪数据落盘 |
+
+链路追踪的开启方式见[系统配置 · 链路追踪](./sys-configuration.md#链路追踪)。
 
 ## 配置文件
 

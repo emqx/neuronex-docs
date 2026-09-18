@@ -75,7 +75,7 @@ Database connection address reference:
 
    indexFieldType:`DATETIME`
 
-   dateTimeFormat：`YYYY-MM-dd HH:mm:ss`
+   dateTimeFormat: `YYYY-MM-dd HH:mm:ss`
 
    TemplateSql input:
    ```sql

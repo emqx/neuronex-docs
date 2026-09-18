@@ -81,9 +81,9 @@ and the following tables are listed here for convenience.
 The X and Y area' data units are numbered in octal.
 
 As an example, for XC1/XC2/XC3/XC5/XCM/XCC PLC models:
-* X0~X7：16384~16384+7
-* X10~X17：16384+8~16384+15
-* X70~X77：16384+56~16384+63
+* X0~X7: 16384~16384+7
+* X10~X17: 16384+8~16384+15
+* X70~X77: 16384+56~16384+63
 :::
 
 * XC1/XC2/XC3/XC5/XCM/XCC PLC models:

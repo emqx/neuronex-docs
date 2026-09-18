@@ -36,7 +36,7 @@ For the generic steps, see [Create a Southbound Driver](../south-devices.md) and
 
 SECS-II messages are referred to as Streams and Functions. Each message has a Stream value 
 (Sx) and a Function value (Fy). In the case of a Stream 1 Function 1, it is written as S1F1, and 
-spoken as “S1F1”. Streams are categories of messages while Functions are specific messages 
+spoken as "S1F1". Streams are categories of messages while Functions are specific messages 
 within the category. The function value is always an odd number in a primary message, and one 
 greater, or even, in the associated secondary reply.
 

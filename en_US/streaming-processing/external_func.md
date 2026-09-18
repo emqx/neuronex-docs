@@ -36,8 +36,8 @@ Example `sample.json`:
       "website": "https://www.emqx.io"
     },
     "helpUrl": {
-      "en_US": "https://github.com/lf-edge/ekuiper/blob/master/docs/en_US/plugins/functions/functions.md",
-      "zh_CN": "https://github.com/lf-edge/ekuiper/blob/master/docs/zh_CN/plugins/functions/functions.md"
+      "en_US": "https://docs.emqx.com/en/neuronex/latest/streaming-processing/external_func.html",
+      "zh_CN": "https://docs.emqx.com/zh/neuronex/latest/streaming-processing/external_func.html"
     },
     "description": {
       "en_US": "Sample external services for test only",
@@ -241,7 +241,7 @@ On startup, EMQX Neuron reads `etc/services` and registers services found there:
 
    Changing files after startup does **not** reload them. Use the REST API for dynamic updates.
 
-For dynamic register and management, see the [external service REST API](https://ekuiper.org/docs/en/latest/api/restapi/services.html).
+For dynamic register and management, see the [external service REST API](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html#tag/services).
 
 ## Use in SQL
 

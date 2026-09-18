@@ -1,6 +1,6 @@
 # NeuronHUB
 
-The **NeuronHUB** desktop application (runs on **Windows**) and the **Neuron HUB** southbound driver for EMQX Neuron together form an acquisition relay workflow: **NeuronHUB** connects to upstream protocols and collects data **on an on-site Windows machine** (protocols covered include **OPC DA**, **OPC AE**, **GE Historian**, **SYNTEC CNC**, and **Mitsubishi CNC**); **Neuron HUB** attaches to EMQX Neuron as its southbound driver driver to ingest data already acquired on NeuronHUB.
+The **NeuronHUB** desktop application (runs on **Windows**) and the **Neuron HUB** southbound driver for EMQX Neuron together form an acquisition relay workflow: **NeuronHUB** connects to upstream protocols and collects data **on an on-site Windows machine** (protocols covered include **OPC DA**, **OPC AE**, **GE Historian**, **SYNTEC CNC**, and **Mitsubishi CNC**); **Neuron HUB** attaches to EMQX Neuron as its southbound driver to ingest data already acquired on NeuronHUB.
 
 For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
 

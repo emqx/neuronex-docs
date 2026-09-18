@@ -50,7 +50,31 @@ Before starting the hands-on operation, you need to prepare the following enviro
 
 - MQTT broker for data transmission. This tutorial uses the MQTT server located at `tcp://broker.emqx.io:1883`. `broker.emqx.io` is a public MQTT provided by [EMQ](https://www.emqx.com/en) server.
 - MQTT client for observing results, such as [MQTTX](https://mqttx.app/)
-- Mode .so file, EMQX Neuron supports both dynamic analysis and static analysis. When using dynamic parsing, users only need to specify the proto file when registering the Schema. Under conditions with higher parsing performance requirements, users can use static parsing. Static analysis requires the development of a parsing plugin. 
+- A schema .so file. EMQX Neuron supports dynamic and static parsing: dynamic parsing only needs the proto file uploaded when the schema is registered; static parsing is for cases where parsing performance matters and requires a parsing plugin to be built first, see [Build a static parsing plugin](#build-a-static-parsing-plugin).
+
+### Build a static parsing plugin
+
+Dynamic parsing works out of the box — upload the proto file when the schema is registered. Static parsing compiles the encode and decode logic into a plugin, which parses faster at the cost of building one `.so` per proto file. Take this step only when parsing has become the bottleneck.
+
+1. Generate Go code from the proto file with `protoc`:
+
+   ```shell
+   protoc --go_opt=Mhelloworld.proto=com.main --go_out=. helloworld.proto
+   ```
+
+2. Write a wrapper for the generated struct that implements `Encode`, `Decode`, and a `GetXXX` method per field. These convert between the struct and a map. **Do not use reflection** — it cancels out the advantage static parsing has over dynamic parsing.
+
+3. Build the wrapper as a plugin:
+
+   ```shell
+   go build -trimpath --buildmode=plugin -o helloworld.so ./path/to/wrapper
+   ```
+
+4. Upload it with the [Add Schema](#add-schema) steps below: choose protobuf as the schema type and upload both the proto file and the `.so` built here.
+
+::: tip
+Build the plugin with the same Go version as the Rules Engine Application, otherwise the plugin cannot be loaded.
+:::
 
 ### Add Schema
 

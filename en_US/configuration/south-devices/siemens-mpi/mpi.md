@@ -60,8 +60,8 @@ For the public configuration item section, you can refer to [Connecting Southbou
 
 | Area |  Data Type                                                     | Attribute  |   Discription                   |
 | ---- | ------------------------------------------------------------ | ----- | ----------------------- |
-| DB.DBB   |int8，uint8，int16，uint16，bit，int32，uint32，int64，uint64，float，double，string | Read/Write    | Main memory data block, read/write bytes |
-| M        | int8，uint8，int16，uint16，bit，int32，uint32，int64，uint64，float，double，string | Read/Write | Memory block, read/write bytes  |
+| DB.DBB   |int8, uint8, int16, uint16, bit, int32, uint32, int64, uint64, float, double, string | Read/Write    | Main memory data block, read/write bytes |
+| M        | int8, uint8, int16, uint16, bit, int32, uint32, int64, uint64, float, double, string | Read/Write | Memory block, read/write bytes  |
 
 #### .BIT
 
@@ -75,20 +75,20 @@ Required when the data type is string, indicating the length of the string.
 
 |  Address        | Data Type | Description                                         |
 | ------------ | -------- | -------------------------------------------- |
-| DB1.DBB10 | int16    | DB1 Area，Starting data address is 10 |
-| DB2.DBB10 | uint16   | DB2 Area，Starting data address is 10 |
-| DB1.DBB12 | float    | DB1 Area，Starting data address is 12 |
-| DB1.DBB14 | double   | DB1 Area，Starting data address is 14 |
-| DB1.DBB19.1 | bit      | DB1 Area，Starting data address is 19，2nd bit |
-| DB1.DBB19.7 | bit      | DB1 Area，Starting data address is 19，8th bit |
-| DB1.DBB20.20 | string   | DB1 Area，Starting data address is 20，string length is 20 |
-| M98  | int8     | M Area，Starting data address is 98 |
-| M99  | uint8    | M Area，Starting data address is 99 |
-| M100 | int16    | M Area，Starting data address is 100 |
-| M102 | uint16   | M Area，Starting data address is 102 |
-| M104 | float    | M Area，Starting data address is 104 |
-| M106 | double   | M Area，Starting data address is 106 |
-| M111.3 | bit      | M Area，Starting data address is 111，4th bit |
-| M112.20 | string   | M Area，Starting data address is 20，string length is 20 |
-| I2.1 | bit   | I Area，Starting data address is 2，1st bit |
-| Q0.7 | bit   | Q Area，Starting data address is 0，7th bit |
+| DB1.DBB10 | int16    | DB1 Area, Starting data address is 10 |
+| DB2.DBB10 | uint16   | DB2 Area, Starting data address is 10 |
+| DB1.DBB12 | float    | DB1 Area, Starting data address is 12 |
+| DB1.DBB14 | double   | DB1 Area, Starting data address is 14 |
+| DB1.DBB19.1 | bit      | DB1 Area, Starting data address is 19, 2nd bit |
+| DB1.DBB19.7 | bit      | DB1 Area, Starting data address is 19, 8th bit |
+| DB1.DBB20.20 | string   | DB1 Area, Starting data address is 20, string length is 20 |
+| M98  | int8     | M Area, Starting data address is 98 |
+| M99  | uint8    | M Area, Starting data address is 99 |
+| M100 | int16    | M Area, Starting data address is 100 |
+| M102 | uint16   | M Area, Starting data address is 102 |
+| M104 | float    | M Area, Starting data address is 104 |
+| M106 | double   | M Area, Starting data address is 106 |
+| M111.3 | bit      | M Area, Starting data address is 111, 4th bit |
+| M112.20 | string   | M Area, Starting data address is 20, string length is 20 |
+| I2.1 | bit   | I Area, Starting data address is 2, 1st bit |
+| Q0.7 | bit   | Q Area, Starting data address is 0, 7th bit |

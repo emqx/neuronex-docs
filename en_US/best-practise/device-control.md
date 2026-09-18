@@ -112,13 +112,13 @@ In this example, we will use the value of tag1 collected by the EMQX Neuron sout
 
 Continue using the modbus1 driver from the [Complete MQTT Example](#complete-mqtt-example). As shown in the figure below, configure the driver collection group to the data processing module's subscription group. After configuration, the neuronStream in the data processing module will receive all collection data from the modbus1 driver every second.
 
-![ekuiper-control-1-en](./_assets/ekuiper-control-1-en.png)
+![Adding the modbus1 driver's group1 to the data processing subscription list](./_assets/ekuiper-control-1-en.png)
 
 **2) Create a rule and test data inflow**
 
 On the **Data Processing** -> **Rules** page, click **Create Rule** to enter the page. Click the run test button to see that the data processing module receives collection data from the modbus1 driver every second, indicating that the previous configuration steps were successful. You can then stop the rule test.
 
-![ekuiper-control-2-en](./_assets/ekuiper-control-2-en.png)
+![Run-test output on the rule page, showing modbus1 data arriving every second](./_assets/ekuiper-control-2-en.png)
 
 **3) Configure control**
 
@@ -133,9 +133,9 @@ FROM
 
 Select the rule action as `Neuron` type and configure as follows, indicating that the SQL output data result will be written to **tag2** of the southbound driver **modbus1** collection group **group1**.
 
-![ekuiper-control-3-en](./_assets/ekuiper-control-3-en.png)
+![Selecting Neuron as the rule action type](./_assets/ekuiper-control-3-en.png)
 
-![ekuiper-control-4-en](./_assets/ekuiper-control-4-en.png)
+![Configuring the target driver, group, and tag in the Neuron action](./_assets/ekuiper-control-4-en.png)
 
 After saving the rule, it automatically enters the running state.
 
@@ -145,7 +145,7 @@ Return to the **Data Collection** -> **Data Monitoring** page to see that the va
 
 At this point, we can click the Write button for **tag1** to write a new value of `5678`, and we can see that the value of **tag2** is also updated to `5678`, indicating that the control of **tag2** in the southbound driver **modbus1** through the data processing module was successful.
 
-![ekuiper-control-5-en](./_assets/ekuiper-control-5-en.png)
+![The Data Monitoring page showing tag2 updated by the write-back](./_assets/ekuiper-control-5-en.png)
 
 Through data processing module control, more complex control logic can be implemented, such as triggering different control operations based on different conditions, or triggering control operations based on combinations of multiple conditions, quickly building intelligent applications in industrial scenarios.
 

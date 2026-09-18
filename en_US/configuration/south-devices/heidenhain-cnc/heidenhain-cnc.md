@@ -73,16 +73,16 @@ For the generic steps, see [Create a Southbound Driver](../south-devices.md) and
 
 | address | data type | descrption                                    |
 | ------- | --------- | --------------------------------------------- |
-| M0      | bool      | PLC Marker area，address 0                    |
-| I10     | bool      | PLC Input area，address 10                    |
-| O20     | bool      | PLC Output area，address 20                   |
-| C30     | bool      | PLC Counter area，address 30                  |
-| T40     | bool      | PLC Timer area，address 40                    |
-| B0      | int8      | PLC Byte area，address 0                      |
-| B20     | int16     | PLC Byte area，address 20                     |
-| B40     | double    | PLC Byte area，address 40                     |
-| W2      | int16     | PLC Word area，address 2                      |
-| D4      | int32     | PLC Word area，address 2                      |
-| N2      | int16     | PLC Input Word area，address 2                |
-| U2      | int16     | PLC OutPut Word area，address 2               |
-| S0.128  | string    | PLC String area，address 0，string length 128 |
+| M0      | bool      | PLC Marker area, address 0                    |
+| I10     | bool      | PLC Input area, address 10                    |
+| O20     | bool      | PLC Output area, address 20                   |
+| C30     | bool      | PLC Counter area, address 30                  |
+| T40     | bool      | PLC Timer area, address 40                    |
+| B0      | int8      | PLC Byte area, address 0                      |
+| B20     | int16     | PLC Byte area, address 20                     |
+| B40     | double    | PLC Byte area, address 40                     |
+| W2      | int16     | PLC Word area, address 2                      |
+| D4      | int32     | PLC Word area, address 2                      |
+| N2      | int16     | PLC Input Word area, address 2                |
+| U2      | int16     | PLC OutPut Word area, address 2               |
+| S0.128  | string    | PLC String area, address 0, string length 128 |

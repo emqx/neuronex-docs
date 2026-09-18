@@ -94,7 +94,7 @@ testing in this tutorial.
 The [Beckhoff index group/offset page] lists the index group to access the PLC
 memory range. For the %MW field, the index group is 0x4020. For the %MX field,
 the index group is 0x4021.
-For the variables *b、i8、u8、i16、u16、i32、u32、i64、u64、f32、f64、str*
+For the variables *b, i8, u8, i16, u16, i32, u32, i64, u64, f32, f64, str*
 defined in the main program, the index group is 0x4040.
 
 <figure align="center">

@@ -89,7 +89,7 @@ NEURONEX__LOG__MODE => log.mode in etc/neuronex.yaml
 
 Environment variables are separated by "__". The first part of the content matches the file name of the configuration file, and the rest of the content matches configuration items at different levels.
 
-EMQX Neuron supports configuring the Rules Engine Application yaml configuration file through environment variables. Get more information about [Rules Engine Application global configurations](https://ekuiper.org/docs/en/latest/configuration/global_configurations.html).The mapping relationship is as follows:
+EMQX Neuron supports configuring the Rules Engine Application yaml configuration file through environment variables. The mapping relationship is the same as for EMQX Neuron:
 
 ```
 KUIPER__BASIC__DEBUG => basic.debug in etc/kuiper.yaml
@@ -106,6 +106,89 @@ docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s 
 
 ```
 
+
+### Rules Engine Application configuration items
+
+The main configuration file of the Rules Engine Application is `/opt/neuronex/etc/kuiper.yaml`, and every item in it carries a comment. The commonly used items are listed below by group. Use either the file or the environment variables — the environment variable wins.
+
+#### basic — logging and services
+
+| Item | Default | Description |
+| --- | --- | --- |
+| `logLevel` | `info` | Log level: debug, info, warn, error, fatal, panic |
+| `debug` | `false` | Prints more debug information at debug level |
+| `consoleLog` | `false` | Write the log to the console |
+| `fileLog` | `true` | Write the log to a file |
+| `rotateTime` | `24` | Hours between log file splits |
+| `maxAge` | `72` | Hours a log file is kept |
+| `rotateSize` | `10485760` | Maximum size of one log file, in bytes. When set, `maxAge` no longer applies |
+| `rotateCount` | `3` | Number of log files kept |
+| `restPort` | `9081` | REST service port |
+| `timezone` | `Local` | Time zone, a name from the IANA database; `Local` follows the system |
+| `ignoreCase` | `false` | Whether SQL processing ignores case. Names of custom plugin functions are always case-sensitive |
+| `pluginHosts` | `https://packages.emqx.net` | Where pre-built plugins are downloaded from |
+| `rulePatrolInterval` | `10s` | Interval between rule patrols |
+| `sql.maxConnections` | `0` | Maximum connections to one database instance shared by sources and sinks; 0 means unlimited |
+| `gracefulShutdownTimeout` | `10s` | How long a graceful shutdown waits |
+
+#### rule — default rule options
+
+Each rule can override these values.
+
+| Item | Default | Description |
+| --- | --- | --- |
+| `qos` | `0` | 0 at most once, 1 at least once, 2 exactly once. Above 0 the checkpoint mechanism saves state so a rule can recover from an interruption or a restart, at some cost to performance |
+| `checkpointInterval` | `300s` | How often the checkpoint runs |
+| `sendError` | `false` | Whether errors are sent to the actions |
+
+#### sink — action cache for network outages
+
+| Item | Default | Description |
+| --- | --- | --- |
+| `enableCache` | `false` | Whether the cache is enabled |
+| `memoryCacheThreshold` | `1024` | Maximum messages cached in memory |
+| `maxDiskCache` | `1024000` | Maximum messages cached on disk |
+| `bufferPageSize` | `256` | Messages per page written to or read from disk in one batch, to avoid frequent IO |
+| `resendInterval` | `0s` | Interval between resends of cached messages |
+| `cleanCacheAtStop` | `false` | Whether the cache is cleared when the rule stops |
+
+#### source — HTTP service for the httppush source
+
+| Item | Default | Description |
+| --- | --- | --- |
+| `httpServerIp` | `0.0.0.0` | Address the HTTP data service listens on |
+| `httpServerPort` | `10081` | Port of the HTTP data service |
+
+#### store — state storage
+
+| Item | Default | Description |
+| --- | --- | --- |
+| `type` | `sqlite` | State store: `sqlite` or `redis` |
+| `extStateType` | `sqlite` | Store used for external state |
+| `sqlite.name` | empty | SQLite file name; `sqliteKV.db` when left empty |
+| `redis.host` | `localhost` | Redis host |
+| `redis.port` | `6379` | Redis port |
+| `redis.timeout` | `1s` | Redis connection timeout |
+
+#### portable — Python plugins
+
+| Item | Default | Description |
+| --- | --- | --- |
+| `pythonBin` | `python` | The Python executable. Set it when the system has more than one Python |
+| `initTimeout` | `60s` | Plugin initialization timeout; the plugin is terminated when it is exceeded |
+| `sendTimeout` | `5s` | Send timeout |
+| `recvTimeout` | `5s` | Receive timeout |
+
+#### openTelemetry — tracing
+
+| Item | Default | Description |
+| --- | --- | --- |
+| `enableRemoteCollector` | `false` | Whether traces are reported to a remote collector |
+| `remoteEndpoint` | `localhost:4318` | Address of the remote collector |
+| `localTraceCapacity` | `2048` | Number of traces kept locally |
+| `enableLocalStorage` | `false` | Whether traces are written to disk |
+
+For how to turn tracing on, see [System Configuration · Traces](./sys-configuration.md#traces).
 
 ## Configuration File
 

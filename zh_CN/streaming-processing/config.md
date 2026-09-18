@@ -50,7 +50,31 @@ EMQX Neuron 做了兼容性处理，支持从老版本 EMQX Neuron 导出规则�
 
 - MQTT broker 用于数据传输。本教程使用位于 `tcp://broker.emqx.io:1883` 的 MQTT 服务器， `broker.emqx.io` 是一个由 [EMQ](https://www.emqx.cn/) 提供的公有 MQTT 服务器。
 - MQTT 客户端用于观察结果，例如 [MQTTX](https://mqttx.app/)
-- 模式 .so 文件，EMQX Neuron 支持动态解析和静态解析两种方式。使用动态解析时，用户仅需要在注册模式时指定 proto 文件。在解析性能要求更高的条件下，用户可采用静态解析的方式。静态解析需要开发解析插件，其步骤可参考 [静态 Protobuf 页面](https://ekuiper.org/docs/zh/latest/guide/serialization/serialization.html#%E9%9D%99%E6%80%81-protobuf)
+- 模式 .so 文件。EMQX Neuron 支持动态解析和静态解析两种方式：动态解析只需在注册模式时上传 proto 文件；对解析性能要求更高时可采用静态解析，需要先编译一个解析插件，见[开发静态解析插件](#开发静态解析插件)。
+
+### 开发静态解析插件
+
+动态解析开箱即用，注册模式时上传 proto 文件即可。静态解析把编解码逻辑编译进插件，解析更快，代价是每个 proto 文件都要编译一个 `.so`。只有在解析成为性能瓶颈时才需要这一步。
+
+1. 用 `protoc` 把 proto 文件生成 Go 代码：
+
+   ```shell
+   protoc --go_opt=Mhelloworld.proto=com.main --go_out=. helloworld.proto
+   ```
+
+2. 为生成的结构体写一个包装类，实现 `Encode`、`Decode` 以及每个字段的 `GetXXX` 方法。这些方法负责结构体与 map 之间的转换，**不要使用反射**，否则静态解析相对动态解析的性能优势会被抵消。
+
+3. 把包装类编译成插件：
+
+   ```shell
+   go build -trimpath --buildmode=plugin -o helloworld.so ./包装类所在目录
+   ```
+
+4. 按下面的[添加模式](#添加模式)步骤上传：模式类型选 protobuf，同时上传 proto 文件和这里生成的 `.so`。
+
+::: tip
+编译插件的 Go 版本需要与规则引擎应用一致，否则插件无法加载。
+:::
 
 ### 添加模式
 

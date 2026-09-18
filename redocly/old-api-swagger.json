@@ -7040,7 +7040,7 @@
 											},
 											"demo_conf": {
 												"qos": 0,
-												"server": "tcp://10.211.55.6:1883"
+												"server": "tcp://broker.emqx.io:1883"
 											}
 										}
 									}
@@ -7168,7 +7168,7 @@
 										"value": {
 											"demo_conf": {
 												"qos": 0,
-												"server": "tcp://10.211.55.6:1883"
+												"server": "tcp://broker.emqx.io:1883"
 											}
 										}
 									}
@@ -7478,8 +7478,8 @@
 											"tables": {},
 											"rules": {},
 											"nativePlugins": {
-												"sinks_tdengine": "fail to download file file:///root/ekuiper-jran/_plugins/ubuntu/sinks/tdengine_amd64.zip: stat /root/ekuiper-jran/_plugins/ubuntu/sinks/tdengine_amd64.zip: no such file or directory",
-												"sources_random": "fail to download file file:///root/ekuiper-jran/_plugins/ubuntu/sources/random_amd64.zip: stat /root/ekuiper-jran/_plugins/ubuntu/sources/random_amd64.zip: no such file or directory"
+												"sinks_tdengine": "fail to download file file:///tmp/plugins/ubuntu/sinks/tdengine_amd64.zip: stat /tmp/plugins/ubuntu/sinks/tdengine_amd64.zip: no such file or directory",
+												"sources_random": "fail to download file file:///tmp/plugins/ubuntu/sources/random_amd64.zip: stat /tmp/plugins/ubuntu/sources/random_amd64.zip: no such file or directory"
 											},
 											"portablePlugins": {},
 											"sourceConfig": {},

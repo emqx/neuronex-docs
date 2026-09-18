@@ -44,11 +44,11 @@ For details on Security Mode (Sign/Sign&Encrypt), encryption algorithms, and ser
 
 ## Update Mode
 
-**Read** mode: The data update method is consistent with the previous version, using the OPC UA standard read interface to obtain data from the Server. This is also the default data update method.
+**Read** mode: EMQX Neuron polls the server with the OPC UA standard read service, on the interval of the collection group. This is the default.
 
-**Subscribe** mode: A new data update method that uses the OPC UA standard subscription interface to get Server data. Upon successful subscription, data is updated in bulk once, and thereafter updates occur only when the Server data changes.
+**Subscribe** mode: EMQX Neuron uses the OPC UA standard subscription service. All subscribed values update once when the subscription is established, and after that only when the data on the server changes.
 
-**Read&Subscribe** mode: A new data update method that simultaneously uses both the read interface and the subscription interface to obtain Server data.
+**Read&Subscribe** mode: EMQX Neuron uses the read service and the subscription service together.
 
 **Publish Interval** defines the fastest rate at which the OPC UA server sends point update values to EMQX Neuron in a loop when the **Update Mode** is set to Subscribe or Read&Subscribe. If this parameter is set to 0, the fastest publish interval supported by the OPC UA server is used. The interval is expressed in milliseconds. The default value is 500 ms, meaning the fastest point update rate sent by the OPC UA server to EMQX Neuron is 500 ms.
 
@@ -68,22 +68,22 @@ The data types and address formats supported by this driver are listed below.
 
 ::: tip
 
-You can use UaExpert to view the **Namespace Index** ( `NamespaceIndex`) and is the **Node ID** ( `Identifier`), for details, see [UaExpert](./uaexpert.md). 
+Use UaExpert to find the **Namespace Index** (`NamespaceIndex`) and the **Node ID** (`Identifier`). For details, see [UaExpert](./uaexpert.md).
 
 - For an explanation of namespace indexes and node ids, refer to the OPC UA standard.
-- The EMQX Neuron set data type must match the OPC UA data type.
+- The data type you set in EMQX Neuron must match the data type on the server.
 
 :::
 
 ### Data Types
 
-* INT8（OPC UA SBYTE type）
+* INT8 (OPC UA SBYTE type)
 * INT16
 * INT32
 * INT64
-* UINT8（OPC UA BYTE type）
+* UINT8 (OPC UA BYTE type)
 * UINT16
-* UINT32（also used to indicate the OPC UA DATETIME type）
+* UINT32 (also used to indicate the OPC UA DATETIME type)
 * UINT64
 * FLOAT
 * DOUBLE

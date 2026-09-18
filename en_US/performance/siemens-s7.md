@@ -85,15 +85,15 @@ If using EMQX Neuron data processing functions for data cleaning and filtering, 
 
 EMQX Neuron is configured with 1 Siemens S7 driver, which includes 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 10,000 data points.
 
-- Memory Usage ：175MB
+- Memory Usage: 175MB
 
 ![alt text](_assets/s7-memory1.png)
 
-- CPU Usage ：6%
+- CPU Usage: 6%
 
 ![alt text](_assets/s7-cpu1.png)
 
-- Network IO ： receive:15KB/s; transmit:6KB/s
+- Network IO: receive:15KB/s; transmit:6KB/s
 
 ![alt text](_assets/s7-io1-1.png)
 ![alt text](_assets/s7-io1-2.png)
@@ -104,15 +104,15 @@ EMQX Neuron is configured with 1 Siemens S7 driver, which includes 10 collection
 
 EMQX Neuron is configured with 5 Siemens S7 drivers, each driver including 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 50,000 data points.
 
-- Memory Usage ：355MB
+- Memory Usage: 355MB
 
 ![alt text](_assets/s7-memory2.png)
 
-- CPU Usage ：25%
+- CPU Usage: 25%
 
 ![alt text](_assets/s7-cpu2.png)
 
-- Network IO ： receive:78KB/s; transmit:31KB/s
+- Network IO: receive:78KB/s; transmit:31KB/s
 
 ![alt text](_assets/s7-io2-1.png)
 ![alt text](_assets/s7-io2-2.png)
@@ -122,15 +122,15 @@ EMQX Neuron is configured with 5 Siemens S7 drivers, each driver including 10 co
 
 EMQX Neuron is configured with 10 Siemens S7 drivers, each driver including 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 100,000 data points.
 
-- Memory Usage ：512MB
+- Memory Usage: 512MB
 
 ![alt text](_assets/s7-memory3.png)
 
-- CPU Usage ：57%
+- CPU Usage: 57%
 
 ![alt text](_assets/s7-cpu3.png)
 
-- Network IO ： receive:155KB/s; transmit:62KB/s
+- Network IO: receive:155KB/s; transmit:62KB/s
 
 ![alt text](_assets/s7-io3-1.png)
 ![alt text](_assets/s7-io3-2.png)
@@ -140,15 +140,15 @@ EMQX Neuron is configured with 10 Siemens S7 drivers, each driver including 10 c
 
 EMQX Neuron is configured with 1 Siemens S7 driver, each driver including 1 collection group, each group collecting 1,000 Float type data points every 100 milliseconds, totaling 1,000 data points.
 
-- Memory Usage ：143MB
+- Memory Usage: 143MB
 
 ![alt text](_assets/s7-memory4.png)
 
-- CPU Usage ：3%
+- CPU Usage: 3%
 
 ![alt text](_assets/s7-cpu4.png)
 
-- Network IO ： receive:15KB/s; transmit:6KB/s
+- Network IO: receive:15KB/s; transmit:6KB/s
 
 ![alt text](_assets/s7-io4-1.png)
 ![alt text](_assets/s7-io4-2.png)
@@ -159,15 +159,15 @@ EMQX Neuron is configured with 1 Siemens S7 driver, each driver including 1 coll
 
 EMQX Neuron is configured with 5 Siemens S7 drivers, each driver including 1 collection group, each group collecting 1,000 Float type data points every 100 milliseconds, totaling 5,000 data points.
 
-- Memory Usage ：167MB
+- Memory Usage: 167MB
 
 ![alt text](_assets/s7-memory5.png)
 
-- CPU Usage ：16%
+- CPU Usage: 16%
 
 ![alt text](_assets/s7-cpu5.png)
 
-- Network IO ： receive:78KB/s; transmit:31KB/s
+- Network IO: receive:78KB/s; transmit:31KB/s
 
 ![alt text](_assets/s7-io5-1.png)
 ![alt text](_assets/s7-io5-2.png)
@@ -178,15 +178,15 @@ EMQX Neuron is configured with 5 Siemens S7 drivers, each driver including 1 col
 
 EMQX Neuron is configured with 10 Siemens S7 drivers, each driver including 1 collection group, each group collecting 1,000 Float type data points every 100 milliseconds, totaling 10,000 data points.
 
-- Memory Usage ：199MB
+- Memory Usage: 199MB
 
 ![alt text](_assets/s7-memory6.png)
 
-- CPU Usage ：37%
+- CPU Usage: 37%
 
 ![alt text](_assets/s7-cpu6.png)
 
-- Network IO ： receive:156KB/s; transmit:63KB/s
+- Network IO: receive:156KB/s; transmit:63KB/s
 
 ![alt text](_assets/s7-io6-1.png)
 ![alt text](_assets/s7-io6-2.png)

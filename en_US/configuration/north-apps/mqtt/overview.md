@@ -31,7 +31,7 @@ See the table below for the configuration parameters.
 | **MQTT Version**                | The version of MQTT protocol, default v3.1.1.          |
 | **Client ID**                   | MQTT client id for communication, a required field.          |
 | **QoS Level**                   | MQTT QoS level for message delivery, optional, default QoS 0.  |
-| **Upload Format**               | JSON format of reported data, a required field: <br /><br /> - *values-format*, data are split into `values` and `errors` sub-objects. <br />- *tags-format*, tag data are put in a single array. <br />- *ECP-format*：Add tag types on the basis of *tags-format*.<br />- *Custom*：Customize the reported data format. <br /><br />For data communication format, see [Upstream/Downstream Data Format](./api.md#write-tag) |
+| **Upload Format**               | JSON format of reported data, a required field: <br /><br /> - *values-format*, data are split into `values` and `errors` sub-objects. <br />- *tags-format*, tag data are put in a single array. <br />- *ECP-format*: Add tag types on the basis of *tags-format*.<br />- *Custom*: Customize the reported data format. <br /><br />For data communication format, see [Upstream/Downstream Data Format](./api.md#write-tag) |
 | **Upload Tag Error Code**     | When data tag collection reports an error, report the tag error code, default enabled.           |
 | **Write Request Topic**         | MQTT topic to which the application subscribes for write requests. For data communication format, see [Upstream/Downstream Data Format](./api.md#write-tag) . If tracing is enabled, configure the user properties `traceparent` and `tracestate` according to the W3C standard. |
 | **Write Response Topic**        | MQTT topic to which the application sends write responses.  |
@@ -115,11 +115,11 @@ The driver status reporting feature allows users to report the status of southbo
 
 Where:
 
-- `timestamp`：Report timestamp, in milliseconds.
-- `states`：Driver status list, each element contains the following fields:
-  - `node`：Southbound driver name.
-  - `link`：Driver connection status, 0 for disconnected, 1 for connected.
-  - `running`：Driver running status, 3 for running, 4 for stopped.
+- `timestamp`: Report timestamp, in milliseconds.
+- `states`: Driver status list, each element contains the following fields:
+  - `node`: Southbound driver name.
+  - `link`: Driver connection status, 0 for disconnected, 1 for connected.
+  - `running`: Driver running status, 3 for running, 4 for stopped.
 
 ### MQTT over SSL
 

@@ -1,80 +1,8 @@
 # 快速入门
 
-本教程分五步完成一条完整链路：启动 EMQX Neuron、用内置模拟器造一批数据、通过南向驱动采集上来、再经北向应用转发到 MQTT Broker。
+本教程分五步完成一条完整链路：启动 EMQX Neuron、用内置模拟器造一批数据、通过南向驱动采集上来、在数据监控中确认数据、再经北向应用转发到 MQTT Broker。
 
-<style>
-.nxq            { width: 100%; height: auto; display: block; margin: 24px 0; }
-.nxq .t         { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif; fill: #1f2d3d; }
-.nxq .h         { font-size: 15px; font-weight: 600; }
-.nxq .m         { font-size: 14px; font-weight: 600; }
-.nxq .sub       { font-size: 12px; fill: #4a5b6e; }
-.nxq .step      { font-size: 11.5px; font-weight: 600; fill: #2a6ebb; }
-.nxq .lbl       { font-size: 12.5px; font-weight: 600; fill: #2a6ebb; }
-.nxq .ptitle    { fill: #1b4f89; }
-.nxq .bg        { fill: #f7fafd; }
-.nxq .box       { fill: #ffffff; stroke: #ccd8e4; stroke-width: 1.5; }
-.nxq .mod       { fill: #ffffff; stroke: #2a6ebb; stroke-width: 1.5; }
-.nxq .prod      { fill: #eaf2fb; stroke: #2a6ebb; stroke-width: 2; }
-.nxq .flow      { stroke: #2a6ebb; stroke-width: 2; }
-.nxq .ah        { fill: #2a6ebb; }
-
-html.dark .nxq .t      { fill: #d7dee6; }
-html.dark .nxq .sub    { fill: #9db0c4; }
-html.dark .nxq .step   { fill: #7fb4ea; }
-html.dark .nxq .lbl    { fill: #7fb4ea; }
-html.dark .nxq .ptitle { fill: #8ec1f0; }
-html.dark .nxq .bg     { fill: #161c24; }
-html.dark .nxq .box    { fill: #1d2631; stroke: #3b4857; }
-html.dark .nxq .mod    { fill: #1d2631; stroke: #5a9fe0; }
-html.dark .nxq .prod   { fill: #1a2938; stroke: #5a9fe0; }
-html.dark .nxq .flow   { stroke: #7fb4ea; }
-html.dark .nxq .ah     { fill: #7fb4ea; }
-</style>
-
-<svg class="nxq" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" role="img" aria-label="快速入门链路图：内置 Modbus 模拟器产生数据，经 EMQX Neuron 的南向驱动采集、数据监控查看，再由北向 MQTT 应用转发到 broker.emqx.io，最后在 MQTTX 客户端订阅验证">
-  <defs>
-    <marker id="nxqA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0 L10 5 L0 10 z"/></marker>
-  </defs>
-  <rect class="bg" x="0" y="0" width="1200" height="320" rx="10"/>
-
-  <rect class="box" x="24" y="98" width="188" height="118" rx="8"/>
-  <text class="t h" x="118" y="132" text-anchor="middle">内置 Modbus 模拟器</text>
-  <text class="t step" x="118" y="154" text-anchor="middle">第 2 步</text>
-  <text class="t sub" x="118" y="186" text-anchor="middle">正弦波 · 方波 · 随机数</text>
-
-  <line class="flow" x1="220" y1="158" x2="268" y2="158" marker-end="url(#nxqA)"/>
-  <text class="t lbl" x="244" y="146" text-anchor="middle">采集</text>
-
-  <rect class="prod" x="276" y="40" width="330" height="240" rx="10"/>
-  <text class="t h ptitle" x="441" y="68" text-anchor="middle">EMQX Neuron</text>
-
-  <rect class="mod" x="300" y="86" width="282" height="56" rx="6"/>
-  <text class="t m" x="441" y="110" text-anchor="middle">南向驱动 · Modbus TCP</text>
-  <text class="t step" x="441" y="130" text-anchor="middle">第 3 步</text>
-
-  <rect class="mod" x="300" y="154" width="282" height="52" rx="6"/>
-  <text class="t m" x="441" y="176" text-anchor="middle">数据监控</text>
-  <text class="t step" x="441" y="196" text-anchor="middle">第 4 步</text>
-
-  <rect class="mod" x="300" y="218" width="282" height="52" rx="6"/>
-  <text class="t m" x="441" y="240" text-anchor="middle">北向应用 · MQTT</text>
-  <text class="t step" x="441" y="260" text-anchor="middle">第 5 步</text>
-
-  <line class="flow" x1="614" y1="158" x2="662" y2="158" marker-end="url(#nxqA)"/>
-  <text class="t lbl" x="638" y="146" text-anchor="middle">转发</text>
-
-  <rect class="box" x="670" y="98" width="200" height="118" rx="8"/>
-  <text class="t h" x="770" y="140" text-anchor="middle">MQTT Broker</text>
-  <text class="t sub" x="770" y="168" text-anchor="middle">broker.emqx.io</text>
-
-  <line class="flow" x1="878" y1="158" x2="926" y2="158" marker-end="url(#nxqA)"/>
-  <text class="t lbl" x="902" y="146" text-anchor="middle">订阅</text>
-
-  <rect class="box" x="934" y="98" width="200" height="118" rx="8"/>
-  <text class="t h" x="1034" y="132" text-anchor="middle">MQTTX 客户端</text>
-  <text class="t step" x="1034" y="154" text-anchor="middle">第 5 步</text>
-  <text class="t sub" x="1034" y="186" text-anchor="middle">订阅主题验证数据</text>
-</svg>
+![快速入门链路：Modbus 模拟器的数据经南向驱动采集、在数据监控中查看，由北向 MQTT 应用转发到 Broker，最后在 MQTTX 订阅验证](./_assets/quick-start-pipeline.jpg)
 
 ## 开始之前
 

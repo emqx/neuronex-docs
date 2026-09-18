@@ -20,7 +20,7 @@ Go to **Config -> SECS/GEM -> Simulator**, click on `Create new Simulator...`, e
   
 ![secs-gem-simulator-setting](./assets/secs-gem-simulator-setting.png)
 
-The created simulator in this article is named "test", with a Passive IP address of 0.0.0.0, port of 5000, and a device ID of 0。
+The created simulator in this article is named "test", with a Passive IP address of 0.0.0.0, port of 5000, and a device ID of 0.
 
 ## Configure the EMQX Neuron node to connect to the Ignition SECS/GEM Simulator
 
@@ -28,7 +28,7 @@ The created simulator in this article is named "test", with a Passive IP address
 * After creating the node, click on `Device Configuration` to enter the device configuration page. Configure the node information according to the actual situation,
 	* `Device IP Address`: Target device IP address
 	* `Device Port`: Target device port, default 5000
- 	* `Deivce ID`：Target device ID，default 0
+ 	* `Deivce ID`: Target device ID, default 0
 * In the created south-device node, create a group and create some point position under the group.
 * Enter the EMQX Neuron **Data Monitoring** page and select the corresponding device and group to view the collected data points, as shown in the following figure.
   

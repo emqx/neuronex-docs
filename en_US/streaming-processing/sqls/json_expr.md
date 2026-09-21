@@ -204,7 +204,7 @@ So, for example, when applied to the previous JSON data sample, we can reach the
 expressions:
 
 - `$.age` refers to 37.
-- `$.friends.first` refers to “dale”.
+- `$.friends.first` refers to "dale".
 - `$.friends` refers to the full array of friends.
 - `$.friends[0]` refers to the first friend listed in the previous array (contrary to arrays members are zero-based).
 - `$.friends[0][lastname]` refers to the lastname of the first friend listed. Use bracket if [there are reserved words](./lexical_elements.md) or special characters (such as space ' ', '.' and Chinese etc) in the field key.

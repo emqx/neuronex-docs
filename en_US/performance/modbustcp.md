@@ -84,15 +84,15 @@ If using EMQX Neuron data processing functions for data cleaning and filtering, 
 ### Scenario 1
 EMQX Neuron configured with 1 Modbus TCP driver, this driver contains 10 collection groups, each group collecting 1,000 Float type data points per second, totaling 10,000 data points
 
-- Memory Usage ：199MB
+- Memory Usage: 199MB
 
 ![alt text](_assets/modbus-memory1.png)
 
-- CPU Usage ：3%
+- CPU Usage: 3%
 
 ![alt text](_assets/modbus-cpu1.png)
 
-- Network IO ： receive:13KB/s; transmit:3KB/s
+- Network IO: receive:13KB/s; transmit:3KB/s
 
 ![alt text](_assets/modbus-io1-1.png)
 ![alt text](_assets/modbus-io1-2.png)
@@ -102,15 +102,15 @@ EMQX Neuron configured with 1 Modbus TCP driver, this driver contains 10 collect
 
 EMQX Neuron is configured with 5 Modbus TCP drivers, each containing 10 collection groups. Each group collects 1000 Float type data points per second, totaling 50,000 data points.
 
-- Memory Usage ：327MB
+- Memory Usage: 327MB
 
 ![alt text](_assets/modbus-memory2.png)
 
-- CPU Usage ：13%
+- CPU Usage: 13%
 
 ![alt text](_assets/modbus-cpu2.png)
 
-- Network IO ： receive:69KB/s; transmit:16KB/s
+- Network IO: receive:69KB/s; transmit:16KB/s
 
 ![alt text](_assets/modbus-io2-1.png)
 ![alt text](_assets/modbus-io2-2.png)
@@ -120,15 +120,15 @@ EMQX Neuron is configured with 5 Modbus TCP drivers, each containing 10 collecti
 
 EMQX Neuron is configured with 10 Modbus TCP drivers, each containing 10 collection groups. Each group collects 1000 Float type data points per second, totaling 100,000 data points.
 
-- Memory Usage ：497MB
+- Memory Usage: 497MB
 
 ![alt text](_assets/modbus-memory3.png)
 
-- CPU Usage ：30%
+- CPU Usage: 30%
 
 ![alt text](_assets/modbus-cpu3.png)
 
-- Network IO ： receive:139KB/s; transmit:32KB/s
+- Network IO: receive:139KB/s; transmit:32KB/s
 
 ![alt text](_assets/modbus-io3-1.png)
 ![alt text](_assets/modbus-io3-2.png)
@@ -138,15 +138,15 @@ EMQX Neuron is configured with 10 Modbus TCP drivers, each containing 10 collect
 
 EMQX Neuron is configured with 1 Modbus TCP driver, containing 1 collection group. Each group collects 1000 Float type data points every 100 milliseconds, totaling 1,000 data points.
 
-- Memory Usage ：128MB
+- Memory Usage: 128MB
 
 ![alt text](_assets/modbus-memory4.png)
 
-- CPU Usage ：2%
+- CPU Usage: 2%
 
 ![alt text](_assets/modbus-cpu4.png)
 
-- Network IO ： receive:9KB/s; transmit:2KB/s
+- Network IO: receive:9KB/s; transmit:2KB/s
 
 ![alt text](_assets/modbus-io4-1.png)
 ![alt text](_assets/modbus-io4-2.png)
@@ -156,15 +156,15 @@ EMQX Neuron is configured with 1 Modbus TCP driver, containing 1 collection grou
 
 EMQX Neuron is configured with 5 Modbus TCP drivers, each containing 1 collection group. Each group collects 1000 Float type data points every 100 milliseconds, totaling 5,000 data points.
 
-- Memory Usage ：165MB
+- Memory Usage: 165MB
 
 ![alt text](_assets/modbus-memory5.png)
 
-- CPU Usage ：12%
+- CPU Usage: 12%
 
 ![alt text](_assets/modbus-cpu5.png)
 
-- Network IO ： receive:47KB/s; transmit:12KB/s
+- Network IO: receive:47KB/s; transmit:12KB/s
 
 ![alt text](_assets/modbus-io5-1.png)
 ![alt text](_assets/modbus-io5-2.png)
@@ -174,15 +174,15 @@ EMQX Neuron is configured with 5 Modbus TCP drivers, each containing 1 collectio
 
 EMQX Neuron is configured with 10 Modbus TCP drivers, each containing 1 collection group. Each group collects 1000 Float type data points every 100 milliseconds, totaling 10,000 data points.
 
-- Memory Usage ：189MB
+- Memory Usage: 189MB
 
 ![alt text](_assets/modbus-memory6.png)
 
-- CPU Usage ：21%
+- CPU Usage: 21%
 
 ![alt text](_assets/modbus-cpu6.png)
 
-- Network IO ： receive:94KB/s; transmit:24KB/s
+- Network IO: receive:94KB/s; transmit:24KB/s
 
 ![alt text](_assets/modbus-io6-1.png)
 ![alt text](_assets/modbus-io6-2.png)

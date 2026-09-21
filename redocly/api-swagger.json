@@ -19,7 +19,7 @@
       "name": "license"
     },
     {
-      "name": "ekuiper_plugin"
+      "name": "rules_engine"
     },
     {
       "name": "tunnel"
@@ -59,9 +59,6 @@
     },
     {
       "name": "rw"
-    },
-    {
-      "name": "eKuiper"
     },
     {
       "name": "configKey"
@@ -1220,11 +1217,11 @@
     },
     "/api/plugin/portable": {
       "post": {
-        "summary": "Create ekuiper plugin ",
+        "summary": "Create rules engine plugin",
         "deprecated": false,
         "description": "",
         "tags": [
-          "ekuiper_plugin"
+          "rules_engine"
         ],
         "parameters": [],
         "requestBody": {
@@ -1280,7 +1277,7 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "ekuiper_plugin"
+          "rules_engine"
         ],
         "parameters": [],
         "requestBody": {
@@ -1337,7 +1334,7 @@
         "deprecated": false,
         "description": "",
         "tags": [
-          "ekuiper_plugin"
+          "rules_engine"
         ],
         "parameters": [
           {
@@ -2140,7 +2137,7 @@
     },
     "/api/process/ekuiper/start": {
       "get": {
-        "summary": "Start ekuiper process",
+        "summary": "Start rules engine process",
         "deprecated": false,
         "description": "",
         "operationId": "StartKuiper",
@@ -2179,7 +2176,7 @@
     },
     "/api/process/ekuiper/stop": {
       "get": {
-        "summary": "Stop ekuiper process",
+        "summary": "Stop rules engine process",
         "deprecated": false,
         "description": "",
         "operationId": "StopKuiper",
@@ -2218,7 +2215,7 @@
     },
     "/api/process/status": {
       "get": {
-        "summary": "The status of ekuiper and Neuron process",
+        "summary": "Status of the rules engine and Neuron processes",
         "deprecated": false,
         "description": "",
         "operationId": "KuiperNeuronStatus",
@@ -7880,7 +7877,7 @@
                   },
                   "demo_conf": {
                     "qos": 0,
-                    "server": "tcp://10.211.55.6:1883"
+                    "server": "tcp://broker.emqx.io:1883"
                   }
                 }
               }
@@ -8021,7 +8018,7 @@
                 "example": {
                   "demo_conf": {
                     "qos": 0,
-                    "server": "tcp://10.211.55.6:1883"
+                    "server": "tcp://broker.emqx.io:1883"
                   }
                 }
               }
@@ -8088,7 +8085,7 @@
     },
     "/api/ekuiper/stop": {
       "post": {
-        "summary": "Shutdown eKuiper",
+        "summary": "Shut down the rules engine",
         "deprecated": false,
         "description": "Shut down eKuiper through rest api.",
         "tags": [
@@ -8361,8 +8358,8 @@
                       "tables": {},
                       "rules": {},
                       "nativePlugins": {
-                        "sinks_tdengine": "fail to download file file:///root/ekuiper-jran/_plugins/ubuntu/sinks/tdengine_amd64.zip: stat /root/ekuiper-jran/_plugins/ubuntu/sinks/tdengine_amd64.zip: no such file or directory",
-                        "sources_random": "fail to download file file:///root/ekuiper-jran/_plugins/ubuntu/sources/random_amd64.zip: stat /root/ekuiper-jran/_plugins/ubuntu/sources/random_amd64.zip: no such file or directory"
+                        "sinks_tdengine": "fail to download file file:///tmp/plugins/ubuntu/sinks/tdengine_amd64.zip: stat /tmp/plugins/ubuntu/sinks/tdengine_amd64.zip: no such file or directory",
+                        "sources_random": "fail to download file file:///tmp/plugins/ubuntu/sources/random_amd64.zip: stat /tmp/plugins/ubuntu/sources/random_amd64.zip: no such file or directory"
                       },
                       "portablePlugins": {},
                       "sourceConfig": {},

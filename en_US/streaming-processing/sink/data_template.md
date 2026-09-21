@@ -187,8 +187,8 @@ typesetting rules cannot be passed in).
 
 Use Golang's built-in binary comparison function:
 
-- `lt`：less than
-- `ge`：greater or equal to
+- `lt`: less than
+- `ge`: greater or equal to
 
 It is worth noting that in the `lt` and `ge` functions, the type of the second parameter value should be consistent with the actual data type of the data in the map, otherwise an error will occur. As in the above example, when the temperature is greater than `30`, because the type of actual average number in map is float, the value of the second parameter needs to be passed into `30.0`, not `30`.
 

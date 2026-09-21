@@ -9,7 +9,7 @@ This plugin sends the analysis results into Kafka.
 | ------------ | -------- | --------------------------------------- |
 | Broker List      | no       | kafka broker list            |
 | Topic        | no       | kafka topic                              |
-| Sasl auth type | no       | support none，plain，scram |
+| Sasl auth type | no       | support none, plain, scram |
 | Sasl username | yes       | -                             |
 | Sasl password | yes      | -                               |
 

@@ -8,7 +8,7 @@ Correlating this SQL data with real-time equipment data provides richer context,
 *   **Production Efficiency Analysis**: Accurately calculate OEE by combining work order schedules with actual equipment output.
 *   **Predictive Maintenance**: Optimize maintenance schedules based on equipment maintenance records from ERP and real-time operational conditions.
 
-EMQX Neuron, as an industrial edge gateway software, not only supports over 100 industrial protocols but can also collect data from various IT systems, including databases (like MES/WMS/ERP), Enterprise Service Bus (ESB), and RESTful APIs.
+EMQX Neuron, as an industrial edge gateway software, not only supports over 70 industrial protocols but can also collect data from various IT systems, including databases (like MES/WMS/ERP), Enterprise Service Bus (ESB), and RESTful APIs.
 
 This article will detail how to use **EMQX Neuron** as a powerful edge data bridge to efficiently and reliably pull data from a MySQL database, process it, and seamlessly forward it to the **EMQX Platform**, thus breaking down the data silos between IT and OT.
 

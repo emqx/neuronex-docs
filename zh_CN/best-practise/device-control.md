@@ -109,13 +109,13 @@ EMQX Neuron 的数据处理模块提供了强大的数据分析和处理能力�
 
 继续使用[MQTT 完整示例](#mqtt-完整示例)中的 modbus1 驱动，参考下图，将驱动采集组配置到数据处理模块的订阅组。配置完成后，接下来在数据处理模块中，neuronStream数据流将会每秒都收到来自 modbus1 驱动采集组group1的所有采集数据。
 
-![ekuiper-control-1-zh](./_assets/ekuiper-control-1-zh.png)
+![将 modbus1 驱动的 group1 采集组添加到数据处理的订阅组](./_assets/ekuiper-control-1-zh.png)
 
 **2）创建规则并测试数据流入**
 
 在**数据处理** -> **规则** 页面，点击**新建规则**，进入该页面，点击运行测试按钮，即可看到数据处理模块每秒都会收到来自 modbus1 驱动的采集数据，表示前序步骤配置成功，之后可以停止规则测试。
 
-![ekuiper-control-2-zh](./_assets/ekuiper-control-2-zh.png)
+![新建规则页面的运行测试结果，每秒收到 modbus1 的采集数据](./_assets/ekuiper-control-2-zh.png)
 
 
 **3）配置反控**
@@ -131,9 +131,9 @@ FROM
 
 选择规则 action 为 Neuron 类型， 并配置如下，表示将 SQL 输出的数据结果写入到南向驱动节点 **modbus1** 采集组 **group1** 的点位 **tag2**。
 
-![ekuiper-control-3-zh](./_assets/ekuiper-control-3-zh.png)
+![规则的 action 选择 Neuron 类型](./_assets/ekuiper-control-3-zh.png)
 
-![ekuiper-control-4-zh](./_assets/ekuiper-control-4-zh.png)
+![Neuron action 中配置目标驱动、采集组与点位](./_assets/ekuiper-control-4-zh.png)
 
 保存规则后，规则自动已经进入运行状态。
 
@@ -143,7 +143,7 @@ FROM
 
 此时，我们通过点击点位 tag1 的 Write 按钮，写入新的值 5678，可以看到点位 tag2 的值也被更新为 5678，表示通过数据处理模块反控 EMQX Neuron 南向驱动节点 modbus1 中的点位 tag2 成功。
 
-![ekuiper-control-5-zh](./_assets/ekuiper-control-5-zh.png)
+![数据监控页面中点位 tag2 的值被反控更新](./_assets/ekuiper-control-5-zh.png)
 
 通过数据处理模块反控，可以实现更复杂的控制逻辑，如根据不同的条件触发不同的反控操作，或者根据多个条件组合触发反控操作，可快速构建工业场景下智能化应用。
 

@@ -7,7 +7,7 @@ EMQX Neuron 支持在 Dashboard 上对相关功能进行配置修改。
 ### 启动数据处理引擎
 登录 EMQX Neuron 后，点击页面左侧的 **管理** -> **系统配置**， 进入系统配置界面。可手动开启、关闭数据处理引擎。
 
-![start_ekuiper_zh](assets/start_ekuiper_zh.png)
+![系统配置页面中数据处理引擎的开关](assets/start_ekuiper_zh.png)
 
 :::tip  注意
 

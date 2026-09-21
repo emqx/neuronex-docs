@@ -362,13 +362,13 @@ Is the operator used to test the condition of one expression (not) being part of
   expression [NOT] IN (expression2,...n)
 ```
 
-*Note*： support multiple expressions at the same time, but each expression must return single value
+*Note*: support multiple expressions at the same time, but each expression must return single value
 
 ```sql
   expression [NOT] IN expression2
 ```
 
-*Note*：user must make sure the result of expression2 is in array format
+*Note*: user must make sure the result of expression2 is in array format
 
 ```sql
 SELECT column1, column2, ...

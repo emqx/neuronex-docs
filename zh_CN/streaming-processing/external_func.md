@@ -36,8 +36,8 @@ json 配置文件包括以下两个部分：
       "website": "https://www.emqx.io"
     },
     "helpUrl": {
-      "en_US": "https://github.com/lf-edge/ekuiper/blob/master/docs/en_US/plugins/functions/functions.md",
-      "zh_CN": "https://github.com/lf-edge/ekuiper/blob/master/docs/zh_CN/plugins/functions/functions.md"
+      "en_US": "https://docs.emqx.com/en/neuronex/latest/streaming-processing/external_func.html",
+      "zh_CN": "https://docs.emqx.com/zh/neuronex/latest/streaming-processing/external_func.html"
     },
     "description": {
       "en_US": "Sample external services for test only",
@@ -236,7 +236,7 @@ EMQX Neuron 启动时，会读取配置文件夹 *etc/services* 里的外部服�
    ```
    注意：EMQX Neuron 启动之后，修改配置文件**不能**自动载入系统。需要动态更新时，请使用 REST 服务。
 
-服务的动态注册和管理，请参考[外部服务管理 API](https://ekuiper.org/docs/zh/latest/api/restapi/services.html)。
+服务的动态注册和管理，请参考[外部服务管理 API](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html#tag/services)。
 
 ## 使用
 

@@ -101,6 +101,6 @@ When the data type is STRING, .LEN is a required field, indicating the number of
 The address data for the T C R region is six bytes.
 The first two bytes can use bit or int16, uint16 types;
 The middle two bytes of data need to be of type int16 or uint16, with the address suffix added .PRE;
-The last two bytes of data should be of type int16 or uint16, with the address suffix added .ACC。
+The last two bytes of data should be of type int16 or uint16, with the address suffix added .ACC.
 For example, T2:1.ACC
 :::

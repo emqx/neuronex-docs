@@ -1,6 +1,6 @@
 # Modbus TCP
 
-Modbus TCP is a version of the Modbus protocol based on Ethernet, which uses TCP/IP for communication. Unlike the traditional Modbus RTU protocol, Modbus TCP allows devices to be interconnected directly through Ethernet without any special hardware or communication interface. Therefore, Modbus TCP has higher communication speed and wider application range.
+Modbus TCP is a version of the Modbus protocol based on Ethernet, which uses TCP/IP for communication. Unlike the traditional Modbus RTU protocol, Modbus TCP allows devices to be interconnected directly through Ethernet without any special hardware or communication interface. Compared with Modbus RTU, this gives it a higher communication speed and a wider range of applications.
 
 For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
 
@@ -26,7 +26,7 @@ Click the driver card to open the **Device Configuration** page and fill in:
 
 | Parameter                  | Description                                                    |
 | -------------------- | ------------------------------------------------------- |
-| **Connection Mode** | Only for **TCP** mode, When selecting TCP, you can choose EMQX Neuron as the TCP client or server. |
+| **Connection Mode** | Choose whether EMQX Neuron acts as the TCP client or the TCP server. |
 | **Maximum Retry Times** | The maximum number of retries after a failed attempt to send a read command. |
 | **Retry Interval** | Resend reading instruction interval(ms) after a failed attempt to send a read command. |
 | **4-byte Endianness**    | Byte order of tags with 32 bits, ABCD corresponds to 1234. |
@@ -80,13 +80,13 @@ Required, Slave is the slave address or site number.
 
 #### **ADDRESS**
 
-Required, Address is the register address. The Modbus protocol has four areas, each area has a maximum of 65536 registers, and the address range of each area is shown in the table below. It should be noted that a storage area as large as 65536 is generally not required in practical applications. Generally, PLC manufacturers generally use an address range within 10000. Please pay attention to filling in the correct point address according to the area and function code of the device.
+Required, Address is the register address. The Modbus protocol has four areas, each area has a maximum of 65536 registers, and the address range of each area is shown in the table below. In practice a storage area that large is rarely needed: most PLC vendors use addresses below 10000. Enter the address that matches the area and function code of the device.
 
 | Area                       | Address Range          | Attribute        | Register Size     | Function Code | Data Type|
 | ------------------------- | ---------------- | ---------- | ------------- | ------------ | ------- |
 | Coil                | 000001 ~ 065536 | Read/Write       | 1Bit          | 0x01, 0x05, 0x0f | BIT     |
-| Input          | 100001 ~ 165536 | Read/Write         | 1Bit         | 0x02          | BIT     |
-| Input Register| 300001 ~ 365536 | Read/Write         | 16Bit,2Byte         | 0x04          | BIT, INT16, UINT16,<br />INT32, UINT32, INT64,<br />UINT64, FLOAT,<br />DOUBLE, STRING |
+| Input          | 100001 ~ 165536 | Read               | 1Bit         | 0x02          | BIT     |
+| Input Register| 300001 ~ 365536 | Read               | 16Bit,2Byte         | 0x04          | BIT, INT16, UINT16,<br />INT32, UINT32, INT64,<br />UINT64, FLOAT,<br />DOUBLE, STRING |
 | Hold Register  | 400001 ~ 465536 | Read/Write       | 16Bit,2Byte         | 0x03, 0x06, 0x10 | BIT, INT16, UINT16,<br />INT32, UINT32, INT64,<br />UINT64, FLOAT,<br /> DOUBLE, STRING |
 
 #### **.BIT**

@@ -40,4 +40,4 @@ In **South Devices**, using Modbus Plus TCP driver create a node named modbus-tc
 
 * **Connection mode**: Selection Client;
 * **Host**: Fill in the IP address of Modbus Slave;
-* **Port**: Fill in the port of Modbus Slave。
+* **Port**: Fill in the port of Modbus Slave.

@@ -35,7 +35,7 @@
 
 ### 核心优势
 
-1. **100+ 工业协议开箱即用**
+1. **70+ 工业协议开箱即用**
 
    - **Modbus TCP/RTU**、**OPC UA**、**Siemens S7**、**Ethernet/IP**、**BACnet**、**IEC 60870-5-104**、**DNP3**...
 
@@ -263,7 +263,7 @@ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=
 
 ## 进阶：支持更多 PLC 协议
 
-上面的例子使用了 **Modbus** 模拟器进行数据采集，**EMQX Neuron** 支持 `100+` 种工业协议。关于 **EMQX Neuron** 采集**西门子 S7-1200 PLC** 数据并发送到 **MQTT** 的完整教程，请参考：[10 分钟将西门子 S7-1200 连接到 MQTT](https://www.emqx.com/zh/blog/connecting-siemens-s7-1200-plc-to-mqtt)
+上面的例子使用了 **Modbus** 模拟器进行数据采集，**EMQX Neuron** 支持 `70+` 种工业协议。关于 **EMQX Neuron** 采集**西门子 S7-1200 PLC** 数据并发送到 **MQTT** 的完整教程，请参考：[10 分钟将西门子 S7-1200 连接到 MQTT](https://www.emqx.com/zh/blog/connecting-siemens-s7-1200-plc-to-mqtt)
 
 ## 进阶：边缘数据处理
 
@@ -331,7 +331,7 @@ WHERE values.temperature > 80
 
 将 **PLC** 连接到 **MQTT** 不应该是一个复杂、昂贵、耗时的项目。**EMQX Neuron** 通过以下方式简化了整个流程：
 
-✅ **100+ 协议开箱即用**：无需为每种 **PLC** 编写驱动
+✅ **70+ 协议开箱即用**：无需为每种 **PLC** 编写驱动
 
 ✅ **零代码配置**：**Web** 界面可视化操作，10 分钟完成配置
 

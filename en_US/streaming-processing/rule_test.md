@@ -41,7 +41,7 @@ Simulated data supports "one json output in multiple lines", "one json ouput in 
   {"ts" : 1672545665000, "tag1" : "area1", "value1" : 5}
   ```
 
-The following figure introduces the configuration and output examples of the simulated data source：
+The following figure introduces the configuration and output examples of the simulated data source:
 
 <img src="./_assets/ruletest_sim_en.png" alt="create_rule_ruletest" style="zoom:100%;" />
 
@@ -52,4 +52,4 @@ The following figure introduces the configuration and output examples of the sim
 
 <img src="./_assets/ruletest_temp_en.png" alt="create_rule_ruletest" style="zoom:100%;" />
 
-For more usage of data templates, please see [Data Template](./sink/data_template.md)。
+For more usage of data templates, please see [Data Template](./sink/data_template.md).

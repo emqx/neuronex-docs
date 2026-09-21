@@ -1,4 +1,4 @@
-# Data Collection, Processing and Forwarding
+# Data Collection, Processing and Delivery
 
 This section is the configuration manual for real projects: connecting real devices, scaling up, and running reliably over time. To get one pipeline working in fifteen minutes with a simulator instead, see the [Quick Start](../quick-start/quick-start.md).
 
@@ -9,7 +9,7 @@ This section is the configuration manual for real projects: connecting real devi
 | 1 | [Create a southbound driver](./south-devices/south-devices.md) | Pick the driver for the device protocol and fill in connection parameters. Per-protocol parameters, data types, and address formats are in [Southbound Drivers](../introduction/driver-list/driver-list.md) |
 | 2 | [Groups and tags](./groups-tags/groups-tags.md) | **Settle the grouping strategy first** — the group is the unit of collection, reporting, and subscription, so it determines payload shape and bandwidth |
 | 3 | [Data monitoring and device control](../admin/monitoring.md) | Confirm tags are collecting, and write back to devices from here |
-| 4 | [Processing data before forwarding](./processing.md) (optional) | Use the rules engine to filter, convert, aggregate, or rename fields — particularly worthwhile at high volume or when the polling rate exceeds what the business needs |
+| 4 | [Processing data before delivery](./processing.md) (optional) | Use the rules engine to filter, convert, aggregate, or rename fields — particularly worthwhile at high volume or when the polling rate exceeds what the business needs |
 | 5 | [Create a northbound application](./north-apps/north-apps.md) | Choose where the data goes; for selection guidance see [Northbound Applications](./north-apps/catalog.md) |
 | 6 | [Subscribe to southbound data](./subscription.md) | Attach collection groups to the application and data starts flowing |
 
@@ -24,7 +24,7 @@ The overall process is shown below:
 <img src="./_assets/config.png" alt="Configuration steps" style="zoom:40%;" />
 
 ::: tip
-To filter, convert, or aggregate before forwarding, see [Data Processing](../streaming-processing/overview.md). For how nodes, groups, and tags relate, see [Architecture · Core data model](../introduction/architecture.md#core-data-model).
+To filter, convert, or aggregate before delivery, see [Data Processing](../streaming-processing/overview.md). For how nodes, groups, and tags relate, see [Architecture · Core data model](../introduction/architecture.md#core-data-model).
 :::
 
 ## Configuration specification

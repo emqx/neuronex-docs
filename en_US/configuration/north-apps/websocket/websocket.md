@@ -22,7 +22,7 @@ These are the available parameters when configuring a node using the WebSocket a
 
 ## Add Subscription
 
-After application configuration, data forwarding can be enabled via southbound device subscriptions.
+After application configuration, data delivery can be enabled via southbound device subscriptions.
 
 Click the device card or row on the **North Apps** page, then **Add Subscription** on the **Group List** page. And set the following:
 

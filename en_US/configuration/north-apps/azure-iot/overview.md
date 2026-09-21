@@ -37,7 +37,7 @@ See the table below for the configuration parameters.
 
 ## Add Subscription
 
-After application configuration, data forwarding can be enabled via southbound device subscriptions.
+After application configuration, data delivery can be enabled via southbound device subscriptions.
 
 Click the north app on the **North Apps** page, then **Add Subscription** on the **Group List** page. And set the following:
 

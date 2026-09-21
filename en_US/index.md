@@ -2,7 +2,7 @@
 
 EMQX Neuron (formerly NeuronEX) is an industrial edge gateway that runs on the plant floor — in manufacturing, energy, and building automation. Device-side protocols are fragmented and data formats are inconsistent, while MES, SCADA, and cloud platforms need standardized real-time data. EMQX Neuron collects from PLCs, CNC machines, robots, and meters, cleans and computes on that data at the edge, and delivers it in the shape the systems above expect.
 
-![EMQX Neuron data flow: field devices and other data sources pass through data acquisition, processing, and forwarding to IoT platforms, databases, and factory systems](./_assets/neuron-dataflow.jpg)
+![EMQX Neuron data flow: field devices and other data sources pass through data acquisition, processing, and delivery to IoT platforms, databases, and factory systems](./_assets/neuron-dataflow.jpg)
 
 ## Core capabilities
 
@@ -10,7 +10,7 @@ EMQX Neuron (formerly NeuronEX) is an industrial edge gateway that runs on the p
 | --- | --- | --- |
 | **Data collection** | Southbound drivers connect 70+ industrial protocols, covering Modbus, OPC UA, EtherNet/IP, IEC 60870, BACnet, Siemens and Mitsubishi PLCs, and a range of CNC controllers | [Southbound Drivers](./introduction/driver-list/driver-list.md) |
 | **Data processing** | A built-in stream processing engine with 160+ functions for filtering, transformation, aggregation, and windowing; extensible with Python/C++ functions and AI/ML models | [Data Processing](./streaming-processing/overview.md) |
-| **Data forwarding** | Publish to IoT platforms and enterprise systems, write into databases, or serve data on the plant floor through an OPC UA Server | [Northbound Applications](./configuration/north-apps/catalog.md) |
+| **Data delivery** | Publish to IoT platforms and enterprise systems, write into databases, or serve data on the plant floor through an OPC UA Server | [Northbound Applications](./configuration/north-apps/catalog.md) |
 | **Operations** | A web console for configuration, users and permissions, log download, runtime monitoring and alerts, with master-backup deployment | [Operations](./admin/introduction.md) |
 
 ## Getting started

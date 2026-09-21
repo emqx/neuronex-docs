@@ -125,10 +125,8 @@ HTTP Pull 源支持查询表。登录 EMQX Neuron，点击**数据处理** -> **
 
 本示例使用 HTTP Pull 源，读取 EMQX Neuron API 接口 `/api/neuron/node/state`，获取南向驱动状态信息，在这个过程中还会涉及到获取 EMQX Neuron Token 认证信息。
 
-在该示例中，使用的 EMQX Neuron 版本为 3.4.1。
-
 ```shell
-docker run -d --name neuronex -p 8077:8085 --log-opt max-size=100m emqx/neuronex:3.4.1
+docker run -d --name neuronex -p 8077:8085 --log-opt max-size=100m emqx/neuronex:latest
 ```
 
 ### 创建流

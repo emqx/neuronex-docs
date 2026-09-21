@@ -103,7 +103,7 @@ docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s 
 
 ### 规则引擎应用配置项
 
-规则引擎应用的主配置文件是 `/opt/neuronex/etc/kuiper.yaml`，文件内每一项都带有注释。常用配置项按分组列在下面，配置文件与环境变量二选一即可，环境变量优先。
+规则引擎应用的主配置文件是 `/opt/neuronex/software/ekuiper/etc/kuiper.yaml`，文件内每一项都带有注释。常用配置项按分组列在下面，配置文件与环境变量二选一即可，环境变量优先。
 
 #### basic —— 日志与服务
 

@@ -1250,7 +1250,7 @@
       ]
     },
     {
-      "title": "Data Collection, Processing and Forwarding",
+      "title": "Data Collection, Processing and Delivery",
       "path": "configuration/introduction",
       "collapsed": true,
       "children": [
@@ -1311,7 +1311,7 @@
           "path": "configuration/modbus-simulator"
         },
         {
-          "title": "Processing Data Before Forwarding",
+          "title": "Processing Data Before Delivery",
           "path": "configuration/processing"
         },
         {

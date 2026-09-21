@@ -38,7 +38,7 @@ This section assumes that the southbound OPC UA driver has been installed, the g
 
   
 
-## View Data Forwarding
+## View Data Delivery
 
 Click the **View Data** button on the Cogent DataHub main interface to see the test data being uploaded instantly.
   ![cogent3](./assets/cogent3.jpg)

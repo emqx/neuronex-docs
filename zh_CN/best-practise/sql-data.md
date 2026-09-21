@@ -19,7 +19,7 @@ EMQX Neuron 作为一款工业边缘网关软件，除了支持 70+ 种工业协
 1.  **EMQX Neuron**：
 
 ```shell
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:3.6.0
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:latest
 ```
 
 2.  **MySQL 数据库**：

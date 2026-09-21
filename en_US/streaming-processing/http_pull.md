@@ -125,10 +125,8 @@ HTTP pull sources support lookup tables. Log in to EMQX Neuron and click **Data 
 
 This example uses the HTTP Pull source to read the EMQX Neuron API interface `/api/neuron/node/state` to obtain the southbound driver status information. In this process, it will also involve obtaining the EMQX Neuron Token authentication information.
 
-In this example, the version of EMQX Neuron used is 3.4.1.
-
 ```shell
-docker run -d --name neuronex -p 8077:8085 --log-opt max-size=100m emqx/neuronex:3.4.1
+docker run -d --name neuronex -p 8077:8085 --log-opt max-size=100m emqx/neuronex:latest
 ```
 
 ### Create Stream

@@ -44,4 +44,4 @@ The output of the [Driver Migration Tool](./driver-migration-tool.md) is importe
 
 ## Configuration limits
 
-Check the per-instance limits before configuring in bulk — see [Data Collection, Processing and Forwarding · Configuration specification](./introduction.md#configuration-specification).
+Check the per-instance limits before configuring in bulk — see [Data Collection, Processing and Delivery · Configuration specification](./introduction.md#configuration-specification).

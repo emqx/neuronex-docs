@@ -80,7 +80,7 @@ Supports data collection of the full range of Siemens PLCs.
 
 ## Does EMQX Neuron support offline data caching?
 
-Yes. EMQX Neuron supports northbound MQTT data forwarding. When the network is interrupted, the collected data will be cached locally, and the cached data will be uploaded to the cloud after the network is restored.
+Yes. EMQX Neuron supports northbound MQTT data delivery. When the network is interrupted, the collected data will be cached locally, and the cached data will be uploaded to the cloud after the network is restored.
 
 ## Does EMQX Neuron support storing data locally?
 

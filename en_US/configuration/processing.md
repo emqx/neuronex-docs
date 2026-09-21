@@ -1,4 +1,4 @@
-# Processing Data Before Forwarding
+# Processing Data Before Delivery
 
 Collected data can be published as it is, or processed by the rules engine first. This page covers how that step fits into the configuration flow; for the full capability of the rules engine, see [Data Processing](../streaming-processing/overview.md).
 

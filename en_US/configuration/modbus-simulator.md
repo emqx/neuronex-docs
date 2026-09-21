@@ -52,7 +52,7 @@ The downloaded configuration file already contains the driver and tags informati
 
 The simulator's default port is `502`, which generally does not need to be modified. Port modification is not currently supported in the interface. Port adjustment is done through the system configuration file.
 
-Modify the simulator's running port by changing the `port` parameter of `modbus_simulator` in the `/opt/neuronex/software/neuron/config/neuron.json` file. After modification, EMQX Neuron needs to be restarted for the changes to take effect.
+Modify the simulator's running port by changing the `port` parameter of `modbus_simulator` in the `/opt/neuronex/etc/neuron/neuron.json` file. After modification, EMQX Neuron needs to be restarted for the changes to take effect.
 
 ```json
 {

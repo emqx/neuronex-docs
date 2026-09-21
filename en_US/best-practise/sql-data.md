@@ -19,7 +19,7 @@ Before you begin, ensure you have the following environment set up. You can quic
 1.  **EMQX Neuron**:
 
 ```shell
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:3.6.0
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:latest
 ```
 
 2.  **MySQL Database**:

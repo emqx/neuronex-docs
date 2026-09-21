@@ -10,7 +10,7 @@ By integrating EMQX Neuron and ONNX, users only need to upload pre-built ONNX mo
 
 - EMQX Neuron Official Docker Image
     ```shell
-    docker pull emqx/neuronex:3.5.0
+    docker pull emqx/neuronex:latest
     ```
 
 - Model File

@@ -10,4 +10,4 @@ Reference material is collected here.
 | [FAQ](../faq/faq_basic.md) | Common questions on deployment, limits, and protocol support |
 | [Release History](../release_history/release_history.md) | New features and fixes per version |
 
-For stream processing SQL syntax, functions, and windows, see [Data Processing · SQL Reference](../streaming-processing/sqls/overview.md). For name lengths, group limits, and the minimum polling interval of a single instance, see [Data Collection, Processing and Forwarding · Configuration specification](../configuration/introduction.md#configuration-specification).
+For stream processing SQL syntax, functions, and windows, see [Data Processing · SQL Reference](../streaming-processing/sqls/overview.md). For name lengths, group limits, and the minimum polling interval of a single instance, see [Data Collection, Processing and Delivery · Configuration specification](../configuration/introduction.md#configuration-specification).

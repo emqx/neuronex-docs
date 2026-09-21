@@ -10,7 +10,7 @@ ONNX 是一种针对机器学习所设计的开放式的文件格式，用于存
 
 - EMQX Neuron 官方 Docker 镜像
     ```shell
-    docker pull emqx/neuronex:3.5.0
+    docker pull emqx/neuronex:latest
     ```
 
 - 模型文件

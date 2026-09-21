@@ -109,7 +109,7 @@ docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s 
 
 ### Rules Engine Application configuration items
 
-The main configuration file of the Rules Engine Application is `/opt/neuronex/software/ekuiper/etc/kuiper.yaml`, and every item in it carries a comment. The commonly used items are listed below by group. Use either the file or the environment variables — the environment variable wins.
+The main configuration file of the Rules Engine Application is `/opt/neuronex/etc/ekuiper/kuiper.yaml`, and every item in it carries a comment. The commonly used items are listed below by group. Use either the file or the environment variables — the environment variable wins.
 
 #### basic — logging and services
 

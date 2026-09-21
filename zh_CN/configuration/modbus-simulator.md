@@ -52,7 +52,7 @@ EMQX Neuron 默认安装启动后，Modbus TCP Slave 模拟器是关闭状态，
 
 模拟器运行端口默认为`502`，一般情况下无需修改。端口暂不支持界面修改，调整端口通过系统配置文件设置。
 
-通过修改 `/opt/neuronex/software/neuron/config/neuron.json` 文件中的 modbus_simulator 的`port`参数，修改模拟器运行端口。修改后需要重启 EMQX Neuron 生效。
+通过修改 `/opt/neuronex/etc/neuron/neuron.json` 文件中的 modbus_simulator 的`port`参数，修改模拟器运行端口。修改后需要重启 EMQX Neuron 生效。
 
 ```json
 {

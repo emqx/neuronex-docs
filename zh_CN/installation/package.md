@@ -65,7 +65,7 @@ sudo systemctl start neuronex
 
 ## 升级
 
-三种格式的升级流程一致：停服务、装新包、再启动。配置和数据保存在 `/opt/neuronex/data/`，不会被覆盖。
+三种格式的升级流程一致：停服务、装新包、再启动。配置与运行数据在 `/opt/neuronex/data/`，用户安装的插件在 `/opt/neuronex/plugins/` 下，都不会被覆盖。
 
 ```bash
 sudo systemctl stop neuronex
@@ -80,7 +80,7 @@ sudo systemctl start neuronex
 ```
 
 ::: tip
-升级前建议备份 `/opt/neuronex/data/` 目录。万一需要回滚，把备份复制回新版本的相同目录即可恢复配置。
+升级前建议备份数据目录与用户插件目录，范围见[备份与恢复](../admin/backup-restore.md#备份数据目录)。万一需要回滚，把备份复制回新版本的相同路径即可恢复。
 :::
 
 ## 卸载

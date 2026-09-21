@@ -135,6 +135,6 @@ EMQX Neuron currently supports two ways to upload configuration files: uploading
 After clicking **Submit**, the file will appear in the list on the **Files Management** page, with the name containing the file path and file name, such as:
 
 ```
-/opt/neuronex/data/ekuiper/data/uploads/my.json
+/opt/neuronex/data/ekuiper/uploads/my.json
 ```
 

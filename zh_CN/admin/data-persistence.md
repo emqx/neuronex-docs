@@ -1,41 +1,37 @@
 # 数据目录与持久化
 
-EMQX Neuron 将所有持久性数据放入其 `data` 目录中，用户可以轻松地升级 EMQX Neuron 而不担心丢失配置。
+EMQX Neuron 的持久化内容分两部分：**配置与运行数据**在 `data/` 下，**用户安装的插件**在 `plugins/` 下。升级只替换程序文件，这两部分都保留。
 
-## 数据目录结构
+## 目录结构
 
-`data` 目录下有三个子目录，如下图所示。
-![image](./assets/data-struct.jpg)
+安装根目录默认为 `/opt/neuronex`。
 
-* 规则引擎应用：数据处理模块相关配置
-* neuron：数据采集模块相关配置
-* neuronex：EMQX Neuron 相关配置
+| 目录 | 内容 |
+| --- | --- |
+| `data/neuronex/` | EMQX Neuron 自身：`data.db`、`initialed` |
+| `data/neuron/` | 数采引擎：`sqlite.db`、`plugins.json`、许可证文件、BACnet 扫描结果 |
+| `data/ekuiper/` | 规则引擎：各类 `.db` 文件，以及 `sources/`、`sinks/`、`functions/`、`services/`、`connections/`、`uploads/` |
+| `plugins/neuron/system/`、`plugins/neuron/custom/` | 用户安装的南向驱动与北向应用 |
+| `plugins/ekuiper/` | 用户安装的规则引擎插件：`sources/`、`sinks/`、`functions/`、`portable/` |
+
+`plugins/neuron/` 下的其余内容（`libplugin-*.so`、`schema/`、`tags/`）随安装包发布，升级时由新版本替换，不需要备份。
+
+配置文件在 `etc/` 下：`neuronex.yaml`、`neuron/neuron.json`、`ekuiper/kuiper.yaml`。改过其中任何一个的话，升级前一并留一份。
+
+其余目录都是程序资产：`bin/`、`lib/`、`share/`、`log/`、`run/`、`web/`、`locales/`、`api-docs/`。
 
 ## 通过 Docker 部署
 
-当使用 docker 部署时，用户可以将主机的一个目录挂载到 EMQX Neuron data 目录中，EMQX Neuron 所有配置都将被
-保存到主机目录中。升级 EMQX Neuron 时，只需将相同的主机目录挂载到 EMQX Neuron 数据目录中，新的 EMQX Neuron 实例将使用之前所做的配置。另外第一次部署时，主机目录可以为空。
-
-像下面的例子，我们在 host 中创建一个空目录，然后挂载到EMQX Neuron `/opt/neuronex/data`，然后本地空目录将被 EMQX Neuron 覆盖。当我们升级EMQX Neuron 时，我们可以将主机目录挂载到 `/opt/neuronex/data`, 这样主机目录中的所有配置
-可由 EMQX Neuron 实例使用。
+容器删除后容器内的数据一并消失，所以要把数据目录挂到宿主机上。
 
 ```shell
-admin@Jianxiangs-MacBook-Pro /tmp % mkdir data
-admin@Jianxiangs-MacBook-Pro /tmp % cd data 
-admin@Jianxiangs-MacBook-Pro data % ls 
-admin@Jianxiangs-MacBook-Pro data % pwd
-/tmp/data
-admin@Jianxiangs-MacBook-Pro data % docker run -d --name neuronex  -p 8085:8085 -v /tmp/data:/opt/neuronex/data  emqx/neuronex:latest
-
-5e256e21b0e5c7ca770fdcae64446d749d841148614bcacfcd064d3911004421
-admin@Jianxiangs-MacBook-Pro data % 
-admin@Jianxiangs-MacBook-Pro data % ls
-ekuiper		neuron		neuronex
-admin@Jianxiangs-MacBook-Pro data % 
-
+docker run -d --name neuronex -p 8085:8085 \
+  -v /host/neuronex-data:/opt/neuronex/data \
+  emqx/neuronex:latest
 ```
 
-## 通过二进制部署
+宿主机目录首次可以为空，EMQX Neuron 启动时会填充。升级时把同样的目录挂到新容器上，之前的配置继续可用。
 
-当通过二进制部署时，所有配置都保存在本地到 EMQX Neuron 的数据目录中。
-用户需要将旧版 EMQX Neuron 中的 `data` 目录复制到新版 EMQX Neuron `data` 目录中进行升级。
+## 通过安装包部署
+
+配置、数据和插件都在安装根目录下。升级不会覆盖上表中的目录，但升级前建议先备份，见[备份与恢复](./backup-restore.md#备份数据目录)。

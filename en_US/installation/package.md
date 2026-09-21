@@ -65,7 +65,7 @@ For startup parameters, see [Startup Parameters and Configuration File](../admin
 
 ## Upgrading
 
-The flow is the same for all three formats: stop the service, install the new package, start it again. Configuration and data live in `/opt/neuronex/data/` and are preserved.
+The flow is the same for all three formats: stop the service, install the new package, start it again. Configuration and runtime data live in `/opt/neuronex/data/` and the plugins you installed live under `/opt/neuronex/plugins/`; neither is overwritten.
 
 ```bash
 sudo systemctl stop neuronex
@@ -80,7 +80,7 @@ sudo systemctl start neuronex
 ```
 
 ::: tip
-Back up `/opt/neuronex/data/` before upgrading. To roll back, copy the backup into the same directory of the new version and the configuration is restored.
+Back up the data directory and the user plugin directories before upgrading — for the exact scope, see [Backup and Restore](../admin/backup-restore.md#backing-up-the-data-directory). To roll back, copy the backup into the same paths of the new version and the configuration is restored.
 :::
 
 ## Uninstalling

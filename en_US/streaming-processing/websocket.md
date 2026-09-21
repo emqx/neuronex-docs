@@ -40,7 +40,7 @@ When acting as a Websocket server, the `Websocket Address` can be left blank, an
 
 At this point, EMQX Neuron will act as a Websocket server, using itself as the host, and waiting for Websocket connections to be established at the `/api/data` URL, receiving data over these connections as a message source.
 
-The default Websocket port is 10081. To modify this port, you need to change it in the `source` section of the configuration file located at `/opt/neuronex/software/ekuiper/etc`:
+The default Websocket port is 10081. To modify this port, you need to change it in the `source` section of the configuration file located at `/opt/neuronex/etc/ekuiper`:
 
 ```yaml
 source:

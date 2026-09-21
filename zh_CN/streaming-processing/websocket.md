@@ -43,7 +43,7 @@ Websocket 数据源还可以作为 Websocket 服务端，此时远端的 websock
 
 此时，EMQX Neuron 将作为 Websocket 的服务端，以自身为 host,并在 /api/data 的 url 处等待 Websocket 连接建立，并以该连接接收数据作为消息源。
 
-Websocket 默认端口为 10081,若要修改该端口，需要在配置文件`/opt/neuronex/software/ekuiper/etc` 中的 `source` 部分进行修改：
+Websocket 默认端口为 10081,若要修改该端口，需要在配置文件`/opt/neuronex/etc/ekuiper` 中的 `source` 部分进行修改：
 
 ```yaml
 source:

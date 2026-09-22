@@ -29,7 +29,7 @@ Open `http://127.0.0.1:8085` in a browser and sign in with the default account *
 
 EMQX Neuron ships with a Modbus TCP simulator that produces live data, so you do not need a real PLC to get started.
 
-1. Go to **Data Collection → Modbus TCP Slave Simulator**.
+1. Go to **Administration → Modbus TCP Simulator**.
 2. Click `Start Simulator`. The simulator is off by default and consumes no resources until you start it.
 3. Add tags — up to 10, with simulation types `sine`, `ramp`, `square`, or `random`. Addresses are assigned automatically.
 4. Click `Save Tag Configuration`. The simulator starts producing data.

@@ -10,7 +10,7 @@ The usual workflow is three steps:
 
 ## Enable Scanning
 
-Enable scanning on **Data Collection → BACnet/IP Device Scan**.
+Enable scanning on **Administration → BACnet/IP Device Scan**.
 
 ## Scan Configuration
 

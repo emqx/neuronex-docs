@@ -190,4 +190,4 @@ A `.NULL` tag is write-only. Adding one with the read or subscribe attribute is 
 
 ## Device Scanning
 
-When the device inventory is not known, **Data Collection → BACnet/IP Device Scan** broadcasts to discover devices and enumerate their tags, then generates a fully configured BACnet/IP driver from the result. See [BACnet/IP Device Scan](./scan.md).
+When the device inventory is not known, **Administration → BACnet/IP Device Scan** broadcasts to discover devices and enumerate their tags, then generates a fully configured BACnet/IP driver from the result. See [BACnet/IP Device Scan](./scan.md).

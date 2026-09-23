@@ -4,7 +4,7 @@
 
 ## 什么是 Azure IoT Hub
 
-物联网（IoT）使得设备能够连接到互联网并相互通信，改变了我们生活和工作的方式。Azure IoT Hub 是由微软提供的云服务，是一个完全托管的服务，使组织能够管理、监控和控制物联网设备。
+物联网（IoT）使得设备能够连接到互联网并相互通信，改变了我们生活和工作的方式。[Azure IoT Hub] 是由微软提供的云服务，是一个完全托管的服务，使组织能够管理、监控和控制物联网设备。
 
 此外，Azure IoT Hub 实现了可靠、安全的双向通信，连接了物联网设备和基于云的服务。它允许开发人员从物联网设备接收消息，并向其发送消息，作为通信的中心消息枢纽。它还可以帮助组织利用从物联网设备获取的数据，将物联网数据转化为可操作的洞察力。
 
@@ -169,3 +169,4 @@ EMQX Neuron Azure IoT 连接成功后，使用 MQTT 主题`devices/{device-id}/m
 </figure>
 
 [Modbus TCP 驱动]: ../../south-devices/modbus-tcp/modbus-tcp.md
+[Azure IoT Hub]: https://azure.microsoft.com/zh-cn/products/iot-hub

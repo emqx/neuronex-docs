@@ -6,7 +6,7 @@ This article will introduce how to use the EMQX Neuron to bridge data to AWS IoT
 
 ### What is AWS IoT
 
-Amazon IoT Core is a hosted cloud platform that makes it easy for connected devices to securely interact with cloud applications and other devices. Amazon IoT can support billions of devices and trillions of messages and can process and securely route them to Amazon Cloud Technologies endpoint nodes and other devices. With Amazon IoT, your applications can track and communicate with all your devices at all times, even when they are not connected.
+[Amazon IoT Core] is a hosted cloud platform that makes it easy for connected devices to securely interact with cloud applications and other devices. Amazon IoT can support billions of devices and trillions of messages and can process and securely route them to Amazon Cloud Technologies endpoint nodes and other devices. With Amazon IoT, your applications can track and communicate with all your devices at all times, even when they are not connected.
 
 <figure align="center">
   <img src="./assets/aws-iot.png" style="border:thin solid #E0DCD9; width: 60%" alt="AWS IoT">
@@ -20,6 +20,8 @@ Amazon IoT Core is a hosted cloud platform that makes it easy for connected devi
 4. Proven at scale: AWS IoT is built on a scalable, secure, and proven cloud infrastructure that scales to billions of different devices and trillions of messages.
 
 ## Configure AWS IoT
+
+The steps below are all performed in the [AWS IoT console].
 
 ### 1. Create policy
 
@@ -180,14 +182,14 @@ Click **Monitoring**, then select the *modbus-tcp* node and the *group* group. W
   <img src="./assets/neuron_monitor_1.png" style="border:thin solid #E0DCD9; width: 60%" alt="EMQX Neuron dashboard data monitoring tab">
 </figure>
 
-In the AWS IoT console, using **MQTT test client** to subscribe to the */neuron/aws* topic. We can check that AWS IoT Core receives the data correctly.
+In the [AWS IoT console], using **MQTT test client** to subscribe to the */neuron/aws* topic. We can check that AWS IoT Core receives the data correctly.
 <figure align="center">
   <img src="./assets/aws_neuron_pub_1.png" style="border:thin solid #E0DCD9; width: 60%" alt="AWS IoT test client sub1">
 </figure>
 
 ## Write Data
 
-In the AWS IoT console, use the **MQTT test client** to send a write request to the topic */neuron/aws/write/req*, which writes value *42* to the tag *tag0*.
+In the [AWS IoT console], use the **MQTT test client** to send a write request to the topic */neuron/aws/write/req*, which writes value *42* to the tag *tag0*.
 <figure align="center">
   <img src="./assets/aws_neuron_write.png" style="border:thin solid #E0DCD9; width: 60%" alt="AWS IoT test client write">
 </figure>
@@ -203,3 +205,5 @@ And AWS IoT Core receives the correct tag data, *42*, which is expected.
 </figure>
 
 [Modbus TCP driver]: ../../south-devices/modbus-tcp/modbus-tcp.md
+[Amazon IoT Core]: https://aws.amazon.com/iot-core/
+[AWS IoT console]: https://console.aws.amazon.com/iot/

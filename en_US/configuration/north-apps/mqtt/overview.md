@@ -131,6 +131,24 @@ The EMQX Neuron MQTT application supports running MQTT over SSL. To enable SSL e
 - If using self-signed certificates, the **CA** parameter should be provided with the server-side CA certificate. The certificate of the broker you are connecting to should be issued by the provided CA. 
 - If using two-way authentication, you should also provide the client certificate and key file through the **Client Cert** and **Client Private key** parameters respectively.
 
+### Connecting to EMQX Cloud
+
+[EMQX Cloud](https://www.emqx.com/en/cloud) is the fully managed MQTT service from EMQ. Configure it as you would any MQTT broker — what differs is the port, the authentication, and TLS.
+
+| Setting | Serverless | Dedicated |
+| --- | --- | --- |
+| Broker address | The deployment's connection address, shown on the **Deployments** page of the EMQX Cloud console | Same |
+| Broker port | `8883`; no plaintext port is exposed | `1883` by default; `8883` once TLS is configured |
+| SSL | Required | Required when using `8883` |
+| CA | One-way TLS — [download the CA](https://assets.emqx.com/data/emqxsl-ca.crt) and upload it | Whatever your certificate setup requires |
+| Username, password | Created under **Authentication → Built-in Database** in the console | Same |
+
+::: tip
+Serverless deployments require SNI, so **Broker address** must be the deployment's full domain name. An IP address is rejected.
+:::
+
+For the full port and authentication reference, see the EMQX Cloud documentation: [Serverless connection guide](https://docs.emqx.com/en/cloud/latest/deployments/port_guide_serverless.html) and [Dedicated connection guide](https://docs.emqx.com/en/cloud/latest/deployments/port_guide_dedicated.html).
+
 ## Add Subscription
 
 After application configuration, data delivery can be enabled via southbound device subscriptions.

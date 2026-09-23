@@ -122,6 +122,24 @@ EMQX Neuron 的 MQTT 应用支持 MQTT over SSL。
 - 如果使用自签发的证书， 需要通过 **CA 证书**参数提供 CA 证书。
 - 如果使用双向身份验证，还应通过**客户端证书**和**客户端私钥**参数分别提供客户端证书和私钥文件。
 
+### 连接 EMQX Cloud
+
+[EMQX Cloud](https://www.emqx.com/zh/cloud) 是 EMQ 提供的全托管 MQTT 云服务，按普通 MQTT Broker 配置即可接入，差别集中在端口、认证和 TLS 三处。
+
+| 配置项 | Serverless 版 | 专有版 |
+| --- | --- | --- |
+| 服务器地址 | 部署的连接地址，在 EMQX Cloud 控制台的**部署管理**页查看 | 同左 |
+| 服务器端口 | `8883`，不开放明文端口 | 默认 `1883`；配置 TLS 后可用 `8883` |
+| SSL | 必须开启 | 使用 `8883` 时开启 |
+| CA 证书 | 单向认证，[下载 CA](https://assets.emqx.com/data/emqxsl-ca.crt) 后上传 | 按所配置的证书填写 |
+| 用户名、密码 | 在控制台**客户端认证 → 默认认证**中创建 | 同左 |
+
+::: tip
+Serverless 版对 SNI 有要求，**服务器地址**须填部署的完整域名，不能用 IP，否则连接会被拒绝。
+:::
+
+端口与认证的完整说明见 EMQX Cloud 文档的 [Serverless 连接指引](https://docs.emqx.com/zh/cloud/latest/deployments/port_guide_serverless.html)与[专有版连接指引](https://docs.emqx.com/zh/cloud/latest/deployments/port_guide_dedicated.html)。
+
 ## 添加订阅
 
 完成应用的添加和配置后，我们将继续通过订阅南向设备实现数据的转发。

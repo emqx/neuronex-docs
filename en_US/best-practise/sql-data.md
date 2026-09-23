@@ -10,7 +10,7 @@ Correlating this SQL data with real-time equipment data provides richer context,
 
 EMQX Neuron, as an industrial edge gateway software, not only supports over 70 industrial protocols but can also collect data from various IT systems, including databases (like MES/WMS/ERP), Enterprise Service Bus (ESB), and RESTful APIs.
 
-This article will detail how to use **EMQX Neuron** as a powerful edge data bridge to efficiently and reliably pull data from a MySQL database, process it, and seamlessly forward it to the **EMQX Platform**, thus breaking down the data silos between IT and OT.
+This article will detail how to use **EMQX Neuron** as a powerful edge data bridge to efficiently and reliably pull data from a MySQL database, process it, and seamlessly forward it to **EMQX**, thus breaking down the data silos between IT and OT.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ docker run -d --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456  mysql:8.0
 
 3.  **MQTTX**:
 
-MQTTX is a cross-platform MQTT 5.0 client used for testing and verifying data sent to the EMQX Platform. [Download MQTTX here](https://mqttx.app/).
+MQTTX is a cross-platform MQTT 5.0 client used for testing and verifying data sent to EMQX. [Download MQTTX here](https://mqttx.app/).
 
 
 ## Practical Steps
@@ -292,7 +292,7 @@ On the rule's page, by configuring the `Stream QoS` and `Checkpoint Interval` in
 
 ## Conclusion
 
-By following these steps, we have successfully built a real-time data bridge from a MySQL database to the EMQX Platform using EMQX Neuron. This solution is not only efficient and reliable but also fully utilizes EMQX Neuron's incremental query capabilities, minimizing the impact on the source database.
+By following these steps, we have successfully built a real-time data bridge from a MySQL database to EMQX using EMQX Neuron. This solution is not only efficient and reliable but also fully utilizes EMQX Neuron's incremental query capabilities, minimizing the impact on the source database.
 
 The ability to merge IT business data with real-time OT data at the edge or in the cloud is a key piece of infrastructure for achieving smart manufacturing and driving data-driven decisions. As a hub connecting everything, EMQX Neuron is helping more and more manufacturing enterprises break down data silos and unlock the true potential of their industrial data.
 

@@ -10,7 +10,7 @@
 
 EMQX Neuron 作为一款工业边缘网关软件，除了支持 70+ 种工业协议外，它还能采集来自数据库（如 MES/WMS/ERP）、企业服务总线(ESB)、RESTful API 等多种 IT 系统的数据。
 
-本文将详细介绍如何使用 **EMQX Neuron** 作为强大的边缘数据桥梁，高效、可靠地从 MySQL 数据库中拉取数据，经过处理后，将其无缝转发到 **EMQX Platform 平台**，从而打通 IT 与 OT 之间的数据壁垒。
+本文将详细介绍如何使用 **EMQX Neuron** 作为强大的边缘数据桥梁，高效、可靠地从 MySQL 数据库中拉取数据，经过处理后，将其无缝转发到 **EMQX**，从而打通 IT 与 OT 之间的数据壁垒。
 
 ## 准备工作
 
@@ -30,7 +30,7 @@ docker run -d --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456  mysql:8.0
 
 3.  **MQTTX**：
 
-MQTTX 是一款跨平台的 MQTT 5.0 客户端，用于测试验证发送到 EMQX Platform 的数据。[点击下载 MQTTX](https://mqttx.app/zh)
+MQTTX 是一款跨平台的 MQTT 5.0 客户端，用于测试验证发送到 EMQX 的数据。[点击下载 MQTTX](https://mqttx.app/zh)
 
 
 

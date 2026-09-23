@@ -24,7 +24,7 @@ Typical application scenarios:
 
 ### Starting the Simulator
 
-On **Data Collection → Modbus TCP Slave Simulator**, click `Start Simulator`. After the simulator starts, you still need to configure tags information. Please refer to [Adding Tags in the Simulator](#adding-tags-in-the-simulator).
+On **Administration → Modbus TCP Simulator**, click `Start Simulator`. After the simulator starts, you still need to configure tags information. Please refer to [Adding Tags in the Simulator](#adding-tags-in-the-simulator).
 
 ::: tip
 

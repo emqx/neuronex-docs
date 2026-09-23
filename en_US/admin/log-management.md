@@ -4,7 +4,9 @@ EMQX Neuron prints logs to the local file system and provides log download and l
 
 ## Downloading logs
 
-Click the **Download logs** icon at the top right of the page to export a single archive containing all logs. The entry point is visible on every page, so there is no need to leave the page you are diagnosing.
+On **Administration → System Configuration → Logs**, under Log download, click `Download NeuronEX System Log` to export a single archive containing all logs.
+
+![The Logs page of System Configuration: log levels and log download](./assets/log_config_en.png)
 
 The archive contains three parts:
 
@@ -16,7 +18,7 @@ The archive contains three parts:
 
 ## Log level
 
-Set the log level for EMQX Neuron and for the collection engine on **Administration → System Configuration → Log level**. The Debug level prints extensive diagnostic detail; higher levels print less.
+Set the log level for EMQX Neuron and for the collection engine on **Administration → System Configuration → Logs**. The Debug level prints extensive diagnostic detail; higher levels print less.
 
 ::: tip
 The log level is **not persisted** and returns to the default after EMQX Neuron restarts. Debug affects performance, so raise the level again once the investigation is finished.

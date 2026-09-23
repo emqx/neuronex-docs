@@ -6,7 +6,7 @@
 
 | <div style="width:70pt">应用</div> | 对接目标 | 认证方式 |
 | --- | --- | --- |
-| [MQTT](./mqtt/overview.md) | 任意 MQTT Broker：EMQX、EMQX Cloud、自建 Broker | 用户名密码、TLS 单向或双向认证 |
+| [MQTT](./mqtt/overview.md) | 任意 MQTT Broker：EMQX、[EMQX Cloud](./mqtt/overview.md#连接-emqx-cloud)、自建 Broker | 用户名密码、TLS 单向或双向认证 |
 | [AWS IoT](./aws-iot/overview.md) | AWS IoT Core | 设备证书与私钥 |
 | [Azure IoT](./azure-iot/overview.md) | Azure IoT Hub | SAS 令牌或 X.509 证书 |
 

@@ -6,7 +6,7 @@
 
 ### 什么是 AWS IoT
 
-Amazon IoT Core 是一种托管的云平台，让互联设备可以轻松安全地与云应用程序和其他设备交互。Amazon IoT 可以支持数十亿台设备和数万亿条消息，并能处理这些消息并将其安全可靠地路由至亚马逊云科技终端节点和其他设备。借助 Amazon IoT，您的应用程序可以随时跟踪您的所有设备并与其通信，即使这些设备未处于连接状态也不例外。
+[Amazon IoT Core] 是一种托管的云平台，让互联设备可以轻松安全地与云应用程序和其他设备交互。Amazon IoT 可以支持数十亿台设备和数万亿条消息，并能处理这些消息并将其安全可靠地路由至亚马逊云科技终端节点和其他设备。借助 Amazon IoT，您的应用程序可以随时跟踪您的所有设备并与其通信，即使这些设备未处于连接状态也不例外。
 
 <figure align="center">
   <img src="./assets/aws-iot.png" style="border:thin solid #E0DCD9; width: 60%" alt="AWS IoT">
@@ -20,6 +20,8 @@ Amazon IoT Core 是一种托管的云平台，让互联设备可以轻松安全�
 4. 大规模得到验证：AWS IoT 构建于可扩展、安全且经过验证的云基础设施之上，可扩展到数十亿种不同的设备和数万亿条消息。
 
 ## 配置 AWS IoT
+
+以下步骤都在 [AWS IoT 控制台] 完成。
 
 ### 1. 创建策略
 
@@ -176,14 +178,14 @@ Amazon IoT Core 是一种托管的云平台，让互联设备可以轻松安全�
   <img src="./assets/neuron_monitor_1.png" style="border:thin solid #E0DCD9; width: 60%" alt="EMQX Neuron dashboard data monitoring tab">
 </figure>
 
-在 AWS IoT console, 使用 **MQTT test client** 订阅主题 */neuron/aws* ，可以确认 AWS IoT Core 正确地受到了上报的数据。
+在 [AWS IoT 控制台]，使用 **MQTT test client** 订阅主题 */neuron/aws* ，可以确认 AWS IoT Core 正确地受到了上报的数据。
 <figure align="center">
   <img src="./assets/aws_neuron_pub_1.png" style="border:thin solid #E0DCD9; width: 60%" alt="AWS IoT test client sub1">
 </figure>
 
 ## 写入数据
 
-在 AWS IoT console, 使用 **MQTT test client** 发送写请求到主题 */neuron/aws/write/req* ，写入点位 *tag0* 为 *42* 。
+在 [AWS IoT 控制台]，使用 **MQTT test client** 发送写请求到主题 */neuron/aws/write/req* ，写入点位 *tag0* 为 *42* 。
 <figure align="center">
   <img src="./assets/aws_neuron_write.png" style="border:thin solid #E0DCD9; width: 60%" alt="AWS IoT test client write">
 </figure>
@@ -199,3 +201,5 @@ Amazon IoT Core 是一种托管的云平台，让互联设备可以轻松安全�
 </figure>
 
 [Modbus TCP 驱动]: ../../south-devices/modbus-tcp/modbus-tcp.md
+[Amazon IoT Core]: https://aws.amazon.com/cn/iot-core/
+[AWS IoT 控制台]: https://console.aws.amazon.com/iot/

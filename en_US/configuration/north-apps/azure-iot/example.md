@@ -4,7 +4,7 @@ This article will introduce how to use EMQX Neuron to bridge data to Microsoft A
 
 ## What is Microsoft Azure IoT Hub?
 
-The internet of things (IoT) enables everyday physical objects to connect to the internet and intercommunicate, changing the way we live and work. Azure IoT Hub, a cloud service provided by Microsoft, is a fully managed service that enables organizations to manage, monitor, and control IoT devices.
+The internet of things (IoT) enables everyday physical objects to connect to the internet and intercommunicate, changing the way we live and work. [Azure IoT Hub], a cloud service provided by Microsoft, is a fully managed service that enables organizations to manage, monitor, and control IoT devices.
 
 In addition, Azure IoT Hub enables reliable, secure bidirectional communications between IoT devices and its cloud-based services. It allows developers to receive messages from, and send messages to, IoT devices, acting as a central message hub for communication. It can also help organizations make use of data obtained from IoT devices, transforming IoT data into actionable insights.
 
@@ -180,3 +180,4 @@ And Azure IoT Hub receives the correct tag data, *42*, which is expected.
 </figure>
 
 [Modbus TCP driver]: ../../south-devices/modbus-tcp/modbus-tcp.md
+[Azure IoT Hub]: https://azure.microsoft.com/en-us/products/iot-hub

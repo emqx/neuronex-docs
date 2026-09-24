@@ -6,7 +6,8 @@ Publish tags collected by southbound drivers to a cloud platform or an MQTT brok
 
 | <div style="width:80pt">Application</div> | Target | Authentication |
 | --- | --- | --- |
-| [MQTT](./mqtt/overview.md) | Any MQTT broker: EMQX, [EMQX Cloud](./mqtt/overview.md#connecting-to-emqx-cloud), or self-hosted | Username and password, TLS with one-way or mutual authentication |
+| [MQTT](./mqtt/overview.md) | Any MQTT broker: EMQX or self-hosted | Username and password, TLS with one-way or mutual authentication |
+| [EMQX Cloud](./emqx-cloud.md) | The managed MQTT service from EMQ, through the MQTT application | Username and password over TLS |
 | [AWS IoT](./aws-iot/overview.md) | AWS IoT Core | Device certificate and private key |
 | [Azure IoT](./azure-iot/overview.md) | Azure IoT Hub | SAS token or X.509 certificate |
 

@@ -132,6 +132,10 @@
               ]
             },
             {
+              "title": "EMQX Cloud",
+              "path": "configuration/north-apps/emqx-cloud"
+            },
+            {
               "title": "AWS IoT",
               "path": "configuration/north-apps/aws-iot/overview",
               "collapsed": true,
@@ -1348,6 +1352,10 @@
                   "path": "configuration/north-apps/mqtt/faq"
                 }
               ]
+            },
+            {
+              "title": "EMQX Cloud",
+              "path": "configuration/north-apps/emqx-cloud"
             },
             {
               "title": "AWS IoT",

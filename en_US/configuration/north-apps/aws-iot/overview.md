@@ -39,17 +39,11 @@ See the table below for the configuration parameters.
 
 After application configuration, data delivery can be enabled via southbound device subscriptions.
 
-Click the device card or row on the **North Apps** page, then **Add Subscription** on the **Group List** page. And set the following:
+Click the device card or row on the **North Apps** page, then **Add Subscription** on the **Group List** page:
 
-- **South device**: Select the southbound device to subscribe to, for example, 'modbus-tcp-1'.
-- **Group**: Select a group from the southbound device, for example, 'group-1'.
-- **Topic**: Specify the reporting topic, for example '/neuron/mqtt/upload'.
+![subscribe_topic](./assets/subscribe_topic.png)
 
-Select the desired southbound device (e.g., 'modbus-tcp-1') and group (e.g., 'group-1'). Lastly, specify the reporting topic, such as '/neuron/mqtt/upload'.
-
-<figure align="center">
-  <img src="./assets/subscribe_topic.png" style="border:thin solid #E0DCD9; width: 60%" alt="EMQX Neuron version 2.4.0 MQTT subscribe interface">
-</figure>
+Fill in **Topic** to set the upload topic (for example `/neuron/mqtt/upload`); leave it blank to use the default. Under **Subscription South Driver Data**, expand a driver node and tick the collection groups to subscribe to. For the fields, see [Subscribe to Southbound Data](../../subscription.md#add-a-subscription).
 
 The exact format of the data reported is controlled by the **Upload Format** parameter, and the behavior is the same as that of the MQTT application. For more detailed information, see [MQTT Upstream/Downstream Data Format](../mqtt/api.md#data-upload)
 

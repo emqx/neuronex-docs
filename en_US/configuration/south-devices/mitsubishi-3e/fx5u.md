@@ -38,7 +38,7 @@ This section introduces how to connect the FX5U using the EMQX Neuron Mitsubishi
 1. Set the UDP protocol in the PLC, **Protocol** select UDP, **Port No.** fill in the PLC listening port, and **IP Address** fill in the IP address of the host where the EMQX Neuron is running.
 ![fx5u7](./assets/fx5u_en7.jpg)
 
-2. Configure the EMQX Neuron UDP transport mode, **Transport Mode** select UDP, and use the default port number 52001 for the UDP source port.
+2. In the EMQX Neuron device configuration, set **Transport Mode** to UDP and fill in **Target PLC Port** with the port the PLC listens on.
 ![fx5u8](./assets/fx5u_en8.jpg)
 
 ## Test Data List

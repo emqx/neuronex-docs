@@ -1,28 +1,15 @@
 # Bulk Configuration and Migration
 
-For configuring a single driver or tag, see [Create a Southbound Driver](./south-devices/south-devices.md) and [Groups and Tags](./groups-tags/groups-tags.md). Real projects usually involve dozens or hundreds of identical devices and thousands of tags per node, where entering them one by one is impractical. This section covers five bulk methods.
+For configuring a single driver or tag, see [Create a Southbound Driver](./south-devices/south-devices.md) and [Groups and Tags](./groups-tags/groups-tags.md). Real projects usually involve dozens or hundreds of identical devices and thousands of tags per node, where entering them one by one is impractical. This section covers four bulk methods.
 
 ## Choosing a method
 
 | Scenario | Method |
 | --- | --- |
-| Dozens or hundreds of nodes of the same device model | [Template-based configuration](./templates/templates.md) |
 | Hundreds or thousands of tags within one node | [Batch tag configuration](./import-export/import-export.md) (Excel import/export) |
 | Duplicate a configured driver and change only its connection parameters | [Driver duplication](#driver-duplication) |
 | Back up a whole instance, or move it to another one | [Southbound device import and export](#southbound-device-import-and-export) |
 | Migrate from KEPServerEX, Litmus Edge, and similar platforms | [Driver Migration Tool](./driver-migration-tool.md) |
-
-## Templates compared with driver duplication
-
-Both produce new nodes quickly, but they suit different cases:
-
-| | Template-based configuration | Driver duplication |
-| --- | --- | --- |
-| Source | A separately maintained template object | An existing running node |
-| Reuse | Reusable indefinitely, and exportable to a file for transfer between instances | One node per duplication |
-| Suits | Standardized lines where one configuration is deployed repeatedly over time | Adding one or two similar devices ad hoc |
-
-Templates apply to southbound drivers only, not to northbound applications.
 
 ## Driver duplication
 

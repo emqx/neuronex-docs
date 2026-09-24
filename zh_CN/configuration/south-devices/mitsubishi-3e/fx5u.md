@@ -38,7 +38,7 @@ FX5U 是三菱电机的一款高性能的紧凑型可编程逻辑控制器（PLC
 1. 设置 PLC 中的 UDP 协议，**协议**选择 UDP，**端口号**填写 PLC 监听端口，**IP 地址**填写 EMQX Neuron 运行主机的 IP 地址。
 ![fx5u7](./assets/fx5u7.jpg)
 
-2. 配置 EMQX Neuron UDP 传输模式，**传输模式**选择 UDP，UDP源端口使用默认端口号 52001。
+2. 在 EMQX Neuron 的设备配置中，**传输模式**选择 UDP，**目标设备 PLC 端口号**填 PLC 的监听端口。
 ![fx5u8](./assets/fx5u8.jpg)
 
 ## 测试点位

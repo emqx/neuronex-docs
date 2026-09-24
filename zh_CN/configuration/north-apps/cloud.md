@@ -6,7 +6,8 @@
 
 | <div style="width:70pt">应用</div> | 对接目标 | 认证方式 |
 | --- | --- | --- |
-| [MQTT](./mqtt/overview.md) | 任意 MQTT Broker：EMQX、[EMQX Cloud](./mqtt/overview.md#连接-emqx-cloud)、自建 Broker | 用户名密码、TLS 单向或双向认证 |
+| [MQTT](./mqtt/overview.md) | 任意 MQTT Broker：EMQX、自建 Broker | 用户名密码、TLS 单向或双向认证 |
+| [EMQX Cloud](./emqx-cloud/overview.md) | EMQ 托管的 MQTT 云服务，经 MQTT 应用接入 | 用户名密码 + TLS |
 | [AWS IoT](./aws-iot/overview.md) | AWS IoT Core | 设备证书与私钥 |
 | [Azure IoT](./azure-iot/overview.md) | Azure IoT Hub | SAS 令牌或 X.509 证书 |
 
@@ -32,7 +33,7 @@
 
 ## 上报格式
 
-上报报文的 JSON 结构由**上报数据格式**参数控制，共四种：
+上报报文的结构由**上报数据格式**参数控制，共五种：
 
 | <div style="width:80pt">格式</div> | 结构 |
 | --- | --- |
@@ -40,6 +41,9 @@
 | `tags-format` | 全部点位置于同一数组，每个元素包含点位名与值 |
 | `ECP-format` | 在 `tags-format` 基础上增加数据类型字段 |
 | `Custom` | 自定义模板，可通过内置变量组织字段与嵌套结构 |
+| `protobuf` | 二进制格式，按 Protocol Buffers 的 `DataReport` 消息编码，不是 JSON |
+
+前四种为 JSON。`protobuf` 适合带宽受限的链路，云端需按同一份 `.proto` 定义解码。
 
 `values-format` 报文示例：
 
@@ -56,7 +60,7 @@
 
 点位采集失败时上报错误码，不上报数值。将**上报点位错误码**参数设为 `False` 后，错误点位将被过滤，不包含在报文中。
 
-其余三种格式的报文与字段说明见[数据上下行格式](./mqtt/api.md#数据上报)。
+其余格式的报文与字段说明见[数据上下行格式](./mqtt/api.md#数据上报)。
 
 ### 静态点位
 

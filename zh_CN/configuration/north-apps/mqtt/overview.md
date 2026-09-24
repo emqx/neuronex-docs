@@ -124,38 +124,19 @@ EMQX Neuron 的 MQTT 应用支持 MQTT over SSL。
 
 ### 连接 EMQX Cloud
 
-[EMQX Cloud](https://www.emqx.com/zh/cloud) 是 EMQ 提供的全托管 MQTT 云服务，按普通 MQTT Broker 配置即可接入，差别集中在端口、认证和 TLS 三处。
-
-| 配置项 | Serverless 版 | 专有版 |
-| --- | --- | --- |
-| 服务器地址 | 部署的连接地址，在 EMQX Cloud 控制台的**部署管理**页查看 | 同左 |
-| 服务器端口 | `8883`，不开放明文端口 | 默认 `1883`；配置 TLS 后可用 `8883` |
-| SSL | 必须开启 | 使用 `8883` 时开启 |
-| CA 证书 | 单向认证，[下载 CA](https://assets.emqx.com/data/emqxsl-ca.crt) 后上传 | 按所配置的证书填写 |
-| 用户名、密码 | 在控制台**客户端认证 → 默认认证**中创建 | 同左 |
-
-::: tip
-Serverless 版对 SNI 有要求，**服务器地址**须填部署的完整域名，不能用 IP，否则连接会被拒绝。
-:::
-
-端口与认证的完整说明见 EMQX Cloud 文档的 [Serverless 连接指引](https://docs.emqx.com/zh/cloud/latest/deployments/port_guide_serverless.html)与[专有版连接指引](https://docs.emqx.com/zh/cloud/latest/deployments/port_guide_dedicated.html)。
+接入 EMQ 托管的 MQTT 云服务，端口、认证与 TLS 的差别见 [EMQX Cloud](../emqx-cloud/overview.md)。
 
 ## 添加订阅
 
 完成应用的添加和配置后，我们将继续通过订阅南向设备实现数据的转发。
 
-完成设备配置后，在**北向应用**页，点击设备卡片/设备列进入**组列表**页。点击**添加订阅**，并进行如下设置：
+完成设备配置后，在**北向应用**页，点击设备卡片/设备列进入**组列表**页，点击**添加订阅**：
 
-- **南向设备**：选择要订阅的南向设备，例如，modbus-tcp-1；
+![subscribe_topic](./assets/subscribe_topic.png)
 
-- **组**：选择南向设备下的某个组，例如，group-1。
+填**主题**指定上报主题（例如 `/neuron/mqtt/upload`），不填则使用默认主题；在**订阅南向驱动数据**中展开驱动节点勾选要订阅的采集组，可一次勾选多个。字段说明见[订阅南向数据](../../subscription.md#添加订阅)。
 
-- **主题**：指定上报主题，例如 /neuron/mqtt/upload。
-
-<img src="./assets/subscribe_topic.png" style="border:thin solid #E0DCD9; width: 60%" alt="EMQX Neuron version 2.4.0 MQTT subscribe interface">
-
-
-上报数据的确切格式由**上报数据格式**参数控制，有 **tags-format** 和 **values-format** 两种格式。更多详细信息，请参阅 [数据上下行格式](./api.md#数据上报)。
+上报数据的确切格式由**上报数据格式**参数控制，详见[数据上下行格式](./api.md#数据上报)。
 
 ## 测试 MQTT 应用
 

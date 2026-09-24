@@ -1,4 +1,4 @@
-# Connect to Cogent
+# Cogent DataHub
 
 Cogent, an advanced artificial intelligence and data analytics software platform designed to unlock the power of data-driven decision-making. With its cutting-edge AI capabilities, Cogent enables businesses to extract valuable insights from diverse datasets, identify patterns, and make informed decisions. 
 

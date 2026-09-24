@@ -74,13 +74,13 @@ Once connected, the Sparkplug B application subscribes to the command topics aut
 
 The tag must carry the **write** attribute in the southbound driver; see [Groups and Tags · Tag attributes](../../groups-tags/groups-tags.md#tag-attributes).
 
-For the steps in an upstream platform, see [Ignition](./ignition.md) and [Cogent](./cogent.md).
+For the steps in an upstream platform, see [Ignition](./ignition.md) and [Cogent DataHub](./cogent.md).
 
 ## Use Case
 
 - You can use the EMQX Neuron Sparkplug B application to report data to EMQX, and decode the complete and accurate data results through the EMQX's encoding and decoding functions. For specific steps, see [Integration with EMQX](sparkplug.md).
 - You can connect to the Ignition platform through the EMQX Neuron SparkPlugB application. For specific steps, refer to [Ignition](ignition.md).
-- You can also connect to Cogent DataHub through the EMQX Neuron SparkPlugB application. For specific steps, refer to [Cogent](cogent.md).
+- You can also connect to Cogent DataHub through the EMQX Neuron SparkPlugB application. For specific steps, refer to [Cogent DataHub](cogent.md).
 
 ## Operation and Maintenance
 

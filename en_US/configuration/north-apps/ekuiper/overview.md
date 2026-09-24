@@ -8,12 +8,11 @@ The **Rules Engine Application** type node `DataProcessing` has been configured 
 
 ## Add subscription
 
-Click **Add Subscription** in the operate bar and make the following settings:
-
-- **Device Name**: Select the southbound device to subscribe to, for example, `m1`;
-- **Group Name**: Select a group under the southbound device, for example, `group1`.
+Click **Add Subscription** in the operate bar, then under **Subscription South Driver Data** expand a driver node and tick the collection groups to subscribe to:
 
 <img src="./assets/dataprocessing2.png" alt="dataprocessing" style="zoom:50%;" />
+
+The rules engine application needs no topic — the data goes straight into the data processing module.
 
 At this point, we will be able to send the data in the `group1` group of the southbound driver `m1` through the DataProcessing node to the `neuronStream` stream of the data processing module for further processing.
 

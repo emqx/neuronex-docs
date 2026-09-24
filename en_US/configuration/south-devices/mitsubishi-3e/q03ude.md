@@ -37,7 +37,7 @@ This section introduces how to connect Q03UDE using the EMQX Neuron Mitsubishi 3
 1. Set the UDP protocol in plc, **Protocol** select udp, **Port No.** fill in the plc listening port.
 ![fx5u7](./assets/q03ude_en6.jpg)
 
-2. Configure the neuron udp transport mode, **Transport Mode** select udp, and use the default port number 52001 for the udp source port.
+2. In the EMQX Neuron device configuration, set **Transport Mode** to UDP and fill in **Target PLC Port** with the port the PLC listens on.
 ![fx5u8](./assets/q03ude_en7.jpg)
 
 ## Test Data List

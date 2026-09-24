@@ -37,7 +37,7 @@ Q03UDE 是三菱电机 Q 系列 PLC 的一款产品。这款 PLC 适用于大型
 1. 设置 plc 中的 udp 协议，**协议**选择 udp，**端口号**填写 plc 监听端口。
 ![fx5u7](./assets/q03ude6.jpg)
 
-2. 配置 EMQX Neuron UDP 传输模式，**传输模式**选择 UDP，UDP 源端口使用默认端口号 52001。
+2. 在 EMQX Neuron 的设备配置中，**传输模式**选择 UDP，**目标设备 PLC 端口号**填 PLC 的监听端口。
 ![fx5u8](./assets/q03ude7.jpg)
 
 ## 测试点位

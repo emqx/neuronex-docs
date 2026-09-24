@@ -1,4 +1,4 @@
-# Connect to Ignition
+# Ignition
 
 Ignition is a cutting-edge industrial automation software platform developed by Inductive Automation, offering a versatile and user-friendly solution for creating and managing a wide array of industrial applications. With its open architecture, real-time monitoring capabilities, and seamless support for various industrial protocols, Ignition empowers businesses to optimize processes and increase efficiency.
 

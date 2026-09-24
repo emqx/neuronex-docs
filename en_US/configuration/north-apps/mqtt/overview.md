@@ -133,50 +133,19 @@ The EMQX Neuron MQTT application supports running MQTT over SSL. To enable SSL e
 
 ### Connecting to EMQX Cloud
 
-[EMQX Cloud](https://www.emqx.com/en/cloud) is the fully managed MQTT service from EMQ. Configure it as you would any MQTT broker — what differs is the port, the authentication, and TLS.
-
-| Setting | Serverless | Dedicated |
-| --- | --- | --- |
-| Broker address | The deployment's connection address, shown on the **Deployments** page of the EMQX Cloud console | Same |
-| Broker port | `8883`; no plaintext port is exposed | `1883` by default; `8883` once TLS is configured |
-| SSL | Required | Required when using `8883` |
-| CA | One-way TLS — [download the CA](https://assets.emqx.com/data/emqxsl-ca.crt) and upload it | Whatever your certificate setup requires |
-| Username, password | Created under **Authentication → Built-in Database** in the console | Same |
-
-::: tip
-Serverless deployments require SNI, so **Broker address** must be the deployment's full domain name. An IP address is rejected.
-:::
-
-For the full port and authentication reference, see the EMQX Cloud documentation: [Serverless connection guide](https://docs.emqx.com/en/cloud/latest/deployments/port_guide_serverless.html) and [Dedicated connection guide](https://docs.emqx.com/en/cloud/latest/deployments/port_guide_dedicated.html).
+To connect to the managed MQTT service from EMQ, see [EMQX Cloud](../emqx-cloud/overview.md) for how the port, authentication, and TLS differ.
 
 ## Add Subscription
 
 After application configuration, data delivery can be enabled via southbound device subscriptions.
 
-Click the device card or row on the **North Apps** page, then **Add Subscription** on the **Group List** page. And set the following:
+Click the device card or row on the **North Apps** page, then **Add Subscription** on the **Group List** page:
 
-- **South device**: Select the southbound device you want to subscribe to, for example, 'modbus-tcp-1'.
-- **Group**: Select a group from the southbound device, for example, 'group-1'.
-- **Topic**: Specify the reporting topic, for example '/neuron/mqtt/upload'.
+![subscribe_topic](./assets/subscribe_topic.png)
 
-Select the desired southbound device (e.g., 'modbus-tcp-1') and group (e.g., 'group-1'). Lastly, specify the reporting topic, such as '/neuron/mqtt/upload'.
+Fill in **Topic** to set the upload topic (for example `/neuron/mqtt/upload`); leave it blank to use the default. Under **Subscription South Driver Data**, expand a driver node and tick the collection groups to subscribe to — several at once is fine. For the fields, see [Subscribe to Southbound Data](../../subscription.md#add-a-subscription).
 
-::: tip
-
-Before EMQX Neuron version 2.4.0, the EMQX Neuron MQTT application will publish collected data in JSON to the topic designated by the **upload-topic** parameter.
-
-:::
-
-
-
-<figure align="center">
-  <img src="./assets/subscribe_topic.png" style="border:thin solid #E0DCD9; width: 60%" alt="EMQX Neuron version 2.4.0 MQTT subscribe interface">
-  <figcaption align = "center">
-    <sub><b>Fig.2 - Setting upload topic in EMQX Neuron version 2.4.0</b></sub>
-  </figcaption>
-</figure>
-
-The exact format of the data reported is controlled by the **Upload Format** parameter. There are two formats, *tags-format* and *values-format*. For more detailed information, see [Upstream/Downstream Data Format](./api.md#data-upload)
+The exact format of the data reported is controlled by the **Upload Format** parameter; see [Upstream/Downstream Data Format](./api.md#data-upload).
 
 ## Test the MQTT Application
 

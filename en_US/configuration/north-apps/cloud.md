@@ -6,7 +6,8 @@ Publish tags collected by southbound drivers to a cloud platform or an MQTT brok
 
 | <div style="width:80pt">Application</div> | Target | Authentication |
 | --- | --- | --- |
-| [MQTT](./mqtt/overview.md) | Any MQTT broker: EMQX, [EMQX Cloud](./mqtt/overview.md#connecting-to-emqx-cloud), or self-hosted | Username and password, TLS with one-way or mutual authentication |
+| [MQTT](./mqtt/overview.md) | Any MQTT broker: EMQX or self-hosted | Username and password, TLS with one-way or mutual authentication |
+| [EMQX Cloud](./emqx-cloud/overview.md) | The managed MQTT service from EMQ, through the MQTT application | Username and password over TLS |
 | [AWS IoT](./aws-iot/overview.md) | AWS IoT Core | Device certificate and private key |
 | [Azure IoT](./azure-iot/overview.md) | Azure IoT Hub | SAS token or X.509 certificate |
 
@@ -32,7 +33,7 @@ Across multiple plants or production lines, define topics that carry the hierarc
 
 ## Upload format
 
-The JSON structure of the published payload is controlled by the **Upload Format** parameter. Four formats are available:
+The structure of the published payload is controlled by the **Upload Format** parameter. Five formats are available:
 
 | <div style="width:90pt">Format</div> | Structure |
 | --- | --- |
@@ -40,6 +41,9 @@ The JSON structure of the published payload is controlled by the **Upload Format
 | `tags-format` | All tags go into a single array, each element carrying a tag name and value |
 | `ECP-format` | `tags-format` with an added data type field |
 | `Custom` | A user-defined template; fields and nesting are composed with built-in variables |
+| `protobuf` | Binary, encoded as the Protocol Buffers `DataReport` message rather than JSON |
+
+The first four are JSON. `protobuf` suits bandwidth-constrained links; the cloud side decodes it against the same `.proto` definition.
 
 A `values-format` payload:
 
@@ -56,7 +60,7 @@ A `values-format` payload:
 
 When a tag fails to collect, an error code is published instead of a value. Setting the **Upload Tag Error Code** parameter to `False` filters failed tags out of the payload entirely.
 
-For the other three formats and full field descriptions, see [Upstream/Downstream Data Format](./mqtt/api.md#data-upload).
+For the other formats and full field descriptions, see [Upstream/Downstream Data Format](./mqtt/api.md#data-upload).
 
 ### Static tags
 

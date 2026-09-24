@@ -52,5 +52,5 @@ spBv1.0 / {组 ID} / DDATA / {节点 ID} / {南向驱动名}
 ## 连接示例
 
 - [集成 EMQX](./sparkplugb/sparkplug.md)：上报到 EMQX 并通过编解码功能还原数据
-- [Ignition 连接示例](./sparkplugb/ignition.md)
-- [Cogent DataHub 连接示例](./sparkplugb/cogent.md)
+- [Ignition](./sparkplugb/ignition.md)
+- [Cogent DataHub](./sparkplugb/cogent.md)

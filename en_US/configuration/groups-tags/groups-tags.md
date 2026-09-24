@@ -40,6 +40,7 @@ Open **Tag List** on the group, then click **Add Tag**:
 | **Decimal** | Optional — see [Shaping the data](#shaping-the-data) |
 | **Bias** | Optional — see [Shaping the data](#shaping-the-data) |
 | **Precision** | Configurable for `float` and `double`, range 0–17 |
+| **Unit** | Optional engineering unit for the tag, such as `℃` or `kPa`. A label only — it takes no part in the conversion |
 | **Description** | Optional, up to 256 characters |
 
 ## Tag attributes

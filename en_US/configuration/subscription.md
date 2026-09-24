@@ -12,9 +12,9 @@ Click the northbound application card to open the **Group List** page, then clic
 
 | <div style="width:70pt">Field</div> | Description |
 | --- | --- |
-| **South device** | The southbound driver node to subscribe to, for example `modbus-tcp-1` |
-| **Group** | A collection group under that node, for example `group-1` |
-| **Topic** | Needed only for MQTT-based applications and Kafka. A default is used when left blank |
+| **Topic** | The upload topic. Needed only for MQTT-based applications and Kafka; a default is used when left blank |
+| **Subscription South Driver Data** | Tick the collection groups to subscribe to. Expand a driver node to pick its groups; groups from different drivers can be ticked together and submitted as several subscriptions at once |
+| **Static Tags** | Optional. Fixed attributes published alongside the group's data, given as JSON key-value pairs — see [Static tags](./north-apps/mqtt/api.md#static-tags) |
 
 For MQTT and AWS IoT the default upload topic is `/neuron/{application}/{driver}/{group}`. Kafka falls back to the **default topic** in the application configuration. Azure IoT, Sparkplug B, OPC UA Server, and WebSocket derive their topic or node path from the protocol specification, so there is nothing to specify per subscription.
 

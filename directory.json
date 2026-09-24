@@ -53,10 +53,6 @@
           "collapsed": true,
           "children": [
             {
-              "title": "基于模板配置",
-              "path": "configuration/templates/templates"
-            },
-            {
               "title": "批量点位配置",
               "path": "configuration/import-export/import-export"
             },
@@ -1280,10 +1276,6 @@
           "path": "configuration/bulk-config",
           "collapsed": true,
           "children": [
-            {
-              "title": "Template-based Configuration",
-              "path": "configuration/templates/templates"
-            },
             {
               "title": "Batch Tag Configuration",
               "path": "configuration/import-export/import-export"

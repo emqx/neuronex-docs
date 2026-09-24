@@ -124,7 +124,7 @@ EMQX Neuron 的 MQTT 应用支持 MQTT over SSL。
 
 ### 连接 EMQX Cloud
 
-接入 EMQ 托管的 MQTT 云服务，端口、认证与 TLS 的差别见 [EMQX Cloud](../emqx-cloud.md)。
+接入 EMQ 托管的 MQTT 云服务，端口、认证与 TLS 的差别见 [EMQX Cloud](../emqx-cloud/overview.md)。
 
 ## 添加订阅
 

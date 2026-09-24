@@ -133,7 +133,13 @@
             },
             {
               "title": "EMQX Cloud",
-              "path": "configuration/north-apps/emqx-cloud"
+              "path": "configuration/north-apps/emqx-cloud/overview",
+              "children": [
+                {
+                  "title": "数据桥接到 Snowflake 与 Databricks",
+                  "path": "configuration/north-apps/emqx-cloud/datalake"
+                }
+              ]
             },
             {
               "title": "AWS IoT",
@@ -1355,7 +1361,13 @@
             },
             {
               "title": "EMQX Cloud",
-              "path": "configuration/north-apps/emqx-cloud"
+              "path": "configuration/north-apps/emqx-cloud/overview",
+              "children": [
+                {
+                  "title": "Bridging Data to Snowflake and Databricks",
+                  "path": "configuration/north-apps/emqx-cloud/datalake"
+                }
+              ]
             },
             {
               "title": "AWS IoT",

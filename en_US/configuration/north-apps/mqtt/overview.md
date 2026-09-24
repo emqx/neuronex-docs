@@ -133,7 +133,7 @@ The EMQX Neuron MQTT application supports running MQTT over SSL. To enable SSL e
 
 ### Connecting to EMQX Cloud
 
-To connect to the managed MQTT service from EMQ, see [EMQX Cloud](../emqx-cloud.md) for how the port, authentication, and TLS differ.
+To connect to the managed MQTT service from EMQ, see [EMQX Cloud](../emqx-cloud/overview.md) for how the port, authentication, and TLS differ.
 
 ## Add Subscription
 

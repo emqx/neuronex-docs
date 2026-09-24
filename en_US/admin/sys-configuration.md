@@ -19,9 +19,7 @@ Closing the data processing engine will render the data processing function unav
 
 When the metrics collection is enabled, the metrics of the data processing engine will be collected and stored in the local file directory.
 
-When the metrics collection is enabled, on the **Logs** -> **Log Management** page, click the **Download Data Processing Engine Logs** button to download the complete logs and metrics files. Click the **Download Custom Log Metrics File** button to select the logs or metrics files to download.
-
-![metrics_en](assets/metrics_en.png)
+The metrics files are exported together with the logs: on **Administration → System Configuration → Logs**, click `Download NeuronEX System Log`, and the archive already contains them. See [Log Management · Downloading logs](./log-management.md#downloading-logs).
 
 ## Log level
 

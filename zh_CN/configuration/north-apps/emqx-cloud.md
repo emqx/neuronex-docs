@@ -26,9 +26,33 @@ Serverless 版对 SNI 有要求，**服务器地址**须填部署的完整域名
 2. 在**客户端认证 → 默认认证**中新建一组用户名密码。
 3. 回到 EMQX Neuron，按[添加应用](./north-apps.md)创建一个 MQTT 类型的北向应用。
 4. 在应用配置中填入上表的参数，Serverless 版需同时打开 **SSL** 并上传 CA 证书。
-5. 提交后应用进入**运行中**，再[订阅南向数据](../subscription.md)即可开始上报。
 
-数据能否到达可在 EMQX Cloud 控制台的在线消息查看，或用 MQTTX 订阅对应主题验证，见 [MQTT · 使用 MQTTX 查看数据](./mqtt/overview.md#使用-mqttx-查看数据)。
+![EMQX Cloud 的连接配置：服务器地址、端口 8883、用户名密码、SSL 开启并上传 CA](./_assets/emqx-cloud-config.png)
+
+5. 提交后应用进入**运行中**，连接状态显示为**连接**。
+
+![北向应用列表中 emqx-cloud 已连接](./_assets/emqx-cloud-app-list.png)
+
+6. [订阅南向数据](../subscription.md)，指定要上报的采集组。
+
+![为 emqx-cloud 添加订阅](./_assets/emqx-cloud-subscription.png)
+
+上报是否正常可在应用的**数据统计**页看发送消息数：
+
+![emqx-cloud 的数据统计：发送消息数持续增长](./_assets/emqx-cloud-statistics.png)
+
+云端侧可在 EMQX Cloud 控制台的在线消息查看，或用 MQTTX 订阅对应主题验证，见 [MQTT · 使用 MQTTX 查看数据](./mqtt/overview.md#使用-mqttx-查看数据)。默认主题为 `/neuron/{应用名}/{驱动名}/{组名}`，报文示例：
+
+```json
+{
+  "node": "modbus-tcp",
+  "group": "group-1",
+  "timestamp": 1790219933821,
+  "values": { "sine": -15741, "square": -10, "random": 99, "setpoint": 68 },
+  "errors": {},
+  "metas": {}
+}
+```
 
 ## 继续流向数据仓库
 

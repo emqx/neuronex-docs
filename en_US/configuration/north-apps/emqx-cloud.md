@@ -26,9 +26,33 @@ Serverless deployments require SNI, so **Broker address** must be the deployment
 2. Create a username and password under **Authentication → Built-in Database**.
 3. Back in EMQX Neuron, add a northbound application of type MQTT — see [Create a Northbound Application](./north-apps.md).
 4. Fill in the settings from the table above. For Serverless, also turn on **SSL** and upload the CA certificate.
-5. Submit, wait for the application to reach the **running** state, then [subscribe to southbound data](../subscription.md) to start publishing.
 
-To confirm the data arrives, use the online message viewer in the EMQX Cloud console, or subscribe to the topic with MQTTX — see [MQTT · Use MQTTX to View Data](./mqtt/overview.md#use-mqttx-to-view-data).
+![The EMQX Cloud connection settings: broker host, port 8883, credentials, SSL on with the CA uploaded](./_assets/emqx-cloud-config.png)
+
+5. Submit. The application reaches the **running** state and the connection status shows as connected.
+
+![emqx-cloud connected in the northbound application list](./_assets/emqx-cloud-app-list.png)
+
+6. [Subscribe to southbound data](../subscription.md) to choose the groups to publish.
+
+![Adding a subscription to emqx-cloud](./_assets/emqx-cloud-subscription.png)
+
+To check that publishing is working, look at the sent message count on the application's **Data Statistics** tab:
+
+![Data statistics for emqx-cloud, with the sent message count rising](./_assets/emqx-cloud-statistics.png)
+
+On the cloud side, use the online message viewer in the EMQX Cloud console, or subscribe to the topic with MQTTX — see [MQTT · Use MQTTX to View Data](./mqtt/overview.md#use-mqttx-to-view-data). The default topic is `/neuron/{application}/{driver}/{group}`, and a message looks like this:
+
+```json
+{
+  "node": "modbus-tcp",
+  "group": "group-1",
+  "timestamp": 1790219933821,
+  "values": { "sine": -15741, "square": -10, "random": 99, "setpoint": 68 },
+  "errors": {},
+  "metas": {}
+}
+```
 
 ## Onward to the data warehouse
 

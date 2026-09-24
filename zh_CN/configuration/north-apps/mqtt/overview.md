@@ -130,18 +130,13 @@ EMQX Neuron 的 MQTT 应用支持 MQTT over SSL。
 
 完成应用的添加和配置后，我们将继续通过订阅南向设备实现数据的转发。
 
-完成设备配置后，在**北向应用**页，点击设备卡片/设备列进入**组列表**页。点击**添加订阅**，并进行如下设置：
+完成设备配置后，在**北向应用**页，点击设备卡片/设备列进入**组列表**页，点击**添加订阅**：
 
-- **南向设备**：选择要订阅的南向设备，例如，modbus-tcp-1；
+![subscribe_topic](./assets/subscribe_topic.png)
 
-- **组**：选择南向设备下的某个组，例如，group-1。
+填**主题**指定上报主题（例如 `/neuron/mqtt/upload`），不填则使用默认主题；在**订阅南向驱动数据**中展开驱动节点勾选要订阅的采集组，可一次勾选多个。字段说明见[订阅南向数据](../../subscription.md#添加订阅)。
 
-- **主题**：指定上报主题，例如 /neuron/mqtt/upload。
-
-<img src="./assets/subscribe_topic.png" style="border:thin solid #E0DCD9; width: 60%" alt="EMQX Neuron version 2.4.0 MQTT subscribe interface">
-
-
-上报数据的确切格式由**上报数据格式**参数控制，有 **tags-format** 和 **values-format** 两种格式。更多详细信息，请参阅 [数据上下行格式](./api.md#数据上报)。
+上报数据的确切格式由**上报数据格式**参数控制，详见[数据上下行格式](./api.md#数据上报)。
 
 ## 测试 MQTT 应用
 

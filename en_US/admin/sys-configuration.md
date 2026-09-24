@@ -128,6 +128,9 @@ The traces function is used to trace the detailed processing of data collection,
     It can record the detailed process of each operator's computation during edge computing, as well as the data results after processing by each operator.
 
 ### Configuration Instructions
+
+Configure this under **Administration → System Configuration → Service**, in the **Traces** section:
+
 - **Enable OpenTelemetry Tracing**: Enable the tracing function.
 - **OpenTelemetry Service Address**: Fill in the OpenTelemetry service address, and EMQX Neuron will send tracing data to this address. EMQX ECP integrates the OpenTelemetry service, and users can directly use the OpenTelemetry service address of EMQX ECP.
 

@@ -131,6 +131,8 @@ Overview -> Endpoints 页面获取授权终端 URL 和 Token 中端 URL。
 
 ### 配置说明
 
+在 **管理 → 系统配置 → 服务** 页的**链路追踪**一节配置：
+
 - **启用链路追踪** : 启用链路追踪功能。
 
 - **OpenTelemetry 服务地址** : 填写 OpenTelemetry 服务地址，EMQX Neuron 将追踪数据发送到该地址。 EMQX ECP 软件集成了 OpenTelemetry 服务，用户可直接使用 EMQX ECP 的 OpenTelemetry 服务地址。

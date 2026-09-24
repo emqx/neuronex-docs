@@ -1,4 +1,4 @@
-# Ignition 连接示例
+# Ignition
 
 Ignition 是由 Inductive Automation 公司开发的一款工业应用平台。它被设计用于帮助工业组织在整个企业中实现数字化转型。Ignition 提供了一系列的工具和服务，包括 SCADA 系统、工业信息管理（MES）、IIoT、机器学习等。
 

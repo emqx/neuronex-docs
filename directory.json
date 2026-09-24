@@ -168,23 +168,26 @@
           "children": [
             {
               "title": "Sparkplug B",
-              "path": "configuration/north-apps/sparkplugb/overview"
+              "path": "configuration/north-apps/sparkplugb/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "集成 EMQX",
+                  "path": "configuration/north-apps/sparkplugb/sparkplug"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "configuration/north-apps/sparkplugb/faq"
+                }
+              ]
             },
             {
-              "title": "集成 EMQX",
-              "path": "configuration/north-apps/sparkplugb/sparkplug"
-            },
-            {
-              "title": "Ignition 连接示例",
+              "title": "Ignition",
               "path": "configuration/north-apps/sparkplugb/ignition"
             },
             {
-              "title": "Cogent 连接示例",
+              "title": "Cogent DataHub",
               "path": "configuration/north-apps/sparkplugb/cogent"
-            },
-            {
-              "title": "Sparkplug B 常见问题",
-              "path": "configuration/north-apps/sparkplugb/faq"
             }
           ]
         },
@@ -1389,23 +1392,26 @@
           "children": [
             {
               "title": "Sparkplug B",
-              "path": "configuration/north-apps/sparkplugb/overview"
+              "path": "configuration/north-apps/sparkplugb/overview",
+              "collapsed": true,
+              "children": [
+                {
+                  "title": "Integrate with EMQX",
+                  "path": "configuration/north-apps/sparkplugb/sparkplug"
+                },
+                {
+                  "title": "FAQ",
+                  "path": "configuration/north-apps/sparkplugb/faq"
+                }
+              ]
             },
             {
-              "title": "Integrate with EMQX",
-              "path": "configuration/north-apps/sparkplugb/sparkplug"
-            },
-            {
-              "title": "Connect to Ignition",
+              "title": "Ignition",
               "path": "configuration/north-apps/sparkplugb/ignition"
             },
             {
-              "title": "Connect to Cogent",
+              "title": "Cogent DataHub",
               "path": "configuration/north-apps/sparkplugb/cogent"
-            },
-            {
-              "title": "Sparkplug B FAQ",
-              "path": "configuration/north-apps/sparkplugb/faq"
             }
           ]
         },

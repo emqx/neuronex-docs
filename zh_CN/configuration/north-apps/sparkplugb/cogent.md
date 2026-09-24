@@ -1,4 +1,4 @@
-# Cogent 连接示例
+# Cogent DataHub
 
 Cogent DataHub 是由 Skkynet 公司开发的一款实时数据集成和分发软件。它被设计用于在工业自动化、过程控制和其他实时系统中收集、处理和分发实时数据。
 

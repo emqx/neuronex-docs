@@ -74,7 +74,7 @@ Sparkplug B 应用连接成功后会自动订阅命令主题。上位应用向�
 
 点位需要在南向驱动中带 **write** 属性，见[组与点位 · 点位属性](../../groups-tags/groups-tags.md#点位属性)。
 
-在上位平台中的实际操作见 [Ignition 连接示例](./ignition.md) 和 [Cogent 连接示例](./cogent.md)。
+在上位平台中的实际操作见 [Ignition](./ignition.md) 和 [Cogent DataHub](./cogent.md)。
 
 ## 应用场景
 
@@ -82,7 +82,7 @@ Sparkplug B 应用连接成功后会自动订阅命令主题。上位应用向�
 
 您可通过 EMQX Neuron Sparkplug B 应用连接 Ignition 平台，具体步骤，见 [Ignition](./ignition.md)。
 
-您也可通过 EMQX Neuron Sparkplug B 应用连接 Cogent DataHub，具体步骤，见 [Cogent](./cogent.md)。
+您也可通过 EMQX Neuron Sparkplug B 应用连接 Cogent DataHub，具体步骤，见 [Cogent DataHub](./cogent.md)。
 
 ## 运行与维护
 

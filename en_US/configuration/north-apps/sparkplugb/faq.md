@@ -1,4 +1,4 @@
-# FAQ
+# Sparkplug B FAQ
 
 ## SparkplugB Application Disconnected from Broker
 

@@ -56,7 +56,16 @@ On the cloud side, use the online message viewer in the EMQX Cloud console, or s
 
 ## Onward to the data warehouse
 
-Once the data is in EMQX, EMQX data integration can write it straight into an analytics platform such as Snowflake or Databricks, with no change at the edge. See [Bridging Data to Snowflake and Databricks](./datalake.md).
+Once the data is in EMQX, EMQX data integration can write it straight into an analytics platform, with no change at the edge.
+
+| | [Snowflake](./snowflake.md) | [Databricks](./databricks.md) |
+| --- | --- | --- |
+| Integration | Native connector | Through Amazon S3 |
+| Data shape | Structured table, columns defined in the rule | Raw JSON files, parsed at query time |
+| Adding or removing tags | Change the table definition and the rule SQL together | No change; new tags simply appear in the JSON |
+| Suits | A stable set of tags feeding reports directly | Tags that change often, landed first and modelled later |
+
+For every available downstream system, see [EMQX data integration](https://docs.emqx.com/en/emqx/latest/data-integration/data-bridges.html).
 
 ## Further reading
 

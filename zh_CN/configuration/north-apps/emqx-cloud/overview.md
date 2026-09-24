@@ -56,7 +56,16 @@ Serverless 版对 SNI 有要求，**服务器地址**须填部署的完整域名
 
 ## 继续流向数据仓库
 
-数据进了 EMQX 之后，可由 EMQX 的数据集成直接写入 Snowflake、Databricks 等分析平台，边缘侧不需要改动。见[数据桥接到 Snowflake 与 Databricks](./datalake.md)。
+数据进了 EMQX 之后，可由 EMQX 的数据集成直接写入分析平台，边缘侧不需要改动。
+
+| | [Snowflake](./snowflake.md) | [Databricks](./databricks.md) |
+| --- | --- | --- |
+| 对接方式 | 原生连接器 | 经 Amazon S3 |
+| 数据形态 | 结构化表，列在规则里定义 | 原始 JSON 文件，查询时解析 |
+| 点位增减 | 要同时改表结构和规则 SQL | 不用改，新点位自动出现在 JSON 里 |
+| 适合 | 点位集合稳定、要直接出报表 | 点位多变、先入湖再建模 |
+
+全部可用的下游系统见 [EMQX 数据集成](https://docs.emqx.com/zh/emqx/latest/data-integration/data-bridges.html)。
 
 ## 延伸阅读
 

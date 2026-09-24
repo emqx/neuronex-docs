@@ -132,8 +132,12 @@
               "path": "configuration/north-apps/emqx-cloud/overview",
               "children": [
                 {
-                  "title": "数据桥接到 Snowflake 与 Databricks",
-                  "path": "configuration/north-apps/emqx-cloud/datalake"
+                  "title": "Snowflake",
+                  "path": "configuration/north-apps/emqx-cloud/snowflake"
+                },
+                {
+                  "title": "Databricks",
+                  "path": "configuration/north-apps/emqx-cloud/databricks"
                 }
               ]
             },
@@ -1356,8 +1360,12 @@
               "path": "configuration/north-apps/emqx-cloud/overview",
               "children": [
                 {
-                  "title": "Bridging Data to Snowflake and Databricks",
-                  "path": "configuration/north-apps/emqx-cloud/datalake"
+                  "title": "Snowflake",
+                  "path": "configuration/north-apps/emqx-cloud/snowflake"
+                },
+                {
+                  "title": "Databricks",
+                  "path": "configuration/north-apps/emqx-cloud/databricks"
                 }
               ]
             },

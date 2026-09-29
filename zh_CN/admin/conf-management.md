@@ -96,7 +96,7 @@ CONNECTION__EDGEX__REDISMSGBUS__PORT => edgex.redismsgbus.port int etc/connectio
 举例，如要调大调用外部算法函数的超时时间（默认为5s），可以设置如下环境变量`KUIPER__PORTABLE__RECVTIMEOUT => recvTimeout in etc/kuiper.yaml`：
 ```
 # Docker 部署方式
-docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s emqx/neuronex:latest
+docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s --privileged=true emqx/neuronex:latest
 
 ```
 

@@ -18,7 +18,7 @@
 
 ```bash
 docker pull emqx/neuronex:latest
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:latest
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:latest
 ```
 
 浏览器打开 `http://127.0.0.1:8085`，用初始账号 **admin** / **0000** 登录。

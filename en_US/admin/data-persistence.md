@@ -27,6 +27,7 @@ Removing the container removes everything inside it, so mount the data directory
 ```shell
 docker run -d --name neuronex -p 8085:8085 \
   -v /host/neuronex-data:/opt/neuronex/data \
+  --privileged=true \
   emqx/neuronex:latest
 ```
 

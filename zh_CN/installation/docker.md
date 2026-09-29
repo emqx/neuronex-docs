@@ -5,8 +5,7 @@
 | <div style="width:130pt">镜像</div> | 说明 |
 | --- | --- |
 | `emqx/neuronex:x.y.z` | 标准镜像。集成 Python 运行环境和规则引擎的 Python SDK（`ekuiper`、`pynng`），**使用 Python 便携插件必须用这个** |
-| `emqx/neuronex:x.y.z-extend` | 基于标准镜像，同样包含 Python 运行时 |
-| `emqx/neuronex:x.y.z-slim` | 不含 Python 运行环境，体积更小。**不支持** Python 便携插件——安装插件时无法拉起 Python 进程完成握手 |
+| `emqx/neuronex:x.y.z-extend` | 基于标准镜像，额外包含 FFmpeg 和 ONNX 依赖 |
 
 不确定选哪个就用标准镜像。完整 tag 列表见 [Docker Hub](https://hub.docker.com/r/emqx/neuronex/tags)，也可以从[官网下载页](https://www.emqx.com/zh/downloads-and-install/neuronex?os=Docker)获取。
 
@@ -20,6 +19,7 @@ docker run -d --name neuronex \
   -v /host/neuronex-data:/opt/neuronex/data \
   --ulimit nofile=65535:65535 \
   --log-opt max-size=100m \
+  --privileged=true \
   emqx/neuronex:3.9.2
 ```
 
@@ -37,6 +37,7 @@ docker run -d --name neuronex \
 | `-v <宿主机目录>:/opt/neuronex/data` | 持久化配置与数据，见上方提示 |
 | `--ulimit nofile=65535:65535` | 提高文件描述符上限，节点较多时需要，见[下文](#节点较多时提高文件描述符上限) |
 | `--log-opt max-size=100m` | 限制容器标准输出日志的大小 |
+| `--privileged=true` | 以特权模式运行容器，默认启动命令已包含此参数 |
 | `--restart=always` | Docker 守护进程重启时自动拉起容器 |
 | `--device <宿主机设备>:<容器设备>` | 映射串口等设备，见[连接串口设备](#连接串口设备) |
 
@@ -50,6 +51,7 @@ docker run -d --name neuronex \
 docker run -d --name neuronex \
   -p 8085:8085 \
   --device /dev/ttyUSB0:/dev/ttyS0 \
+  --privileged=true \
   emqx/neuronex:3.9.2
 ```
 
@@ -65,7 +67,7 @@ docker run -d --name neuronex \
 --ulimit nofile=65535:65535
 ```
 
-也可以用 `--privileged=true`，它会解除容器的各项限制（包括文件描述符），但同时赋予容器接近宿主机 root 的权限。**只在确有需要时使用**，一般场景用 `--ulimit` 即可。
+默认启动命令已包含 `--privileged=true`，它会解除容器的各项限制（包括文件描述符），但同时赋予容器接近宿主机 root 的权限。在加固部署中，如果只需提高文件描述符上限，可移除此参数并保留 `--ulimit`。
 
 ## 卸载
 

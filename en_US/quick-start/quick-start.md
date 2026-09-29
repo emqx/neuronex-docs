@@ -18,7 +18,7 @@ Pull the image and start the container:
 
 ```bash
 docker pull emqx/neuronex:latest
-docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m emqx/neuronex:latest
+docker run -d --name neuronex -p 8085:8085 --log-opt max-size=100m --privileged=true emqx/neuronex:latest
 ```
 
 Open `http://127.0.0.1:8085` in a browser and sign in with the default account **admin** / **0000**.

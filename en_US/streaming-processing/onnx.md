@@ -8,9 +8,9 @@ By integrating EMQX Neuron and ONNX, users only need to upload pre-built ONNX mo
 
 ## Prerequisites
 
-- EMQX Neuron Official Docker Image
+- EMQX Neuron extend Docker image
     ```shell
-    docker pull emqx/neuronex:latest
+    docker pull emqx/neuronex:4.0.0-beta.2-extend
     ```
 
 - Model File
@@ -58,7 +58,7 @@ The processing results are as follows:
 
 ## Others
 
-In this example, the official EMQX Neuron Docker image includes the ONNX dependency library. If you deploy EMQX Neuron using deb/rpm or binary form, you need to refer to the following steps to manually build the ONNX dependency environment.
+In this example, the EMQX Neuron extend Docker image includes the ONNX dependency library. If you deploy EMQX Neuron using deb/rpm or binary form, you need to refer to the following steps to manually build the ONNX dependency environment.
 
 1. Download [ONNX dependencies](https://github.com/lf-edge/ekuiper/tree/master/extensions/functions/onnx/lib).
 

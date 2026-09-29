@@ -1177,7 +1177,6 @@ Release Date: 2024-03-18
 - UI supports downloading portable plugin examples.
 - Optimized Dump file generation.
 - Adjusted built-in license functionality; data processing functionality is available, but rules will stop after 60 minutes.
-- Changed docker installation package naming convention; `neuronex:latest` and `neuronex:3.2.0` - standard installation packages include Python basic environment, while `neuronex:3.2.0-slim` lightweight version does not include Python environment.
 - Removed southbound driver template functionality.
 
 ### Fixes

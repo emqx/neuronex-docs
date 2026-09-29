@@ -13,7 +13,7 @@ If you use Docker to deploy EMQX Neuron, you need to add the `-p 10081:10081` pa
 
 ```bash
 ## run EMQX Neuron
-$ docker run -d --name neuronex -p 8085:8085 -p 10081:10081 --log-opt max-size=100m emqx/neuronex:latest
+$ docker run -d --name neuronex -p 8085:8085 -p 10081:10081 --log-opt max-size=100m --privileged=true emqx/neuronex:latest
 ```
 
 ## Create stream

@@ -1173,7 +1173,6 @@
 - UI 支持便携插件示例下载
 - 优化 Dump 文件生成
 - 自带License功能调整，数据处理功能可用，规则会在60分钟后停止
-- 修改了 docker 安装包命名规范，`neuronex:latest` 和 `neuronex:3.2.0` 版安装包默认带有 Python 基础环境，`neuronex:3.2.0-slim`版不带有 Python 基础环境 
 - 移除了南向驱动模板功能
 
 

@@ -6,7 +6,7 @@
 使用 Python 便携插件，需要有 Python 3 环境，以及 eKuiper Python SDK（`ekuiper`、`pynng`）。安装插件时 eKuiper 会立即拉起 Python 进程做握手，缺少解释器或 SDK 会导致安装失败。
 
 :::tip 提示
-**仅标准 Docker 镜像 `emqx/neuronex:x.y.z`（及基于它的 `*-extend`）预装了该运行时。** `*-slim` 镜像不包含 Python，无法安装或运行 Python 便携插件。详见 [Docker 容器 Python 运行环境](../installation/docker.md#选择镜像)。
+**标准 Docker 镜像 `emqx/neuronex:x.y.z` 与 `-extend` 镜像均预装了该运行时。**详见 [Docker 容器 Python 运行环境](../installation/docker.md#选择镜像)。
 :::
 
 - 如果您通过安装包（tar/deb/rpm）的方式安装 EMQX Neuron ，则需要
@@ -17,7 +17,7 @@
   pip install ekuiper pynng
   ```
 
-- 如果您通过 docker 的方式安装 EMQX Neuron ，请使用 [neuronex:3.x.x](../installation/docker.md#选择镜像) **标准镜像**，该镜像已经包含 Python 3 以及 `ekuiper`、`pynng`。不要使用 `*-slim`。
+- 如果您通过 Docker 的方式安装 EMQX Neuron，请使用[标准镜像或 extend 镜像](../installation/docker.md#选择镜像)，两者均已包含 Python 3、`ekuiper` 和 `pynng`。
 
 ## pysam插件整体介绍
 

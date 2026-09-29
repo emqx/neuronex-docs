@@ -74,7 +74,7 @@ EMQX Neuron 通过南向驱动按协议与现场设备通信。下表按类别�
 | [IEC 61850](../../configuration/south-devices/iec61850/overview.md)           | 以太网    | - |
 | [DNP 3.0](../../configuration/south-devices/dnp3/dnp3.md)         | 以太网  |  - |
 
-### CNC 与机床
+### CNC
 
 | CNC 厂商       |  CNC型号      | <div style="width:60pt">接口类型</div>|  <div style="width:100pt">对应 EMQX Neuron 协议</div>      |    备注      |
 | ------------- | ------- | ----- | ----- |----- |

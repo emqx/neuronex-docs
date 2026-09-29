@@ -5,8 +5,7 @@
 | <div style="width:140pt">Image</div> | Notes |
 | --- | --- |
 | `emqx/neuronex:x.y.z` | Standard image. Includes the Python runtime and the rules engine Python SDK (`ekuiper`, `pynng`). **Required for Python portable plugins** |
-| `emqx/neuronex:x.y.z-extend` | Based on the standard image, with the same Python runtime |
-| `emqx/neuronex:x.y.z-slim` | No Python runtime, smaller footprint. **Does not support** Python portable plugins — plugin install cannot start a Python process for the handshake |
+| `emqx/neuronex:x.y.z-extend` | Based on the standard image, with additional FFmpeg and ONNX dependencies |
 
 When in doubt, use the standard image. The full tag list is on [Docker Hub](https://hub.docker.com/r/emqx/neuronex/tags), and images are also linked from the [download page](https://www.emqx.com/en/downloads-and-install/neuronex?os=Docker).
 
@@ -20,6 +19,7 @@ docker run -d --name neuronex \
   -v /host/neuronex-data:/opt/neuronex/data \
   --ulimit nofile=65535:65535 \
   --log-opt max-size=100m \
+  --privileged=true \
   emqx/neuronex:3.9.2
 ```
 
@@ -37,6 +37,7 @@ Open `http://localhost:8085` and sign in with the default account **admin** / **
 | `-v <host dir>:/opt/neuronex/data` | Persist configuration and data — see the warning above |
 | `--ulimit nofile=65535:65535` | Raise the file descriptor limit; needed with many nodes, see [below](#raising-the-file-descriptor-limit-for-larger-deployments) |
 | `--log-opt max-size=100m` | Cap the size of the container's stdout log |
+| `--privileged=true` | Run the container in privileged mode; included in the default commands |
 | `--restart=always` | Restart the container automatically when the Docker daemon restarts |
 | `--device <host device>:<container device>` | Map a serial port or other device, see [Connecting serial devices](#connecting-serial-devices) |
 
@@ -50,6 +51,7 @@ To collect over serial protocols such as Modbus RTU or DL/T645, map the host's s
 docker run -d --name neuronex \
   -p 8085:8085 \
   --device /dev/ttyUSB0:/dev/ttyS0 \
+  --privileged=true \
   emqx/neuronex:3.9.2
 ```
 
@@ -65,7 +67,7 @@ The direct fix is to raise the limit:
 --ulimit nofile=65535:65535
 ```
 
-`--privileged=true` also works, since it lifts the container's restrictions including the descriptor limit — but it grants the container privileges close to host root. **Use it only when you actually need it**; `--ulimit` is enough for this case.
+The default startup commands include `--privileged=true`, which lifts the container's restrictions including the descriptor limit. It also grants the container privileges close to host root. In a hardened deployment, remove that parameter and keep `--ulimit` when raising the descriptor limit is all that is required.
 
 ## Uninstalling
 

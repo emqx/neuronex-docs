@@ -13,7 +13,7 @@ EMQX Neuron 数据处理模块通过 `HTTP Push` 类型的数据源，可以在�
 
 ```bash
 ## run EMQX Neuron
-$ docker run -d --name neuronex -p 8085:8085 -p 10081:10081 --log-opt max-size=100m emqx/neuronex:latest
+$ docker run -d --name neuronex -p 8085:8085 -p 10081:10081 --log-opt max-size=100m --privileged=true emqx/neuronex:latest
 ```
 
 ## 创建流

@@ -28,12 +28,15 @@ EMQX Neuron 已适配统信系统，EMQX Neuron 安装包可直接安装使用�
 
 ## 是否支持 Docker 容器化部署？
 
-EMQX Neuron 支持 Docker 容器化部署，EMQX Neuron提供两种类型的 Docker 安装包：
+EMQX Neuron 支持 Docker 容器化部署，提供两种镜像：
 
-- neuronex:3.x.x（标准镜像）
-    `neuronex:3.x.x` 标准镜像集成了 Python 运行环境及规则引擎的 Python SDK。安装、运行 Python 便携插件请使用这类镜像。
-- neuronex:3.x.x-slim
-    `neuronex:3.x.x-slim` 不集成 Python 运行环境，体积更小，**不支持** Python 便携插件。若不使用 Python 相关算法插件，请使用这类镜像。
+- `neuronex:3.x.x`（标准镜像）
+
+  集成 Python 运行环境及规则引擎的 Python SDK。安装、运行 Python 便携插件请使用这类镜像。
+
+- `neuronex:3.x.x-extend`
+
+  基于标准镜像，额外包含 FFmpeg 和 ONNX 依赖。
 
 ## 是否支持 Kubernetes、KubeEdge、K3S 部署？
 

@@ -8,9 +8,9 @@ ONNX 是一种针对机器学习所设计的开放式的文件格式，用于存
 
 ## 环境准备​
 
-- EMQX Neuron 官方 Docker 镜像
+- EMQX Neuron extend Docker 镜像
     ```shell
-    docker pull emqx/neuronex:latest
+    docker pull emqx/neuronex:4.0.0-beta.2-extend
     ```
 
 - 模型文件
@@ -59,7 +59,7 @@ ONNX 是一种针对机器学习所设计的开放式的文件格式，用于存
 
 ## 其他
 
-本例中，官方发布的 EMQX Neuron Docker 镜像自带 ONNX 相关的依赖库。如果用户通过deb/rpm 或二进制形式部署 EMQX Neuron，则需要参考如下步骤手动构建 ONNX依赖环境。
+本例使用的 EMQX Neuron extend Docker 镜像自带 ONNX 相关的依赖库。如果用户通过 deb/rpm 或二进制形式部署 EMQX Neuron，则需要参考如下步骤手动构建 ONNX 依赖环境。
 
 1. 下载 [ONNX 依赖](https://github.com/lf-edge/ekuiper/tree/master/extensions/functions/onnx/lib)。
 

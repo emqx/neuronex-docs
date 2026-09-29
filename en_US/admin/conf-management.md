@@ -102,7 +102,7 @@ For example, if you want to increase the timeout for calling external algorithm 
 
 ```
 # Docker Deployment
-docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s emqx/neuronex:latest
+docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s --privileged=true emqx/neuronex:latest
 
 ```
 

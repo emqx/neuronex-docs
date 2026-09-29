@@ -18,15 +18,15 @@ Not supported.
 
 ## Does EMQX Neuron support Docker deployment?
 
-EMQX Neuron supports Docker deployment. EMQX Neuron provides two types of Docker installation packages:
+EMQX Neuron supports Docker deployment and provides two image types:
 
-- neuronex:3.x.x (standard image)
-    
-    The `neuronex:3.x.x` standard image includes the Python runtime and the rules engine Python SDK. Use this image to install and run Python portable plugins.
+- `neuronex:3.x.x` (standard image)
 
-- neuronex:3.x.x-slim
-    
-    The `neuronex:3.x.x-slim` image does not include the Python runtime. It is smaller and **does not support** Python portable plugins. Use it only if you do not need Python algorithm plugins.
+  Includes the Python runtime and the rules engine Python SDK. Use this image to install and run Python portable plugins.
+
+- `neuronex:3.x.x-extend`
+
+  Based on the standard image, with additional FFmpeg and ONNX dependencies.
 
 ## Does EMQX Neuron support Kubernetes, KubeEdge, and K3S deployment?
 

@@ -27,6 +27,7 @@ EMQX Neuron 的持久化内容分两部分：**配置与运行数据**在 `data/
 ```shell
 docker run -d --name neuronex -p 8085:8085 \
   -v /host/neuronex-data:/opt/neuronex/data \
+  --privileged=true \
   emqx/neuronex:latest
 ```
 

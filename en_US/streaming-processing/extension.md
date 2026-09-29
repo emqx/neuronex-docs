@@ -15,7 +15,7 @@ Click **Data Processing** -> **Extensions**, on the **Portable Plugins** tab, cl
 After completing the above settings, click **Submit** to complete the creation of the plugin. The new plugin will appear in the plugin list on this page, and you can view or delete the plugin here.
 
 ::: tip
-Python portable plugins require Python 3 and the eKuiper Python SDK. **Use the standard Docker image `emqx/neuronex:x.y.z`.** The `*-slim` image and binary packages without a self-installed Python cannot complete plugin process handshake. See [Deployment requirements](portable_python.md#deployment-requirements) and [Docker Container Python Runtime Environment](../installation/docker.md#choosing-an-image).
+Python portable plugins require Python 3 and the eKuiper Python SDK. **Use the standard Docker image `emqx/neuronex:x.y.z` or the `-extend` image.** Binary packages without a self-installed Python cannot complete plugin process handshake. See [Deployment requirements](portable_python.md#deployment-requirements) and [Docker Container Python Runtime Environment](../installation/docker.md#choosing-an-image).
 :::
 
 ## Portable plugin development

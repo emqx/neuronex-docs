@@ -1,5 +1,33 @@
 # Release History
 
+## v4.0.0
+
+Release Date: 2026-10-01
+
+### Enhancements
+
+- System Streamlining:
+
+  - Removed the data exploration module, including the built-in Datalayers database and database-query-based data analysis.
+
+  - Removed the built-in Node-RED.
+
+  - Removed LLM-related features, such as the AI ​​assistant and AI Q&A functions.
+
+  - Removed the syslog-based log transmission feature.
+
+  - Optimized Docker images by removing unnecessary system dependencies.
+
+- Driver Enhancements：
+
+  - The ADS driver now supports importing tags from TwinCAT 2 and TwinCAT 3 TPY files.
+
+  - The Siemens driver now supports array data types.
+
+- Added support for importing tags from and exporting tags to CSV files.
+
+- OPC UA tag browsing now supports search and filtering.
+
 ## v3.9.3
 
 Release Date: 2026-08-26

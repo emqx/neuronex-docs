@@ -1,5 +1,93 @@
 # Release History
 
+## v4.0.0
+
+Release Date: 2026-10-01
+
+### Enhancements
+
+- System Streamlining:
+
+  - Removed the data exploration module, including the built-in Datalayers database and database-query-based data analysis.
+
+  - Removed the built-in Node-RED.
+
+  - Removed LLM-related features, such as the AI ​​assistant and AI Q&A functions.
+
+  - Removed the syslog-based log transmission feature.
+
+  - Optimized Docker images by removing unnecessary system dependencies.
+
+- Driver Enhancements：
+
+  - The ADS driver now supports importing tags from TwinCAT 2 and TwinCAT 3 TPY files.
+
+  - The Siemens driver now supports array data types.
+
+- Added support for importing tags from and exporting tags to CSV files.
+
+- OPC UA tag browsing now supports search and filtering.
+
+## v3.9.4
+
+Release Date: 2026-9-11
+
+### Enhancements
+
+- API permission changes: the minimum required role for the following endpoints has been raised from Viewer to Admin. Only administrators can call them; viewers will no longer have access.
+
+  - GET /api/template: configuration template export
+
+  - GET /api/neuron/global/apps: northbound application list.
+
+- Added array type support to the Siemens S7 driver, enabling collection and writing of array tags.
+
+- Relaxed the Siemens S7 300/400 driver collection interval to a minimum of 30 ms for higher-frequency collection scenarios.
+
+- Relaxed node tag naming restrictions to allow some commonly used special characters, making it easier to follow on-site naming conventions. -- **Analytic Functions** (ACC_MIN_BY, ACC_MAX_BY, ACC_MAP_AGG, ARRAY_AVG)
+
+  - acc_min_by(value, compare_value): Cumulatively compares compare_value and returns the value associated with the smallest comparison value seen so far. If comparison values are equal, the latest event's value is returned. Supports OVER (PARTITION BY ...) and conditional accumulation.
+
+  - acc_max_by(value, compare_value): Cumulatively compares compare_value and returns the value corresponding to the largest comparison value.
+
+  - acc_map_agg(key, value): Cumulatively aggregates inputs into an array of key-value objects ([{"key": "...", "value": ...}]), preserving the insertion order of first-seen keys and updating existing keys with the latest value.
+
+  - array_avg(array): Returns the average of all numeric elements in an array as a float. Null elements are ignored; returns nil if the array is nil or contains no valid numeric elements.
+
+### Fixes
+
+- Fixed a security issue: the API now validates and limits the maximum request body size before parsing JSON, reducing the risk from oversized requests.
+
+- **SQL Connection Retry Behavior and IOErr Wrapping**
+
+  - All errors returned by db.Ping() during SQL connection dial and initialization are now wrapped as errorx.IOErr (retryable errors).
+
+  - This allows named SQL connections to automatically reconnect once a temporarily unreachable database comes online, without caching the failure permanently in the connection pool.
+
+  - **Behavior Change Notice:**
+
+    - Because database drivers return various errors and it is difficult to reliably distinguish recoverable network interruptions from non-recoverable credential or configuration errors, **all** db.Ping() **failures (including network timeouts, invalid passwords, permission denied, or non-existent databases) are now treated as retryable IO errors**.
+
+    - In previous versions, non-network errors (e.g. entering the wrong password when creating an anonymous SQL connection in a rule) would immediately fail and stop the rule. With this update, rules using an anonymous SQL connection or named connection will **stay in the connecting/retrying state** instead of failing immediately.
+
+    - If a connection fails due to mistyped credentials or non-existent databases, users can inspect the connection/rule error status and re-edit the connection configuration.
+
+  - **Test Note**: Configure a SQL connection with an initially unreachable database URL, then start the database server, and verify that the connection recovers automatically without needing to recreate the connection or restart the rule.
+
+  - **Regression Test Suggestion**: Recommend regression testing SQL source, SQL sink, and SQL lookup connection creation and retry flows.
+
+ - **Fix for SQL Lexer Single-Quote Escaping**
+
+    - Fixed an issue where the lexer failed to reset its escape state when an escaped quote appeared at the end of a single-quoted string (e.g., `SELECT 'a\'' FROM tbl`), resulting in a parsing error (`BADSTRING`).
+
+  - **Range Validation for String-to-Integer Conversion**
+
+    - Fixed an issue in `pkg/cast` where `ToInt8`, `ToInt16`, `ToInt32`, and `ToUint32` failed to validate range limits (underflow or overflow) during string-to-integer conversion, leading to silent truncation or wrap-around; the functions will now explicitly return an error if the value is out of range.
+
+  - **Redirecting Startup Bootstrap Logs to Stderr**
+
+    - Changed the output destination for bootstrap logs during the initialization phase from silent discarding to standard error (`os.Stderr`) to ensure that early-stage failures occurring before the configuration system loads (such as insufficient permissions for `kuiper.yaml`) are properly logged and displayed. 
+
 ## v3.9.3
 
 Release Date: 2026-08-26

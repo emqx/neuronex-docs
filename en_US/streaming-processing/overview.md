@@ -82,7 +82,7 @@ A rule can have several actions, including more than one of the same type. Resul
 | Query and transform | Extract, convert, filter, sort, group, aggregate, plus LEFT / RIGHT / FULL / CROSS joins | [Query language](./sqls/query_language_elements.md) |
 | Functions | 160+ covering math, strings, aggregation, hashing, date and time, JSON, arrays, objects, and analytics | [Functions](./sqls/functions/overview.md) |
 | Windows | Tumbling, hopping, sliding, and session time windows, plus count windows | [Windows](./sqls/windows.md) |
-| Custom extensions | What SQL cannot express can be written in Python, C/C++, or JavaScript, or registered as an external REST service | [Extensions](./extension.md) |
+| Custom extensions | What SQL cannot express can be written in Python, or registered as an external REST service | [Extensions](./extension.md) |
 
 ## How rules run
 

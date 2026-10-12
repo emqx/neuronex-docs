@@ -9,7 +9,7 @@ EMQX Neuron 是一款工业边缘网关软件，部署在制造、能源、楼�
 | <div style="width:60pt">能力</div> | 说明 | <div style="width:70pt">详见</div> |
 | --- | --- | --- |
 | **数据采集** | 通过南向驱动接入 70+ 工业协议，覆盖 Modbus、OPC UA、EtherNet/IP、IEC 60870、BACnet、西门子与三菱 PLC、各类 CNC | [南向驱动](./introduction/driver-list/driver-list.md) |
-| **数据处理** | 内置流式计算引擎，160+ 函数支持过滤、转换、聚合与时间窗口计算；可集成 Python / C++ 自定义函数和 AI/ML 模型 | [数据处理](./streaming-processing/overview.md) |
+| **数据处理** | 内置流式计算引擎，160+ 函数支持过滤、转换、聚合与时间窗口计算；可集成 Python 自定义函数和 AI/ML 模型 | [数据处理](./streaming-processing/overview.md) |
 | **数据转发** | 上报到 IoT 平台与企业系统、写入数据库，或在现场以 OPC UA Server 对外开放数据 | [北向应用](./configuration/north-apps/catalog.md) |
 | **运维管理** | Web 控制台完成配置、用户与权限、日志下载、运行监控与告警，支持主备部署 | [运维](./admin/introduction.md) |
 

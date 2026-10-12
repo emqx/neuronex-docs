@@ -20,7 +20,7 @@ Publishing high-rate raw data to the cloud concentrates cost in three places: up
 - **Alarms need sub-second response.** Keeping the decision at the edge avoids a cloud round trip and remains effective while the link is down.
 - **Units or field names must be normalized before publishing.** Doing it once at the edge beats doing it in every downstream system.
 
-The rules engine offers 160+ SQL functions covering filtering, type conversion, aggregation, and time-window computation; logic that SQL cannot express can be written as a Python or C/C++ extension.
+The rules engine offers 160+ SQL functions covering filtering, type conversion, aggregation, and time-window computation; logic that SQL cannot express can be written as a Python extension.
 
 ## Available destinations
 

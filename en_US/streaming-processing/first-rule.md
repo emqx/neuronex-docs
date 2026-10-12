@@ -51,4 +51,4 @@ This rule does a single addition. The engine can do considerably more:
 - **Sources** — besides device data, it can ingest MQTT, HTTP, SQL databases, files, and video streams. See [Source](./source.md).
 - **SQL** — 160+ functions for filtering, type conversion, aggregation, and time windows. See [SQL Reference](./sqls/overview.md).
 - **Destinations** — write to MySQL, InfluxDB, Redis, Kafka, AWS S3, and more. See [Sink](./sink/sink.md).
-- **Custom logic** — what SQL cannot express, extend with Python or C/C++. See [Extensions](./extension.md).
+- **Custom logic** — what SQL cannot express, extend with Python. See [Extensions](./extension.md).

@@ -9,7 +9,7 @@ EMQX Neuron (formerly NeuronEX) is an industrial edge gateway that runs on the p
 | <div style="width:90pt">Capability</div> | Description | <div style="width:110pt">Learn more</div> |
 | --- | --- | --- |
 | **Data collection** | Southbound drivers connect 70+ industrial protocols, covering Modbus, OPC UA, EtherNet/IP, IEC 60870, BACnet, Siemens and Mitsubishi PLCs, and a range of CNC controllers | [Southbound Drivers](./introduction/driver-list/driver-list.md) |
-| **Data processing** | A built-in stream processing engine with 160+ functions for filtering, transformation, aggregation, and windowing; extensible with Python/C++ functions and AI/ML models | [Data Processing](./streaming-processing/overview.md) |
+| **Data processing** | A built-in stream processing engine with 160+ functions for filtering, transformation, aggregation, and windowing; extensible with Python functions and AI/ML models | [Data Processing](./streaming-processing/overview.md) |
 | **Data delivery** | Publish to IoT platforms and enterprise systems, write into databases, or serve data on the plant floor through an OPC UA Server | [Northbound Applications](./configuration/north-apps/catalog.md) |
 | **Operations** | A web console for configuration, users and permissions, log download, runtime monitoring and alerts, with master-backup deployment | [Operations](./admin/introduction.md) |
 

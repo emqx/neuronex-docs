@@ -51,4 +51,4 @@ SELECT pressure + 1 AS pressure FROM neuronStream
 - **数据源** —— 除设备数据外，还能接入 MQTT、HTTP、SQL 数据库、文件、视频流，见[数据源 (Source)](./source.md)。
 - **SQL 能力** —— 160+ 函数支持过滤、类型转换、聚合和时间窗口计算，见 [SQL 参考](./sqls/overview.md)。
 - **写到哪里** —— 除 MQTT 外可写入 MySQL、InfluxDB、Redis、Kafka、AWS S3 等，见[动作 (Sink)](./sink/sink.md)。
-- **自定义计算** —— SQL 表达不了的逻辑可以用 Python、C/C++ 扩展，见[算法集成](./extension.md)。
+- **自定义计算** —— SQL 表达不了的逻辑可以用 Python 扩展，见[算法集成](./extension.md)。

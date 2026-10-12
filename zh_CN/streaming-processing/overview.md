@@ -82,7 +82,7 @@ EMQX Neuron 内置流式计算引擎，在数据离开边缘之前完成过滤�
 | 查询与转换 | 抽取、转换、过滤、排序、分组、聚合，以及 LEFT / RIGHT / FULL / CROSS 连接 | [查询语句](./sqls/query_language_elements.md) |
 | 函数 | 160+ 个，覆盖数学、字符串、聚合、哈希、时间日期、JSON、数组、对象与分析函数 | [函数](./sqls/functions/overview.md) |
 | 窗口 | 滚动、跳跃、滑动、会话四类时间窗口，以及计数窗口 | [窗口](./sqls/windows.md) |
-| 自定义扩展 | SQL 表达不了的逻辑，可用 Python、C/C++、JavaScript 扩展，或注册外部 REST 服务 | [算法集成](./extension.md) |
+| 自定义扩展 | SQL 表达不了的逻辑，可用 Python 扩展，或注册外部 REST 服务 | [算法集成](./extension.md) |
 
 ## 规则的运行方式
 

@@ -8,15 +8,15 @@ Release Date: 2026-10-01
 
 - System Streamlining:
 
-  - Removed the data exploration module, including the built-in Datalayers database and database-query-based data analysis.
+  - Removed the data exploration module, including the built-in Datalayers database and database-query-based data analysis: Every plant that wants history already runs a historian or a time-series database. The rules engine writes to InfluxDB, SQL databases and Redis, so the data goes where the customer already keeps it.
 
-  - Removed the built-in Node-RED.
+  - Removed the built-in Node-RED: The rules engine can do the same in SQL, which is easy to review in pull requests, diff between versions, and maintain. 
 
-  - Removed LLM-related features, such as the AI ​​assistant and AI Q&A functions.
+  - Removed LLM-related features, such as the AI ​​assistant and AI Q&A functions: Model inference remains unchanged. Only the LLM features were removed, as they belong in the cloud, not in a factory cabinet.
 
-  - Removed the syslog-based log transmission feature.
+  - Removed the syslog-based log transmission feature：Metrics go to Prometheus Pushgateway and alerts to a webhook, covering Syslog's role in a format existing monitoring tools can use.
 
-  - Optimized Docker images by removing unnecessary system dependencies.
+  - Optimized Docker images by removing unnecessary system dependencies：The Docker images are now leaner, with unnecessary system dependencies removed. The standard image is about a quarter of its former size, reducing patching, security reviews, and the learning curve for new engineers.
 
 - Driver Enhancements：
 
@@ -24,9 +24,21 @@ Release Date: 2026-10-01
 
   - The Siemens driver now supports array data types.
 
-- Added support for importing tags from and exporting tags to CSV files.
+- Added support for importing tags from and exporting tags to CSV files：Tags can be imported from a CSV file and exported to one. A tag list becomes a file you can edit in a spreadsheet, copy between instances and keep under version control.
 
-- OPC UA tag browsing now supports search and filtering.
+- OPC UA tag browsing now supports search and filtering：When you browse an OPC UA server's address space, you can now search and filter the tags. On a large server, that is the difference between finding a node and scrolling for it.
+
+### Before You Upgrade
+
+A short checklist, in the order that matters.
+
+- **Check whether you use anything that was removed**. Data exploration, the built-in database, the DataStorage application, Node-RED, the AI assistant or syslog forwarding. If you do, plan where that job goes before you move.
+
+- **Change your image tag if you run models**. -extend carries the inference runtime.
+
+- **Mount data/**. Avoid losing installed plugins after replacing the container.
+
+- **Back up relevant files:**.In addition to the directories mentioned above, you should also back up any modified files under the `etc/` directory.
 
 ## v3.9.4
 

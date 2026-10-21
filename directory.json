@@ -22,6 +22,10 @@
           "path": "installation/docker"
         },
         {
+          "title": "4.0 版本升级说明",
+          "path": "installation/upgrade-4.0"
+        },
+        {
           "title": "主备模式",
           "path": "best-practise/master-backup"
         },
@@ -1248,6 +1252,10 @@
         {
           "title": "Docker",
           "path": "installation/docker"
+        },
+        {
+          "title": "Upgrading to 4.0",
+          "path": "installation/upgrade-4.0"
         },
         {
           "title": "Master-Backup Mode",

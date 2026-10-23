@@ -4,13 +4,13 @@ EMQX Neuron 提供三种粒度的备份方式，覆盖范围与适用场景不�
 
 | 方式 | 覆盖范围 | 适用场景 |
 | --- | --- | --- |
-| [系统备份与恢复](#系统备份与恢复) | 全部配置：南向驱动与北向应用配置、点表、规则、文件与证书 | 升级前留底、整机迁移、故障恢复 |
+| [系统备份与恢复](#系统备份与恢复) | 全部配置与用户数据：南北向配置、点表、规则、模型等上传文件、用户安装的插件 | 升级前留底、整机迁移、故障恢复 |
 | [南向设备导入导出](#南向设备导入导出) | 仅南向驱动配置与点位 | 只迁移数采部分、测试环境向现场推配置 |
-| [备份数据目录](#备份数据目录) | `data/` 下的全部内容，以及用户安装的插件 | 停机维护窗口内的冷备份 |
+| [备份数据目录](#备份数据目录) | `etc/` 与 `data/` 下的用户资产 | 停机维护窗口内的冷备份 |
 
 ## 系统备份与恢复
 
-在 **管理 → 系统配置** 页面执行。备份将全部配置导出为一个文件；恢复将该文件重新导入，**覆盖**现有配置。
+在 **管理 → 系统配置** 页面执行。备份将 `etc/` 与 `data/` 下的用户资产导出为一个文件；恢复将该文件重新导入，**覆盖**现有配置。
 
 ::: warning
 恢复过程中 EMQX Neuron 会自动重启，期间采集与转发中断。请在维护窗口内操作。
@@ -22,26 +22,32 @@ EMQX Neuron 提供三种粒度的备份方式，覆盖范围与适用场景不�
 
 ## 备份数据目录
 
-停止服务后复制以下目录。这是与运行状态无关的冷备份，恢复时复制回同一路径即可。
+停止服务后备份 `etc/` 与 `data/`。这是与运行状态无关的冷备份，恢复时复制回同一路径即可。
 
+```bash
+sudo systemctl stop neuronex
+sudo tar -C /opt/neuronex -czf neuronex-backup-$(date +%F).tar.gz etc data
+sudo systemctl start neuronex
 ```
-/opt/neuronex/data/                        配置与运行数据
-/opt/neuronex/plugins/neuron/system/       用户安装的南向驱动与北向应用
-/opt/neuronex/plugins/neuron/custom/
-/opt/neuronex/plugins/ekuiper/             用户安装的规则引擎插件
+
+```text
+/opt/neuronex/etc/        顶层配置 neuronex.yaml，以及 JWT 公钥、HTTPS 证书等用户文件
+/opt/neuronex/data/       数据库、状态、模型等上传文件，以及用户安装的插件
 ```
 
 ::: warning
-**只备份 `data/` 不够。** 用户安装的插件不在 `data/` 下，漏掉上面三个 `plugins/` 目录，恢复后这些驱动、应用和插件都会丢失。
+**不要只备份 `data/`。** `etc/neuronex.yaml`、JWT 公钥和 HTTPS 证书都不在 `data/` 下，漏掉后恢复时需要重新配置。
 :::
 
-`plugins/neuron/` 下的 `libplugin-*.so`、`schema/`、`tags/` 随安装包发布，不需要备份。改过 `etc/` 下的配置文件的话，一并留一份。目录结构见[数据目录与持久化](./data-persistence.md)。
+`plugins/neuron/{system,custom}` 是指向 `data/neuron/plugins/` 的软链接，规则引擎插件在 `data/ekuiper/plugins/`，都已包含在 `data/` 备份中，不需要单独复制。`plugins/neuron/` 下的 `.so`、`schema/`、`tags/`，以及 `bin/`、`lib/`、`share/` 下的程序资产随安装包发布，不需要备份。
 
-容器部署时这些目录通过 `-v` 挂载在宿主机上，备份宿主机目录即可，见[通过 Docker 部署](../installation/docker.md#启动)。
+`data/uploads` 是指向 `data/ekuiper/uploads` 的兼容软链接，备份时会按链接保留；如果恢复后缺失，程序启动时会自动重建。
+
+容器部署时 `etc` 和 `data` 通过 `-v` 挂载在宿主机上，备份宿主机目录即可，见[数据目录与持久化](./data-persistence.md)。
 
 ## 建议执行备份的时机
 
-- **升级前**——升级不会覆盖数据和用户插件目录，但留一份备份可在需要回滚时直接恢复，见[使用安装包安装 · 升级](../installation/package.md#升级)。
+- **升级前**——升级不会覆盖 `etc/` 与 `data/` 下的用户资产，但留一份备份可在需要回滚时直接恢复，见[使用安装包安装 · 升级](../installation/package.md#升级)。
 - **批量调整点表前**——[Excel 批量导入](../configuration/import-export/import-export.md)会覆盖同名点位，导入前先导出一份现有配置。
 - **主备部署时**——主备两台实例的数采配置需要保持一致，用南向设备导入导出同步，见[主备模式](../best-practise/master-backup.md)。
 - **现场交付后**——把最终配置导出留存，便于设备更换时快速恢复。

@@ -92,13 +92,13 @@ Environment variables are separated by "__". The first part of the content match
 EMQX Neuron supports configuring the Rules Engine Application yaml configuration file through environment variables. The mapping relationship is the same as for EMQX Neuron:
 
 ```
-KUIPER__BASIC__DEBUG => basic.debug in etc/kuiper.yaml
-MQTT_SOURCE__DEMO_CONF__QOS => demo_conf.qos in etc/mqtt_source.yaml
-EDGEX__DEFAULT__PORT => default.port in etc/sources/edgex.yaml
-CONNECTION__EDGEX__REDISMSGBUS__PORT => edgex.redismsgbus.port int etc/connections/connection.yaml
+KUIPER__BASIC__DEBUG => basic.debug in share/ekuiper/etc/kuiper.yaml
+MQTT_SOURCE__DEMO_CONF__QOS => demo_conf.qos in share/ekuiper/etc/mqtt_source.yaml
+EDGEX__DEFAULT__PORT => default.port in share/ekuiper/etc/sources/edgex.yaml
+CONNECTION__EDGEX__REDISMSGBUS__PORT => edgex.redismsgbus.port in data/ekuiper/connections/connection.yaml
 ```
 
-For example, if you want to increase the timeout for calling external algorithm functions (default 5s), you can set the following environment variable `KUIPER__PORTABLE__RECVTIMEOUT => recvTimeout in etc/kuiper.yaml`:
+For example, if you want to increase the timeout for calling external algorithm functions (default 5s), you can set the following environment variable `KUIPER__PORTABLE__RECVTIMEOUT => recvTimeout in share/ekuiper/etc/kuiper.yaml`:
 
 ```
 # Docker Deployment
@@ -109,7 +109,9 @@ docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s 
 
 ### Rules Engine Application configuration items
 
-The main configuration file of the Rules Engine Application is `/opt/neuronex/etc/ekuiper/kuiper.yaml`, and every item in it carries a comment. The commonly used items are listed below by group. Use either the file or the environment variables — the environment variable wins.
+The main configuration file of the Rules Engine Application is `/opt/neuronex/share/ekuiper/etc/kuiper.yaml`, and every item in it carries a comment. The commonly used items are listed below by group. Use either the file or the environment variables — the environment variable wins.
+
+`share/ekuiper/etc/` contains program assets and is replaced by the new version on upgrade. Use environment variables for changes that must survive an upgrade, or reapply them afterwards.
 
 #### basic — logging and services
 
@@ -277,7 +279,7 @@ ekuiper:
 log:
   mode: file
   level: error
-  file: log/neuronex.log
+  file: log/neuronex/neuronex.log
   maxSize: 20  # maximum size in megabytes of the log file before it gets rotated
   maxBackups: 5 # MaxBackups is the maximum number of old log files to retain
 
@@ -292,6 +294,8 @@ EMQX Neuron now supports HTTPS functionality, providing a more secure communicat
 ### Enable HTTPS Functionality
 
 Uncomment the following fields in the configuration file and place your certificate and private key in the corresponding directory.
+
+Certificate paths are relative to the installation root; by default the files go under `etc/certs/`. That directory is not created by the package, so create it yourself. In a Docker deployment it lives inside the mounted `etc` directory.
 
 ```yaml
 tls:
@@ -312,13 +316,13 @@ tls:
 - Method 1: If using a self-signed certificate, add the certificate file (neuronex.crt) to the client's trust store.
 - Method 2: Disable certificate verification on the client.
 
-## JWT Token Authentication 
+## JWT Token Authentication
 
-By default, the REST API exposed by EMQX Neuron requires JWT Token authentication. EMQX Neuron supports users to place the authentication public key in the etc folder in the EMQX Neuron installation directory to achieve JWT Token authentication.
+By default, the REST API exposed by EMQX Neuron requires JWT Token authentication. EMQX Neuron supports placing the authentication public key in the `etc/` directory under the installation root, next to `neuronex.yaml`. You can also upload a public key with `POST /api/configuration/jwt/upload`; the file is written to the same directory.
 
-If EMQX Neuron is deployed using Docker, you need to map the local directory to the etc directory of EMQX Neuron in the container. Note that the local directory cannot be empty when mapping for the first time, and must have a `neuronex.yaml` configuration file and a public key file.
+In a Docker deployment, map a host directory to `/opt/neuronex/etc` in the container and keep it writable. Starting with 4.0, if `etc` is empty the container entrypoint creates a default `neuronex.yaml`; the public key still has to be placed there beforehand or uploaded through the API after startup.
 
-When upgrading or migrating EMQX Neuron software, you need to consider the backup and recovery of the etc directory.
+When upgrading or migrating, back up and restore `etc/` together with `data/` — see [Backup and Restore](./backup-restore.md).
 
 ## Dump File
 

@@ -76,6 +76,8 @@ The command to view the data mining engine log is
 
 EMQX Neuron Exception Exit Log, users can view the exception exit log to understand the reason for the exception exit of EMQX Neuron. Or provide the log information to the EMQ technical support team to quickly locate the problem.
 
+The examples below were captured on 3.9.x and earlier. Starting with 4.0, the paths in the child-process startup commands changed: eKuiper configuration is under `share/ekuiper/etc`, data under `data/ekuiper`, logs under `log/ekuiper`, and the Neuron working directory is `run/neuron`. If a log contains `software/`, `etc/ekuiper`, or `data/ekuiper/data`, it is from an older version.
+
 - EMQX Neuron Docker Deployment Exception Exit Log View
 
 ```shell

@@ -28,8 +28,8 @@ systemctl status neuronex        # 服务是否在运行
 ## 升级与备份
 
 1. 先备份，见[备份与恢复](./backup-restore.md)。
-2. 升级不会覆盖 `/opt/neuronex/data`，安装包升级步骤见[使用安装包安装 · 升级](../installation/package.md#升级)，容器部署见[通过 Docker 部署](../installation/docker.md)。
-3. 升级后确认南北向节点恢复到**运行中**、**已连接**，规则状态正常。
+2. 升级不会覆盖 `/opt/neuronex/data` 与 `/opt/neuronex/etc`。从 3.9 升级到 4.0 的目录迁移与验证见[4.0 版本升级说明](../installation/upgrade-4.0.md)；安装包升级步骤见[使用安装包安装 · 升级](../installation/package.md#升级)，容器部署见[通过 Docker 部署](../installation/docker.md)。
+3. 升级后先确认日志出现 `neuronex legacy migration: completed`（3.9 升级到 4.0.1 及以上版本时），再确认南北向节点恢复到**运行中**、**已连接**，规则状态正常。
 
 ## 故障排查
 

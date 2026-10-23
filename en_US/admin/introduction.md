@@ -28,8 +28,8 @@ In production, change the default password and create read-only accounts as need
 ## Upgrades and backups
 
 1. Take a backup first — see [Backup and Restore](./backup-restore.md).
-2. An upgrade does not overwrite `/opt/neuronex/data`. For package upgrades see [Install from a Package · Upgrading](../installation/package.md#upgrading); for containers see [Deploy with Docker](../installation/docker.md).
-3. After upgrading, confirm that southbound and northbound nodes return to **Running** and **Connected**, and that rules are healthy.
+2. An upgrade does not overwrite `/opt/neuronex/data` or `/opt/neuronex/etc`. For the 3.9 to 4.0 directory migration and verification, see [Upgrading to 4.0](../installation/upgrade-4.0.md); for package upgrades see [Install from a Package · Upgrading](../installation/package.md#upgrading); for containers see [Deploy with Docker](../installation/docker.md).
+3. After upgrading, first confirm that the log shows `neuronex legacy migration: completed` (when upgrading from 3.9 to 4.0.1 or later), then confirm that southbound and northbound nodes return to **Running** and **Connected**, and that rules are healthy.
 
 ## Troubleshooting
 

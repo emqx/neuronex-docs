@@ -4,13 +4,13 @@ EMQX Neuron offers three levels of backup, differing in scope and in when they a
 
 | Method | Scope | When it applies |
 | --- | --- | --- |
-| [System backup and restore](#system-backup-and-restore) | All configuration: southbound driver and northbound application settings, tag lists, rules, files, and certificates | Before an upgrade, whole-instance migration, disaster recovery |
+| [System backup and restore](#system-backup-and-restore) | All configuration and user data: southbound and northbound settings, tag lists, rules, uploaded files such as models, and user-installed plugins | Before an upgrade, whole-instance migration, disaster recovery |
 | [Southbound device import and export](#southbound-device-import-and-export) | Southbound driver configuration and tags only | Migrating just the collection layer, promoting a test configuration to the plant |
-| [Backing up the data directory](#backing-up-the-data-directory) | Everything under `data/`, plus the plugins the user installed | A cold backup taken during a maintenance window |
+| [Backing up the data directory](#backing-up-the-data-directory) | The user assets under `etc/` and `data/` | A cold backup taken during a maintenance window |
 
 ## System backup and restore
 
-Performed on **Administration → System Configuration**. Backup exports all configuration to a single file; restore imports that file and **overwrites** the current configuration.
+Performed on **Administration → System Configuration**. Backup exports the user assets under `etc/` and `data/` to a single file; restore imports that file and **overwrites** the current configuration.
 
 ::: warning
 EMQX Neuron restarts automatically during a restore, interrupting collection and forwarding. Perform it inside a maintenance window.
@@ -22,26 +22,62 @@ Performed at the top right of **Data Collection → South Devices**, exporting a
 
 ## Backing up the data directory
 
-Stop the service and copy the directories below. This is a cold backup independent of runtime state; restore it by copying them back to the same paths.
+Stop the service and back up `etc/` and `data/`. This is a cold backup independent of runtime state; restore it by copying the directories back to the same paths. **The process must be stopped before archiving**: copying SQLite and its `-wal`/`-shm` files while the service is running can produce an inconsistent snapshot.
 
+The backup covers the following paths under the installation root:
+
+```text
+etc/        top-level configuration neuronex.yaml, plus user files such as JWT public keys and HTTPS certificates
+data/       databases, runtime state, uploaded files such as models, and user-installed plugins
 ```
-/opt/neuronex/data/                        configuration and runtime data
-/opt/neuronex/plugins/neuron/system/       southbound drivers and northbound applications the user installed
-/opt/neuronex/plugins/neuron/custom/
-/opt/neuronex/plugins/ekuiper/             rules engine plugins the user installed
+
+The stop and start commands differ by deployment method. Use the one that matches your installation:
+
+### deb / rpm (systemd)
+
+```bash
+sudo systemctl stop neuronex
+sudo tar -C /opt/neuronex -czf neuronex-backup-$(date +%F).tar.gz etc data
+sudo systemctl start neuronex
 ```
+
+### Docker
+
+The example below uses `/host/neuronex` as the host mount directory and `neuronex` as the container name; replace them with your actual values:
+
+```bash
+docker stop neuronex
+sudo tar -C /host/neuronex -czf neuronex-backup-$(date +%F).tar.gz etc data
+docker start neuronex
+```
+
+With Docker Compose, replace `docker stop` / `docker start` with `docker compose stop` / `docker compose start`.
+
+### tar.gz direct run
+
+Run these commands from the installation root:
+
+```bash
+./bin/neuronex stop
+sudo tar -C "$PWD" -czf neuronex-backup-$(date +%F).tar.gz etc data
+./bin/neuronex start
+```
+
+If the installation was registered as a systemd service with `./bin/neuronex install`, use the systemd method above instead.
 
 ::: warning
-**Backing up `data/` alone is not enough.** The plugins the user installed do not live under `data/`. Leave out the three `plugins/` directories above and those drivers, applications, and plugins are gone after a restore.
+**Backing up `data/` alone is not enough.** `etc/neuronex.yaml`, JWT public keys, and HTTPS certificates are not under `data/`; without them the configuration has to be re-created after a restore.
 :::
 
-`libplugin-*.so`, `schema/`, and `tags/` under `plugins/neuron/` ship with the installation package and do not need backing up. If you have edited anything under `etc/`, keep a copy of that too. For the directory layout, see [Data Directory and Persistence](./data-persistence.md).
+`plugins/neuron/{system,custom}` are symlinks to `data/neuron/plugins/`, and rules engine plugins live in `data/ekuiper/plugins/`; all of them are already covered by the `data/` backup, so do not copy these paths separately. The `.so` files, `schema/`, and `tags/` under `plugins/neuron/`, as well as the program assets under `bin/`, `lib/`, and `share/`, ship with the installation package and do not need backing up.
 
-In a container deployment these directories are mounted on the host with `-v`, so backing up the host directories is enough. See [Deploy with Docker](../installation/docker.md#starting-the-container).
+`data/uploads` is a compatibility symlink to `data/ekuiper/uploads`; a backup keeps it as a link, and if it is missing after a restore, EMQX Neuron recreates it at startup.
+
+Mount paths and directory responsibilities for each deployment method are described in [Data Directory and Persistence](./data-persistence.md).
 
 ## When to take a backup
 
-- **Before an upgrade.** An upgrade does not overwrite the data or user plugin directories, but a backup allows a direct restore if you need to roll back. See [Install from a Package · Upgrade](../installation/package.md#upgrading).
+- **Before an upgrade.** An upgrade does not overwrite the user assets under `etc/` and `data/`, but a backup allows a direct restore if you need to roll back. See [Install from a Package · Upgrade](../installation/package.md#upgrading).
 - **Before a bulk tag change.** [Excel import](../configuration/import-export/import-export.md) overwrites tags of the same name, so export the current configuration first.
 - **In a master-backup deployment.** Both instances need identical collection configuration; synchronize them with southbound device import and export. See [Master-Backup Mode](../best-practise/master-backup.md).
 - **After commissioning.** Export and archive the final configuration so it can be restored quickly if hardware is replaced.

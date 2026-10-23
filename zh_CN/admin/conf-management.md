@@ -5,7 +5,7 @@ EMQX Neuron 支持通过`命令行`、`环境变量`、`配置文件`的方式�
 
 ## 命令行
 
-EMQX Neuron 的命令行位于 `/bin/neuronex`，它提供了以下的常用选项：
+EMQX Neuron 的命令行位于 `/opt/neuronex/bin/neuronex`，它提供了以下的常用选项：
 
 ### `run` 命令
 
@@ -88,12 +88,12 @@ EMQX Neuron 支持通过环境变量覆盖配置文件中的配置，当通过�
 EMQX Neuron 支持通过环境变量配置规则引擎应用的 yaml 配置文件，映射关系和 EMQX Neuron 相同，如下：
 
 ```
-KUIPER__BASIC__DEBUG => basic.debug in etc/kuiper.yaml
-MQTT_SOURCE__DEMO_CONF__QOS => demo_conf.qos in etc/mqtt_source.yaml
-EDGEX__DEFAULT__PORT => default.port in etc/sources/edgex.yaml
-CONNECTION__EDGEX__REDISMSGBUS__PORT => edgex.redismsgbus.port int etc/connections/connection.yaml
+KUIPER__BASIC__DEBUG => basic.debug in share/ekuiper/etc/kuiper.yaml
+MQTT_SOURCE__DEMO_CONF__QOS => demo_conf.qos in share/ekuiper/etc/mqtt_source.yaml
+EDGEX__DEFAULT__PORT => default.port in share/ekuiper/etc/sources/edgex.yaml
+CONNECTION__EDGEX__REDISMSGBUS__PORT => edgex.redismsgbus.port in data/ekuiper/connections/connection.yaml
 ```
-举例，如要调大调用外部算法函数的超时时间（默认为5s），可以设置如下环境变量`KUIPER__PORTABLE__RECVTIMEOUT => recvTimeout in etc/kuiper.yaml`：
+举例，如要调大调用外部算法函数的超时时间（默认为5s），可以设置如下环境变量`KUIPER__PORTABLE__RECVTIMEOUT => recvTimeout in share/ekuiper/etc/kuiper.yaml`：
 ```
 # Docker 部署方式
 docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s --privileged=true emqx/neuronex:latest
@@ -103,7 +103,9 @@ docker run -d --name neuronex -p 8085:8085 -e KUIPER__PORTABLE__RECVTIMEOUT=20s 
 
 ### 规则引擎应用配置项
 
-规则引擎应用的主配置文件是 `/opt/neuronex/etc/ekuiper/kuiper.yaml`，文件内每一项都带有注释。常用配置项按分组列在下面，配置文件与环境变量二选一即可，环境变量优先。
+规则引擎应用的主配置文件是 `/opt/neuronex/share/ekuiper/etc/kuiper.yaml`，文件内每一项都带有注释。常用配置项按分组列在下面，配置文件与环境变量二选一即可，环境变量优先。
+
+`share/ekuiper/etc/` 属于程序资产，升级时会被新版本覆盖。需要长期保留的配置改动请使用环境变量，或在升级后重新应用。
 
 #### basic —— 日志与服务
 
@@ -271,7 +273,7 @@ ekuiper:
 log:
   mode: file
   level: error
-  file: log/neuronex.log
+  file: log/neuronex/neuronex.log
   maxSize: 20  # maximum size in megabytes of the log file before it gets rotated
   maxBackups: 5 # MaxBackups is the maximum number of old log files to retain
 
@@ -286,6 +288,8 @@ EMQX Neuron现已支持HTTPS功能，提供了更安全的通信方式。此功�
 ### 开启 HTTPS 功能
 
 在配置文件中取消注释以下字段，并在对应目录放入您的证书和私钥。
+
+证书路径相对于安装根目录，默认放在 `etc/certs/`。该目录不随安装包创建，需要手工建立；Docker 部署时它位于挂载的 `etc` 目录内。
 
 ```yaml
 tls:
@@ -307,11 +311,11 @@ tls:
 
 ## JWT Token 认证公钥
 
-默认情况下 EMQX Neuron 对外暴露的 REST API 需要 JWT Token 认证， EMQX Neuron 支持用户将认证公钥放置在 EMQX Neuron 安装目录下的 etc 文件夹下，以实现 JWT Token 认证。
+默认情况下 EMQX Neuron 对外暴露的 REST API 需要 JWT Token 认证。EMQX Neuron 支持将认证公钥放在安装目录下的 `etc/` 中，与 `neuronex.yaml` 同级。也可以通过 `POST /api/configuration/jwt/upload` 上传公钥，文件同样写入这个目录。
 
-如果 EMQX Neuron 采用 Docker 部署的方式，则需要将本地目录映射进容器内 EMQX Neuron 的 etc 目录。注意首次映射时本地目录不能为空, 必须具有 neuronex.yaml 配置文件以及公钥文件。
+Docker 部署时，需要把宿主机目录映射进容器的 `/opt/neuronex/etc`，并保持可写。4.0 起，`etc` 为空时容器启动脚本会自动生成默认的 `neuronex.yaml`；公钥仍需预先放入，或在启动后通过接口上传。
 
-在 EMQX Neuron 软件升级或者迁移时，需要考虑到 etc 目录的备份和恢复。
+升级或迁移时，`etc/` 与 `data/` 一并备份和恢复，见[备份与恢复](./backup-restore.md)。
 
 ## Dump文件
 

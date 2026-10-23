@@ -76,6 +76,8 @@ EMQX Neuron 日志查看命令为
 
 EMQX Neuron 异常退出时，会打印异常退出日志，用户可以通过查看异常退出日志，了解 EMQX Neuron 异常退出的原因。或者将日志信息提供给 EMQ 技术支持团队，以便快速定位问题。
 
+下面示例采集自 3.9.x 及更早版本。4.0 起子进程启动命令中的路径已调整：eKuiper 配置在 `share/ekuiper/etc`，数据在 `data/ekuiper`，日志在 `log/ekuiper`，Neuron 的工作目录为 `run/neuron`。如果日志中出现 `software/`、`etc/ekuiper` 或 `data/ekuiper/data`，说明是旧版本的日志。
+
 - EMQX Neuron Docker 部署异常退出日志查看
 
 ```shell

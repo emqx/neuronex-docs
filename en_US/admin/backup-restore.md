@@ -22,7 +22,18 @@ Performed at the top right of **Data Collection → South Devices**, exporting a
 
 ## Backing up the data directory
 
-Stop the service and back up `etc/` and `data/`. This is a cold backup independent of runtime state; restore it by copying the directories back to the same paths.
+Stop the service and back up `etc/` and `data/`. This is a cold backup independent of runtime state; restore it by copying the directories back to the same paths. **The process must be stopped before archiving**: copying SQLite and its `-wal`/`-shm` files while the service is running can produce an inconsistent snapshot.
+
+The backup covers the following paths under the installation root:
+
+```text
+etc/        top-level configuration neuronex.yaml, plus user files such as JWT public keys and HTTPS certificates
+data/       databases, runtime state, uploaded files such as models, and user-installed plugins
+```
+
+The stop and start commands differ by deployment method. Use the one that matches your installation:
+
+### deb / rpm (systemd)
 
 ```bash
 sudo systemctl stop neuronex
@@ -30,10 +41,29 @@ sudo tar -C /opt/neuronex -czf neuronex-backup-$(date +%F).tar.gz etc data
 sudo systemctl start neuronex
 ```
 
-```text
-/opt/neuronex/etc/        top-level configuration neuronex.yaml, plus user files such as JWT public keys and HTTPS certificates
-/opt/neuronex/data/       databases, runtime state, uploaded files such as models, and user-installed plugins
+### Docker
+
+The example below uses `/host/neuronex` as the host mount directory and `neuronex` as the container name; replace them with your actual values:
+
+```bash
+docker stop neuronex
+sudo tar -C /host/neuronex -czf neuronex-backup-$(date +%F).tar.gz etc data
+docker start neuronex
 ```
+
+With Docker Compose, replace `docker stop` / `docker start` with `docker compose stop` / `docker compose start`.
+
+### tar.gz direct run
+
+Run these commands from the installation root:
+
+```bash
+./bin/neuronex stop
+sudo tar -C "$PWD" -czf neuronex-backup-$(date +%F).tar.gz etc data
+./bin/neuronex start
+```
+
+If the installation was registered as a systemd service with `./bin/neuronex install`, use the systemd method above instead.
 
 ::: warning
 **Backing up `data/` alone is not enough.** `etc/neuronex.yaml`, JWT public keys, and HTTPS certificates are not under `data/`; without them the configuration has to be re-created after a restore.
@@ -43,7 +73,7 @@ sudo systemctl start neuronex
 
 `data/uploads` is a compatibility symlink to `data/ekuiper/uploads`; a backup keeps it as a link, and if it is missing after a restore, EMQX Neuron recreates it at startup.
 
-In a container deployment `etc` and `data` are mounted on the host with `-v`, so backing up the host directories is enough. See [Data Directory and Persistence](./data-persistence.md).
+Mount paths and directory responsibilities for each deployment method are described in [Data Directory and Persistence](./data-persistence.md).
 
 ## When to take a backup
 

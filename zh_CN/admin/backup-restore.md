@@ -22,7 +22,18 @@ EMQX Neuron 提供三种粒度的备份方式，覆盖范围与适用场景不�
 
 ## 备份数据目录
 
-停止服务后备份 `etc/` 与 `data/`。这是与运行状态无关的冷备份，恢复时复制回同一路径即可。
+停止服务后备份 `etc/` 与 `data/`。这是与运行状态无关的冷备份，恢复时复制回同一路径即可。**必须在进程停止后再打包**：运行中直接复制 SQLite 及其 `-wal`、`-shm`，可能得到不一致的快照。
+
+备份内容是安装根目录下的：
+
+```text
+etc/        顶层配置 neuronex.yaml，以及 JWT 公钥、HTTPS 证书等用户文件
+data/       数据库、状态、模型等上传文件，以及用户安装的插件
+```
+
+不同部署方式的停止和启动命令不同，按实际部署方式选择：
+
+### deb / rpm（systemd）
 
 ```bash
 sudo systemctl stop neuronex
@@ -30,10 +41,29 @@ sudo tar -C /opt/neuronex -czf neuronex-backup-$(date +%F).tar.gz etc data
 sudo systemctl start neuronex
 ```
 
-```text
-/opt/neuronex/etc/        顶层配置 neuronex.yaml，以及 JWT 公钥、HTTPS 证书等用户文件
-/opt/neuronex/data/       数据库、状态、模型等上传文件，以及用户安装的插件
+### Docker
+
+宿主机挂载目录以 `/host/neuronex`、容器名以 `neuronex` 为例，请替换为实际值：
+
+```bash
+docker stop neuronex
+sudo tar -C /host/neuronex -czf neuronex-backup-$(date +%F).tar.gz etc data
+docker start neuronex
 ```
+
+使用 Docker Compose 时，把 `docker stop` / `docker start` 换成 `docker compose stop` / `docker compose start`。
+
+### tar.gz 直接运行
+
+在安装根目录执行：
+
+```bash
+./bin/neuronex stop
+sudo tar -C "$PWD" -czf neuronex-backup-$(date +%F).tar.gz etc data
+./bin/neuronex start
+```
+
+如果已通过 `./bin/neuronex install` 注册为 systemd 服务，按上面的 systemd 方式操作。
 
 ::: warning
 **不要只备份 `data/`。** `etc/neuronex.yaml`、JWT 公钥和 HTTPS 证书都不在 `data/` 下，漏掉后恢复时需要重新配置。
@@ -43,7 +73,7 @@ sudo systemctl start neuronex
 
 `data/uploads` 是指向 `data/ekuiper/uploads` 的兼容软链接，备份时会按链接保留；如果恢复后缺失，程序启动时会自动重建。
 
-容器部署时 `etc` 和 `data` 通过 `-v` 挂载在宿主机上，备份宿主机目录即可，见[数据目录与持久化](./data-persistence.md)。
+各部署方式的挂载路径与目录职责见[数据目录与持久化](./data-persistence.md)。
 
 ## 建议执行备份的时机
 

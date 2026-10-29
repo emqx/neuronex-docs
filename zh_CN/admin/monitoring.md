@@ -30,7 +30,7 @@ EMQX Neuron 的数据链路是双向的：除采集设备数据外，也可将�
 | **数据监控页面** | 人工调试与验证，见下方[在数据监控页写入](#在数据监控页写入) |
 | **北向应用** | 云平台或上位系统下发指令。MQTT 与 AWS IoT 通过写请求主题，Azure IoT 通过云到设备消息，Sparkplug B 通过 DCMD 命令，OPC UA Server 由客户端直接写变量节点。见[北向应用](../configuration/north-apps/catalog.md) |
 | **数据处理** | 规则计算结果直接写回设备，构成「采集 → 判断 → 控制」的边缘闭环，见 [Neuron Sink](../streaming-processing/sink/neuron.md) |
-| **HTTP API** | 第三方程序集成，见 [API 文档](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html#tag/rw) |
+| **HTTP API** | 第三方程序集成，见 [API 文档](https://docs.emqx.com/zh/emqx-neuron/latest/api/api-docs.html#tag/rw) |
 
 四条通道的完整示例见[设备反控功能详解](../best-practise/device-control.md)。
 

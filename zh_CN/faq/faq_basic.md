@@ -70,7 +70,7 @@ EMQX Neuron 标准产品最低采集周期是 `100ms`，如果有更低的采集
 
 ## 是否支持设备反控？
 
-支持。EMQX Neuron 支持设备反控功能，提供[RestAPI](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html#tag/rw)、[MQTT](../configuration/north-apps/mqtt/api.md#写-tag)、[边缘计算结果反控](../streaming-processing/sink/neuron.md)等多种设备反控方式，支持工业设备智能控制决策。
+支持。EMQX Neuron 支持设备反控功能，提供[RestAPI](https://docs.emqx.com/zh/emqx-neuron/latest/api/api-docs.html#tag/rw)、[MQTT](../configuration/north-apps/mqtt/api.md#写-tag)、[边缘计算结果反控](../streaming-processing/sink/neuron.md)等多种设备反控方式，支持工业设备智能控制决策。
 
 ## 是否支持自行开发驱动？
 

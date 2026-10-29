@@ -4113,7 +4113,7 @@
       "post": {
         "summary": "Node Setting",
         "deprecated": false,
-        "description": "Please refer to [Plugin Setting](https://docs.emqx.com/zh/neuronex/latest/api/plugin-setting.html) for the configuration parameters of each plugin.",
+        "description": "Please refer to [Plugin Setting](https://docs.emqx.com/zh/emqx-neuron/latest/api/plugin-setting.html) for the configuration parameters of each plugin.",
         "tags": [
           "configuration"
         ],
@@ -7126,11 +7126,11 @@
                   },
                   "attribute": {
                     "type": "integer",
-                    "description": "Reference https://docs.emqx.com/en/neuronex/latest/api/data-type.html#tag-attributes"
+                    "description": "Reference https://docs.emqx.com/en/emqx-neuron/latest/api/data-type.html#tag-attributes"
                   },
                   "type": {
                     "type": "integer",
-                    "description": "Reference https://docs.emqx.com/en/neuronex/latest/api/data-type.html#data-types"
+                    "description": "Reference https://docs.emqx.com/en/emqx-neuron/latest/api/data-type.html#data-types"
                   },
                   "precision": {
                     "type": "integer"

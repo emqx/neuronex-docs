@@ -23,7 +23,7 @@ The monitoring configuration selects which metrics are wanted. They can be retri
 | Push to Pushgateway | With a [Pushgateway](https://github.com/prometheus/pushgateway) address configured, EMQX Neuron pushes metrics to it for Prometheus to scrape |
 | API query | Read the current metrics directly from the API |
 
-For the configuration and query endpoints, see the [Monitor API](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html#tag/monitor/operation/MetricConfig).
+For the configuration and query endpoints, see the [Monitor API](https://docs.emqx.com/en/emqx-neuron/latest/api/api-docs.html#tag/monitor/operation/MetricConfig).
 
 ## Alert events
 
@@ -42,4 +42,4 @@ Alert events can be retrieved two ways:
 | Push to a webhook | With a webhook address configured, EMQX Neuron pushes alert events to it |
 | API query | Query the most recent alert events |
 
-For the configuration and query endpoints, see the [Alert Rule API](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html#tag/monitor/operation/AlertRuleConfig).
+For the configuration and query endpoints, see the [Alert Rule API](https://docs.emqx.com/en/emqx-neuron/latest/api/api-docs.html#tag/monitor/operation/AlertRuleConfig).

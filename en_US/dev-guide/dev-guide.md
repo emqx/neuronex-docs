@@ -64,7 +64,7 @@ $ python3 -m robot --maxerroelines=600 -P ft/ -d ft/reports ft
 * A PR only does one thing. If there are multiple bug fixes, please submit a PR for each bug;
 * The PR process is as follows:
 
-  * First, fork this project and create your own github.com/your/neuron warehouse;
+  * First, fork this project and create your own `github.com/<your-account>/neuron` warehouse;
   * Clone your own Neuron warehouse to the local location:
   ```bash
   $ git clone https://github.com/your/neuron.git 

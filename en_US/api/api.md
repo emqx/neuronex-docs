@@ -12,5 +12,5 @@ This section will guide you on how to get started with the NeuronEX REST API qui
 
 [Data collection function error code description:](./error-code.md) The API includes comprehensive error code descriptions that provide information about the nature and cause of the errors encountered. This helps with effective troubleshooting and issue resolution.
 
-[API documentation:](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html) Includes the relevant APIs for system, data collection, and data statistics functions.
+[API documentation:](api-docs.md) Includes the relevant APIs for system, data collection, and data statistics functions.
 

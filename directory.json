@@ -63,493 +63,406 @@
             {
               "title": "Modbus RTU",
               "path": "configuration/south-devices/modbus-rtu/modbus-rtu",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-rtu/modbus-rtu.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "连接 DTU",
-                  "path": "configuration/south-devices/modbus-rtu/example/dtu/dtu-connection",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-rtu/example/dtu/dtu-connection.md"
+                  "path": "configuration/south-devices/modbus-rtu/example/dtu/dtu-connection"
                 },
                 {
                   "title": "连接 Modbus Slave 模拟器",
-                  "path": "configuration/south-devices/modbus-rtu/example/modbus-slave/modbus-slave",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-rtu/example/modbus-slave/modbus-slave.md"
+                  "path": "configuration/south-devices/modbus-rtu/example/modbus-slave/modbus-slave"
                 },
                 {
                   "title": "常见问题",
-                  "path": "configuration/south-devices/modbus-rtu/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-rtu/faq/faq.md"
+                  "path": "configuration/south-devices/modbus-rtu/faq"
                 }
               ]
             },
             {
               "title": "Modbus TCP",
               "path": "configuration/south-devices/modbus-tcp/modbus-tcp",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-tcp/modbus-tcp.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "连接 Modbus Slave 模拟器",
-                  "path": "configuration/south-devices/modbus-tcp/example/modbus-slave/modbus-slave",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-tcp/example/modbus-slave/modbus-slave.md"
+                  "path": "configuration/south-devices/modbus-tcp/example/modbus-slave/modbus-slave"
                 },
                 {
                   "title": "常见问题",
-                  "path": "configuration/south-devices/modbus-tcp/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-tcp/faq/faq.md"
+                  "path": "configuration/south-devices/modbus-tcp/faq"
                 }
               ]
             },
             {
               "title": "Modbus ASCII",
-              "path": "configuration/south-devices/modbus-ascii/modbus-ascii",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-ascii/modbus-ascii.md"
+              "path": "configuration/south-devices/modbus-ascii/modbus-ascii"
             },
-              {
+            {
               "title": "Inovance Modbus TCP",
               "path": "configuration/south-devices/modbus-hc-tcp/modbus-hc-tcp",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-hc-tcp/modbus-hc-tcp.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Easy521 连接示例",
-                  "path": "configuration/south-devices/modbus-hc-tcp/example/autoshop/autoshop-modbus",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-hc-tcp/example/autoshop/autoshop-modbus.md" 
+                  "path": "configuration/south-devices/modbus-hc-tcp/example/autoshop/autoshop-modbus"
                 },
                 {
                   "title": "常见问题",
-                  "path": "configuration/south-devices/modbus-hc-tcp/faq/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-hc-tcp/faq/faq.md"
+                  "path": "configuration/south-devices/modbus-hc-tcp/faq/faq"
                 }
               ]
             },
             {
               "title": "XINJE Modbus RTU",
-              "path": "configuration/south-devices/modbus-xinje-rtu/modbus-xinje-rtu",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-xinje-rtu/modbus-xinje-rtu.md"
+              "path": "configuration/south-devices/modbus-xinje-rtu/modbus-xinje-rtu"
             },
             {
               "title": "HollySys Modbus TCP",
-              "path": "configuration/south-devices/modbus-hollysys-tcp/modbus-hollysys-tcp",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-hollysys-tcp/modbus-hollysys-tcp.md"
+              "path": "configuration/south-devices/modbus-hollysys-tcp/modbus-hollysys-tcp"
             },
             {
               "title": "HollySys Modbus RTU",
-              "path": "configuration/south-devices/modbus-hollysys-rtu/modbus-hollysys-rtu",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/modbus-hollysys-rtu/modbus-hollysys-rtu.md"
+              "path": "configuration/south-devices/modbus-hollysys-rtu/modbus-hollysys-rtu"
             },
             {
               "title": "OPC UA",
               "path": "configuration/south-devices/opc-ua/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/opc-ua/overview.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "浏览 OPC UA 地址空间",
-                  "path": "configuration/south-devices/opc-ua/browse",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/opc-ua/browse.md"
+                  "path": "configuration/south-devices/opc-ua/browse"
                 },
                 {
                   "title": "连接策略",
-                  "path": "configuration/south-devices/opc-ua/policy",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/opc-ua/policy.md"
+                  "path": "configuration/south-devices/opc-ua/policy"
                 },
                 {
                   "title": "配置 UaExpert",
-                  "path": "configuration/south-devices/opc-ua/uaexpert",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/opc-ua/uaexpert.md"
+                  "path": "configuration/south-devices/opc-ua/uaexpert"
                 },
                 {
                   "title": "连接 Siemens S7-1200",
-                  "path": "configuration/south-devices/opc-ua/s71200",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/opc-ua/s71200.md"
+                  "path": "configuration/south-devices/opc-ua/s71200"
                 },
                 {
                   "title": "连接 KEPServerEX",
-                  "path": "configuration/south-devices/opc-ua/kepserverex",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/opc-ua/kepserverex.md"
+                  "path": "configuration/south-devices/opc-ua/kepserverex"
                 },
                 {
                   "title": "连接 Industrial Gateway OPC Server",
-                  "path": "configuration/south-devices/opc-ua/igs",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/opc-ua/igs.md"
+                  "path": "configuration/south-devices/opc-ua/igs"
                 },
                 {
                   "title": "连接 Ignition",
-                  "path": "configuration/south-devices/opc-ua/ignition",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/opc-ua/ignition.md"
+                  "path": "configuration/south-devices/opc-ua/ignition"
                 },
                 {
                   "title": "连接 Prosys Simulation Server",
-                  "path": "configuration/south-devices/opc-ua/prosys",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/opc-ua/prosys.md"
+                  "path": "configuration/south-devices/opc-ua/prosys"
                 },
                 {
                   "title": "常见问题",
-                  "path": "configuration/south-devices/opc-ua/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/opc-ua/faq.md"
+                  "path": "configuration/south-devices/opc-ua/faq"
                 }
               ]
             },
             {
               "title": "OPC DA",
               "path": "configuration/south-devices/opc-da/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/opc-da/overview.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "NeuOPC 安装",
-                  "path": "configuration/south-devices/opc-da/install",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/opc-da/install.md"
+                  "path": "configuration/south-devices/opc-da/install"
                 },
                 {
                   "title": "NeuOPC 远程访问",
-                  "path": "configuration/south-devices/opc-da/remote",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/opc-da/remote.md"
+                  "path": "configuration/south-devices/opc-da/remote"
                 },
                 {
                   "title": "连接 NeuOPC",
-                  "path": "configuration/south-devices/opc-da/neuopc",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/opc-da/neuopc.md"
+                  "path": "configuration/south-devices/opc-da/neuopc"
                 },
                 {
                   "title": "常见问题",
-                  "path": "configuration/south-devices/opc-da/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/opc-da/faq.md"
+                  "path": "configuration/south-devices/opc-da/faq"
                 }
               ]
             },
             {
               "title": "EtherNet/IP(CIP)",
-              "path": "configuration/south-devices/ethernet-ip/ethernet-ip",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/ethernet-ip/ethernet-ip.md"
+              "path": "configuration/south-devices/ethernet-ip/ethernet-ip"
             },
             {
               "title": "Allen-Bradley 5000 EIP",
-              "path": "configuration/south-devices/ab-5000/ab-5000",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/ab-5000/ab-5000.md"
+              "path": "configuration/south-devices/ab-5000/ab-5000"
             },
             {
               "title": "Allen-Bradley ControlLogix 5500",
-              "path": "configuration/south-devices/ab-5500/ab-5500",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/ab-5500/ab-5500.md"
+              "path": "configuration/south-devices/ab-5500/ab-5500"
             },
             {
               "title": "Allen-Bradley MicroLogix 1400",
-              "path": "configuration/south-devices/ab-1400/ab-1400",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/ab-1400/ab-1400.md"
+              "path": "configuration/south-devices/ab-1400/ab-1400"
             },
             {
               "title": "Allen-Bradley DF1",
-              "path": "configuration/south-devices/df1/df1",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/df1/df1.md"
+              "path": "configuration/south-devices/df1/df1"
             },
             {
               "title": "Mitsubishi 3E",
               "path": "configuration/south-devices/mitsubishi-3e/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/mitsubishi-3e/overview.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "FX5U 连接示例",
-                  "path": "configuration/south-devices/mitsubishi-3e/fx5u",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/mitsubishi-3e/fx5u.md"
+                  "path": "configuration/south-devices/mitsubishi-3e/fx5u"
                 },
                 {
                   "title": "Q03UDE 连接示例",
-                  "path": "configuration/south-devices/mitsubishi-3e/q03ude",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/mitsubishi-3e/q03ude.md"
+                  "path": "configuration/south-devices/mitsubishi-3e/q03ude"
                 },
                 {
                   "title": "常见问题",
-                  "path": "configuration/south-devices/mitsubishi-3e/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/mitsubishi-3e/faq.md"
+                  "path": "configuration/south-devices/mitsubishi-3e/faq"
                 }
               ]
             },
             {
               "title": "Mitsubishi 1E",
-              "path": "configuration/south-devices/mitsubishi-1e/mitsubishi-1e",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/mitsubishi-1e/mitsubishi-1e.md"
+              "path": "configuration/south-devices/mitsubishi-1e/mitsubishi-1e"
             },
             {
               "title": "Siemens S7 ISO TCP",
               "path": "configuration/south-devices/siemens-s7/s7",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/siemens-s7/s7.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "配置 S7-1200/1500",
-                  "path": "configuration/south-devices/siemens-s7/plc/siemens-s7-1200-1500",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/siemens-s7/plc/siemens-s7-1200-1500.md"
+                  "path": "configuration/south-devices/siemens-s7/plc/siemens-s7-1200-1500"
                 },
                 {
                   "title": "S7-1200 连接示例",
-                  "path": "configuration/south-devices/siemens-s7/example/s71200/s71200",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/siemens-s7/example/s71200/s71200.md"
+                  "path": "configuration/south-devices/siemens-s7/example/s71200/s71200"
                 },
                 {
                   "title": "常见问题",
-                  "path": "configuration/south-devices/siemens-s7/faq/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/siemens-s7/faq/faq.md"
+                  "path": "configuration/south-devices/siemens-s7/faq/faq"
                 }
               ]
             },
             {
               "title": "Siemens MPI",
               "path": "configuration/south-devices/siemens-mpi/mpi",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/siemens-mpi/mpi.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Siemens S7300 PLC 连接示例",
-                  "path": "configuration/south-devices/siemens-mpi/s7300",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/siemens-mpi/s7300.md"
-                }]
+                  "path": "configuration/south-devices/siemens-mpi/s7300"
+                }
+              ]
             },
             {
               "title": "Siemens S5 FetchWrite",
-              "path": "configuration/south-devices/siemens-fetchwrite/fetchwrite",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/siemens-fetchwrite/fetchwrite.md"
+              "path": "configuration/south-devices/siemens-fetchwrite/fetchwrite"
             },
             {
               "title": "Omron FINS TCP",
               "path": "configuration/south-devices/omron-fins/omron-fins",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/omron-fins/omron-fins.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "CP2E 连接示例",
-                  "path": "configuration/south-devices/omron-fins/example/cp2e/cp2e",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/omron-fins/example/cp2e/cp2e.md"
+                  "path": "configuration/south-devices/omron-fins/example/cp2e/cp2e"
                 },
                 {
                   "title": "常见问题",
-                  "path": "configuration/south-devices/omron-fins/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/omron-fins/faq.md"
+                  "path": "configuration/south-devices/omron-fins/faq"
                 }
               ]
             },
             {
               "title": "Omron FINS UDP",
               "path": "configuration/south-devices/omron-fins/omron-fins-udp",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/omron-fins/omron-fins-udp.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "NX1P 连接示例",
-                  "path": "configuration/south-devices/omron-fins/example/nx1p/nx1p",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/omron-fins/example/nx1p/nx1p.md"
+                  "path": "configuration/south-devices/omron-fins/example/nx1p/nx1p"
                 }
               ]
             },
             {
               "title": "Hostlink Cmode",
-              "path": "configuration/south-devices/hostlink/hostlink-cmode",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/hostlink/hostlink-cmode.md"
+              "path": "configuration/south-devices/hostlink/hostlink-cmode"
             },
             {
               "title": "Beckhoff ADS",
               "path": "configuration/south-devices/ads/ads",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/ads/ads.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "使用 Beckhoff ADS 协议采集 PLC 数据",
-                  "path": "configuration/south-devices/ads/plc-ads/ads",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/ads/plc-ads/ads.md"
+                  "path": "configuration/south-devices/ads/plc-ads/ads"
                 }
               ]
             },
             {
               "title": "IEC60870-5-101",
-              "path": "configuration/south-devices/iec-101/iec-101",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/iec-101/iec-101.md"
+              "path": "configuration/south-devices/iec-101/iec-101"
             },
             {
               "title": "IEC60870-5-102",
-              "path": "configuration/south-devices/iec-102/iec-102",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/iec-102/iec-102.md"
+              "path": "configuration/south-devices/iec-102/iec-102"
             },
             {
               "title": "IEC60870-5-103",
-              "path": "configuration/south-devices/iec-103/iec-103",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/iec-103/iec-103.md"
+              "path": "configuration/south-devices/iec-103/iec-103"
             },
             {
               "title": "IEC60870-5-104",
               "path": "configuration/south-devices/iec-104/iec-104",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/iec-104/iec-104.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "IEC60870-5-104 Server 连接示例",
-                  "path": "configuration/south-devices/iec-104/example/server-simulator/simulator",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/iec-104/example/server-simulator/simulator.md"
+                  "path": "configuration/south-devices/iec-104/example/server-simulator/simulator"
                 },
                 {
                   "title": "常见问题",
-                  "path": "configuration/south-devices/iec-104/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/iec-104/faq.md"
+                  "path": "configuration/south-devices/iec-104/faq"
                 }
               ]
             },
             {
               "title": "IEC61850",
               "path": "configuration/south-devices/iec61850/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/iec61850/overview.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "LibIEC61850 连接示例",
-                  "path": "configuration/south-devices/iec61850/libiec61850",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/iec61850/libiec61850.md"
+                  "path": "configuration/south-devices/iec61850/libiec61850"
                 },
                 {
                   "title": "常见问题",
-                  "path": "configuration/south-devices/iec61850/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/iec61850/faq.md"
+                  "path": "configuration/south-devices/iec61850/faq"
                 }
               ]
             },
             {
               "title": "DL/T645-2007",
               "path": "configuration/south-devices/dlt645-2007/dlt645-2007",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/dlt645-2007/dlt645-2007.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "正泰单相导轨表连接示例",
-                  "path": "configuration/south-devices/dlt645-2007/example/connect",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/dlt645-2007/example/connect.md"
+                  "path": "configuration/south-devices/dlt645-2007/example/connect"
                 }
               ]
             },
             {
               "title": "DL/T 645-1997",
-              "path": "configuration/south-devices/dlt645-1997/dlt645-1997",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/dlt645-1997/dlt645-1997.md"
+              "path": "configuration/south-devices/dlt645-1997/dlt645-1997"
             },
             {
               "title": "DNP 3.0",
-              "path": "configuration/south-devices/dnp3/dnp3",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/dnp3/dnp3.md"
+              "path": "configuration/south-devices/dnp3/dnp3"
             },
             {
               "title": "BACnet/IP",
               "path": "configuration/south-devices/bacnet-ip/bacnet-ip",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/bacnet-ip/bacnet-ip.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Yabe 连接示例",
-                  "path": "configuration/south-devices/bacnet-ip/example/yabe",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/bacnet-ip/example/yabe.md"
+                  "path": "configuration/south-devices/bacnet-ip/example/yabe"
                 }
               ]
             },
             {
               "title": "KNXnet/IP",
-              "path": "configuration/south-devices/knxnet-ip/knxnet-ip",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/knxnet-ip/knxnet-ip.md"
+              "path": "configuration/south-devices/knxnet-ip/knxnet-ip"
             },
             {
               "title": "HJ212-2017",
-              "path": "configuration/south-devices/hj212-2017/hj212-2017",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/hj212-2017/hj212-2017.md"
+              "path": "configuration/south-devices/hj212-2017/hj212-2017"
             },
             {
               "title": "NON A11",
-              "path": "configuration/south-devices/nona11/nona11",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/nona11/nona11.md"
+              "path": "configuration/south-devices/nona11/nona11"
             },
             {
               "title": "ABB COMLI",
-              "path": "configuration/south-devices/comli/comli",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/comli/comli.md"
+              "path": "configuration/south-devices/comli/comli"
             },
             {
               "title": "Panasonic Mewtocol",
               "path": "configuration/south-devices/panasonic-mewtocol/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/panasonic-mewtocol/overview.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "FP-XH C30T 连接示例",
-                  "path": "configuration/south-devices/panasonic-mewtocol/fp-xh-c30t",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/panasonic-mewtocol/fp-xh-c30t.md"
+                  "path": "configuration/south-devices/panasonic-mewtocol/fp-xh-c30t"
                 },
                 {
                   "title": "常见问题",
-                  "path": "configuration/south-devices/panasonic-mewtocol/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/panasonic-mewtocol/faq.md"
+                  "path": "configuration/south-devices/panasonic-mewtocol/faq"
                 }
               ]
             },
             {
               "title": "Mitsubishi FX",
-              "path": "configuration/south-devices/mitsubishi-fx/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/mitsubishi-fx/overview.md"
+              "path": "configuration/south-devices/mitsubishi-fx/overview"
             },
             {
               "title": "Profinet IO",
-              "path": "configuration/south-devices/profinet/profinet",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/profinet/profinet.md"
+              "path": "configuration/south-devices/profinet/profinet"
             },
             {
               "title": "SECS GEM HSMS",
               "path": "configuration/south-devices/secs-gem/secs-gem",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/secs-gem/secs-gem.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "连接 Ignition SECS GEM 模拟器",
-                  "path": "configuration/south-devices/secs-gem/example/ignition",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/secs-gem/example/ignition.md"
+                  "path": "configuration/south-devices/secs-gem/example/ignition"
                 }
               ]
             },
             {
               "title": "KUKA Ethernet KRL TCP",
-              "path": "configuration/south-devices/kuka/kuka",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/kuka/kuka.md"
+              "path": "configuration/south-devices/kuka/kuka"
             },
             {
               "title": "GE SRTP",
-              "path": "configuration/south-devices/srtp/srtp",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/srtp/srtp.md"
+              "path": "configuration/south-devices/srtp/srtp"
             },
             {
               "title": "Focas CNC",
-              "path": "configuration/south-devices/fanuc-focas/fanuc-focas",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/fanuc-focas/fanuc-focas.md"
+              "path": "configuration/south-devices/fanuc-focas/fanuc-focas"
             },
             {
               "title": "Mitsubishi CNC",
-              "path": "configuration/south-devices/mitsubishi-cnc/mitsubishi-cnc",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/mitsubishi-cnc/mitsubishi-cnc.md"
+              "path": "configuration/south-devices/mitsubishi-cnc/mitsubishi-cnc"
             },
             {
               "title": "HEIDENHAIN CNC",
-              "path": "configuration/south-devices/heidenhain-cnc/heidenhain-cnc",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/heidenhain-cnc/heidenhain-cnc.md"
+              "path": "configuration/south-devices/heidenhain-cnc/heidenhain-cnc"
             },
             {
               "title": "MTConnect",
-              "path": "configuration/south-devices/mtconnect/mtconnect",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/mtconnect/mtconnect.md"
+              "path": "configuration/south-devices/mtconnect/mtconnect"
             },
             {
               "title": "CODESYS V3",
               "path": "configuration/south-devices/codesys3/codesys3",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/codesys3/codesys3.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "连接 CODESYS V3 PLC 模拟器",
-                  "path": "configuration/south-devices/codesys3/demo",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/codesys3/demo.md"
+                  "path": "configuration/south-devices/codesys3/demo"
                 }
               ]
             }
@@ -563,44 +476,37 @@
             {
               "title": "MQTT 插件",
               "path": "configuration/north-apps/mqtt/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/mqtt/overview.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "数据上下行格式",
-                  "path": "configuration/north-apps/mqtt/api",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/mqtt/api.md"
+                  "path": "configuration/north-apps/mqtt/api"
                 },
                 {
                   "title": "常见问题",
-                  "path": "configuration/north-apps/mqtt/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/mqtt/faq.md"
+                  "path": "configuration/north-apps/mqtt/faq"
                 }
               ]
             },
             {
               "title": "AWS IoT",
               "path": "configuration/north-apps/aws-iot/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/aws-iot/overview.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "数据桥接到 AWS IoT Core",
-                  "path": "configuration/north-apps/aws-iot/example",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/aws-iot/example.md"
+                  "path": "configuration/north-apps/aws-iot/example"
                 }
               ]
             },
             {
               "title": "Azure IoT",
               "path": "configuration/north-apps/azure-iot/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/azure-iot/overview.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "数据桥接到 Azure IoT Hub",
-                  "path": "configuration/north-apps/azure-iot/example",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/azure-iot/example.md"
+                  "path": "configuration/north-apps/azure-iot/example"
                 }
               ]
             },
@@ -611,35 +517,29 @@
             {
               "title": "Sparkplug B 插件",
               "path": "configuration/north-apps/sparkplugb/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/sparkplugb/overview.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "集成 EMQX",
-                  "path": "configuration/north-apps/sparkplugb/sparkplug",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/sparkplugb/sparkplug.md"
+                  "path": "configuration/north-apps/sparkplugb/sparkplug"
                 },
                 {
                   "title": "Ignition 连接示例",
-                  "path": "configuration/north-apps/sparkplugb/ignition",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/sparkplugb/ignition.md"
+                  "path": "configuration/north-apps/sparkplugb/ignition"
                 },
                 {
                   "title": "Cogent 连接示例",
-                  "path": "configuration/north-apps/sparkplugb/cogent",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/sparkplugb/cogent.md"
+                  "path": "configuration/north-apps/sparkplugb/cogent"
                 },
                 {
                   "title": "常见问题",
-                  "path": "configuration/north-apps/sparkplugb/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/sparkplugb/faq.md"
+                  "path": "configuration/north-apps/sparkplugb/faq"
                 }
               ]
             },
             {
               "title": "WebSocket 客户端",
-              "path": "configuration/north-apps/websocket/websocket",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/north-apps/websocket/websocket.md"
+              "path": "configuration/north-apps/websocket/websocket"
             }
           ]
         },
@@ -837,7 +737,7 @@
           "title": "算法集成",
           "path": "streaming-processing/extension",
           "collapsed": true,
-          "children":[
+          "children": [
             {
               "title": "Python 便携插件示例",
               "path": "streaming-processing/portable_python"
@@ -959,123 +859,119 @@
           ]
         }
       ]
-      },
+    },
     {
-        "title": "HTTP API",
-        "path": "api/api",
-        "collapsed": true,
-        "children": [
-          {
-            "title": "JWT身份验证",
-            "path": "api/jwt"
-          },
-          {
-            "title": "数据采集功能数据类型描述",
-            "path": "api/data-type"
-          },
-          {
-            "title": "数据采集功能错误代码描述",
-            "path": "api/error-code"
-          },
-          {
-            "title": "API文档",
-            "path": "https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html"
-          }
-        ]
-      },
+      "title": "HTTP API",
+      "path": "api/api",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "JWT身份验证",
+          "path": "api/jwt"
+        },
+        {
+          "title": "数据采集功能数据类型描述",
+          "path": "api/data-type"
+        },
+        {
+          "title": "数据采集功能错误代码描述",
+          "path": "api/error-code"
+        },
+        {
+          "title": "API文档",
+          "path": "https://docs.emqx.com/zh/emqx-neuron/v3.4/api/api-docs.html"
+        }
+      ]
+    },
     {
-        "title": "运维指南",
-        "path": "admin/introduction",
-        "url": "",
-        "collapsed": true,
-        "children": [
-          {
-            "title": "运行监控",
-            "path": "admin/data-statistics"
-          },
-          {
-            "title": "配置管理",
-            "path": "admin/conf-management"
-          },
-          {
-            "title": "日志管理",
-            "path": "admin/log-management"
-          },
-          {
-            "title": "监控告警管理",
-            "path": "admin/alert-monitor-management"
-           },
-          {
-            "title": "系统配置",
-            "path": "admin/sys-configuration"
-          },
-          {
-            "title": "持久化目录管理",
-            "path": "admin/data-persistence"
-          },
-          {
-            "title": "用户管理",
-            "path": "admin/user"
-          }
-        ]
-      },
-      {
-        "title": "最佳实践",
-        "path": "best-practise/overview",
-        "url": "",
-        "collapsed": true,
-        "children": [
-          {
-            "title": "NeuronEX + 大语言模型 LLM - 实时监控预防工业火灾",
-            "path": "best-practise/llm-example"
-          },
-          {
-            "title": "NeuronEX + ECP 构建饮料生产数字化平台",
-            "path": "best-practise/smartfactory1"
-          },
-          {
-            "title": "NeuronEX 主备模式最佳实践",
-            "path": "best-practise/master-backup"
-          }
-        ]
-      },
-      {
-        "title": "性能测试",
-        "path": "performance/performance",
-        "url": "",
-        "collapsed": true,
-        "children": [
-          {
-            "title": "Modbus TCP 驱动性能测试",
-            "path": "performance/modbustcp"
-          },
-          {
-            "title": "OPCUA 驱动性能测试",
-            "path": "performance/opcua"
-          },
-          {
-            "title": "Siemens S7 驱动性能测试",
-            "path": "performance/siemens-s7"
-          }
-        ]
-      },
-      {
-        "title": "FAQ 常见问题解答",
-        "path": "faq/faq",
-        "url": "",
-        "collapsed": true,
-        "children": [
-          {
-            "title": "常见问题解答",
-            "path": "faq/faq_basic"
-          }
-        ]
-      },
-      {
-        "title": "发版历史",
-        "path": "release_history/release_history"
-      }
-    ],
+      "title": "运维指南",
+      "path": "admin/introduction",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "运行监控",
+          "path": "admin/data-statistics"
+        },
+        {
+          "title": "配置管理",
+          "path": "admin/conf-management"
+        },
+        {
+          "title": "日志管理",
+          "path": "admin/log-management"
+        },
+        {
+          "title": "监控告警管理",
+          "path": "admin/alert-monitor-management"
+        },
+        {
+          "title": "系统配置",
+          "path": "admin/sys-configuration"
+        },
+        {
+          "title": "持久化目录管理",
+          "path": "admin/data-persistence"
+        },
+        {
+          "title": "用户管理",
+          "path": "admin/user"
+        }
+      ]
+    },
+    {
+      "title": "最佳实践",
+      "path": "best-practise/overview",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "NeuronEX + 大语言模型 LLM - 实时监控预防工业火灾",
+          "path": "best-practise/llm-example"
+        },
+        {
+          "title": "NeuronEX + ECP 构建饮料生产数字化平台",
+          "path": "best-practise/smartfactory1"
+        },
+        {
+          "title": "NeuronEX 主备模式最佳实践",
+          "path": "best-practise/master-backup"
+        }
+      ]
+    },
+    {
+      "title": "性能测试",
+      "path": "performance/performance",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "Modbus TCP 驱动性能测试",
+          "path": "performance/modbustcp"
+        },
+        {
+          "title": "OPCUA 驱动性能测试",
+          "path": "performance/opcua"
+        },
+        {
+          "title": "Siemens S7 驱动性能测试",
+          "path": "performance/siemens-s7"
+        }
+      ]
+    },
+    {
+      "title": "FAQ 常见问题解答",
+      "path": "faq/faq",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "常见问题解答",
+          "path": "faq/faq_basic"
+        }
+      ]
+    },
+    {
+      "title": "发版历史",
+      "path": "release_history/release_history"
+    }
+  ],
   "en": [
     {
       "title": "Product Overview",
@@ -1135,479 +1031,395 @@
         {
           "title": "Create a Southbound Driver",
           "path": "configuration/south-devices/south-devices",
-          "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/south-devices.md",
           "collapsed": true,
           "children": [
             {
               "title": "Modbus RTU",
               "path": "configuration/south-devices/modbus-rtu/modbus-rtu",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-rtu/modbus-rtu.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Connect to USR DTU",
-                  "path": "configuration/south-devices/modbus-rtu/example/dtu/dtu-connection",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-rtu/example/dtu/dtu-connection.md"
+                  "path": "configuration/south-devices/modbus-rtu/example/dtu/dtu-connection"
                 },
                 {
                   "title": "Connect to Modbus Slave",
-                  "path": "configuration/south-devices/modbus-rtu/example/modbus-slave/modbus-slave",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-rtu/example/modbus-slave/modbus-slave.md"
+                  "path": "configuration/south-devices/modbus-rtu/example/modbus-slave/modbus-slave"
                 },
                 {
                   "title": "FAQ",
-                  "path": "configuration/south-devices/modbus-rtu/faq/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-rtu/faq/faq.md"
+                  "path": "configuration/south-devices/modbus-rtu/faq/faq"
                 }
               ]
             },
             {
               "title": "Modbus TCP",
               "path": "configuration/south-devices/modbus-tcp/modbus-tcp",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-tcp/modbus-tcp.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Connect to Modbus Slave",
-                  "path": "configuration/south-devices/modbus-tcp/example/modbus-slave/modbus-slave",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-tcp/example/modbus-slave/modbus-slave.md"
+                  "path": "configuration/south-devices/modbus-tcp/example/modbus-slave/modbus-slave"
                 },
                 {
                   "title": "FAQ",
-                  "path": "configuration/south-devices/modbus-tcp/faq/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-tcp/faq/faq.md"
+                  "path": "configuration/south-devices/modbus-tcp/faq/faq"
                 }
               ]
             },
             {
               "title": "Modbus ASCII",
-              "path": "configuration/south-devices/modbus-ascii/modbus-ascii",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-ascii/modbus-ascii.md"
+              "path": "configuration/south-devices/modbus-ascii/modbus-ascii"
             },
             {
               "title": "Inovance Modbus TCP",
               "path": "configuration/south-devices/modbus-hc-tcp/modbus-hc-tcp",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-hc-tcp/modbus-hc-tcp.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Connect to Easy521",
-                  "path": "configuration/south-devices/modbus-hc-tcp/example/autoshop/autoshop-modbus",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-hc-tcp/example/autoshop/autoshop-modbus.md" 
+                  "path": "configuration/south-devices/modbus-hc-tcp/example/autoshop/autoshop-modbus"
                 },
                 {
                   "title": "FAQ",
-                  "path": "configuration/south-devices/modbus-hc-tcp/faq/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-hc-tcp/faq/faq.md"
+                  "path": "configuration/south-devices/modbus-hc-tcp/faq/faq"
                 }
               ]
             },
             {
               "title": "XINJE Modbus RTU",
-              "path": "configuration/south-devices/modbus-xinje-rtu/modbus-xinje-rtu",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-xinje-rtu/modbus-xinje-rtu.md"
+              "path": "configuration/south-devices/modbus-xinje-rtu/modbus-xinje-rtu"
             },
             {
               "title": "HollySys Modbus TCP",
-              "path": "configuration/south-devices/modbus-hollysys-tcp/modbus-hollysys-tcp",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-hollysys-tcp/modbus-hollysys-tcp.md"
+              "path": "configuration/south-devices/modbus-hollysys-tcp/modbus-hollysys-tcp"
             },
             {
               "title": "HollySys Modbus RTU",
-              "path": "configuration/south-devices/modbus-hollysys-rtu/modbus-hollysys-rtu",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/modbus-hollysys-rtu/modbus-hollysys-rtu.md"
+              "path": "configuration/south-devices/modbus-hollysys-rtu/modbus-hollysys-rtu"
             },
             {
               "title": "OPC UA",
               "path": "configuration/south-devices/opc-ua/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/opc-ua/overview.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Browse OPC UA Address Space",
-                  "path": "configuration/south-devices/opc-ua/browse",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/opc-ua/browse.md"
+                  "path": "configuration/south-devices/opc-ua/browse"
                 },
                 {
                   "title": "Connection Policy",
-                  "path": "configuration/south-devices/opc-ua/policy",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/opc-ua/policy.md"
+                  "path": "configuration/south-devices/opc-ua/policy"
                 },
                 {
                   "title": "UaExpert",
-                  "path": "configuration/south-devices/opc-ua/uaexpert",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/opc-ua/uaexpert.md"
+                  "path": "configuration/south-devices/opc-ua/uaexpert"
                 },
                 {
                   "title": "Connect to Siemens S7-1200",
-                  "path": "configuration/south-devices/opc-ua/s71200",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/opc-ua/s71200.md"
+                  "path": "configuration/south-devices/opc-ua/s71200"
                 },
                 {
                   "title": "Connect to KEPServerEX",
-                  "path": "configuration/south-devices/opc-ua/kepserverex",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/opc-ua/kepserverex.md"
+                  "path": "configuration/south-devices/opc-ua/kepserverex"
                 },
                 {
                   "title": "Connect to Industrial Gateway OPC Server",
-                  "path": "configuration/south-devices/opc-ua/igs",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/zh_CN/configuration/south-devices/opc-ua/igs.md"
+                  "path": "configuration/south-devices/opc-ua/igs"
                 },
                 {
                   "title": "Connect to Ignition",
-                  "path": "configuration/south-devices/opc-ua/ignition",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/opc-ua/ignition.md"
+                  "path": "configuration/south-devices/opc-ua/ignition"
                 },
                 {
                   "title": "Connect to Prosys Simulation Server",
-                  "path": "configuration/south-devices/opc-ua/prosys",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/opc-ua/prosys.md"
+                  "path": "configuration/south-devices/opc-ua/prosys"
                 },
                 {
                   "title": "FAQ",
-                  "path": "configuration/south-devices/opc-ua/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/opc-ua/faq.md"
+                  "path": "configuration/south-devices/opc-ua/faq"
                 }
               ]
             },
             {
               "title": "OPC DA",
               "path": "configuration/south-devices/opc-da/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/opc-da/overview.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "NeuOPC install",
-                  "path": "configuration/south-devices/opc-da/install",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/opc-da/install.md"
+                  "path": "configuration/south-devices/opc-da/install"
                 },
                 {
                   "title": "NeuOPC remote access",
-                  "path": "configuration/south-devices/opc-da/remote",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/opc-da/remote.md"
+                  "path": "configuration/south-devices/opc-da/remote"
                 },
                 {
                   "title": "Connect to NeuOPC",
-                  "path": "configuration/south-devices/opc-da/neuopc",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/opc-da/neuopc.md"
+                  "path": "configuration/south-devices/opc-da/neuopc"
                 },
                 {
                   "title": "FAQ",
-                  "path": "configuration/south-devices/opc-da/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/opc-da/faq.md"
+                  "path": "configuration/south-devices/opc-da/faq"
                 }
               ]
             },
             {
               "title": "EtherNet/IP(CIP)",
-              "path": "configuration/south-devices/ethernet-ip/ethernet-ip",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/ethernet-ip/ethernet-ip.md"
+              "path": "configuration/south-devices/ethernet-ip/ethernet-ip"
             },
             {
               "title": "Allen-Bradley 5000 EIP",
-              "path": "configuration/south-devices/ab-5000/ab-5000",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/ab-5000/ab-5000.md"
+              "path": "configuration/south-devices/ab-5000/ab-5000"
             },
             {
               "title": "Allen-Bradley ControlLogix 5500",
-              "path": "configuration/south-devices/ab-5500/ab-5500",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/ab-5500/ab-5500.md"
+              "path": "configuration/south-devices/ab-5500/ab-5500"
             },
             {
               "title": "Allen-Bradley MicroLogix 1400",
-              "path": "configuration/south-devices/ab-1400/ab-1400",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/ab-1400/ab-1400.md"
+              "path": "configuration/south-devices/ab-1400/ab-1400"
             },
             {
               "title": "Allen-Bradley DF1",
-              "path": "configuration/south-devices/df1/df1",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/df1/df1.md"
+              "path": "configuration/south-devices/df1/df1"
             },
             {
               "title": "Mitsubishi 3E",
               "path": "configuration/south-devices/mitsubishi-3e/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/mitsubishi-3e/overview.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Connect to FX5U",
-                  "path": "configuration/south-devices/mitsubishi-3e/fx5u",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/mitsubishi-3e/fx5u.md"
+                  "path": "configuration/south-devices/mitsubishi-3e/fx5u"
                 },
                 {
                   "title": "Connect to Q03UDE",
-                  "path": "configuration/south-devices/mitsubishi-3e/q03ude",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/mitsubishi-3e/q03ude.md"
+                  "path": "configuration/south-devices/mitsubishi-3e/q03ude"
                 },
                 {
                   "title": "FAQ",
-                  "path": "configuration/south-devices/mitsubishi-3e/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/mitsubishi-3e/faq.md"
+                  "path": "configuration/south-devices/mitsubishi-3e/faq"
                 }
               ]
             },
             {
               "title": "Mitsubishi 1E",
-              "path": "configuration/south-devices/mitsubishi-1e/mitsubishi-1e",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/mitsubishi-1e/mitsubishi-1e.md"
+              "path": "configuration/south-devices/mitsubishi-1e/mitsubishi-1e"
             },
             {
               "title": "Siemens S7 ISO TCP",
               "path": "configuration/south-devices/siemens-s7/s7",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/siemens-s7/s7.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Tailor S7 1200/1500 PLC for ISOTCP Plugin",
-                  "path": "configuration/south-devices/siemens-s7/plc/siemens-s7-1200-1500",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/siemens-s7/plc/siemens-s7-1200-1500.md"
+                  "path": "configuration/south-devices/siemens-s7/plc/siemens-s7-1200-1500"
                 },
                 {
                   "title": "Connect to S7-1200 PLC",
-                  "path": "configuration/south-devices/siemens-s7/example/s71200/s71200",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/siemens-s7/example/s71200/s71200.md"
+                  "path": "configuration/south-devices/siemens-s7/example/s71200/s71200"
                 },
                 {
                   "title": "FAQ",
-                  "path": "configuration/south-devices/siemens-s7/faq/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/siemens-s7/faq/faq.md"
+                  "path": "configuration/south-devices/siemens-s7/faq/faq"
                 }
               ]
             },
             {
               "title": "Siemens MPI",
               "path": "configuration/south-devices/siemens-mpi/mpi",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/siemens-mpi/mpi.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Siemens S7-300 PLC Connection Example",
-                  "path": "configuration/south-devices/siemens-mpi/s7300",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/siemens-mpi/s7300.md"
-                }]
+                  "path": "configuration/south-devices/siemens-mpi/s7300"
+                }
+              ]
             },
             {
               "title": "Siemens S5 FetchWrite",
-              "path": "configuration/south-devices/siemens-fetchwrite/fetchwrite",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/siemens-fetchwrite/fetchwrite.md"
+              "path": "configuration/south-devices/siemens-fetchwrite/fetchwrite"
             },
             {
               "title": "Omron FINS TCP",
               "path": "configuration/south-devices/omron-fins/omron-fins",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/omron-fins/omron-fins.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Connect to NX1P",
-                  "path": "configuration/south-devices/omron-fins/example/nx1p/nx1p",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/omron-fins/example/nx1p/nx1p.md"
+                  "path": "configuration/south-devices/omron-fins/example/nx1p/nx1p"
                 }
               ]
             },
             {
               "title": "Omron FINS UDP",
               "path": "configuration/south-devices/omron-fins/omron-fins-udp",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/omron-fins/omron-fins-udp.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Connect to NX1P",
-                  "path": "configuration/south-devices/omron-fins/example/nx1p/nx1p",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/omron-fins/example/nx1p/nx1p.md"
+                  "path": "configuration/south-devices/omron-fins/example/nx1p/nx1p"
                 }
               ]
             },
             {
               "title": "Beckhoff ADS",
               "path": "configuration/south-devices/ads/ads",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/ads/ads.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Data collection (Beckhoff ADS Protocol)",
-                  "path": "configuration/south-devices/ads/plc-ads/ads",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/ads/plc-ads/ads.md"
+                  "path": "configuration/south-devices/ads/plc-ads/ads"
                 }
               ]
             },
             {
               "title": "IEC60870-5-101",
-              "path": "configuration/south-devices/iec-101/iec-101",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/iec-101/iec-101.md"
+              "path": "configuration/south-devices/iec-101/iec-101"
             },
             {
               "title": "IEC60870-5-102",
-              "path": "configuration/south-devices/iec-102/iec-102",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/iec-102/iec-102.md"
+              "path": "configuration/south-devices/iec-102/iec-102"
             },
             {
               "title": "IEC60870-5-103",
-              "path": "configuration/south-devices/iec-103/iec-103",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/iec-103/iec-103.md"
+              "path": "configuration/south-devices/iec-103/iec-103"
             },
             {
               "title": "IEC60870-5-104",
               "path": "configuration/south-devices/iec-104/iec-104",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/iec-104/iec-104.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Connect to IEC60870-5-104 Server Simulator",
-                  "path": "configuration/south-devices/iec-104/example/server-simulator/simulator",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/iec-104/example/server-simulator/simulator.md"
+                  "path": "configuration/south-devices/iec-104/example/server-simulator/simulator"
                 },
                 {
                   "title": "FAQ",
-                  "path": "configuration/south-devices/iec-104/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/iec-104/faq/faq.md"
+                  "path": "configuration/south-devices/iec-104/faq"
                 }
               ]
             },
             {
               "title": "IEC61850",
               "path": "configuration/south-devices/iec61850/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/iec61850/overview.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Connect to LibIEC61850 server",
-                  "path": "configuration/south-devices/iec61850/libiec61850",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/iec61850/libiec61850.md"
+                  "path": "configuration/south-devices/iec61850/libiec61850"
                 },
                 {
                   "title": "FAQ",
-                  "path": "configuration/south-devices/iec61850/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/iec61850/faq.md"
+                  "path": "configuration/south-devices/iec61850/faq"
                 }
               ]
             },
             {
               "title": "DL/T645-2007",
               "path": "configuration/south-devices/dlt645-2007/dlt645-2007",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/dlt645-2007/dlt645-2007.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Connect to Chint Single-phase Rail Meter",
-                  "path": "configuration/south-devices/dlt645-2007/example/connect",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/dlt645-2007/example/connect.md"
+                  "path": "configuration/south-devices/dlt645-2007/example/connect"
                 }
               ]
             },
             {
               "title": "DL/T645-1997",
-              "path": "configuration/south-devices/dlt645-1997/dlt645-1997",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/dlt645-1997/dlt645-1997.md"
+              "path": "configuration/south-devices/dlt645-1997/dlt645-1997"
             },
             {
               "title": "DNP 3.0",
-              "path": "configuration/south-devices/dnp3/dnp3",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/dnp3/dnp3.md"
+              "path": "configuration/south-devices/dnp3/dnp3"
             },
             {
               "title": "BACnet/IP",
               "path": "configuration/south-devices/bacnet-ip/bacnet-ip",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/bacnet-ip/bacnet-ip.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Connect to Yabe",
-                  "path": "configuration/south-devices/bacnet-ip/example/yabe/yabe",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/bacnet-ip/example/yabe/yabe.md"
+                  "path": "configuration/south-devices/bacnet-ip/example/yabe/yabe"
                 }
               ]
             },
             {
               "title": "KNXnet/IP",
-              "path": "configuration/south-devices/knxnet-ip/knxnet-ip",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/knxnet-ip/knxnet-ip.md"
+              "path": "configuration/south-devices/knxnet-ip/knxnet-ip"
             },
             {
               "title": "HJ212-2017",
-              "path": "configuration/south-devices/hj212-2017/hj212-2017",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/hj212-2017/hj212-2017.md"
+              "path": "configuration/south-devices/hj212-2017/hj212-2017"
             },
             {
               "title": "NON A11",
-              "path": "configuration/south-devices/nona11/nona11",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/nona11/nona11.md"
+              "path": "configuration/south-devices/nona11/nona11"
             },
             {
               "title": "ABB COMLI",
-              "path": "configuration/south-devices/comli/comli",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/comli/comli.md"
+              "path": "configuration/south-devices/comli/comli"
             },
             {
               "title": "Panasonic Mewtocol",
               "path": "configuration/south-devices/panasonic-mewtocol/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/panasonic-mewtocol/overview.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Connect to FP-XH C30T",
-                  "path": "configuration/south-devices/panasonic-mewtocol/fp-xh-c30t",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/panasonic-mewtocol/fp-xh-c30t.md"
+                  "path": "configuration/south-devices/panasonic-mewtocol/fp-xh-c30t"
                 },
                 {
                   "title": "FAQ",
-                  "path": "configuration/south-devices/panasonic-mewtocol/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/panasonic-mewtocol/faq.md"
+                  "path": "configuration/south-devices/panasonic-mewtocol/faq"
                 }
               ]
             },
             {
               "title": "Mitsubishi FX",
-              "path": "configuration/south-devices/mitsubishi-fx/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/mitsubishi-fx/overview.md"
+              "path": "configuration/south-devices/mitsubishi-fx/overview"
             },
             {
               "title": "Profinet IO",
-              "path": "configuration/south-devices/profinet/profinet",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/profinet/profinet.md"
+              "path": "configuration/south-devices/profinet/profinet"
             },
             {
               "title": "SECS GEM HSMS",
               "path": "configuration/south-devices/secs-gem/secs-gem",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/secs-gem/secs-gem.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Connect to Ignition SECS GEM simulator",
-                  "path": "configuration/south-devices/secs-gem/example/ignition",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/secs-gem/example/ignition.md"
+                  "path": "configuration/south-devices/secs-gem/example/ignition"
                 }
               ]
             },
             {
               "title": "KUKA Ethernet KRL TCP",
-              "path": "configuration/south-devices/kuka/kuka",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/kuka/kuka.md"
+              "path": "configuration/south-devices/kuka/kuka"
             },
             {
               "title": "GE SRTP",
-              "path": "configuration/south-devices/srtp/srtp",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/srtp/srtp.md"
+              "path": "configuration/south-devices/srtp/srtp"
             },
             {
               "title": "HEIDENHAIN CNC",
-              "path": "configuration/south-devices/heidenhain-cnc/heidenhain-cnc",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/heidenhain-cnc/heidenhain-cnc.md"
+              "path": "configuration/south-devices/heidenhain-cnc/heidenhain-cnc"
             },
             {
               "title": "MTConnect",
-              "path": "configuration/south-devices/mtconnect/mtconnect",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/mtconnect/mtconnect.md"
+              "path": "configuration/south-devices/mtconnect/mtconnect"
             },
             {
               "title": "CODESYS V3",
               "path": "configuration/south-devices/codesys3/codesys3",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/codesys3/codesys3.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Connecting to the CODESYS V3 PLC Simulator",
-                  "path": "configuration/south-devices/codesys3/demo",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/south-devices/codesys3/demo.md"
+                  "path": "configuration/south-devices/codesys3/demo"
                 }
               ]
             }
@@ -1620,13 +1432,11 @@
           "children": [
             {
               "title": "Template-based Configuration",
-              "path": "configuration/templates/templates",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/templates/templates.md"
+              "path": "configuration/templates/templates"
             },
             {
               "title": "Batch Tag Configuration",
-              "path": "configuration/import-export/import-export",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/import-export/import-export.md"
+              "path": "configuration/import-export/import-export"
             }
           ]
         },
@@ -1638,44 +1448,37 @@
             {
               "title": "MQTT",
               "path": "configuration/north-apps/mqtt/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/mqtt/overview.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Upstream/Downstream Data Format",
-                  "path": "configuration/north-apps/mqtt/api",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/mqtt/api.md"
+                  "path": "configuration/north-apps/mqtt/api"
                 },
                 {
                   "title": "FAQ",
-                  "path": "configuration/north-apps/mqtt/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/mqtt/faq.md"
+                  "path": "configuration/north-apps/mqtt/faq"
                 }
               ]
             },
             {
               "title": "AWS IoT",
               "path": "configuration/north-apps/aws-iot/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/aws-iot/overview.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Send data to AWS IoT Core",
-                  "path": "configuration/north-apps/aws-iot/example",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/aws-iot/example.md"
+                  "path": "configuration/north-apps/aws-iot/example"
                 }
               ]
             },
             {
               "title": "Azure IoT",
               "path": "configuration/north-apps/azure-iot/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/azure-iot/overview.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Send data to Azure IoT Hub",
-                  "path": "configuration/north-apps/azure-iot/example",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/azure-iot/example.md"
+                  "path": "configuration/north-apps/azure-iot/example"
                 }
               ]
             },
@@ -1686,40 +1489,33 @@
             {
               "title": "SparkplugB",
               "path": "configuration/north-apps/sparkplugb/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/sparkplugb/overview.md",
               "collapsed": true,
               "children": [
                 {
                   "title": "Integrate with EMQX",
-                  "path": "configuration/north-apps/sparkplugb/sparkplug",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/sparkplugb/sparkplug.md"
+                  "path": "configuration/north-apps/sparkplugb/sparkplug"
                 },
                 {
                   "title": "Connect to Ignition",
-                  "path": "configuration/north-apps/sparkplugb/ignition",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/sparkplugb/ignition.md"
+                  "path": "configuration/north-apps/sparkplugb/ignition"
                 },
                 {
                   "title": "Connect to Cogent",
-                  "path": "configuration/north-apps/sparkplugb/cogent",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/sparkplugb/cogent.md"
+                  "path": "configuration/north-apps/sparkplugb/cogent"
                 },
                 {
                   "title": "FAQ",
-                  "path": "configuration/north-apps/sparkplugb/faq",
-                  "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/sparkplugb/faq.md"
+                  "path": "configuration/north-apps/sparkplugb/faq"
                 }
               ]
             },
             {
               "title": "WebSocket",
-              "path": "configuration/north-apps/websocket/websocket",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/websocket/websocket.md"
+              "path": "configuration/north-apps/websocket/websocket"
             },
             {
               "title": "Monitor",
-              "path": "configuration/north-apps/monitor/overview",
-              "url": "https://raw.githubusercontent.com/emqx/neuron-docs/master/en_US/configuration/north-apps/monitor/overview.md"
+              "path": "configuration/north-apps/monitor/overview"
             }
           ]
         },
@@ -1916,7 +1712,7 @@
         {
           "title": "Extensions",
           "path": "streaming-processing/extension",
-          "children":[
+          "children": [
             {
               "title": "Python portable plugin example",
               "path": "streaming-processing/portable_python"
@@ -2038,7 +1834,7 @@
           ]
         }
       ]
-      },
+    },
     {
       "title": "HTTP API",
       "path": "api/api",
@@ -2058,49 +1854,48 @@
         },
         {
           "title": "API Documentation",
-          "path": "https://docs.emqx.com/en/neuronex/latest/api/api-docs.html"
+          "path": "https://docs.emqx.com/en/emqx-neuron/v3.4/api/api-docs.html"
         }
       ]
     },
     {
-        "title": "Operations Guide",
-        "path": "admin/introduction",
-        "collapsed": true,
-        "children": [
-          {
-            "title": "Operation Monitoring",
-            "path": "admin/data-statistics"
-          },
-          {
-            "title": "Configuration Management",
-            "path": "admin/conf-management"
-          },
-          {
-            "title": "Log Management",
-            "path": "admin/log-management"
-          },
-          {
-            "title": "Monitor and Alert Management",
-            "path": "admin/alert-monitor-management"
-          },
-          {
-            "title": "System Configuration",
-            "path": "admin/sys-configuration"
-          },
-          {
-            "title": "Persistence Data Management",
-            "path": "admin/data-persistence"
-          },
-          {
-            "title": "User",
-            "path": "admin/user"
-          }
-        ]
+      "title": "Operations Guide",
+      "path": "admin/introduction",
+      "collapsed": true,
+      "children": [
+        {
+          "title": "Operation Monitoring",
+          "path": "admin/data-statistics"
+        },
+        {
+          "title": "Configuration Management",
+          "path": "admin/conf-management"
+        },
+        {
+          "title": "Log Management",
+          "path": "admin/log-management"
+        },
+        {
+          "title": "Monitor and Alert Management",
+          "path": "admin/alert-monitor-management"
+        },
+        {
+          "title": "System Configuration",
+          "path": "admin/sys-configuration"
+        },
+        {
+          "title": "Persistence Data Management",
+          "path": "admin/data-persistence"
+        },
+        {
+          "title": "User",
+          "path": "admin/user"
+        }
+      ]
     },
     {
       "title": "Best Practices",
       "path": "best-practise/overview",
-      "url": "",
       "collapsed": true,
       "children": [
         {
@@ -2112,7 +1907,6 @@
     {
       "title": "Performance Testing",
       "path": "performance/performance",
-      "url": "",
       "collapsed": true,
       "children": [
         {
@@ -2123,7 +1917,7 @@
           "title": "OPCUA Driver",
           "path": "performance/opcua"
         },
-        { 
+        {
           "title": "Siemens S7 Driver",
           "path": "performance/siemens-s7"
         }
@@ -2132,7 +1926,6 @@
     {
       "title": "FAQ",
       "path": "faq/faq",
-      "url": "",
       "collapsed": true,
       "children": [
         {
@@ -2142,8 +1935,8 @@
       ]
     },
     {
-        "title": "Release History",
-        "path": "release_history/release_history"
+      "title": "Release History",
+      "path": "release_history/release_history"
     }
-    ]
-  }
+  ]
+}

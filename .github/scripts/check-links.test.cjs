@@ -1,139 +1,81 @@
-const fs = require('node:fs');
-const path = require('node:path');
-const os = require('node:os');
+const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { execFileSync } = require('node:child_process');
-const checkerPath = path.join(__dirname, 'check-links.cjs');
-const code = fs.readFileSync(checkerPath, 'utf8');
-const segment = code.slice(
-  code.indexOf('// BEGIN_HTTP'),
-  code.indexOf('// END_HTTP'),
-);
-function checker(fetch) {
-  return new Function(
-    'fetch',
-    'skipReason',
-    'timeout',
-    segment + ';return check;',
-  )(fetch, () => null, 1000);
-}
-const response = (status, headers = {}) =>
-  new Response(null, { status, headers });
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
+const { spawnSync } = require('node:child_process');
+const { checkSources } = require('./check-links.cjs');
 
-(async () => {
-  let check = checker(async (_url, { method }) =>
-    response(method === 'HEAD' ? 404 : 200),
-  );
-  assert.equal((await check({ url: 'https://fixture.test/a' })).status, 'OK');
-  check = checker(async () => response(404));
-  assert.equal(
-    (await check({ url: 'https://fixture.test/a' })).status,
-    'NOT_FOUND',
-  );
-  check = checker(async () => response(403));
-  assert.equal(
-    (await check({ url: 'https://fixture.test/a' })).status,
-    'BLOCKED',
-  );
-  check = checker(async (url) =>
-    url.endsWith('/a') ? response(301, { location: '/b' }) : response(200),
-  );
-  const redirected = await check({ url: 'https://fixture.test/a' });
-  assert.equal(redirected.finalUrl, 'https://fixture.test/b');
-  assert.equal(redirected.attempts[0].chain.length, 2);
-  check = checker(async (_url, { method }) => {
-    if (method === 'HEAD') return response(404);
-    throw Error('network failure');
-  });
-  assert.equal(
-    (await check({ url: 'https://fixture.test/a' })).status,
-    'UNVERIFIED',
-  );
-  check = checker(async () => {
-    throw Error('network failure');
-  });
-  assert.equal(
-    (await check({ url: 'https://fixture.test/a' })).status,
-    'ERROR',
-  );
-
-  const shouldFail = new Function(segment + '; return shouldFail;')();
-  const clean = { localMissing: 0, missingAnchors: 0 };
-  assert.equal(shouldFail(clean, [{ status: 'ERROR' }], false), true);
-  assert.equal(shouldFail(clean, [{ status: 'ERROR' }], true), false);
-  assert.equal(shouldFail(clean, [{ status: 'UNVERIFIED' }], true), false);
-  assert.equal(shouldFail(clean, [{ status: 'BLOCKED' }], true), false);
-  assert.equal(shouldFail(clean, [{ status: 'NOT_FOUND' }], true), true);
-  assert.equal(shouldFail(clean, [{ status: 'BROKEN' }], true), true);
-  assert.equal(shouldFail({ ...clean, localMissing: 1 }, [], true), true);
-  assert.equal(shouldFail({ ...clean, missingAnchors: 1 }, [], true), true);
-
-  const fixture = fs.mkdtempSync(path.join(os.tmpdir(), 'docs-link-check-'));
-  const write = (name, text) => {
-    const file = path.join(fixture, name);
-    fs.mkdirSync(path.dirname(file), { recursive: true });
-    fs.writeFileSync(file, text);
-  };
-  try {
-    const prefix = 'dist/en/emqx-neuron/v3.1/';
-    write(
-      prefix + 'index.md',
-      '[relative](./target.md#ok)\n[absolute](https://docs.emqx.com/en/emqx-neuron/v3.1/missing.html)\n[reference][r]\n\n[r]: ./target.md#absent\n\n`main.py`\n\n```shell\ncurl https://example.org/api\n```\n\n[external](https://www.emqx.com/en?x=1&y=2)\n',
-    );
-    write(
-      prefix + 'index.html',
-      '<a href="./target.html#ok">target</a><img src="/assets/hashed.png">',
-    );
-    write(prefix + 'target.html', '<h2 id="ok">Target</h2>');
-    write('dist/assets/hashed.png', 'asset');
-    write(
-      'sources/redocly/api-swagger.json',
-      JSON.stringify({ info: { description: '[API reference](doc-123)' } }),
-    );
-    // An archived spec is not published and must not contribute spurious failures.
-    write(
-      'sources/redocly/old-api-swagger.json',
-      JSON.stringify({ info: { description: '[obsolete](doc-old)' } }),
-    );
-    const frontend = process.argv[2];
-    assert.ok(frontend, 'Pass the frontend directory as the first argument');
-    execFileSync(process.execPath, [
-      checkerPath,
-      '--frontend',
-      frontend,
-      '--dist',
-      path.join(fixture, 'dist'),
-      '--sources',
-      path.join(fixture, 'sources'),
-      '--version',
-      'v3.1',
-      '--output',
-      path.join(fixture, 'report'),
-      '--inventory-only',
-    ]);
-    const inventory = JSON.parse(
-      fs.readFileSync(path.join(fixture, 'report/inventory.json')),
-    );
-    const find = (suffix) =>
-      inventory.targets.find((r) => r.url.endsWith(suffix));
-    assert.equal(find('/target.html').local.status, 'LOCAL_OK');
-    assert.deepEqual(find('/target.html').local.missingFragments, ['#absent']);
-    assert.equal(find('/missing.html').local.status, 'LOCAL_NOT_FOUND');
-    assert.equal(find('/api/doc-123').local.status, 'LOCAL_NOT_FOUND');
-    assert.equal(find('/assets/hashed.png').local.status, 'LOCAL_OK');
-    assert.equal(find('/api/doc-old'), undefined);
-    assert.equal(find('http://main.py/'), undefined);
-    assert.ok(find('?x=1&y=2').needsHttp);
-    assert.ok(
-      inventory.ignoredLinks.some((r) => r.url === 'https://example.org/api'),
-    );
-  } finally {
-    fs.rmSync(fixture, { recursive: true, force: true });
+function fixture(t) {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'neuron-source-check-'));
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  function write(file, text = '') {
+    const target = path.join(root, file);
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.writeFileSync(target, text);
   }
-  console.log(
-    'Passed: 6 HTTP scenarios and static Markdown/HTML/OpenAPI link fixtures',
-  );
-})().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
+  write('en_US/guide.md', '# Guide');
+  write('zh_CN/index.md', '# 中文');
+  write('en_US/image name.png');
+  write('redocly/api-swagger.json', '{}');
+  return { root, write };
+}
+
+test('relative, reference, HTML, same-version absolute links and generated API resolve without a frontend', (t) => {
+  const { root, write } = fixture(t);
+  write('en_US/index.md', [
+    '[Guide](guide.md?view=1#section)', '[Reference][guide]', '[guide]: guide.html',
+    '![Image](image%20name.png)', '<img src="image%20name.png">',
+    '<a href="guide.html">HTML</a>',
+    '[Absolute](https://docs.emqx.com/en/emqx-neuron/latest/guide.html)',
+    '[Chinese](/zh/emqx-neuron/latest/)', '[API](api/api-docs.md#tag/plugins)',
+  ].join('\n\n'));
+  const result = checkSources(root);
+  assert.equal(result.errors.length, 0, JSON.stringify(result.errors));
+  assert.equal(result.checked, 8);
+});
+
+test('missing relative, hardcoded same-version pages and image resources fail', (t) => {
+  const { root, write } = fixture(t);
+  write('en_US/index.md', [
+    '[Broken](missing.md)', '![Image](missing.png)',
+    '[Hardcoded](https://docs.emqx.com/en/emqx-neuron/latest/missing.html)',
+    '<img srcset="missing-small.png 1x, missing-large.png 2x">',
+  ].join('\n\n'));
+  assert.equal(checkSources(root).errors.length, 5);
+});
+
+test('code, comments, fragments, external and cross-version URLs do not cause network requests or false failures', (t) => {
+  const { root, write } = fixture(t);
+  write('en_US/index.md', [
+    '`[example](missing.md)`', '```md\n![Example](missing.png)\n```',
+    '<!-- [Hidden](missing.md) -->', '<pre><a href="missing.md">example</a></pre>',
+    '[Heading](#generated-heading)', '[External](https://example.org/missing)',
+    '[History](/en/emqx-neuron/v3.5/guide.html)',
+  ].join('\n\n'));
+  const result = checkSources(root);
+  assert.equal(result.errors.length, 0);
+  assert.equal(result.checked, 0);
+  assert.equal(result.skipped.length, 2);
+});
+
+test('invalid paths and missing generated API input fail', (t) => {
+  const { root, write } = fixture(t);
+  fs.unlinkSync(path.join(root, 'redocly/api-swagger.json'));
+  write('en_US/index.md', '[API](api/api-docs.html)\n\n[Escape](../../../outside.md)\n\n[Encoding](bad%FF.md)');
+  assert.equal(checkSources(root).errors.length, 3);
+});
+
+test('sidebar check rejects missing files and malformed config without deleting unlisted documents', (t) => {
+  const { root, write } = fixture(t);
+  const run = () => spawnSync('python3', [path.join(__dirname, 'directory_check.py'), 'directory.json', root], { encoding: 'utf8' });
+  write('directory.json', JSON.stringify({ en: [{ path: 'guide' }], cn: [{ path: './' }] }));
+  assert.equal(run().status, 0);
+  assert.ok(fs.existsSync(path.join(root, 'en_US/image name.png')));
+  write('en_US/unlisted.md', '# Keep me');
+  write('directory.json', JSON.stringify({ en: [{ path: 'missing' }], cn: [] }));
+  assert.equal(run().status, 1);
+  assert.ok(fs.existsSync(path.join(root, 'en_US/unlisted.md')));
+  write('directory.json', JSON.stringify({ en: 'invalid', cn: [] }));
+  assert.equal(run().status, 1);
 });

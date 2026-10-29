@@ -91,7 +91,7 @@ OPC UA 客户端对变量节点执行写操作，即可把值下发到设备，�
 
 前提是该点位在南向驱动中带 **write** 属性，见[组与点位 · 点位属性](../../groups-tags/groups-tags.md#点位属性)。点位只读时，写操作会返回错误。
 
-在 UaExpert 中的具体操作见[UaExpert 连接示例](./uaexpert.md#4-监控与写入)。
+在 UaExpert 中的具体操作见[UaExpert 连接示例](./uaexpert.md#_4-监控与写入)。
 
 ## 运行与维护
 

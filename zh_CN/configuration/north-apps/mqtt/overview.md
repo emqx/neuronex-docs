@@ -162,7 +162,7 @@ EMQX Neuron 的 MQTT 应用支持 MQTT over SSL。
 
 ### 使用 MQTTX 查看数据
 
-订阅完成后，用户可以使用 MQTT 客户端（推荐使用 MQTTX，可在[官网](https://www.emqx.com/zh/products/mqttx)中下载）连接到公共的 EMQX 代理来查看上报的数据：
+订阅完成后，用户可以使用 MQTT 客户端（推荐使用 MQTTX，可在[官网](https://mqttx.app/downloads)中下载）连接到公共的 EMQX 代理来查看上报的数据：
 
 **建立连接**
 

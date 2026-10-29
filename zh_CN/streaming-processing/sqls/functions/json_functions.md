@@ -1,7 +1,7 @@
 # JSON 函数
 
 JSON 函数操作 JSON 字符串或返回有关 JSON 的信息。
-这里面包含了几个 JSON PATH 操作函数。**请参阅 [json 路径函数](../json_expr.md#Json-路径函数) 了解如何编写json路径。**
+这里面包含了几个 JSON PATH 操作函数。**请参阅 [json 路径函数](../json_expr.md#json-路径函数) 了解如何编写json路径。**
 
 ## TO_JSON
 

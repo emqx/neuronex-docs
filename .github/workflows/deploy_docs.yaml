@@ -47,7 +47,7 @@ jobs:
     - name: use pnpm
       uses: pnpm/action-setup@v4
       with:
-        version: 9
+        package_json_file: frontend/package.json
 
     - name: use python
       uses: actions/setup-python@v2
@@ -67,47 +67,39 @@ jobs:
          echo "VERSION=$VERSION" >> $GITHUB_ENV
          echo "DOCS_TYPE=emqx-neuron" >> $GITHUB_ENV
 
-    # - name: remove unused files
-    #   run: |
-    #     cd docs-files
-    #     python3 .github/scripts/remove_unused.py $(pwd)
+    - name: install frontend dependencies
+      working-directory: frontend
+      run: pnpm install --frozen-lockfile
 
     - name: move files
       run: |
-        rm frontend/docs/en/index.md || true
-        rm frontend/docs/zh/index.md || true
-        rm frontend/docs/*.md || true
-        rm frontend/index.md || true
-        mkdir -p frontend/docs/en/${DOCS_TYPE}/${VERSION}/
-        mkdir -p frontend/docs/zh/${DOCS_TYPE}/${VERSION}/
-        mkdir -p frontend/docs/public/api/
-        cp -r docs-files/en_US/* frontend/docs/en/${DOCS_TYPE}/${VERSION}/
-        cp -r docs-files/zh_CN/* frontend/docs/zh/${DOCS_TYPE}/${VERSION}/
-        cp -r docs-files/redocly/*.json frontend/redoc/
+        rm -rf frontend/docs/en frontend/docs/zh frontend/docs/ja frontend/docs/.vitepress/dist
+        rm -f frontend/docs/*.md frontend/index.md
+        mkdir -p "frontend/docs/en/${DOCS_TYPE}/${VERSION}" "frontend/docs/zh/${DOCS_TYPE}/${VERSION}" frontend/docs/public/api
+        cp -R docs-files/en_US/. "frontend/docs/en/${DOCS_TYPE}/${VERSION}/"
+        cp -R docs-files/zh_CN/. "frontend/docs/zh/${DOCS_TYPE}/${VERSION}/"
         cp docs-files/directory.json frontend/docs/.vitepress/config/directory.json
+        rm -f frontend/redoc/*.json
+        cp docs-files/redocly/*.json frontend/redoc/
 
     - name: generate version config
+      working-directory: docs-files
       run: |
-        cd docs-files
-        python3 .github/scripts/generate_version.py $(git tag | egrep "v[0-9](\.[0-9])*$" | xargs echo -n) > ../frontend/docs/public/api/${DOCS_TYPE}_versions.json
-        cat ../frontend/docs/public/api/${DOCS_TYPE}_versions.json
+        versions=()
+        while IFS= read -r version; do versions+=("$version"); done < <(git tag --sort=-version:refname | grep -E '^v[0-9]+(\.[0-9]+)*$')
+        python3 .github/scripts/generate_version.py "${versions[@]}" > "../frontend/docs/public/api/${DOCS_TYPE}_versions.json"
 
     - name: build docs
-      run: |
-        cd frontend
-        pnpm install
-        pnpm build
+      working-directory: frontend
+      run: pnpm build
 
     - name: build redoc
+      working-directory: frontend
       run: |
-        cd frontend
-        set -x
-        echo ${VERSION}
-        LANGS=(zh en)
-        for lang in "${LANGS[@]}"; do
-          npx @redocly/cli build-docs redoc/api-swagger.json \
-            --output docs/.vitepress/dist/${lang}/${DOCS_TYPE}/${VERSION}/api/api-docs.html \
-            --theme.openapi.theme.colors.primary.main=#00b173 \
+        for lang in en zh; do
+          pnpm exec redocly build-docs redoc/api-swagger.json \
+            --output "docs/.vitepress/dist/${lang}/${DOCS_TYPE}/${VERSION}/api/api-docs.html" \
+            --theme.openapi.theme.colors.primary.main='#00b173' \
             --theme.openapi.theme.typography.headings.fontFamily='Roboto, sans-serif'
         done
 

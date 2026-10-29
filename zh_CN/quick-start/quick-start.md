@@ -10,7 +10,7 @@
 | --- | --- |
 | Docker | 用来运行 EMQX Neuron。其他安装方式见[安装与部署](../installation/introduction.md) |
 | 浏览器 | 访问 EMQX Neuron 控制台 |
-| MQTT 客户端 | 最后一步验证数据用，推荐 [MQTTX](https://www.emqx.com/zh/products/mqttx) |
+| MQTT 客户端 | 最后一步验证数据用，推荐 [MQTTX](https://mqttx.app/downloads) |
 
 ## 第 1 步 · 启动 EMQX Neuron
 
@@ -37,7 +37,7 @@ EMQX Neuron 内置了一个 Modbus TCP 模拟器，可直接产生动态数据�
 模拟器监听 `502` 端口，与 EMQX Neuron 在同一容器内，不涉及跨机器网络。完整说明见[Modbus TCP Slave 模拟器](../configuration/modbus-simulator.md)。
 
 ::: tip 走捷径
-在模拟器页面点击 `下载对应南向驱动配置`，得到的文件里已经包含全部点位。在 **数据采集 → 南向设备** 页导入它，可以直接跳到[第 4 步](#第-4-步-查看采集数据)。想了解驱动、组、点位是怎么配出来的，就按下面第 3 步手动做一遍。
+在模拟器页面点击 `下载对应南向驱动配置`，得到的文件里已经包含全部点位。在 **数据采集 → 南向设备** 页导入它，可以直接跳到[第 4 步](#第-4-步-·-查看采集数据)。想了解驱动、组、点位是怎么配出来的，就按下面第 3 步手动做一遍。
 :::
 
 ## 第 3 步 · 添加南向驱动并配置点位

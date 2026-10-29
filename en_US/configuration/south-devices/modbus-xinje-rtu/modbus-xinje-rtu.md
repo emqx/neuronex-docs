@@ -74,7 +74,7 @@ XINJE PLC maps memory data unit (input/output relay, timer, counter etc) onto th
 Depending on the PLC model, such address mapping may vary.
 The EMQX Neuron XINJE Modbus RTU driver frees users from details of the address mapping, and designates the PLC data unit name as the **ADDRESS**.
 
-Users could check the address mapping according to the PLC model from [XINJE official documents](https://m.xinje.com/xj_service/xj_xzzx.html),
+Users could check the address mapping according to the PLC model from [XINJE official documents](https://en.xinje.com/web/downloadCenter/index),
 and the following tables are listed here for convenience.
 
 ::: warning NOTICE

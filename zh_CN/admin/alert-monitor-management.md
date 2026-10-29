@@ -23,7 +23,7 @@ EMQX Neuron 提供指标监控与告警事件两项能力，用于掌握实例�
 | 推送到 Pushgateway | 配置 [Pushgateway](https://github.com/prometheus/pushgateway) 地址后，EMQX Neuron 自动将指标推送过去，由 Prometheus 拉取 |
 | API 查询 | 直接调用接口读取当前指标 |
 
-配置与查询接口见 [Monitor API](https://docs.emqx.com/zh/emqx-neuron/latest/api/api-docs.html#tag/monitor/operation/MetricConfig)。
+配置与查询接口见 [Monitor API](../api/api-docs.md#tag/monitor/operation/MetricConfig)。
 
 ## 告警事件
 
@@ -42,4 +42,4 @@ EMQX Neuron 以轮询方式判断告警事件。下发告警配置时指定启�
 | 推送到 Webhook | 配置 Webhook 地址后，EMQX Neuron 自动将告警事件推送过去 |
 | API 查询 | 查询最近产生的告警事件 |
 
-配置与查询接口见 [Alert Rule API](https://docs.emqx.com/zh/emqx-neuron/latest/api/api-docs.html#tag/monitor/operation/AlertRuleConfig)。
+配置与查询接口见 [Alert Rule API](../api/api-docs.md#tag/monitor/operation/AlertRuleConfig)。

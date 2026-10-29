@@ -101,7 +101,7 @@
 | 固定值                                 | `params.timeout: 3000`      | 连接超时（ms，以产品为准）                      |
 | 固定值                                 | `params.interval: 20`       | 发送间隔（以产品为准）                         |
 
-- **寄存器区域映射（Litmus Edge Register.name 前缀 → EMQX Neuron area code）**
+- **寄存器区域映射（Litmus Edge `Register.name` 前缀 → EMQX Neuron area code）**
 
 | Litmus Edge `name` 前缀    | EMQX Neuron 区域码 | 含义                    |
 | ------------------------ | --------------- | --------------------- |

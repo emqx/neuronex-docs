@@ -19,6 +19,8 @@
 
 在 EMQX Neuron 中，每个南向驱动对应一种采集协议的实现，每个北向应用对应一种转发方式。例如 Modbus TCP 协议对应一个南向驱动，MQTT 对应一个北向应用。
 
+<a id="data-types"></a>
+
 ## 数据类型
 
 * INT8   = 1
@@ -88,6 +90,8 @@
 * Data_6 = 1
 * Data_7 = 2
 * Data_8 = 3
+
+<a id="tag-attributes"></a>
 
 ## 点位属性
 

@@ -236,7 +236,7 @@ EMQX Neuron 启动时，会读取配置文件夹 *etc/services* 里的外部服�
    ```
    注意：EMQX Neuron 启动之后，修改配置文件**不能**自动载入系统。需要动态更新时，请使用 REST 服务。
 
-服务的动态注册和管理，请参考[外部服务管理 API](https://docs.emqx.com/zh/emqx-neuron/latest/api/api-docs.html#tag/services)。
+服务的动态注册和管理，请参考[外部服务管理 API](../api/api-docs.md#tag/services)。
 
 ## 使用
 

@@ -241,7 +241,7 @@ On startup, EMQX Neuron reads `etc/services` and registers services found there:
 
    Changing files after startup does **not** reload them. Use the REST API for dynamic updates.
 
-For dynamic register and management, see the [external service REST API](https://docs.emqx.com/en/emqx-neuron/latest/api/api-docs.html#tag/services).
+For dynamic register and management, see the [external service REST API](../api/api-docs.md#tag/services).
 
 ## Use in SQL
 

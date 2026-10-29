@@ -29,12 +29,12 @@ EMQX Neuron 可以使用 Neuron HUB 驱动和 NeuronHUB Windows 程序，间接�
 
 | tag 标识（地址）       | 说明           | 数据类型     | 参数 | 备注                                                                                                                                                                      |
 | ---------------------- | -------------- | ------------ | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| systemInfo.axes        | 可控制轴数     | int32        | -    | -                                                                                                                                                                         |
-| systemInfo.cnc_type    | 系统类型       | string       | -    | -                                                                                                                                                                         |
-| systemInfo.max_axes    | 最大轴数       | int32        | -    | -                                                                                                                                                                         |
-| systemInfo.series      | M/T 类型       | string       | -    | -                                                                                                                                                                         |
-| systemInfo.nc_ver      | 系统软件版本   | string       | -    | -                                                                                                                                                                         |
-| systemInfo.axis_name   | 各轴坐标名称   | array string | -    | -                                                                                                                                                                         |
+| `systemInfo.axes`        | 可控制轴数     | int32        | -    | -                                                                                                                                                                         |
+| `systemInfo.cnc_type`    | 系统类型       | string       | -    | -                                                                                                                                                                         |
+| `systemInfo.max_axes`    | 最大轴数       | int32        | -    | -                                                                                                                                                                         |
+| `systemInfo.series`      | M/T 类型       | string       | -    | -                                                                                                                                                                         |
+| `systemInfo.nc_ver`      | 系统软件版本   | string       | -    | -                                                                                                                                                                         |
+| `systemInfo.axis_name`   | 各轴坐标名称   | array string | -    | -                                                                                                                                                                         |
 | systemStatus.status    | 当前运行状态   | string       | -    | -                                                                                                                                                                         |
 | systemStatus.main_prog | 主程序名       | string       | -    | 0: 录入方式 1: 自动方式 2: 无效方式 3: 编辑方式 4: 单步方式 5: 手动方式 8: 手轮方式 9: 机械回零方式 10: 程序回零方式                                                      |
 | systemStatus.cur_prog  | 目前执行程序名 | string       | -    | -                                                                                                                                                                         |
@@ -68,7 +68,7 @@ macro，param 可读写，其他只读。
 
 | 地址                    | 说明                |
 | ----------------------- | ------------------- |
-| systemInfo.nc_ver       | 读取系统软件版本    |
+| `systemInfo.nc_ver`       | 读取系统软件版本    |
 | machine.X               | 读取 X 轴坐标       |
 | macro.100               | 读写 100 号全局变量 |
 | feedOverride            | 读取当前进给倍率    |

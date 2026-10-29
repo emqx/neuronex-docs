@@ -66,7 +66,7 @@ XINJE Modbus RTU 驱动的配置与 [Modbus RTU驱动模块](../modbus-rtu/modbu
 根据 PLC 型号，此类地址映射可能会有所不同。
 EMQX Neuron XINJE Modbus RTU 驱动将 PLC 数据单元名称指定为 **ADDRESS**，用户不需要关心地址映射的细节。
 
-用户可以根据 PLC 型号从[信捷官方文档](https://m.xinje.com/xj_service/xj_xzzx.html)中查看地址映射的细节。
+用户可以根据 PLC 型号从[信捷官方文档](https://www.xinje.com/web/downloadCenter/index)中查看地址映射的细节。
 为了方便起见，以下表格将其列在这里。
 
 ::: warning 注意

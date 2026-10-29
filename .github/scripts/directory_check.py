@@ -1,101 +1,51 @@
-import os
-import sys
+"""Validate sidebar configuration and source paths without modifying documents."""
 import json
-import re
-
-directory_file = sys.argv[1]
-docs_path = sys.argv[2]
-success = True
+from pathlib import Path
+import sys
+from urllib.parse import unquote, urlsplit
 
 
-def check_md_content(md_file):
-    global success
+def check(directory_file, root):
+    errors = []
+    try:
+        config = json.loads(directory_file.read_text())
+    except (OSError, ValueError) as error:
+        return [f'Invalid directory config: {error}']
+    if not isinstance(config, dict):
+        return ['Directory config must be an object']
 
-    if not os.path.exists(md_file):
-        print(f'{md_file} not exists')
-        success = False
-        return
-
-    md_content = re.sub(r'<!--([\s\S]*?)-->', '', open(md_file, 'r').read())
-
-    if 'ee' in directory_file:
-        md_content = re.sub(r'{% emqxce %}([\s\S]*?){% endemqxce %}', '', md_content)
-    else:
-        md_content = re.sub(r'{% emqxee %}([\s\S]*?){% endemqxee %}', '', md_content)
-
-    image_list = re.findall('(.*?)!\[(.*?)\]\((.*?)\)', md_content)
-    url_list = re.findall('(.*?)\[(.*?)\]\((.*?)\)', md_content)
-    for url in url_list:
-        if url[0].endswith('!'):
-            continue
-        if url[2].startswith(('http://', 'https://', '<', '#', 'mailto:', 'tel:')):
-            continue
-        url_path = url[2].split('.md')[0]
-        ref_md_path = os.path.join(f'{"/".join(md_file.split("/")[:-1])}/', f'{url_path}.md')
-
-        if not os.path.exists(ref_md_path):
-            print(f'In {md_file}：', end='')
-            print(f'{url[2]} not found or not in {directory_file}')
-            success = False
-
-    for image in image_list:
-        if image[0].startswith('<!--'):
-            continue
-        if image[2].startswith(('http://', 'https://', '<')):
-            continue
-        image_path = os.path.join(f'{"/".join(md_file.split("/")[:-1])}/', image[2])
-
-        if not os.path.exists(image_path):
-            print(f'In {md_file}：', end='')
-            print(image[2], 'does not exist')
-            success = False
-
-
-def get_md_files(dir_config, path):
-    global success
-    md_list = []
-    for i in dir_config:
-        md_name = i.get('path')
-        md_children = i.get('children')
-
-        if md_name:
-            if md_name.startswith(('http://', 'https://')):
+    def walk(items, folder):
+        if not isinstance(items, list):
+            errors.append(f'{folder}: sidebar entries must be an array')
+            return
+        for item in items:
+            if not isinstance(item, dict):
+                errors.append(f'{folder}: sidebar entry must be an object')
                 continue
-            elif md_name == './':
-                md_list.append(f'{docs_path}/{path}/index.md')
-            else:
-                md_list.append(f'{docs_path}/{path}/{md_name}.md')
+            target = item.get('path')
+            if target is not None and not isinstance(target, str):
+                errors.append(f'{folder}: sidebar path must be a string')
+            elif target:
+                url = urlsplit(target)
+                if not url.scheme and not target.startswith(('#', '/')):
+                    relative = unquote(url.path).removeprefix('./')
+                    if not relative or relative.endswith('/'):
+                        relative += 'index'
+                    if not relative.endswith('.md'):
+                        relative += '.md'
+                    file = (root / folder / relative).resolve()
+                    if not file.is_relative_to(root / folder) or not file.is_file():
+                        errors.append(f'Missing sidebar source: {folder}/{relative}')
+            if 'children' in item:
+                walk(item['children'], folder)
 
-        if md_children:
-            md_list += get_md_files(md_children, path)
-
-    return list(set(md_list))
+    walk(config.get('en'), 'en_US')
+    walk(config.get('cn'), 'zh_CN')
+    return errors
 
 
 if __name__ == '__main__':
-    if os.path.exists(f'{docs_path}/{directory_file}'):
-        md_file_list = []
-        config_dict = json.load(open(f'{docs_path}/{directory_file}'))
-        md_file_list += get_md_files(config_dict['cn'], 'zh_CN')
-        md_file_list += get_md_files(config_dict['en'], 'en_US')
-
-        # 只清理语言目录内的 md，避免误删仓库根目录的 README 等文件
-        for lang_dir in ('zh_CN', 'en_US'):
-            lang_path = os.path.join(docs_path, lang_dir)
-            if not os.path.isdir(lang_path):
-                continue
-            for file_path, dir_list, file_list in os.walk(lang_path):
-                for file_name in file_list:
-                    if file_name.split('.')[-1] != 'md':
-                        continue
-                    md_path = os.path.join(file_path, file_name)
-                    if md_path not in md_file_list:
-                        os.remove(md_path)
-
-        for file in md_file_list:
-            check_md_content(file)
-
-    if not success:
-        sys.exit('No pass!')
-    else:
-        print('Check completed!')
+    root = Path(sys.argv[2]).resolve()
+    errors = check(root / sys.argv[1], root)
+    print('\n'.join(errors) if errors else 'Sidebar config and source check passed (read-only).')
+    raise SystemExit(bool(errors))

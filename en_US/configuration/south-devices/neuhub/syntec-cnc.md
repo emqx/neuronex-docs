@@ -29,12 +29,12 @@ EMQX Neuron can use the Neuron HUB driver and NeuronHUB Windows program to indir
 
 | Tag Identifier (Address) | Description                      | Data Type    | Parameters | Remarks                                                                                                                                                                                 |
 | ------------------------ | -------------------------------- | ------------ | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| systemInfo.axes          | Controllable axes count          | int32        | -          | -                                                                                                                                                                                       |
-| systemInfo.cnc_type      | System type                      | string       | -          | -                                                                                                                                                                                       |
-| systemInfo.max_axes      | Maximum axes count               | int32        | -          | -                                                                                                                                                                                       |
-| systemInfo.series        | M/T type                         | string       | -          | -                                                                                                                                                                                       |
-| systemInfo.nc_ver        | System software version          | string       | -          | -                                                                                                                                                                                       |
-| systemInfo.axis_name     | Axis coordinate names            | array string | -          | -                                                                                                                                                                                       |
+| `systemInfo.axes`          | Controllable axes count          | int32        | -          | -                                                                                                                                                                                       |
+| `systemInfo.cnc_type`      | System type                      | string       | -          | -                                                                                                                                                                                       |
+| `systemInfo.max_axes`      | Maximum axes count               | int32        | -          | -                                                                                                                                                                                       |
+| `systemInfo.series`        | M/T type                         | string       | -          | -                                                                                                                                                                                       |
+| `systemInfo.nc_ver`        | System software version          | string       | -          | -                                                                                                                                                                                       |
+| `systemInfo.axis_name`     | Axis coordinate names            | array string | -          | -                                                                                                                                                                                       |
 | systemStatus.status      | Current operation status         | string       | -          | -                                                                                                                                                                                       |
 | systemStatus.main_prog   | Main program name                | string       | -          | 0: Input mode 1: Auto mode 2: Invalid mode 3: Edit mode 4: Step mode 5: Manual mode 8: Handwheel mode 9: Mechanical homing mode 10: Program homing mode                                 |
 | systemStatus.cur_prog    | Currently executing program name | string       | -          | -                                                                                                                                                                                       |
@@ -68,7 +68,7 @@ macro and param are readable/writable; others are read-only.
 
 | Address                 | Description                              |
 | ----------------------- | ---------------------------------------- |
-| systemInfo.nc_ver       | Read system software version             |
+| `systemInfo.nc_ver`       | Read system software version             |
 | machine.X               | Read X-axis coordinate                   |
 | macro.100               | Read/write global variable 100           |
 | feedOverride            | Read current feed override               |

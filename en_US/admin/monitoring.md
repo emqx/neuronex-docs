@@ -30,7 +30,7 @@ There are four control paths:
 | **Data monitoring page** | Manual testing and verification — see [Writing from the monitoring page](#writing-from-the-monitoring-page) below |
 | **Northbound applications** | Commands issued by a cloud platform or an upper-level system. MQTT and AWS IoT use a write request topic, Azure IoT uses cloud-to-device messages, Sparkplug B uses DCMD commands, and with OPC UA Server the client writes the variable node directly. See [Northbound Applications](../configuration/north-apps/catalog.md) |
 | **Data processing** | Rule results written straight back to the device, closing a collect → decide → control loop at the edge. See [Neuron Sink](../streaming-processing/sink/neuron.md) |
-| **HTTP API** | Integration from third-party software — see the [API reference](https://docs.emqx.com/en/emqx-neuron/latest/api/api-docs.html#tag/rw) |
+| **HTTP API** | Integration from third-party software — see the [API reference](../api/api-docs.md#tag/rw) |
 
 For worked examples of all four, see [Device Control](../best-practise/device-control.md).
 

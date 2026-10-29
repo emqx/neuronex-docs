@@ -44,7 +44,7 @@ Users can directly use EMQX Neuron's built-in sink. The list of sink types is as
 
    - protobuf
   
-     Protobuf is a way to serialize structured data. When the stream format is set to `protobuf`, the Schema used when decoding should also be configured. Schema can be defined in **Data Processing** -> **Configuration** -> **Schema**. For a detailed introduction to Schema, please refer to the [Schema](../config.md#Schema) chapter.
+     Protobuf is a way to serialize structured data. When the stream format is set to `protobuf`, the Schema used when decoding should also be configured. Schema can be defined in **Data Processing** -> **Configuration** -> **Schema**. For a detailed introduction to Schema, please refer to the [Schema](../config.md#schema) chapter.
 
    - Binary
   

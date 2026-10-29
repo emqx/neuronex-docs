@@ -15,7 +15,7 @@ Users can specify which metrics are needed when distributing monitoring configur
 1. Configure the [pushgatway](https://github.com/prometheus/pushgateway) address (Pushgateway is a component of Prometheus, an open source combination of system monitoring, alarms, and time series databases), and EMQX Neuron will automatically push the metrics data to the specified pushgatway.
 2. Query metrics data via API
 
-EMQX Neuron disables the monitoring function by default, users can call the API to send the monitoring configuration and query the related content, please check the [link](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html#tag/monitor/operation/MetricConfig) for details.
+EMQX Neuron disables the monitoring function by default, users can call the API to send the monitoring configuration and query the related content, please check the [link](../api/api-docs.md#tag/monitor/operation/MetricConfig) for details.
 
 ## Alerts
 
@@ -31,7 +31,7 @@ There are two ways to get these alerts :
 1. Configure a webhook address and EMQX Neuron will automatically push alert events to the specified webhook. 
 2. Query the API for the most recently generated alert events.
 
-EMQX Neuron disables the alarm function by default. Users can call the API to send the alarm configuration and query the related content, please refer to the [link](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html#tag/monitor/operation/AlertRuleConfig) for details.
+EMQX Neuron disables the alarm function by default. Users can call the API to send the alarm configuration and query the related content, please refer to the [link](../api/api-docs.md#tag/monitor/operation/AlertRuleConfig) for details.
 
 ## Monitor Alarm Status
 

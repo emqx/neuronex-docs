@@ -577,7 +577,7 @@
 
       - 支持图表缩放、保存下载。
 
-- [**AI 数据分析助手**](../datainsights/data_analysis.md#5-ai-数据分析助手集成)
+- [**AI 数据分析助手**](../datainsights/data_analysis.md#_5-ai-数据分析助手集成)
 
   - UI 入口: 集成在“数据分析”页面的AI数据分析按钮，以及点位操作项中的AI Query。
 
@@ -709,7 +709,7 @@
 - 修复了特定时间格式解析失败的问题
 - 修复了 Portable source 插件热更新后，正在运行的规则无法接收到数据的问题。
 - 修复了增量窗口相关指标（metrics）的显示和计算问题。
-- 修复缺少 pynng.so 导致便携插件启动不了的问题
+- 修复缺少 `pynng.so` 导致便携插件启动不了的问题
 
 ### 变更
 
@@ -762,8 +762,8 @@
 
 ### 增强
 
-- 新增 AI 生成 Python 便捷插件功能（仅 Docker 镜像 `emqx/neuronex:3.5.1-ai` 和 `emqx/neuronex:3.5.1-ai-amd64` 支持），详细使用请参考[文档](https://docs.emqx.com/zh/neuronex/latest/best-practise/llm-portable-plugin.html )。
-- 数据处理引擎配置支持开启指标采集，并支持下载自定义日志指标文件，详细使用请参考[文档](https://docs.emqx.com/zh/neuronex/latest/admin/sys-configuration.html#开启指标采集)。
+- 新增 AI 生成 Python 便捷插件功能（仅 Docker 镜像 `emqx/neuronex:3.5.1-ai` 和 `emqx/neuronex:3.5.1-ai-amd64` 支持），详细使用请参考[文档](../best-practise/llm-portable-plugin.md )。
+- 数据处理引擎配置支持开启指标采集，并支持下载自定义日志指标文件，详细使用请参考[文档](../admin/sys-configuration.md#开启指标采集)。
 - DLT645-2007 新增支持有符号整型数据类型
 - Mitsubishi 3E 扩展支持字符串长度到 256
 - Siemens S7 新增支持 WSTRING 数据类型

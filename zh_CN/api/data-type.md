@@ -19,6 +19,8 @@
 
 在 EMQX Neuron 中，每个插件对应一种协议的实现。例如，一种 modbus tcp 协议对应一个插件，mqtt 协议对应一个插件。
 
+<a id="data-types"></a>
+
 ## 数据类型
 
 * INT8   = 1
@@ -88,6 +90,8 @@
 * Data_6 = 1
 * Data_7 = 2
 * Data_8 = 3
+
+<a id="tag-attributes"></a>
 
 ## 点位属性
 

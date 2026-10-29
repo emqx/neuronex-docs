@@ -15,7 +15,7 @@ EMQX Neuron 提供多种指标数据来方便您监控，包括:
 1. 配置[pushgatway](https://github.com/prometheus/pushgateway) 地址(Pushgateway 是一个 Prometheus 的组件，开源的系统监控、报警、时间序列数据库的组合)，EMQX Neuron将自动推送指标数据到指定的pushgatway中
 2. 通过API 查询指标数据
 
-EMQX Neuron默认关闭监控功能，用户可通过调用API来下发监控配置及查询相关内容，详情可查看[链接](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html#tag/monitor/operation/MetricConfig)。
+EMQX Neuron默认关闭监控功能，用户可通过调用API来下发监控配置及查询相关内容，详情可查看[链接](../api/api-docs.md#tag/monitor/operation/MetricConfig)。
 
 ## 告警
 
@@ -32,7 +32,7 @@ EMQX Neuron 通过轮询的方式来判断告警事件的发生，目前提供3�
 1. 配置webhook地址，EMQX Neuron将自动推送告警事件到指定webhook中。
 2. 通过API查询最近产生的告警事件。
 
-EMQX Neuron默认关闭告警功能，用户可通过调用API来下发告警配置及查询相关内容，详情可查看[链接](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html#tag/monitor/operation/AlertRuleConfig)。
+EMQX Neuron默认关闭告警功能，用户可通过调用API来下发告警配置及查询相关内容，详情可查看[链接](../api/api-docs.md#tag/monitor/operation/AlertRuleConfig)。
 
 ## 监控告警状态
 

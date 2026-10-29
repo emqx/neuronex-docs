@@ -88,7 +88,7 @@ Database connection address reference:
 
 ## Create scan table
 
-Please refer to the [Create Stream](#CreateStream) section.
+Please refer to the [Create Stream](#create-stream) section.
 
 ## Create lookup table
 

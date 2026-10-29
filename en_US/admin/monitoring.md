@@ -21,7 +21,7 @@ EMQX Neuron provides the ability to control device through southbound driver thr
 
 There are three ways to send commands to the device:
 - Users can write data to device on [Data Monitoring](#data-monitoring-dashboard) page.
-- Users can write data to device via [RESTful APIs](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html#tag/rw).
+- Users can write data to device via [RESTful APIs](../api/api-docs.md#tag/rw).
 - [MQTT Topic](../configuration/north-apps/mqtt/api.md) . Any external system, such as a cloud-based platform, can publish command data to a specific MQTT topic, and EMQX Neuron receives the command data from topic and sends it to the device.
 
 ### Monitoring dashboard data writing

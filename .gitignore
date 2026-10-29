@@ -7,3 +7,5 @@
 /docs-worklist-CN.md
 /neuronex-4.0-vs-3.x-CN.md
 .claude
+__pycache__/
+*.pyc

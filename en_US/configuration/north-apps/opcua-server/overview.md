@@ -91,7 +91,7 @@ An OPC UA client writes to a variable node and the value goes down to the device
 
 The tag must carry the **write** attribute in the southbound driver; see [Groups and Tags · Tag attributes](../../groups-tags/groups-tags.md#tag-attributes). Writing to a read-only tag returns an error.
 
-For the steps in UaExpert, see [Using UaExpert](./uaexpert.md#4-monitoring-and-writing).
+For the steps in UaExpert, see [Using UaExpert](./uaexpert.md#_4-monitoring-and-writing).
 
 ## Operation and Maintenance
 

@@ -178,7 +178,7 @@ The following sections provide step-by-step examples for common OPC UA servers.
 
 ### General Configuration Principles
 
-1. **Generate the client certificate** using OpenSSL and upload it to EMQX Neuron (refer to [Generate a Client Certificate/Key](#generate-a-client-certificatekey)).
+1. **Generate the client certificate** using OpenSSL and upload it to EMQX Neuron (refer to [Generate a Client Certificate/Key](#generate-a-client-certificate-key)).
 2. **Enable security policies** on the target server — at minimum, enable **Basic256Sha256** or **Aes128_Sha256_RsaOaep**.
 3. **Import the client certificate** (DER format) into the server's trusted client list.
 4. **Restart the server** or reinitialize the OPC UA service to apply changes.

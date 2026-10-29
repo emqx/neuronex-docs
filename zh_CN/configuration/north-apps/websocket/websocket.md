@@ -48,4 +48,4 @@ EMQX Neuron WebSocket 应用作为客户端， 将从设备采集到的数据作
 [WebSocket]: https://en.wikipedia.org/wiki/WebSocket
 [RFC 6455]: https://datatracker.ietf.org/doc/html/rfc6455
 [MQTT 应用]: ../mqtt/overview.md
-[MQTT 数据上下行格式]: ../mqtt/api.md#tags-format
+[MQTT 数据上下行格式]: ../mqtt/api.md#tags-format-格式

@@ -47,7 +47,7 @@ jobs:
     - name: use pnpm
       uses: pnpm/action-setup@v4
       with:
-        version: 9
+        package_json_file: frontend/package.json
 
     - name: use python
       uses: actions/setup-python@v2
@@ -67,49 +67,47 @@ jobs:
          echo "VERSION=$VERSION" >> $GITHUB_ENV
          echo "DOCS_TYPE=emqx-neuron" >> $GITHUB_ENV
 
-    # - name: remove unused files
-    #   run: |
-    #     cd docs-files
-    #     python3 .github/scripts/remove_unused.py $(pwd)
+    - name: install frontend dependencies
+      working-directory: frontend
+      run: pnpm install --frozen-lockfile
 
-    - name: move files
-      run: |
-        rm frontend/docs/en/index.md || true
-        rm frontend/docs/zh/index.md || true
-        rm frontend/docs/*.md || true
-        rm frontend/index.md || true
-        mkdir -p frontend/docs/en/${DOCS_TYPE}/${VERSION}/
-        mkdir -p frontend/docs/zh/${DOCS_TYPE}/${VERSION}/
-        mkdir -p frontend/docs/public/api/
-        cp -r docs-files/en_US/* frontend/docs/en/${DOCS_TYPE}/${VERSION}/
-        cp -r docs-files/zh_CN/* frontend/docs/zh/${DOCS_TYPE}/${VERSION}/
-        cp -r docs-files/redocly/*.json frontend/redoc/
-        cp docs-files/directory.json frontend/docs/.vitepress/config/directory.json
+    - name: test link checker
+      run: node docs-files/.github/scripts/check-links.test.cjs "$GITHUB_WORKSPACE/frontend"
 
-    - name: generate version config
-      run: |
-        cd docs-files
-        python3 .github/scripts/generate_version.py $(git tag | egrep "v[0-9](\.[0-9])*$" | xargs echo -n) > ../frontend/docs/public/api/${DOCS_TYPE}_versions.json
-        cat ../frontend/docs/public/api/${DOCS_TYPE}_versions.json
+    - name: build committed docs and API references
+      run: python3 docs-files/.github/scripts/build_docs.py --source docs-files --frontend frontend --version "$VERSION"
 
-    - name: build docs
-      run: |
-        cd frontend
-        pnpm install
-        pnpm build
+    - name: verify version artifacts
+      run: >-
+        python3 docs-files/.github/scripts/verify_build.py
+        --sources docs-files --dist frontend/docs/.vitepress/dist
+        --version "$VERSION" --output link-audit/artifacts.json
 
-    - name: build redoc
-      run: |
-        cd frontend
-        set -x
-        echo ${VERSION}
-        LANGS=(zh en)
-        for lang in "${LANGS[@]}"; do
-          npx @redocly/cli build-docs redoc/api-swagger.json \
-            --output docs/.vitepress/dist/${lang}/${DOCS_TYPE}/${VERSION}/api/api-docs.html \
-            --theme.openapi.theme.colors.primary.main=#00b173 \
-            --theme.openapi.theme.typography.headings.fontFamily='Roboto, sans-serif'
-        done
+    - name: check generated links and external URLs
+      run: >-
+        node docs-files/.github/scripts/check-links.cjs
+        --frontend frontend --sources docs-files
+        --dist frontend/docs/.vitepress/dist --version "$VERSION"
+        --output link-audit
+
+    - name: save build provenance and link report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: docs-validation-${{ env.VERSION }}
+        path: |
+          frontend/build-provenance.json
+          link-audit/artifacts.json
+          link-audit/report.json
+          link-audit/inventory.json
+          link-audit/http-results.jsonl
+
+    - name: save validated output
+      uses: actions/upload-artifact@v4
+      with:
+        name: docs-dist-${{ env.VERSION }}
+        path: frontend/docs/.vitepress/dist/
+        retention-days: 14
 
     - name: set aws credentials
       uses: aws-actions/configure-aws-credentials@v4
@@ -117,6 +115,21 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+
+    - name: download previous S3 version for rollback
+      run: |
+        mkdir -p previous-dist
+        for lang in en zh; do
+          aws s3 sync "s3://docs-emqx-com/${lang}/${DOCS_TYPE}/${VERSION}/" "previous-dist/${lang}/${DOCS_TYPE}/${VERSION}/"
+        done
+
+    - name: save previous published version
+      uses: actions/upload-artifact@v4
+      with:
+        name: docs-previous-${{ env.VERSION }}
+        path: previous-dist/
+        if-no-files-found: ignore
+        retention-days: 14
 
     - name: upload dist to s3
       run: |

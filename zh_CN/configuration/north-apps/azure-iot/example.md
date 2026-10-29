@@ -19,7 +19,7 @@
 
 订阅后，登录 [Azure portal]。导航到 IoT Hub 标签页，然后点击**创建**按钮。您需要提供订阅、资源组、区域和 IoT Hub 的名称等详细信息。填写完这些信息后，点击**查看 + 创建**按钮来创建您的 IoT Hub。
 
-这里我们创建一个名为 *emqx-hub* 的 IoT Hub，其域名为 *emqx-hub.azure-devices.net* 。
+这里我们创建一个名为 *emqx-hub* 的 IoT Hub，其域名为 `emqx-hub.azure-devices.net` 。
 
 <figure align="center">
   <img src="./assets/azure_emqx_hub.png" style="border:thin solid #E0DCD9; width: 60%" alt="set up Azure IoT Hub">

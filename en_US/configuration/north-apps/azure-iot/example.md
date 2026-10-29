@@ -19,7 +19,7 @@ The initial setup process is straightforward. You will need an active Azure subs
 
 Once you have an active subscription, log in to the [Azure portal]. Navigate to the IoT Hub section and click on the **Create** button. You will need to provide details like the subscription, resource group, region, and name of the IoT Hub. Once these details are filled in, click on the **Review + Create** button to create your IoT Hub.
 
-Here we create an IoT Hub called *emqx-hub*, and its hostname is *emqx-hub.azure-devices.net*.
+Here we create an IoT Hub called *emqx-hub*, and its hostname is `emqx-hub.azure-devices.net`.
 
 <figure align="center">
   <img src="./assets/azure_emqx_hub.png" style="border:thin solid #E0DCD9; width: 60%" alt="set up Azure IoT Hub">

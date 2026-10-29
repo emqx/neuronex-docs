@@ -250,7 +250,7 @@ TPY 文件中包含了 PLC 程序中所有变量的 index group 和 index offset
   </figcaption>
 </figure>
 
-[安装指南]: ../../../quick-start/installation.md
+[安装指南]: ../../../../installation/introduction.md
 [Beckhoff TwinCAT 网站]: https://www.beckhoff.com/en-us/products/automation/twincat
 [Beckhoff index group/offset 页面]: https://infosys.beckhoff.com/english.php?content=../content/1033/tcadscommon/12495369867.html
 [Beckhoff 数据类型]: https://infosys.beckhoff.com/english.php?content=../content/1033/tc3_plc_intro/2529399691.html

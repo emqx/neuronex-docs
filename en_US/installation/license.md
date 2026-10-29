@@ -54,7 +54,7 @@ Suited to deploying EMQX Neuron across a fleet of gateways, distributing license
 
 1. Talk to EMQ sales to buy licenses in bulk. After the order is placed, EMQ sends the order number to your email. One order number can hold several licenses of the same specification, each activating one EMQX Neuron instance.
 
-2. Open the [EMQX Neuron license lookup](https://www.emqx.com/en/neuronex-license-info) page, enter the order number, the email bound to it, and the verification code. Save the activation code from the results.
+2. Open the [EMQX Neuron license lookup (Chinese)](https://www.emqx.com/zh/neuronex-license-info) page, enter the order number, the email bound to it, and the verification code. Save the activation code from the results.
 
    ![license-order](_assets/license-order.png)
 
@@ -71,7 +71,7 @@ After a successful activation, the order's remaining count drops by one.
 
 ### ECP floating license
 
-Suited to EMQX Neuron instances managed by ECP. When several instances are deployed, ECP manages the total tag count and allocates it flexibly, and also provides fast deployment, remote operation, and central management. See [ECP](https://www.emqx.com/en/products/emqx-ecp).
+Suited to EMQX Neuron instances managed by ECP. When several instances are deployed, ECP manages the total tag count and allocates it flexibly, and also provides fast deployment, remote operation, and central management. See [ECP](https://docs.emqx.com/en/emqx-ecp/latest/).
 
 ## Viewing license information
 

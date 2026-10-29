@@ -1,0 +1,8 @@
+{
+  "name": "neuron-docs-checks",
+  "private": true,
+  "dependencies": {
+    "htmlparser2": "10.0.0",
+    "markdown-it": "14.3.3"
+  }
+}

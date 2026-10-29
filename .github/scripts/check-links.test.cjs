@@ -57,6 +57,17 @@ const response = (status, headers = {}) =>
     'ERROR',
   );
 
+  const shouldFail = new Function(segment + '; return shouldFail;')();
+  const clean = { localMissing: 0, missingAnchors: 0 };
+  assert.equal(shouldFail(clean, [{ status: 'ERROR' }], false), true);
+  assert.equal(shouldFail(clean, [{ status: 'ERROR' }], true), false);
+  assert.equal(shouldFail(clean, [{ status: 'UNVERIFIED' }], true), false);
+  assert.equal(shouldFail(clean, [{ status: 'BLOCKED' }], true), false);
+  assert.equal(shouldFail(clean, [{ status: 'NOT_FOUND' }], true), true);
+  assert.equal(shouldFail(clean, [{ status: 'BROKEN' }], true), true);
+  assert.equal(shouldFail({ ...clean, localMissing: 1 }, [], true), true);
+  assert.equal(shouldFail({ ...clean, missingAnchors: 1 }, [], true), true);
+
   const fixture = fs.mkdtempSync(path.join(os.tmpdir(), 'docs-link-check-'));
   const write = (name, text) => {
     const file = path.join(fixture, name);

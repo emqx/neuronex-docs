@@ -78,7 +78,7 @@ Referring to the EMQX Neuron MQTT data control format, we understand that the JS
 }
 ```
 
-For information about the EMQX Neuron MQTT data control format, multi-tag writing, or to understand the control response format, please refer to [MQTT Upstream and Downstream Data Format](https://docs.emqx.com/en/neuronex/latest/configuration/north-apps/mqtt/api.html#write-tag).
+For information about the EMQX Neuron MQTT data control format, multi-tag writing, or to understand the control response format, please refer to [MQTT Upstream and Downstream Data Format](https://docs.emqx.com/en/emqx-neuron/latest/configuration/north-apps/mqtt/api.html#write-tag).
 
 In MQTTX, enter the above JSON message and configure the send topic as `/neuron/HgihrB/write/req`. Click the send button to send the control command to the MQTT Broker.
 
@@ -155,7 +155,7 @@ Through data processing module control, more complex control logic can be implem
 
 EMQX Neuron provides comprehensive RESTful API interfaces that allow third-party applications to implement device control through the HTTP protocol. This method offers high flexibility and is suitable for integration with other systems.
 
-By calling EMQX Neuron's RESTful API, you can read and write device tags data. For detailed API documentation, please refer to the [EMQX Neuron API Documentation](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html).
+By calling EMQX Neuron's RESTful API, you can read and write device tags data. For detailed API documentation, please refer to the [EMQX Neuron API Documentation](https://docs.emqx.com/en/emqx-neuron/latest/api/api-docs.html).
 
 ### POSTMAN Control Example
 
@@ -169,7 +169,7 @@ In POSTMAN, select the POST method, call the `localhost:8085/api/login` interfac
 
 **2) Call the control interface to write data**
 
-In POSTMAN, select the POST method, call the `localhost:8085/api/neuron/write` interface, set the request header to `Authorization` with the value `Bearer ${Token}`, set the request body to JSON format, enter the control JSON message body, and click the send button to implement device control. For detailed information about the `/api/neuron/write` interface, please refer to the [EMQX Neuron API Documentation](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html#tag/rw/paths/~1api~1neuron~1write/post).
+In POSTMAN, select the POST method, call the `localhost:8085/api/neuron/write` interface, set the request header to `Authorization` with the value `Bearer ${Token}`, set the request body to JSON format, enter the control JSON message body, and click the send button to implement device control. For detailed information about the `/api/neuron/write` interface, please refer to the [EMQX Neuron API Documentation](https://docs.emqx.com/en/emqx-neuron/latest/api/api-docs.html#tag/rw/paths/~1api~1neuron~1write/post).
 
 ```json
 {

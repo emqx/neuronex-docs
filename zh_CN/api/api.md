@@ -2,7 +2,7 @@
 
 EMQX Neuron 提供管理与监控用的 REST API，遵循 OpenAPI (Swagger) 3.1 规范，覆盖系统管理、数据采集配置与运行统计。
 
-服务启动后访问 `http://<网关地址>:8085/api-docs/index.html` 查看完整接口文档，并可直接在 Swagger UI 中调用接口验证。也可查阅在线版[API 文档](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html)。
+服务启动后访问 `http://<网关地址>:8085/api-docs/index.html` 查看完整接口文档，并可直接在 Swagger UI 中调用接口验证。也可查阅在线版[API 文档](https://docs.emqx.com/zh/emqx-neuron/latest/api/api-docs.html)。
 
 | 页面 | 内容 |
 | --- | --- |

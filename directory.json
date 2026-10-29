@@ -1197,7 +1197,7 @@
             },
             {
               "title": "API 文档 (外链)",
-              "path": "https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html"
+              "path": "https://docs.emqx.com/zh/emqx-neuron/latest/api/api-docs.html"
             }
           ]
         },
@@ -2428,7 +2428,7 @@
             },
             {
               "title": "API Documentation (external)",
-              "path": "https://docs.emqx.com/en/neuronex/latest/api/api-docs.html"
+              "path": "https://docs.emqx.com/en/emqx-neuron/latest/api/api-docs.html"
             }
           ]
         },

@@ -2,7 +2,7 @@
 
 EMQX Neuron provides REST APIs for management and monitoring, following the OpenAPI (Swagger) 3.1 specification and covering system administration, collection configuration, and runtime statistics.
 
-Once the service is running, open `http://<gateway address>:8085/api-docs/index.html` for the full interface documentation, where requests can also be issued directly from the Swagger UI. An online copy is available as the [API reference](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html).
+Once the service is running, open `http://<gateway address>:8085/api-docs/index.html` for the full interface documentation, where requests can also be issued directly from the Swagger UI. An online copy is available as the [API reference](https://docs.emqx.com/en/emqx-neuron/latest/api/api-docs.html).
 
 | Page | Contents |
 | --- | --- |

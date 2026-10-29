@@ -76,7 +76,7 @@ MQTT 反控允许任何支持 MQTT 协议的客户端程序向 MQTT Broker 的�
     "value": 1234
 }
 ```
-关于 EMQX Neuron MQTT 数据反控格式，如需多点位写入，或想了解反控相应格式，请查阅[MQTT 数据上下行格式](https://docs.emqx.com/zh/neuronex/latest/configuration/north-apps/mqtt/api.html#%E5%86%99-tag)。
+关于 EMQX Neuron MQTT 数据反控格式，如需多点位写入，或想了解反控相应格式，请查阅[MQTT 数据上下行格式](https://docs.emqx.com/zh/emqx-neuron/latest/configuration/north-apps/mqtt/api.html#%E5%86%99-tag)。
 
 在 MQTTX 中，填入上述 JSON 消息，并配置发送主题为`/neuron/HgihrB/write/req`，点击发送按钮，即可向 MQTT Broker 发送反控指令。
 
@@ -153,7 +153,7 @@ FROM
 
 EMQX Neuron 提供了完善的 RESTful API 接口，允许第三方应用程序通过 HTTP 协议实现设备反控。这种方式灵活性高，适合与其他系统集成。
 
-通过调用 EMQX Neuron 的 RESTful API，可以实现读写设备点位数据。详细的 API 文档可参考[EMQX Neuron API 文档](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html)。
+通过调用 EMQX Neuron 的 RESTful API，可以实现读写设备点位数据。详细的 API 文档可参考[EMQX Neuron API 文档](https://docs.emqx.com/zh/emqx-neuron/latest/api/api-docs.html)。
 
 ### POSTMAN 反控示例
 
@@ -167,7 +167,7 @@ POSTMAN 是一款常用的 API 测试工具，通过调用 EMQX Neuron 的 RESTf
 
 **2）调用反控接口写入数据**
 
-在 POSTMAN 上，选择 POST 方法，调用 `localhost:8085/api/neuron/write` 接口，并设置请求头为 `Authorization`，值为 `Bearer ${Token}`，设置请求体为 JSON 格式，输入反控的 JSON 消息体，点击发送按钮，即可实现设备反控。`/api/neuron/write`接口的详细说明，请参考[EMQX Neuron API 文档](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html#tag/rw/paths/~1api~1neuron~1write/post)。
+在 POSTMAN 上，选择 POST 方法，调用 `localhost:8085/api/neuron/write` 接口，并设置请求头为 `Authorization`，值为 `Bearer ${Token}`，设置请求体为 JSON 格式，输入反控的 JSON 消息体，点击发送按钮，即可实现设备反控。`/api/neuron/write`接口的详细说明，请参考[EMQX Neuron API 文档](https://docs.emqx.com/zh/emqx-neuron/latest/api/api-docs.html#tag/rw/paths/~1api~1neuron~1write/post)。
 
 ```json
 {

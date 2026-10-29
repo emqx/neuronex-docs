@@ -10,4 +10,4 @@
 changed_cols(prefix, ignoreNull, colA, colB)
 ```
 
-返回值有变化的列，列名添加指定前缀。请看 [changed_cols](./analytic_functions.md#changedcols-函数) 了解更多用法。
+返回值有变化的列，列名添加指定前缀。请看 [changed_cols](./analytic_functions.md#changed-cols-函数) 了解更多用法。

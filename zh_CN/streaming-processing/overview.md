@@ -143,5 +143,5 @@ NeuronEX 允许用户自定义扩展，以支持AI/ML等更多功能。 用户�
 
 ### [配置](./config.md)
 
-配置页面介绍 NeuronEX 数据分析模块的[资源](./config.md#资源)配置及[模式](./config.md#模式)配置等。
+配置页面介绍 NeuronEX 数据分析模块的[资源](./config.md#文件管理)配置及[模式](./config.md#模式)配置等。
 

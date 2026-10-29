@@ -249,7 +249,7 @@ Release Date: 2025-06-11
 
       - Supports chart zooming, downloading.
 
-- [**AI Data Analysis Assistant**](../datainsights/data_analysis.md#5-ai-data-analysis-assistant-integration)
+- [**AI Data Analysis Assistant**](../datainsights/data_analysis.md#_5-ai-data-analysis-assistant-integration)
 
   - UI Entry: Integrated in the AI data analysis button on the "Data Analysis" page, as well as AI Query in tag operation items.
 
@@ -381,7 +381,7 @@ Release Date: 2025-07-16
 - Fixed an issue where specific time formats failed to parse.
 - Fixed an issue where running rules could not receive data after a Portable source plugin hot update.
 - Fixed issues with the display and calculation of incremental window metrics.
-- Fixed an issue where portable plugins could not start due to a missing pynng.so file.
+- Fixed an issue where portable plugins could not start due to a missing `pynng.so` file.
 
 
 ## v3.5.3
@@ -431,8 +431,8 @@ Release Date: 2025-04-18
 
 ### Enhancements
 
-- Added new feature: AI Generate Python Function(only supported by Docker image `emqx/neuronex:3.5.1-ai` and `emqx/neuronex:3.5.1-ai-amd64`), please refer to [Document](https://docs.emqx.com/en/neuronex/latest/best-practise/llm-portable-plugin.html) for details.
-- Data processing engine configuration supports enabling indicator collection and downloading  indicator logs, please refer to [Document](https://docs.emqx.com/en/neuronex/latest/admin/sys-configuration.html#enable-metrics-collection) for details.
+- Added new feature: AI Generate Python Function(only supported by Docker image `emqx/neuronex:3.5.1-ai` and `emqx/neuronex:3.5.1-ai-amd64`), please refer to [Document](../best-practise/llm-portable-plugin.md) for details.
+- Data processing engine configuration supports enabling indicator collection and downloading  indicator logs, please refer to [Document](../admin/sys-configuration.md#enable-metrics-collection) for details.
 - DLT645-2007 Added support for signed integer data types
 - Mitsubishi 3E extended support for string length to 256
 - Siemens S7 driver supports WSTRING data type

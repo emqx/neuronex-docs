@@ -173,7 +173,7 @@ Click `Add Subscription` button to add a new subscription, as shown in the figur
 
 ## View data on MQTT client
 
-Use the MQTT client to view the uploaded data. For example, use the MQTT client tool [MQTTX](https://www.emqx.com/zh/products/mqttx) to connect to the public EMQX broker to view the data uploaded by EMQX Neuron to the MQTT Broker, as follows As shown below.
+Use the MQTT client to view the uploaded data. For example, use the MQTT client tool [MQTTX](https://mqttx.app/downloads) to connect to the public EMQX broker to view the data uploaded by EMQX Neuron to the MQTT Broker, as follows As shown below.
 
 ![mqttx](./_assets/mqttx.png)
 

@@ -334,7 +334,7 @@ $ make
 
 ### Copy the driver .so file
 
-After compiling, go to modbus/build/plugins and copy the generated driver .so file (for example, libplugin-modbus-tcp.so ) to the /usr/local/bin/neuron/plugins directory.
+After compiling, go to modbus/build/plugins and copy the generated driver .so file (for example, `libplugin-modbus-tcp.so` ) to the /usr/local/bin/neuron/plugins directory.
 
 ### Copy the driver configuration .json file
 

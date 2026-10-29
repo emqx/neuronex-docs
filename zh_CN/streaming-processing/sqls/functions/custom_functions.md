@@ -1,6 +1,6 @@
 # 定制函数
 
-eKuiper 可以定制函数，函数的开发、编译及使用请[参见这里](../../extension/native/develop/function.md)。
+eKuiper 可以定制函数，函数开发可参考 [eKuiper 原生函数开发指南](https://ekuiper.org/docs/zh/latest/extension/native/develop/function.html)。编译和部署时，请使用与当前 NeuronEX 内置 eKuiper 版本匹配的源码和构建环境。
 
 ## echo 插件
 
@@ -188,7 +188,7 @@ SELECT labelImage(self) FROM tfdemo
 
 该插件(只能用在有 slim 后缀的 docker image 中)用于执行 TensorFlow Lite 推理。用户只需上传 `.tflite` 模型，在 sql
 中调用 `tfLite(model_name, input_data)` 函数，即可收到模型推理的结果。
-上传模型时请使用 [uploads](../../api/restapi/uploads.md) 接口将模型文件上传即可。
+上传模型时请使用 [uploads](../../../api/api-docs.html#tag/uploads/paths/~1api~1ekuiper~1config~1uploads/post) 接口将模型文件上传即可。
 函数调用时 `model_name` 参数为不带 `.tflite` 后缀的模型名称。 `input_data` 应该是消息中的 key 字段，对应的值应该是一维数组格式
 
 ```sql

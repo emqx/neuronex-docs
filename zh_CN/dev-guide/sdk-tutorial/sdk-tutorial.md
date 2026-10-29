@@ -334,7 +334,7 @@ make
 
 ### 拷贝驱动 .so 文件
 
-编译完成后，进入 modbus/build/plugins 中将生成的驱动 .so 文件（例如，libplugin-modbus-tcp.so ） 拷贝到 /usr/local/bin/neuron/plugins 目录下。
+编译完成后，进入 modbus/build/plugins 中将生成的驱动 .so 文件（例如，`libplugin-modbus-tcp.so` ） 拷贝到 /usr/local/bin/neuron/plugins 目录下。
 
 ### 拷贝驱动配置 .json 文件
 

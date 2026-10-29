@@ -30,7 +30,7 @@ go build -trimpath --buildmode=plugin -o plugins/sinks/Tdengine@v1.0.0.so extens
 | tagFields      | []String | 否       | 结果中作为标签的字段。若设置 sTable 属性，则该属性必填。     |
 | tableDataField | String   | 否       | 将 tableDataField 的嵌套值写入数据库。                       |
 
-其他通用的 sink 属性也支持，请参阅[公共属性](./sink.md#公共属性)。
+其他通用的 sink 属性也支持，请参阅[公共属性](./sink.md#动作公共参数配置)。
 
 ## 操作示例
 

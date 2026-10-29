@@ -11,5 +11,5 @@ Multiple column function can only be used in the `SELECT` clause of a query.
 changed_cols(prefix, ignoreNull, colA, colB)
 ```
 
-Return the changed columns whose name is prefixed. Check [changed_cols](./analytic_functions.md#changedcols-function)
+Return the changed columns whose name is prefixed. Check [changed_cols](./analytic_functions.md#changed-cols-function)
 for detail.

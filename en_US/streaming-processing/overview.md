@@ -143,5 +143,5 @@ EMQX Neuron allows users to customize extensions to support AI/ML and other func
 
 ### [Configuration](./config.md)
 
-The configuration page introduces the [Resource](./config.md#Resource) configuration and [Mode](./config.md#Mode) configuration of the EMQX Neuron data analysis module.
+The configuration page introduces the [Resource](./config.md#files-management) configuration and [Mode](./config.md#schema) configuration of the EMQX Neuron data analysis module.
 

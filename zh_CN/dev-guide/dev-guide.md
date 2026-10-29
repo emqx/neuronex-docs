@@ -64,7 +64,7 @@ $ python3 -m robot --maxerroelines=600 -P ft/ -d ft/reports ft
 * 一个 PR 只做一件事，如果有多个 bug 的修复，请对每一个 bug 提交一个 PR；
 * PR 流程如下：
 
-    * 先 Fork 本项目，创建自己的 github.com/your/neuron 仓库；<br>
+    * 先 Fork 本项目，创建自己的 `github.com/<your-account>/neuron` 仓库；<br>
     * 克隆自己的 neuron 仓库到本地：
     ```bash
     $ git clone https://github.com/your/neuron.git

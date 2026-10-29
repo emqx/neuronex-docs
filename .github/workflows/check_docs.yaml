@@ -15,11 +15,24 @@ jobs:
     - name: check markdown
       run: markdownlint -c .github/workflows/markdown_config.json ./
 
-  directory_check:
+  source_check:
     runs-on: ubuntu-latest
     steps:
     - name: check out code
       uses: actions/checkout@main
+
+    - name: use node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+        cache: npm
+        cache-dependency-path: .github/scripts/package-lock.json
+
+    - name: install checker dependencies
+      run: npm ci --prefix .github/scripts
+
+    - name: check source links and images
+      run: node .github/scripts/check-links.cjs --sources . --version v3.7
 
     - name: check directory config
       run: python3 .github/scripts/directory_check.py directory.json $(pwd)

@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/emqx/neuron-docs",
+  "commit": "1fde2a732d35e645693ec3f497c7f5b7dad7c31c",
+  "original_docs_commit": "686c594e599a91e79a37e0dedc5f37780d349c78",
+  "note": "Imported the files selected by directory.json and their images. Builds use these committed files; no remote content sync."
+}

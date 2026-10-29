@@ -52,7 +52,7 @@
 
 - **全面的数据收集**：
 
-  NeuronEX 支持的 OPC UA 协议可从 SCADA 系统无缝获取数据，统一生产数据输入。此外，它还支持从 SQLServer 数据库提取增量数据，实现与第三方生产系统的数据集成（详情请参考[文档](../streaming-processing/sql.md#sql-语句模板示例)）。
+  NeuronEX 支持的 OPC UA 协议可从 SCADA 系统无缝获取数据，统一生产数据输入。此外，它还支持从 SQLServer 数据库提取增量数据，实现与第三方生产系统的数据集成（详情请参考[文档](../streaming-processing/sql.md#sql-statement-template-example)）。
 
 - **边缘计算和实时分析**：
 

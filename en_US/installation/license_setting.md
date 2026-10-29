@@ -18,11 +18,11 @@ Licenses can be installed multiple times. When you reinstall a license, the old 
 
   - Users first place an order on the EMQ website to purchase a batch of NeuronEX licenses and obtain an order number. You can also contact us.
 
-  - Users go to the [NeuronEX License Information Query](https://www.emqx.com/zh/neuronex-license-info) page, enter the order number, the email address associated with the order number, and the verification code to query the information of the current purchased license order. Save the activation code.
+  - Users go to the [NeuronEX License Information Query (Chinese)](https://www.emqx.com/zh/neuronex-license-info) page, enter the order number, the email address associated with the order number, and the verification code to query the information of the current purchased license order. Save the activation code.
 
     ![license-order](_assets/license-order.png)
 
-  - Enter NeuronEX, click **Administration** > **License**, enter the activation code you just saved, click **Re-activate**, NeuronEX will obtain the license from the official website and automatically import it. After the activation is successful, re-enter the [NeuronEX License Information Query](https://site.mqttce.com/en/neuronex-license-info) page, you will find that the remaining licenses have been reduced. If the hardware device loses the license, you can re-activate the license to the hardware device through the registration activation code. The license is one-to-one corresponding to the hardware identifier of NeuronEX. The same device will only reduce 1 license for multiple activations.
+  - Enter NeuronEX, click **Administration** > **License**, enter the activation code you just saved, click **Re-activate**, NeuronEX will obtain the license from the official website and automatically import it. After the activation is successful, re-enter the [NeuronEX License Information Query (Chinese)](https://www.emqx.com/zh/neuronex-license-info) page, you will find that the remaining licenses have been reduced. If the hardware device loses the license, you can re-activate the license to the hardware device through the registration activation code. The license is one-to-one corresponding to the hardware identifier of NeuronEX. The same device will only reduce 1 license for multiple activations.
 
     ![register-license](_assets/register-license.png)
 

@@ -21,7 +21,7 @@ Redis 源支持查询表。登录 NeuronEX，点击**数据流处理** -> **源�
   - **密码**：Redis 登录密码
   - **数据类型**：选择 string 或者 list
 - **表格式**：支持 json、binary、delimited、custom。
-  - 如选择 custom，还应配置对应的[模式和模式消息](./config.md#模式)
+  - 如选择 custom，还应配置对应的[模式和模式消息](./config.md#schema)
   - 如选择 delimited，还应配置分隔符，如 ","
 
 - **主键**：指定主键。

@@ -56,7 +56,7 @@ $(PLUGINS_CUSTOM):
 | saslPassword | 是       | sasl 密码                               |
 
 
-其他通用的 sink 属性也支持，请参阅[公共属性](./sink.md#公共属性)。
+其他通用的 sink 属性也支持，请参阅[公共属性](./sink.md#动作公共参数配置)。
 
 ## 示例用法
 

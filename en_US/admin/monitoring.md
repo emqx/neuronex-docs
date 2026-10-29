@@ -21,7 +21,7 @@ NeuronEX provides the ability to control device through southbound drivers. Inst
 
 There are three ways to send commands to the device:
 - Users can write data to device on [Dashboard Monitoring Screen](#data-monitoring-dashboard).
-- Users can write data to device via [RESTful APIs](https://docs.emqx.com/zh/neuronex/latest/api/api-docs.html#tag/rw).
+- Users can write data to device via [RESTful APIs](../api/api-docs.md#tag/rw).
 - [MQTT data downstream channel](../configuration/north-apps/mqtt/api.md) . Any external system, such as a cloud-based platform, can publish command data to a specific MQTT topic, and NeuronEX receives the command data and sends it to the device.
 
 ### Monitoring dashboard data writing

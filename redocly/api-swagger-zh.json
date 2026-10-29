@@ -4513,7 +4513,7 @@
         "x-apifox-folder": "Neuron/configuration",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "Please refer to [Plugin Setting](https://docs.emqx.com/zh/neuronex/latest/api/plugin-setting.html) for the configuration parameters of each plugin.",
+        "description": "Please refer to [Plugin Setting](plugin-setting.html) for the configuration parameters of each plugin.",
         "tags": [
           "configuration"
         ],
@@ -9867,7 +9867,7 @@
         "x-apifox-folder": "Ekuiper/plugins",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "The API accepts a JSON content to create a new plugin.The plugin is identified by the name. The name must be unique.\n\n### Parameters\n\n1. name: a unique name of the plugin. The name must be the same as the camel case version of the plugin with lowercase first letter. For example, if the exported plugin name is `Random`, then the name of this plugin is `random`.\n2. file: the url of the plugin files. The url can be `http` or `https` scheme or `file` scheme to refer to a local file path of the eKuiper server. It must be a zip file with: a compiled so file and the yaml file(only required for sources). If the plugin depends on some external dependencies, a bash script named install.sh can be provided to do the dependency installation. The name of the files must match the name of the plugin.\n\nA sample zip file for a source named random.zip\n\n1. Random@v1.0.0.so\n2. random.yaml\n3. install.sh\n4. Various dependency files/folders of install.sh\n   - mysdk.zip\n   - myconfig.conf\n5. etc directory: the runtime configuration files or dependency files. After installation, this directory will be\n   renamed to the plugin name under <span v-pre>{{eKuiperPath}}/etc/{{pluginType}}</span> directory.\n\nNotice that, the install.sh will be run that the system may already had the lib or package. Make sure to check the path before. Below is an example install.sh to install a sample sdk lib.\n\n\n```shell #!/bin/sh\ndir=/usr/local/mysdk\ncur=$(dirname \"$0\")\necho \"Base path $cur\"\nif [ -d \"$dir\" ]; then\n    echo \"SDK path $dir exists.\"\nelse\n    echo \"Creating SDK path $dir\"\n    mkdir -p $dir\n    echo \"Created SDK path $dir\"\nfi\n\napt install --no-upgrade unzip\nif [ -d \"$dir/lib\" ]; then\n    echo \"SDK lib path $dir/lib exists.\"\nelse\n    echo \"Unzip SDK lib to path $dir\"\n    unzip $cur/mysdk.zip -d $dir\n    echo \"Unzipped SDK lib to path $dir\"\nfi\n\nif [ -f \"/etc/ld.so.conf.d/myconfig.conf\" ]; then\n    echo \"/etc/ld.so.conf.d/myconfig.conf exists\"\nelse\n    echo \"Copy conf file\"\n    cp $cur/myconfig.conf /etc/ld.so.conf.d/\n    echo \"Copied conf file\"\nfi\nldconfig\necho \"Done\"\n```\n",
+        "description": "The API accepts a JSON content to create a new plugin.The plugin is identified by the name. The name must be unique.\n\n### Parameters\n\n1. name: a unique name of the plugin. The name must be the same as the camel case version of the plugin with lowercase first letter. For example, if the exported plugin name is `Random`, then the name of this plugin is `random`.\n2. file: the url of the plugin files. The url can be `http` or `https` scheme or `file` scheme to refer to a local file path of the eKuiper server. It must be a zip file with: a compiled so file and the yaml file(only required for sources). If the plugin depends on some external dependencies, a bash script named `install.sh` can be provided to do the dependency installation. The name of the files must match the name of the plugin.\n\nA sample zip file for a source named random.zip\n\n1. Random@v1.0.0.so\n2. random.yaml\n3. `install.sh`\n4. Various dependency files/folders of `install.sh`\n   - mysdk.zip\n   - myconfig.conf\n5. etc directory: the runtime configuration files or dependency files. After installation, this directory will be\n   renamed to the plugin name under <span v-pre>{{eKuiperPath}}/etc/{{pluginType}}</span> directory.\n\nNotice that, the `install.sh` will be run that the system may already had the lib or package. Make sure to check the path before. Below is an example `install.sh` to install a sample sdk lib.\n\n\n```shell #!/bin/sh\ndir=/usr/local/mysdk\ncur=$(dirname \"$0\")\necho \"Base path $cur\"\nif [ -d \"$dir\" ]; then\n    echo \"SDK path $dir exists.\"\nelse\n    echo \"Creating SDK path $dir\"\n    mkdir -p $dir\n    echo \"Created SDK path $dir\"\nfi\n\napt install --no-upgrade unzip\nif [ -d \"$dir/lib\" ]; then\n    echo \"SDK lib path $dir/lib exists.\"\nelse\n    echo \"Unzip SDK lib to path $dir\"\n    unzip $cur/mysdk.zip -d $dir\n    echo \"Unzipped SDK lib to path $dir\"\nfi\n\nif [ -f \"/etc/ld.so.conf.d/myconfig.conf\" ]; then\n    echo \"/etc/ld.so.conf.d/myconfig.conf exists\"\nelse\n    echo \"Copy conf file\"\n    cp $cur/myconfig.conf /etc/ld.so.conf.d/\n    echo \"Copied conf file\"\nfi\nldconfig\necho \"Done\"\n```\n",
         "tags": [
           "plugins"
         ],
@@ -10212,7 +10212,7 @@
         "x-apifox-folder": "Ekuiper/plugins",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "The API is used to find out the plugin which defines the UDF. [APIs to handle function plugin with multiple functions](doc-3173101)",
+        "description": "The API is used to find out the plugin which defines the UDF. [Plugin management APIs](#tag/plugins)",
         "tags": [
           "plugins"
         ],
@@ -10273,7 +10273,7 @@
         "x-apifox-folder": "Ekuiper/plugins",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "The API aims to register all exported functions in an auto loaded function plugin or when the exported functions are changed. If the plugin was loaded by CLI create command or REST create API with functions property specified, then this is not needed. The register API will persist the functions list in the kv. Unless the exported functions are changed, users only need to register it once.\n[APIs to handle function plugin with multiple functions](doc-3173101)",
+        "description": "The API aims to register all exported functions in an auto loaded function plugin or when the exported functions are changed. If the plugin was loaded by CLI create command or REST create API with functions property specified, then this is not needed. The register API will persist the functions list in the kv. Unless the exported functions are changed, users only need to register it once.\n[Plugin management APIs](#tag/plugins)",
         "tags": [
           "plugins"
         ],

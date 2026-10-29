@@ -16,8 +16,8 @@ docker rm neuronex-doc-preview || true
 
 docker run -p ${PORT}:8080 -it --name neuronex-doc-preview \
     -v "$THIS_DIR"/directory.json:/app/docs/.vitepress/config/directory.json \
-    -v "$THIS_DIR"/zh_CN:/app/docs/zh/neuronex/latest \
-    -v "$THIS_DIR"/en_US:/app/docs/en/neuronex/latest \
-    -e DOCS_TYPE=neuronex \
+    -v "$THIS_DIR"/zh_CN:/app/docs/zh/emqx-neuron/latest \
+    -v "$THIS_DIR"/en_US:/app/docs/en/emqx-neuron/latest \
+    -e DOCS_TYPE=emqx-neuron \
     -e VERSION=latest \
 ghcr.io/emqx/docs-emqx-com-next:latest

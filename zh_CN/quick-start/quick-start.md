@@ -174,7 +174,7 @@ $ telnet <运行 Modbus 模拟器 PC 端的 IP> 502
 
 ## 在 MQTT 客户端查看数据
 
-使用 MQTT 客户端查看上传的数据，示例使用 MQTT 客户端工具 [MQTTX](https://www.emqx.com/zh/products/mqttx) 连接公共的 EMQX 代理查看 NeuronEX 上传到 MQTT Broker 的数据，如下图所示。
+使用 MQTT 客户端查看上传的数据，示例使用 MQTT 客户端工具 [MQTTX](https://mqttx.app/downloads) 连接公共的 EMQX 代理查看 NeuronEX 上传到 MQTT Broker 的数据，如下图所示。
 
 ![mqttx](./_assets/mqttx.png)
 

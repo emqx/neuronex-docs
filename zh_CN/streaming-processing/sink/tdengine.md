@@ -17,7 +17,7 @@ go build -trimpath --buildmode=plugin -o plugins/sinks/Tdengine@v1.0.0.so extens
 
 | 名称           | 类型     | 是否必填 | 释义                                                         |
 | -------------- | -------- | -------- | ------------------------------------------------------------ |
-| host           | string   | 否       | 数据库域名，其值必须为域名，即 [FQDN](https://www.taosdata.com/blog/2020/09/11/1824.html)，不能为 IP 地址。其默认值为 localhost。 |
+| host           | string   | 否       | 数据库域名，其值必须为域名，即 FQDN（全限定域名），不能为 IP 地址。其默认值为 localhost。 |
 | port           | int      | 是       | 数据库端口                                                   |
 | user           | string   | 否       | 用户名，默认值为 `root` 。                                   |
 | password       | string   | 否       | 密码，默认值为 `taosdata` 。                                 |

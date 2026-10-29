@@ -7,7 +7,7 @@ const args = process.argv.slice(2),
   opt = (key, def) => (args.includes(key) ? args[args.indexOf(key) + 1] : def);
 if (args.includes('--help')) {
   console.log(
-    'node check-links.cjs --frontend DIR --sources DIR --dist DIR --version VERSION --output DIR [--builds JSON] [--inventory-only] [--resume] [--offline]',
+    'node check-links.cjs --frontend DIR --sources DIR --dist DIR --version VERSION --output DIR [--builds JSON] [--inventory-only] [--resume] [--offline] [--allow-unverified-external]',
   );
   process.exit(0);
 }
@@ -492,6 +492,20 @@ async function check(record) {
     checkedAt: new Date().toISOString(),
   };
 }
+function shouldFail(summary, results, allowUnverifiedExternal) {
+  const confirmedFailure = results.some((r) =>
+    ['NOT_FOUND', 'BROKEN'].includes(r.status),
+  );
+  const unverified = results.some((r) =>
+    ['ERROR', 'UNVERIFIED', 'BLOCKED'].includes(r.status),
+  );
+  return Boolean(
+    summary.localMissing ||
+    summary.missingAnchors ||
+    confirmedFailure ||
+    (!allowUnverifiedExternal && unverified),
+  );
+}
 // END_HTTP
 (async () => {
   let next = 0,
@@ -532,6 +546,7 @@ async function check(record) {
   for (const r of results) counts[r.status] = (counts[r.status] || 0) + 1;
   const report = {
     generatedAt: new Date().toISOString(),
+    allowUnverifiedExternal: args.includes('--allow-unverified-external'),
     reference:
       'emqx.com/.agents/skills/external-link-audit/scripts/audit-external-links.mjs',
     rules:
@@ -562,13 +577,17 @@ async function check(record) {
   );
   console.log(JSON.stringify(report.summary, null, 2));
 
-  if (
-    report.summary.localMissing ||
-    report.summary.missingAnchors ||
-    results.some((r) =>
-      ['NOT_FOUND', 'BROKEN', 'ERROR', 'UNVERIFIED'].includes(r.status),
-    )
-  )
+  const allowUnverifiedExternal = args.includes('--allow-unverified-external');
+  for (const result of results.filter((r) =>
+    ['ERROR', 'UNVERIFIED', 'BLOCKED'].includes(r.status),
+  )) {
+    const message = `External link remains unverified (${result.status}): ${result.url}`;
+    console.warn(
+      (process.env.GITHUB_ACTIONS === 'true' ? '::warning::' : 'WARNING: ') +
+        message,
+    );
+  }
+  if (shouldFail(report.summary, results, allowUnverifiedExternal))
     process.exitCode = 1;
 })().catch((e) => {
   console.error(e);

@@ -2,3 +2,5 @@
 .DS_Store
 .history/
 .idea/
+__pycache__/
+*.pyc

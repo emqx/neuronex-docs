@@ -1,0 +1,27 @@
+name: Check Scripts
+
+on:
+  push:
+    paths:
+      - '.github/scripts/**'
+      - '.github/workflows/check_scripts.yaml'
+  pull_request:
+    paths:
+      - '.github/scripts/**'
+      - '.github/workflows/check_scripts.yaml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+        cache: npm
+        cache-dependency-path: .github/scripts/package-lock.json
+    - run: npm ci --prefix .github/scripts
+    - run: node --test .github/scripts/check-links.test.cjs

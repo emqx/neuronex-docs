@@ -141,5 +141,5 @@ NeuronEX allows users to customize extensions to support AI/ML and other functio
 
 ### [Configuration](./config.md)
 
-The configuration page introduces the [Resource](./config.md#Resource) configuration and [Mode](./config.md#Mode) configuration of the NeuronEX data analysis module.
+The configuration page introduces the [Resource](./config.md#resource) configuration and [Mode](./config.md#schema) configuration of the NeuronEX data analysis module.
 

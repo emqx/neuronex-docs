@@ -24,7 +24,7 @@ If you want to save the settings as a template, you can also click **Add Sink Te
 
 | Property name         | Optional | Description                                                                                                                                                                                                                                                        |
 |-----------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| path                  | false    | The file path for saving the result, such as `/tmp/result.txt`. Support to use template for dynamic file name, please check [dynamic properties](../overview.md#dynamic-properties) for detail.                                                                    |
+| path                  | false    | The file path for saving the result, such as `/tmp/result.txt`. Support to use template for dynamic file name, please check [dynamic properties](sink.md#dynamic-properties) for detail.                                                                    |
 | fileType              | true     | The type of the file, could be json, csv or lines. Default value is lines. Please check [file types](#file-types) for detail.                                                                                                                                      |
 | hasHeader             | true     | Whether to produce the header line. Currently, it is only effective for csv file type. Deduce the header from the first data and sort the keys alphabetically.                                                                                                     |
 | rollingInterval       | true     | One of the property to set the [rolling strategy](#rolling-strategy). The minimum time interval in millisecond to roll to a new file. The frequency at which this is checked is controlled by the checkInterval.                                                   |
@@ -34,7 +34,7 @@ If you want to save the settings as a template, you can also click **Add Sink Te
 | compression           | true     | Compress the payload with the specified compression method. Support  `gzip`, `zstd` method now.                                                                                                                                                                    |
 
 Other common sink properties are supported. Please refer to
-the [sink common properties](../overview.md#common-properties) for more information.
+the [sink common properties](sink.md#sink-public-parameter-configuration) for more information.
 Among them, the `format` property is used to define the format of the data in the file. Some file types can only work
 with specific format. Please check [file types](#file-types) for detail.
 
@@ -46,7 +46,7 @@ The file sink can write data into different file types, such as:
   stream definition. For example, to write line-separated JSON strings, set the file type to lines and the format to
   json.
 - json: This type writes standard JSON array format files. For an example,
-  see [here](https://github.com/lf-edge/ekuiper/tree/master/internal/topo/source/test/test.json). To use this file type,
+  see `[{"temperature":23.5},{"temperature":24.1}]`. To use this file type,
   set the format to json.
 - csv: This type writes comma-separated csv files. You can also use custom separators. To use this file type, set the
   format to delimited.

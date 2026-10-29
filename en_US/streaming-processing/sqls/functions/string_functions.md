@@ -26,7 +26,7 @@ format_time(col, format)
 
 Format a datetime to string. The 'col' will be [cast to datetime type](./transform_functions.md#cast-to-datetime) if it
 is
-bigint, float or string type before formatting. Please check [format patterns](#formattime-patterns) for how to compose
+bigint, float or string type before formatting. Please check [format patterns](#format-time-patterns) for how to compose
 the format.
 
 ### Format_time patterns

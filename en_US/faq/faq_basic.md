@@ -67,7 +67,7 @@ The minimum collection interval of NeuronEX is `100ms`. If you need a lower inte
 
 ## Does NeuronEX support device control?
 
-Yes. NeuronEX supports device control, provides several device control methods such as [RestAPI](https://docs.emqx.com/en/neuronex/latest/api/api-docs.html#tag/rw), [MQTT](../configuration/north-apps/mqtt/api.md#写-tag), [edge computing control](../streaming-processing/sink/neuron.md), etc., and supports intelligent control decision-making of industrial equipment.
+Yes. NeuronEX supports device control, provides several device control methods such as [RestAPI](../api/api-docs.md#tag/rw), [MQTT](../configuration/north-apps/mqtt/api.md#write-tag), [edge computing control](../streaming-processing/sink/neuron.md), etc., and supports intelligent control decision-making of industrial equipment.
 
 ## Does NeuronEX support self-developed drivers?
 

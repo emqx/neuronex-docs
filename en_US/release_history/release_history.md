@@ -1,5 +1,13 @@
 # Release History
 
+## v4.0.1
+
+Release Date: 2026-10-23
+
+### Enhancements
+
+- Support for 3.x to 4.x upgrades: Automated data upgrade scripts integrated in images and installation packages.
+
 ## v4.0.0
 
 Release Date: 2026-10-01

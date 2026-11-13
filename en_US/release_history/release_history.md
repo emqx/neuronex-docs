@@ -1,5 +1,13 @@
 # Release History
 
+## v4.0.2
+
+Release Date: 2026-11-13
+
+### Enhancements
+
+- Support for batch activation of rules: Within the Rules management of Data processing, user can activate all selected rules with a single click.
+
 ## v4.0.1
 
 Release Date: 2026-10-23

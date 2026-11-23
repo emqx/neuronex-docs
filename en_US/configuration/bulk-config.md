@@ -1,6 +1,6 @@
 # Bulk Configuration and Migration
 
-For configuring a single driver or tag, see [Create a Southbound Driver](./south-devices/south-devices.md) and [Groups and Tags](./groups-tags/groups-tags.md). Real projects usually involve dozens or hundreds of identical devices and thousands of tags per node, where entering them one by one is impractical. This section covers four bulk methods.
+For configuring a single driver or tag, see [Create a Southbound Driver](./south-devices/south-devices.md) and [Groups and Tags](./groups-tags/groups-tags.md). Real projects usually involve dozens or hundreds of identical devices and thousands of tags per node, where entering them one by one is impractical. This section lists the bulk methods available.
 
 ## Choosing a method
 
@@ -8,7 +8,9 @@ For configuring a single driver or tag, see [Create a Southbound Driver](./south
 | --- | --- |
 | Hundreds or thousands of tags within one node | [Batch tag configuration](./import-export/import-export.md) (Excel import/export) |
 | Duplicate a configured driver and change only its connection parameters | [Driver duplication](#driver-duplication) |
+| Duplicate a configured northbound application | [Copy a northbound application](./north-apps/north-apps.md#copy-a-northbound-application) |
 | Back up a whole instance, or move it to another one | [Southbound device import and export](#southbound-device-import-and-export) |
+| Export selected northbound applications, or move them to another instance | [Export selected applications](./north-apps/north-apps.md#export-selected-applications) |
 | Migrate from KEPServerEX, Litmus Edge, and similar platforms | [Driver Migration Tool](./driver-migration-tool.md) |
 
 ## Driver duplication

@@ -335,6 +335,10 @@
               "path": "configuration/south-devices/ab-1400/ab-1400"
             },
             {
+              "title": "Allen-Bradley SLC 5/05",
+              "path": "configuration/south-devices/ethernet-ip-slc505/ethernet-ip-slc505"
+            },
+            {
               "title": "Allen-Bradley DF1",
               "path": "configuration/south-devices/df1/df1"
             },
@@ -1565,6 +1569,10 @@
             {
               "title": "Allen-Bradley MicroLogix 1400",
               "path": "configuration/south-devices/ab-1400/ab-1400"
+            },
+            {
+              "title": "Allen-Bradley SLC 5/05",
+              "path": "configuration/south-devices/ethernet-ip-slc505/ethernet-ip-slc505"
             },
             {
               "title": "Allen-Bradley DF1",

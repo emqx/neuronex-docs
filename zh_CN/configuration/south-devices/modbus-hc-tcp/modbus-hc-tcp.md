@@ -47,6 +47,18 @@ EMQX Neuron 的 Inovance Modbus TCP 驱动适配汇川 PLC 点位。
 * DOUBLE
 * STRING
 * BYTES
+* AUTO
+
+数据类型选 **AUTO** 时，驱动按地址区名决定实际类型，与该区的寻址宽度一致。INT32、FLOAT、STRING、BYTES 等仍需显式指定。
+
+| 地址 | 实际类型 | 示例 |
+| --- | --- | --- |
+| X、Y、B、M、S、SM、MX、QX、IX | BIT | `X0`、`QX0.0` |
+| D、R、MW、IW、QW | UINT16；带 `.0`～`.15` 时为 BIT | `D0`、`MW0.3` |
+| MB、IB、QB | UINT8；带 `.0`～`.15` 时为 BIT | `MB0` |
+| MD、ID、QD、SD | UINT32；带 `.0`～`.15` 时为 BIT | `MD0` |
+
+寄存器地址可以带 `#ENDIAN`，实际类型不变。`.BIT` 与 `#ENDIAN` 不能写在同一地址上。点位配置中的类型保持 AUTO。第一次采集成功后，上报值和写入校验使用上表中的实际类型；在此之前读取或写入返回 `3011`。AUTO 点位必须可读，只写返回 `2204`。
 
 ### 地址格式
 

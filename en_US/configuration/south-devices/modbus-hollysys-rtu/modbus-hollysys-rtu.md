@@ -46,6 +46,16 @@ The data types and address formats supported by this driver are listed below.
 * INT16
 * UINT16
 * WORD
+* AUTO
+
+With data type **AUTO**, the driver picks the concrete type from the area name. BOOL and WORD are not inferred; select them explicitly when needed.
+
+| Address | Concrete type | Example |
+| --- | --- | --- |
+| IX, QX, MX, bit 0–7 | BIT | `1!IX1.0` |
+| IW, QW, MW | UINT16 | `1!QW0`, `1!MW1#B` |
+
+A word address cannot include `.BIT`. The configured type stays AUTO. After the first successful poll, reported values and write checks use the concrete type in the table. Reads and writes before that return `3011`. An AUTO tag must be readable; a write-only tag returns `2204`.
 
 ### Address format
 

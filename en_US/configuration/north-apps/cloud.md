@@ -7,11 +7,12 @@ Publish tags collected by southbound drivers to a cloud platform or an MQTT brok
 | <div style="width:80pt">Application</div> | Target | Authentication |
 | --- | --- | --- |
 | [MQTT](./mqtt/overview.md) | Any MQTT broker: EMQX or self-hosted | Username and password, TLS with one-way or mutual authentication |
+| [MQTT V2](./mqtt-v2/overview.md) | Any MQTT broker. Topics are organized per device, and state is published as a retained message | Username and password, TLS with one-way or mutual authentication |
 | [EMQX Cloud](./emqx-cloud/overview.md) | The managed MQTT service from EMQ, through the MQTT application | Username and password over TLS |
 | [AWS IoT](./aws-iot/overview.md) | AWS IoT Core | Device certificate and private key |
 | [Azure IoT](./azure-iot/overview.md) | Azure IoT Hub | SAS token or X.509 certificate |
 
-All three are built on MQTT and share most configuration parameters. AWS IoT and Azure IoT embed the topic rules and certificate scheme of their platform, so only the platform credentials have to be supplied.
+These applications are built on MQTT. AWS IoT and Azure IoT embed the topic rules and certificate scheme of their platform, so only the platform credentials have to be supplied. [MQTT V2](./mqtt-v2/overview.md) generates topics per device; its default data topic is `neuron/{application}/{device}/data`, not the `/neuron/{application}/{driver}/{group}` pattern below.
 
 ::: tip
 Running several MQTT application nodes in one EMQX Neuron instance is not recommended, as it may cause reduced throughput and resource contention. To publish to several destinations, add multiple subscriptions under one node, or use different northbound application types.

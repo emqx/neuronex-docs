@@ -69,12 +69,13 @@ OPC UA Part9 条件和报警功能，必须在 Subscribe 模式下使用。
 
 - 关于命名空间索引和节点 ID 的解释，请参考 OPC UA 标准。
 
-- EMQX Neuron 设置的数据类型必须与 OPC UA 数据类型相匹配。
+- 显式指定数据类型时，必须与 OPC UA 数据类型相匹配；使用 AUTO 时，由驱动自动识别类型。
 
 :::
 
 ### 数据类型
 
+* AUTO（自动识别 OPC UA 数据类型，`type` 为 0）
 * INT8（用于表示 OPC UA SBYTE 类型）
 * INT16
 * INT32
@@ -141,6 +142,12 @@ JSON 展示和写入形式为 JSON 字符串。
 OPC UA Extension Object 支持数组和嵌套。
 
 条件，报警和 Method 的类型都为 JSON。
+
+#### AUTO 类型
+
+支持 AUTO（`type` 为 0）类型。配置为 AUTO 后，驱动会根据首次收到的有效 OPC UA 值自动识别实际数据类型，点位配置保持为 AUTO。
+
+AUTO 支持标量、数组、带索引数组和 ExtensionObject。点位必须具有 Read 或 Subscribe 属性；Method 和只写点位不支持。ExtensionObject 以 JSON 形式返回。
 
 ### 数据类型转换
 

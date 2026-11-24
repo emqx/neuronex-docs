@@ -30,6 +30,7 @@ The data types and address formats supported by this driver are listed below.
 
 ### Data Types
 
+* AUTO (automatic data type detection; `type` is 0)
 * UINT8
 * INT8
 * INT16
@@ -42,6 +43,12 @@ The data types and address formats supported by this driver are listed below.
 * DOUBLE
 * BIT
 * STRING
+
+### AUTO Type
+
+AUTO (`type` is 0) is supported. The driver determines the data type from the tag address: the F area resolves to INT8, other areas without a suffix resolve to INT16, `.0` to `.15` resolve to BIT, and `.16` to `.128` with an even length, or an even length with an `H`/`L` suffix, resolves to STRING.
+
+AUTO tags must have the Read or Subscribe attribute; write-only tags are not supported.
 
 ### Address Format
 
@@ -107,7 +114,7 @@ When the data type is string type, it is a required, **.LEN** indicates the leng
 | A2.30       | string    | A area, address 2, the string length is 30 bytes and the endianness is L       |
 | W3.40H      | string    | W area, address 3, the string length is 40 bytes and the endianness is H       |
 | W3.10       | string    | W area, address 3, the string length is 10 bytes and the endianness is L       |
-| H4.15L      | string    | H area, address 4, the string length is 15 bytes and the endianness is L       |
+| H4.14L      | string    | H area, address 4, the string length is 14 bytes and the endianness is L       |
 | H4.10       | string    | H area, address 4, the string length is 10 bytes and the endianness is L       |
 | D5.20H      | string    | D area, address 5, the string length is 20 bytes and the endianness is H       |
 | D5.30       | string    | D area, address 5, the string length is 30 bytes and the endianness is L       |

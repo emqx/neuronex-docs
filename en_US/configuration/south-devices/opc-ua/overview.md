@@ -71,12 +71,13 @@ The data types and address formats supported by this driver are listed below.
 Use UaExpert to find the **Namespace Index** (`NamespaceIndex`) and the **Node ID** (`Identifier`). For details, see [UaExpert](./uaexpert.md).
 
 - For an explanation of namespace indexes and node ids, refer to the OPC UA standard.
-- The data type you set in EMQX Neuron must match the data type on the server.
+- When you specify a data type explicitly, it must match the data type on the server. With AUTO, the driver detects the data type automatically.
 
 :::
 
 ### Data Types
 
+* AUTO (automatic OPC UA data type detection; `type` is 0)
 * INT8 (OPC UA SBYTE type)
 * INT16
 * INT32
@@ -141,6 +142,12 @@ Use UaExpert to find the **Namespace Index** (`NamespaceIndex`) and the **Node I
 ARRAY_CHAR displays and writes in the form of a string.
 JSON displays and writes in the form of a JSON string.
 OPC UA Extension Object supports arrays and nesting.
+
+### AUTO Type
+
+AUTO (`type` is 0) is supported. When a tag is configured as AUTO, the driver detects the actual data type from the first valid OPC UA value; the configured type remains AUTO.
+
+AUTO supports scalars, arrays, arrays with an index, and ExtensionObject. The tag must have the Read or Subscribe attribute; Method and write-only tags are not supported. ExtensionObject values are returned as JSON.
 
 ### Address Format
 

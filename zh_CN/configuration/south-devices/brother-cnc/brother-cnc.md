@@ -1,6 +1,6 @@
 # Brother CNC
 
-Brother CNC 驱动用于通过 Brother NC 协议访问 Brother（兄弟）数控加工中心，采集机床的坐标、主轴、刀具、报警、计件、程序号、PLC 软元件以及刀具补偿等运行数据。驱动支持通过串口（Serial）或以太网（Ethernet）两种物理链路与设备建立连接。
+Brother CNC 驱动用于通过 Brother NC 协议访问 Brother（兄弟）数控加工中心，采集机床的坐标、主轴、刀具、报警、计件、生产时间、运行状态、日期时间、急停状态、程序号、PLC 软元件以及刀具补偿等运行数据。驱动支持通过串口（Serial）或以太网（Ethernet）两种物理链路与设备建立连接。
 
 通用配置步骤见[添加南向驱动](../south-devices.md)与[组与点位](../../groups-tags/groups-tags.md)。
 
@@ -85,8 +85,35 @@ Brother CNC 驱动按数据区域（Area）组织点位地址，不同区域的�
 
 | 地址 | 数据类型 | 属性 | 说明 |
 | ----------------- | -------------------------------------- | ---- | -------- |
-| PRDC2.CYCLE_TIME | INT16/UINT16/INT32/UINT32/INT64/UINT64 | 只读 | 循环时间 |
-| PRDC2.CUTTING_TIME | INT16/UINT16/INT32/UINT32/INT64/UINT64 | 只读 | 切削时间 |
+| PRDC2.CYCLE_TIME | INT16/UINT16/INT32/UINT32/INT64/UINT64/STRING | 只读 | 循环时间；STRING 类型返回 HHHH:MM:SS.t 格式 |
+| PRDC2.CUTTING_TIME | INT16/UINT16/INT32/UINT32/INT64/UINT64/STRING | 只读 | 切削时间；STRING 类型返回 HHHH:MM:SS.t 格式 |
+
+#### PRD3（运行状态数据）
+
+| 地址 | 数据类型 | 属性 | 说明 |
+| ----------------- | --------------------------------------------------- | ---- | ---------------------------------------------------------------------- |
+| PRD3.CURRENT_STATUS | INT16/UINT16/INT32/UINT32/INT64/UINT64 | 只读 | 当前运行状态：1 电源关闭，2 待机，3 运行中，4 已停止，5 错误 |
+| PRD3.TAKT_TIME | INT16/UINT16/INT32/UINT32/INT64/UINT64/FLOAT/DOUBLE | 只读 | 节拍时间，由驱动计算，单位为秒 |
+
+#### MONTR（时间统计数据）
+
+| 地址 | 数据类型 | 属性 | 说明 |
+| ----------------- | --------------------------------------------------- | ---- | ----------------------------------------------- |
+| MONTR.TOTAL_OPERATION_TIME | INT16/UINT16/INT32/UINT32/INT64/UINT64/FLOAT/DOUBLE/STRING | 只读 | 总操作时间；数值类型返回秒数，STRING 返回 HHHH:MM:SS |
+| MONTR.POWER_ON_TIME | INT16/UINT16/INT32/UINT32/INT64/UINT64/FLOAT/DOUBLE/STRING | 只读 | 通电时间；数值类型返回秒数，STRING 返回 HHHH:MM:SS |
+| MONTR.OPERATION_TIME | INT16/UINT16/INT32/UINT32/INT64/UINT64/FLOAT/DOUBLE/STRING | 只读 | 操作时间；数值类型返回秒数，STRING 返回 HHHH:MM:SS |
+
+#### DATE（日期时间数据）
+
+| 地址 | 数据类型 | 属性 | 说明 |
+| ----------- | -------- | ---- | ------------------------------------ |
+| DATE.TIME | STRING | 只读 | 日期时间，格式为 YYYY-MM-DD HH:MM:SS |
+
+#### PANEL（面板状态数据）
+
+| 地址 | 数据类型 | 属性 | 说明 |
+| ----------------------- | ------------------------------------------------------------- | ---- | ---------------------------------- |
+| PANEL.EMERGENCY_STOP | INT16/UINT16/INT32/UINT32/INT64/UINT64/BIT/BOOL | 只读 | 紧急停止状态，0 表示关闭，1 表示开启 |
 
 #### PRGN（程序号数据）
 
@@ -120,6 +147,13 @@ Brother CNC 驱动按数据区域（Area）组织点位地址，不同区域的�
 | ALARM.1 | INT32 | 报警数据第 1 列 |
 | WKCNTR.COUNT | INT32 | 加工计件数 |
 | PRDC2.CYCLE_TIME | INT32 | 循环时间 |
+| PRDC2.CYCLE_TIME | STRING | 循环时间，格式 HHHH:MM:SS.t |
+| PRD3.CURRENT_STATUS | INT32 | 当前运行状态 |
+| PRD3.TAKT_TIME | DOUBLE | 节拍时间，单位为秒 |
+| MONTR.TOTAL_OPERATION_TIME | INT32 | 总操作时间，单位为秒 |
+| MONTR.OPERATION_TIME | STRING | 操作时间，格式 HHHH:MM:SS |
+| DATE.TIME | STRING | 日期时间 |
+| PANEL.EMERGENCY_STOP | BOOL | 紧急停止状态 |
 | PRGN.CURRENT | INT32 | 当前程序号 |
 | PRGN.MAIN | STRING | 主程序号 |
 | PLCD.D.100 | INT16 | D 寄存器，地址为 100 |

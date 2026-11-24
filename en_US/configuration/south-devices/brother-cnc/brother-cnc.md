@@ -1,6 +1,6 @@
 # Brother CNC
 
-The Brother CNC driver is used to access Brother CNC machining centers via the Brother NC protocol. It collects machine operating data such as axis coordinates, spindle, tool, alarms, workpiece count, program number, PLC devices, and tool offset data. The driver supports connecting to the device over either a serial (Serial) or Ethernet link.
+The Brother CNC driver is used to access Brother CNC machining centers via the Brother NC protocol. It collects machine operating data such as axis coordinates, spindle, tool, alarms, workpiece count, production time, operating status, date and time, emergency-stop status, program number, PLC devices, and tool offset data. The driver supports connecting to the device over either a serial (Serial) or Ethernet link.
 
 For the generic steps, see [Create a Southbound Driver](../south-devices.md) and [Groups and Tags](../../groups-tags/groups-tags.md).
 
@@ -90,8 +90,35 @@ The Brother CNC driver organizes tag addresses by data area. The address format 
 
 | Address | Data Type | Attribute | Description |
 | ----------------- | -------------------------------------- | --------- | ------------ |
-| PRDC2.CYCLE_TIME | INT16/UINT16/INT32/UINT32/INT64/UINT64 | Read | Cycle time |
-| PRDC2.CUTTING_TIME | INT16/UINT16/INT32/UINT32/INT64/UINT64 | Read | Cutting time |
+| PRDC2.CYCLE_TIME | INT16/UINT16/INT32/UINT32/INT64/UINT64/STRING | Read | Cycle time. STRING values use the HHHH:MM:SS.t format. |
+| PRDC2.CUTTING_TIME | INT16/UINT16/INT32/UINT32/INT64/UINT64/STRING | Read | Cutting time. STRING values use the HHHH:MM:SS.t format. |
+
+#### PRD3 (Operating Status Data)
+
+| Address | Data Type | Attribute | Description |
+| ----------------- | --------------------------------------------------- | --------- | ---------------------------------------------------------------------- |
+| PRD3.CURRENT_STATUS | INT16/UINT16/INT32/UINT32/INT64/UINT64 | Read | Current operating status: 1 power off, 2 standby, 3 running, 4 stopped, 5 error |
+| PRD3.TAKT_TIME | INT16/UINT16/INT32/UINT32/INT64/UINT64/FLOAT/DOUBLE | Read | Takt time calculated by the driver, in seconds |
+
+#### MONTR (Time Statistics Data)
+
+| Address | Data Type | Attribute | Description |
+| ----------------- | --------------------------------------------------- | --------- | ----------------------------------------------- |
+| MONTR.TOTAL_OPERATION_TIME | INT16/UINT16/INT32/UINT32/INT64/UINT64/FLOAT/DOUBLE/STRING | Read | Total operation time. Numeric values are in seconds; STRING values use HHHH:MM:SS. |
+| MONTR.POWER_ON_TIME | INT16/UINT16/INT32/UINT32/INT64/UINT64/FLOAT/DOUBLE/STRING | Read | Power-on time. Numeric values are in seconds; STRING values use HHHH:MM:SS. |
+| MONTR.OPERATION_TIME | INT16/UINT16/INT32/UINT32/INT64/UINT64/FLOAT/DOUBLE/STRING | Read | Operation time. Numeric values are in seconds; STRING values use HHHH:MM:SS. |
+
+#### DATE (Date and Time Data)
+
+| Address | Data Type | Attribute | Description |
+| ----------- | -------- | --------- | ------------------------------------ |
+| DATE.TIME | STRING | Read | Date and time in YYYY-MM-DD HH:MM:SS format |
+
+#### PANEL (Panel Status Data)
+
+| Address | Data Type | Attribute | Description |
+| ----------------------- | ------------------------------------------------------------- | --------- | ---------------------------------- |
+| PANEL.EMERGENCY_STOP | INT16/UINT16/INT32/UINT32/INT64/UINT64/BIT/BOOL | Read | Emergency-stop status: 0 off, 1 on |
 
 #### PRGN (Program Number Data)
 
@@ -125,6 +152,13 @@ The Brother CNC driver organizes tag addresses by data area. The address format 
 | ALARM.1 | INT32 | Alarm data column 1 |
 | WKCNTR.COUNT | INT32 | Workpiece count |
 | PRDC2.CYCLE_TIME | INT32 | Cycle time |
+| PRDC2.CYCLE_TIME | STRING | Cycle time in HHHH:MM:SS.t format |
+| PRD3.CURRENT_STATUS | INT32 | Current operating status |
+| PRD3.TAKT_TIME | DOUBLE | Takt time in seconds |
+| MONTR.TOTAL_OPERATION_TIME | INT32 | Total operation time in seconds |
+| MONTR.OPERATION_TIME | STRING | Operation time in HHHH:MM:SS format |
+| DATE.TIME | STRING | Date and time |
+| PANEL.EMERGENCY_STOP | BOOL | Emergency-stop status |
 | PRGN.CURRENT | INT32 | Current program number |
 | PRGN.MAIN | STRING | Main program number |
 | PLCD.D.100 | INT16 | D register at address 100 |

@@ -27,6 +27,7 @@ EMQX Neuron 支持 FINS UDP 协议、可以通过 FINS UDP 协议与欧姆龙 PL
 
 ### 数据类型
 
+* AUTO（自动识别数据类型，`type` 为 0）
 * UINT8
 * INT8
 * INT16
@@ -39,6 +40,12 @@ EMQX Neuron 支持 FINS UDP 协议、可以通过 FINS UDP 协议与欧姆龙 PL
 * DOUBLE
 * BIT
 * STRING
+
+### AUTO 类型
+
+支持 AUTO（`type` 为 0）类型。驱动会根据点位地址自动识别数据类型：F 区为 INT8，其他区域无后缀地址为 INT16，`.0`～`.15` 为 BIT，`.16`～`.128`（偶数长度）或带 `H`/`L` 的偶数长度地址为 STRING。
+
+AUTO 点位必须具有 Read 或 Subscribe 属性；只写点位不支持。
 
 ### 地址格式
 
@@ -99,7 +106,7 @@ EMQX Neuron 支持 FINS UDP 协议、可以通过 FINS UDP 协议与欧姆龙 PL
 | A2.30       | string   | A 区域，地址为 2，字符串长度 30 个字节，字节顺序为 L       |
 | W3.40H      | string   | W 区域，地址为 3，字符串长度 40 个字节，字节顺序为 H       |
 | W3.10       | string   | W 区域，地址为 3，字符串长度 10 个字节，字节顺序为 L       |
-| H4.15L      | string   | H 区域，地址为 4，字符串长度 15 个字节，字节顺序为 L       |
+| H4.14L      | string   | H 区域，地址为 4，字符串长度 14 个字节，字节顺序为 L       |
 | H4.10       | string   | H 区域，地址为 4，字符串长度 10 个字节，字节顺序为 L       |
 | D5.20H      | string   | D 区域，地址为 5，字符串长度 20 个字节，字节顺序为 H       |
 | D5.30       | string   | D 区域，地址为 5，字符串长度 30 个字节，字节顺序为 L       |

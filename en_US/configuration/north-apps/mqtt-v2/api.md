@@ -1,10 +1,10 @@
 # Upstream/Downstream Data Format
 
-This page describes how the MQTT V2 plugin uploads the collected data, and how to write tags through the MQTT V2 plugin. For the formats of status messages, see [MQTT V2 Overview](./overview.md#status-messages).
+This page describes how the MQTT V2 application uploads the collected data, and how to write tags through the MQTT V2 application. For the formats of status messages, see [MQTT V2 Overview](./overview.md#status-messages).
 
 ## Data Upload
 
-Each time a subscribed group reports, the plugin publishes a message to the data topic of the group, `{topic prefix}/{device name}/data` by default. Reports follow the collection interval of the southbound group, tags with the subscribe attribute are only reported when their values change.
+Each time a subscribed group reports, the application publishes a message to the data topic of the group, `{topic prefix}/{device name}/data` by default. Reports follow the collection interval of the southbound group, tags with the subscribe attribute are only reported when their values change.
 
 The message content is given by two JSON templates in the application configuration:
 
@@ -81,12 +81,23 @@ The data template can use the following variables:
 | `${TIME_LOCAL}` | Local time, such as `2026-11-16 08:00:00.123` |
 | `${TIME_UNIX}` | Current time, Unix timestamp in seconds |
 | `${TIME:format}` | Time in a strftime format, such as `${TIME:%Y-%m-%d %H:%M:%S}` |
+| `${TIME_LOCAL(timestamp)}` | Converts the timestamp in parentheses. Without parentheses, the group timestamp is converted. `TIME_UTC`, `TIME_RFC3339`, `TIME_UNIX` and `TIME:format` take the same argument |
 | `${tags}` | All tags, expanded as an array |
 | `${tags_kv}` | All tags, expanded as an object keyed by tag names |
 | `${tags[name]}` | A single tag, expanded with the tag template |
 | `${tags[name].attribute}` | An attribute of a single tag, attributes as in the tag template, such as `${tags[tag0].value}` |
 | `${properties}` | All the device properties, expanded as an object; left out when the device has none |
 | `${properties[key]}` | A single device property |
+
+The timestamp in parentheses is Unix time in milliseconds, the same unit as `${timestamp}` and `${tag.timestamp}`.
+
+| Argument | Where | Example |
+| --- | --- | --- |
+| `timestamp` | Data template and tag template | `${TIME_LOCAL(timestamp)}`, the same result as `${TIME_LOCAL}` |
+| `tag.timestamp`, `tag.sourceTimestamp`, `tag.serverTimestamp` | Tag template | `${TIME_UTC(tag.sourceTimestamp)}` |
+| `tags[name].timestamp` and the matching source and server timestamps | Data template | `${TIME_RFC3339(tags[tag0].timestamp)}` |
+
+When the tag does not have that timestamp, the field is left out.
 
 The tag template can use the following variables, and all the variables of the table above except `${tags}`, `${tags_kv}` and `${tags[...]}`:
 
@@ -173,7 +184,7 @@ Uploaded data:
 
 ## Write Tags
 
-Publish write requests to the write request topic of the device, `{topic prefix}/{device name}/write/request`, the plugin publishes the write results to `{topic prefix}/{device name}/write/response`.
+Publish write requests to the write request topic of the device, `{topic prefix}/{device name}/write/request`, the application publishes the write results to `{topic prefix}/{device name}/write/response`.
 
 ### Write Request
 

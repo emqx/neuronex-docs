@@ -1,6 +1,6 @@
 # MQTT V2
 
-MQTT V2 is a northbound MQTT plugin that organizes data by device. Each subscribed southbound device has its own set of topics:
+MQTT V2 is a northbound MQTT application that organizes data by device. Each subscribed southbound device has its own set of topics:
 
 - State topic: publishes a retained device state message, with the connection state, the running state and the device properties;
 - Data topic: uploads the collected data, in a format given by the data template and the tag template;
@@ -8,7 +8,7 @@ MQTT V2 is a northbound MQTT plugin that organizes data by device. Each subscrib
 
 The online state of the northbound application itself is also published as a retained message, with a will message registered. The cloud only needs to subscribe to the topics to get the latest state, properties and data of the devices.
 
-MQTT V2 and the [MQTT](../mqtt/overview.md) plugin can be used at the same time, the behavior of the MQTT plugin is unaffected.
+MQTT V2 and the [MQTT](../mqtt/overview.md) application can be used at the same time, the behavior of the MQTT application is unaffected.
 
 | Item | MQTT | MQTT V2 |
 | --- | --- | --- |
@@ -20,7 +20,7 @@ MQTT V2 and the [MQTT](../mqtt/overview.md) plugin can be used at the same time,
 
 ::: tip
 The **Client ID** of each northbound application must be unique. Connections with the same client ID take over each other, and the broker may publish the will, turning the online state to offline.
-The plugin subscribes to its own online state topic and to the write request topic of each device. When configuring ACLs on the MQTT broker, grant the subscribe and publish permissions of these topics.
+The application subscribes to its own online state topic and to the write request topic of each device. When configuring ACLs on the MQTT broker, grant the subscribe and publish permissions of these topics.
 :::
 
 ## Add Application
@@ -56,13 +56,13 @@ Take the default prefix `neuron/${app}`, a northbound application named `mqtt-v2
 
 | Usage | Topic | Direction | Retain |
 | --- | --- | --- | --- |
-| Online state | `neuron/mqtt-v2/state` | Publish, also subscribed by the plugin | Yes |
+| Online state | `neuron/mqtt-v2/state` | Publish, also subscribed by the application | Yes |
 | Device state | `neuron/mqtt-v2/modbus-1/state` | Publish | Yes |
 | Device data | `neuron/mqtt-v2/modbus-1/data` | Publish | No |
 | Write request | `neuron/mqtt-v2/modbus-1/write/request` | Subscribe | — |
 | Write response | `neuron/mqtt-v2/modbus-1/write/response` | Publish | No |
 
-- The plugin subscribes to the write request topic of a device once the device is first subscribed, and unsubscribes when all groups of the device are unsubscribed.
+- The application subscribes to the write request topic of a device once the device is first subscribed, and unsubscribes when all groups of the device are unsubscribed.
 - `+` and `#` in names are replaced by `_` in topics, the messages keep the original names.
 - After changing the topic prefix, the northbound application name or the southbound device name, all topics are updated, and the retained states under the old topics are cleared.
 
@@ -73,14 +73,14 @@ Status messages have fixed formats, unaffected by the templates. They are all re
 ### Online State
 
 - A will message `{"online": false}` is registered when connecting to the broker.
-- Once connected, the plugin publishes:
+- Once connected, the application publishes:
 
   ```json
   {"online": true, "timestamp": 1731744000123}
   ```
 
-- When the application stops normally, the plugin publishes `{"online": false, "timestamp": ...}` before disconnecting, which does not trigger the will.
-- If the topic is changed to offline while running, for example by the late will of an old connection, the plugin publishes the online state again.
+- When the application stops normally, the application publishes `{"online": false, "timestamp": ...}` before disconnecting, which does not trigger the will.
+- If the topic is changed to offline while running, for example by the late will of an old connection, the application publishes the online state again.
 
 ### Device State
 

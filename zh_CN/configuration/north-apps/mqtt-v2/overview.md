@@ -1,6 +1,6 @@
 # MQTT V2
 
-MQTT V2 是按设备组织数据的 MQTT 北向插件。每个订阅的南向设备都有自己的一组 topic：
+MQTT V2 是按设备组织数据的 MQTT 北向应用。每个订阅的南向设备都有自己的一组 topic：
 
 - 状态 topic：发布 retain 的设备状态消息，包含连接状态、运行状态和设备属性；
 - 数据 topic：上报采集数据，格式由数据模板和点位模板决定；
@@ -8,7 +8,7 @@ MQTT V2 是按设备组织数据的 MQTT 北向插件。每个订阅的南向设
 
 北向应用本身的在线状态也以 retain 消息发布，并注册了遗嘱消息。云端只需订阅 topic，就能拿到设备的最新状态、属性和数据。
 
-MQTT V2 与 [MQTT](../mqtt/overview.md) 插件可以同时使用，MQTT 插件的行为不受影响。
+MQTT V2 与 [MQTT](../mqtt/overview.md) 应用可以同时使用，MQTT 应用的行为不受影响。
 
 | 对比项 | MQTT | MQTT V2 |
 | --- | --- | --- |
@@ -20,10 +20,10 @@ MQTT V2 与 [MQTT](../mqtt/overview.md) 插件可以同时使用，MQTT 插件�
 
 ::: tip
 每个北向应用的 **客户端 ID** 必须唯一。客户端 ID 相同的连接会互相挤掉，broker 还可能发布遗嘱，把在线状态改成离线。
-插件会订阅自身的在线状态 topic 和各设备的写请求 topic。在 MQTT Broker 上配置 ACL 时，请为这些 topic 授予订阅和发布权限。
+应用会订阅自身的在线状态 topic 和各设备的写请求 topic。在 MQTT Broker 上配置 ACL 时，请为这些 topic 授予订阅和发布权限。
 :::
 
-## 添加插件
+## 添加应用
 
 在 **数据采集 -> 北向应用** 页面点击 **添加应用**，应用选择 **MQTT V2**。
 
@@ -56,13 +56,13 @@ MQTT V2 与 [MQTT](../mqtt/overview.md) 插件可以同时使用，MQTT 插件�
 
 | 用途 | Topic | 方向 | Retain |
 | --- | --- | --- | --- |
-| 北向在线状态 | `neuron/mqtt-v2/state` | 发布，插件同时订阅该 topic | 是 |
+| 北向在线状态 | `neuron/mqtt-v2/state` | 发布，应用同时订阅该 topic | 是 |
 | 设备状态 | `neuron/mqtt-v2/modbus-1/state` | 发布 | 是 |
 | 设备数据 | `neuron/mqtt-v2/modbus-1/data` | 发布 | 否 |
 | 写请求 | `neuron/mqtt-v2/modbus-1/write/request` | 订阅 | — |
 | 写响应 | `neuron/mqtt-v2/modbus-1/write/response` | 发布 | 否 |
 
-- 设备第一次被订阅时，插件开始订阅它的写请求 topic；该设备的所有组都取消订阅后，插件停止订阅。
+- 设备第一次被订阅时，应用开始订阅它的写请求 topic；该设备的所有组都取消订阅后，应用停止订阅。
 - 名称中的 `+` 和 `#` 在 topic 中会被替换为 `_`，消息内容中仍使用原名。
 - 修改 Topic 前缀、北向应用名或南向设备名后，所有 topic 会随之更新，旧 topic 下的 retain 状态会被清除。
 
@@ -80,7 +80,7 @@ MQTT V2 与 [MQTT](../mqtt/overview.md) 插件可以同时使用，MQTT 插件�
   ```
 
 - 应用正常停止时，先发布 `{"online": false, "timestamp": ...}`，再断开连接，这种情况不会触发遗嘱。
-- 运行期间如果该 topic 被改成离线状态，例如旧连接的遗嘱迟到，插件会重新发布在线状态。
+- 运行期间如果该 topic 被改成离线状态，例如旧连接的遗嘱迟到，应用会重新发布在线状态。
 
 ### 设备状态
 
@@ -100,7 +100,7 @@ MQTT V2 与 [MQTT](../mqtt/overview.md) 插件可以同时使用，MQTT 插件�
 
 - 连接或重连 Broker 后，发布全部已订阅设备的状态；
 - 设备第一次被订阅；
-- 设备的连接状态或运行状态变化，插件每秒检查一次；
+- 设备的连接状态或运行状态变化，应用每秒检查一次；
 - 设备属性变化。
 
 以下情况会发布空的 retain 消息，清除该设备的状态：

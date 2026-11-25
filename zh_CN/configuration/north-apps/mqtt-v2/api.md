@@ -1,10 +1,10 @@
 # 数据上下行格式
 
-以下介绍 MQTT V2 插件如何上报采集的数据，以及如何通过 MQTT V2 插件写点位。状态消息的格式见 [MQTT V2 概述](./overview.md#状态消息)。
+以下介绍 MQTT V2 应用如何上报采集的数据，以及如何通过 MQTT V2 应用写点位。状态消息的格式见 [MQTT V2 概述](./overview.md#状态消息)。
 
 ## 数据上报
 
-订阅的组每上报一次，插件就向该组的数据 topic 发布一条消息，默认 topic 为 `{Topic 前缀}/{设备名}/data`。上报的时机由南向组的采集间隔决定；对于设置了订阅属性的点位，只有值发生变化时才会上报。
+订阅的组每上报一次，应用就向该组的数据 topic 发布一条消息，默认 topic 为 `{Topic 前缀}/{设备名}/data`。上报的时机由南向组的采集间隔决定；对于设置了订阅属性的点位，只有值发生变化时才会上报。
 
 消息内容由应用配置中的两个 JSON 模板决定：
 
@@ -81,12 +81,23 @@
 | `${TIME_LOCAL}` | 本地时间，如 `2026-11-16 08:00:00.123` |
 | `${TIME_UNIX}` | 当前时间，Unix 秒级时间戳 |
 | `${TIME:格式}` | 按 strftime 格式输出时间，如 `${TIME:%Y-%m-%d %H:%M:%S}` |
+| `${TIME_LOCAL(时间戳)}` | 把括号中的时间戳转成对应格式。不写括号时转换组时间戳。`TIME_UTC`、`TIME_RFC3339`、`TIME_UNIX`、`TIME:格式` 同样可以带这个参数 |
 | `${tags}` | 全部点位，展开为数组 |
 | `${tags_kv}` | 全部点位，展开为以点位名为 key 的对象 |
 | `${tags[名称]}` | 单个点位，按点位模板展开 |
 | `${tags[名称].属性}` | 单个点位的某个属性，属性名同点位模板，如 `${tags[tag0].value}` |
 | `${properties}` | 设备的全部属性，展开为对象；没有属性时不输出 |
 | `${properties[key]}` | 设备的单个属性 |
+
+括号中的时间戳是 Unix 毫秒，和 `${timestamp}`、`${tag.timestamp}` 相同。
+
+| 参数 | 使用位置 | 示例 |
+| --- | --- | --- |
+| `timestamp` | 数据模板、点位模板 | `${TIME_LOCAL(timestamp)}`，与 `${TIME_LOCAL}` 相同 |
+| `tag.timestamp`、`tag.sourceTimestamp`、`tag.serverTimestamp` | 点位模板 | `${TIME_UTC(tag.sourceTimestamp)}` |
+| `tags[名称].timestamp` 及对应的 source、server 时间戳 | 数据模板 | `${TIME_RFC3339(tags[tag0].timestamp)}` |
+
+点位没有这个时间戳时，该字段不输出。
 
 点位模板中可以使用以下变量，以及上表中除 `${tags}`、`${tags_kv}`、`${tags[...]}` 以外的所有变量：
 
@@ -173,7 +184,7 @@
 
 ## 写点位
 
-向设备的写请求 topic `{Topic 前缀}/{设备名}/write/request` 发布写请求，插件把写入结果发布到 `{Topic 前缀}/{设备名}/write/response`。
+向设备的写请求 topic `{Topic 前缀}/{设备名}/write/request` 发布写请求，应用把写入结果发布到 `{Topic 前缀}/{设备名}/write/response`。
 
 ### 写请求
 

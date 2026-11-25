@@ -47,6 +47,18 @@ The data types and address formats supported by this driver are listed below.
 * DOUBLE
 * STRING
 * BYTES
+* AUTO
+
+With data type **AUTO**, the driver picks the concrete type from the area name, using that area's addressing width. INT32, FLOAT, STRING and BYTES still need an explicit type.
+
+| Address | Concrete type | Example |
+| --- | --- | --- |
+| X, Y, B, M, S, SM, MX, QX, IX | BIT | `X0`, `QX0.0` |
+| D, R, MW, IW, QW | UINT16, or BIT with `.0`–`.15` | `D0`, `MW0.3` |
+| MB, IB, QB | UINT8, or BIT with `.0`–`.15` | `MB0` |
+| MD, ID, QD, SD | UINT32, or BIT with `.0`–`.15` | `MD0` |
+
+A register address may include `#ENDIAN`; the concrete type stays the same. `.BIT` and `#ENDIAN` cannot appear on the same address. The configured type stays AUTO. After the first successful poll, reported values and write checks use the concrete type in the table. Reads and writes before that return `3011`. An AUTO tag must be readable; a write-only tag returns `2204`.
 
 ### Address format
 

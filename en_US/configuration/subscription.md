@@ -16,7 +16,7 @@ Click the northbound application card to open the **Group List** page, then clic
 | **Subscription South Driver Data** | Tick the collection groups to subscribe to. Expand a driver node to pick its groups; groups from different drivers can be ticked together and submitted as several subscriptions at once |
 | **Static Tags** | Optional. Fixed attributes published alongside the group's data, given as JSON key-value pairs — see [Static tags](./north-apps/mqtt/api.md#static-tags) |
 
-For MQTT and AWS IoT the default upload topic is `/neuron/{application}/{driver}/{group}`. Kafka falls back to the **default topic** in the application configuration. Azure IoT, Sparkplug B, OPC UA Server, and WebSocket derive their topic or node path from the protocol specification, so there is nothing to specify per subscription.
+For MQTT and AWS IoT the default upload topic is `/neuron/{application}/{driver}/{group}`. MQTT V2 prefills `${prefix}/${device}/data`, which is `neuron/{application}/{device}/data` by default — see [MQTT V2](./north-apps/mqtt-v2/overview.md#add-subscription). Kafka falls back to the **default topic** in the application configuration. Azure IoT, Sparkplug B, OPC UA Server, and WebSocket derive their topic or node path from the protocol specification, so there is nothing to specify per subscription.
 
 ## How subscriptions relate
 

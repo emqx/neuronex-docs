@@ -4,7 +4,7 @@ Once southbound drivers have collected the data, its destination determines whic
 
 | Use case | Application |
 | --- | --- |
-| [Send data to the cloud](./cloud.md)<br />Headquarters or a cloud platform consolidates data from several plants | [MQTT](./mqtt/overview.md) · [AWS IoT](./aws-iot/overview.md) · [Azure IoT](./azure-iot/overview.md) |
+| [Send data to the cloud](./cloud.md)<br />Headquarters or a cloud platform consolidates data from several plants | [MQTT](./mqtt/overview.md) · [MQTT V2](./mqtt-v2/overview.md) · [AWS IoT](./aws-iot/overview.md) · [Azure IoT](./azure-iot/overview.md) |
 | [Connect an IIoT platform (unified namespace)](./uns.md)<br />Let the platform model devices automatically, with no config change when devices are added | [Sparkplug B](./sparkplugb/overview.md) |
 | [Serve upper-level systems](./scada.md)<br />SCADA, MES, and configuration software read from the gateway without being modified | [OPC UA Server](./opcua-server/overview.md) · [WebSocket](./websocket/websocket.md) |
 | [Feed analytics and edge computing](./analytics.md)<br />Land in a data lake for long-term analysis, or filter and aggregate at the edge first | [Kafka](./kafka/overview.md) · [Rules Engine Application](./ekuiper/overview.md) |
@@ -25,6 +25,7 @@ Data is reported per **group**. One application can subscribe to many groups, an
 | <div style="width:100pt">Application</div> | <div style="width:70pt">Direction</div> | <div style="width:70pt">Write back</div> | <div style="width:60pt">Offline cache</div> | Security |
 | --- | --- | --- | --- | --- |
 | [MQTT](./mqtt/overview.md) | Push | Write request / response topics | Yes | TLS, mutual auth |
+| [MQTT V2](./mqtt-v2/overview.md) | Push | Per-device write request / response topics | Yes | TLS, mutual auth |
 | [Sparkplug B](./sparkplugb/overview.md) | Push | NCMD / DCMD commands | Yes | TLS, mutual auth |
 | [AWS IoT](./aws-iot/overview.md) | Push | Write request / response topics | Yes | Device certificate |
 | [Azure IoT](./azure-iot/overview.md) | Push | Cloud-to-device (C2D) messages | Yes | SAS token, X.509 certificate |

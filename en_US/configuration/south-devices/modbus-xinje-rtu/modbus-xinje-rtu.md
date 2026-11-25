@@ -57,6 +57,17 @@ The data types and address formats supported by this driver are listed below.
 * DOUBLE
 * STRING
 * BYTES
+* AUTO
+
+With data type **AUTO**, coil areas are BIT and cannot include `.BIT` or `#ENDIAN`. Register areas are UINT16, or BIT when the address has `.0`–`.15`. The address tables below list which areas are coils and which are registers for each PLC model. INT32, FLOAT, STRING and BYTES still need an explicit type.
+
+| Address | Concrete type | Example |
+| --- | --- | --- |
+| Coil, such as M, X, Y, S, T, C | BIT | `1!M0` |
+| Register, such as D, TD, CD, HD | UINT16 | `1!D0`, `1!D0#B` |
+| Register with `.0`–`.15` | BIT | `1!D0.3` |
+
+A register address may include `#ENDIAN`; the concrete type stays UINT16. `.BIT` and `#ENDIAN` cannot appear on the same address. The configured type stays AUTO. After the first successful poll, reported values and write checks use the concrete type in the table. Reads and writes before that return `3011`. An AUTO tag must be readable; a write-only tag returns `2204`.
 
 ### Address format
 

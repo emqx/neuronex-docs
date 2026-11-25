@@ -4,7 +4,7 @@
 
 | 使用场景 | 对应应用 |
 | --- | --- |
-| [数据上云](./cloud.md)<br />总部或云平台要汇总多个工厂的数据 | [MQTT](./mqtt/overview.md) · [AWS IoT](./aws-iot/overview.md) · [Azure IoT](./azure-iot/overview.md) |
+| [数据上云](./cloud.md)<br />总部或云平台要汇总多个工厂的数据 | [MQTT](./mqtt/overview.md) · [MQTT V2](./mqtt-v2/overview.md) · [AWS IoT](./aws-iot/overview.md) · [Azure IoT](./azure-iot/overview.md) |
 | [对接工业物联网平台（统一命名空间）](./uns.md)<br />让平台自动认出设备，新增设备不用改平台配置 | [Sparkplug B](./sparkplugb/overview.md) |
 | [对接上位系统](./scada.md)<br />SCADA、MES、组态软件要从网关取数，且不改造这些系统 | [OPC UA Server](./opcua-server/overview.md) · [WebSocket](./websocket/websocket.md) |
 | [接入大数据与边缘计算](./analytics.md)<br />进数据湖做长期分析，或先在边缘过滤聚合 | [Kafka](./kafka/overview.md) · [规则引擎应用](./ekuiper/overview.md) |
@@ -25,6 +25,7 @@
 | <div style="width:100pt">应用</div> | <div style="width:60pt">数据方向</div> | <div style="width:50pt">反控设备</div> | <div style="width:50pt">断网缓存</div> | 安全 |
 | --- | --- | --- | --- | --- |
 | [MQTT](./mqtt/overview.md) | 主动上报 | 写请求 / 写响应主题 | 支持 | TLS、双向认证 |
+| [MQTT V2](./mqtt-v2/overview.md) | 主动上报 | 按设备的写请求 / 写响应主题 | 支持 | TLS、双向认证 |
 | [Sparkplug B](./sparkplugb/overview.md) | 主动上报 | NCMD / DCMD 命令 | 支持 | TLS、双向认证 |
 | [AWS IoT](./aws-iot/overview.md) | 主动上报 | 写请求 / 写响应主题 | 支持 | 设备证书 |
 | [Azure IoT](./azure-iot/overview.md) | 主动上报 | 云到设备（C2D）消息 | 支持 | SAS 令牌、X.509 证书 |

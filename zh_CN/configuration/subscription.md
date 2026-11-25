@@ -16,7 +16,7 @@
 | **订阅南向驱动数据** | 勾选要订阅的采集组。展开驱动节点后逐个勾选，也可以跨驱动多选，一次提交建立多条订阅 |
 | **静态点位** | 选填。随该组数据一并上报的固定属性，填 JSON 键值对，见[静态点位](./north-apps/mqtt/api.md#静态点位) |
 
-MQTT、AWS IoT 的默认上报主题为 `/neuron/{北向应用名}/{南向驱动名}/{组名}`；Kafka 不指定 Topic 时使用应用配置中的**默认 Topic**；Azure IoT、Sparkplug B、OPC UA Server 和 WebSocket 的主题或节点路径由协议规范决定，不在订阅中指定。
+MQTT、AWS IoT 的默认上报主题为 `/neuron/{北向应用名}/{南向驱动名}/{组名}`。MQTT V2 预填 `${prefix}/${device}/data`，默认即 `neuron/{北向应用名}/{南向设备名}/data`，见 [MQTT V2](./north-apps/mqtt-v2/overview.md#添加订阅)。Kafka 不指定 Topic 时使用应用配置中的**默认 Topic**；Azure IoT、Sparkplug B、OPC UA Server 和 WebSocket 的主题或节点路径由协议规范决定，不在订阅中指定。
 
 ## 订阅关系
 

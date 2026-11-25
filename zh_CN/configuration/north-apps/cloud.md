@@ -7,11 +7,12 @@
 | <div style="width:70pt">应用</div> | 对接目标 | 认证方式 |
 | --- | --- | --- |
 | [MQTT](./mqtt/overview.md) | 任意 MQTT Broker：EMQX、自建 Broker | 用户名密码、TLS 单向或双向认证 |
+| [MQTT V2](./mqtt-v2/overview.md) | 任意 MQTT Broker。按设备组织 topic，状态以 retain 消息发布 | 用户名密码、TLS 单向或双向认证 |
 | [EMQX Cloud](./emqx-cloud/overview.md) | EMQ 托管的 MQTT 云服务，经 MQTT 应用接入 | 用户名密码 + TLS |
 | [AWS IoT](./aws-iot/overview.md) | AWS IoT Core | 设备证书与私钥 |
 | [Azure IoT](./azure-iot/overview.md) | Azure IoT Hub | SAS 令牌或 X.509 证书 |
 
-三者均基于 MQTT 协议，配置参数大部分相同。AWS IoT 与 Azure IoT 内置了对应平台的主题规则与证书体系，配置时只需填写平台凭据。
+这些应用均基于 MQTT 协议。AWS IoT 与 Azure IoT 内置了对应平台的主题规则与证书体系，配置时只需填写平台凭据。[MQTT V2](./mqtt-v2/overview.md) 的主题按设备生成，默认数据主题是 `neuron/{应用名}/{设备名}/data`，不是下面的 `/neuron/{应用名}/{驱动名}/{组名}`。
 
 ::: tip
 同一 EMQX Neuron 实例中不建议启用多个 MQTT 应用节点，可能导致性能下降与资源竞争。需要向多个目的地上报数据时，应在同一节点下添加多条订阅，或使用不同类型的北向应用。

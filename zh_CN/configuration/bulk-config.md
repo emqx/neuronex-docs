@@ -1,6 +1,6 @@
 # 批量配置与迁移
 
-单个驱动、单个点位的配置方式见[添加南向驱动](./south-devices/south-devices.md)与[组与点位](./groups-tags/groups-tags.md)。实际项目往往是几十上百个同型号设备、单节点上千个点位，逐个录入不现实。本节介绍四种批量手段。
+单个驱动、单个点位的配置方式见[添加南向驱动](./south-devices/south-devices.md)与[组与点位](./groups-tags/groups-tags.md)。实际项目往往是几十上百个同型号设备、单节点上千个点位，逐个录入不现实。本节列出可用的批量手段。
 
 ## 选择方式
 
@@ -8,7 +8,9 @@
 | --- | --- |
 | 单个节点内有成百上千个点位 | [批量点位配置](./import-export/import-export.md)（Excel 导入导出） |
 | 已配好的驱动整体复制一份，只改连接参数 | [驱动复制](#驱动复制) |
+| 已配好的北向应用再复制一份 | [复制北向应用](./north-apps/north-apps.md#复制北向应用) |
 | 备份整机配置，或迁移到另一个实例 | [南向设备导入导出](#南向设备导入导出) |
+| 导出指定北向应用，或迁到另一个实例 | [导出指定应用](./north-apps/north-apps.md#导出指定应用) |
 | 从 KEPServerEX、Litmus Edge 等平台迁移 | [驱动转换工具](./driver-migration-tool.md) |
 
 ## 驱动复制

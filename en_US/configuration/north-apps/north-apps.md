@@ -32,6 +32,7 @@ On **North Apps**, switch between list and card view in the upper right. On the 
 * **Name**: unique name of the northbound application.
 * **Application Configuration**: connection parameters.
 * **Edit**: change the node name.
+* **Copy**: create a new application from the current configuration. See [Copy a northbound application](#copy-a-northbound-application).
 * **Data Statistics**: runtime stats.
 * **DEBUG Log**: print DEBUG logs for this node; after about ten minutes the default level returns.
 * **Delete**: remove the node.
@@ -44,6 +45,22 @@ On **North Apps**, switch between list and card view in the upper right. On the 
 * **Working state switch**: on connects and reports; off disconnects.
 * **Connection state**: whether the peer is connected.
 * **Application**: application used by this application.
+
+## Copy a northbound application
+
+On the application card, click **Copy** and enter a new name. The new application receives the original application, connection parameters, tags, custom properties, and subscriptions. Client ID, device ID, topics, and certificates are copied as they are. The new application stays stopped. Turn on its working state before it connects upstream.
+
+Before connecting, change identifiers that must be unique, such as an MQTT client ID. Two applications using the same client ID will disconnect each other.
+
+`monitor`, `DataProcessing`, and applications that allow only one instance cannot be copied. If a subscribed southbound device or group no longer exists, the copy fails and no new application is left behind.
+
+## Export selected applications
+
+On **Data Collection → North Apps**, click **Export** at the upper right. When one or more applications are selected in the list, only those applications are exported. With nothing selected, every northbound application is exported, including `monitor` and `DataProcessing`. The file is JSON.
+
+Each application includes its name, application, tags, connection parameters, and subscriptions. Custom properties are included when the node has them. If some of the requested names do not exist, the applications that do exist are still exported. Export fails when none of them exist.
+
+**Import** uses that file. An ordinary application with the same name is deleted and created again from the file, and the properties in the file are written onto it. `monitor` and `DataProcessing` are not deleted. Import updates their connection parameters, tags, and subscriptions, and does not replace properties already on those applications. If a subscribed southbound device or group does not exist, import stops at that subscription. To make another application on the same instance, use copy rather than import.
 
 ## Subscribe to southbound data
 

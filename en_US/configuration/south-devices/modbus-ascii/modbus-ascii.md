@@ -50,6 +50,17 @@ The data types and address formats supported by this driver are listed below.
 * DOUBLE
 * BIT
 * STRING
+* AUTO
+
+With data type **AUTO**, the driver picks the concrete type from the address. Coils and single registers do not need BIT or UINT16 selected by hand. Types that span multiple registers or have a variable length, such as INT32, FLOAT and STRING, still need an explicit type.
+
+| Address | Concrete type | Example |
+| --- | --- | --- |
+| Coil `0` or discrete input `1`, with no suffix | BIT | `1!000001` |
+| Input register `3` or holding register `4` | UINT16 | `1!400001`, `1!400001#B` |
+| Register address with `.0`–`.15` | BIT | `1!400010.4` |
+
+`.BIT` and `#ENDIAN` cannot appear on the same address. The configured type stays AUTO. After the first successful poll, reported values and write checks use the concrete type in the table. Reads and writes before that return `3011`. An AUTO tag must be readable; a write-only tag returns `2204`.
 
 ### Address Format
 

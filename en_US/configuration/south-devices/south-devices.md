@@ -19,6 +19,8 @@ The node name appears in the default upload topic `/neuron/{application}/{driver
 
 Once created, the node appears on the South Devices page. Click its card to open **Device Configuration** and fill in the connection parameters, which differ per protocol.
 
+To add static information such as an asset identifier, installation location, or production line, configure it on the device's **Properties** tab. See [Device Properties](./device-attributes.md) for how to publish these properties through MQTT V2.
+
 ## Running state and link state
 
 The two states are independent and are shown separately on the card.
@@ -107,6 +109,7 @@ docker exec -it neuronex telnet <device IP> <port>
 
 ## Next steps
 
+- [Device Properties](./device-attributes.md): configure static device information and publish it with status or collected data through MQTT V2
 - [Groups and Tags](../groups-tags/groups-tags.md): organize collection groups, configure tag addresses, and shape the data
 - [Bulk Configuration and Migration](../bulk-config.md): create many nodes or tags at once
 - [Data Monitoring and Device Control](../../admin/monitoring.md): confirm the collected values and write commands back to devices

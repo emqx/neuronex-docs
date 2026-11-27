@@ -1,5 +1,55 @@
 # Release History
 
+## v3.9.5
+
+Release Date: 2026-11-26
+
+### Enhancements
+
+- Driver Improvements
+  - Added support for additional data points in the Brother driver, including operating status, cycle time, and total operation time.
+  - Added support for writing to multiple data points in a single operation for OPC DA. 
+  - Added support for Quality, Source Timestamp, and Server Timestamp attributes in OPC DA. 
+- Focas file upload: Added support for file aliases and comments. 
+- Rule actions can now be named and cloned. 
+- Added streaming `LEAD` analysis functions and a `WHEN ... UNTIL ...` look-ahead release mechanism. 
+- Added new analysis and array functions: `ACC_DISTINCT_COLLECT` and `ARRAY_POSITIONS`. 
+- Added support for custom naming of Sink Actions in SQL rules.
+- Security Enhancements
+  - RPC disable switch: Added the `basic.disableRpc` configuration option, allowing the RPC/CLI daemon service (port 20498) to be completely disabled when remote CLI management is not required. 
+  - Enhanced SSRF (Server-Side Request Forgery) protection for outbound network traffic. 
+  - Strengthened path traversal defense for Image Sinks. 
+  - Implemented secure SQL literal escaping for TDengine Sinks to prevent SQL injection risks. 
+  - Enhanced certificate validation and transmission integrity checks for HTTPS downloads.
+- Performance Optimizations
+  - Optimized performance for Slice Sinks (frame streams). 
+  - Added fault tolerance and retry mechanisms for rule set imports during cold starts. 
+  - Reduced log noise and consolidated error messages for excessively long rules.
+
+### Fixes
+
+- Fixed a potential crash occurring when writing bit values ​​via Modbus.
+- Added connectivity checks to the OPC UA client; resolved timeout issues during node browsing for S7-1500 PLCs.
+- Resolved issues with rule start/stop operations getting stuck due to context handling in SQL Sources, Sinks, and Lookups.
+- Fixed error wrapping for InfluxDB v1 Sinks.
+- Fixed field pruning issues in Graph rule streams.
+- Fixed a bug where MQTT v5 clients would fail to resubscribe upon reconnection in specific scenarios.
+- Improved safety for concurrent rule termination; fixed a null pointer crash caused by a race condition between automatic topology exit and explicit rule stopping. - Fixed issues with starting/stopping scheduled rules in inactive windows.
+- Service updates now take effect in real time.
+- Implemented connection reuse for REST Sinks.
+- Standardized environment variable configuration types.
+- Fixed parsing issues related to unqualified references to field aliases from preceding `SELECT` statements in schema-less streams.
+- Resolved various issues concerning built-in functions and type conversions.
+- Scheduled rules that are manually stopped will remain in a stopped state.
+- Lookup Table initialization no longer blocks when an SQL database is unavailable.
+- HTTP Lookup sources now perform connection key matching before field pruning.
+- Added independent output buffer protection for the compressor module.
+- SQLite KV storage now supports hyphens in table names (including within Sink caches).
+- REST Sink debug mode now outputs the actual, raw response body.
+- Added support for metadata attributes in batch processing.
+- Environment variable configurations now support values ​​containing the `=` character.
+- Fixed high-precision calculation and boundary-splitting issues in certain built-in functions.
+
 ## v4.0.2
 
 Release Date: 2026-11-13

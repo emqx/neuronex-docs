@@ -30,6 +30,7 @@ EMQX Neuron 通过南向驱动按协议与现场设备通信。下表按类别�
 | [Allen-Bradley 5000 EtherNet/IP](../../configuration/south-devices/ab-5000/ab-5000.md)                      | 以太网    |  支持 AB ControlLogix 55xx系列，以及CompactLogix 53xx系列 PLC |
 | [Allen-Bradley ControlLogix 5500](../../configuration/south-devices/ab-5500/ab-5500.md)                              | 以太网   | - |
 | [Allen-Bradley MicroLogix 1400](../../configuration/south-devices/ab-1400/ab-1400.md)                             | 以太网     | - |
+| [Allen-Bradley SLC 5/05](../../configuration/south-devices/ethernet-ip-slc505/ethernet-ip-slc505.md) | 以太网 | PCCC over EtherNet/IP，支持读写 |
 | [Schneider PLC Modbus RTU](../../configuration/south-devices/modbus-rtu/modbus-rtu.md)                                     | 串口    | 通用Modbus RTU |
 | [Schneider PLC Modbus TCP](../../configuration/south-devices/modbus-tcp/modbus-tcp.md)                                     | 以太网  |  通用Modbus TCP |
 | [Inovance PLC Modbus TCP](../../configuration/south-devices/modbus-hc-tcp/modbus-hc-tcp.md)                             | 以太网  |  汇川PLC Modbus TCP |

@@ -29,6 +29,7 @@ For the generic setup steps, see [Create a Southbound Driver](../../configuratio
 | [Allen-Bradley 5000 EtherNet/IP](../../configuration/south-devices/ab-5000/ab-5000.md)                      | Ethernet    |  AB ControlLogix 55xx and CompactLogix 53xx |
 | [Allen-Bradley ControlLogix 5500](../../configuration/south-devices/ab-5500/ab-5500.md)                              | Ethernet   | - |
 | [Allen-Bradley MicroLogix 1400](../../configuration/south-devices/ab-1400/ab-1400.md)                             | Ethernet     | - |
+| [Allen-Bradley SLC 5/05](../../configuration/south-devices/ethernet-ip-slc505/ethernet-ip-slc505.md) | Ethernet | PCCC over EtherNet/IP, read/write |
 | [Schneider PLC Modbus RTU](../../configuration/south-devices/modbus-rtu/modbus-rtu.md)                                     | Serial port    | - |
 | [Schneider PLC Modbus TCP](../../configuration/south-devices/modbus-tcp/modbus-tcp.md)                                     | Ethernet  |  - |
 | [Inovance PLC Modbus TCP](../../configuration/south-devices/modbus-hc-tcp/modbus-hc-tcp.md)                             | Ethernet  |  connect to Inovance PLC |

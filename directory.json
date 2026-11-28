@@ -46,6 +46,10 @@
           "collapsed": true,
           "children": [
             {
+              "title": "设备属性",
+              "path": "configuration/south-devices/device-attributes"
+            },
+            {
               "title": "组与点位",
               "path": "configuration/groups-tags/groups-tags"
             }
@@ -333,6 +337,10 @@
             {
               "title": "Allen-Bradley MicroLogix 1400",
               "path": "configuration/south-devices/ab-1400/ab-1400"
+            },
+            {
+              "title": "Allen-Bradley SLC 5/05",
+              "path": "configuration/south-devices/ethernet-ip-slc505/ethernet-ip-slc505"
             },
             {
               "title": "Allen-Bradley DF1",
@@ -1278,6 +1286,10 @@
           "collapsed": true,
           "children": [
             {
+              "title": "Device Properties",
+              "path": "configuration/south-devices/device-attributes"
+            },
+            {
               "title": "Groups and Tags",
               "path": "configuration/groups-tags/groups-tags"
             }
@@ -1565,6 +1577,10 @@
             {
               "title": "Allen-Bradley MicroLogix 1400",
               "path": "configuration/south-devices/ab-1400/ab-1400"
+            },
+            {
+              "title": "Allen-Bradley SLC 5/05",
+              "path": "configuration/south-devices/ethernet-ip-slc505/ethernet-ip-slc505"
             },
             {
               "title": "Allen-Bradley DF1",
